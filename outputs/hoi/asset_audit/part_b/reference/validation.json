@@ -1,0 +1,102 @@
+{
+  "deterministic_serialization": true,
+  "inputs_unchanged": true,
+  "motion": {
+    "fps": 50,
+    "frame_count": 840,
+    "last_sample_time_s": 16.78,
+    "max_quaternion_norm_error": {
+      "body_quat_w": 4.0239548693143945e-08,
+      "object_quat_w": 3.406211246392843e-08
+    },
+    "quaternion_order": "wxyz",
+    "quaternions_rewritten": false,
+    "sample_coverage_s": 16.8
+  },
+  "physical_gate_approval": false,
+  "roundtrip_all_fields_exact": true,
+  "shared_robot_fields": {
+    "body_ang_vel_w": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "body_lin_vel_w": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "body_names": {
+      "bytes_equal": false,
+      "dtype_equal": false,
+      "hoi_dtype": "<U64",
+      "max_abs_difference": null,
+      "robot_dtype": "<U25",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "body_pos_w": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "body_quat_w": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "fps": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<i8",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<i8",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "joint_names": {
+      "bytes_equal": false,
+      "dtype_equal": false,
+      "hoi_dtype": "<U64",
+      "max_abs_difference": null,
+      "robot_dtype": "<U26",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "joint_pos": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    },
+    "joint_vel": {
+      "bytes_equal": true,
+      "dtype_equal": true,
+      "hoi_dtype": "<f4",
+      "max_abs_difference": 0.0,
+      "robot_dtype": "<f4",
+      "shape_equal": true,
+      "value_equal": true
+    }
+  },
+  "status": "PASS"
+}

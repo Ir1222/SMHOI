@@ -1,0 +1,161 @@
+{
+  "artifact": "reference.npz",
+  "asset_status": "M6_5_NO_GO_M7",
+  "contact_geometry": {
+    "authority": "sources.asset",
+    "constant_targets_in_npz": false,
+    "eef": "contact.eef_offset_wrist_m",
+    "target": "contact.target_root_m"
+  },
+  "conversion": "Exact canonical robot copies; rename object pose; copy desired contact. No normalization, interpolation, retargeting or velocity recomputation.",
+  "field_sources": {
+    "body_ang_vel_w": "robot:body_ang_vel_w",
+    "body_lin_vel_w": "robot:body_lin_vel_w",
+    "body_names": "robot:body_names",
+    "body_pos_w": "robot:body_pos_w",
+    "body_quat_w": "robot:body_quat_w",
+    "fps": "robot:fps",
+    "joint_names": "robot:joint_names",
+    "joint_pos": "robot:joint_pos",
+    "joint_vel": "robot:joint_vel",
+    "object_contact": "hoi:object_contact",
+    "object_pos_w": "hoi:box_pos_w",
+    "object_quat_w": "hoi:box_quat_w"
+  },
+  "fields": {
+    "body_ang_vel_w": {
+      "bytes_sha256": "195e79d91bd05db1828bd6d169af378a7c6e53ad8b65d07a6760ea78f81e3fab",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        30,
+        3
+      ]
+    },
+    "body_lin_vel_w": {
+      "bytes_sha256": "e19f2131c02b6acc319779436791f8596bebfae863c3acd1bde0cf8c01096621",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        30,
+        3
+      ]
+    },
+    "body_names": {
+      "bytes_sha256": "a5bcfb5cbae11cc8d4854b8759fbce89618b190392ac9b15e1502a56dba6256f",
+      "dtype": "<U25",
+      "shape": [
+        30
+      ]
+    },
+    "body_pos_w": {
+      "bytes_sha256": "ada36ac8b04667a1d1bf5dc765d8183a9237bbf2b8a6b6dc7116d1c4a355f7a6",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        30,
+        3
+      ]
+    },
+    "body_quat_w": {
+      "bytes_sha256": "ef4acc75e9dc4a9c33d698b1e5ce94fb6ba110e86309cc9492829820e0d49025",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        30,
+        4
+      ]
+    },
+    "fps": {
+      "bytes_sha256": "0cbbab9d99fb661a1686f17ccaaf8a9d069aa8cb755925045a1d049c060b9e67",
+      "dtype": "<i8",
+      "shape": [
+        1
+      ]
+    },
+    "joint_names": {
+      "bytes_sha256": "b94ff3111102b915e09d6f008f730bda00a706406169720a3a3be36469a51c63",
+      "dtype": "<U26",
+      "shape": [
+        29
+      ]
+    },
+    "joint_pos": {
+      "bytes_sha256": "c49f1d2d4ee7b183922134b9155760e38bb5c4392a60e9974ffd29cdc8988045",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        29
+      ]
+    },
+    "joint_vel": {
+      "bytes_sha256": "be877af7bef6bcebae9140cbb8c0b5d2df1e0e7367c7393a10207c0182610833",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        29
+      ]
+    },
+    "object_contact": {
+      "bytes_sha256": "913a05de013fe892d2dba0307461cab961a44717fc15c2c2d7c024618ad2fc20",
+      "dtype": "|b1",
+      "shape": [
+        840
+      ]
+    },
+    "object_pos_w": {
+      "bytes_sha256": "d8d55ff91b4084c63cdd0f2966761f725d90f3b4483c5fa2f6e4e8eaba18ba0d",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        3
+      ]
+    },
+    "object_quat_w": {
+      "bytes_sha256": "98ce55483117fe9b64c9f7bcd0401649c6b5b87756028bcaaced01fdf4b5a2aa",
+      "dtype": "<f4",
+      "shape": [
+        840,
+        4
+      ]
+    }
+  },
+  "kind": "minimal_hoi_motion_reference",
+  "motion": {
+    "fps": 50,
+    "frame_count": 840,
+    "last_sample_time_s": 16.78,
+    "max_quaternion_norm_error": {
+      "body_quat_w": 4.0239548693143945e-08,
+      "object_quat_w": 3.406211246392843e-08
+    },
+    "quaternion_order": "wxyz",
+    "quaternions_rewritten": false,
+    "sample_coverage_s": 16.8
+  },
+  "object_contact_semantics": "desired intent, not measured contact or force",
+  "schema_version": 1,
+  "sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "sources": {
+    "asset": {
+      "path": "/home/han/pyx/SMHOI/data/assets/hdmi_bread_box/asset_manifest_m6_5.json",
+      "sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
+    },
+    "hoi": {
+      "path": "/home/han/pyx/hdmi_bread_box_hoi_v1.npz",
+      "sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe"
+    },
+    "robot": {
+      "path": "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz",
+      "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527"
+    }
+  },
+  "training_ready": false,
+  "units": {
+    "joint_angle": "rad",
+    "position": "m",
+    "quaternion": "wxyz",
+    "time": "s",
+    "world_up": "Z"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "asset_manifest": {
+    "path": "/home/han/pyx/SMHOI/data/assets/hdmi_bread_box/asset_manifest_m6_5.json",
+    "sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
+  },
+  "asset_training_ready": false,
+  "excluded": [
+    "physics stepping",
+    "PD",
+    "training",
+    "root assistance",
+    "object actuation",
+    "reference trajectory modification"
+  ],
+  "fps": 50,
+  "mode": "kinematic_display_only",
+  "name": "part_b_hdmi_reference_inspection",
+  "reference": "reference.npz",
+  "reference_manifest": "reference_manifest.json",
+  "reference_samples": 840,
+  "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "schema_version": 1,
+  "simulation_operation": "pose_assignment_then_mj_forward",
+  "training_ready": false
+}
