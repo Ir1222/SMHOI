@@ -1,4 +1,50 @@
 {
+  "existing_derivation_manifest": {
+    "source": "dataset/hoi/generated/hdmi_bread_box_pcp_v2.npz",
+    "source_sha256": "5f33bdde5c005130a26dc9450bd71d98436182b07eaca2b63517663c75ae1aca",
+    "output": "dataset/hoi/generated/hdmi_bread_box_hoi_v1.npz",
+    "output_sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+    "derivation_code_sha256": "99fb9327c82f8a535678a8089595cfbb86c19ad3780aa540815280b1b2eed3cf",
+    "velocity_contract": "pose_fd_link_world_v1",
+    "velocity_method": "50Hz central position/SO(3) differences, one-sided endpoints; no smoothing",
+    "source_velocity_provenance": "unresolved for this clip; official runtime and recorder use COM",
+    "poses_and_object_contact_preserved": true,
+    "supplied_vs_derived_velocity_rmse": {
+      "body_lin_vel_w": 0.06678635542843454,
+      "body_ang_vel_w": 0.09056145788646218,
+      "box_lin_vel_w": 4.0639064525539683e-07,
+      "box_ang_vel_w": 0.00899512602720925
+    },
+    "phases": {
+      "approach": [
+        0,
+        260
+      ],
+      "establish": [
+        260,
+        270
+      ],
+      "lift": [
+        270,
+        298
+      ],
+      "carry": [
+        298,
+        505
+      ],
+      "place": [
+        505,
+        550
+      ],
+      "release": [
+        550,
+        840
+      ]
+    },
+    "phase_rule": "establish 0.2s; carry height+0.15m, xy>0.05m; place final xy<0.2m, vz<-0.1m/s",
+    "contact_semantics": "object intent broadcast to two task targets; not measured bilateral contact",
+    "training_started": false
+  },
   "robot_only": {
     "path": "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz",
     "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527",
@@ -718,9 +764,9 @@
   },
   "semantics": {
     "object_contact": "object-level desired contact intent, NOT measured bilateral contact",
-    "phase_bounds": "hdmi.py::_phases legacy height/contact heuristic, NOT official phase labels or training stages",
+    "phase_bounds": "phase_bounds: hdmi.py::_phases legacy heuristic; hoi_phase_bounds: reference.py::phase_bounds six-stage heuristic. Neither is an official measured label",
     "object_pose": "directly selected from official motion body bread_box and cast float32",
-    "object_velocity": "supplied source arrays selected and cast, not generated here; recorder COM/root provenance unresolved for this released clip; not mandatory for minimal reference",
+    "object_velocity": "derived pose_fd_link_world_v1 in existing archive: position central differences and world SO(3) differences; raw recording-point provenance unresolved; not mandatory for minimal reference",
     "prohibited_converter": "hoi/reference.py::derive_reference rewrites joint/body velocities. Do NOT call it on the validated robot reference."
   }
 }
