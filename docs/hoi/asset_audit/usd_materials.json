@@ -1,0 +1,315 @@
+{
+  "robot": [
+    {
+      "path": "/g1_29dof_rev_1_0/Looks/material_DefaultMaterial",
+      "type": "Material",
+      "attrs": {},
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/Looks/material_DefaultMaterial_1",
+      "type": "Material",
+      "attrs": {},
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_hip_roll_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_hip_yaw_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_knee_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_0",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_1",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_2",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_3",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/pelvis_contour_link/collisions",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_hip_roll_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_hip_yaw_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_knee_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_0",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_1",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_2",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_3",
+      "type": "Sphere",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/torso_link/collisions/mesh_0",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/torso_link/collisions/mesh_1",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_elbow_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_0",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_1",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_2",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_elbow_link/collisions",
+      "type": "Capsule",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_0",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_1",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_2",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    }
+  ],
+  "object": [
+    {
+      "path": "/bread_box/Looks/Aluminum_Polished",
+      "type": "Material",
+      "attrs": {},
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/Looks/Aluminum_Cast",
+      "type": "Material",
+      "attrs": {},
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_0",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_1",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_2",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_3",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {
+        "material:binding": []
+      }
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_4",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_5",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    },
+    {
+      "path": "/bread_box/bread_box/collisions/mesh_6",
+      "type": "Mesh",
+      "attrs": {
+        "physics:approximation": "convexHull",
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    }
+  ],
+  "support0": [
+    {
+      "path": "/support0/support0_link/collisions",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    }
+  ],
+  "support1": [
+    {
+      "path": "/support1/support1_link/collisions",
+      "type": "Cube",
+      "attrs": {
+        "physics:collisionEnabled": true
+      },
+      "relationships": {}
+    }
+  ]
+}

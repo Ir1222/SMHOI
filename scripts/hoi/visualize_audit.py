@@ -44,6 +44,10 @@ def main():
                     for a,c in enumerate(('red','green','blue')):ax.quiver(*p,*(R[:,a]*.045),color=c,arrow_length_ratio=.2)
                 ax.set_title(f'{mode} | f={f} ({f/50:.2f}s)',fontsize=10)
                 ax.set(xlim=(-.27,.27),ylim=(-.32,.32),zlim=(-.08,.4),xlabel='X (m)',ylabel='Y (m)',zlabel='Z (m)');ax.set_box_aspect((.54,.64,.48));ax.view_init(22,35)
+                if f == 839:
+                    allp=br.inv().apply(d['body_pos_w'][f,[names.index(s+'_wrist_yaw_link') for s in ('left','right')]]-bp)
+                    lo=np.minimum(allp.min(0)-.18,[-.27,-.32,-.08]);hi=np.maximum(allp.max(0)+.18,[.27,.32,.4])
+                    ax.set(xlim=(lo[0],hi[0]),ylim=(lo[1],hi[1]),zlim=(lo[2],hi[2]));ax.set_box_aspect(hi-lo)
         fig.tight_layout(rect=(0,0,1,.92));fig.savefig(OUT/f'contact_snapshots_{part+1}.png',dpi=160);plt.close(fig)
     fig,axs=plt.subplots(3,1,figsize=(12,9),sharex=True)
     for side,c in [('left','#26778d'),('right','#ce6170')]:
