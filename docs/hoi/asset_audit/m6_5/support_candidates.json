@@ -1,0 +1,103 @@
+{
+  "candidates": {
+    "0": {
+      "support0": {
+        "min_distance_m": 0.007146151065826389,
+        "min_frame": 253,
+        "penetration_frames_over_1mm": 0,
+        "penetration_frames_over_0_1mm": 0,
+        "initial_distance_m": 0.010000021457672092,
+        "final_distance_m": 2.66014441358288
+      },
+      "support1": {
+        "min_distance_m": 0.004306347370147678,
+        "min_frame": 544,
+        "penetration_frames_over_1mm": 0,
+        "penetration_frames_over_0_1mm": 0,
+        "initial_distance_m": 2.660873575993724,
+        "final_distance_m": 0.010000021457672092
+      }
+    },
+    "0.004": {
+      "support0": {
+        "min_distance_m": 0.003146151065826386,
+        "min_frame": 253,
+        "penetration_frames_over_1mm": 0,
+        "penetration_frames_over_0_1mm": 0,
+        "initial_distance_m": 0.006000021457672089,
+        "final_distance_m": 2.66014441358288
+      },
+      "support1": {
+        "min_distance_m": 0.0003063473701476748,
+        "min_frame": 544,
+        "penetration_frames_over_1mm": 0,
+        "penetration_frames_over_0_1mm": 0,
+        "initial_distance_m": 2.6608082927001564,
+        "final_distance_m": 0.006000021457672089
+      }
+    },
+    "0.007": {
+      "support0": {
+        "min_distance_m": 0.00014615106582638315,
+        "min_frame": 253,
+        "penetration_frames_over_1mm": 0,
+        "penetration_frames_over_0_1mm": 0,
+        "initial_distance_m": 0.0030000214576720863,
+        "final_distance_m": 2.6601444135828807
+      },
+      "support1": {
+        "min_distance_m": -0.0026936526298523274,
+        "min_frame": 544,
+        "penetration_frames_over_1mm": 8,
+        "penetration_frames_over_0_1mm": 10,
+        "initial_distance_m": 2.660763275417815,
+        "final_distance_m": 0.0030000214576720863
+      }
+    },
+    "0.01": {
+      "support0": {
+        "min_distance_m": -0.0028538489341736195,
+        "min_frame": 253,
+        "penetration_frames_over_1mm": 8,
+        "penetration_frames_over_0_1mm": 11,
+        "initial_distance_m": 2.1457672083613488e-08,
+        "final_distance_m": 2.66014441358288
+      },
+      "support1": {
+        "min_distance_m": -0.005693652629852331,
+        "min_frame": 544,
+        "penetration_frames_over_1mm": 15,
+        "penetration_frames_over_0_1mm": 18,
+        "initial_distance_m": 2.660721639916953,
+        "final_distance_m": 2.1457672083613488e-08
+      }
+    }
+  },
+  "max_common_raise_for_leq_1mm_overlap_m": [
+    0.0053056640625,
+    0.00530859375
+  ],
+  "needed_raise_for_initial_final_gap_leq_1mm_m": [
+    0.009000022,
+    0.011000022
+  ],
+  "footprint_at_endpoints": [
+    {
+      "frame": 0,
+      "support": "support0",
+      "overlap_area_m2": 0.03600000000000003,
+      "bottom_projection_area_m2": 0.06120000000000003,
+      "com_xy_inside_support": true,
+      "com_xy_edge_margin_m": 0.1
+    },
+    {
+      "frame": 839,
+      "support": "support1",
+      "overlap_area_m2": 0.036000101006059104,
+      "bottom_projection_area_m2": 0.06119999999999992,
+      "com_xy_inside_support": true,
+      "com_xy_edge_margin_m": 0.1
+    }
+  ],
+  "static_height_only_feasible": false
+}

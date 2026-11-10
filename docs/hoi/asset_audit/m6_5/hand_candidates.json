@@ -1,0 +1,178 @@
+{
+  "native": {
+    "left": {
+      "distance_m": {
+        "min": -0.03722333705189783,
+        "p05": -0.03535912155556255,
+        "p50": -0.008844113217797,
+        "p95": 0.025710198358338158,
+        "max": 0.02883527368403395
+      },
+      "penetration_over_1mm": 189,
+      "separation_over_2mm": 86,
+      "near_contact_without_deep_overlap": 15,
+      "worst_pair": {
+        "frame": 466,
+        "profile": "native",
+        "side": "left",
+        "desired_contact": 1,
+        "distance_m": -0.03722333705189783,
+        "hand_geom": "left_hand_collision",
+        "box_geom": "side3"
+      }
+    },
+    "right": {
+      "distance_m": {
+        "min": -0.04499468300434553,
+        "p05": -0.04305501024814973,
+        "p50": -0.020123009903346187,
+        "p95": 0.022683006480911636,
+        "max": 0.028319147860880037
+      },
+      "penetration_over_1mm": 228,
+      "separation_over_2mm": 54,
+      "near_contact_without_deep_overlap": 8,
+      "worst_pair": {
+        "frame": 438,
+        "profile": "native",
+        "side": "right",
+        "desired_contact": 1,
+        "distance_m": -0.04499468300434553,
+        "hand_geom": "right_hand_collision",
+        "box_geom": "side4"
+      }
+    }
+  },
+  "hdmi": {
+    "left": {
+      "distance_m": {
+        "min": -0.031067940302443843,
+        "p05": -0.027033339651014714,
+        "p50": 0.0008367628284992291,
+        "p95": 0.03525803154804167,
+        "max": 0.040076599793722606
+      },
+      "penetration_over_1mm": 134,
+      "separation_over_2mm": 140,
+      "near_contact_without_deep_overlap": 16,
+      "worst_pair": {
+        "frame": 436,
+        "profile": "hdmi",
+        "side": "left",
+        "desired_contact": 1,
+        "distance_m": -0.031067940302443843,
+        "hand_geom": "left_wrist_yaw_link_mesh_0",
+        "box_geom": "side3"
+      }
+    },
+    "right": {
+      "distance_m": {
+        "min": -0.05789257899218404,
+        "p05": -0.04959687612578554,
+        "p50": -0.012234359363634324,
+        "p95": 0.022454152813629575,
+        "max": 0.029380620716209525
+      },
+      "penetration_over_1mm": 203,
+      "separation_over_2mm": 75,
+      "near_contact_without_deep_overlap": 12,
+      "worst_pair": {
+        "frame": 446,
+        "profile": "hdmi",
+        "side": "right",
+        "desired_contact": 1,
+        "distance_m": -0.05789257899218404,
+        "hand_geom": "right_wrist_yaw_link_mesh_1",
+        "box_geom": "side4"
+      }
+    }
+  },
+  "native_r30_diagnostic": {
+    "left": {
+      "distance_m": {
+        "min": -0.032223337051897824,
+        "p05": -0.03035912155556254,
+        "p50": -0.0038441132177969954,
+        "p95": 0.030710198358338162,
+        "max": 0.033835273684033954
+      },
+      "penetration_over_1mm": 169,
+      "separation_over_2mm": 109,
+      "near_contact_without_deep_overlap": 12,
+      "worst_pair": {
+        "frame": 466,
+        "profile": "native_r30_diagnostic",
+        "side": "left",
+        "desired_contact": 1,
+        "distance_m": -0.032223337051897824,
+        "hand_geom": "left_hand_collision",
+        "box_geom": "side3"
+      }
+    },
+    "right": {
+      "distance_m": {
+        "min": -0.03999468300434553,
+        "p05": -0.03805501024814972,
+        "p50": -0.015123009903346182,
+        "p95": 0.02768300648091164,
+        "max": 0.03331914786088004
+      },
+      "penetration_over_1mm": 215,
+      "separation_over_2mm": 67,
+      "near_contact_without_deep_overlap": 8,
+      "worst_pair": {
+        "frame": 438,
+        "profile": "native_r30_diagnostic",
+        "side": "right",
+        "desired_contact": 1,
+        "distance_m": -0.03999468300434553,
+        "hand_geom": "right_hand_collision",
+        "box_geom": "side4"
+      }
+    }
+  },
+  "hdmi_y80_diagnostic": {
+    "left": {
+      "distance_m": {
+        "min": -0.027728824366956405,
+        "p05": -0.02477970405167204,
+        "p50": 0.005388267716668032,
+        "p95": 0.04001199530488096,
+        "max": 0.04475166168280623
+      },
+      "penetration_over_1mm": 116,
+      "separation_over_2mm": 161,
+      "near_contact_without_deep_overlap": 13,
+      "worst_pair": {
+        "frame": 437,
+        "profile": "hdmi_y80_diagnostic",
+        "side": "left",
+        "desired_contact": 1,
+        "distance_m": -0.027728824366956405,
+        "hand_geom": "left_wrist_yaw_link_mesh_1",
+        "box_geom": "side3"
+      }
+    },
+    "right": {
+      "distance_m": {
+        "min": -0.05632281955445747,
+        "p05": -0.047877169072851535,
+        "p50": -0.010018279080783586,
+        "p95": 0.024568286049852023,
+        "max": 0.031182380465372306
+      },
+      "penetration_over_1mm": 195,
+      "separation_over_2mm": 82,
+      "near_contact_without_deep_overlap": 13,
+      "worst_pair": {
+        "frame": 446,
+        "profile": "hdmi_y80_diagnostic",
+        "side": "right",
+        "desired_contact": 1,
+        "distance_m": -0.05632281955445747,
+        "hand_geom": "right_wrist_yaw_link_mesh_1",
+        "box_geom": "side4"
+      }
+    }
+  }
+}
