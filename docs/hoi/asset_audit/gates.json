@@ -1,0 +1,38 @@
+{
+  "training_ready": false,
+  "gates": {
+    "asset_parity": {
+      "status": "PASS_WITH_DOCUMENTED_DEVIATION",
+      "detail": "Seven XML boxes, root and inertia exact. priority 1 rather than XML default 0, inherited from source env.py. Nominal XML 2 kg, not randomized HDMI runtime."
+    },
+    "robot_collider_parity": {
+      "status": "MEASURED_DECISION_RECORDED",
+      "detail": "Native retained; optional hand-only HDMI profile for comparison. Not dynamically equivalent; feet unchanged."
+    },
+    "contact_target_surface": {
+      "status": "PASS",
+      "tolerance_m": 1e-07
+    },
+    "eef_convention": {
+      "status": "PASS",
+      "detail": "Official wrist yaw +5 cm local X; internal marker, not collision surface."
+    },
+    "physical_hand_contact": {
+      "status": "FAIL",
+      "detail": "Both profiles have cm-scale overlap and separation in desired-contact frames; zero EEF error also induces penetration."
+    },
+    "reference_integrity": {
+      "status": "PASS",
+      "detail": "All six numeric arrays byte-identical, all nine shared fields value-identical; input archive hashes unchanged."
+    },
+    "scene_support_validity": {
+      "status": "FAIL",
+      "tolerance_m": 0.001,
+      "measured_start_end_gap_m": 0.010000021904706948
+    },
+    "coordinate_consistency": {
+      "status": "PASS_POSE_CONVENTION",
+      "detail": "wxyz, Z-up, meters; target wrist FK matches within 8.2e-8 m. Existing hoi_v1 velocities have pose_fd_link_world_v1 provenance; raw-source velocity origin unresolved."
+    }
+  }
+}
