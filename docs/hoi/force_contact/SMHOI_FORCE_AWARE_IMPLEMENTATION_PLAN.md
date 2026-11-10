@@ -67,6 +67,75 @@ Do not confuse:
 - `M0–M6.5`: previously completed physical asset audit.
 - `Part B / B1–B3`: previously completed reference processing and acceptance.
 
+## 1.3 P0 Audit Integration and Adaptive Implementation Protocol
+
+This section extends the execution rules in Sections 1.1 and 14–16 for every stage P1–P8. The Master Plan remains the single source of truth for research objectives, contracts and acceptance criteria. The complete P0 audit evidence is a mandatory implementation constraint, not background reading. Do not repeat an implementation detail from the original plan when verified repository or dependency behavior contradicts it; resolve the discrepancy through the amendment procedure below.
+
+The accepted P0 baseline comprises commits `579d1a8c661985c91926a365c7505488abe03bb8`, `e89573171c86be7f40c8d120dc813cee0274a152` and final closure `b5c604a0a3924787e553a265a994bc9a12e3cc65`. Preserve their reports, raw evidence and Git history. Earlier missing-plan, pre-commit and master-hash observations describe their historical snapshots; do not rewrite them to describe later state.
+
+### 1.3.1 Required reading and current-state verification
+
+Before starting each stage:
+
+1. Read the complete Master Plan as required by Section 1.1, focusing on the current stage, cross-stage contracts and review gates.
+2. Read [P0 REQUIREMENT_COVERAGE.md](p0/REQUIREMENT_COVERAGE.md), [REPORT.md](p0/REPORT.md), [CLOSURE.md](p0/CLOSURE.md) and [FILE_CHANGE_MAP.md](p0/FILE_CHANGE_MAP.md).
+3. Read the relevant [architecture audit](p0/ARCHITECTURE_AUDIT.md), [dependency/contact audit](p0/DEPENDENCY_CONTACT_AUDIT.md), [dataset/asset audit](p0/DATASET_ASSET_AUDIT.md) and [reference implementation audit](p0/REFERENCE_IMPLEMENTATION_AUDIT.md), including the supporting JSON, probes and validation records needed for the stage. Record why any audit category is not applicable.
+4. Read the previous accepted stage's report and inspect its accepted commit, including documented corrective commits. For P1, use the final P0 closure and the three commits above. Record acceptance and authorization separately; a commit does not authorize the next stage.
+5. Inspect current branch, HEAD, user changes and the relevant actual code/dependency implementations. Compare their paths, symbols, versions or hashes with the evidence being reused. Recheck only changed or uncovered behavior; do not repeat completed audits without a reason. Record new observations separately and explain any superseded finding.
+
+### 1.3.2 Stage implementation specification
+
+Before any source-code implementation, create `docs/hoi/force_contact/p<N>/IMPLEMENTATION_SPEC.md` for the authorized stage. This is a concrete implementation specification derived from this Master Plan, not a replacement high-level plan or a separate Plan/Goal Mode pass. Keep it current as implementation decisions change.
+
+Record the stage scope, exclusions, Master Plan revision, checkout/dependency baseline, previous accepted report/commit and applicable user approvals. Include a traceability matrix with one row per requirement or justified group:
+
+| Required field | Content |
+|---|---|
+| Original requirement | Master Plan section, requirement and unchanged acceptance obligation |
+| P0 finding | Exact report section and supporting evidence; distinguish observation, recommendation and untested hypothesis |
+| Actual implementation | Existing file/symbol, dependency version and verified behavior |
+| Revised decision | Concrete implementation choice, rationale, adjustment class and any amendment/approval reference |
+| File changes | Files to create/modify, reusable components and minimal shared interfaces |
+| Contracts | Tensor shapes/order, units, coordinate/reference-point conventions, timing, action/transition alignment and reset/validity semantics |
+| Validation | Tests/experiments, numerical acceptance criteria, evidence paths and prerequisites |
+
+List unresolved risks and pending decisions with the affected stage/functionality, required evidence and blocking condition. Do not invent a numerical threshold, freeze an untested candidate or mark a missing physical test PASS merely to complete the specification. Where the plan leaves a choice open, state the proposed criterion before running the test.
+
+### 1.3.3 Adjustments, amendments and unresolved risks
+
+Classify every departure or open issue explicitly:
+
+- **Implementation-level adjustment:** file organization, installed API adaptation, named indexing or a narrow interface extension that preserves approved research semantics and acceptance criteria. Document and present the rationale before affected code; it may proceed within an already authorized stage without an additional approval cycle. An option expressly allowed by the Master Plan must still be selected and recorded explicitly.
+- **Research-level design change:** a change to the approved model/learning architecture, state or force meaning, required frame/timing contract, supervision, reward semantics, optimization path, assets/reference assumptions or acceptance gates. Propose it and obtain explicit user approval before implementing affected functionality. Do not disguise such a change as an API fix.
+- **Unresolved physical or experimental risk:** retain the evidence, uncertainty, consequence, resolution test and blocking condition in the specification and stage report. Historical failures remain failures; a P0 audit PASS or a P1 sensing PASS does not establish task success or training readiness.
+
+For a conflict between the Master Plan and verified P0 evidence, first present a precise amendment: identify the original clause, cite the observed code/probe evidence, give the proposed replacement wording or implementation interpretation, explain why it is necessary, and state contract, compatibility, test and risk impacts. Classify it using the rules above and record approval status before affected implementation. If the impact on research semantics is uncertain, leave that functionality pending clarification; independently authorized work may continue. Incorporate accepted amendments into this Master Plan with provenance, without changing historical P0 evidence or committing automatically.
+
+### 1.3.4 Mandatory P0 findings mapped to P1–P8
+
+The following is a minimum mapping, not a replacement for the full audits or stage acceptance criteria. Audit names refer to the linked reports above; exact code paths and evidence belong in each stage specification.
+
+| Stage | P0 constraint and implementation consequence | Required validation or visible risk |
+|---|---|---|
+| P1 | Architecture/dependency/assets: existing StateIO asserts robot-only `nq=36,nv=35`; the reference viewer is display-only. Use a physical scene and named robot/object state adapter. Each native hand needs pitch and yaw collision parents; one box body covers all seven geoms. Configure the audited mjlab 1.6.0 API with independent filtered sensors, `secondary_policy="error"`, one netforce slot and history length four; each hand has force `[E,2,3]`, history `[E,2,4,3]`. | Calibrate actual colliders, left/right isolation, all seven geoms, force sign/frame, four substeps, transients, overflow, joint pose/twist reset and parallel worlds. Preserve M6.5 assets/supports and historical contact/support FAILs. |
+| P2 | Dependency/architecture: four newest-first samples span `.005 × 4 = .020` s; final forward overwrites instantaneous data, history buffers are replaced, and reset clears selected rows. Capture terminal history before reset; reacquire/copy interval data. No built-in found history exists. Replay's successor-row done lookup yielded `[1,1]` instead of `[0,1]`. | Test executed-action/force/terminal alignment, validity and episode/clip boundaries. Distinguish mean N, impulse N·s and occupancy. Record the permitted Box-orientation sampling convention; shift diagnostic torques to a common point before summing. |
+| P3 | Architecture/dataset: preserve robot71/action29/xi33; target joint state84, canonical86, physical residual82 and auxiliary force6. Integrate only physical residuals. Root-origin/world-linear versus body-angular velocity, wxyz and right-multiplied rotation increments need explicit adapters/tests. Support-relative context is a time-varying candidate, separate from xi33; WM named checkpoint migration begins here. | Validate one/eight-step joint/force predictions, simulator supervision, frame/integration contracts and migration. Run the prescribed support-context identifiability/ablation before freezing its encoding. Reference-derived velocity stays in a separate cache and never replaces simulator targets. |
+| P4 | Reference/dataset audits: HDMI's outside-intent baseline, PhysHSI's unfiltered body forces/stage gates and SUGAR's bilateral boolean/three-sample maximum differ from this plan. Part B provides global intent, not per-hand truth or measured force. | Adapt reusable geometry/math to independent smooth per-hand approach/contact/persistence/release rewards. Keep intent, actual contact and predicted confidence distinct; test saturation, gradients and support-aware release without rewriting Part B. |
+| P5 | Architecture: current imagination clamps beyond clip end and can repeat final-frame rewards. Dynamic goals must use the current imagined object. Minimal default-preserving rollout/compiled/objective/critic hooks may be needed here, before P7. | Test final-transition/validity/bootstrap masks, eager/compiled parity and action-to-object/force gradients while retaining original BPTT and TD(lambda). Force-based Actor optimization remains gated by P6. |
+| P6 | P0's sensor and coordinate probes establish conventions, not learned-force gradient fidelity. Low force prediction error is not a physical gradient guarantee. | Use validated P1/P2 measurements and repeatable state/action perturbations across prescribed contact regimes and multiple epsilon values; report directional/magnitude evidence and explicit go/no-go. Keep contact discontinuities and failed regimes visible. |
+| P7 | Architecture/checkpoint audit: Trainer construction hard-codes components; retain `Trainer.run()` with narrow hooks. Action/xi input columns move; migration requires named maps and original scales/history order. Existing checkpoints omit Replay/RNG state. The target-local checkpoint is missing and the external candidate has qualified provenance. | Test actor parity, robot-only regression, initialization versus resume and metadata/buffer refill; do not claim exact stochastic resume or silently substitute a checkpoint. Register `smHOI-track`, preserve `sm-train` defaults and run only explicitly authorized training. |
+| P8 | Dataset/assets: accepted Part B has 840 samples at 50 Hz. Historical physical contact/support failures and `training_ready=false` were not resolved by P0. | Evaluate the explicitly selected checkpoint from frame 0 through the full task, including release and documented post-release stability. Report every failed episode and provenance; reference replay, resets or a terminal-only settle do not establish policy success. |
+
+Workhorse's approved paper/available-repository fallback remains a source limitation, not evidence of verified Workhorse code or force supervision. External algorithms, thresholds, assets or deployment augmentation are not automatically approved for adoption.
+
+### 1.3.5 Preserved objectives and execution sequence
+
+Preserve the approved joint robot-object World Model, auxiliary Force Prediction Head supervised by actual MuJoCo forces, soft approach/contact/persistence/release rewards, differentiable imagination and Actor BPTT, and original SuperMimic training mainline. Keep the original Critic/TD(lambda), accepted Part B reference, source datasets, checkpoints, M6.5 evidence and robot-only defaults protected under Sections 2 and 15.
+
+For each separately authorized stage: **read and verify evidence → write IMPLEMENTATION_SPEC.md → present/classify amendments and resolve required approvals → implement only the authorized scope → run stage tests → reconcile results with the specification → inspect the complete diff → report PASS/PARTIAL/FAIL → stop for review**. Update the specification/report when new evidence changes a decision. An unresolved mandatory acceptance failure prevents PASS and progression. Commit only after explicit approval under Section 15.2; never automatically push or start the next stage.
+
+Adding this protocol is a documentation-only change. It does not start P1, create a P1 implementation specification, authorize source edits or approve any later experiment.
+
 ---
 
 # 2. Project objective and non-negotiable constraints
