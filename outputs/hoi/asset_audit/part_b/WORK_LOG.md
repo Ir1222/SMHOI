@@ -19,3 +19,5 @@ Processed SHA256: `bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad
 Asset SHA256: `1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1`.
 
 The profile is display-only with training_ready=false. B1 tests do not approve physical contact or training.
+
+B1 lint follow-up: initial lint found import formatting, a non-executable shebang and an unnecessary map expression. Corrected without changing conversion behavior. Ruff passes; the 22 B1 tests pass again. Recorded in a separate commit, preserving the initial implementation commit.

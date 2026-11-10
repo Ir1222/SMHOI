@@ -5,8 +5,17 @@ import numpy as np
 import pytest
 
 from supermimic.hoi.reference import (
-    DEFAULT_ASSET, DEFAULT_HOI, DEFAULT_ROBOT, FIELDS, OBJECT_SOURCE,
-    ROBOT_FIELDS, ReferenceClip, array_info, convert, sha256, validate_arrays,
+    DEFAULT_ASSET,
+    DEFAULT_HOI,
+    DEFAULT_ROBOT,
+    FIELDS,
+    OBJECT_SOURCE,
+    ROBOT_FIELDS,
+    ReferenceClip,
+    array_info,
+    convert,
+    sha256,
+    validate_arrays,
 )
 
 

@@ -1,10 +1,13 @@
-#!/usr/bin/env python3
 """Generate the Part B minimal reference in a new, isolated output directory."""
 import argparse
 from pathlib import Path
 
 from supermimic.hoi.reference import (
-    DEFAULT_ASSET, DEFAULT_HOI, DEFAULT_OUTPUT, DEFAULT_ROBOT, convert,
+    DEFAULT_ASSET,
+    DEFAULT_HOI,
+    DEFAULT_OUTPUT,
+    DEFAULT_ROBOT,
+    convert,
 )
 
 

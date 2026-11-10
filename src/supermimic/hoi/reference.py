@@ -96,7 +96,7 @@ def convert(robot: Path, hoi: Path, asset: Path, output: Path) -> dict:
     """Create a new bundle; sources and existing output directories are never written."""
     from supermimic.hoi.asset_manifest import load_manifest
 
-    robot, hoi, asset, output = map(lambda p: Path(p).resolve(), (robot, hoi, asset, output))
+    robot, hoi, asset, output = (Path(p).resolve() for p in (robot, hoi, asset, output))
     if output.exists():
         raise FileExistsError(f'Refusing to overwrite existing output: {output}')
     inputs = {role: {'path': str(p), 'sha256': sha256(p)}
