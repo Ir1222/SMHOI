@@ -1,0 +1,45 @@
+{
+  "name": "box_only_z4_f839",
+  "profile": "native",
+  "raise_m": 0.004,
+  "robot": false,
+  "start": 839,
+  "seconds": 3.0,
+  "duration_actual_s": 2.9999999999999583,
+  "initial_hand_penetration_m": 0.0,
+  "max_hand_penetration_m": 0.0,
+  "max_box_penetration_m": 0.0019154783397181791,
+  "box_position_rmse_m": 0.006111715029096215,
+  "final_box_error_m": 0.006107776878150811,
+  "final_box_pos": [
+    1.3813182241469766,
+    -0.2843949154626831,
+    0.659015030148021
+  ],
+  "final_box_speed_m_s": 7.214496638161134e-11,
+  "root_fall_time_s": null,
+  "root_final_error_m": null,
+  "joint_final_rmse_rad": null,
+  "bilateral_force_fraction_during_intent": null,
+  "force_peaks_N": {
+    "left": 0.0,
+    "right": 0.0,
+    "support0": 0.0,
+    "support1": 95.15992167324569,
+    "ground": 0.0,
+    "other": 0.0
+  },
+  "slip_path_m": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "terminal_stable_last_half_second": true,
+  "tail_mean_support_force_N": 19.620000000000005,
+  "no_assistance_verified": true,
+  "nq": 7,
+  "nv": 6,
+  "nu": 0,
+  "neq": 0,
+  "nmocap": 0,
+  "pd": []
+}

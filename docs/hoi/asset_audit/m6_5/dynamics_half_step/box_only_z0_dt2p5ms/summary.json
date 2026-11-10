@@ -1,0 +1,46 @@
+{
+  "name": "box_only_z0_dt2p5ms",
+  "profile": "native",
+  "raise_m": 0.0,
+  "robot": false,
+  "start": 839,
+  "seconds": 3.0,
+  "dt": 0.0025,
+  "duration_actual_s": 2.999999999999947,
+  "initial_hand_penetration_m": 0.0,
+  "max_hand_penetration_m": 0.0,
+  "max_box_penetration_m": 0.0027694953715660777,
+  "box_position_rmse_m": 0.010096066525039272,
+  "final_box_error_m": 0.010107776878660966,
+  "final_box_pos": [
+    1.381318160081832,
+    -0.2843947464124329,
+    0.6550150301480208
+  ],
+  "final_box_speed_m_s": 6.843986039911854e-11,
+  "root_fall_time_s": null,
+  "root_final_error_m": null,
+  "joint_final_rmse_rad": null,
+  "bilateral_force_fraction_during_intent": null,
+  "force_peaks_N": {
+    "left": 0.0,
+    "right": 0.0,
+    "support0": 0.0,
+    "support1": 112.70012650179775,
+    "ground": 0.0,
+    "other": 0.0
+  },
+  "slip_path_m": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "terminal_stable_last_half_second": true,
+  "tail_mean_support_force_N": 19.62,
+  "no_assistance_verified": true,
+  "nq": 7,
+  "nv": 6,
+  "nu": 0,
+  "neq": 0,
+  "nmocap": 0,
+  "pd": []
+}

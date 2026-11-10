@@ -1,0 +1,46 @@
+{
+  "name": "box_only_z10_dt2p5ms",
+  "profile": "native",
+  "raise_m": 0.01,
+  "robot": false,
+  "start": 839,
+  "seconds": 3.0,
+  "dt": 0.0025,
+  "duration_actual_s": 2.999999999999947,
+  "initial_hand_penetration_m": 0.0,
+  "max_hand_penetration_m": 0.0,
+  "max_box_penetration_m": 0.00020979298622725078,
+  "box_position_rmse_m": 0.00011005883110497096,
+  "final_box_error_m": 0.0001077768778895378,
+  "final_box_pos": [
+    1.381318211932362,
+    -0.284394860289741,
+    0.6650150301480205
+  ],
+  "final_box_speed_m_s": 2.1646060781981833e-10,
+  "root_fall_time_s": null,
+  "root_final_error_m": null,
+  "joint_final_rmse_rad": null,
+  "bilateral_force_fraction_during_intent": null,
+  "force_peaks_N": {
+    "left": 0.0,
+    "right": 0.0,
+    "support0": 0.0,
+    "support1": 24.41356656329454,
+    "ground": 0.0,
+    "other": 0.0
+  },
+  "slip_path_m": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "terminal_stable_last_half_second": true,
+  "tail_mean_support_force_N": 19.62,
+  "no_assistance_verified": true,
+  "nq": 7,
+  "nv": 6,
+  "nu": 0,
+  "neq": 0,
+  "nmocap": 0,
+  "pd": []
+}
