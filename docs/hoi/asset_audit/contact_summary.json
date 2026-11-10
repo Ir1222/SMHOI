@@ -1,0 +1,166 @@
+{
+  "target_tolerance_m": 1e-07,
+  "penetration_reporting_tolerance_m": 0.0001,
+  "targets": [
+    {
+      "side": "left",
+      "signed_distance_m": 8.673617379884035e-18,
+      "geom": "side3",
+      "normal_root": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "closest_root": [
+        0.0,
+        0.17,
+        0.14
+      ],
+      "classification": "exposed side wall, below handle"
+    },
+    {
+      "side": "right",
+      "signed_distance_m": 8.673617379884035e-18,
+      "geom": "side4",
+      "normal_root": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "closest_root": [
+        0.0,
+        -0.17,
+        0.14
+      ],
+      "classification": "exposed side wall, below handle"
+    }
+  ],
+  "modes": {
+    "native": {
+      "left": {
+        "min_pair_signed_distance_contact_m": {
+          "min": -0.03722333705189783,
+          "p05": -0.03535912155556255,
+          "p50": -0.008844113217797,
+          "p95": 0.025710198358338158,
+          "max": 0.02883527368403395
+        },
+        "penetrating_frames_over_0_1mm": 192,
+        "separated_frames_over_1mm": 92,
+        "frames": 290,
+        "max_penetration_frame": 466,
+        "aligned_eef_pair_distance_m": {
+          "min": -0.044941267832773295,
+          "p05": -0.043952816524074595,
+          "p50": -0.037398531981852404,
+          "p95": -0.03518061200479559,
+          "max": -0.03500327998311154
+        }
+      },
+      "right": {
+        "min_pair_signed_distance_contact_m": {
+          "min": -0.04499468300434553,
+          "p05": -0.04305501024814973,
+          "p50": -0.020123009903346187,
+          "p95": 0.022683006480911636,
+          "max": 0.028319147860880037
+        },
+        "penetrating_frames_over_0_1mm": 231,
+        "separated_frames_over_1mm": 57,
+        "frames": 290,
+        "max_penetration_frame": 438,
+        "aligned_eef_pair_distance_m": {
+          "min": -0.044507857466943676,
+          "p05": -0.039910076336594526,
+          "p50": -0.037102077680957066,
+          "p95": -0.03532418941333092,
+          "max": -0.035004911234354445
+        }
+      }
+    },
+    "hdmi_hand": {
+      "left": {
+        "min_pair_signed_distance_contact_m": {
+          "min": -0.031067940302443843,
+          "p05": -0.027033339651014714,
+          "p50": 0.0008367628284992291,
+          "p95": 0.03525803154804167,
+          "max": 0.040076599793722606
+        },
+        "penetrating_frames_over_0_1mm": 141,
+        "separated_frames_over_1mm": 144,
+        "frames": 290,
+        "max_penetration_frame": 436,
+        "aligned_eef_pair_distance_m": {
+          "min": -0.053128403320509415,
+          "p05": -0.049254706683658556,
+          "p50": -0.03770516751848407,
+          "p95": -0.032207905092992116,
+          "max": -0.030973127661448316
+        }
+      },
+      "right": {
+        "min_pair_signed_distance_contact_m": {
+          "min": -0.05789257899218404,
+          "p05": -0.04959687612578554,
+          "p50": -0.012234359363634324,
+          "p95": 0.022454152813629575,
+          "max": 0.029380620716209525
+        },
+        "penetrating_frames_over_0_1mm": 207,
+        "separated_frames_over_1mm": 78,
+        "frames": 290,
+        "max_penetration_frame": 446,
+        "aligned_eef_pair_distance_m": {
+          "min": -0.058527676590609784,
+          "p05": -0.05394017389848327,
+          "p50": -0.04018838790706476,
+          "p95": -0.03329073073571752,
+          "max": -0.032405989477302
+        }
+      }
+    }
+  },
+  "left_eef_error_contact_m": {
+    "min": 0.003437132166778416,
+    "p05": 0.01181677620113991,
+    "p50": 0.04180194614406062,
+    "p95": 0.08572706683955973,
+    "max": 0.09609689401033228
+  },
+  "right_eef_error_contact_m": {
+    "min": 0.012056144053371489,
+    "p05": 0.015202057318201399,
+    "p50": 0.04260987528962589,
+    "p95": 0.08636707241957992,
+    "max": 0.11822005304201473
+  },
+  "native_fk_vs_recorded": {
+    "position_error_m": {
+      "min": 1.7087214303491935e-09,
+      "p05": 8.624751175887443e-09,
+      "p50": 2.5403489403030717e-08,
+      "p95": 5.8265090583226655e-08,
+      "max": 8.181120819248156e-08
+    },
+    "rotation_error_rad": {
+      "min": 7.317577523678261e-10,
+      "p05": 4.107744181174545e-09,
+      "p50": 1.9761957194922e-08,
+      "p95": 5.1454585657668465e-08,
+      "max": 8.293515160041091e-08
+    }
+  },
+  "method": "MuJoCo mj_geomDistance on primitive geoms at recorded body poses; negative = primitive overlap, positive = separation. Min pair penetration is not compound minimum translation or measured force. No dynamics stepped. Exact EEF alignment is a geometric translation probe, not a joint-reachability proof.",
+  "representative_frames": {
+    "before_contact": 250,
+    "first_contact": 260,
+    "early_sustained": 280,
+    "lift": 298,
+    "carry": 400,
+    "placement": 530,
+    "last_contact": 549,
+    "release": 550,
+    "final": 839
+  }
+}
