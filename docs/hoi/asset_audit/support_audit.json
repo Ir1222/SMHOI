@@ -1,0 +1,262 @@
+{
+  "supports": [
+    {
+      "name": "support0",
+      "body": "support0",
+      "type": "box",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.019999999552965164
+      ],
+      "root_pos_world": [
+        -1.4667341709136963,
+        -0.15975421667099,
+        0.6605498790740967
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "static": true,
+      "pose_exactly_constant": true,
+      "top_center_world": [
+        -1.4667341709136963,
+        -0.15975421667099,
+        0.6805498786270618
+      ],
+      "top_normal_world": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_builder_geom": {
+        "name": "support0",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          -1.4667341709136963,
+          -0.15975421667099,
+          0.6605498790740967
+        ],
+        "quat": [
+          0.029028186523478192,
+          0.0,
+          0.0,
+          0.9995785934018186
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "usd_source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd",
+        "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523"
+      },
+      "raw_mass_kg": 1.0,
+      "task_mass_override_kg": 0.5,
+      "static_origin": "objects.py SUPPORT0_CFG/SUPPORT1_CFG: kinematic_enabled=True. MuJoCo fixed support chosen because recorded poses are constant.",
+      "friction_origin": "MuJoCo source support_spec fixed [1,.005,.0001], condim3 priority1; not a claim of PhysX material equivalence"
+    },
+    {
+      "name": "support1",
+      "body": "support1",
+      "type": "box",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.019999999552965164
+      ],
+      "root_pos_world": [
+        1.381318211555481,
+        -0.28439486026763916,
+        0.6251227855682373
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "static": true,
+      "pose_exactly_constant": true,
+      "top_center_world": [
+        1.381318211555481,
+        -0.28439486026763916,
+        0.6451227851212025
+      ],
+      "top_normal_world": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_builder_geom": {
+        "name": "support1",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          1.381318211555481,
+          -0.28439486026763916,
+          0.6251227855682373
+        ],
+        "quat": [
+          0.029028186523478192,
+          0.0,
+          0.0,
+          0.9995785934018186
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "usd_source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd",
+        "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851"
+      },
+      "raw_mass_kg": 1.0,
+      "task_mass_override_kg": 0.5,
+      "static_origin": "objects.py SUPPORT0_CFG/SUPPORT1_CFG: kinematic_enabled=True. MuJoCo fixed support chosen because recorded poses are constant.",
+      "friction_origin": "MuJoCo source support_spec fixed [1,.005,.0001], condim3 priority1; not a claim of PhysX material equivalence"
+    }
+  ],
+  "start": [
+    {
+      "frame": 0,
+      "support": "support0",
+      "box_root_z": 0.7005499005317688,
+      "box_geometry_min_world_z": 0.6905499005317688,
+      "support_top_z": 0.6805498786270618,
+      "lowest_box_distance_to_top_plane_m": 0.010000021904706948,
+      "min_box_support_pair_distance_m": 0.010000021904706944,
+      "closest_box_geom": "bottom"
+    },
+    {
+      "frame": 0,
+      "support": "support1",
+      "box_root_z": 0.7005499005317688,
+      "box_geometry_min_world_z": 0.6905499005317688,
+      "support_top_z": 0.6451227851212025,
+      "lowest_box_distance_to_top_plane_m": 0.04542711541056633,
+      "min_box_support_pair_distance_m": 2.660873574511457,
+      "closest_box_geom": "bottom"
+    }
+  ],
+  "end": [
+    {
+      "frame": 839,
+      "support": "support0",
+      "box_root_z": 0.6651228070259094,
+      "box_geometry_min_world_z": 0.6551228070259094,
+      "support_top_z": 0.6805498786270618,
+      "lowest_box_distance_to_top_plane_m": -0.025427071601152436,
+      "min_box_support_pair_distance_m": 2.660144412089239,
+      "closest_box_geom": "side1"
+    },
+    {
+      "frame": 839,
+      "support": "support1",
+      "box_root_z": 0.6651228070259094,
+      "box_geometry_min_world_z": 0.6551228070259094,
+      "support_top_z": 0.6451227851212025,
+      "lowest_box_distance_to_top_plane_m": 0.010000021904706948,
+      "min_box_support_pair_distance_m": 0.010000021904706946,
+      "closest_box_geom": "bottom"
+    }
+  ],
+  "all_frames": {
+    "support0": {
+      "min": 0.007146151512861243,
+      "p05": 0.010000021904706944,
+      "p50": 1.66903933714002,
+      "p95": 2.660144412089239,
+      "max": 2.6671496515313065
+    },
+    "support1": {
+      "min": 0.004306347817182531,
+      "p05": 0.010000021904706946,
+      "p50": 0.8133351110341007,
+      "p95": 2.660873574511457,
+      "max": 2.661642217513314
+    }
+  },
+  "acceptance_tolerance_m": 0.001,
+  "warning": "Plane distances alone ignore support XY footprint; use actual primitive pair distance to establish spatial separation/overlap. Negative means penetration, not measured force."
+}
