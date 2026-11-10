@@ -1,0 +1,726 @@
+{
+  "robot_only": {
+    "path": "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz",
+    "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527",
+    "frames": 840,
+    "fps": 50.0,
+    "duration_frames_over_fps": 16.8,
+    "last_timestamp_s": 16.78,
+    "fields": {
+      "fps": {
+        "shape": [
+          1
+        ],
+        "dtype": "int64",
+        "min": 50.0,
+        "max": 50.0,
+        "all_finite": true,
+        "values": [
+          50
+        ]
+      },
+      "joint_pos": {
+        "shape": [
+          840,
+          29
+        ],
+        "dtype": "float32",
+        "min": -1.4994953870773315,
+        "max": 1.5920575857162476,
+        "all_finite": true
+      },
+      "joint_vel": {
+        "shape": [
+          840,
+          29
+        ],
+        "dtype": "float32",
+        "min": -15.032873153686523,
+        "max": 13.700847625732422,
+        "all_finite": true
+      },
+      "body_pos_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -1.4343819618225098,
+        "max": 1.3512986898422241,
+        "all_finite": true
+      },
+      "body_quat_w": {
+        "shape": [
+          840,
+          30,
+          4
+        ],
+        "dtype": "float32",
+        "min": -0.834591269493103,
+        "max": 0.9999149441719055,
+        "all_finite": true,
+        "order": "wxyz; hdmi.py converter preserves official source order",
+        "norm_min": 0.9999999597604513,
+        "norm_max": 1.0000000398334108,
+        "norm_max_error": 4.0239548693143945e-08
+      },
+      "body_lin_vel_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -2.921619176864624,
+        "max": 2.128175735473633,
+        "all_finite": true
+      },
+      "body_ang_vel_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -9.318427085876465,
+        "max": 10.138834953308105,
+        "all_finite": true
+      },
+      "body_names": {
+        "shape": [
+          30
+        ],
+        "dtype": "<U25",
+        "values": [
+          "pelvis",
+          "left_hip_pitch_link",
+          "left_hip_roll_link",
+          "left_hip_yaw_link",
+          "left_knee_link",
+          "left_ankle_pitch_link",
+          "left_ankle_roll_link",
+          "right_hip_pitch_link",
+          "right_hip_roll_link",
+          "right_hip_yaw_link",
+          "right_knee_link",
+          "right_ankle_pitch_link",
+          "right_ankle_roll_link",
+          "waist_yaw_link",
+          "waist_roll_link",
+          "torso_link",
+          "left_shoulder_pitch_link",
+          "left_shoulder_roll_link",
+          "left_shoulder_yaw_link",
+          "left_elbow_link",
+          "left_wrist_roll_link",
+          "left_wrist_pitch_link",
+          "left_wrist_yaw_link",
+          "right_shoulder_pitch_link",
+          "right_shoulder_roll_link",
+          "right_shoulder_yaw_link",
+          "right_elbow_link",
+          "right_wrist_roll_link",
+          "right_wrist_pitch_link",
+          "right_wrist_yaw_link"
+        ]
+      },
+      "joint_names": {
+        "shape": [
+          29
+        ],
+        "dtype": "<U26",
+        "values": [
+          "left_hip_pitch_joint",
+          "left_hip_roll_joint",
+          "left_hip_yaw_joint",
+          "left_knee_joint",
+          "left_ankle_pitch_joint",
+          "left_ankle_roll_joint",
+          "right_hip_pitch_joint",
+          "right_hip_roll_joint",
+          "right_hip_yaw_joint",
+          "right_knee_joint",
+          "right_ankle_pitch_joint",
+          "right_ankle_roll_joint",
+          "waist_yaw_joint",
+          "waist_roll_joint",
+          "waist_pitch_joint",
+          "left_shoulder_pitch_joint",
+          "left_shoulder_roll_joint",
+          "left_shoulder_yaw_joint",
+          "left_elbow_joint",
+          "left_wrist_roll_joint",
+          "left_wrist_pitch_joint",
+          "left_wrist_yaw_joint",
+          "right_shoulder_pitch_joint",
+          "right_shoulder_roll_joint",
+          "right_shoulder_yaw_joint",
+          "right_elbow_joint",
+          "right_wrist_roll_joint",
+          "right_wrist_pitch_joint",
+          "right_wrist_yaw_joint"
+        ]
+      }
+    }
+  },
+  "hoi": {
+    "path": "/home/han/pyx/hdmi_bread_box_hoi_v1.npz",
+    "sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+    "frames": 840,
+    "fps": 50.0,
+    "duration_frames_over_fps": 16.8,
+    "last_timestamp_s": 16.78,
+    "fields": {
+      "joint_pos": {
+        "shape": [
+          840,
+          29
+        ],
+        "dtype": "float32",
+        "min": -1.4994953870773315,
+        "max": 1.5920575857162476,
+        "all_finite": true
+      },
+      "joint_vel": {
+        "shape": [
+          840,
+          29
+        ],
+        "dtype": "float32",
+        "min": -15.032873153686523,
+        "max": 13.700847625732422,
+        "all_finite": true
+      },
+      "body_pos_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -1.4343819618225098,
+        "max": 1.3512986898422241,
+        "all_finite": true
+      },
+      "body_quat_w": {
+        "shape": [
+          840,
+          30,
+          4
+        ],
+        "dtype": "float32",
+        "min": -0.834591269493103,
+        "max": 0.9999149441719055,
+        "all_finite": true,
+        "order": "wxyz; hdmi.py converter preserves official source order",
+        "norm_min": 0.9999999597604513,
+        "norm_max": 1.0000000398334108,
+        "norm_max_error": 4.0239548693143945e-08
+      },
+      "body_lin_vel_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -2.921619176864624,
+        "max": 2.128175735473633,
+        "all_finite": true
+      },
+      "body_ang_vel_w": {
+        "shape": [
+          840,
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "min": -9.318427085876465,
+        "max": 10.138834953308105,
+        "all_finite": true
+      },
+      "box_pos_w": {
+        "shape": [
+          840,
+          3
+        ],
+        "dtype": "float32",
+        "min": -1.4675209522247314,
+        "max": 1.3881638050079346,
+        "all_finite": true
+      },
+      "box_quat_w": {
+        "shape": [
+          840,
+          4
+        ],
+        "dtype": "float32",
+        "min": -0.18687598407268524,
+        "max": 0.9999921917915344,
+        "all_finite": true,
+        "order": "wxyz; hdmi.py converter preserves official source order",
+        "norm_min": 0.9999999694083015,
+        "norm_max": 1.0000000340621125,
+        "norm_max_error": 3.406211246392843e-08
+      },
+      "box_lin_vel_w": {
+        "shape": [
+          840,
+          3
+        ],
+        "dtype": "float32",
+        "min": -0.4486873745918274,
+        "max": 1.3323545455932617,
+        "all_finite": true
+      },
+      "box_ang_vel_w": {
+        "shape": [
+          840,
+          3
+        ],
+        "dtype": "float32",
+        "min": -2.350921392440796,
+        "max": 0.8443050980567932,
+        "all_finite": true
+      },
+      "object_contact": {
+        "shape": [
+          840
+        ],
+        "dtype": "bool",
+        "min": 0.0,
+        "max": 1.0,
+        "all_finite": true,
+        "true_intervals_half_open": [
+          [
+            260,
+            550
+          ]
+        ]
+      },
+      "contact_target_root": {
+        "shape": [
+          2,
+          3
+        ],
+        "dtype": "float32",
+        "min": -0.17000000178813934,
+        "max": 0.17000000178813934,
+        "all_finite": true,
+        "values": [
+          [
+            0.0,
+            0.17000000178813934,
+            0.14000000059604645
+          ],
+          [
+            0.0,
+            -0.17000000178813934,
+            0.14000000059604645
+          ]
+        ]
+      },
+      "support_pos_w": {
+        "shape": [
+          840,
+          2,
+          3
+        ],
+        "dtype": "float32",
+        "min": -1.4667341709136963,
+        "max": 1.381318211555481,
+        "all_finite": true
+      },
+      "support_quat_w": {
+        "shape": [
+          840,
+          2,
+          4
+        ],
+        "dtype": "float32",
+        "min": 0.0,
+        "max": 0.999578595161438,
+        "all_finite": true,
+        "order": "wxyz; hdmi.py converter preserves official source order",
+        "norm_min": 1.0000000017603612,
+        "norm_max": 1.0000000017603612,
+        "norm_max_error": 1.760361190150661e-09
+      },
+      "phase_bounds": {
+        "shape": [
+          5,
+          2
+        ],
+        "dtype": "int64",
+        "min": 0.0,
+        "max": 840.0,
+        "all_finite": true,
+        "values": [
+          [
+            0,
+            260
+          ],
+          [
+            260,
+            354
+          ],
+          [
+            354,
+            549
+          ],
+          [
+            549,
+            550
+          ],
+          [
+            550,
+            840
+          ]
+        ]
+      },
+      "phase_names": {
+        "shape": [
+          5
+        ],
+        "dtype": "<U16",
+        "values": [
+          "approach",
+          "grasp_lift",
+          "carry",
+          "place",
+          "release_settle"
+        ]
+      },
+      "body_names": {
+        "shape": [
+          30
+        ],
+        "dtype": "<U64",
+        "values": [
+          "pelvis",
+          "left_hip_pitch_link",
+          "left_hip_roll_link",
+          "left_hip_yaw_link",
+          "left_knee_link",
+          "left_ankle_pitch_link",
+          "left_ankle_roll_link",
+          "right_hip_pitch_link",
+          "right_hip_roll_link",
+          "right_hip_yaw_link",
+          "right_knee_link",
+          "right_ankle_pitch_link",
+          "right_ankle_roll_link",
+          "waist_yaw_link",
+          "waist_roll_link",
+          "torso_link",
+          "left_shoulder_pitch_link",
+          "left_shoulder_roll_link",
+          "left_shoulder_yaw_link",
+          "left_elbow_link",
+          "left_wrist_roll_link",
+          "left_wrist_pitch_link",
+          "left_wrist_yaw_link",
+          "right_shoulder_pitch_link",
+          "right_shoulder_roll_link",
+          "right_shoulder_yaw_link",
+          "right_elbow_link",
+          "right_wrist_roll_link",
+          "right_wrist_pitch_link",
+          "right_wrist_yaw_link"
+        ]
+      },
+      "schema_version": {
+        "shape": [
+          1
+        ],
+        "dtype": "int64",
+        "min": 2.0,
+        "max": 2.0,
+        "all_finite": true,
+        "values": [
+          2
+        ]
+      },
+      "contact_eef_offset": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "min": 0.0,
+        "max": 0.05000000074505806,
+        "all_finite": true,
+        "values": [
+          0.05000000074505806,
+          0.0,
+          0.0
+        ]
+      },
+      "contact_target_provenance": {
+        "shape": [],
+        "dtype": "<U52",
+        "values": "HDMI cfg/task/G1/hdmi/carry_and_place_bread_box.yaml"
+      },
+      "contact_label_semantics": {
+        "shape": [],
+        "dtype": "<U60",
+        "values": "object-level desired contact; NOT per-hand measured contacts"
+      },
+      "phase_bounds_semantics": {
+        "shape": [],
+        "dtype": "<U77",
+        "values": "legacy heuristic for diagnostic case selection; NOT validated training phases"
+      },
+      "joint_names": {
+        "shape": [
+          29
+        ],
+        "dtype": "<U64",
+        "values": [
+          "left_hip_pitch_joint",
+          "left_hip_roll_joint",
+          "left_hip_yaw_joint",
+          "left_knee_joint",
+          "left_ankle_pitch_joint",
+          "left_ankle_roll_joint",
+          "right_hip_pitch_joint",
+          "right_hip_roll_joint",
+          "right_hip_yaw_joint",
+          "right_knee_joint",
+          "right_ankle_pitch_joint",
+          "right_ankle_roll_joint",
+          "waist_yaw_joint",
+          "waist_roll_joint",
+          "waist_pitch_joint",
+          "left_shoulder_pitch_joint",
+          "left_shoulder_roll_joint",
+          "left_shoulder_yaw_joint",
+          "left_elbow_joint",
+          "left_wrist_roll_joint",
+          "left_wrist_pitch_joint",
+          "left_wrist_yaw_joint",
+          "right_shoulder_pitch_joint",
+          "right_shoulder_roll_joint",
+          "right_shoulder_yaw_joint",
+          "right_elbow_joint",
+          "right_wrist_roll_joint",
+          "right_wrist_pitch_joint",
+          "right_wrist_yaw_joint"
+        ]
+      },
+      "fps": {
+        "shape": [
+          1
+        ],
+        "dtype": "int64",
+        "min": 50.0,
+        "max": 50.0,
+        "all_finite": true,
+        "values": [
+          50
+        ]
+      },
+      "hoi_phase_bounds": {
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "int64",
+        "min": 0.0,
+        "max": 840.0,
+        "all_finite": true,
+        "values": [
+          [
+            0,
+            260
+          ],
+          [
+            260,
+            270
+          ],
+          [
+            270,
+            298
+          ],
+          [
+            298,
+            505
+          ],
+          [
+            505,
+            550
+          ],
+          [
+            550,
+            840
+          ]
+        ]
+      },
+      "hoi_phase_names": {
+        "shape": [
+          6
+        ],
+        "dtype": "<U9",
+        "values": [
+          "approach",
+          "establish",
+          "lift",
+          "carry",
+          "place",
+          "release"
+        ]
+      },
+      "hoi_velocity_contract": {
+        "shape": [],
+        "dtype": "<U21",
+        "values": "pose_fd_link_world_v1"
+      },
+      "hoi_source_sha256": {
+        "shape": [],
+        "dtype": "<U64",
+        "values": "5f33bdde5c005130a26dc9450bd71d98436182b07eaca2b63517663c75ae1aca"
+      }
+    }
+  },
+  "robot_comparison": {
+    "joint_pos": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "c49f1d2d4ee7b183922134b9155760e38bb5c4392a60e9974ffd29cdc8988045",
+        "c49f1d2d4ee7b183922134b9155760e38bb5c4392a60e9974ffd29cdc8988045"
+      ]
+    },
+    "joint_vel": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "be877af7bef6bcebae9140cbb8c0b5d2df1e0e7367c7393a10207c0182610833",
+        "be877af7bef6bcebae9140cbb8c0b5d2df1e0e7367c7393a10207c0182610833"
+      ]
+    },
+    "body_pos_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "ada36ac8b04667a1d1bf5dc765d8183a9237bbf2b8a6b6dc7116d1c4a355f7a6",
+        "ada36ac8b04667a1d1bf5dc765d8183a9237bbf2b8a6b6dc7116d1c4a355f7a6"
+      ]
+    },
+    "body_quat_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "ef4acc75e9dc4a9c33d698b1e5ce94fb6ba110e86309cc9492829820e0d49025",
+        "ef4acc75e9dc4a9c33d698b1e5ce94fb6ba110e86309cc9492829820e0d49025"
+      ]
+    },
+    "body_lin_vel_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "e19f2131c02b6acc319779436791f8596bebfae863c3acd1bde0cf8c01096621",
+        "e19f2131c02b6acc319779436791f8596bebfae863c3acd1bde0cf8c01096621"
+      ]
+    },
+    "body_ang_vel_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "195e79d91bd05db1828bd6d169af378a7c6e53ad8b65d07a6760ea78f81e3fab",
+        "195e79d91bd05db1828bd6d169af378a7c6e53ad8b65d07a6760ea78f81e3fab"
+      ]
+    },
+    "joint_names": {
+      "shape_equal": true,
+      "dtype_equal": false,
+      "exact_equal": true,
+      "max_abs_difference": null,
+      "array_bytes_sha256": [
+        "b94ff3111102b915e09d6f008f730bda00a706406169720a3a3be36469a51c63",
+        "2eb136db64acac1d7ebe7cce5d13cedab26a32cfccf72a0dfa2b59523134d09c"
+      ]
+    },
+    "body_names": {
+      "shape_equal": true,
+      "dtype_equal": false,
+      "exact_equal": true,
+      "max_abs_difference": null,
+      "array_bytes_sha256": [
+        "a5bcfb5cbae11cc8d4854b8759fbce89618b190392ac9b15e1502a56dba6256f",
+        "7f234d5a13b4289e8dbe3bf66982de2aa5d010cbfa1c3c5006b2bee6b6ef6bcf"
+      ]
+    },
+    "fps": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "0cbbab9d99fb661a1686f17ccaaf8a9d069aa8cb755925045a1d049c060b9e67",
+        "0cbbab9d99fb661a1686f17ccaaf8a9d069aa8cb755925045a1d049c060b9e67"
+      ]
+    }
+  },
+  "official_box_fields_after_dtype_cast": {
+    "box_pos_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "d8d55ff91b4084c63cdd0f2966761f725d90f3b4483c5fa2f6e4e8eaba18ba0d",
+        "d8d55ff91b4084c63cdd0f2966761f725d90f3b4483c5fa2f6e4e8eaba18ba0d"
+      ]
+    },
+    "box_quat_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": true,
+      "max_abs_difference": 0.0,
+      "array_bytes_sha256": [
+        "98ce55483117fe9b64c9f7bcd0401649c6b5b87756028bcaaced01fdf4b5a2aa",
+        "98ce55483117fe9b64c9f7bcd0401649c6b5b87756028bcaaced01fdf4b5a2aa"
+      ]
+    },
+    "box_lin_vel_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": false,
+      "max_abs_difference": 2.7101486921310425e-06,
+      "array_bytes_sha256": [
+        "1e1637e89ccfc3049857a332d39fc1c38d3b8189bfd4d03dc98a2e70599ce421",
+        "86ec350e0dcbd027ecd35b49e7e6b385cf1113cbf9f66adfb0c4745a5c74b810"
+      ]
+    },
+    "box_ang_vel_w": {
+      "shape_equal": true,
+      "dtype_equal": true,
+      "exact_equal": false,
+      "max_abs_difference": 0.09420406818389893,
+      "array_bytes_sha256": [
+        "cd08f75dc2e0a351415ca1a0f8923e7209729b6aa062867670c46df0aeb14b8b",
+        "fb485f2b261060b748cc5ec5917326a849441ec61558c12c886a56e8e105aa46"
+      ]
+    }
+  },
+  "semantics": {
+    "object_contact": "object-level desired contact intent, NOT measured bilateral contact",
+    "phase_bounds": "hdmi.py::_phases legacy height/contact heuristic, NOT official phase labels or training stages",
+    "object_pose": "directly selected from official motion body bread_box and cast float32",
+    "object_velocity": "supplied source arrays selected and cast, not generated here; recorder COM/root provenance unresolved for this released clip; not mandatory for minimal reference",
+    "prohibited_converter": "hoi/reference.py::derive_reference rewrites joint/body velocities. Do NOT call it on the validated robot reference."
+  }
+}
