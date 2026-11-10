@@ -21,3 +21,13 @@ Asset SHA256: `1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1`
 The profile is display-only with training_ready=false. B1 tests do not approve physical contact or training.
 
 B1 lint follow-up: initial lint found import formatting, a non-executable shebang and an unnecessary map expression. Corrected without changing conversion behavior. Ruff passes; the 22 B1 tests pass again. Recorded in a separate commit, preserving the initial implementation commit.
+
+## B2 — processed-reference viewer
+
+Inspected all six required files: `scripts/play.py`, `scripts/media/render_rollout.py`, motion library, replay buffer and both audit visualizers. Existing policy playback steps an environment; the new viewer instead follows the rendering script's direct qpos → mj_forward pattern, with named joints and separate static assets. No shared runtime files changed.
+
+Implemented `scripts/hoi/replay_reference.py` and isolated `reference_viewer.py`. The explicit `--display-only` flag is required. Both the processed NPZ and reviewed asset hashes are checked; asset source provenance is validated; training_ready=false is retained and shown. Seven compound box geoms and both fixed supports use the existing manifest builder; selected native hand geometry is retained. Large target spheres follow box-local sites; small EEF spheres are world overlays calculated from canonical recorded wrist poses and manifest offsets. The independent FK/marker comparison checks all 840 frames.
+
+Interactive keys: Space pause/resume; Left/Right single-frame (pauses); +/- or brackets speed (0.125–8x); R/Backspace reset to zero; 1 overview, 2 robot follow, 3 contact close-up; C native collider view. Camera mouse controls remain available. Playback holds sampled poses without interpolation, uses a monotonic clock, excludes GUI startup delay, and pauses at 839 without wrapping. Fractional frame time survives render cadence and speed changes. Terminal future windows have explicit padding masks.
+
+B2 development checks caught installed MuJoCo API details (light type, attachment naming and static-site caching). Corrected before acceptance; EEF reference overlays avoid static-site caches. No historical output was touched. **34 combined B1/B2 tests passed**, one upstream Torch deprecation warning; Ruff passed. Tests actively forbid mj_step/mj_step1/mj_step2, verify all-frame FK/target/EEF/support transforms, reject non-display loading or asset mismatch, guard against parsing original source NPZ in the viewer, and exercise keyboard clock semantics at all supported speed scales. Full render/GUI acceptance follows in B3.
