@@ -332,7 +332,7 @@ def render_headless(scene: ReferenceScene, output: Path, frames, *, video=False)
                     'bookmarks_are_phase_labels': False})
     (output / 'inspection.json').write_text(json.dumps(summary, indent=2) + '\n')
     with (output / 'frames.csv').open('w') as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 17)

@@ -39,3 +39,23 @@ The native GUI smoke run cannot create a window on this session's DISPLAY=:1: GL
 Added `--browser`, a loopback-only HTTP viewer rendering the same processed-reference scene through EGL. It needs no new dependencies and no external services. Buttons/keyboard/slider support pause, ±frame, 0.125–8x speed and reset; overview/follow/contact cameras and native collider view are available. Slow browsers skip only displayed samples according to elapsed playback time; source data and timestamps never change. Frame status reports the actually rendered frame, with desired contact and both distances. The blocked asset status remains visible.
 
 Two fallback tests passed: actual HTTP requests rendered frames 0/260/400/550/839 and verified status, contact and JPEG dimensions; Node exercised the real JS button/keyboard/slider handlers, frame-clock endpoints, render loop and failure handling. Desktop-browser visual interaction is not claimed; native GUI remains environment-limited. The fallback renders successfully in this environment. The headless all-frame inspection and video remain valid and unchanged.
+
+## B3 — final acceptance and stop
+
+Executed headless viewer from the processed NPZ: all 840 frames checked; 18 overview/contact screenshots plus a nine-frame montage and full H.264 video exported. ffprobe confirms 840 decoded frames, 50/1 fps, 16.800000 s. Reviewed snapshots at initial, first desired contact, sustained contact, lift, carry, placement, last desired contact, release intent and final frame. Target/EEF misalignment and endpoint support gaps match the unchanged reference and physical audit.
+
+Continuity measurements disclose the original 0.317981 rad left-ankle-pitch change at 647→648; no smoothing was applied. All-frame FK position error is below 8.3e-8 m. Support transforms match exactly. Canonical robot/source-object values and archive hashes are unchanged. All 305 pre-existing tracked files and the untracked user plan match the baseline; source repository HEAD/status match as well.
+
+Final checks: **55 tests passed in 6.43 s**, one upstream warning; focused Ruff passed. This includes both new browser tests and original M6/M6.5 regressions. Detailed evidence is in `final_tests.txt`, `inspection/`, `video_validation.json` and `preservation_final.json`.
+
+Commit groups completed before final acceptance:
+
+- e1fe2c1 — B1 exact conversion and bundle.
+- 7ad513f — B1 lint follow-up, conversion unchanged.
+- 52923c9 — B2 kinematic scene, native viewer and tests.
+- ec3cebc — B2 browser fallback following B3 display-server failure.
+- Final B3 commit — data acceptance report, rendered evidence, preservation results and complete file inventory.
+
+Part B is complete for data preparation/kinematic inspection. The M6.5 physical configuration remains NO-GO for M7/training. No learning pipeline work performed; stopped for review.
+
+Final packaging check found CSV's default CRLF endings flagged by git whitespace checks. Set an explicit LF terminator in the new viewer exporter; normalized only this task's new CSV. A fresh temporary headless export confirmed all 840 CSV rows are byte-identical to the packaged LF artifact. No numeric values, images, reference hashes or historical CSV files changed. Ruff and staged whitespace checks pass.

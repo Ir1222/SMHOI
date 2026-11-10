@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "frames_checked": 840,
+  "maxima": {
+    "robot_position_max_error_m": 8.291717699779613e-08,
+    "robot_rotation_max_error_rad": 8.293515160041091e-08,
+    "object_position_error_m": 0.0,
+    "object_rotation_error_rad": 2.2204460492503136e-16,
+    "target_transform_error_m": 3.152427400121712e-16,
+    "eef_fk_vs_reference_error_m": 8.11894505350425e-08,
+    "support_position_error_m": 0.0,
+    "support_rotation_error_rad": 0.0
+  },
+  "tolerances": {
+    "robot_position_max_error_m": 2e-06,
+    "robot_rotation_max_error_rad": 2e-06,
+    "object_position_error_m": 1e-12,
+    "object_rotation_error_rad": 1e-12,
+    "target_transform_error_m": 1e-07,
+    "eef_fk_vs_reference_error_m": 2e-06,
+    "support_position_error_m": 1e-12,
+    "support_rotation_error_rad": 1e-12
+  },
+  "continuity": {
+    "max_joint_step_rad": 0.31798091530799866,
+    "max_joint_step_destination_frame": 648,
+    "max_pelvis_step_m": 0.01887187361717224,
+    "max_object_step_m": 0.02727331966161728,
+    "max_pelvis_rotation_step_rad": 0.05091074822041453,
+    "max_object_rotation_step_rad": 0.04707544442700351,
+    "note": "Measurements of original adjacent samples, not smoothing or a physical-motion acceptance threshold."
+  },
+  "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+  "mode": "kinematic_display_only",
+  "training_ready": false,
+  "rendered_frames": [
+    0,
+    260,
+    280,
+    298,
+    400,
+    530,
+    549,
+    550,
+    839
+  ],
+  "physics_steps": 0,
+  "bookmarks_are_phase_labels": false
+}

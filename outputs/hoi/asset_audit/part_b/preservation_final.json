@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "existing_tracked_files_checked": 305,
+  "changed_existing_files": [],
+  "user_plan_unchanged": true,
+  "source_repository_status_unchanged": true,
+  "source_npz_and_review_manifest_unchanged": true,
+  "unchanged_input_sha256": {
+    "asset": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "hoi": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+    "robot": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527"
+  },
+  "shared_training_files_unchanged": true,
+  "source_repository_head_unchanged": true
+}
