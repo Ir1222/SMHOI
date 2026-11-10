@@ -1,0 +1,11 @@
+{
+  "all_preexisting_files_unchanged": true,
+  "protected_file_count": 183,
+  "source_git_status": "?? MUJOCO_LOG.TXT\n?? docs/hoi/audits/hoi_research_freeze_20261107.md\n",
+  "original_manifest_sha256": "8cee449a0af34365e28b3265479436fb72a6371f0a065b0c87f2d199e4c400fb",
+  "original_hoi_npz_sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+  "new_training_entry_point": false,
+  "training_started": false,
+  "M7_recommendation": "NO-GO",
+  "scope_complete": "M6.5 report, then pause for review"
+}

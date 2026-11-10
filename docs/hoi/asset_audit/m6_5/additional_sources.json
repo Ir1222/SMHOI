@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/cfg/task/base/hdmi-base.yaml",
+    "sha256": "2911c988b0ca65afa7a6eabc250af3443ef6989160e7bfacc0986194b428f5e7"
+  },
+  {
+    "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/actuator/builtin_actuator.py",
+    "sha256": "4bd44d70c59a150313a0e8321c4700d8ab85c856c2554d55507d5d99e3544c03"
+  },
+  {
+    "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/entity/entity.py",
+    "sha256": "f0353cfc1e689d6e4cf0dc8d59d26847367cc90842ecebd9bc1a5a3044613eda"
+  },
+  {
+    "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/utils/spec.py",
+    "sha256": "585b3fc90df15a12984b58e9fbc657950344a3cd45438fd73e35544c6d983719"
+  },
+  {
+    "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py",
+    "sha256": "5713308a0d542f9463fee2a6782ad777cb5f177e25d47fab17894dc76cdfe966"
+  }
+]

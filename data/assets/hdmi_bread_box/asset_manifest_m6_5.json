@@ -1,0 +1,1156 @@
+{
+  "schema_version": 1,
+  "asset_id": "hdmi_bread_box_m6_5_review_v1",
+  "status": "M6_5_NO_GO_M7",
+  "training_ready": false,
+  "units": {
+    "length": "m",
+    "mass": "kg",
+    "inertia": "kg*m^2",
+    "angle": "rad",
+    "quaternion": "wxyz",
+    "world_up": "Z"
+  },
+  "sources": [
+    {
+      "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/g1_constants.py",
+      "sha256": "30805e420c1dd03518ee582465fbce9cf097f4dc2eb0c1c2fce55c0332040c07"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/xmls/g1.xml",
+      "sha256": "febdcbeffbbf84051556ae41a5ac1b43fb479a5d76bdb3f54824dbc2721c20aa"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md",
+      "sha256": "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/src/supermimic/envs/tracking_env_cfg.py",
+      "sha256": "54c3bc7a81221b9e4e1a94935bed1040427af1b715ab46e33f10190403914404"
+    },
+    {
+      "path": "/home/han/pyx/hdmi_bread_box_hoi_v1.npz",
+      "sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe"
+    },
+    {
+      "path": "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz",
+      "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/meta.json",
+      "sha256": "28f02a2f4fe3ccd5c8582f301e0b557d5df0ef5ae80bb762e8b1419dba2d2f4b"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/motion.npz",
+      "sha256": "ff35558659a4b7fca63df6fc686cfd518b40bbc2cf4e3b5063e69e0ea73d7344"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_hoi_v1.json",
+      "sha256": "3d2dafff9ab0bf0dbd29b36f128ca404042c38dcbf2f39d2ed6e292743b942a4"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp.json",
+      "sha256": "b558dc4c035caa040232af3d470514888cafa8bdc7a60579e0bf8705b3129574"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp_v2.json",
+      "sha256": "1a18fac661fa19e8aa5da8f747340524a88e99b58520e2ddbaa7fb831d01fba8"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_final_audit_20261106.json",
+      "sha256": "17198c0fe2489f0152491800d1c945f3ac0f1609834743f1aa66acdada30850a"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_review750_20261106.json",
+      "sha256": "30e818e8c02aaf5c565aeb85283fa649344c3ec5f7ffd8971052be0cfd688a69"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_invalid.json",
+      "sha256": "22bee0cd118413ac7c8ea7f4328b1a59d177693e38f01dccb06236fe8d4576c8"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_v2.json",
+      "sha256": "4f85c20cdc161103c727d5d0dca68b131557328ace952f4881f6b1bf2db0298a"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_mesh_summary.json",
+      "sha256": "45e1991b77b02939d203e2e97dcd525a4bd4df2e8aca7b7f2f5e5714edc65801"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_summary.json",
+      "sha256": "135beef0194c8bfd80550b1883c7b98a9cd35febb313f7e67748591df631a19f"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_long_training_validation_20261106.json",
+      "sha256": "626c43da00e694de71443982b511849c44b18365550bf7b9e10edb3712c1f594"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_native_validation_v2.json",
+      "sha256": "17f0716d055b916d8cf26ce58b96317aa49b562189468b98f3cfc662f3612d1b"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_reference_validation_v2.json",
+      "sha256": "78499a2844319c29dff75b4ee8f2e97e1b0429237970150fcb723b1c6880683d"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_contact_assets.json",
+      "sha256": "ad7776c36fc12e9c2da1fda4f80e650d2fb8ce4ca88ce5c7be08bea76edefe06"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_support_assets.json",
+      "sha256": "5b5fdece8de408e7f5cd867ae4aa4d3e3dd09523908b51b9d98856cda68d735d"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/__init__.py",
+      "sha256": "4321c7372abdd61ab6f065de978815cd58c3f2f947fbbe98f0b28455b84eb2e2"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/contact_targets.py",
+      "sha256": "c713a65e6e0785ba5621b66f4ee12f8eadf80dc3d901bbca2d84745e4e77a766"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/env.py",
+      "sha256": "5bc594aa4d790496c94eb4b9442e446d57ecc28ec3ba56ace2927156c91067e1"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/evaluation.py",
+      "sha256": "9a8286f4e4fe42896dc3f1eba9f488663a371d575f76fae516d69bf108b14751"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/experiments.py",
+      "sha256": "737e2f4595c2a09c7f48cce1943a23133849a4b2a955e41e2a5d9e565edd27fe"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/features.py",
+      "sha256": "9323b1cc20be8a10c168ffa03381da57e81059134209ed66122418629eabdb52"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/gate0.py",
+      "sha256": "94b9bc4be7f74268df5cab55c9b3de50def875cffe420681dc5e0d20bc5a7fa9"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi.py",
+      "sha256": "f981aa5e3de76d671316e861e2b0ac964444e3d3b68b19ee5ecd098f1130269b"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi_colliders.py",
+      "sha256": "c1bd2d6445e439dda7e16f3c8219edaf9c08ac66c54bfdc59e33316ba36c8e03"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik.py",
+      "sha256": "795b7911f73e6e78c4f7bc048b51e9c2a515779d80c6327fba18aa4710b2b520"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik_adapter.py",
+      "sha256": "6c9333adedd8e0f8b9060e4a21446ff9ace45ab53c4b068171a21719733c0824"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/integration.py",
+      "sha256": "5eee32b143fe48eed5fdda0809ac3fe8890cf7be60e2ecd312669cd59d9d5504"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/physical_evaluation.py",
+      "sha256": "cae88e55b8d3ed1151647511394eb5dd6c9f0bebd4e411ea01ed5312c6e610cb"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reference.py",
+      "sha256": "99fb9327c82f8a535678a8089595cfbb86c19ad3780aa540815280b1b2eed3cf"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/replay.py",
+      "sha256": "4b0127a342274a9650a857fe1cbf19dc6b6ea52f5e8fd0cedfab1d43526481c7"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/resources.py",
+      "sha256": "0cdc990f1cde8f74cc7557d37eda17ccff3f0f2967f31371d775ecf0524aa80d"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/retarget.py",
+      "sha256": "e87472c0bed321848c7aaf37750ee48f3e74cbb19313849e37db1320f20c9e29"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reward.py",
+      "sha256": "ff4739d006bfe8831a33e03eb80d8a6a39c07d7d9fe9954d7d39df9040bb075f"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/schema.py",
+      "sha256": "2753088cb0f8a1a7c3eaff1569cab366aaa405d0e5bd4ac15f24cf40f69cc6f6"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/simulator.py",
+      "sha256": "26577d32e7a90b8ae84e70883115d803f4ecc6f0641df522c602fef50efcf7a5"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/targets.py",
+      "sha256": "3af2ba541e516f0382b3f820efa115c8e4e35a8a42e1fad0988ff65e6b109550"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/training.py",
+      "sha256": "52592f5070e4e9f119a10b1e965a19074b0d2d3fca251c2e60a28dc3b65a500e"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave.py",
+      "sha256": "63542bc41a01cbd70be5245f360ef5d6d581b5ba6e47ff37fa5a853445f1b054"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave_archive.py",
+      "sha256": "cec049631be5cc40d20c28381b8bf7029893f3e1c0fd315644d3188602edcb4e"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/world_model.py",
+      "sha256": "847780813e8b66915406525964602bcd76b36ed1abee279ad4643e33292327f5"
+    },
+    {
+      "path": "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/scripts/hoi_inspect_hdmi_usd.py",
+      "sha256": "39c7c3f842fe0d3fae76157e3e15157c39018cc6b676e47ae82dd98f2e2e7dec"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/g1/g1_29dof_rubberhand-feet_sphere-eef_box-body_capsule.usd",
+      "sha256": "faf4d267a7a93fd16186e77e4c2802aa8ea977b5bb971b72fa63dee99c33200d"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects.py",
+      "sha256": "d6a018fcb0481292d71892ebd52dccdd87ea494ec6574dc7852d27703c7972bd"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/bread_box/bread_box.usd",
+      "sha256": "a1dab021725a8f23d068aaa97018476af81797db5fa18adb2f1718c2fa075943"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd",
+      "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd",
+      "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets_mjcf/objects/bread_box/bread_box.xml",
+      "sha256": "b91114480649634e49cd9f16e577109e01860c6d7607176a5b4e3f02a38087c6"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/envs/mdp/commands/hdmi/randomizations.py",
+      "sha256": "729d8c6cf3ff786cedfc9378a4165454fde1f47fdf395dc1775bdeee45f5c73b"
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/cfg/task/G1/hdmi/carry_and_place_bread_box.yaml",
+      "sha256": "a8ff4820b8e51c6a7dce5fbb92257f7d3331ce26d93085c578510bbcc4546561"
+    }
+  ],
+  "object": {
+    "name": "bread_box",
+    "dynamic": true,
+    "joint": "free",
+    "scale": 1.0,
+    "inertia": {
+      "mass_kg": 2.0,
+      "com_pos_root_m": [
+        0.0,
+        0.0,
+        -0.2
+      ],
+      "principal_axes_wxyz": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "diagonal_kg_m2": [
+        0.0334,
+        0.02167,
+        0.04167
+      ]
+    },
+    "geoms": [
+      {
+        "name": "bottom",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.09,
+          0.17,
+          0.01
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "side1",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          -0.08,
+          0.0,
+          0.13
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.01,
+          0.17,
+          0.13
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "side2",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.08,
+          0.0,
+          0.13
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.01,
+          0.17,
+          0.13
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "side3",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.0,
+          0.16,
+          0.13
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.09,
+          0.01,
+          0.13
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "side4",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.0,
+          -0.16,
+          0.13
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.09,
+          0.01,
+          0.13
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "handle_left",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.0,
+          0.17,
+          0.21
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.01
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      {
+        "name": "handle_right",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0.0,
+          -0.17,
+          0.21
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.03,
+          0.02,
+          0.01
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      }
+    ],
+    "diagnostic_aabb_only": {
+      "min": [
+        -0.09,
+        -0.19,
+        -0.01
+      ],
+      "max": [
+        0.09,
+        0.19,
+        0.26
+      ],
+      "dimensions": [
+        0.18,
+        0.38,
+        0.27
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.125
+      ]
+    },
+    "restitution": null,
+    "contact_parameter_semantics": "MuJoCo friction sliding/torsional/rolling; defaults solref/solimp retained. No direct restitution mapping.",
+    "official_runtime_distinctions": {
+      "raw_xml_usd_mass_kg": 2.0,
+      "objects_py_spawn_mass_kg": 3.0,
+      "task_randomization": {
+        "object_body_randomization": {
+          "static_dynamic_friction_ratio_range": [
+            1.0,
+            2.0
+          ],
+          "dynamic_friction_range": [
+            0.3,
+            0.8
+          ],
+          "restitution_range": [
+            0.0,
+            0.2
+          ],
+          "mass_range": [
+            1.2,
+            1.8
+          ]
+        },
+        "body_scale": {
+          "name": "bread_box",
+          "scale_range": [
+            0.9,
+            1.1
+          ]
+        }
+      }
+    },
+    "com_warning": "COM is 0.19 m below lowest collision point; cannot describe positive mass confined to these seven solids. Preserve official model for parity; never silently recenter."
+  },
+  "supports": [
+    {
+      "name": "support0",
+      "fixed": true,
+      "root_pos_world": [
+        -1.4667341709136963,
+        -0.15975421667099,
+        0.6605498790740967
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "geom": {
+        "name": "support0",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          0,
+          0,
+          0
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd",
+        "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523"
+      }
+    },
+    {
+      "name": "support1",
+      "fixed": true,
+      "root_pos_world": [
+        1.381318211555481,
+        -0.28439486026763916,
+        0.6251227855682373
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "geom": {
+        "name": "support1",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          0,
+          0,
+          0
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd",
+        "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851"
+      }
+    }
+  ],
+  "robot": {
+    "native_asset": {
+      "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/xmls/g1.xml",
+      "sha256": "febdcbeffbbf84051556ae41a5ac1b43fb479a5d76bdb3f54824dbc2721c20aa"
+    },
+    "selected_profile": "native_unchanged",
+    "feet_policy": "native_unchanged",
+    "inertia_policy": "retain_native_robot_inertias; raw HDMI wrist mass and inertia differ",
+    "profiles": {
+      "native_unchanged": {
+        "description": "No mutations"
+      },
+      "hdmi_hands_only_candidate": {
+        "description": "Optional audit comparison; not training-approved. Geometry from raw USD, no foot changes.",
+        "disable_geoms": [
+          "left_wrist_collision",
+          "left_hand_collision",
+          "right_wrist_collision",
+          "right_hand_collision"
+        ],
+        "geoms": [
+          {
+            "name": "left_wrist_yaw_link_mesh_0",
+            "body": "left_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.019999999552965164,
+              0.0,
+              0.0
+            ],
+            "quat": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.05000000074505806,
+              0.02500000037252903,
+              0.02500000037252903
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          },
+          {
+            "name": "left_wrist_yaw_link_mesh_1",
+            "body": "left_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.09000000357627869,
+              0.0,
+              0.0
+            ],
+            "quat": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.05000000074505806,
+              0.009999999776482582,
+              0.05000000074505806
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          },
+          {
+            "name": "left_wrist_yaw_link_mesh_2",
+            "body": "left_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.15000000596046448,
+              -0.009999999776482582,
+              0.0
+            ],
+            "quat": [
+              0.9800665974617004,
+              0.0,
+              0.0,
+              -0.19866932928562164
+            ],
+            "size": [
+              0.02500000037252903,
+              0.009999999776482582,
+              0.05000000074505806
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          },
+          {
+            "name": "right_wrist_yaw_link_mesh_0",
+            "body": "right_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.019999999552965164,
+              0.0,
+              0.0
+            ],
+            "quat": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.05000000074505806,
+              0.02500000037252903,
+              0.02500000037252903
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          },
+          {
+            "name": "right_wrist_yaw_link_mesh_1",
+            "body": "right_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.09000000357627869,
+              0.0,
+              0.0
+            ],
+            "quat": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.05000000074505806,
+              0.009999999776482582,
+              0.05000000074505806
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          },
+          {
+            "name": "right_wrist_yaw_link_mesh_2",
+            "body": "right_wrist_yaw_link",
+            "type": "box",
+            "pos": [
+              0.15000000596046448,
+              0.009999999776482582,
+              0.0
+            ],
+            "quat": [
+              0.9800665974617004,
+              0.0,
+              0.0,
+              0.19866932928562164
+            ],
+            "size": [
+              0.02500000037252903,
+              0.009999999776482582,
+              0.05000000074505806
+            ],
+            "contype": 1,
+            "conaffinity": 1,
+            "condim": 1,
+            "priority": 0,
+            "group": 3,
+            "friction": [
+              1,
+              0.005,
+              0.0001
+            ],
+            "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+          }
+        ]
+      }
+    }
+  },
+  "contact": {
+    "target_root_m": [
+      [
+        0,
+        0.17,
+        0.14
+      ],
+      [
+        0,
+        -0.17,
+        0.14
+      ]
+    ],
+    "wrist_bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+    ],
+    "eef_offset_wrist_m": [
+      [
+        0.05,
+        0.0,
+        0.0
+      ],
+      [
+        0.05,
+        0.0,
+        0.0
+      ]
+    ],
+    "eef_formula": "p_eef_world = p_wrist_world + R(q_wrist_wxyz) @ offset_wrist",
+    "target_formula": "p_target_world = p_box_root_world + R(q_box_wxyz) @ target_root",
+    "box_com_formula": "p_com_world = p_box_root_world + R(q_box_wxyz) @ com_root",
+    "velocity_formula": "v_com_world = v_root_world + omega_world cross (R(q_box) @ com_root); MuJoCo free-joint angular qvel is body-local",
+    "sensor_contract": {
+      "hand_primary_bodies": [
+        "left_wrist_pitch_link",
+        "left_wrist_yaw_link",
+        "right_wrist_pitch_link",
+        "right_wrist_yaw_link"
+      ],
+      "secondary_body": "bread_box",
+      "secondary_geoms": [
+        "bottom",
+        "side1",
+        "side2",
+        "side3",
+        "side4",
+        "handle_left",
+        "handle_right"
+      ],
+      "semantics": "future physical contacts must filter actual enabled geoms; object_contact is desired intent, not force or bilateral contact"
+    },
+    "distance_semantics": "MuJoCo mj_geomDistance on primitive geoms at recorded body poses; negative = primitive overlap, positive = separation. Min pair penetration is not compound minimum translation or measured force. No dynamics stepped. Exact EEF alignment is a geometric translation probe, not a joint-reachability proof.",
+    "marker_semantics": "Official fixed EEF and target retained as soft semantic markers. Marker equality is not a physical contact constraint.",
+    "physical_validation": {
+      "signed_pair_distance_band_m": [
+        -0.001,
+        0.002
+      ],
+      "per_hand_actual_normal_force_threshold_N": 1.0,
+      "bilateral_force_required": true,
+      "geometry_distance_is_not_force": true,
+      "closest_surface_points_are_state_dependent": true,
+      "slip": "force-weighted contact-point relative tangential speed integral; separate from object displacement"
+    }
+  },
+  "deliberate_deviations": [
+    {
+      "field": "object.geoms.*.priority",
+      "official_xml": 0,
+      "selected": 1,
+      "reason": "Match source env.py object-vs-robot contact priority; explicit MuJoCo adaptation"
+    },
+    {
+      "field": "supports",
+      "reason": "Fixed MuJoCo bodies for constant recorded kinematic supports; USD size rounded to authored decimal values within 2e-9 m"
+    },
+    {
+      "field": "robot.feet",
+      "reason": "Keep native seven capsules; do not import unrelated HDMI four-sphere feet"
+    },
+    {
+      "field": "randomization",
+      "reason": "Nominal static audit asset only; task material/mass/scale randomization not activated"
+    }
+  ],
+  "gates": {
+    "asset_parity": {
+      "status": "PASS_WITH_DOCUMENTED_DEVIATION",
+      "detail": "Seven XML boxes, root and inertia exact. priority 1 rather than XML default 0, inherited from source env.py. Nominal XML 2 kg, not randomized HDMI runtime."
+    },
+    "robot_collider_parity": {
+      "status": "MEASURED_DECISION_RECORDED",
+      "detail": "Native retained; optional hand-only HDMI profile for comparison. Not dynamically equivalent; feet unchanged."
+    },
+    "contact_target_surface": {
+      "status": "PASS",
+      "tolerance_m": 1e-07
+    },
+    "eef_convention": {
+      "status": "PASS",
+      "detail": "Official wrist yaw +5 cm local X; internal marker, not collision surface."
+    },
+    "physical_hand_contact": {
+      "status": "FAIL",
+      "detail": "840-frame geometry, four hand profiles, semantic fits, bounded pose probes and 42 short physical tests do not validate continuous interaction."
+    },
+    "reference_integrity": {
+      "status": "PASS",
+      "detail": "All six numeric arrays byte-identical, all nine shared fields value-identical; input archive hashes unchanged."
+    },
+    "scene_support_validity": {
+      "status": "FAIL",
+      "detail": "Strict reference geometry remains inconsistent: 10 mm endpoint gaps; +10 mm correction causes 2.854/5.694 mm overlap. Original support poses retained."
+    },
+    "coordinate_consistency": {
+      "status": "PASS_POSE_CONVENTION",
+      "detail": "wxyz, Z-up, meters; target wrist FK matches within 8.2e-8 m. Existing hoi_v1 velocities have pose_fd_link_world_v1 provenance; raw-source velocity origin unresolved."
+    },
+    "terminal_support_stability": {
+      "status": "CONDITIONAL_PASS",
+      "detail": "Original nominal box at original terminal pose settles by about 10.108 mm and supports 19.62 N over final .5 s of 3 s probe. This is a reset-only settle, not achieved delivery or original 1 mm reference gate pass."
+    }
+  },
+  "unresolved": [
+    "Reference hand-box penetration/separation",
+    "10 mm original support gap",
+    "Official COM outside collision envelope; preserve, do not silently repair",
+    "Physical material/solver parity across PhysX and MuJoCo not established"
+  ],
+  "parent_manifest": {
+    "path": "/home/han/pyx/SMHOI/data/assets/hdmi_bread_box/asset_manifest.json",
+    "sha256": "8cee449a0af34365e28b3265479436fb72a6371f0a065b0c87f2d199e4c400fb"
+  },
+  "selection_note": "Unchanged nominal/native baseline selected for review, not a certified learning configuration. No tested minimal candidate reconciles physical hand contact over the preserved reference.",
+  "review_required_before_M7": true,
+  "reconciliation_evidence": [
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/eef_candidates.json",
+      "sha256": "f592163dcfe3ccb2841f349d75e8f5c8f62f97453c2bae494d0916379bcec2a1"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_candidates.json",
+      "sha256": "86859250edfa245c14ae8963d4e8ece2d0cab1c376b961a8f11874b9eae273d6"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_candidates.json",
+      "sha256": "611beea2459e35c17b5a65a7d7260cfc6c15ddef842bad5093d74c1995a853b4"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/box_pose_feasibility.csv",
+      "sha256": "ecabf2663e9171d5eec9b4c2c649623281d548415afeaea48833abec926d5125"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/summary.json",
+      "sha256": "9edc54a6e05592baf4aa819fa7f81f921d970b74a595661e6fab5eb64bd26ad0"
+    },
+    {
+      "path": "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/summary.json",
+      "sha256": "d814f3594888d86e14969b23efed858c1764cb549f2868f2b76c86dbeaa69a79"
+    }
+  ]
+}
