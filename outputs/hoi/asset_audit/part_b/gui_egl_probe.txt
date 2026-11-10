@@ -1,0 +1,5 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/glfw/__init__.py:917: GLFWError: (65542) b'EGL: Failed to get EGL display: Success'
+  warnings.warn(message, GLFWError)
+ERROR: could not create window

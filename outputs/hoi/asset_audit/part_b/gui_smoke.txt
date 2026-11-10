@@ -1,0 +1,12 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+KINEMATIC REFERENCE | training_ready=false
+Frame 0/839 | t=0.00 s | 50 Hz
+Desired contact: OFF (intent only)
+EEF-target L 1344.82 mm | R 1328.74 mm
+L cyan / R pink | large sphere: target | small sphere: EEF reference
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/glfw/__init__.py:917: GLFWError: (65542) b'GLX: No GLXFBConfigs returned'
+  warnings.warn(message, GLFWError)
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/glfw/__init__.py:917: GLFWError: (65545) b'GLX: Failed to find a suitable GLXFBConfig'
+  warnings.warn(message, GLFWError)
+ERROR: could not create window

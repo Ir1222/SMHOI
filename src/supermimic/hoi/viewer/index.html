@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMHOI · Reference inspection</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui;background:#161d26;color:#f1f4f8}body{max-width:1200px;margin:24px auto;padding:0 20px}h1{font-size:24px;font-weight:600;margin-bottom:8px}#gate{color:#e9b45c;font-size:14px}#image{display:block;width:100%;aspect-ratio:5/3;object-fit:contain;background:#29313c;border-radius:8px;margin:20px 0 12px}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}button,select{font:inherit;padding:8px 14px;color:inherit;background:#2a3644;border:1px solid #4b5c70;border-radius:5px;cursor:pointer}button:hover{background:#3b5066}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #54d8e5}#toggle{background:#195a68;min-width:80px}#frame{width:100%;margin:20px 0;accent-color:#54d8e5}#status{font:14px/1.5 ui-monospace,monospace;white-space:pre-wrap}small{color:#b6c2d1}#error{color:#ff99a8}label{margin-left:12px}#speed{min-width:35px;text-align:center}
+</style>
+<h1>SMHOI · Reference inspection</h1>
+<div id="gate">KINEMATIC REFERENCE · training_ready=false</div>
+<img id="image" alt="G1 reference, compound bread box, fixed supports and left/right contact markers">
+<div class="controls">
+<button id="reset" title="R">Reset</button><button id="previous" title="Left arrow">← Frame</button>
+<button id="toggle" title="Space">Play</button><button id="next" title="Right arrow">Frame →</button>
+<button id="slower" title="Minus">− Speed</button><span id="speed">1×</span><button id="faster" title="Plus">+ Speed</button>
+<label for="view">View</label><select id="view"><option value="overview">Both supports</option><option value="follow">Follow robot</option><option value="contact">Contact close-up</option></select>
+<label><input id="colliders" type="checkbox"> Native colliders</label>
+</div>
+<input id="frame" type="range" min="0" max="839" value="0" step="1" aria-label="Reference frame">
+<div id="status">Loading frame 0…</div><p id="error" role="alert"></p>
+<small>Space: play/pause · ←/→: one frame · +/−: speed · R: reset. Motion remains sampled at 50 Hz; slow rendering may skip displayed samples during playback. Pause and step to inspect every sample. The displayed status always identifies the rendered frame.</small>
+<script type="module" src="/player.mjs"></script>
+</html>

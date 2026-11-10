@@ -13,12 +13,20 @@ def main():
     parser.add_argument('--display-only', action='store_true', required=True,
                         help='Acknowledge kinematic inspection; cannot approve physical/training gates')
     parser.add_argument('--headless', action='store_true')
+    parser.add_argument('--browser', action='store_true', help='Local EGL-rendered browser viewer')
+    parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--output-dir', type=Path)
     parser.add_argument('--frames', type=int, nargs='+', default=[0, 260, 280, 298, 400, 530, 549, 550, 839])
     parser.add_argument('--video', action='store_true', help='Export every frame at 50 Hz (headless)')
     parser.add_argument('--autoplay', action='store_true')
     parser.add_argument('--close-after-s', type=float, help='Bounded GUI smoke run')
     args = parser.parse_args()
+    if args.browser and args.headless:
+        parser.error('--browser and --headless are mutually exclusive')
+    if args.browser:
+        if args.autoplay or args.close_after_s is not None:
+            parser.error('Browser playback is controlled in the page')
+        os.environ.setdefault('MUJOCO_GL', 'egl')
     if args.headless:
         if args.output_dir is None:
             parser.error('--headless requires a new --output-dir')
@@ -31,7 +39,10 @@ def main():
     scene = ReferenceScene(ReferenceClip(args.reference), args.asset_manifest,
                            display_only=args.display_only)
     print(scene.status_text(), flush=True)
-    if args.headless:
+    if args.browser:
+        from supermimic.hoi.reference_browser import run_browser
+        result = run_browser(scene, args.port)
+    elif args.headless:
         result = render_headless(scene, args.output_dir, args.frames, video=args.video)
     else:
         result = run_interactive(scene, autoplay=args.autoplay, close_after_s=args.close_after_s)
