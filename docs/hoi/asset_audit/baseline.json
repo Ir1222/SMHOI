@@ -1,0 +1,243 @@
+{
+  "scope": "Part A M0-M6 only; user overrides conflicting Part D numbering; no learning pipeline",
+  "cwd": "/home/han/pyx/SMHOI",
+  "agents_md": "No AGENTS.md found in source/target, or /, /home, /home/han, /home/han/pyx ancestors.",
+  "initial_status_before_audit": {
+    "target": "?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md",
+    "source": "?? MUJOCO_LOG.TXT\n?? docs/hoi/audits/hoi_research_freeze_20261107.md"
+  },
+  "repositories": {
+    "/home/han/pyx/SMHOI": {
+      "root": "/home/han/pyx/SMHOI",
+      "branch": "main",
+      "head": "ba6105349069bf040f1fdad60873d13138d505a2",
+      "status_at_capture": "?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? scripts/hoi/"
+    },
+    "/home/han/pyx/humanoid-amp-ppo": {
+      "root": "/home/han/pyx/humanoid-amp-ppo",
+      "branch": "master",
+      "head": "114f766405efd3d90cbf5470a4b1c2d3e1da8f27",
+      "status_at_capture": "?? MUJOCO_LOG.TXT\n?? docs/hoi/audits/hoi_research_freeze_20261107.md"
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI": {
+      "root": "/tmp/supermimic_hoi_audit_20261104/HDMI",
+      "branch": "main",
+      "head": "32282f6dcf26cae70b814d585ceb12cc38aa1b60",
+      "status_at_capture": ""
+    }
+  },
+  "inputs": {
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/g1_constants.py": {
+      "sha256": "30805e420c1dd03518ee582465fbce9cf097f4dc2eb0c1c2fce55c0332040c07",
+      "bytes": 7518
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/xmls/g1.xml": {
+      "sha256": "febdcbeffbbf84051556ae41a5ac1b43fb479a5d76bdb3f54824dbc2721c20aa",
+      "bytes": 22290
+    },
+    "/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md": {
+      "sha256": "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c",
+      "bytes": 27439
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/tracking_env_cfg.py": {
+      "sha256": "54c3bc7a81221b9e4e1a94935bed1040427af1b715ab46e33f10190403914404",
+      "bytes": 11584
+    },
+    "/home/han/pyx/hdmi_bread_box_hoi_v1.npz": {
+      "sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+      "bytes": 897802
+    },
+    "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz": {
+      "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527",
+      "bytes": 882198
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/meta.json": {
+      "sha256": "28f02a2f4fe3ccd5c8582f301e0b557d5df0ef5ae80bb762e8b1419dba2d2f4b",
+      "bytes": 1945
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/motion.npz": {
+      "sha256": "ff35558659a4b7fca63df6fc686cfd518b40bbc2cf4e3b5063e69e0ea73d7344",
+      "bytes": 1666169
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_hoi_v1.json": {
+      "sha256": "3d2dafff9ab0bf0dbd29b36f128ca404042c38dcbf2f39d2ed6e292743b942a4",
+      "bytes": 1419
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp.json": {
+      "sha256": "b558dc4c035caa040232af3d470514888cafa8bdc7a60579e0bf8705b3129574",
+      "bytes": 1133
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp_v2.json": {
+      "sha256": "1a18fac661fa19e8aa5da8f747340524a88e99b58520e2ddbaa7fb831d01fba8",
+      "bytes": 2249
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_final_audit_20261106.json": {
+      "sha256": "17198c0fe2489f0152491800d1c945f3ac0f1609834743f1aa66acdada30850a",
+      "bytes": 58141
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_review750_20261106.json": {
+      "sha256": "30e818e8c02aaf5c565aeb85283fa649344c3ec5f7ffd8971052be0cfd688a69",
+      "bytes": 14164
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_invalid.json": {
+      "sha256": "22bee0cd118413ac7c8ea7f4328b1a59d177693e38f01dccb06236fe8d4576c8",
+      "bytes": 2293
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_v2.json": {
+      "sha256": "4f85c20cdc161103c727d5d0dca68b131557328ace952f4881f6b1bf2db0298a",
+      "bytes": 6834
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_mesh_summary.json": {
+      "sha256": "45e1991b77b02939d203e2e97dcd525a4bd4df2e8aca7b7f2f5e5714edc65801",
+      "bytes": 22985
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_summary.json": {
+      "sha256": "135beef0194c8bfd80550b1883c7b98a9cd35febb313f7e67748591df631a19f",
+      "bytes": 22753
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_long_training_validation_20261106.json": {
+      "sha256": "626c43da00e694de71443982b511849c44b18365550bf7b9e10edb3712c1f594",
+      "bytes": 16171
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_native_validation_v2.json": {
+      "sha256": "17f0716d055b916d8cf26ce58b96317aa49b562189468b98f3cfc662f3612d1b",
+      "bytes": 28525
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_reference_validation_v2.json": {
+      "sha256": "78499a2844319c29dff75b4ee8f2e97e1b0429237970150fcb723b1c6880683d",
+      "bytes": 50144
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_contact_assets.json": {
+      "sha256": "ad7776c36fc12e9c2da1fda4f80e650d2fb8ce4ca88ce5c7be08bea76edefe06",
+      "bytes": 27941
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_support_assets.json": {
+      "sha256": "5b5fdece8de408e7f5cd867ae4aa4d3e3dd09523908b51b9d98856cda68d735d",
+      "bytes": 3674
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/__init__.py": {
+      "sha256": "4321c7372abdd61ab6f065de978815cd58c3f2f947fbbe98f0b28455b84eb2e2",
+      "bytes": 446
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/contact_targets.py": {
+      "sha256": "c713a65e6e0785ba5621b66f4ee12f8eadf80dc3d901bbca2d84745e4e77a766",
+      "bytes": 5724
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/env.py": {
+      "sha256": "5bc594aa4d790496c94eb4b9442e446d57ecc28ec3ba56ace2927156c91067e1",
+      "bytes": 14083
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/evaluation.py": {
+      "sha256": "9a8286f4e4fe42896dc3f1eba9f488663a371d575f76fae516d69bf108b14751",
+      "bytes": 12263
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/experiments.py": {
+      "sha256": "737e2f4595c2a09c7f48cce1943a23133849a4b2a955e41e2a5d9e565edd27fe",
+      "bytes": 1780
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/features.py": {
+      "sha256": "9323b1cc20be8a10c168ffa03381da57e81059134209ed66122418629eabdb52",
+      "bytes": 3296
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/gate0.py": {
+      "sha256": "94b9bc4be7f74268df5cab55c9b3de50def875cffe420681dc5e0d20bc5a7fa9",
+      "bytes": 29256
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi.py": {
+      "sha256": "f981aa5e3de76d671316e861e2b0ac964444e3d3b68b19ee5ecd098f1130269b",
+      "bytes": 15097
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi_colliders.py": {
+      "sha256": "c1bd2d6445e439dda7e16f3c8219edaf9c08ac66c54bfdc59e33316ba36c8e03",
+      "bytes": 1877
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik.py": {
+      "sha256": "795b7911f73e6e78c4f7bc048b51e9c2a515779d80c6327fba18aa4710b2b520",
+      "bytes": 3326
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik_adapter.py": {
+      "sha256": "6c9333adedd8e0f8b9060e4a21446ff9ace45ab53c4b068171a21719733c0824",
+      "bytes": 808
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/integration.py": {
+      "sha256": "5eee32b143fe48eed5fdda0809ac3fe8890cf7be60e2ecd312669cd59d9d5504",
+      "bytes": 2913
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/physical_evaluation.py": {
+      "sha256": "cae88e55b8d3ed1151647511394eb5dd6c9f0bebd4e411ea01ed5312c6e610cb",
+      "bytes": 5532
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reference.py": {
+      "sha256": "99fb9327c82f8a535678a8089595cfbb86c19ad3780aa540815280b1b2eed3cf",
+      "bytes": 10216
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/replay.py": {
+      "sha256": "4b0127a342274a9650a857fe1cbf19dc6b6ea52f5e8fd0cedfab1d43526481c7",
+      "bytes": 7035
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/resources.py": {
+      "sha256": "0cdc990f1cde8f74cc7557d37eda17ccff3f0f2967f31371d775ecf0524aa80d",
+      "bytes": 1159
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/retarget.py": {
+      "sha256": "e87472c0bed321848c7aaf37750ee48f3e74cbb19313849e37db1320f20c9e29",
+      "bytes": 18431
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reward.py": {
+      "sha256": "ff4739d006bfe8831a33e03eb80d8a6a39c07d7d9fe9954d7d39df9040bb075f",
+      "bytes": 4805
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/schema.py": {
+      "sha256": "2753088cb0f8a1a7c3eaff1569cab366aaa405d0e5bd4ac15f24cf40f69cc6f6",
+      "bytes": 7141
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/simulator.py": {
+      "sha256": "26577d32e7a90b8ae84e70883115d803f4ecc6f0641df522c602fef50efcf7a5",
+      "bytes": 4142
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/targets.py": {
+      "sha256": "3af2ba541e516f0382b3f820efa115c8e4e35a8a42e1fad0988ff65e6b109550",
+      "bytes": 1357
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/training.py": {
+      "sha256": "52592f5070e4e9f119a10b1e965a19074b0d2d3fca251c2e60a28dc3b65a500e",
+      "bytes": 7927
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave.py": {
+      "sha256": "63542bc41a01cbd70be5245f360ef5d6d581b5ba6e47ff37fa5a853445f1b054",
+      "bytes": 10278
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave_archive.py": {
+      "sha256": "cec049631be5cc40d20c28381b8bf7029893f3e1c0fd315644d3188602edcb4e",
+      "bytes": 5405
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/world_model.py": {
+      "sha256": "847780813e8b66915406525964602bcd76b36ed1abee279ad4643e33292327f5",
+      "bytes": 2163
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/g1/g1_29dof_rubberhand-feet_sphere-eef_box-body_capsule.usd": {
+      "sha256": "faf4d267a7a93fd16186e77e4c2802aa8ea977b5bb971b72fa63dee99c33200d",
+      "bytes": 27246027
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/bread_box/bread_box.usd": {
+      "sha256": "a1dab021725a8f23d068aaa97018476af81797db5fa18adb2f1718c2fa075943",
+      "bytes": 11265
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd": {
+      "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523",
+      "bytes": 6010
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd": {
+      "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851",
+      "bytes": 6010
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets_mjcf/objects/bread_box/bread_box.xml": {
+      "sha256": "b91114480649634e49cd9f16e577109e01860c6d7607176a5b4e3f02a38087c6",
+      "bytes": 1559
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/cfg/task/G1/hdmi/carry_and_place_bread_box.yaml": {
+      "sha256": "a8ff4820b8e51c6a7dce5fbb92257f7d3331ce26d93085c578510bbcc4546561",
+      "bytes": 1448
+    }
+  }
+}
