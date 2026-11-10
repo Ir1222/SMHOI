@@ -57,6 +57,11 @@ Run_02's coverage assertion incorrectly required every redundant contact point t
 carry force. The requirement is that each target geom has measured load in each
 world: sum the target pair's local force magnitudes per world and require >`1e-3 N`.
 Retain all individual contacts, including zero-load constraints, as raw evidence.
+Run_03 demonstrated that the distal hand could take all load at a default wrist
+placement. Final coverage exposes the pitch collider using native wrist-yaw angles
+−1.57 (left) / +1.57 (right), without asset or filter edits. Run_04 then required
+restoration of the default yaw pose specifically for the deliberate multi-contact
+overflow fixture. Final run_05 passes all ten groups.
 
 ## Contracts and predeclared validation criteria
 
@@ -91,6 +96,19 @@ Historical M6.5 hand-contact/support FAILs and `training_ready=false` remain unc
 P1 sensing cannot establish full-task feasibility. Reference-derived object twist is
 reset-only, separate from simulator supervision. Force cancellation and missing found
 history remain limitations. Real fixture contact coverage, nonzero-origin support
-placement, GPU capacities and graph parity are untested until execution; any mandatory
-failure blocks P1 PASS. Reference implementation audit is applicable to rejecting
+placement, GPU capacities and graph parity were initially untested; final run_05 and
+`tests_full_02.log` resolve these P1 gates within the documented tolerances. Capacity
+claims are bounded to these calibration cases. Reference implementation audit rejects
 foreign assets/sensors/trainers; P4 reward/source mechanisms are read but not ported.
+
+## Final reconciliation
+
+Actual new modules are `scene.py` (including its small configuration dataclass),
+`state.py` and `contact.py`; no separate `config.py` is needed. Shared source changes:
+none. Added `tests/hoi/test_robot_only_regression.py` exercises the original environment,
+StateIO, noise/context and Replay with the available canonical HDMI robot clip.
+The complete test run reports 69 passed / 17 existing LAFAN1-data skips. All required
+P1 GPU tests and physical calibration ran; none was skipped. See `REPORT.md`,
+`TRAINING_FRAMEWORK_REUSE_AUDIT.md` and `validation_summary.json` for final evidence.
+The configured commit identity was verified as `Ir1222
+<Yiqian.Pan23@student.xjtlu.edu.cn>`; no other author identity was used.

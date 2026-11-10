@@ -1,0 +1,70 @@
+{
+  "acceptance": "PASS",
+  "final_calibration": "run_05/calibration.json",
+  "calibration_check_count": 10,
+  "physical_samples_reviewed": 45,
+  "coverage_cases": 28,
+  "coverage_world_cases": 112,
+  "minimum_target_pair_load_N": 1.3230772041302992,
+  "maximum_raw_sensor_sum_error_N": 3.814697265625e-06,
+  "max_normal_nacon_shared": 50,
+  "max_normal_nefc_per_world": 184,
+  "max_normal_found_per_primary": 3.0,
+  "all_normal_overflow_zero": true,
+  "normal_shared_contact_capacity": 1024,
+  "normal_constraint_capacity_per_world": 1024,
+  "normal_match_capacity_per_primary": 64,
+  "deliberate_overflow": {
+    "deliberate_maxmatch": 1,
+    "flags": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "caught": "MuJoCo Warp overflow flags: [64, 64, 64, 64]"
+  },
+  "fixed_push_momentum_max_error_m_s": 1.3426318764686931e-05,
+  "box_frame_roundtrip_max_error_N": 5.960464477539063e-08,
+  "graph_parity": {
+    "state_max_error": 1.1920928955078125e-06,
+    "history_max_error_N": 1.52587890625e-05
+  },
+  "tests": "69 passed, 17 skipped (missing LAFAN1 NPZ/CSV), 1 existing Torch warning",
+  "test_log": "tests_full_02.log",
+  "protected_files_checked": 126,
+  "protected_files_unchanged": true,
+  "p0_dependency_files_unchanged": 10,
+  "new_dependency_observations": {
+    ".venv/lib/python3.12/site-packages/mujoco_warp/_src/smooth.py": "77e503145e96d4c594f4332bba60b42105b2ced3986638322892a4a3c2421f1d",
+    ".venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py": "fd956e1fbb35f8571d118edd162b2ddb2287c3a6971fc1aa629f91384fa5082d"
+  },
+  "implementation_sha256": {
+    "src/supermimic/hoi/scene.py": "64042a24e7d5252e6f2bad6d7ab95c51ecfe25ffbbf86d0102033fbefb17fd9e",
+    "src/supermimic/hoi/state.py": "c68fbb7e2b5d784c5fb140b3ea81d3ac8955249938c3c64edb5562e6cb68312b",
+    "src/supermimic/hoi/contact.py": "1d9c08fb5bb7bdd8f58cd2afb4395c1d0a3b783b57a753fa059ee2785b7a5e60",
+    "scripts/hoi/calibrate_contacts.py": "ef038a62d23f30ddf3ae1e0a3e1f11555240eeb64b25df4b192cc63e1bf73a59",
+    "tests/hoi/test_joint_scene.py": "537144ec4df9d906affb4940ade13832724f92e6cf70f98a0811f3b03ca54a1a",
+    "tests/hoi/test_contact_sensor.py": "60534964ef4fd6ca3784266a3e8144887a94df90d3c754ccc2f60e67e28d9331",
+    "tests/hoi/test_robot_only_regression.py": "ea353454edb90ad4909e1327254e2270cbc4fa430204199dd1327c300f894051"
+  },
+  "evidence_sha256": {
+    "outputs/hoi/contact_supervision/sensor_calibration/run_05.log": "8afb124b431318631622c02fe1d40ea02ba9014dca68378822678357390a7add",
+    "outputs/hoi/contact_supervision/sensor_calibration/tests_full_02.log": "8c0d5c8351bce1d0bdf453dd7b1e27d24666b5d0f4d73bf7c0c19d2988849440",
+    "outputs/hoi/contact_supervision/sensor_calibration/tests_full_01.log": "11e46aaa9e73023a854402da2bf88b2bf76a372d01773834f26840c71e22aa7f",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_03.log": "6958b1b9d1b1e178e59b19fe526d0f81f78e52b2cf4cabdec7acbf700465646e",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_04.log": "6da6b1f7275165ca5f387c88188749c0a97b65f6f7ce2598a0173a1d66242843",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_01.log": "30bf60b044503ff371b3e2e477567eeefad459e99b1385d80eb632070bbbf551",
+    "outputs/hoi/contact_supervision/sensor_calibration/tests_02.log": "083b2fde31b0a5d25ca6e4d595a410610040278b84ad87cc85b27a92c399f1f7",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_02.log": "f640c303b14b10bf52b120444147293536810925c26dabfa96451b643b26e685",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_04/calibration.json": "a22e286840e2ecaa729d0760a6d83bb7bd36180d456485d0f067b26656deefce",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_01/calibration.json": "91ed3e26aecef36d8166cadc1358c6cc818f7d62d57d886faa69d409aacbd88f",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_03/calibration.json": "d31bd98c9bcbab07e72e05f38a4379b674edb1246a91b50ece68e4ad80655464",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_02/calibration.json": "6af7a896899ec1b4dfc522f296b69b606484d22e09a10720458590f770240edf",
+    "outputs/hoi/contact_supervision/sensor_calibration/run_05/calibration.json": "10fa08d65c6eb03fd3b67115b0f555b6db96d6efad1d77d5c04c935aae701b62"
+  },
+  "git_branch": "main",
+  "git_head_at_review": "f08b52b7a00f805e86cd4409922decf6b130a282",
+  "author": "Ir1222 <Yiqian.Pan23@student.xjtlu.edu.cn> 1794322727 +0800",
+  "no_shared_source_modifications": true
+}

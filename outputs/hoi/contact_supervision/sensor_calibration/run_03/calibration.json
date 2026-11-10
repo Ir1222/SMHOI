@@ -1,0 +1,7171 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "all_seven_geoms_both_hands_both_primaries": "FAIL",
+    "no_left_right_bilateral_parallel": "PASS",
+    "hand_ground_and_box_support_excluded": "PASS",
+    "fixed_robot_known_and_rotated_pushes": "PASS",
+    "substep1_only": "PASS",
+    "substep4_only": "PASS",
+    "contact_ends_before_final": "PASS",
+    "reset_immediately_after_contact_isolation": "PASS",
+    "captured_eager_step_reset_parity": "PASS",
+    "deliberate_overflow_rejected": "PASS"
+  },
+  "scenarios": {
+    "all_seven_geoms_both_hands_both_primaries": {
+      "error": "AssertionError(('left', 'wrist', 'bottom', [np.float64(0.0), np.float64(0.0), np.float64(0.0), np.float64(0.0)]))",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/scripts/hoi/calibrate_contacts.py\", line 309, in check\n    report[\"scenarios\"][name] = fn()\n                                ^^^^\n  File \"/home/han/pyx/SMHOI/scripts/hoi/calibrate_contacts.py\", line 356, in coverage\n    assert min(loads) > 1e-3, (side, part, geom, loads)\n           ^^^^^^^^^^^^^^^^^\nAssertionError: ('left', 'wrist', 'bottom', [np.float64(0.0), np.float64(0.0), np.float64(0.0), np.float64(0.0)])\n",
+      "partial_evidence": [
+        {
+          "side": "left",
+          "part": "wrist",
+          "target_geom": "bottom",
+          "sample": {
+            "force_columns_world_N": [
+              [
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    30.045852661132812,
+                    12.993148803710938,
+                    -26.854461669921875
+                  ]
+                ],
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    30.045806884765625,
+                    12.993175506591797,
+                    -26.854339599609375
+                  ]
+                ],
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    30.04632568359375,
+                    12.993194580078125,
+                    -26.854583740234375
+                  ]
+                ],
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    30.046005249023438,
+                    12.993144989013672,
+                    -26.854400634765625
+                  ]
+                ],
+                [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "found_columns": [
+              [
+                [
+                  1.0,
+                  3.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  1.0,
+                  3.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  1.0,
+                  3.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  1.0,
+                  3.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            "force_world_N": [
+              [
+                [
+                  30.045852661132812,
+                  12.993148803710938,
+                  -26.854461669921875
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  30.045806884765625,
+                  12.993175506591797,
+                  -26.854339599609375
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  30.04632568359375,
+                  12.993194580078125,
+                  -26.854583740234375
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  30.046005249023438,
+                  12.993144989013672,
+                  -26.854400634765625
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            "contacts": [
+              {
+                "env": 1,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.04203478991985321,
+                "force_on_geom1_world_N": [
+                  521.8900146484375,
+                  -27.243736267089844,
+                  -67.9215316772461
+                ]
+              },
+              {
+                "env": 1,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.02576104737818241,
+                "force_on_geom1_world_N": [
+                  -254.0104522705078,
+                  19.32476806640625,
+                  419.03314208984375
+                ]
+              },
+              {
+                "env": 1,
+                "geoms": [
+                  "robot/left_wrist_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.0029999427497386932,
+                "force_on_geom1_world_N": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "env": 2,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.02576104737818241,
+                "force_on_geom1_world_N": [
+                  -254.00979614257812,
+                  19.324562072753906,
+                  419.03173828125
+                ]
+              },
+              {
+                "env": 2,
+                "geoms": [
+                  "robot/left_wrist_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.003000061959028244,
+                "force_on_geom1_world_N": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "env": 2,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.04203478991985321,
+                "force_on_geom1_world_N": [
+                  521.890625,
+                  -27.244049072265625,
+                  -67.9228286743164
+                ]
+              },
+              {
+                "env": 3,
+                "geoms": [
+                  "robot/left_wrist_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.003000061959028244,
+                "force_on_geom1_world_N": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "env": 3,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.04203478991985321,
+                "force_on_geom1_world_N": [
+                  521.8905029296875,
+                  -27.243606567382812,
+                  -67.92272186279297
+                ]
+              },
+              {
+                "env": 3,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.02576104737818241,
+                "force_on_geom1_world_N": [
+                  -254.0098876953125,
+                  19.3248291015625,
+                  419.0318908691406
+                ]
+              },
+              {
+                "env": 0,
+                "geoms": [
+                  "robot/left_wrist_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.0029999427497386932,
+                "force_on_geom1_world_N": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "env": 0,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/bottom"
+                ],
+                "distance_m": -0.04203478991985321,
+                "force_on_geom1_world_N": [
+                  521.8900146484375,
+                  -27.244285583496094,
+                  -67.92159271240234
+                ]
+              },
+              {
+                "env": 0,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.02576104737818241,
+                "force_on_geom1_world_N": [
+                  -254.0104217529297,
+                  19.32453155517578,
+                  419.0328369140625
+                ]
+              },
+              {
+                "env": 1,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.007388511672616005,
+                "force_on_geom1_world_N": [
+                  -237.83377075195312,
+                  20.91214370727539,
+                  -377.9659423828125
+                ]
+              },
+              {
+                "env": 2,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.007388273254036903,
+                "force_on_geom1_world_N": [
+                  -237.83450317382812,
+                  20.912681579589844,
+                  -377.9635009765625
+                ]
+              },
+              {
+                "env": 3,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.007388273254036903,
+                "force_on_geom1_world_N": [
+                  -237.83460998535156,
+                  20.911922454833984,
+                  -377.96356201171875
+                ]
+              },
+              {
+                "env": 0,
+                "geoms": [
+                  "robot/left_hand_collision",
+                  "box/side2"
+                ],
+                "distance_m": -0.007388511672616005,
+                "force_on_geom1_world_N": [
+                  -237.83372497558594,
+                  20.91290283203125,
+                  -377.9656982421875
+                ]
+              }
+            ],
+            "raw_sum_max_error_N": 1.52587890625e-05,
+            "overflow": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "nacon": 16,
+            "nefc": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "box_quat_at_solve_wxyz": [
+              [
+                0.7071068286895752,
+                0.0,
+                0.7071068286895752,
+                0.0
+              ],
+              [
+                0.7071068286895752,
+                0.0,
+                0.7071068286895752,
+                0.0
+              ],
+              [
+                0.7071068286895752,
+                0.0,
+                0.7071068286895752,
+                0.0
+              ],
+              [
+                0.7071068286895752,
+                0.0,
+                0.7071068286895752,
+                0.0
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "no_left_right_bilateral_parallel": {
+      "force_columns_world_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2.2294654846191406,
+              41.80867004394531,
+              -10.165406227111816
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              9.159392356872559,
+              -22.746171951293945,
+              5.236078262329102
+            ],
+            [
+              -3.698850154876709,
+              -8.279330253601074,
+              -0.04788166284561157
+            ]
+          ]
+        ]
+      ],
+      "found_columns": [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            3.0,
+            0.0
+          ],
+          [
+            2.0,
+            3.0
+          ]
+        ]
+      ],
+      "force_world_N": [
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.6636285781860352,
+            0.04907332360744476,
+            -1.3815336227416992
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.663741111755371,
+            -0.049075230956077576,
+            -1.3816299438476562
+          ]
+        ],
+        [
+          [
+            2.2294654846191406,
+            41.80867004394531,
+            -10.165406227111816
+          ],
+          [
+            5.46054220199585,
+            -31.025501251220703,
+            5.188196659088135
+          ]
+        ]
+      ],
+      "contacts": [
+        {
+          "env": 3,
+          "geoms": [
+            "terrain",
+            "robot/left_foot2_collision"
+          ],
+          "distance_m": -0.0029299180023372173,
+          "force_on_geom1_world_N": [
+            -64.80091094970703,
+            -13.416595458984375,
+            119.3119125366211
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "terrain",
+            "robot/left_foot3_collision"
+          ],
+          "distance_m": -0.003325228113681078,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "terrain",
+            "robot/left_foot4_collision"
+          ],
+          "distance_m": -0.003320001531392336,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "terrain",
+            "robot/left_foot5_collision"
+          ],
+          "distance_m": -0.0030650929547846317,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "terrain",
+            "robot/left_foot6_collision"
+          ],
+          "distance_m": -0.0024616713635623455,
+          "force_on_geom1_world_N": [
+            -31.33269691467285,
+            24.953903198242188,
+            145.62026977539062
+          ]
+        },
+        {
+          "env": 1,
+          "geoms": [
+            "robot/left_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.0029999427497386932,
+          "force_on_geom1_world_N": [
+            1.6636285781860352,
+            0.04907332360744476,
+            -1.3815336227416992
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/left_wrist_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.009614940732717514,
+          "force_on_geom1_world_N": [
+            -1.5189887285232544,
+            18.56199836730957,
+            -5.082220077514648
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/left_wrist_collision",
+            "box/side3"
+          ],
+          "distance_m": -0.009614856913685799,
+          "force_on_geom1_world_N": [
+            -1.5173224210739136,
+            18.559463500976562,
+            -5.083186149597168
+          ]
+        },
+        {
+          "env": 2,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.003000181168317795,
+          "force_on_geom1_world_N": [
+            1.663741111755371,
+            -0.049075230956077576,
+            -1.3816299438476562
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_wrist_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.0001934431493282318,
+          "force_on_geom1_world_N": [
+            4.5796589851379395,
+            -11.372941017150879,
+            2.618030071258545
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_wrist_collision",
+            "box/side4"
+          ],
+          "distance_m": -0.0001934543251991272,
+          "force_on_geom1_world_N": [
+            4.579733371734619,
+            -11.373230934143066,
+            2.6180484294891357
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side2"
+          ],
+          "distance_m": -0.006142867729067802,
+          "force_on_geom1_world_N": [
+            -1.849716305732727,
+            -4.140929698944092,
+            -0.023884892463684082
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side4"
+          ],
+          "distance_m": -0.006142755970358849,
+          "force_on_geom1_world_N": [
+            -1.8491339683532715,
+            -4.138400554656982,
+            -0.02399677038192749
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/left_wrist_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.006131280213594437,
+          "force_on_geom1_world_N": [
+            5.265776634216309,
+            4.687211036682129,
+            0.0
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side2"
+          ],
+          "distance_m": -0.003016207367181778,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "raw_sum_max_error_N": 2.86102294921875e-06,
+      "overflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nacon": 15,
+      "nefc": [
+        0,
+        4,
+        4,
+        52
+      ],
+      "box_quat_at_solve_wxyz": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.029028186574578285,
+          0.0,
+          0.0,
+          0.999578595161438
+        ]
+      ]
+    },
+    "hand_ground_and_box_support_excluded": {
+      "force_columns_world_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "found_columns": [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "force_world_N": [
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "contacts": [
+        {
+          "env": 1,
+          "geoms": [
+            "box/bottom",
+            "support0"
+          ],
+          "distance_m": -0.0020000021904706955,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            -7.438706874847412
+          ]
+        },
+        {
+          "env": 1,
+          "geoms": [
+            "box/bottom",
+            "support0"
+          ],
+          "distance_m": -0.0020000021904706955,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            -7.438706874847412
+          ]
+        },
+        {
+          "env": 1,
+          "geoms": [
+            "box/bottom",
+            "support0"
+          ],
+          "distance_m": -0.0020000021904706955,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            -7.438706874847412
+          ]
+        },
+        {
+          "env": 1,
+          "geoms": [
+            "box/bottom",
+            "support0"
+          ],
+          "distance_m": -0.0020000021904706955,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            -7.438706874847412
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_hip_collision"
+          ],
+          "distance_m": -0.01689271628856659,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_thigh_collision"
+          ],
+          "distance_m": -0.14576217532157898,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_shin_collision"
+          ],
+          "distance_m": -0.3060970902442932,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_linkage_brace_collision"
+          ],
+          "distance_m": -0.4784870445728302,
+          "force_on_geom1_world_N": [
+            -2088.719482421875,
+            0.0,
+            2088.719482421875
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot1_collision"
+          ],
+          "distance_m": -0.5906538367271423,
+          "force_on_geom1_world_N": [
+            598.032958984375,
+            -11.286322593688965,
+            1217.1376953125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot2_collision"
+          ],
+          "distance_m": -0.5915178656578064,
+          "force_on_geom1_world_N": [
+            8.681106567382812,
+            0.0,
+            14.468509674072266
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot3_collision"
+          ],
+          "distance_m": -0.5915658473968506,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot4_collision"
+          ],
+          "distance_m": -0.5915778875350952,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot5_collision"
+          ],
+          "distance_m": -0.5915658473968506,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot6_collision"
+          ],
+          "distance_m": -0.5915178656578064,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot7_collision"
+          ],
+          "distance_m": -0.5906538367271423,
+          "force_on_geom1_world_N": [
+            547.9811401367188,
+            -1.981016993522644,
+            940.9201049804688
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_hip_collision"
+          ],
+          "distance_m": -0.01689271628856659,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_thigh_collision"
+          ],
+          "distance_m": -0.14576217532157898,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_shin_collision"
+          ],
+          "distance_m": -0.3060970902442932,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_linkage_brace_collision"
+          ],
+          "distance_m": -0.4784870445728302,
+          "force_on_geom1_world_N": [
+            -2090.131103515625,
+            0.0,
+            2090.131103515625
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot1_collision"
+          ],
+          "distance_m": -0.5906538367271423,
+          "force_on_geom1_world_N": [
+            547.7262573242188,
+            1.9638394117355347,
+            938.6509399414062
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot2_collision"
+          ],
+          "distance_m": -0.5915178656578064,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot3_collision"
+          ],
+          "distance_m": -0.5915658473968506,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot4_collision"
+          ],
+          "distance_m": -0.5915778875350952,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot5_collision"
+          ],
+          "distance_m": -0.5915658473968506,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot6_collision"
+          ],
+          "distance_m": -0.5915178656578064,
+          "force_on_geom1_world_N": [
+            8.997007369995117,
+            0.0,
+            14.995012283325195
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot7_collision"
+          ],
+          "distance_m": -0.5906538367271423,
+          "force_on_geom1_world_N": [
+            598.59375,
+            1.96056067943573,
+            1220.27783203125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_hip_collision"
+          ],
+          "distance_m": -0.08759573101997375,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_thigh_collision"
+          ],
+          "distance_m": -0.297565758228302,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_shin_collision"
+          ],
+          "distance_m": -0.4466395378112793,
+          "force_on_geom1_world_N": [
+            -1099.12451171875,
+            0.0,
+            1099.12451171875
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_linkage_brace_collision"
+          ],
+          "distance_m": -0.5534429550170898,
+          "force_on_geom1_world_N": [
+            -4899.5087890625,
+            0.0,
+            4899.5087890625
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot1_collision"
+          ],
+          "distance_m": -0.5909538865089417,
+          "force_on_geom1_world_N": [
+            396.8241271972656,
+            7.9366254806518555,
+            661.5057373046875
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot2_collision"
+          ],
+          "distance_m": -0.5905159115791321,
+          "force_on_geom1_world_N": [
+            683.02001953125,
+            -9.128778457641602,
+            1639.8309326171875
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot3_collision"
+          ],
+          "distance_m": -0.5904738903045654,
+          "force_on_geom1_world_N": [
+            703.6217651367188,
+            -11.305188179016113,
+            1738.8126220703125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot4_collision"
+          ],
+          "distance_m": -0.5904618501663208,
+          "force_on_geom1_world_N": [
+            702.1118774414062,
+            -11.921503067016602,
+            1726.060302734375
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot5_collision"
+          ],
+          "distance_m": -0.5904738903045654,
+          "force_on_geom1_world_N": [
+            684.46044921875,
+            -11.303824424743652,
+            1632.4981689453125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot6_collision"
+          ],
+          "distance_m": -0.5905159115791321,
+          "force_on_geom1_world_N": [
+            648.527099609375,
+            -9.129172325134277,
+            1448.4697265625
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_foot7_collision"
+          ],
+          "distance_m": -0.5909538865089417,
+          "force_on_geom1_world_N": [
+            346.0872497558594,
+            0.0,
+            576.8120727539062
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_hip_collision"
+          ],
+          "distance_m": -0.08759573101997375,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_thigh_collision"
+          ],
+          "distance_m": -0.297565758228302,
+          "force_on_geom1_world_N": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_shin_collision"
+          ],
+          "distance_m": -0.4466395378112793,
+          "force_on_geom1_world_N": [
+            -1100.8172607421875,
+            0.0,
+            1100.8172607421875
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_linkage_brace_collision"
+          ],
+          "distance_m": -0.5534429550170898,
+          "force_on_geom1_world_N": [
+            -4900.35009765625,
+            0.0,
+            4900.35009765625
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot1_collision"
+          ],
+          "distance_m": -0.5909538865089417,
+          "force_on_geom1_world_N": [
+            345.7209777832031,
+            0.0,
+            576.2015991210938
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot2_collision"
+          ],
+          "distance_m": -0.5905159115791321,
+          "force_on_geom1_world_N": [
+            648.4736938476562,
+            9.103931427001953,
+            1447.214111328125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot3_collision"
+          ],
+          "distance_m": -0.5904738903045654,
+          "force_on_geom1_world_N": [
+            684.584716796875,
+            11.274014472961426,
+            1632.1328125
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot4_collision"
+          ],
+          "distance_m": -0.5904618501663208,
+          "force_on_geom1_world_N": [
+            702.4430541992188,
+            11.901910781860352,
+            1726.7242431640625
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot5_collision"
+          ],
+          "distance_m": -0.5904738903045654,
+          "force_on_geom1_world_N": [
+            704.1492309570312,
+            11.271496772766113,
+            1740.4534912109375
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot6_collision"
+          ],
+          "distance_m": -0.5905159115791321,
+          "force_on_geom1_world_N": [
+            683.6980590820312,
+            9.100040435791016,
+            1642.1976318359375
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_foot7_collision"
+          ],
+          "distance_m": -0.5909538865089417,
+          "force_on_geom1_world_N": [
+            396.5957946777344,
+            0.0,
+            660.9929809570312
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/left_hand_collision"
+          ],
+          "distance_m": -0.0030000098049640656,
+          "force_on_geom1_world_N": [
+            51.98323059082031,
+            -6.727926254272461,
+            52.41680145263672
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "terrain",
+            "robot/right_hand_collision"
+          ],
+          "distance_m": -0.0030000098049640656,
+          "force_on_geom1_world_N": [
+            52.080955505371094,
+            6.740574359893799,
+            52.515342712402344
+          ]
+        }
+      ],
+      "raw_sum_max_error_N": 0.0,
+      "overflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nacon": 50,
+      "nefc": [
+        184,
+        16,
+        0,
+        0
+      ],
+      "box_quat_at_solve_wxyz": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.029028186574578285,
+          0.0,
+          0.0,
+          0.999578595161438
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "fixed_robot_known_and_rotated_pushes": {
+      "force_columns_world_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              2.079387903213501,
+              0.0,
+              -2.079387903213501
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              2.079387903213501,
+              0.0,
+              -2.079387903213501
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.9308021068572998,
+              0.7793387174606323,
+              -1.1514633893966675
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.9308022260665894,
+              0.7793387174606323,
+              -1.151463508605957
+            ]
+          ]
+        ]
+      ],
+      "found_columns": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ]
+      ],
+      "force_world_N": [
+        [
+          [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ]
+        ],
+        [
+          [
+            1.9308021068572998,
+            0.7793387174606323,
+            -1.1514633893966675
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.9308022260665894,
+            0.7793387174606323,
+            -1.151463508605957
+          ]
+        ]
+      ],
+      "contacts": [
+        {
+          "env": 2,
+          "geoms": [
+            "robot/left_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.002999972552061081,
+          "force_on_geom1_world_N": [
+            1.9308021068572998,
+            0.7793387174606323,
+            -1.1514633893966675
+          ]
+        },
+        {
+          "env": 0,
+          "geoms": [
+            "robot/left_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.0029999874532222748,
+          "force_on_geom1_world_N": [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ]
+        },
+        {
+          "env": 3,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.002999972552061081,
+          "force_on_geom1_world_N": [
+            1.9308022260665894,
+            0.7793387174606323,
+            -1.151463508605957
+          ]
+        },
+        {
+          "env": 1,
+          "geoms": [
+            "robot/right_hand_collision",
+            "box/side1"
+          ],
+          "distance_m": -0.0029999874532222748,
+          "force_on_geom1_world_N": [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ]
+        }
+      ],
+      "raw_sum_max_error_N": 0.0,
+      "overflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nacon": 4,
+      "nefc": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "box_quat_at_solve_wxyz": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.950796365737915,
+          0.30981647968292236,
+          0.0,
+          0.0
+        ],
+        [
+          0.950796365737915,
+          0.30981647968292236,
+          0.0,
+          0.0
+        ]
+      ],
+      "fixture": "full native robot welded at FK pose; gravity zero; box dynamic",
+      "box_com_velocity_world_m_s": [
+        [
+          0.0051984768360853195,
+          -5.56785728633713e-11,
+          -0.005185043439269066
+        ],
+        [
+          0.0051984768360853195,
+          -5.471278985424988e-11,
+          -0.005185043439269066
+        ],
+        [
+          0.004827013239264488,
+          0.0019399994052946568,
+          -0.002867315895855427
+        ],
+        [
+          0.004827016964554787,
+          0.001939999870955944,
+          -0.0028673179913312197
+        ]
+      ],
+      "box_rotated_radians_about_world_x": [
+        0.0,
+        0.0,
+        0.63,
+        0.63
+      ],
+      "expected_push_direction_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "momentum_max_error_m_s": 1.3426318764686931e-05,
+      "force_box_local_N": [
+        [
+          [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            2.079387903213501,
+            0.0,
+            -2.079387903213501
+          ]
+        ],
+        [
+          [
+            1.9308021068572998,
+            -0.048651471734046936,
+            -1.3895573616027832
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.9308022260665894,
+            -0.04865159094333649,
+            -1.3895576000213623
+          ]
+        ]
+      ],
+      "frame_roundtrip_max_error_N": 5.960464477539063e-08
+    },
+    "substep1_only": {
+      "pattern": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "samples": [
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.663629174232483,
+                  0.04907294362783432,
+                  -1.3815339803695679
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6636285781860352,
+                  0.04907332360744476,
+                  -1.3815336227416992
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637592315673828,
+                  0.049076780676841736,
+                  -1.381641149520874
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637587547302246,
+                  0.049076952040195465,
+                  -1.3816405534744263
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [
+            {
+              "env": 1,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            },
+            {
+              "env": 2,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ]
+            },
+            {
+              "env": 3,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ]
+            },
+            {
+              "env": 0,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ]
+            }
+          ],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 4,
+          "nefc": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      ],
+      "history_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.663629174232483,
+              0.04907294362783432,
+              -1.3815339803695679
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6637592315673828,
+              0.049076780676841736,
+              -1.381641149520874
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6637587547302246,
+              0.049076952040195465,
+              -1.3816405534744263
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "four_substeps": true,
+      "no_fifth_forward_sample": true,
+      "retained_copy_stable": true
+    },
+    "substep4_only": {
+      "pattern": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "samples": [
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.663629174232483,
+                  0.04907294362783432,
+                  -1.3815339803695679
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6636285781860352,
+                  0.04907332360744476,
+                  -1.3815336227416992
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637592315673828,
+                  0.049076780676841736,
+                  -1.381641149520874
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637587547302246,
+                  0.049076952040195465,
+                  -1.3816405534744263
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [
+            {
+              "env": 1,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            },
+            {
+              "env": 2,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ]
+            },
+            {
+              "env": 3,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ]
+            },
+            {
+              "env": 0,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ]
+            }
+          ],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 4,
+          "nefc": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      ],
+      "history_N": [
+        [
+          [
+            [
+              1.663629174232483,
+              0.04907294362783432,
+              -1.3815339803695679
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1.6637592315673828,
+              0.049076780676841736,
+              -1.381641149520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1.6637587547302246,
+              0.049076952040195465,
+              -1.3816405534744263
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "four_substeps": true,
+      "no_fifth_forward_sample": true,
+      "retained_copy_stable": true
+    },
+    "contact_ends_before_final": {
+      "pattern": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "samples": [
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.663629174232483,
+                  0.04907294362783432,
+                  -1.3815339803695679
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6636285781860352,
+                  0.04907332360744476,
+                  -1.3815336227416992
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637592315673828,
+                  0.049076780676841736,
+                  -1.381641149520874
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637587547302246,
+                  0.049076952040195465,
+                  -1.3816405534744263
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [
+            {
+              "env": 1,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            },
+            {
+              "env": 2,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ]
+            },
+            {
+              "env": 3,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ]
+            },
+            {
+              "env": 0,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ]
+            }
+          ],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 4,
+          "nefc": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.663629174232483,
+                  0.04907294362783432,
+                  -1.3815339803695679
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6636285781860352,
+                  0.04907332360744476,
+                  -1.3815336227416992
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637592315673828,
+                  0.049076780676841736,
+                  -1.381641149520874
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.6637587547302246,
+                  0.049076952040195465,
+                  -1.3816405534744263
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [
+            {
+              "env": 1,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            },
+            {
+              "env": 2,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637592315673828,
+                0.049076780676841736,
+                -1.381641149520874
+              ]
+            },
+            {
+              "env": 3,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.003000181168317795,
+              "force_on_geom1_world_N": [
+                1.6637587547302246,
+                0.049076952040195465,
+                -1.3816405534744263
+              ]
+            },
+            {
+              "env": 0,
+              "geoms": [
+                "robot/left_hand_collision",
+                "box/side1"
+              ],
+              "distance_m": -0.0029999427497386932,
+              "force_on_geom1_world_N": [
+                1.663629174232483,
+                0.04907294362783432,
+                -1.3815339803695679
+              ]
+            }
+          ],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 4,
+          "nefc": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "force_columns_world_N": [
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ]
+            ]
+          ],
+          "found_columns": [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "force_world_N": [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          "contacts": [],
+          "raw_sum_max_error_N": 0.0,
+          "overflow": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nacon": 0,
+          "nefc": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "box_quat_at_solve_wxyz": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      ],
+      "history_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.663629174232483,
+              0.04907294362783432,
+              -1.3815339803695679
+            ],
+            [
+              1.663629174232483,
+              0.04907294362783432,
+              -1.3815339803695679
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ],
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6637592315673828,
+              0.049076780676841736,
+              -1.381641149520874
+            ],
+            [
+              1.6637592315673828,
+              0.049076780676841736,
+              -1.381641149520874
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.6637587547302246,
+              0.049076952040195465,
+              -1.3816405534744263
+            ],
+            [
+              1.6637587547302246,
+              0.049076952040195465,
+              -1.3816405534744263
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "four_substeps": true,
+      "no_fifth_forward_sample": true,
+      "retained_copy_stable": true
+    },
+    "reset_immediately_after_contact_isolation": {
+      "before_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2.229461193084717,
+              41.80866622924805,
+              -10.165414810180664
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              5.460546493530273,
+              -31.025493621826172,
+              5.188205718994141
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "after_N": [
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2.229461193084717,
+              41.80866622924805,
+              -10.165414810180664
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              5.460546493530273,
+              -31.025493621826172,
+              5.188205718994141
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      ],
+      "reset_env": 1
+    },
+    "captured_eager_step_reset_parity": {
+      "state_max_error": 6.007030606269836e-07,
+      "history_max_error_N": 1.1444091796875e-05,
+      "captured": {
+        "force_columns_world_N": [
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.663741111755371,
+                -0.049075230956077576,
+                -1.3816299438476562
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                2.2294716835021973,
+                41.808677673339844,
+                -10.165414810180664
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                9.159407615661621,
+                -22.746173858642578,
+                5.236092567443848
+              ],
+              [
+                -3.6988632678985596,
+                -8.279326438903809,
+                -0.047886431217193604
+              ]
+            ]
+          ]
+        ],
+        "found_columns": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              3.0,
+              0.0
+            ],
+            [
+              2.0,
+              3.0
+            ]
+          ]
+        ],
+        "force_world_N": [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ]
+          ],
+          [
+            [
+              2.2294716835021973,
+              41.808677673339844,
+              -10.165414810180664
+            ],
+            [
+              5.460544586181641,
+              -31.025501251220703,
+              5.188206195831299
+            ]
+          ]
+        ],
+        "contacts": [
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot2_collision"
+            ],
+            "distance_m": -0.0029299180023372173,
+            "force_on_geom1_world_N": [
+              -64.80089569091797,
+              -13.416569709777832,
+              119.31189727783203
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot3_collision"
+            ],
+            "distance_m": -0.003325228113681078,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot4_collision"
+            ],
+            "distance_m": -0.003320001531392336,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot5_collision"
+            ],
+            "distance_m": -0.0030650929547846317,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot6_collision"
+            ],
+            "distance_m": -0.0024616713635623455,
+            "force_on_geom1_world_N": [
+              -31.332733154296875,
+              24.953895568847656,
+              145.6202850341797
+            ]
+          },
+          {
+            "env": 1,
+            "geoms": [
+              "robot/left_hand_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.0029999427497386932,
+            "force_on_geom1_world_N": [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.009614940732717514,
+            "force_on_geom1_world_N": [
+              -1.5189257860183716,
+              18.56192970275879,
+              -5.082182884216309
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side3"
+            ],
+            "distance_m": -0.009614856913685799,
+            "force_on_geom1_world_N": [
+              -1.517337679862976,
+              18.55957794189453,
+              -5.0832319259643555
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.0001934431493282318,
+            "force_on_geom1_world_N": [
+              4.579662322998047,
+              -11.37296199798584,
+              2.6180291175842285
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_wrist_collision",
+              "box/side4"
+            ],
+            "distance_m": -0.0001934543251991272,
+            "force_on_geom1_world_N": [
+              4.579745292663574,
+              -11.373210906982422,
+              2.61806321144104
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side2"
+            ],
+            "distance_m": -0.006142867729067802,
+            "force_on_geom1_world_N": [
+              -1.8497298955917358,
+              -4.140872955322266,
+              -0.023873865604400635
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side4"
+            ],
+            "distance_m": -0.006142755970358849,
+            "force_on_geom1_world_N": [
+              -1.8491333723068237,
+              -4.138453483581543,
+              -0.02401256561279297
+            ]
+          },
+          {
+            "env": 2,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.003000181168317795,
+            "force_on_geom1_world_N": [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.006131280213594437,
+            "force_on_geom1_world_N": [
+              5.265735149383545,
+              4.687173366546631,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side2"
+            ],
+            "distance_m": -0.003016207367181778,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "raw_sum_max_error_N": 3.337860107421875e-06,
+        "overflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nacon": 15,
+        "nefc": [
+          0,
+          4,
+          4,
+          52
+        ],
+        "box_quat_at_solve_wxyz": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.029028186574578285,
+            0.0,
+            0.0,
+            0.999578595161438
+          ]
+        ]
+      },
+      "eager": {
+        "force_columns_world_N": [
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.6636285781860352,
+                0.04907332360744476,
+                -1.3815336227416992
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.663741111755371,
+                -0.049075230956077576,
+                -1.3816299438476562
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                2.2294631004333496,
+                41.80867004394531,
+                -10.165421485900879
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                9.15939712524414,
+                -22.746158599853516,
+                5.236083984375
+              ],
+              [
+                -3.6988492012023926,
+                -8.27933120727539,
+                -0.047879040241241455
+              ]
+            ]
+          ]
+        ],
+        "found_columns": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              3.0,
+              0.0
+            ],
+            [
+              2.0,
+              3.0
+            ]
+          ]
+        ],
+        "force_world_N": [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ]
+          ],
+          [
+            [
+              2.2294631004333496,
+              41.80867004394531,
+              -10.165421485900879
+            ],
+            [
+              5.460547924041748,
+              -31.025489807128906,
+              5.188204765319824
+            ]
+          ]
+        ],
+        "contacts": [
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot2_collision"
+            ],
+            "distance_m": -0.0029299180023372173,
+            "force_on_geom1_world_N": [
+              -64.80097961425781,
+              -13.416720390319824,
+              119.31192016601562
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot3_collision"
+            ],
+            "distance_m": -0.003325228113681078,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot4_collision"
+            ],
+            "distance_m": -0.003320001531392336,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot5_collision"
+            ],
+            "distance_m": -0.0030650929547846317,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "terrain",
+              "robot/left_foot6_collision"
+            ],
+            "distance_m": -0.0024616713635623455,
+            "force_on_geom1_world_N": [
+              -31.332605361938477,
+              24.954029083251953,
+              145.62022399902344
+            ]
+          },
+          {
+            "env": 1,
+            "geoms": [
+              "robot/left_hand_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.0029999427497386932,
+            "force_on_geom1_world_N": [
+              1.6636285781860352,
+              0.04907332360744476,
+              -1.3815336227416992
+            ]
+          },
+          {
+            "env": 2,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.003000181168317795,
+            "force_on_geom1_world_N": [
+              1.663741111755371,
+              -0.049075230956077576,
+              -1.3816299438476562
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.009614940732717514,
+            "force_on_geom1_world_N": [
+              -1.5189546346664429,
+              18.561922073364258,
+              -5.082222938537598
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side3"
+            ],
+            "distance_m": -0.009614856913685799,
+            "force_on_geom1_world_N": [
+              -1.5173383951187134,
+              18.55955696105957,
+              -5.083198547363281
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.0001934431493282318,
+            "force_on_geom1_world_N": [
+              4.579656600952148,
+              -11.37295150756836,
+              2.618018865585327
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_wrist_collision",
+              "box/side4"
+            ],
+            "distance_m": -0.0001934543251991272,
+            "force_on_geom1_world_N": [
+              4.579740524291992,
+              -11.373207092285156,
+              2.618065357208252
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side2"
+            ],
+            "distance_m": -0.006142867729067802,
+            "force_on_geom1_world_N": [
+              -1.8497400283813477,
+              -4.140913963317871,
+              -0.02388298511505127
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side4"
+            ],
+            "distance_m": -0.006142755970358849,
+            "force_on_geom1_world_N": [
+              -1.849109172821045,
+              -4.138417720794678,
+              -0.023996055126190186
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/left_wrist_collision",
+              "box/side1"
+            ],
+            "distance_m": -0.006131280213594437,
+            "force_on_geom1_world_N": [
+              5.265756130218506,
+              4.687192440032959,
+              0.0
+            ]
+          },
+          {
+            "env": 3,
+            "geoms": [
+              "robot/right_hand_collision",
+              "box/side2"
+            ],
+            "distance_m": -0.003016207367181778,
+            "force_on_geom1_world_N": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "raw_sum_max_error_N": 1.430511474609375e-06,
+        "overflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nacon": 15,
+        "nefc": [
+          0,
+          4,
+          4,
+          52
+        ],
+        "box_quat_at_solve_wxyz": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.029028186574578285,
+            0.0,
+            0.0,
+            0.999578595161438
+          ]
+        ]
+      }
+    },
+    "deliberate_overflow_rejected": {
+      "deliberate_maxmatch": 1,
+      "flags": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "caught": "MuJoCo Warp overflow flags: [64, 64, 64, 64]"
+    }
+  },
+  "provenance": {
+    "git_head": "f2cfac76e1977d3321199a57d961da517e855e2b",
+    "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "versions": {
+      "mjlab": "1.6.0",
+      "mujoco": "3.16.0",
+      "mujoco-warp": "3.16.0",
+      "warp-lang": "1.18.0",
+      "torch": "2.14.1+cu130"
+    },
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "production_capacities": {
+      "nconmax": 256,
+      "njmax": 1024,
+      "maxmatch": 64
+    },
+    "semantics": "world hand-on-box N; found is current constraint count; history newest-first"
+  }
+}

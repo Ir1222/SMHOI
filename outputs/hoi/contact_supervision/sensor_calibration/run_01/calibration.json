@@ -1,0 +1,74 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "all_seven_geoms_both_hands_both_primaries": "FAIL",
+    "no_left_right_bilateral_parallel": "FAIL",
+    "hand_ground_and_box_support_excluded": "FAIL",
+    "fixed_robot_known_and_rotated_pushes": "FAIL",
+    "substep1_only": "FAIL",
+    "substep4_only": "FAIL",
+    "contact_ends_before_final": "FAIL",
+    "reset_immediately_after_contact_isolation": "FAIL",
+    "captured_eager_step_reset_parity": "FAIL",
+    "deliberate_overflow_rejected": "PASS"
+  },
+  "scenarios": {
+    "all_seven_geoms_both_hands_both_primaries": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "no_left_right_bilateral_parallel": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "hand_ground_and_box_support_excluded": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "fixed_robot_known_and_rotated_pushes": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "substep1_only": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "substep4_only": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "contact_ends_before_final": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "reset_immediately_after_contact_isolation": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "captured_eager_step_reset_parity": {
+      "error": "AttributeError(\"module 'mujoco_warp' has no attribute 'ContactType'\")"
+    },
+    "deliberate_overflow_rejected": {
+      "deliberate_maxmatch": 1,
+      "flags": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "caught": "MuJoCo Warp overflow flags: [64, 64, 64, 64]"
+    }
+  },
+  "provenance": {
+    "git_head": "f2cfac76e1977d3321199a57d961da517e855e2b",
+    "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "versions": {
+      "mjlab": "1.6.0",
+      "mujoco": "3.16.0",
+      "mujoco-warp": "3.16.0",
+      "warp-lang": "1.18.0",
+      "torch": "2.14.1+cu130"
+    },
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "production_capacities": {
+      "nconmax": 256,
+      "njmax": 1024,
+      "maxmatch": 64
+    },
+    "semantics": "world hand-on-box N; found is current constraint count; history newest-first"
+  }
+}
