@@ -1,0 +1,588 @@
+{
+  "source": {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets_mjcf/objects/bread_box/bread_box.xml",
+    "sha256": "b91114480649634e49cd9f16e577109e01860c6d7607176a5b4e3f02a38087c6"
+  },
+  "mujoco_version": "3.16.0",
+  "geoms": [
+    {
+      "name": "bottom",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.17,
+        0.01
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "side1",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        -0.08,
+        0.0,
+        0.13
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.17,
+        0.13
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "side2",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.08,
+        0.0,
+        0.13
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.17,
+        0.13
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "side3",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.0,
+        0.16,
+        0.13
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.01,
+        0.13
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "side4",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.0,
+        -0.16,
+        0.13
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.01,
+        0.13
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "handle_left",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.0,
+        0.17,
+        0.21
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.03,
+        0.02,
+        0.01
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "handle_right",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0.0,
+        -0.17,
+        0.21
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.03,
+        0.02,
+        0.01
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "inertia": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      -0.2
+    ],
+    "principal_axes_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "diagonal_kg_m2": [
+      0.0334,
+      0.02167,
+      0.04167
+    ]
+  },
+  "root_initial_pose_xml": {
+    "pos": [
+      0.7,
+      0.0,
+      0.4
+    ],
+    "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "aabb": {
+    "min": [
+      -0.09,
+      -0.19,
+      -0.01
+    ],
+    "max": [
+      0.09,
+      0.19,
+      0.26
+    ],
+    "dimensions": [
+      0.18,
+      0.38,
+      0.27
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.125
+    ]
+  },
+  "main_dimensions": [
+    0.18,
+    0.34,
+    0.27
+  ],
+  "source_builder_differences": [
+    {
+      "geom": "bottom",
+      "differences": {
+        "name": {
+          "xml": "bottom",
+          "source_builder": "box_bottom"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "side1",
+      "differences": {
+        "name": {
+          "xml": "side1",
+          "source_builder": "box_side1"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "side2",
+      "differences": {
+        "name": {
+          "xml": "side2",
+          "source_builder": "box_side2"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "side3",
+      "differences": {
+        "name": {
+          "xml": "side3",
+          "source_builder": "box_side3"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "side4",
+      "differences": {
+        "name": {
+          "xml": "side4",
+          "source_builder": "box_side4"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "handle_left",
+      "differences": {
+        "name": {
+          "xml": "handle_left",
+          "source_builder": "box_handle_left"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    },
+    {
+      "geom": "handle_right",
+      "differences": {
+        "name": {
+          "xml": "handle_right",
+          "source_builder": "box_handle_right"
+        },
+        "body": {
+          "xml": "bread_box",
+          "source_builder": "box"
+        },
+        "priority": {
+          "xml": 0,
+          "source_builder": 1
+        }
+      }
+    }
+  ],
+  "source_builder_inertia": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      -0.2
+    ],
+    "principal_axes_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "diagonal_kg_m2": [
+      0.0334,
+      0.02167,
+      0.04167
+    ]
+  },
+  "inertia_exact_equal": true,
+  "restitution": null,
+  "restitution_note": "not specified in MJCF; solref/solimp are not a PhysX restitution coefficient",
+  "task_randomization": {
+    "object_body_randomization": {
+      "static_dynamic_friction_ratio_range": [
+        1.0,
+        2.0
+      ],
+      "dynamic_friction_range": [
+        0.3,
+        0.8
+      ],
+      "restitution_range": [
+        0.0,
+        0.2
+      ],
+      "mass_range": [
+        1.2,
+        1.8
+      ]
+    },
+    "body_scale": {
+      "name": "bread_box",
+      "scale_range": [
+        0.9,
+        1.1
+      ]
+    }
+  },
+  "task_contact": {
+    "contact_target_pos_offset": [
+      [
+        0,
+        0.17,
+        0.14
+      ],
+      [
+        0,
+        -0.17,
+        0.14
+      ]
+    ],
+    "contact_eef_pos_offset": [
+      [
+        0.05,
+        0.0,
+        0.0
+      ],
+      [
+        0.05,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "com_warning": "COM is 0.19 m below lowest collision point; cannot describe positive mass confined to these seven solids. Preserve official model for parity; never silently recenter.",
+  "obb_error": "source diagnostic OBB spans z=[0,.26], missing bottom [-.01,0]; correct union center .125 and half-height .135"
+}
