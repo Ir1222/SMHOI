@@ -1,0 +1,51 @@
+{
+  "purpose": "Dependency sign/netforce probe on an ephemeral ball-plane fixture. Not P1 HOI calibration.",
+  "cpu_sensor_values": [
+    1.0,
+    0.0,
+    0.0,
+    -11.8195,
+    1.0,
+    0.0,
+    0.0,
+    11.8195
+  ],
+  "warp_sensor_values": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -11.819499969482422,
+      1.0,
+      0.0,
+      0.0,
+      11.819499969482422
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      -11.819499969482422,
+      1.0,
+      0.0,
+      0.0,
+      11.819499969482422
+    ]
+  ],
+  "ball_primary_force": [
+    0.0,
+    0.0,
+    -11.8195
+  ],
+  "floor_primary_force": [
+    0.0,
+    0.0,
+    11.8195
+  ],
+  "force_is_primary_on_secondary": true,
+  "swapped_pair_negates": true,
+  "cpu_warp_max_abs_difference": 3.051757779815034e-08,
+  "cpu_warp_match": true,
+  "captured_eager_match": true,
+  "scope_limit": "Tests sensor_acc using an existing constraint solution; does not validate full HOI stepping, reset, seven-geoms or transient contact."
+}

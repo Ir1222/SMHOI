@@ -1,0 +1,463 @@
+{
+  "path": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+  "unsafe_globals_allowlisted": [
+    "pathlib.PosixPath"
+  ],
+  "keys": [
+    "iteration",
+    "num_updates",
+    "wm",
+    "policy",
+    "critic",
+    "wm_opt",
+    "policy_opt",
+    "critic_opt",
+    "bin_return",
+    "bin_memory",
+    "config"
+  ],
+  "iteration": 12000,
+  "num_updates": 4784,
+  "config": {
+    "run_name": "hdmi_robot_only",
+    "log_root": "logs",
+    "seed": 0,
+    "device": "cuda:0",
+    "data": {
+      "npz_dir": "data/npz/HDMI_RoboOnly",
+      "clips": null,
+      "limit": null,
+      "manifest": null,
+      "library": null
+    },
+    "env": {
+      "num_envs": 4096,
+      "episode_length_s": 20.0,
+      "action_noise_std": 0.1,
+      "obs_noise": true,
+      "reset_noise": true,
+      "domain_randomization": true,
+      "sampling_mode": "return",
+      "replay_capacity": 1000,
+      "future_frames": 10,
+      "compact_library": false,
+      "anchor_obs": false
+    },
+    "world_model": {
+      "hidden": [
+        2048,
+        2048,
+        2048
+      ],
+      "term_hidden": [
+        64,
+        64
+      ],
+      "state_spec": {
+        "dt": 0.02,
+        "err_scale": [
+          0.05,
+          0.1,
+          0.5,
+          1.0,
+          0.1,
+          2.0
+        ],
+        "out_scale": [
+          0.3,
+          0.5,
+          2.0,
+          0.01,
+          0.02,
+          0.02
+        ],
+        "in_scale": [
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          1.0,
+          5.0
+        ],
+        "explicit_integration": true,
+        "xi_offset": [
+          0.75,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "xi_scale": [
+          0.45,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.05,
+          0.05,
+          0.05
+        ]
+      },
+      "term_loss_weight": 1.0,
+      "height_threshold": 0.25,
+      "tilt_threshold": 0.8
+    },
+    "wm_trainer": {
+      "window": 8,
+      "batches_per_update": 10,
+      "batch_size": 2048,
+      "lr": 0.0002,
+      "grad_clip": 1.0,
+      "weight_decay": 0.0,
+      "compile": "default"
+    },
+    "policy": {
+      "encoder_hidden": [
+        2048,
+        1024,
+        512,
+        256
+      ],
+      "decoder_hidden": [
+        2048,
+        1024,
+        512,
+        256
+      ],
+      "latent_dim": 32,
+      "history": 10,
+      "obs_term_scale": [
+        1.0,
+        5.0,
+        2.0,
+        1.0,
+        1.0
+      ],
+      "goal_term_scale": [
+        1.0,
+        5.0,
+        1.0,
+        2.0,
+        1.0,
+        1.0
+      ],
+      "decoder_last_gain": 0.01,
+      "goal_dim": 680
+    },
+    "critic": {
+      "hidden": [
+        256,
+        128
+      ]
+    },
+    "policy_trainer": {
+      "horizon": 32,
+      "batch_size": 4096,
+      "history": 10,
+      "future_frames": 10,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip_norm": 1.0,
+      "grad_clip_value": 0.1,
+      "critic_lr": 0.0002,
+      "critic_grad_clip": 1.0,
+      "critic_epochs": 5,
+      "critic_minibatches": 4,
+      "use_critic": true,
+      "obs_noise": true,
+      "compile": "default",
+      "anchor_obs": false
+    },
+    "schedule": {
+      "total_iterations": 320000,
+      "updates_per_env_step": 0.4,
+      "policy_updates_per_wm_update": 1,
+      "warmup_iterations": 40,
+      "lr_final_ratio": 0.03,
+      "lr_decay_fraction": 0.78125,
+      "log_interval": 50,
+      "checkpoint_interval": 4000,
+      "max_hours": null
+    },
+    "resume": null
+  },
+  "tensor_shapes": {
+    "wm": {
+      "dynamics.mlp.net.0.weight": [
+        2048,
+        133
+      ],
+      "dynamics.mlp.net.0.bias": [
+        2048
+      ],
+      "dynamics.mlp.net.2.weight": [
+        2048,
+        2048
+      ],
+      "dynamics.mlp.net.2.bias": [
+        2048
+      ],
+      "dynamics.mlp.net.4.weight": [
+        2048,
+        2048
+      ],
+      "dynamics.mlp.net.4.bias": [
+        2048
+      ],
+      "dynamics.mlp.net.6.weight": [
+        70,
+        2048
+      ],
+      "dynamics.mlp.net.6.bias": [
+        70
+      ],
+      "term_head.scale": [
+        2
+      ],
+      "term_head.mlp.net.0.weight": [
+        64,
+        4
+      ],
+      "term_head.mlp.net.0.bias": [
+        64
+      ],
+      "term_head.mlp.net.2.weight": [
+        64,
+        64
+      ],
+      "term_head.mlp.net.2.bias": [
+        64
+      ],
+      "term_head.mlp.net.4.weight": [
+        1,
+        64
+      ],
+      "term_head.mlp.net.4.bias": [
+        1
+      ]
+    },
+    "policy": {
+      "encoders.motion.scale": [
+        680
+      ],
+      "encoders.motion.mlp.net.0.weight": [
+        2048,
+        680
+      ],
+      "encoders.motion.mlp.net.0.bias": [
+        2048
+      ],
+      "encoders.motion.mlp.net.2.weight": [
+        1024,
+        2048
+      ],
+      "encoders.motion.mlp.net.2.bias": [
+        1024
+      ],
+      "encoders.motion.mlp.net.4.weight": [
+        512,
+        1024
+      ],
+      "encoders.motion.mlp.net.4.bias": [
+        512
+      ],
+      "encoders.motion.mlp.net.6.weight": [
+        256,
+        512
+      ],
+      "encoders.motion.mlp.net.6.bias": [
+        256
+      ],
+      "encoders.motion.mlp.net.8.weight": [
+        32,
+        256
+      ],
+      "encoders.motion.mlp.net.8.bias": [
+        32
+      ],
+      "decoder.scale": [
+        930
+      ],
+      "decoder.mlp.net.0.weight": [
+        2048,
+        962
+      ],
+      "decoder.mlp.net.0.bias": [
+        2048
+      ],
+      "decoder.mlp.net.2.weight": [
+        1024,
+        2048
+      ],
+      "decoder.mlp.net.2.bias": [
+        1024
+      ],
+      "decoder.mlp.net.4.weight": [
+        512,
+        1024
+      ],
+      "decoder.mlp.net.4.bias": [
+        512
+      ],
+      "decoder.mlp.net.6.weight": [
+        256,
+        512
+      ],
+      "decoder.mlp.net.6.bias": [
+        256
+      ],
+      "decoder.mlp.net.8.weight": [
+        29,
+        256
+      ],
+      "decoder.mlp.net.8.bias": [
+        29
+      ]
+    },
+    "critic": {
+      "goal_scale": [
+        680
+      ],
+      "mlp.net.0.weight": [
+        256,
+        788
+      ],
+      "mlp.net.0.bias": [
+        256
+      ],
+      "mlp.net.2.weight": [
+        128,
+        256
+      ],
+      "mlp.net.2.bias": [
+        128
+      ],
+      "mlp.net.4.weight": [
+        1,
+        128
+      ],
+      "mlp.net.4.bias": [
+        1
+      ]
+    }
+  },
+  "strict_load": {
+    "policy": {
+      "pass": true,
+      "missing": [],
+      "unexpected": []
+    },
+    "critic": {
+      "pass": true,
+      "missing": [],
+      "unexpected": []
+    },
+    "wm": {
+      "pass": true,
+      "missing": [],
+      "unexpected": []
+    }
+  },
+  "config_data": {
+    "npz_dir": "data/npz/HDMI_RoboOnly",
+    "clips": null,
+    "limit": null,
+    "manifest": null,
+    "library": null
+  },
+  "config_resume": null,
+  "config_run_name": "hdmi_robot_only",
+  "current_vs_candidate_checkout_code_equal": {
+    "src/supermimic/world_model/__init__.py": true,
+    "src/supermimic/world_model/heads.py": true,
+    "src/supermimic/world_model/wm_trainer.py": true,
+    "src/supermimic/world_model/state_spec.py": true,
+    "src/supermimic/world_model/world_model.py": true,
+    "src/supermimic/world_model/dynamics.py": true,
+    "src/supermimic/imagination/__init__.py": true,
+    "src/supermimic/imagination/compiled.py": true,
+    "src/supermimic/imagination/policy_trainer.py": true,
+    "src/supermimic/imagination/objective.py": true,
+    "src/supermimic/imagination/rollout.py": true,
+    "src/supermimic/policy/__init__.py": true,
+    "src/supermimic/policy/nets.py": true,
+    "src/supermimic/data/__init__.py": true,
+    "src/supermimic/data/replay_buffer.py": true,
+    "src/supermimic/data/motion_convert.py": true,
+    "src/supermimic/data/recorder.py": true,
+    "src/supermimic/training/__init__.py": true,
+    "src/supermimic/training/loop.py": true,
+    "src/supermimic/training/schedule.py": true,
+    "src/supermimic/training/distributed.py": true,
+    "src/supermimic/envs/sim_context.py": true,
+    "src/supermimic/envs/actions.py": true,
+    "src/supermimic/envs/__init__.py": true,
+    "src/supermimic/envs/state_io.py": true,
+    "src/supermimic/envs/tracking_env_cfg.py": true,
+    "src/supermimic/envs/mdp/terminations.py": true,
+    "src/supermimic/envs/mdp/commands.py": true,
+    "src/supermimic/envs/mdp/__init__.py": true,
+    "src/supermimic/envs/mdp/observations.py": true,
+    "src/supermimic/envs/mdp/rewards.py": true,
+    "src/supermimic/envs/mdp/motion_library.py": true
+  },
+  "provenance_limit": "Checkpoint has config/iteration/weights but no embedded Git SHA or dataset SHA; current external checkout equality is not proof of code at training time. No HOI migration performed."
+}

@@ -1,0 +1,37 @@
+{
+  "replay_terminal_label_alignment": {
+    "actual_states_x": [
+      0.0,
+      1.0,
+      2.0
+    ],
+    "actual_done": [
+      1.0,
+      1.0
+    ],
+    "correct_transition_done": [
+      0.0,
+      1.0
+    ],
+    "matches_transition_contract": false,
+    "explanation": "sample_windows reads successor-row done; recorder writes terminating done to both preterminal transition row and terminal state row, so previous transition is also labeled done."
+  },
+  "reference_end": {
+    "window_shape": [
+      1,
+      3,
+      68
+    ],
+    "all_goal_slots_at_839_equal": true,
+    "valid_mask_returned": false,
+    "imagine_frames_all": "torch.minimum(frame + arange(H+1), last); no finite-clip reward mask"
+  },
+  "support_context_identifiability": {
+    "translated_state_canonical_equal": true,
+    "translation_m": [
+      2.0,
+      -3.0
+    ],
+    "interpretation": "A common xy translation of robot and object leaves robot canonical + robot-relative object features unchanged, but changes their relation to fixed supports. Episode-constant xi cannot encode this."
+  }
+}

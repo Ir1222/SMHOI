@@ -1,0 +1,63 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Warp 1.18.0 initialized:
+   CUDA Toolkit 13.4, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 4090 D" (24 GiB, sm_89, mempool enabled)
+   Kernel cache:
+     /tmp/smhoi_p0_warp_cache/1.18.0
+Module _contact_match_builder__locals___contact_match_480cf87a 480cf87 load on device 'cuda:0' took 397.04 ms  (compiled)
+Module _contact_sort__locals__contact_sort_acb63f94 7fe7daf load on device 'cuda:0' took 254.37 ms  (compiled)
+Module mujoco_warp._src.sensor 8feaecd load on device 'cuda:0' took 2344.69 ms  (compiled)
+{
+  "purpose": "Dependency sign/netforce probe on an ephemeral ball-plane fixture. Not P1 HOI calibration.",
+  "cpu_sensor_values": [
+    1.0,
+    0.0,
+    0.0,
+    -11.8195,
+    1.0,
+    0.0,
+    0.0,
+    11.8195
+  ],
+  "warp_sensor_values": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -11.819499969482422,
+      1.0,
+      0.0,
+      0.0,
+      11.819499969482422
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      -11.819499969482422,
+      1.0,
+      0.0,
+      0.0,
+      11.819499969482422
+    ]
+  ],
+  "ball_primary_force": [
+    0.0,
+    0.0,
+    -11.8195
+  ],
+  "floor_primary_force": [
+    0.0,
+    0.0,
+    11.8195
+  ],
+  "force_is_primary_on_secondary": true,
+  "swapped_pair_negates": true,
+  "cpu_warp_max_abs_difference": 3.051757779815034e-08,
+  "cpu_warp_match": true,
+  "captured_eager_match": true,
+  "scope_limit": "Tests sensor_acc using an existing constraint solution; does not validate full HOI stepping, reset, seven-geoms or transient contact."
+}

@@ -1,0 +1,94 @@
+{
+  "mjlab": {
+    "version": "1.6.0",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": "{\"url\":\"https://github.com/mujocolab/mjlab\",\"vcs_info\":{\"vcs\":\"git\",\"commit_id\":\"8bb2bc9e187797689ec82c78c35019afd2fd0376\",\"requested_revision\":\"8bb2bc9e187797689ec82c78c35019afd2fd0376\"}}"
+  },
+  "mujoco": {
+    "version": "3.16.0",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": null
+  },
+  "mujoco-warp": {
+    "version": "3.16.0",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": null
+  },
+  "warp-lang": {
+    "version": "1.18.0",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": null
+  },
+  "torch": {
+    "version": "2.14.1+cu130",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": null
+  },
+  "numpy": {
+    "version": "2.5.4",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": null
+  },
+  "supermimic": {
+    "version": "0.1.0",
+    "location": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages",
+    "direct_url": "{\"url\":\"file:///home/han/pyx/SMHOI\",\"dir_info\":{\"editable\":true}}"
+  },
+  "python": "3.12.8 | packaged by Anaconda, Inc. | (main, Dec 11 2024, 16:31:09) [GCC 11.2.0]",
+  "locked": {
+    "mjlab": {
+      "version": "1.6.0",
+      "source": {
+        "git": "https://github.com/mujocolab/mjlab?rev=8bb2bc9e187797689ec82c78c35019afd2fd0376#8bb2bc9e187797689ec82c78c35019afd2fd0376"
+      }
+    },
+    "mujoco": {
+      "version": "3.16.0",
+      "source": {
+        "registry": "https://pypi.org/simple"
+      }
+    },
+    "mujoco-warp": {
+      "version": "3.16.0",
+      "source": {
+        "registry": "https://pypi.org/simple"
+      }
+    },
+    "numpy": {
+      "version": "2.5.4",
+      "source": {
+        "registry": "https://pypi.org/simple"
+      }
+    },
+    "supermimic": {
+      "version": "0.1.0",
+      "source": {
+        "editable": "."
+      }
+    },
+    "torch": {
+      "version": "2.14.1+cu130",
+      "source": {
+        "registry": "https://download.pytorch.org/whl/cu130"
+      }
+    },
+    "warp-lang": {
+      "version": "1.18.0",
+      "source": {
+        "registry": "https://pypi.org/simple"
+      }
+    }
+  },
+  "inspected_file_sha256": {
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/contact_sensor.py": "8b55ab0d6a21d0256e2fc29187c00cbfe4412cd08993050386c6a1f08197fac7",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/sensor.py": "c700983150dbd74fbceec7486b842af4dc8917a251af0277436aee09a69dd077",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/scene/scene.py": "42893e03dc3cc3ad2199831f5b70331bfe8be56cd0b785e07b8dad6b8fb73897",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py": "e05034969baaa6ca38d7587190eef95d468fd413f182edd2c8d387c2950701f1",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py": "5713308a0d542f9463fee2a6782ad777cb5f177e25d47fab17894dc76cdfe966",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/recorder_manager.py": "9c30862b75b2c2a77b49f331125be382912099147c6ae982aa682a58ce7c3e66",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/entity/data.py": "03deabf1afc122192f031ef71a328e1443d602801d70da5cefe4b754980cfb71",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/sensor.py": "dda71dd5ccf57f0440376db566db32d8680622a5249e18d9733362b3c33faef5",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/forward.py": "eb6fb81d29c1cfdb7ff6b53f88d692a30d99cc0cae44292a3c351082f667914c",
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/support.py": "f84263a9c812c818a8934f725e1b7466ec8f3b47600302a001ab8f8fcb2f712d"
+  }
+}

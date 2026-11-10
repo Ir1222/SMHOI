@@ -1,0 +1,195 @@
+{
+  "/home/han/pyx/SMHOI": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "845878416d544ae2bef94f4a43d2ce059bc8c4ed\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "?? .vscode/settings.json\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? \"docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\"\n?? docs/hoi/force_contact/p0/preservation_baseline.json\n",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/Ir1222/SMHOI.git (fetch)\norigin\thttps://github.com/Ir1222/SMHOI.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "8458784 docs(hoi B3): accept minimal reference with full-motion visual evidence and preserved physical gates\nec3cebc fix(hoi B2): provide tested EGL browser controls when native GLX is unavailable\n52923c9 feat(hoi B2): inspect processed reference in explicit kinematic viewer\n7ad513f style(hoi B1): satisfy focused reference lint checks\ne1fe2c1 feat(hoi B1): preserve canonical robot arrays in minimal reference bundle\n43a7761 audit(M6.5 D): publish NO-GO reconciliation report and immutable review manifest\n",
+      "stderr": ""
+    },
+    "initial_status_before_audit": {
+      "stdout": "?? .vscode/settings.json\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? \"docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\"\n",
+      "source": "Initial shell inspection, before P0 documentation writes"
+    }
+  },
+  "/home/han/pyx/humanoid-amp-ppo": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "114f766405efd3d90cbf5470a4b1c2d3e1da8f27\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "master\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "?? MUJOCO_LOG.TXT\n?? docs/hoi/audits/hoi_research_freeze_20261107.md\n",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/Ir1222/supermimic_carry.git (fetch)\norigin\thttps://github.com/Ir1222/supermimic_carry.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "114f766 Separate reset-only contact-start gains from failed frame-zero approach\n94719a5 Refresh campaign summary with six completed controls and clarified admission\n50e2ab3 Visualize recorded nominal HOI poses with verified state provenance\naf16501 Record fresh reset-only update 500 physical evaluation\nfc5443c docs(hoi): clarify Gate 0 policy-learning admission\na4b55a6 Measure physical training contact occupancy separately from replay exposure\n",
+      "stderr": ""
+    }
+  },
+  "/home/han/pyx/SuperMimic-Reproduced": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "2ea2664bc40cc5d73dfff811a561073ae31463b9\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "feature/supermimic-hoi\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "?? .vscode/settings.json\n",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/Ir1222/supermimic_pyx.git (fetch)\norigin\thttps://github.com/Ir1222/supermimic_pyx.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "2ea2664 docs: add SuperMimic HOI failure audit\n6e0ef20 test(hoi): verify real GPU replay transitions\n8d47fe0 docs(hoi): record largebox geometry correction\n8d2d801 feat(hoi): align largebox collider and analytic sdf\nf354f3b feat(hoi): add verified WEAVE largebox geometry asset\n7d0f18a docs(hoi): finalize implementation and review guide\n",
+      "stderr": ""
+    }
+  },
+  "/tmp/supermimic_hoi_audit_20261104/HDMI": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "32282f6dcf26cae70b814d585ceb12cc38aa1b60\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/LeCAR-Lab/HDMI.git (fetch)\norigin\thttps://github.com/LeCAR-Lab/HDMI.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "32282f6 Merge pull request #14 from sihengz02/patch-1\n",
+      "stderr": ""
+    }
+  },
+  "/home/han/pyx/PhysHSI-carrybox": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "c75efd8ce8ded98031281b5a9b00ed71390dbccd\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "pose_amp_vel\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "?? torch\n?? yaw_left.csv\n",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/Ir1222/PhysHSI.git (fetch)\norigin\thttps://github.com/Ir1222/PhysHSI.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "c75efd8 Update Pose AMP command sampling distribution\n7a41c09 Add independent vel-track pose AMP task\n42519a1 Add gated mode-conditioned whole-body AMP\n3e68f67 increase epi length, decrease AMP effect\nbe6a4bb Restore native TensorBoard scalar tags for mixed handoff\n4b33cdd Clean up native checkpoint loading and production mixed handoff training\n",
+      "stderr": ""
+    }
+  },
+  "/tmp/supermimic_hoi_audit_20261104/SUGAR": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "01fe1234b57188412ec38775150f008f133e0ad4\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/tianshuwu/SUGAR.git (fetch)\norigin\thttps://github.com/tianshuwu/SUGAR.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "01fe123 fix inference bug\n",
+      "stderr": ""
+    }
+  },
+  "/home/han/pyx/humanoid-carrybox": {
+    "head": {
+      "exit_code": 0,
+      "stdout": "dc7d92859d8709e9a875ce285c9877ec479e9a0b\n",
+      "stderr": ""
+    },
+    "branch": {
+      "exit_code": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    "status": {
+      "exit_code": 0,
+      "stdout": "?? hdmi_robot_only.mp4\n",
+      "stderr": ""
+    },
+    "remotes": {
+      "exit_code": 0,
+      "stdout": "origin\thttps://github.com/Ir1222/humanoid-carrybox.git (fetch)\norigin\thttps://github.com/Ir1222/humanoid-carrybox.git (push)\n",
+      "stderr": ""
+    },
+    "recent": {
+      "exit_code": 0,
+      "stdout": "dc7d928 Use HDMI bread box motion for squat tracking\ndd356fe Merge remote initialization history\n410e74c change save interval\n",
+      "stderr": ""
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "protected_files_checked": 361,
+  "protected_files_changed": [],
+  "existing_inventory_files_rehashed": 76,
+  "inventoried_artifacts_changed": [],
+  "committed_manifest_and_acceptance_exact": {
+    "data/assets/hdmi_bread_box/asset_manifest_m6_5.json": true,
+    "outputs/hoi/asset_audit/part_b/reference/reference_manifest.json": true,
+    "outputs/hoi/asset_audit/part_b/DATA_ACCEPTANCE.md": true,
+    "docs/hoi/asset_audit/m6_5/artifact_hashes.json": true
+  },
+  "source_manifest_links": {
+    "hdmi_bread_box_hoi_v1.json": [
+      {
+        "field": "source",
+        "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/generated/hdmi_bread_box_pcp_v2.npz",
+        "match": true
+      },
+      {
+        "field": "output",
+        "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/generated/hdmi_bread_box_hoi_v1.npz",
+        "match": true
+      }
+    ],
+    "hdmi_bread_box_pcp_v2.json": [
+      {
+        "field": "canonical_motion",
+        "path": "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/generated/hdmi_bread_box_pcp_v2.npz",
+        "match": true
+      },
+      {
+        "field": "source_meta",
+        "path": "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/meta.json",
+        "match": true
+      },
+      {
+        "field": "source_motion",
+        "path": "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/motion.npz",
+        "match": true
+      }
+    ]
+  },
+  "npz_schemas_present": true,
+  "npz_archives_read": 8,
+  "source_files_ast_parsed": 46,
+  "tracked_diff_empty": true,
+  "json_outputs_parsed": 11,
+  "missing_exact_inputs": [
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "/home/han/pyx/SMHOI/logs/hdmi_robot_only/ckpt_0012000.pt"
+  ],
+  "all_preservation_checks_pass": true,
+  "plan_completeness": "PARTIAL: supplied underscore path missing; discovered space path ends at P0.4, 361 newline characters, no P1 detail/report paths",
+  "p1_started": false,
+  "training_started": false,
+  "committed": false,
+  "pushed": false
+}
