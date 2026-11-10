@@ -1,0 +1,3784 @@
+{
+  "target_xml": {
+    "path": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/xmls/g1.xml",
+    "sha256": "febdcbeffbbf84051556ae41a5ac1b43fb479a5d76bdb3f54824dbc2721c20aa"
+  },
+  "native": [
+    {
+      "name": "",
+      "body": "left_ankle_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.02646435804254272,
+        7.351326310042785e-05,
+        -0.014106210048355583
+      ],
+      "quat": [
+        -0.0005721812173175023,
+        0.7352857380118878,
+        -0.0007274134708863955,
+        0.677756613361031
+      ],
+      "size": [
+        0.03863906045599861,
+        0.03783927626122769,
+        0.11717886395655676
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_ankle_roll_link"
+    },
+    {
+      "name": "left_foot1_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        -0.0265,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        -0.014139308044851608,
+        0.7069654022425798,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.02500499950009998,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot2_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        -0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot3_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        -0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot4_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.0,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.093,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot5_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot6_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot7_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_ankle_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.026469481697172777,
+        -7.266444317600382e-05,
+        -0.014106435744604889
+      ],
+      "quat": [
+        0.0005425576984263714,
+        0.7352870828384795,
+        0.0007188457215364652,
+        0.6777551878833948
+      ],
+      "size": [
+        0.03863891193000701,
+        0.03783605173515046,
+        0.11717378231508606
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_ankle_roll_link"
+    },
+    {
+      "name": "right_foot1_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        -0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot2_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        -0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot3_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        -0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot4_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.0,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.093,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot5_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot6_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot7_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "left_wrist_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.018657984394854582,
+        5.9793423268075494e-06,
+        -1.5958652824487767e-07
+      ],
+      "quat": [
+        0.5081027631957494,
+        0.49185795611395544,
+        -0.5080344446428378,
+        0.49174011031915266
+      ],
+      "size": [
+        0.030003017900650332,
+        0.03811245675682158,
+        0.03104121818315669
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_roll_link"
+    },
+    {
+      "name": "",
+      "body": "left_wrist_pitch_link",
+      "type": "mesh",
+      "pos": [
+        0.02300019707036519,
+        -0.0005173613094355222,
+        -0.000518381947122207
+      ],
+      "quat": [
+        -0.26617198017781474,
+        0.6661858330054714,
+        -0.2579873049192032,
+        0.6471409918800983
+      ],
+      "size": [
+        0.032892003652143495,
+        0.032874359177483686,
+        0.05187037018087462
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_pitch_link"
+    },
+    {
+      "name": "left_wrist_collision",
+      "body": "left_wrist_pitch_link",
+      "type": "capsule",
+      "pos": [
+        0.024999999999999998,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.034999999999999996,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "left_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.020643364729886877,
+        0.0009027484895771055,
+        2.863405704168882e-06
+      ],
+      "quat": [
+        0.669802012003953,
+        -0.013703155596465863,
+        -0.013858749150839062,
+        0.7422839236532954
+      ],
+      "size": [
+        0.02808902444515463,
+        0.039546509676417325,
+        0.031050178505069772
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_yaw_link"
+    },
+    {
+      "name": "",
+      "body": "left_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.10613010179746868,
+        -0.003684766726099308,
+        0.00309993820831831
+      ],
+      "quat": [
+        0.542568220766239,
+        0.579853757272508,
+        0.42500863809544787,
+        0.43446174001374194
+      ],
+      "size": [
+        0.02580063659075773,
+        0.061558042494591236,
+        0.07424769453291173
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_rubber_hand"
+    },
+    {
+      "name": "left_hand_collision",
+      "body": "left_wrist_yaw_link",
+      "type": "capsule",
+      "pos": [
+        0.11,
+        -0.01,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        -0.17149858514250885,
+        -0.6859943405700354,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.041231056256176596,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_wrist_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.018657941307464523,
+        -5.957828778852661e-06,
+        -4.83245646150392e-07
+      ],
+      "quat": [
+        0.49182998157329155,
+        0.5081079399263569,
+        -0.49175687364658655,
+        0.5080401242330643
+      ],
+      "size": [
+        0.030001927169167764,
+        0.038113013213425834,
+        0.0310415510702605
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_roll_link"
+    },
+    {
+      "name": "",
+      "body": "right_wrist_pitch_link",
+      "type": "mesh",
+      "pos": [
+        0.022999880367268993,
+        0.0005172208304745039,
+        -0.0005182067564729859
+      ],
+      "quat": [
+        0.2735909987203391,
+        0.6631810947807535,
+        0.26562209340983034,
+        0.6440370365415267
+      ],
+      "size": [
+        0.032726867032829274,
+        0.03270849033492627,
+        0.051870568590019074
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_pitch_link"
+    },
+    {
+      "name": "right_wrist_collision",
+      "body": "right_wrist_pitch_link",
+      "type": "capsule",
+      "pos": [
+        0.024999999999999998,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.034999999999999996,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.020642202624980278,
+        -0.0009024964060801943,
+        4.787797910695187e-06
+      ],
+      "quat": [
+        0.7422588772182375,
+        -0.013951373298916351,
+        -0.013789557031147969,
+        0.6698260718206495
+      ],
+      "size": [
+        0.028089943325178435,
+        0.03954302505044154,
+        0.031055563492553926
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_yaw_link"
+    },
+    {
+      "name": "",
+      "body": "right_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.10612782253823516,
+        0.003684169488582977,
+        0.0030997910442408447
+      ],
+      "quat": [
+        0.43445763657914865,
+        0.4250188907899021,
+        0.5798476128675704,
+        0.5425700418762213
+      ],
+      "size": [
+        0.025796098045815678,
+        0.06155815653661417,
+        0.07424980305969875
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_rubber_hand"
+    },
+    {
+      "name": "right_hand_collision",
+      "body": "right_wrist_yaw_link",
+      "type": "capsule",
+      "pos": [
+        0.11,
+        0.01,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.17149858514250885,
+        -0.6859943405700354,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.041231056256176596,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "adapter_applied_to_target_in_memory": [
+    {
+      "name": "",
+      "body": "left_ankle_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.02646435804254272,
+        7.351326310042785e-05,
+        -0.014106210048355583
+      ],
+      "quat": [
+        -0.0005721812173175023,
+        0.7352857380118878,
+        -0.0007274134708863955,
+        0.677756613361031
+      ],
+      "size": [
+        0.03863906045599861,
+        0.03783927626122769,
+        0.11717886395655676
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_ankle_roll_link"
+    },
+    {
+      "name": "left_foot1_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        -0.0265,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        -0.014139308044851608,
+        0.7069654022425798,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.02500499950009998,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot2_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        -0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot3_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        -0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot4_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.0,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.093,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot5_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot6_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot7_collision",
+      "body": "left_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot_hdmi0_collision",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05,
+        0.025,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot_hdmi1_collision",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05,
+        -0.025,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot_hdmi2_collision",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.12,
+        0.03,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_foot_hdmi3_collision",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.12,
+        -0.03,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_ankle_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.026469481697172777,
+        -7.266444317600382e-05,
+        -0.014106435744604889
+      ],
+      "quat": [
+        0.0005425576984263714,
+        0.7352870828384795,
+        0.0007188457215364652,
+        0.6777551878833948
+      ],
+      "size": [
+        0.03863891193000701,
+        0.03783605173515046,
+        0.11717378231508606
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_ankle_roll_link"
+    },
+    {
+      "name": "right_foot1_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        -0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot2_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        -0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot3_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        -0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot4_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.0,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.093,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot5_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.03900000000000001,
+        0.01,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.091,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot6_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.0395,
+        0.018,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.08349999999999999,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot7_collision",
+      "body": "right_ankle_roll_link",
+      "type": "capsule",
+      "pos": [
+        0.07500000000000001,
+        0.026,
+        -0.025
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 1,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot_hdmi0_collision",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05,
+        0.025,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot_hdmi1_collision",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05,
+        -0.025,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot_hdmi2_collision",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.12,
+        0.03,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_foot_hdmi3_collision",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.12,
+        -0.03,
+        -0.03
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "left_wrist_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.018657984394854582,
+        5.9793423268075494e-06,
+        -1.5958652824487767e-07
+      ],
+      "quat": [
+        0.5081027631957494,
+        0.49185795611395544,
+        -0.5080344446428378,
+        0.49174011031915266
+      ],
+      "size": [
+        0.030003017900650332,
+        0.03811245675682158,
+        0.03104121818315669
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_roll_link"
+    },
+    {
+      "name": "",
+      "body": "left_wrist_pitch_link",
+      "type": "mesh",
+      "pos": [
+        0.02300019707036519,
+        -0.0005173613094355222,
+        -0.000518381947122207
+      ],
+      "quat": [
+        -0.26617198017781474,
+        0.6661858330054714,
+        -0.2579873049192032,
+        0.6471409918800983
+      ],
+      "size": [
+        0.032892003652143495,
+        0.032874359177483686,
+        0.05187037018087462
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_pitch_link"
+    },
+    {
+      "name": "left_wrist_collision",
+      "body": "left_wrist_pitch_link",
+      "type": "capsule",
+      "pos": [
+        0.024999999999999998,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.034999999999999996,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "left_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.020643364729886877,
+        0.0009027484895771055,
+        2.863405704168882e-06
+      ],
+      "quat": [
+        0.669802012003953,
+        -0.013703155596465863,
+        -0.013858749150839062,
+        0.7422839236532954
+      ],
+      "size": [
+        0.02808902444515463,
+        0.039546509676417325,
+        0.031050178505069772
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_wrist_yaw_link"
+    },
+    {
+      "name": "",
+      "body": "left_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.10613010179746868,
+        -0.003684766726099308,
+        0.00309993820831831
+      ],
+      "quat": [
+        0.542568220766239,
+        0.579853757272508,
+        0.42500863809544787,
+        0.43446174001374194
+      ],
+      "size": [
+        0.02580063659075773,
+        0.061558042494591236,
+        0.07424769453291173
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "left_rubber_hand"
+    },
+    {
+      "name": "left_hand_collision",
+      "body": "left_wrist_yaw_link",
+      "type": "capsule",
+      "pos": [
+        0.11,
+        -0.01,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        -0.17149858514250885,
+        -0.6859943405700354,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.041231056256176596,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_hdmi_hand0_collision",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.02,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05,
+        0.025,
+        0.025
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_hdmi_hand1_collision",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.09,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_hdmi_hand2_collision",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.15,
+        -0.01,
+        0.0
+      ],
+      "quat": [
+        0.9800665778412416,
+        0.0,
+        0.0,
+        -0.19866933079506122
+      ],
+      "size": [
+        0.025,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_wrist_roll_link",
+      "type": "mesh",
+      "pos": [
+        0.018657941307464523,
+        -5.957828778852661e-06,
+        -4.83245646150392e-07
+      ],
+      "quat": [
+        0.49182998157329155,
+        0.5081079399263569,
+        -0.49175687364658655,
+        0.5080401242330643
+      ],
+      "size": [
+        0.030001927169167764,
+        0.038113013213425834,
+        0.0310415510702605
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_roll_link"
+    },
+    {
+      "name": "",
+      "body": "right_wrist_pitch_link",
+      "type": "mesh",
+      "pos": [
+        0.022999880367268993,
+        0.0005172208304745039,
+        -0.0005182067564729859
+      ],
+      "quat": [
+        0.2735909987203391,
+        0.6631810947807535,
+        0.26562209340983034,
+        0.6440370365415267
+      ],
+      "size": [
+        0.032726867032829274,
+        0.03270849033492627,
+        0.051870568590019074
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_pitch_link"
+    },
+    {
+      "name": "right_wrist_collision",
+      "body": "right_wrist_pitch_link",
+      "type": "capsule",
+      "pos": [
+        0.024999999999999998,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865475,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.034999999999999996,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "",
+      "body": "right_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.020642202624980278,
+        -0.0009024964060801943,
+        4.787797910695187e-06
+      ],
+      "quat": [
+        0.7422588772182375,
+        -0.013951373298916351,
+        -0.013789557031147969,
+        0.6698260718206495
+      ],
+      "size": [
+        0.028089943325178435,
+        0.03954302505044154,
+        0.031055563492553926
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_wrist_yaw_link"
+    },
+    {
+      "name": "",
+      "body": "right_wrist_yaw_link",
+      "type": "mesh",
+      "pos": [
+        0.10612782253823516,
+        0.003684169488582977,
+        0.0030997910442408447
+      ],
+      "quat": [
+        0.43445763657914865,
+        0.4250188907899021,
+        0.5798476128675704,
+        0.5425700418762213
+      ],
+      "size": [
+        0.025796098045815678,
+        0.06155815653661417,
+        0.07424980305969875
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 3,
+      "priority": 0,
+      "group": 2,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": "right_rubber_hand"
+    },
+    {
+      "name": "right_hand_collision",
+      "body": "right_wrist_yaw_link",
+      "type": "capsule",
+      "pos": [
+        0.11,
+        0.01,
+        0.0
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.17149858514250885,
+        -0.6859943405700354,
+        0.0
+      ],
+      "size": [
+        0.035,
+        0.041231056256176596,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_hdmi_hand0_collision",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.02,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05,
+        0.025,
+        0.025
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_hdmi_hand1_collision",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.09,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_hdmi_hand2_collision",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.15,
+        0.01,
+        0.0
+      ],
+      "quat": [
+        0.9800665778412416,
+        0.0,
+        0.0,
+        0.19866933079506122
+      ],
+      "size": [
+        0.025,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 0,
+      "group": 3,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "hdmi_comparison_geoms": [
+    {
+      "name": "left_ankle_roll_link_mesh_0",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05000000074505806,
+        0.02500000037252903,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_ankle_roll_link_mesh_1",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05000000074505806,
+        -0.02500000037252903,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_ankle_roll_link_mesh_2",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.11999999731779099,
+        0.029999999329447746,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_ankle_roll_link_mesh_3",
+      "body": "left_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.11999999731779099,
+        -0.029999999329447746,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_ankle_roll_link_mesh_0",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05000000074505806,
+        0.02500000037252903,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_ankle_roll_link_mesh_1",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        -0.05000000074505806,
+        -0.02500000037252903,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_ankle_roll_link_mesh_2",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.11999999731779099,
+        0.029999999329447746,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_ankle_roll_link_mesh_3",
+      "body": "right_ankle_roll_link",
+      "type": "sphere",
+      "pos": [
+        0.11999999731779099,
+        -0.029999999329447746,
+        -0.029999999329447746
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.004999999888241291,
+        0,
+        0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_wrist_yaw_link_mesh_0",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.019999999552965164,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05000000074505806,
+        0.02500000037252903,
+        0.02500000037252903
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_wrist_yaw_link_mesh_1",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.09000000357627869,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05000000074505806,
+        0.009999999776482582,
+        0.05000000074505806
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "left_wrist_yaw_link_mesh_2",
+      "body": "left_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.15000000596046448,
+        -0.009999999776482582,
+        0.0
+      ],
+      "quat": [
+        0.9800665974617004,
+        0.0,
+        0.0,
+        -0.19866932928562164
+      ],
+      "size": [
+        0.02500000037252903,
+        0.009999999776482582,
+        0.05000000074505806
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_wrist_yaw_link_mesh_0",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.019999999552965164,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05000000074505806,
+        0.02500000037252903,
+        0.02500000037252903
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_wrist_yaw_link_mesh_1",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.09000000357627869,
+        0.0,
+        0.0
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.05000000074505806,
+        0.009999999776482582,
+        0.05000000074505806
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    },
+    {
+      "name": "right_wrist_yaw_link_mesh_2",
+      "body": "right_wrist_yaw_link",
+      "type": "box",
+      "pos": [
+        0.15000000596046448,
+        0.009999999776482582,
+        0.0
+      ],
+      "quat": [
+        0.9800665974617004,
+        0.0,
+        0.0,
+        0.19866932928562164
+      ],
+      "size": [
+        0.02500000037252903,
+        0.009999999776482582,
+        0.05000000074505806
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 1,
+      "priority": 0,
+      "group": 3,
+      "friction": [
+        1,
+        0.005,
+        0.0001
+      ],
+      "settings_origin": "geometry from USD; masks/condim/friction are explicit MuJoCo comparison defaults, not USD fields"
+    }
+  ],
+  "adapter_usd_geometry_errors": [
+    {
+      "usd": "left_ankle_roll_link_mesh_0",
+      "adapter": "left_foot_hdmi0_collision",
+      "pos_max_error_m": 7.450580569168253e-10,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_ankle_roll_link_mesh_1",
+      "adapter": "left_foot_hdmi1_collision",
+      "pos_max_error_m": 7.450580569168253e-10,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_ankle_roll_link_mesh_2",
+      "adapter": "left_foot_hdmi2_collision",
+      "pos_max_error_m": 2.682209010451686e-09,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_ankle_roll_link_mesh_3",
+      "adapter": "left_foot_hdmi3_collision",
+      "pos_max_error_m": 2.682209010451686e-09,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_ankle_roll_link_mesh_0",
+      "adapter": "right_foot_hdmi0_collision",
+      "pos_max_error_m": 7.450580569168253e-10,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_ankle_roll_link_mesh_1",
+      "adapter": "right_foot_hdmi1_collision",
+      "pos_max_error_m": 7.450580569168253e-10,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_ankle_roll_link_mesh_2",
+      "adapter": "right_foot_hdmi2_collision",
+      "pos_max_error_m": 2.682209010451686e-09,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_ankle_roll_link_mesh_3",
+      "adapter": "right_foot_hdmi3_collision",
+      "pos_max_error_m": 2.682209010451686e-09,
+      "size_max_error_m": 1.1175870905794083e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_wrist_yaw_link_mesh_0",
+      "adapter": "left_hdmi_hand0_collision",
+      "pos_max_error_m": 4.470348362317633e-10,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_wrist_yaw_link_mesh_1",
+      "adapter": "left_hdmi_hand1_collision",
+      "pos_max_error_m": 3.5762786898541066e-09,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "left_wrist_yaw_link_mesh_2",
+      "adapter": "left_hdmi_hand2_collision",
+      "pos_max_error_m": 5.960464483090178e-09,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 1.0754669210744083e-08
+    },
+    {
+      "usd": "right_wrist_yaw_link_mesh_0",
+      "adapter": "right_hdmi_hand0_collision",
+      "pos_max_error_m": 4.470348362317633e-10,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_wrist_yaw_link_mesh_1",
+      "adapter": "right_hdmi_hand1_collision",
+      "pos_max_error_m": 3.5762786898541066e-09,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "usd": "right_wrist_yaw_link_mesh_2",
+      "adapter": "right_hdmi_hand2_collision",
+      "pos_max_error_m": 5.960464483090178e-09,
+      "size_max_error_m": 7.450580569168253e-10,
+      "rotation_error_rad": 1.0754669210744083e-08
+    }
+  ],
+  "historical_usd_reports_match_fresh_parse": true,
+  "decision": "Retain native robot globally. Recommend optional hand-only HDMI three-box profile for isolated asset scene; do not call existing adapter (also changes feet). Do not activate training until geometry gate is resolved.",
+  "visual_mesh_collision_count": 0,
+  "physics_note": "USD/PhysX material/contact offsets and MuJoCo masks/condim are different contracts. Geometry match does not establish dynamics equivalence."
+}

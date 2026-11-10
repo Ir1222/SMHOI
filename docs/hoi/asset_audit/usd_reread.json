@@ -1,0 +1,1409 @@
+{
+  "robot": {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/g1/g1_29dof_rubberhand-feet_sphere-eef_box-body_capsule.usd",
+    "sha256": "faf4d267a7a93fd16186e77e4c2802aa8ea977b5bb971b72fa63dee99c33200d",
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "bodies": [
+      {
+        "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link",
+        "attributes": {
+          "physics:centerOfMass": [
+            0.022003816440701485,
+            0.0004948509740643203,
+            0.0005386112025007606
+          ],
+          "physics:diagonalInertia": [
+            5.0980670494027436e-05,
+            5.975639942334965e-05,
+            3.7568435800494626e-05
+          ],
+          "physics:mass": 0.08457647264003754,
+          "physics:principalAxes": [
+            0.9832136034965515,
+            0.009745565243065357,
+            -0.18134142458438873,
+            0.017643261700868607
+          ]
+        }
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link",
+        "attributes": {
+          "physics:centerOfMass": [
+            0.022003816440701485,
+            -0.0004948509740643203,
+            0.0005386112025007606
+          ],
+          "physics:diagonalInertia": [
+            5.0980670494027436e-05,
+            5.975639942334965e-05,
+            3.7568435800494626e-05
+          ],
+          "physics:mass": 0.08457647264003754,
+          "physics:principalAxes": [
+            0.9832136034965515,
+            -0.009745565243065357,
+            -0.18134142458438873,
+            -0.017643261700868607
+          ]
+        }
+      }
+    ],
+    "colliders": [
+      {
+        "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_0",
+        "body": "left_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            -0.05000000074505806,
+            0.02500000037252903,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -0.05000000074505806,
+            0.02500000037252903,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_1",
+        "body": "left_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            -0.05000000074505806,
+            -0.02500000037252903,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -0.05000000074505806,
+            -0.02500000037252903,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_2",
+        "body": "left_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            0.11999999731779099,
+            0.029999999329447746,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.11999999731779099,
+            0.029999999329447746,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_ankle_roll_link/collisions/mesh_3",
+        "body": "left_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            0.11999999731779099,
+            -0.029999999329447746,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.11999999731779099,
+            -0.029999999329447746,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_0",
+        "body": "right_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            -0.05000000074505806,
+            0.02500000037252903,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -0.05000000074505806,
+            0.02500000037252903,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_1",
+        "body": "right_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            -0.05000000074505806,
+            -0.02500000037252903,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -0.05000000074505806,
+            -0.02500000037252903,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_2",
+        "body": "right_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            0.11999999731779099,
+            0.029999999329447746,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.11999999731779099,
+            0.029999999329447746,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_ankle_roll_link/collisions/mesh_3",
+        "body": "right_ankle_roll_link",
+        "type": "Sphere",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "radius": 0.004999999888241291,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "xformOp:translate": [
+            0.11999999731779099,
+            -0.029999999329447746,
+            -0.029999999329447746
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.11999999731779099,
+            -0.029999999329447746,
+            -0.029999999329447746,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_0",
+        "body": "left_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.10000000149011612,
+            0.05000000074505806,
+            0.05000000074505806
+          ],
+          "xformOp:translate": [
+            0.019999999552965164,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05000000074505806,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05000000074505806,
+            0.0
+          ],
+          [
+            0.019999999552965164,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_1",
+        "body": "left_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.10000000149011612,
+            0.019999999552965164,
+            0.10000000149011612
+          ],
+          "xformOp:translate": [
+            0.09000000357627869,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.019999999552965164,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0
+          ],
+          [
+            0.09000000357627869,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/left_wrist_yaw_link/collisions/mesh_2",
+        "body": "left_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            0.9800665974617004,
+            0.0,
+            0.0,
+            -0.19866932928562164
+          ],
+          "xformOp:scale": [
+            0.05000000074505806,
+            0.019999999552965164,
+            0.10000000149011612
+          ],
+          "xformOp:translate": [
+            0.15000000596046448,
+            -0.009999999776482582,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.04605305423225945,
+            -0.01947090830922832,
+            0.0,
+            0.0
+          ],
+          [
+            0.007788363033552189,
+            0.018421221006659806,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0
+          ],
+          [
+            0.15000000596046448,
+            -0.009999999776482582,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_0",
+        "body": "right_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.10000000149011612,
+            0.05000000074505806,
+            0.05000000074505806
+          ],
+          "xformOp:translate": [
+            0.019999999552965164,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05000000074505806,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05000000074505806,
+            0.0
+          ],
+          [
+            0.019999999552965164,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_1",
+        "body": "right_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.10000000149011612,
+            0.019999999552965164,
+            0.10000000149011612
+          ],
+          "xformOp:translate": [
+            0.09000000357627869,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.019999999552965164,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0
+          ],
+          [
+            0.09000000357627869,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "path": "/g1_29dof_rev_1_0/right_wrist_yaw_link/collisions/mesh_2",
+        "body": "right_wrist_yaw_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            0.9800665974617004,
+            0.0,
+            0.0,
+            0.19866932928562164
+          ],
+          "xformOp:scale": [
+            0.05000000074505806,
+            0.019999999552965164,
+            0.10000000149011612
+          ],
+          "xformOp:translate": [
+            0.15000000596046448,
+            0.009999999776482582,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.04605305423225945,
+            0.01947090830922832,
+            0.0,
+            0.0
+          ],
+          [
+            -0.007788363033552189,
+            0.018421221006659806,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0
+          ],
+          [
+            0.15000000596046448,
+            0.009999999776482582,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ]
+  },
+  "object": {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/bread_box/bread_box.usd",
+    "sha256": "a1dab021725a8f23d068aaa97018476af81797db5fa18adb2f1718c2fa075943",
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "bodies": [
+      {
+        "path": "/bread_box/bread_box",
+        "attributes": {
+          "physics:centerOfMass": [
+            0.0,
+            0.0,
+            -0.20000000298023224
+          ],
+          "physics:diagonalInertia": [
+            0.033399999141693115,
+            0.02167000062763691,
+            0.041669998317956924
+          ],
+          "physics:mass": 2.0,
+          "physics:principalAxes": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "colliders": [
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_0",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.18000000715255737,
+            0.3400000035762787,
+            0.019999999552965164
+          ],
+          "xformOp:translate": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.18000000715255737,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.3400000035762787,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.09000000357627869,
+            -0.17000000178813934,
+            -0.009999999776482582
+          ],
+          [
+            0.09000000357627869,
+            0.17000000178813934,
+            0.009999999776482582
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_1",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.019999999552965164,
+            0.3400000035762787,
+            0.25999999046325684
+          ],
+          "xformOp:translate": [
+            -0.07999999821186066,
+            0.0,
+            0.12999999523162842
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.019999999552965164,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.3400000035762787,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.25999999046325684,
+            0.0
+          ],
+          [
+            -0.07999999821186066,
+            0.0,
+            0.12999999523162842,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.08999999798834324,
+            -0.17000000178813934,
+            0.0
+          ],
+          [
+            -0.06999999843537807,
+            0.17000000178813934,
+            0.25999999046325684
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_2",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.019999999552965164,
+            0.3400000035762787,
+            0.25999999046325684
+          ],
+          "xformOp:translate": [
+            0.07999999821186066,
+            0.0,
+            0.12999999523162842
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.019999999552965164,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.3400000035762787,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.25999999046325684,
+            0.0
+          ],
+          [
+            0.07999999821186066,
+            0.0,
+            0.12999999523162842,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            0.06999999843537807,
+            -0.17000000178813934,
+            0.0
+          ],
+          [
+            0.08999999798834324,
+            0.17000000178813934,
+            0.25999999046325684
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_3",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.18000000715255737,
+            0.019999999552965164,
+            0.25999999046325684
+          ],
+          "xformOp:translate": [
+            0.0,
+            0.1599999964237213,
+            0.12999999523162842
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.18000000715255737,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.019999999552965164,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.25999999046325684,
+            0.0
+          ],
+          [
+            0.0,
+            0.1599999964237213,
+            0.12999999523162842,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.09000000357627869,
+            0.14999999664723873,
+            0.0
+          ],
+          [
+            0.09000000357627869,
+            0.1699999962002039,
+            0.25999999046325684
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_4",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.18000000715255737,
+            0.019999999552965164,
+            0.25999999046325684
+          ],
+          "xformOp:translate": [
+            0.0,
+            -0.1599999964237213,
+            0.12999999523162842
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.18000000715255737,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.019999999552965164,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.25999999046325684,
+            0.0
+          ],
+          [
+            0.0,
+            -0.1599999964237213,
+            0.12999999523162842,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.09000000357627869,
+            -0.1699999962002039,
+            0.0
+          ],
+          [
+            0.09000000357627869,
+            -0.14999999664723873,
+            0.25999999046325684
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_5",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.05999999865889549,
+            0.03999999910593033,
+            0.019999999552965164
+          ],
+          "xformOp:translate": [
+            0.0,
+            0.17000000178813934,
+            0.20999999344348907
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.05999999865889549,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.03999999910593033,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            0.0,
+            0.17000000178813934,
+            0.20999999344348907,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.029999999329447746,
+            0.15000000223517418,
+            0.1999999936670065
+          ],
+          [
+            0.029999999329447746,
+            0.1900000013411045,
+            0.21999999321997166
+          ]
+        ]
+      },
+      {
+        "path": "/bread_box/bread_box/collisions/mesh_6",
+        "body": "bread_box",
+        "type": "Mesh",
+        "attributes": {
+          "physics:approximation": "convexHull",
+          "physics:collisionEnabled": true,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.05999999865889549,
+            0.03999999910593033,
+            0.019999999552965164
+          ],
+          "xformOp:translate": [
+            0.0,
+            -0.17000000178813934,
+            0.20999999344348907
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.05999999865889549,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.03999999910593033,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            0.0,
+            -0.17000000178813934,
+            0.20999999344348907,
+            1.0
+          ]
+        ],
+        "body_relative_vertex_bounds": [
+          [
+            -0.029999999329447746,
+            -0.1900000013411045,
+            0.1999999936670065
+          ],
+          [
+            0.029999999329447746,
+            -0.15000000223517418,
+            0.21999999321997166
+          ]
+        ]
+      }
+    ]
+  },
+  "support0": {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd",
+    "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523",
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "bodies": [
+      {
+        "path": "/support0/support0_link",
+        "attributes": {
+          "physics:centerOfMass": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "physics:diagonalInertia": [
+            0.0034000000450760126,
+            0.0034000000450760126,
+            0.0066999997943639755
+          ],
+          "physics:mass": 1.0,
+          "physics:principalAxes": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "colliders": [
+      {
+        "path": "/support0/support0_link/collisions",
+        "body": "support0_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.20000000298023224,
+            0.20000000298023224,
+            0.03999999910593033
+          ],
+          "xformOp:translate": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.20000000298023224,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.20000000298023224,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.03999999910593033,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ]
+  },
+  "support1": {
+    "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd",
+    "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851",
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "bodies": [
+      {
+        "path": "/support1/support1_link",
+        "attributes": {
+          "physics:centerOfMass": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "physics:diagonalInertia": [
+            0.0034000000450760126,
+            0.0034000000450760126,
+            0.0066999997943639755
+          ],
+          "physics:mass": 1.0,
+          "physics:principalAxes": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "colliders": [
+      {
+        "path": "/support1/support1_link/collisions",
+        "body": "support1_link",
+        "type": "Cube",
+        "attributes": {
+          "physics:collisionEnabled": true,
+          "size": 1.0,
+          "xformOp:orient": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xformOp:scale": [
+            0.20000000298023224,
+            0.20000000298023224,
+            0.03999999910593033
+          ],
+          "xformOp:translate": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "body_relative_matrix": [
+          [
+            0.20000000298023224,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.20000000298023224,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.03999999910593033,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ]
+  }
+}
