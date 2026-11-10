@@ -136,6 +136,28 @@ For each separately authorized stage: **read and verify evidence → write IMPLE
 
 Adding this protocol is a documentation-only change. It does not start P1, create a P1 implementation specification, authorize source edits or approve any later experiment.
 
+### 1.3.6 Minimal-Invasive Implementation and Original Framework Preservation
+
+cThe objective is to extend SuperMimic for joint humanoid–object interaction, not to build a second training framework.
+
+**Preserve and reuse the original SuperMimic implementation wherever its semantics remain valid.**
+
+1. Keep `Trainer.run()` as the shared training mainline. Both `sm-train` and `smHOI-track` must reuse the original training scheduler, UTD update cycle, distributed synchronization, logging and checkpoint lifecycle.
+
+2. Do not create duplicate implementations of the original Trainer, ReplayBuffer, World Model training loop, Actor BPTT optimizer or Critic TD(lambda). Extend or compose existing mechanisms instead.
+
+3. Prefer HOI-specific modules and adapters under `src/supermimic/hoi/`. Modify shared modules only when a concrete HOI requirement cannot be supported through an HOI-local adapter or composition.
+
+4. Every shared training-core modification must have a specific justification in the current stage's IMPLEMENTATION_SPEC.md, identify the smallest necessary interface change, and include regression evidence that the original robot-only path remains unchanged.
+
+5. Preserve the default behavior and checkpoint compatibility of `sm-train`. Avoid widespread task-specific conditionals throughout shared training code. Prefer separate HOI configuration and component construction with narrowly defined shared interfaces.
+
+6. Production training code should remain modular and avoid duplicated algorithms or unnecessary abstraction layers. Extensive tests, physical calibration scripts, diagnostics and evaluation tools are encouraged and are not subject to this restriction.
+
+7. Every stage report must include a brief **Training Framework Reuse Audit** listing reused original components, modified shared files and their justification, any duplicated functionality, and robot-only regression results.
+
+Do not impose arbitrary line-count limits. The acceptance criterion is minimal architectural disruption, maximum reuse of the original learning algorithm, and preservation of existing robot-only behavior.
+
 ---
 
 # 2. Project objective and non-negotiable constraints
