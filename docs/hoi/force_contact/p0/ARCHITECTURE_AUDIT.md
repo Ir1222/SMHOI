@@ -84,3 +84,11 @@ The discovered checkpoint passed strict loading of all three models under its ac
 | critic.mlp.net.0.weight | [256,788] | map canonical, goal, xi and error fields explicitly |
 
 For target features86, action and xi would begin at columns86 and115 respectively (before any separate support branch). Copying the first 133 columns as an undifferentiated prefix is wrong. No `strict=False` transfer, HOI migration, actor equivalence claim, or checkpoint write was performed. Numerical old-vs-migrated actor equivalence remains P7 work.
+
+## Reconciliation against the complete master
+
+The full specification preserves these baseline dimensions and confirms the replay discrepancy and support-context identifiability concern. It explicitly places joint physical state access and synchronized pose/twist reset in P1, interval label/schema alignment in P2, WM named migration/unit tests in P3.9, and actor/critic migration/parity in P7. Minimal shared imagination hooks may be required in P5, before P7 training integration. The [reconciled file map](FILE_CHANGE_MAP.md) reflects those boundaries.
+
+The previously documented candidate support-relative transforms remain a candidate; P3.4 requires paired one-step object/force prediction comparisons with/without context before freezing the encoding. No extra features have been added to xi33.
+
+The missing coordinate checks are now recorded in [coordinate_closure_checks.json](coordinate_closure_checks.json). Existing StateSpec zero-residual orientation agrees with MuJoCo at `1.11e-16` maximum quaternion-component error for noncommuting body rotation; the deliberately incorrect left product differs by `2.28e-3`. Reference-velocity conventions were checked on synthetic constant-twist poses with alternating quaternion signs: body relative rotation is `conjugate(q_lo) * q_hi`, world relative rotation is `q_hi * conjugate(q_lo)`, followed by the shortest rotation log divided by elapsed time. Central interior and one-sided endpoint estimates match the known twist within `2.45e-14` rad/s. This validates conventions, not a reference cache or arbitrary finite-difference accuracy; P1/P3 must still test their actual implementation. No accepted reference arrays were rewritten.

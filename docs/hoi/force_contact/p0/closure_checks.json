@@ -1,0 +1,92 @@
+{
+  "observed_at_utc": "2026-11-10T13:27:45.896198+00:00",
+  "stage": "P0",
+  "decision": "PASS_FOR_REVIEW",
+  "branch": "main",
+  "head": "e89573171c86be7f40c8d120dc813cee0274a152",
+  "prior_audit_commit": "579d1a8c661985c91926a365c7505488abe03bb8",
+  "history_preserved": true,
+  "initial_status": "?? .vscode/settings.json\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? \"docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\"\n?? \"docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.txt\"\n",
+  "master": {
+    "source": "/home/han/pyx/SMHOI/docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.txt",
+    "canonical": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "sha256": "7365f680cf975263e69672d75d585c62e83532115b9065c6e63929004bdbdc9b",
+    "bytes": 62075,
+    "lines": 1743,
+    "byte_identical": true
+  },
+  "workhorse_fallback": {
+    "code_status": "NOT_RELEASED per official project page; no accessible local implementation found",
+    "paper": "https://arxiv.org/html/2610.09117v2",
+    "project": "https://hybridrobotics.github.io/workhorse/",
+    "paper_sections": [
+      "IV-A1",
+      "IV-A2",
+      "IV-B3",
+      "IV-C1",
+      "IV-C2",
+      "IV-D"
+    ],
+    "user_approved_fallback": "if workhorse code not released, just use paper and other papers and repo",
+    "source_code_audit_claimed": false
+  },
+  "preservation": {
+    "baseline_paths": 385,
+    "changed_paths": [
+      "docs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md",
+      "docs/hoi/force_contact/p0/CLOSURE.md",
+      "docs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md",
+      "docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md",
+      "docs/hoi/force_contact/p0/REPORT.md",
+      "docs/hoi/force_contact/p0/VALIDATION.md"
+    ],
+    "all_changes_are_listed_documentation": true,
+    "protected_paths_unchanged": 379,
+    "existing_inventory_inputs_rehashed": 76,
+    "input_changes": [],
+    "source_files_unchanged": 46,
+    "dependency_files_unchanged": 10,
+    "reference_source_files_unchanged": 9,
+    "reference_repository_heads_status_unchanged": true,
+    "part_b_actual_and_committed_manifest_match": true,
+    "part_b_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+    "user_files_preserved": [
+      ".vscode/settings.json",
+      "SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md",
+      "docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+      "docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.txt"
+    ],
+    "original_machine_evidence_preserved": true
+  },
+  "checks": {
+    "coordinate_groups_passed": 5,
+    "reference_source_static_audit_complete": true,
+    "original_tests_and_physics_probes_rerun": false,
+    "existing_baseline_tests_reused": 7,
+    "json_files_parsed_including_this_output": 15,
+    "local_links_valid": true,
+    "tracked_whitespace_check_pass": true,
+    "index_empty": true
+  },
+  "modified_files": [
+    "docs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md",
+    "docs/hoi/force_contact/p0/CLOSURE.md",
+    "docs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md",
+    "docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md",
+    "docs/hoi/force_contact/p0/REPORT.md",
+    "docs/hoi/force_contact/p0/VALIDATION.md"
+  ],
+  "new_files": [
+    "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "docs/hoi/force_contact/p0/CLOSURE_CHECKS.md",
+    "docs/hoi/force_contact/p0/REFERENCE_IMPLEMENTATION_AUDIT.md",
+    "docs/hoi/force_contact/p0/REQUIREMENT_COVERAGE.md",
+    "docs/hoi/force_contact/p0/closure_checks.json",
+    "docs/hoi/force_contact/p0/coordinate_closure_checks.json",
+    "docs/hoi/force_contact/p0/reference_implementation_checks.json"
+  ],
+  "p1_started": false,
+  "training_started": false,
+  "committed": false,
+  "pushed": false
+}

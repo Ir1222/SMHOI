@@ -1,0 +1,42 @@
+{
+  "robot_origin_read_write": {
+    "position_max_error_m": 1.6653345369377348e-16,
+    "velocity_copy_max_error": 0.0,
+    "write_origin_max_error_m": 0.0,
+    "selected_row_only": true,
+    "scope": "Existing StateIO with synthetic buffers; not P1 physical reset."
+  },
+  "quaternion_integration": {
+    "state_spec_vs_mujoco_quaternion_max_error": 1.1102230246251565e-16,
+    "right_product_max_error": 1.1102230246251565e-16,
+    "wrong_left_product_max_error": 0.002281234795442344,
+    "zero_residual_position_error_m": 0.0,
+    "dt_s": 0.02,
+    "convention": "wxyz; q_next = q * exp(dt * omega_body)"
+  },
+  "reference_velocity_conventions": {
+    "frames": 9,
+    "linear_max_error_m_s": 2.609024107869118e-15,
+    "body_angular_max_error_rad_s": 1.9595436384634013e-14,
+    "world_angular_max_error_rad_s": 2.4480417692984702e-14,
+    "endpoints_one_sided": true,
+    "interior_centered": true,
+    "quaternion_sign_flip_invariant": true,
+    "scope": "Synthetic convention probe only; no reference cache generated or accepted NPZ changed."
+  },
+  "box_local_vectors": {
+    "force_max_error_N": 8.881784197001252e-16,
+    "torque_max_error_Nm": 1.1102230246251565e-16,
+    "force_roundtrip_max_error_N": 8.881784197001252e-16,
+    "yaw90_axis_error": 2.220446049250313e-16,
+    "force_norm_preserved": true,
+    "convention": "R_box_world transpose times world vector; torque reference point unchanged by rotation."
+  },
+  "multi_primary_torque_reference": {
+    "common_origin_equivalence_error_Nm": 5.551115123125783e-17,
+    "naive_torque_sum_error_Nm": 0.5943904440685431,
+    "formula": "T_O = sum_i(T_centroid_i + (centroid_i - O) cross F_i)",
+    "scope": "Algebraic diagnostic, not physical wrench calibration. Per-hand force summation needs no moment shift."
+  },
+  "all_pass": true
+}

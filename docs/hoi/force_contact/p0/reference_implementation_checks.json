@@ -1,0 +1,313 @@
+{
+  "observed_at_utc": "2026-11-10T13:13:59.996199+00:00",
+  "reference_repositories": {
+    "/home/han/pyx/PhysHSI-carrybox": {
+      "head": "c75efd8ce8ded98031281b5a9b00ed71390dbccd",
+      "branch": "pose_amp_vel",
+      "status": "?? torch\n?? yaw_left.csv",
+      "remotes": "origin\thttps://github.com/Ir1222/PhysHSI.git (fetch)\norigin\thttps://github.com/Ir1222/PhysHSI.git (push)"
+    },
+    "/tmp/supermimic_hoi_audit_20261104/SUGAR": {
+      "head": "01fe1234b57188412ec38775150f008f133e0ad4",
+      "branch": "main",
+      "status": "",
+      "remotes": "origin\thttps://github.com/tianshuwu/SUGAR.git (fetch)\norigin\thttps://github.com/tianshuwu/SUGAR.git (push)"
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI": {
+      "head": "32282f6dcf26cae70b814d585ceb12cc38aa1b60",
+      "branch": "main",
+      "status": "",
+      "remotes": "origin\thttps://github.com/LeCAR-Lab/HDMI.git (fetch)\norigin\thttps://github.com/LeCAR-Lab/HDMI.git (push)"
+    }
+  },
+  "files": [
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/envs/mdp/commands/hdmi/command.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/HDMI",
+      "relative_path": "active_adaptation/envs/mdp/commands/hdmi/command.py",
+      "status": "EXISTS",
+      "bytes": 33751,
+      "lines": 648,
+      "sha256": "05c483224f052f9e26436ef93c697fbfb9e108a1c9bd1c48c234c9b6f85f4eba",
+      "relevant_symbols": [
+        {
+          "symbol": "RobotObjectTracking",
+          "start_line": 341,
+          "end_line": 648
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/envs/mdp/commands/hdmi/rewards.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/HDMI",
+      "relative_path": "active_adaptation/envs/mdp/commands/hdmi/rewards.py",
+      "status": "EXISTS",
+      "bytes": 24011,
+      "lines": 492,
+      "sha256": "28d738424974400ba979060e2534aa2f50524bb3eb09102d10db4f57e7ecc804",
+      "relevant_symbols": [
+        {
+          "symbol": "object_pos_tracking",
+          "start_line": 326,
+          "end_line": 337
+        },
+        {
+          "symbol": "object_ori_tracking",
+          "start_line": 339,
+          "end_line": 351
+        },
+        {
+          "symbol": "object_joint_pos_tracking",
+          "start_line": 353,
+          "end_line": 365
+        },
+        {
+          "symbol": "eef_contact_exp",
+          "start_line": 367,
+          "end_line": 408
+        },
+        {
+          "symbol": "eef_contact_exp_max",
+          "start_line": 410,
+          "end_line": 449
+        },
+        {
+          "symbol": "eef_contact_all",
+          "start_line": 452,
+          "end_line": 490
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/cfg/task/G1/hdmi/carry_and_place_bread_box.yaml",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/HDMI",
+      "relative_path": "cfg/task/G1/hdmi/carry_and_place_bread_box.yaml",
+      "status": "EXISTS",
+      "bytes": 1448,
+      "lines": 66,
+      "sha256": "a8ff4820b8e51c6a7dce5fbb92257f7d3331ce26d93085c578510bbcc4546561"
+    },
+    {
+      "path": "/home/han/pyx/PhysHSI-carrybox/legged_gym/legged_gym/envs/g1/carrybox.py",
+      "repository": "/home/han/pyx/PhysHSI-carrybox",
+      "relative_path": "legged_gym/legged_gym/envs/g1/carrybox.py",
+      "status": "EXISTS",
+      "bytes": 130151,
+      "lines": 2137,
+      "sha256": "e9500aabcab87f4f039b53f63a1d4d76dc61a8b5776201283092ad910b71af81",
+      "relevant_symbols": [
+        {
+          "symbol": "_init_buffers",
+          "start_line": 1058,
+          "end_line": 1241
+        },
+        {
+          "symbol": "_reward_feet_contact_forces",
+          "start_line": 1827,
+          "end_line": 1829
+        },
+        {
+          "symbol": "_reward_contact_momentum",
+          "start_line": 1915,
+          "end_line": 1918
+        },
+        {
+          "symbol": "_reward_robot2object_pos",
+          "start_line": 1938,
+          "end_line": 1941
+        },
+        {
+          "symbol": "_reward_robot2object_vel",
+          "start_line": 1943,
+          "end_line": 1947
+        },
+        {
+          "symbol": "_reward_hand2object_pos",
+          "start_line": 1949,
+          "end_line": 1958
+        },
+        {
+          "symbol": "_reward_carry_height",
+          "start_line": 1960,
+          "end_line": 1966
+        },
+        {
+          "symbol": "_reward_walk_task",
+          "start_line": 1975,
+          "end_line": 1994
+        },
+        {
+          "symbol": "_reward_carryup_task",
+          "start_line": 1996,
+          "end_line": 2010
+        },
+        {
+          "symbol": "_reward_pickup_contact",
+          "start_line": 2012,
+          "end_line": 2015
+        },
+        {
+          "symbol": "_reward_hold_contact",
+          "start_line": 2032,
+          "end_line": 2044
+        },
+        {
+          "symbol": "_reward_hold_base_still",
+          "start_line": 2046,
+          "end_line": 2056
+        },
+        {
+          "symbol": "_reward_hold_box_still",
+          "start_line": 2058,
+          "end_line": 2071
+        },
+        {
+          "symbol": "_reward_standup_task",
+          "start_line": 2116,
+          "end_line": 2137
+        }
+      ]
+    },
+    {
+      "path": "/home/han/pyx/PhysHSI-carrybox/legged_gym/legged_gym/envs/g1/carrybox_config.py",
+      "repository": "/home/han/pyx/PhysHSI-carrybox",
+      "relative_path": "legged_gym/legged_gym/envs/g1/carrybox_config.py",
+      "status": "EXISTS",
+      "bytes": 13239,
+      "lines": 371,
+      "sha256": "492d990267da41e750cc06c3e5d4bd3a03cfbc88a311d26b2b654117ed2d3cca",
+      "relevant_symbols": [
+        {
+          "symbol": "G1Cfg",
+          "start_line": 4,
+          "end_line": 347
+        },
+        {
+          "symbol": "G1CfgPPO",
+          "start_line": 349,
+          "end_line": 371
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/SUGAR/source/sugar_rl/sugar_rl/tasks/locomanip/mdp/rewards.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/SUGAR",
+      "relative_path": "source/sugar_rl/sugar_rl/tasks/locomanip/mdp/rewards.py",
+      "status": "EXISTS",
+      "bytes": 13829,
+      "lines": 327,
+      "sha256": "2f0072f8f56a0ca848bb793e50dbf800b0e721313c046d8daa10a6fc58ce7618",
+      "relevant_symbols": [
+        {
+          "symbol": "hands_contact",
+          "start_line": 142,
+          "end_line": 172
+        },
+        {
+          "symbol": "foot_contact",
+          "start_line": 174,
+          "end_line": 203
+        },
+        {
+          "symbol": "sit_contact",
+          "start_line": 205,
+          "end_line": 241
+        },
+        {
+          "symbol": "avoid_feet_obj_contact",
+          "start_line": 282,
+          "end_line": 310
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/SUGAR/source/sugar_rl/sugar_rl/tasks/locomanip/mdp/commands.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/SUGAR",
+      "relative_path": "source/sugar_rl/sugar_rl/tasks/locomanip/mdp/commands.py",
+      "status": "EXISTS",
+      "bytes": 91944,
+      "lines": 1792,
+      "sha256": "1a5cfdcb4f1bb795cbd8d18282cb797749d48094b3df1b1299fa3ee323fddce7",
+      "relevant_symbols": [
+        {
+          "symbol": "MotionLoader",
+          "start_line": 49,
+          "end_line": 155
+        },
+        {
+          "symbol": "contact_label",
+          "start_line": 1728,
+          "end_line": 1729
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/SUGAR/source/sugar_rl/sugar_rl/tasks/locomanip/robots/g129dof/train_refiner/carry_box_refiner_env_cfg.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/SUGAR",
+      "relative_path": "source/sugar_rl/sugar_rl/tasks/locomanip/robots/g129dof/train_refiner/carry_box_refiner_env_cfg.py",
+      "status": "EXISTS",
+      "bytes": 4861,
+      "lines": 161,
+      "sha256": "ad037991448d73afd7efd01484bc189c0762fe6b23a27b2528e351abd8ac5552",
+      "relevant_symbols": [
+        {
+          "symbol": "RobotSceneCfg",
+          "start_line": 36,
+          "end_line": 37
+        },
+        {
+          "symbol": "RewardsCfg",
+          "start_line": 85,
+          "end_line": 112
+        },
+        {
+          "symbol": "RobotEnvCfg",
+          "start_line": 119,
+          "end_line": 143
+        }
+      ]
+    },
+    {
+      "path": "/tmp/supermimic_hoi_audit_20261104/SUGAR/source/sugar_rl/sugar_rl/tasks/locomanip/robots/g129dof/train_refiner/base_refiner_env_cfg.py",
+      "repository": "/tmp/supermimic_hoi_audit_20261104/SUGAR",
+      "relative_path": "source/sugar_rl/sugar_rl/tasks/locomanip/robots/g129dof/train_refiner/base_refiner_env_cfg.py",
+      "status": "EXISTS",
+      "bytes": 14419,
+      "lines": 453,
+      "sha256": "6978ba8183b26fe54e3d358b5631bba03a5a9f6977d2ad7a268af48d42ddf3cd",
+      "relevant_symbols": [
+        {
+          "symbol": "BaseRobotSceneCfg",
+          "start_line": 35,
+          "end_line": 131
+        },
+        {
+          "symbol": "BaseRewardsCfg",
+          "start_line": 297,
+          "end_line": 397
+        }
+      ]
+    }
+  ],
+  "audit_mode": "Read-only static source inspection; foreign frameworks not imported or executed. File hashes and AST symbol ranges recorded.",
+  "workhorse": {
+    "code_status": "NOT_RELEASED per official project page; no accessible local implementation found",
+    "paper": "https://arxiv.org/html/2610.09117v2",
+    "project": "https://hybridrobotics.github.io/workhorse/",
+    "paper_sections": [
+      "IV-A1",
+      "IV-A2",
+      "IV-B3",
+      "IV-C1",
+      "IV-C2",
+      "IV-D"
+    ],
+    "user_approved_fallback": "if workhorse code not released, just use paper and other papers and repo",
+    "source_code_audit_claimed": false
+  },
+  "findings": {
+    "HDMI": "Bounded per-hand position-times-force reward and box-frame rotation; live IsaacLab sensors, outside-intent baseline differs from target reward.",
+    "PhysHSI_local_fork": "Approach/carry and contact-weighted hold rewards; raw body net contact tensor lacks hand-box pair filtering; xyzw, stage gates, PPO/AMP and assets are not portable.",
+    "SUGAR": "Filtered hand-object forces with three-sample max and bilateral threshold equality to global label; adapt semantics to independent per-hand smooth force, four substeps and target assets."
+  }
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-11-10. Only read-only checks and temporary dependency probes were run. P1 physical calibration, training, data conversion, reference visualization and historical audit experiments were not run.
 
-This matrix records the original pre-commit audit. That audit is now committed as `579d1a8c661985c91926a365c7505488abe03bb8`, verified on GitHub `main`. See [CLOSURE.md](CLOSURE.md) and [reconciliation_checks.json](reconciliation_checks.json) for the subsequent Git/status reconciliation. Original test results and JSON snapshots are retained; no completed test or physics probe was rerun for this documentation review. The complete master is still unavailable, so overall P0 remains PARTIAL.
+The matrix below records the original pre-commit audit, later committed as `579d1a8c661985c91926a365c7505488abe03bb8`. First reconciliation `e895731` preserved its PARTIAL decision while the full master remained unavailable. The complete `.txt` has now been read and restored at the canonical path. See [CLOSURE.md](CLOSURE.md), [REQUIREMENT_COVERAGE.md](REQUIREMENT_COVERAGE.md) and [closure_checks.json](closure_checks.json) for the current **PASS for review**, with the user's approved Workhorse paper fallback. The historical matrix and original JSON/test logs remain unchanged; their PARTIAL/missing-path/pre-commit statements describe that earlier snapshot.
 
 ## Results
 
@@ -32,7 +32,7 @@ This matrix records the original pre-commit audit. That audit is now committed a
 | Preservation | PASS | 361 protected files and 76 existing inventory records rehashed, no changes; selected committed manifests/reports byte-identical |
 | Git scope / complete P0 diff | documentation only | No tracked/index diff; review patch includes every new P0 documentation file; pre-existing untracked files excluded from proposed changes |
 
-Because the source of truth is incomplete, this record cannot certify that every requirement in the missing P0 remainder has been met. Overall P0 status is **PARTIAL**, not an inferred PASS. No extra skill or historical-record approval flow is imposed: the user's explicit stage-review rule and missing master are the reasons to stop.
+At the original audit snapshot, the incomplete source of truth prevented certifying every P0 requirement; that snapshot's overall result was **PARTIAL**. The complete-plan closing checks below supersede that decision without rewriting the earlier evidence. The user's explicit stage-review rule remains the reason to stop before P1.
 
 ## Executed regression command
 
@@ -61,3 +61,9 @@ The temporary `/tmp` probes performed artifact/reference validation, native mode
 - [processes.txt](processes.txt): observation only. Existing external TensorBoard was left running; no training/evaluation process was observed.
 
 Initial sandbox reads failed before execution (`bwrap: loopback: Failed RTM_NEWADDR`). Read/documentation commands subsequently ran with sandbox escalation approved by the tool. No approval rejection occurred. Warp probe compilation cache was confined to `/tmp/smhoi_p0_warp_cache` and bytecode generation was disabled.
+
+## Complete-plan closing checks
+
+Only uncovered work was added: P0.5 source-mechanism inspection, torque reference clarification, five isolated coordinate/convention checks, full P1–P8 map and requirement matrix. The exact command was `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python /tmp/smhoi_p0_closure_probe.py`; all assertions passed, with one existing Torch deprecation warning. The temporary script is reproduced in [CLOSURE_CHECKS.md](CLOSURE_CHECKS.md). Results are in [coordinate_closure_checks.json](coordinate_closure_checks.json).
+
+Preservation, canonical-copy equality, source/evidence reuse, Git ancestry/scope, JSON/link integrity and diff whitespace are checked by `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python /tmp/smhoi_p0_final_closure_checks.py`. See [closure_checks.json](closure_checks.json) for measured counts/results. No prior baseline test, checkpoint load, sensor physics/history probe or historical experiment was repeated. No mandatory closing check failed. P1 physical calibration and all later-stage experiments are skipped because they are outside P0 and require approval.

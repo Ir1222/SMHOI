@@ -1,64 +1,79 @@
-# P0 closure review
+# Final P0 closure report
 
-Date: 2026-11-10. **Decision: PARTIAL. P0 cannot legitimately be marked PASS yet.** The Git commit discrepancy is resolved, but the complete master has not been supplied. This records the current closure decision; it does not certify a completed comparison against missing requirements.
+**Stage:** P0 — repository, dataset, asset, dependency, architecture and reference-code audit. **Decision: PASS for review.** No P1 work was started. Current closure changes are uncommitted and have not been pushed.
 
-## Published audit and current scope
+## Source of truth and historical reconciliation
 
-The GitHub connector read [`branches/main`](https://api.github.com/repos/Ir1222/SMHOI/branches/main) and returned `579d1a8c661985c91926a365c7505488abe03bb8`. Local branch `main` has the same HEAD. The [published audit commit](https://github.com/Ir1222/SMHOI/commit/579d1a8c661985c91926a365c7505488abe03bb8) contains the 21 P0 documentation/evidence files and has parent `845878416d544ae2bef94f4a43d2ce059bc8c4ed`. No duplicate commit, amend, fetch, reset or push is needed or performed.
+The complete 1,743-line `.txt` master was read in full and restored byte-for-byte at [the canonical path](../SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md). Both have SHA256 `7365f680cf975263e69672d75d585c62e83532115b9065c6e63929004bdbdc9b`. The incomplete user `.md` neighbor remains untouched. The previous missing-master blocker is resolved.
 
-All seven Markdown reports were read in full, and all 14 supporting evidence files were inspected, including parsing all 11 JSON files. Each of the 21 files matched the published commit before reconciliation edits. Source/dependency hash checks found all 46 recorded Python source files and all 10 inspected dependency files unchanged, supporting reuse of the existing evidence.
+Current local branch/HEAD: `main` / `e89573171c86be7f40c8d120dc813cee0274a152`. Audit commit `579d1a8c661985c91926a365c7505488abe03bb8` and reconciliation commit `e895731` remain in history. Both were explicitly authorized; no amend/reset/rebase/duplicate commit occurred. The previous GitHub observation at `579d1a8` remains a dated observation in `reconciliation_checks.json`, not a claim about the current remote tip. No new remote-history claim is required for this local closure.
 
-`REPORT.md`, `VALIDATION.md` and `FILE_CHANGE_MAP.md` now distinguish the original pre-commit snapshot from current published status. The original JSON/log evidence remains unchanged. In particular, `preservation_final.json`'s `committed=false` and `pushed=false`, and `repositories.json`'s old target HEAD, describe the earlier audit snapshot; they are not current Git status. Current observations are saved separately in [reconciliation_checks.json](reconciliation_checks.json).
+Original `artifact_inventory.json`, `preservation_final.json`, `repositories.json`, test logs and `reconciliation_checks.json` are historical evidence and remain byte-identical. Their earlier missing-plan / pre-commit fields are superseded by this report and `closure_checks.json`, not retroactively rewritten.
 
-## Master-plan availability
+## Gaps closed without repeating completed audits
 
-The requested canonical destination is:
-
-`docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md`
-
-The folder subsequently identified by the user, `docs/hoi/force contact/`, contains one file: `SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md`. The complete contents were re-read. The observed file is 17,878 bytes, 362 lines, SHA256 `477857fab9e2217d6e18c5bf6511cf52e30aee1d5d8ae6d77115d0b06713c0ff`. Its final line is:
-
-```text
-- reduce="netforce" semantics;
-```
-
-It still ends during P0.4. The introductory P0–P8 table is present, but the detailed P1–P8 sections, the remainder of P0 and the promised report/acceptance requirements are absent. Both the canonical `force_contact` plan and the `forcecontact` spelling are absent on disk.
-
-The original audit recorded a different hash (`b0fd536b3fefe03bfcdbe10b80506bc615eef4bb79c67f9c2abf21df87908745`, 17,892 bytes). That historical observation is preserved; the current user file has not been overwritten or reverted. Copying the current truncated text would not restore the complete master. Canonical restoration remains pending the missing content.
-
-## Coverage established by existing evidence
-
-This comparison is limited to the available plan text. It cannot establish that no additional P0 requirements exist.
-
-| Available requirement | Existing evidence reviewed | Closure assessment |
+| Gap revealed by complete plan | Work completed | Evidence |
 |---|---|---|
-| P0.1 repository, instructions, V3, user changes, processes, checkpoints | `REPORT.md`, `repositories.json`, `processes.txt`, `checkpoint_files.json`, preservation records | Original audit documented these; current target/GitHub HEAD reconciled. No reason to repeat the original process/checkpoint audit. |
-| P0.2 / Section 3 artifact inventory, schemas, provenance, consumers, Part B | `DATASET_ASSET_AUDIT.md`, `artifact_inventory.json`, `audit_checks.json`, `checkpoint_audit.json` | Existing checks cover the named inputs, explicitly reporting the missing target checkpoint and separate external candidate. Eight NPZ schemas and accepted-reference integrity are recorded. |
-| P0.3 architecture and tensor contracts | `ARCHITECTURE_AUDIT.md`, `architecture_checks.json`, `source_inventory.json`, `AUDIT_PROBES.md` | Existing evidence covers state dimensions/integration, recorder/replay, WM fitting, BPTT, compiled execution and checkpoint mapping. Replay termination and clip-end gaps remain findings, not P0 code fixes. |
-| Visible P0.4 dependency, sensor/history, scene/step/recorder order, CUDA capture and netforce | `DEPENDENCY_CONTACT_AUDIT.md`, `dependencies.json`, `audit_checks.json`, `force_sign_probe.json`, `force_probe.log` | Installed implementation was traced and isolated probes documented. Actual scene calibration remains P1 work. |
-| Sections 4.1–4.5 cross-stage contracts | Architecture/contact reports and isolated probes | Baseline dimensions, timestep, velocity frames, contact-signal distinctions and force sign are documented. Interval box-frame anchoring and final support-context encoding remain unresolved. The saved probes do not independently demonstrate every proposed future transform/velocity calculation. Stage-specific obligations must be checked against the complete master. |
-| Required implementation file-change map | `FILE_CHANGE_MAP.md` | Present, with later filenames/stage boundaries explicitly provisional until compared with the full master. |
-| Missing P0 remainder and complete-plan acceptance criteria | No supplied text | Cannot enumerate, compare or certify coverage. This is the closure blocker. |
+| P0.5 source implementation audit | Read actual HDMI, PhysHSI local fork and SUGAR mechanisms/config/label paths; classify reuse/adaptation/incompatibilities | `REFERENCE_IMPLEMENTATION_AUDIT.md`, `reference_implementation_checks.json` |
+| Workhorse targets and deployment-error augmentation | Read paper IV-A–IV-D and official project; code unreleased | User explicitly approved paper/available-repository fallback; limitation retained |
+| P0.4 force/torque frame specificity | Confirm world axes and separate force-weighted centroid torque per primary; document common-point wrench combination | Dependency audit addendum and coordinate JSON |
+| Sections 4.3–4.4 numeric conventions not independently demonstrated | Five isolated origin/integration/velocity/vector/torque check groups | `coordinate_closure_checks.json`, exact probe in `CLOSURE_CHECKS.md` |
+| P0.6 full stage map and prescribed output locations | Reconcile all P1–P8 boundaries, reuse, minimal hooks, new files, tests, dependencies and risks | `FILE_CHANGE_MAP.md` |
+| Complete acceptance/coverage report | Map all P0 tasks and eight explicit acceptance criteria | `REQUIREMENT_COVERAGE.md` |
 
-The historical M6.5 hand-contact/support FAILs and `training_ready=false` remain intact. Checkpoint provenance remains qualified: strict architecture loading passed, but no embedded training Git/dataset SHA attests the run. These are documented audit findings, not proof of physical task success or permission to start training.
+The additional secondary-policy, overflow, reset and instantaneous-overwrite bullets were already covered in the original dependency audit. No duplicate physics/history/sign probe was needed. Dataset schemas, accepted field comparisons, strict checkpoint loading, baseline tests, M0–M6.5 and Part B processing were not rerun. Hash checks are preservation/evidence-reuse checks, not dataset regeneration or physical experiments.
 
-## Checks performed for this reconciliation
+## Tensor, frame, unit and timing consequences
 
-Only documentation/evidence consistency and current Git/plan checks were performed:
+No runtime tensor changed. Baseline state71/canonical71/action29/xi33/residual70 remains verified. Target joint84/canonical86/physical82/force6 is mapped to later stages. Force6 is never integrated.
 
-- Verified GitHub `main`, local branch/HEAD, audit parent and commit file scope.
-- Read the current source plan and checked all three path spellings.
-- Verified all 21 existing P0 files against `579d1a8`; parsed all 11 JSON evidence files.
-- Compared the 46 source hashes and 10 dependency hashes with the saved audit evidence.
-- Reviewed existing seven-test PASS output and isolated probe results without rerunning them.
+Existing force history is per primary body and newest-first. Two primary bodies per hand must be summed; the action spans four 5 ms substeps. Mean force is N, impulse is N·s, torque is N·m. World force is hand-on-box for hand-primary/box-secondary. Box components use inverse Box rotation. Torque rotation preserves its reference point; primary torques must first refer to a common point if summed. The preferred contemporaneous Box orientation and allowed explicit interval anchor are P2 decisions under the now-complete master.
 
-No new physical calibration, training, checkpoint load, dataset conversion, Part B processing, visualization or historical experiment was run. No missing requirement from the unavailable plan remainder has been guessed or claimed satisfied. Documentation validation and the complete reconciliation diff are checked separately before delivery.
+Root translation is environment-local in stored robot state; root linear velocity is world-frame/root-origin, angular velocity body-local, and quaternion storage is wxyz. Existing offset-COM evidence is reused. New numeric checks verify right multiplication of body angular increments and signed quaternion-log reference velocity conventions. Synthetic convention checks do not implement joint scene resets or derive a reference velocity cache.
 
-## Remaining closure work and review gate
+## Checks, numerical evidence and skipped work
 
-1. Receive the complete master text and restore it at the canonical `force_contact` path.
-2. Read it in full and map every P0 requirement and mandated output to existing evidence.
-3. Perform only uncovered read-only checks, resolve any report/contract differences and update this closure decision.
-4. Present the complete documentation diff and wait for user review and explicit approval.
+| Executed check | Result |
+|---|---|
+| StateIO origins/read-write on two synthetic rows | PASS; position error `1.67e-16` m; selected-row write/clearing only |
+| Existing StateSpec versus MuJoCo noncommuting quaternion integration | PASS; max component error `1.11e-16`; wrong left product differs `2.28e-3` |
+| Synthetic reference pose finite differences, central/one-sided and sign flips | PASS; linear error `2.61e-15` m/s; angular error ≤`2.45e-14` rad/s |
+| Box-local force/torque and inverse round trip | PASS; error ≤`8.89e-16` in vector units |
+| Common-reference torque algebra | PASS; `5.56e-17` N·m error; naive torque sum differs `0.59439` N·m |
+| Reference source hash/AST inspection | PASS; nine exact files recorded; no Isaac framework execution |
+| Canonical master equality / Git ancestry / JSON / links / diff / preservation | PASS; detailed counts and hashes in `closure_checks.json` |
 
-This reconciliation changes documentation only. Existing training source, datasets, assets, checkpoints and accepted Part B artifacts were not modified. P1 has not started. No reconciliation commit or push has been made; the prior authorization to commit P0 was already fulfilled by `579d1a8`.
+The coordinate command emitted one existing Torch `torch.jit.script` deprecation warning. No mandatory audit check failed. Existing seven non-training tests remain PASS from their original execution; they were not rerun after documentation-only changes. Source/dependency hashes were checked for evidence reuse. No P1 physical calibration, support-context prediction ablation, Force Head fit, Actor gradient fidelity, migration, training or full task evaluation was run; these require later-stage approval.
+
+Exact substantive commands, inspected paths and the full temporary coordinate probe are recorded in [CLOSURE_CHECKS.md](CLOSURE_CHECKS.md). The full review patch is `/tmp/SMHOI_P0_FINAL_CLOSURE_REVIEW.patch`.
+
+## Every new and modified file
+
+New files:
+
+- `docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` — exact copy of supplied complete text.
+- `docs/hoi/force_contact/p0/REFERENCE_IMPLEMENTATION_AUDIT.md` — P0.5 mechanisms and reuse decisions.
+- `docs/hoi/force_contact/p0/reference_implementation_checks.json` — paths/hashes/revisions/symbol ranges and approved fallback.
+- `docs/hoi/force_contact/p0/coordinate_closure_checks.json` — five missing numeric check groups.
+- `docs/hoi/force_contact/p0/REQUIREMENT_COVERAGE.md` — complete P0 requirement matrix.
+- `docs/hoi/force_contact/p0/CLOSURE_CHECKS.md` — commands and exact temporary probe.
+- `docs/hoi/force_contact/p0/closure_checks.json` — current closure/preservation evidence.
+
+Modified files:
+
+- `docs/hoi/force_contact/p0/REPORT.md` — final P0 decision, source of truth and summary.
+- `docs/hoi/force_contact/p0/CLOSURE.md` — this final closure report; prior review remains in commit `e895731`.
+- `docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md` — complete P1–P8 map.
+- `docs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md` — complete-plan boundaries and new coordinate evidence.
+- `docs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md` — allowed Box-frame approaches and torque reference.
+- `docs/hoi/force_contact/p0/VALIDATION.md` — current closure addendum, preserving original test matrix.
+
+Git scope: six modified tracked documentation files and seven new documentation/evidence files. Index remains empty; four pre-existing untracked user files are excluded. No training source, tests, datasets, assets, checkpoints, dependencies or accepted Part B file changed.
+
+## Limitations, approved exception and stop point
+
+Workhorse code is unavailable; the user explicitly authorized paper/other-repository inspection. PhysHSI findings describe the actual local fork, with no claim of official-code parity. Neither source's algorithms/assets replace the master specification.
+
+Historical M6.5 physical-hand-contact and support-validity FAILs, `training_ready=false`, target-local checkpoint absence and limited external checkpoint provenance remain recorded. An audit PASS establishes that these facts and required changes are understood; it does not resolve them experimentally or approve learning.
+
+All eight P0 acceptance criteria are covered, with the explicit Workhorse fallback. **P0 may be marked PASS for review. Wait for user approval. No P1 was started, and no commit or push was made.**
