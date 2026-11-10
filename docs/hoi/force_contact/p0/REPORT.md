@@ -1,16 +1,20 @@
 # Part C P0 audit report
 
-**Status: PARTIAL — available P0 audit completed; complete-plan acceptance cannot be certified.** No P1 implementation, training, commit or push was performed. All P0 additions are documentation under this directory. The user must review the report/diff and explicitly approve before any stage commit or P1 work.
+**Status: PARTIAL — available P0 audit completed; complete-plan acceptance cannot be certified.** The original audit was committed after user approval as `579d1a8c661985c91926a365c7505488abe03bb8`. On 2026-11-10, the GitHub API confirmed that both GitHub `main` and local `main` point to this commit. No P1 implementation or training was performed.
+
+The [closure review](CLOSURE.md) records the current commit status, evidence review and outstanding master-plan blocker. Its documentation changes await review; no additional commit or push was made. The audit snapshots below and in the existing JSON evidence describe the original pre-commit audit, unless explicitly updated here.
 
 ## Source of truth and scope limitation
 
-The requested `docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` does not exist. The discovered file is `docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` (17,892 bytes, SHA256 `b0fd536b3fefe03bfcdbe10b80506bc615eef4bb79c67f9c2abf21df87908745`). It has 361 newline characters and ends at P0.4's `reduce="netforce" semantics;` bullet. It contains no detailed P1–P8 sections or the promised stage-report paths. The entire available file and 665-line V3 plan were read. No missing requirements were invented. The force-aware master overrides the older V3 Force Head restriction.
+During the original audit, the requested `docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` did not exist. The discovered file was `docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` (17,892 bytes, SHA256 `b0fd536b3fefe03bfcdbe10b80506bc615eef4bb79c67f9c2abf21df87908745`). It had 361 newline characters and ended at P0.4's `reduce="netforce" semantics;` bullet. It contained no detailed P1–P8 sections or the promised stage-report paths. The entire available file and 665-line V3 plan were read. No missing requirements were invented. The force-aware master overrides the older V3 Force Head restriction.
+
+The reconciliation re-read the user-specified `force contact` folder. Its sole file now has SHA256 `477857fab9e2217d6e18c5bf6511cf52e30aee1d5d8ae6d77115d0b06713c0ff` (17,878 bytes, 362 lines), still ending at the same P0.4 bullet. The user confirmed `docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md` as the canonical destination. Complete text has not yet been supplied, so restoration and comparison against the full requirements remain pending. The existing user file was preserved.
 
 The user was asked to locate/restore the complete master while independent audit work continued. This report uses `docs/hoi/force_contact/p0/` as a provisional documentation destination; it does not rename or alter the user's master. Restore the remainder and reconcile its additional P0 outputs/checks before marking P0 PASS or implementing P1.
 
 ## Repository and preservation
 
-Target `/home/han/pyx/SMHOI`: branch `main`, HEAD `845878416d544ae2bef94f4a43d2ce059bc8c4ed` (Part B acceptance). Initial tracked/index diff was empty. Existing untracked user files were `.vscode/settings.json`, `SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md`, and the master under `docs/hoi/force contact/`; all retained byte-for-byte. No applicable AGENTS.md was found in the target or ancestors.
+Original audit baseline for target `/home/han/pyx/SMHOI`: branch `main`, HEAD `845878416d544ae2bef94f4a43d2ce059bc8c4ed` (Part B acceptance, now the parent of the P0 commit). Initial tracked/index diff was empty. Existing untracked user files were `.vscode/settings.json`, `SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md`, and the master under `docs/hoi/force contact/`; all retained byte-for-byte during that audit. No applicable AGENTS.md was found in the target or ancestors.
 
 | Local checkout | Branch / HEAD | State and role |
 |---|---|---|
@@ -23,7 +27,7 @@ Target `/home/han/pyx/SMHOI`: branch `main`, HEAD `845878416d544ae2bef94f4a43d2c
 
 Repository records include an additional nearby humanoid-carrybox checkout for provenance discovery. Official remote HEADs were not fetched and no papers/reference algorithms were newly implemented. These local snapshots establish availability, not upstream parity. An external TensorBoard process for hdmi_robot_only was observed; no running training/evaluation job was found in the process snapshot. Nothing was stopped.
 
-Final integrity checks rehashed **361 protected existing files** and **76 existing inventoried inputs**, including external datasets/assets and the candidate checkpoint: no changes. The committed Part B reference manifest/acceptance report and M6.5 manifest/hash list still match HEAD. Existing tracked/index diff remains empty.
+The original audit's final integrity checks rehashed **361 protected existing files** and **76 existing inventoried inputs**, including external datasets/assets and the candidate checkpoint: no changes at that audit snapshot. The committed Part B reference manifest/acceptance report and M6.5 manifest/hash list matched that HEAD. Tracked/index diff was empty before the new P0 files were staged. These historical results do not assert that the user-supplied plan has remained unchanged since then.
 
 ## Verified data, assets and checkpoint
 
@@ -62,6 +66,6 @@ Two concrete gaps were reproduced: successor-row replay termination labels dupli
 
 [VALIDATION.md](VALIDATION.md) contains the complete check matrix and exact executed regression command. **Seven non-training baseline tests passed.** Artifact/source hashes, installed history/reset bookkeeping, offset-COM frames, strict checkpoint shapes and isolated CPU/Warp sensor sign/capture checks passed within their documented scope. Physical task success, full HOI scene calibration, force-gradient fidelity and checkpoint migration were not claimed.
 
-All new P0 documents and raw evidence are in this directory. `git diff HEAD --` and staged diff are empty because these are new untracked files; the separate review patch includes their complete contents. No staging, commit or push occurred. Existing user changes are excluded from the proposed P0 commit.
+All 21 original P0 documents and evidence files were included in commit `579d1a8`; they are tracked and present on GitHub `main`. The reconciliation verified all 21 against that commit before editing the report, validation note and file-change map. Original machine evidence is preserved as a pre-commit snapshot, including `committed=false` and `pushed=false` in `preservation_final.json`. Current Git state is recorded separately in [reconciliation_checks.json](reconciliation_checks.json). Existing user files remain outside the audit commit.
 
-**Stop after P0 for review.** Restore the complete master, review this report and the full documentation diff, and explicitly approve any P0 commit/P1 continuation. Approval of a report alone must not be inferred from elapsed time. P0 and P1 will remain separate commits after their respective reviews; P2 or later is outside the current authorization.
+**Stop after P0 for review.** Restore the complete master when supplied, reconcile any additional P0 requirements and review the closure report and full documentation diff. The original P0 commit is already approved and published; any reconciliation commit requires separate approval. P1 remains unstarted and requires an explicit instruction. P2 or later is outside the current authorization.

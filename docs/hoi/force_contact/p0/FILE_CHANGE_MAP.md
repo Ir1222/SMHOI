@@ -4,7 +4,9 @@ This is an audit map of required changes against the supplied master plan, not i
 
 ## P0 actual changes
 
-Only new documentation/evidence under `docs/hoi/force_contact/p0/`. No changes to `src/`, `tests/`, `scripts/`, pyproject, uv.lock, data, accepted outputs, dependencies or checkpoints. P0 code probes were temporary scripts under `/tmp`; a documentation transcript records their content. No git staging, commit or push.
+The original 21 documentation/evidence files under `docs/hoi/force_contact/p0/` were committed after approval as `579d1a8c661985c91926a365c7505488abe03bb8`; GitHub `main` was verified at that commit during reconciliation. No changes to `src/`, `tests/`, `scripts/`, pyproject, uv.lock, data, accepted outputs, dependencies or checkpoints. P0 code probes were temporary scripts under `/tmp`; a documentation transcript records their content.
+
+The subsequent [closure review](CLOSURE.md) updates only `REPORT.md`, `VALIDATION.md` and this map, and adds `CLOSURE.md` and `reconciliation_checks.json`. These changes are uncommitted pending review. The canonical master destination is `docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md`; restoration awaits the complete text. No P1–P8 map entry below is frozen by this reconciliation.
 
 ## P1 physical prerequisites only, after explicit approval
 

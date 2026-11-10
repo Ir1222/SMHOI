@@ -1,0 +1,205 @@
+{
+  "observed_at_utc": "2026-11-10T12:36:40.764433+00:00",
+  "local_branch": "main",
+  "local_head": "579d1a8c661985c91926a365c7505488abe03bb8",
+  "audit_commit_parent": "845878416d544ae2bef94f4a43d2ce059bc8c4ed",
+  "initial_status": "?? .vscode/settings.json\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? \"docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\"",
+  "initial_tracked_diff": "",
+  "initial_index_diff": "",
+  "reviewed_p0_files": [
+    {
+      "path": "docs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md",
+      "bytes": 12096,
+      "sha256": "7ed14a0af9b3ea81fd20131c2ab39a3e1389239abeaa738fc24c8e6aeb235491",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/AUDIT_PROBES.md",
+      "bytes": 14149,
+      "sha256": "2a9b6c28aaf6ae94732c9af1f0ff1b6128afd12ac972891db7229b44c2d1f3c9",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/DATASET_ASSET_AUDIT.md",
+      "bytes": 19836,
+      "sha256": "30c250357736438caf2e6a8eb5be10606fac3a79a5d56ed63f16364b02cc46d5",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md",
+      "bytes": 10980,
+      "sha256": "cfbe7870a2981c963cb3b92acedf6e1d280b9dd0f7088d9ce4b7258642ad198d",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md",
+      "bytes": 7393,
+      "sha256": "1dda59b2c5f0fb46d09fe6d6bf228088e5943527b07a885bb35ef036dd537b8d",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/REPORT.md",
+      "bytes": 9955,
+      "sha256": "57d95c02a1cb2d1c13d9bdc5e49d04b7b0800b8e3897c389311a5db0a6eb460f",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/VALIDATION.md",
+      "bytes": 7032,
+      "sha256": "a0cf8d46f527db6da36aaa429ec00a593954a85f5907b368898ff31128d72270",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/architecture_checks.json",
+      "bytes": 1079,
+      "sha256": "56a17d68db9b25e478e47aa3b7cc40b5f73e0c89769587ee1d421ce5a4734f1e",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/artifact_inventory.json",
+      "bytes": 132169,
+      "sha256": "ab16b8aefbbd7c8090f9eb050e35555d7ba4655b1102c7d7f8fb0a96884662fc",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/audit_checks.json",
+      "bytes": 20090,
+      "sha256": "0ed5d2e0752b650b728f7427a4ae35b5a69205a2bc74e21e3335b838805d33f8",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/baseline_tests.txt",
+      "bytes": 528,
+      "sha256": "2a631352114e1666df8ab4f8eca27b1d62409c615a2eef096b53b93fefba21f1",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/checkpoint_audit.json",
+      "bytes": 9614,
+      "sha256": "684a81d1e4116664cfa85f113512b305ebef71117c707acaa5f18df2881a2e2e",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/checkpoint_files.json",
+      "bytes": 5620,
+      "sha256": "d3953f473e52037a326d57add223bc3538063d8cb0e0a378bbf029168d04aced",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/dependencies.json",
+      "bytes": 3941,
+      "sha256": "be807f7a9f06419c754c611f9f45ec377f8572ceca60acc19edcc35f8b3893b4",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/force_probe.log",
+      "bytes": 1732,
+      "sha256": "ebfdf54ea80694c070eb0884d8dfda24c67591f424b0c978280f92b1a0cc1b79",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/force_sign_probe.json",
+      "bytes": 977,
+      "sha256": "dd6ec7606c83633bd454909f3940fddcc6c0c7d16e4c92f336649a8d7eb0379b",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/preservation_baseline.json",
+      "bytes": 44653,
+      "sha256": "1f16b95c549547c80693747a471b763b56ac3cbbaed9929f4bc5bde5bc3384d2",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/preservation_final.json",
+      "bytes": 2083,
+      "sha256": "868db1673a308124aea19689c33a0a38877da3b912f387e81e11e5bea69cb379",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/processes.txt",
+      "bytes": 325,
+      "sha256": "9177d5b711207b38138aa90bfd299abc3d18c33eaa280d695842eaf888d2c7b8",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/repositories.json",
+      "bytes": 6921,
+      "sha256": "b7d5c1922c2f08d43a5c39704eecdc594fec3c2b90609f3dcd6ba5009e7c00db",
+      "matches_audit_commit_before_reconciliation": true
+    },
+    {
+      "path": "docs/hoi/force_contact/p0/source_inventory.json",
+      "bytes": 6729,
+      "sha256": "def453d57bd218604a60cb233e3dddcb034bc7561e62e4f1f71fc58e8f2dd031",
+      "matches_audit_commit_before_reconciliation": true
+    }
+  ],
+  "source_files_checked": 46,
+  "source_files_changed": [],
+  "dependency_files_checked": 10,
+  "dependency_files_changed": [],
+  "plan_paths": [
+    {
+      "path": "docs/hoi/force contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+      "exists": true,
+      "bytes": 17878,
+      "sha256": "477857fab9e2217d6e18c5bf6511cf52e30aee1d5d8ae6d77115d0b06713c0ff",
+      "lines": 362,
+      "last_line": "- reduce=\"netforce\" semantics;"
+    },
+    {
+      "path": "docs/hoi/forcecontact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+      "exists": false
+    },
+    {
+      "path": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+      "exists": false
+    }
+  ],
+  "other_user_file_hashes": {
+    ".vscode/settings.json": "a48b1ccc2582ba0be310eb274eab5636650975ee4dec4d4a3b376cbad0c90162",
+    "SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md": "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
+  },
+  "original_json_files_parsed": 11,
+  "audit_commit_numstat": "86\t0\tdocs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md\n150\t0\tdocs/hoi/force_contact/p0/AUDIT_PROBES.md\n263\t0\tdocs/hoi/force_contact/p0/DATASET_ASSET_AUDIT.md\n97\t0\tdocs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md\n41\t0\tdocs/hoi/force_contact/p0/FILE_CHANGE_MAP.md\n67\t0\tdocs/hoi/force_contact/p0/REPORT.md\n61\t0\tdocs/hoi/force_contact/p0/VALIDATION.md\n37\t0\tdocs/hoi/force_contact/p0/architecture_checks.json\n3481\t0\tdocs/hoi/force_contact/p0/artifact_inventory.json\n892\t0\tdocs/hoi/force_contact/p0/audit_checks.json\n8\t0\tdocs/hoi/force_contact/p0/baseline_tests.txt\n463\t0\tdocs/hoi/force_contact/p0/checkpoint_audit.json\n258\t0\tdocs/hoi/force_contact/p0/checkpoint_files.json\n94\t0\tdocs/hoi/force_contact/p0/dependencies.json\n63\t0\tdocs/hoi/force_contact/p0/force_probe.log\n51\t0\tdocs/hoi/force_contact/p0/force_sign_probe.json\n363\t0\tdocs/hoi/force_contact/p0/preservation_baseline.json\n58\t0\tdocs/hoi/force_contact/p0/preservation_final.json\n3\t0\tdocs/hoi/force_contact/p0/processes.txt\n195\t0\tdocs/hoi/force_contact/p0/repositories.json\n186\t0\tdocs/hoi/force_contact/p0/source_inventory.json",
+  "github_main": {
+    "checked_date": "2026-11-10",
+    "source_url": "https://api.github.com/repos/Ir1222/SMHOI/branches/main",
+    "method": "GitHub connector GET branches/main",
+    "branch": "main",
+    "head": "579d1a8c661985c91926a365c7505488abe03bb8",
+    "tree": "3a6dcdf1362b40bc52f5c9451dae3ab74d34450e",
+    "parents": [
+      "845878416d544ae2bef94f4a43d2ce059bc8c4ed"
+    ],
+    "commit_message": "docs(hoi P0): audit force-aware implementation prerequisites\n\nRecord repository, dataset, asset, dependency, ContactSensor and training architecture audits with the implementation file-change map. P0 remains PARTIAL pending the missing master-plan remainder. No P1 implementation or training changes.",
+    "commit_date_utc": "2026-11-10T12:20:53Z"
+  },
+  "status": "PARTIAL",
+  "full_master_restored": false,
+  "full_master_comparison_complete": false,
+  "blocking_reason": "The sole file in the user-specified force contact folder still ends during P0.4; the complete master text is unavailable.",
+  "existing_tests_or_probes_rerun": false,
+  "training_started": false,
+  "p1_started": false,
+  "reconciliation_committed": false,
+  "push_performed_during_reconciliation": false,
+  "historical_evidence_note": "Original JSON/log evidence remains the pre-commit snapshot. Prior committed=false/pushed=false fields do not describe current GitHub history.",
+  "modified_files": [
+    "docs/hoi/force_contact/p0/REPORT.md",
+    "docs/hoi/force_contact/p0/VALIDATION.md",
+    "docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md"
+  ],
+  "added_files": [
+    "docs/hoi/force_contact/p0/CLOSURE.md",
+    "docs/hoi/force_contact/p0/reconciliation_checks.json"
+  ],
+  "validation": {
+    "original_evidence_files_unchanged": 18,
+    "report_local_links_valid": true,
+    "tracked_changes_limited_to_three_reports": true,
+    "index_empty": true,
+    "user_files_preserved_during_reconciliation": true,
+    "tracked_diff_check_pass": true
+  }
+}

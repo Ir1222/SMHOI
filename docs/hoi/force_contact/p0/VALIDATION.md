@@ -2,6 +2,8 @@
 
 Date: 2026-11-10. Only read-only checks and temporary dependency probes were run. P1 physical calibration, training, data conversion, reference visualization and historical audit experiments were not run.
 
+This matrix records the original pre-commit audit. That audit is now committed as `579d1a8c661985c91926a365c7505488abe03bb8`, verified on GitHub `main`. See [CLOSURE.md](CLOSURE.md) and [reconciliation_checks.json](reconciliation_checks.json) for the subsequent Git/status reconciliation. Original test results and JSON snapshots are retained; no completed test or physics probe was rerun for this documentation review. The complete master is still unavailable, so overall P0 remains PARTIAL.
+
 ## Results
 
 | Check | Result | Evidence / limit |
