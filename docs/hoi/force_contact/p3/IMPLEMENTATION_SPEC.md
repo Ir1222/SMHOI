@@ -146,3 +146,26 @@ normalized MSE .0048631→.00012414. Select the explicitly allowed two relative
 support transforms18, separate from xi33. Force ridge errors worsen (left1.258→1.971N,
 right1.244→1.935N); force generalization remains unresolved. Balanced pair split
 corrects the original side bias; both results are retained. No research amendment.
+
+## P3.8 interface refinement before implementation
+
+To evaluate every eligible window exactly once, extract P2's existing tensor gather
+into HOIReplayBuffer._gather_windows(e,t,k); sample_windows still calls the original
+mask/random sampler then that unchanged gather. This HOI-local refactor avoids a
+second window implementation. A new hoi/dataset.py validates complete serialized
+physical records and repopulates the original Replay through append/add, preserving
+state-only final rows for externally stopped clips without fabricating terminal
+labels. Train/validation partitioning uses whole source episodes and canonical
+reference identities; aliases never create extra clips. No shared Replay changes.
+
+## Controlled collection limitation found in P3.8
+
+collection_01 failed its additional post-forward overflow assertion at episode0,
+step11 (48 saved transitions); all per-substep P2 guards had passed. The first
+harness did not serialize the post-forward flag value, so its exact bit is unknown.
+Do not infer buffer exhaustion or relabel the run valid. Preserve log/data/hash.
+For the bounded implementation dataset, stop each independent fixture after10
+steps (320 transitions total), before the observed failure, retaining eight-step
+windows. This narrows the diagnostic horizon, does not fix physical instability
+or change simulator settings/guards. Subsequent harness failures record the exact
+post-forward flags and interval. Natural rollout robustness remains blocked.

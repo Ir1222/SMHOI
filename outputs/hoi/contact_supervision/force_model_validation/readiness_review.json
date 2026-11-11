@@ -1,0 +1,17 @@
+{
+  "ready": false,
+  "reasons": [
+    "Controlled diagnostics do not establish natural HOI generalization",
+    "Missing validation coverage: left.onset",
+    "Missing validation coverage: right.onset",
+    "Missing finite validation metric: events.left.onset.recall",
+    "Missing finite validation metric: events.right.onset.recall",
+    "Missing finite validation metric: horizon_8.force.left.all.direction_cosine",
+    "Missing finite validation metric: horizon_8.force.left.calibration.active_recall",
+    "Missing finite validation metric: horizon_8.force.right.all.direction_cosine",
+    "Missing finite validation metric: horizon_8.force.right.calibration.active_recall",
+    "Validation thresholds/count requirements have not been fully specified"
+  ],
+  "actor_force_optimization_enabled": false,
+  "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+}

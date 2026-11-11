@@ -205,6 +205,11 @@ class HOIReplayBuffer(ReplayBuffer):
     def sample_windows(self, n, k=8):
         # Reuse original eligible-row distribution and ring offset convention.
         e, t = self._sample_from_mask(self.window_mask(k), n)
+        return self._gather_windows(e, t, k)
+
+    @torch.no_grad()
+    def _gather_windows(self, e, t, k):
+        """Gather already-validated start rows; also used by exhaustive evaluation."""
         tt = (t[None, :] + torch.arange(k + 1, device=self.device)[:, None]) % self.T
         ee = e[None, :].expand_as(tt)
         er, tr = ee[:-1], tt[:-1]

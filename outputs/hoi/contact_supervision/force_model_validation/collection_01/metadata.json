@@ -1,0 +1,56 @@
+{
+  "kind": "controlled_P3_diagnostic",
+  "acceptance": "FAIL",
+  "seed": 303,
+  "budget": "8 episodes x 4 worlds x 16 transitions = 512",
+  "natural_HOI_training_data": false,
+  "replay": {
+    "schema": "hoi-transition-v1",
+    "force_frame": "contemporaneous_box_at_substep_solve",
+    "force_sign": "hand_on_box",
+    "hand_order": [
+      "left",
+      "right"
+    ],
+    "primary_order": [
+      "wrist_pitch",
+      "wrist_yaw"
+    ],
+    "substep_order": "chronological",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "force_unit": "N",
+    "impulse_unit": "N s",
+    "force_on_N": 0.001,
+    "found_final_time": "fourth_solve_before_final_forward",
+    "frame": "transition_start; next=start+1",
+    "intent_ref": "global[start,end]",
+    "terminal": "physical_failure OR timeout OR clip_end; transition-indexed",
+    "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+    "references": [
+      {
+        "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+        "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+      }
+    ],
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "sensors": {
+      "left_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      },
+      "right_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      }
+    },
+    "normalization": "none; raw physical units"
+  },
+  "error": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/scripts/hoi/collect_p3_diagnostic.py\", line 69, in run\n    assert not env.sim.data.overflow[:].any()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "archive_sha256": "36d13b18cc3c5b52d49bfd8592772fe45f59022c971db4c783177528292242c7"
+}

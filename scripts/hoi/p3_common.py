@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from supermimic.hoi.reference import REPO, ReferenceClip
+from supermimic.hoi.reference import REPO, ReferenceClip, sha256
 
 REFERENCE = REPO / "outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz"
 REFERENCE_SHA256 = "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
@@ -42,4 +42,5 @@ def save_rows(output, rows, metadata):
         np.savez_compressed(
             Path(output) / "transitions.npz", **{k: np.stack([r[k] for r in rows]) for k in rows[0]}
         )
+        metadata["archive_sha256"] = sha256(Path(output) / "transitions.npz")
     (Path(output) / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")

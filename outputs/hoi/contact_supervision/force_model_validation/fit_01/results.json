@@ -1,0 +1,1658 @@
+{
+  "scope": "controlled supervised diagnostic only; not natural-HOI trained model",
+  "seed": 304,
+  "source": "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_02",
+  "source_archive_sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+  "config": {
+    "hidden": [
+      64,
+      64,
+      64
+    ],
+    "term_hidden": [
+      64,
+      64
+    ],
+    "state_spec": {
+      "dt": 0.02,
+      "err_scale": [
+        0.05,
+        0.1,
+        0.5,
+        1.0,
+        0.1,
+        2.0
+      ],
+      "out_scale": [
+        0.3,
+        0.5,
+        2.0,
+        0.01,
+        0.02,
+        0.02
+      ],
+      "in_scale": [
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        5.0
+      ],
+      "explicit_integration": true,
+      "xi_offset": [
+        0.75,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "xi_scale": [
+        0.45,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.05,
+        0.05,
+        0.05
+      ]
+    },
+    "term_loss_weight": 1.4160031531976345,
+    "height_threshold": 0.25,
+    "tilt_threshold": 0.8,
+    "object_spec": {
+      "in_scale": [
+        1.0,
+        1.0,
+        1.0,
+        2.0
+      ],
+      "out_scale": [
+        0.3,
+        0.5,
+        0.01,
+        0.02
+      ],
+      "err_scale": [
+        0.05,
+        0.1,
+        0.5,
+        1.0
+      ]
+    },
+    "weights": {
+      "robot": 0.016480818629139207,
+      "object": 0.13455571473227598,
+      "force": 5.88598244156544
+    },
+    "force_loss": "huber",
+    "force_delta": 1.0,
+    "support_context": true
+  },
+  "trainer_config": {
+    "window": 8,
+    "batches_per_update": 1,
+    "batch_size": 32,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "weight_decay": 0.0,
+    "compile": null
+  },
+  "train_rows": 240,
+  "validation_rows": 80,
+  "train_episode_keys": [
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      0
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      1
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      2
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      3
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      4
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      5
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      0
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      1
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      2
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      3
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      4
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      5
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      0
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      1
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      2
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      3
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      4
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      5
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      0
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      1
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      2
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      3
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      4
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      5
+    ]
+  ],
+  "validation_episode_keys": [
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      6
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      0,
+      7
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      6
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      1,
+      7
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      6
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      2,
+      7
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      6
+    ],
+    [
+      "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      3,
+      7
+    ]
+  ],
+  "reference_sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+  "asset_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+  "initial_component_scales_robot_object_force_term": [
+    60.676597595214844,
+    7.431865692138672,
+    0.16989517211914062,
+    0.706213116645813
+  ],
+  "force_statistics": {
+    "scale_N": [
+      [
+        5.021431922912598
+      ],
+      [
+        4.181304931640625
+      ]
+    ],
+    "counts_inactive_active": [
+      [
+        516,
+        60
+      ],
+      [
+        534,
+        42
+      ]
+    ],
+    "median_active_N": [
+      4.974197864532471,
+      0.8448373079299927
+    ],
+    "class_weights": [
+      [
+        0.5581395626068115,
+        4.800000190734863
+      ],
+      [
+        0.5393258333206177,
+        6.857142925262451
+      ]
+    ],
+    "force_on_N": 0.0010000000474974513
+  },
+  "normalization_fit_scope": "all eligible training windows; reflects uniform-window sampling distribution, no validation rows",
+  "unique_train_coverage": {
+    "left.active": 32,
+    "left.inactive": 208,
+    "left.low": 17,
+    "left.high": 15,
+    "left.onset": 0,
+    "left.loss": 12,
+    "right.active": 26,
+    "right.inactive": 214,
+    "right.low": 11,
+    "right.high": 15,
+    "right.onset": 0,
+    "right.loss": 12
+  },
+  "unique_validation_coverage": {
+    "left.active": 12,
+    "left.inactive": 68,
+    "left.low": 6,
+    "left.high": 6,
+    "left.onset": 0,
+    "left.loss": 4,
+    "right.active": 8,
+    "right.inactive": 72,
+    "right.low": 3,
+    "right.high": 5,
+    "right.onset": 0,
+    "right.loss": 4
+  },
+  "before_train": {
+    "eligible_windows": 72,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 72,
+            "mae_N": 1.46126389503479,
+            "magnitude_mae_N": 3.032912254333496,
+            "direction_cosine": 0.0,
+            "direction_count": 32
+          },
+          "active": {
+            "count": 32,
+            "mae_N": 3.287843704223633,
+            "magnitude_mae_N": 6.824052333831787,
+            "direction_cosine": 0.0,
+            "direction_count": 32
+          },
+          "inactive": {
+            "count": 40,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 17,
+            "mae_N": 0.5951750874519348,
+            "magnitude_mae_N": 1.1569478511810303,
+            "direction_cosine": 0.0,
+            "direction_count": 17
+          },
+          "high": {
+            "count": 15,
+            "mae_N": 6.339535713195801,
+            "magnitude_mae_N": 13.246768951416016,
+            "direction_cosine": 0.0,
+            "direction_count": 15
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.4444444477558136,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.967244565486908,
+            "magnitude_mae_N": 2.033625841140747,
+            "direction_cosine": 0.0,
+            "direction_count": 26
+          },
+          "active": {
+            "count": 26,
+            "mae_N": 2.678523063659668,
+            "magnitude_mae_N": 5.631579875946045,
+            "direction_cosine": 0.0,
+            "direction_count": 26
+          },
+          "inactive": {
+            "count": 46,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 11,
+            "mae_N": 0.11895673722028732,
+            "magnitude_mae_N": 0.25793343782424927,
+            "direction_cosine": 0.0,
+            "direction_count": 11
+          },
+          "high": {
+            "count": 15,
+            "mae_N": 4.555539131164551,
+            "magnitude_mae_N": 9.572253227233887,
+            "direction_cosine": 0.0,
+            "direction_count": 15
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3611111044883728,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 72,
+          "robot_nse": 0.13276176154613495,
+          "object_nse": 0.04757765308022499,
+          "position_RMSE_m": 0.00340436864644289,
+          "rotation_RMSE_rad": 0.008070862852036953,
+          "linear_RMSE_m_s": 0.25754252076148987,
+          "angular_RMSE_rad_s": 0.5426504015922546
+        },
+        "contact": {
+          "count": 46,
+          "robot_nse": 0.203809455037117,
+          "object_nse": 0.06709877401590347,
+          "position_RMSE_m": 0.0038390590343624353,
+          "rotation_RMSE_rad": 0.01009734719991684,
+          "linear_RMSE_m_s": 0.28643739223480225,
+          "angular_RMSE_rad_s": 0.6789026260375977
+        },
+        "noncontact": {
+          "count": 26,
+          "robot_nse": 0.007061993703246117,
+          "object_nse": 0.013040291145443916,
+          "position_RMSE_m": 0.0024533732794225216,
+          "rotation_RMSE_rad": 6.476263934018789e-07,
+          "linear_RMSE_m_s": 0.19626249372959137,
+          "angular_RMSE_rad_s": 5.576900002779439e-05
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 72,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 72,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 72,
+          "robot_nse": 2.0074691772460938,
+          "object_nse": 1.6773416996002197,
+          "position_RMSE_m": 0.14032314717769623,
+          "rotation_RMSE_rad": 0.0964156836271286,
+          "linear_RMSE_m_s": 1.651435136795044,
+          "angular_RMSE_rad_s": 0.6428967118263245
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 72,
+          "robot_nse": 2.0074691772460938,
+          "object_nse": 1.6773416996002197,
+          "position_RMSE_m": 0.14032314717769623,
+          "rotation_RMSE_rad": 0.0964156836271286,
+          "linear_RMSE_m_s": 1.651435136795044,
+          "angular_RMSE_rad_s": 0.6428967118263245
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 32,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 26,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "before_validation": {
+    "eligible_windows": 24,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 1.5327287912368774,
+            "magnitude_mae_N": 3.1724917888641357,
+            "direction_cosine": 0.0,
+            "direction_count": 12
+          },
+          "active": {
+            "count": 12,
+            "mae_N": 3.065457344055176,
+            "magnitude_mae_N": 6.344982624053955,
+            "direction_cosine": 0.0,
+            "direction_count": 12
+          },
+          "inactive": {
+            "count": 12,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 6,
+            "mae_N": 0.1529952734708786,
+            "magnitude_mae_N": 0.3018139898777008,
+            "direction_cosine": 0.0,
+            "direction_count": 6
+          },
+          "high": {
+            "count": 6,
+            "mae_N": 5.9779205322265625,
+            "magnitude_mae_N": 12.388152122497559,
+            "direction_cosine": 0.0,
+            "direction_count": 6
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.5,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 1.0397790670394897,
+            "magnitude_mae_N": 2.172063112258911,
+            "direction_cosine": 0.0,
+            "direction_count": 8
+          },
+          "active": {
+            "count": 8,
+            "mae_N": 3.119337320327759,
+            "magnitude_mae_N": 6.5161895751953125,
+            "direction_cosine": 0.0,
+            "direction_count": 8
+          },
+          "inactive": {
+            "count": 16,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 3,
+            "mae_N": 0.25800880789756775,
+            "magnitude_mae_N": 0.4700715243816376,
+            "direction_cosine": 0.0,
+            "direction_count": 3
+          },
+          "high": {
+            "count": 5,
+            "mae_N": 4.836134433746338,
+            "magnitude_mae_N": 10.14385986328125,
+            "direction_cosine": 0.0,
+            "direction_count": 5
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3333333432674408,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.13186410069465637,
+          "object_nse": 0.04829761013388634,
+          "position_RMSE_m": 0.0034219471272081137,
+          "rotation_RMSE_rad": 0.008101539686322212,
+          "linear_RMSE_m_s": 0.25912508368492126,
+          "angular_RMSE_rad_s": 0.5474858283996582
+        },
+        "contact": {
+          "count": 16,
+          "robot_nse": 0.19380830228328705,
+          "object_nse": 0.0659274235367775,
+          "position_RMSE_m": 0.003815191565081477,
+          "rotation_RMSE_rad": 0.00992231909185648,
+          "linear_RMSE_m_s": 0.2854166030883789,
+          "angular_RMSE_rad_s": 0.6705304384231567
+        },
+        "noncontact": {
+          "count": 8,
+          "robot_nse": 0.007975720800459385,
+          "object_nse": 0.013037975877523422,
+          "position_RMSE_m": 0.002453118795529008,
+          "rotation_RMSE_rad": 4.292172377518e-07,
+          "linear_RMSE_m_s": 0.19624511897563934,
+          "angular_RMSE_rad_s": 3.732760524144396e-05
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 2.0049002170562744,
+          "object_nse": 1.6872988939285278,
+          "position_RMSE_m": 0.14065688848495483,
+          "rotation_RMSE_rad": 0.09816890209913254,
+          "linear_RMSE_m_s": 1.653717041015625,
+          "angular_RMSE_rad_s": 0.6565134525299072
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 24,
+          "robot_nse": 2.0049002170562744,
+          "object_nse": 1.6872988939285278,
+          "position_RMSE_m": 0.14065688848495483,
+          "rotation_RMSE_rad": 0.09816890209913254,
+          "linear_RMSE_m_s": 1.653717041015625,
+          "angular_RMSE_rad_s": 0.6565134525299072
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 12,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 8,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "after_train": {
+    "eligible_windows": 72,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.17551276087760925,
+            "magnitude_mae_N": 0.3092091381549835,
+            "direction_cosine": 0.7214150428771973,
+            "direction_count": 32
+          },
+          "active": {
+            "count": 32,
+            "mae_N": 0.33833158016204834,
+            "magnitude_mae_N": 0.5927824378013611,
+            "direction_cosine": 0.7214150428771973,
+            "direction_count": 32
+          },
+          "inactive": {
+            "count": 40,
+            "mae_N": 0.04525772109627724,
+            "magnitude_mae_N": 0.08235044777393341,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 17,
+            "mae_N": 0.2597992718219757,
+            "magnitude_mae_N": 0.45064258575439453,
+            "direction_cosine": 0.47594165802001953,
+            "direction_count": 17
+          },
+          "high": {
+            "count": 15,
+            "mae_N": 0.42733484506607056,
+            "magnitude_mae_N": 0.7538743615150452,
+            "direction_cosine": 0.9996182918548584,
+            "direction_count": 15
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.4444444477558136,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.2610267698764801,
+            "magnitude_mae_N": 0.49377691745758057,
+            "direction_cosine": 0.8188059329986572,
+            "direction_count": 26
+          },
+          "active": {
+            "count": 26,
+            "mae_N": 0.20933784544467926,
+            "magnitude_mae_N": 0.35336267948150635,
+            "direction_cosine": 0.8188059329986572,
+            "direction_count": 26
+          },
+          "inactive": {
+            "count": 46,
+            "mae_N": 0.2902422845363617,
+            "magnitude_mae_N": 0.5731414556503296,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 11,
+            "mae_N": 0.13654543459415436,
+            "magnitude_mae_N": 0.2497311234474182,
+            "direction_cosine": 0.582528829574585,
+            "direction_count": 11
+          },
+          "high": {
+            "count": 15,
+            "mae_N": 0.26271894574165344,
+            "magnitude_mae_N": 0.4293591380119324,
+            "direction_cosine": 0.9920758008956909,
+            "direction_count": 15
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3611111044883728,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 72,
+          "robot_nse": 0.010482413694262505,
+          "object_nse": 0.0029655068647116423,
+          "position_RMSE_m": 0.0006749233580194414,
+          "rotation_RMSE_rad": 0.0022977031767368317,
+          "linear_RMSE_m_s": 0.03997752070426941,
+          "angular_RMSE_rad_s": 0.16876943409442902
+        },
+        "contact": {
+          "count": 46,
+          "robot_nse": 0.013618584722280502,
+          "object_nse": 0.004634183831512928,
+          "position_RMSE_m": 0.0008406486012972891,
+          "rotation_RMSE_rad": 0.0028561970684677362,
+          "linear_RMSE_m_s": 0.0499228872358799,
+          "angular_RMSE_rad_s": 0.2110510915517807
+        },
+        "noncontact": {
+          "count": 26,
+          "robot_nse": 0.004933805204927921,
+          "object_nse": 1.3232952369435225e-05,
+          "position_RMSE_m": 0.00010557749919826165,
+          "rotation_RMSE_rad": 0.00043225582339800894,
+          "linear_RMSE_m_s": 0.004043076187372208,
+          "angular_RMSE_rad_s": 0.008382507599890232
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.13780581951141357,
+            "magnitude_mae_N": 0.2576444745063782,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 72,
+            "mae_N": 0.13780581951141357,
+            "magnitude_mae_N": 0.2576444745063782,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 72,
+            "mae_N": 0.14069683849811554,
+            "magnitude_mae_N": 0.2686588764190674,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 72,
+            "mae_N": 0.14069683849811554,
+            "magnitude_mae_N": 0.2686588764190674,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 72,
+          "robot_nse": 0.04294125363230705,
+          "object_nse": 0.004655247554183006,
+          "position_RMSE_m": 0.004648483823984861,
+          "rotation_RMSE_rad": 0.015436545014381409,
+          "linear_RMSE_m_s": 0.04421614110469818,
+          "angular_RMSE_rad_s": 0.12478241324424744
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 72,
+          "robot_nse": 0.04294125363230705,
+          "object_nse": 0.004655247554183006,
+          "position_RMSE_m": 0.004648483823984861,
+          "rotation_RMSE_rad": 0.015436545014381409,
+          "linear_RMSE_m_s": 0.04421614110469818,
+          "angular_RMSE_rad_s": 0.12478241324424744
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 32,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 26,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "after_validation": {
+    "eligible_windows": 24,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1775699108839035,
+            "magnitude_mae_N": 0.31166091561317444,
+            "direction_cosine": 0.8121552467346191,
+            "direction_count": 12
+          },
+          "active": {
+            "count": 12,
+            "mae_N": 0.31514105200767517,
+            "magnitude_mae_N": 0.549580991268158,
+            "direction_cosine": 0.8121552467346191,
+            "direction_count": 12
+          },
+          "inactive": {
+            "count": 12,
+            "mae_N": 0.039998795837163925,
+            "magnitude_mae_N": 0.0737408772110939,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 6,
+            "mae_N": 0.15136529505252838,
+            "magnitude_mae_N": 0.2777026891708374,
+            "direction_cosine": 0.6250148415565491,
+            "direction_count": 6
+          },
+          "high": {
+            "count": 6,
+            "mae_N": 0.4789167642593384,
+            "magnitude_mae_N": 0.8214592933654785,
+            "direction_cosine": 0.999295711517334,
+            "direction_count": 6
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.5,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.3280927240848541,
+            "magnitude_mae_N": 0.6250276565551758,
+            "direction_cosine": 0.8453357219696045,
+            "direction_count": 8
+          },
+          "active": {
+            "count": 8,
+            "mae_N": 0.4444856345653534,
+            "magnitude_mae_N": 0.8064119815826416,
+            "direction_cosine": 0.8453357219696045,
+            "direction_count": 8
+          },
+          "inactive": {
+            "count": 16,
+            "mae_N": 0.2698962688446045,
+            "magnitude_mae_N": 0.5343355536460876,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 3,
+            "mae_N": 0.2205096334218979,
+            "magnitude_mae_N": 0.3191356658935547,
+            "direction_cosine": 0.6293297410011292,
+            "direction_count": 3
+          },
+          "high": {
+            "count": 5,
+            "mae_N": 0.5788711905479431,
+            "magnitude_mae_N": 1.0987777709960938,
+            "direction_cosine": 0.974939227104187,
+            "direction_count": 5
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3333333432674408,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.010425283573567867,
+          "object_nse": 0.0030131202656775713,
+          "position_RMSE_m": 0.0006737164221704006,
+          "rotation_RMSE_rad": 0.002200538059696555,
+          "linear_RMSE_m_s": 0.03981070965528488,
+          "angular_RMSE_rad_s": 0.1707397997379303
+        },
+        "contact": {
+          "count": 16,
+          "robot_nse": 0.012913605198264122,
+          "object_nse": 0.004511076025664806,
+          "position_RMSE_m": 0.0008205333142541349,
+          "rotation_RMSE_rad": 0.002670454094186425,
+          "linear_RMSE_m_s": 0.04867443069815636,
+          "angular_RMSE_rad_s": 0.2089824676513672
+        },
+        "noncontact": {
+          "count": 8,
+          "robot_nse": 0.005448644515126944,
+          "object_nse": 1.720864929666277e-05,
+          "position_RMSE_m": 0.00012301070091780275,
+          "rotation_RMSE_rad": 0.0005142523441463709,
+          "linear_RMSE_m_s": 0.004034504294395447,
+          "angular_RMSE_rad_s": 0.010435357689857483
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1390421837568283,
+            "magnitude_mae_N": 0.2612994909286499,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.1390421837568283,
+            "magnitude_mae_N": 0.2612994909286499,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1470402479171753,
+            "magnitude_mae_N": 0.280180960893631,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.1470402479171753,
+            "magnitude_mae_N": 0.280180960893631,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.05184335634112358,
+          "object_nse": 0.0063253785483539104,
+          "position_RMSE_m": 0.005248508416116238,
+          "rotation_RMSE_rad": 0.017674051225185394,
+          "linear_RMSE_m_s": 0.05605856701731682,
+          "angular_RMSE_rad_s": 0.14518381655216217
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 24,
+          "robot_nse": 0.05184335634112358,
+          "object_nse": 0.0063253785483539104,
+          "position_RMSE_m": 0.005248508416116238,
+          "rotation_RMSE_rad": 0.017674051225185394,
+          "linear_RMSE_m_s": 0.05605856701731682,
+          "angular_RMSE_rad_s": 0.14518381655216217
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 12,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 8,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "updates": [
+    {
+      "update": 1,
+      "term_bce": 0.7066056132316589,
+      "term_acc": 0.0,
+      "robot_weighted_loss": 1.1042492389678955,
+      "object_weighted_loss": 1.0614092350006104,
+      "force_weighted_loss": 1.2629643678665161,
+      "weighted_regression_loss": 3.4286227226257324,
+      "weighted_component_mean_1step": 0.08547113835811615,
+      "weighted_component_mean_kstep": 0.059542469680309296,
+      "loss": 4.429178237915039,
+      "grad_norm": 7.893120288848877
+    },
+    {
+      "update": 2,
+      "term_bce": 0.5936473608016968,
+      "term_acc": 1.0,
+      "robot_weighted_loss": 1.2639485597610474,
+      "object_weighted_loss": 1.0442078113555908,
+      "force_weighted_loss": 1.2677127122879028,
+      "weighted_regression_loss": 3.575869083404541,
+      "weighted_component_mean_1step": 0.08504929393529892,
+      "weighted_component_mean_kstep": 0.0655958354473114,
+      "loss": 4.416475772857666,
+      "grad_norm": 7.094210624694824
+    },
+    {
+      "update": 20,
+      "term_bce": 0.010226646438241005,
+      "term_acc": 1.0,
+      "robot_weighted_loss": 0.45741042494773865,
+      "object_weighted_loss": 0.4371647238731384,
+      "force_weighted_loss": 0.34102514386177063,
+      "weighted_regression_loss": 1.235600233078003,
+      "weighted_component_mean_1step": 0.023439811542630196,
+      "weighted_component_mean_kstep": 0.02688874490559101,
+      "loss": 1.250081181526184,
+      "grad_norm": 2.748584032058716
+    },
+    {
+      "update": 50,
+      "term_bce": 0.0005236640572547913,
+      "term_acc": 1.0,
+      "robot_weighted_loss": 0.6682645678520203,
+      "object_weighted_loss": 0.13320261240005493,
+      "force_weighted_loss": 0.6366562843322754,
+      "weighted_regression_loss": 1.4381234645843506,
+      "weighted_component_mean_1step": 0.0505041666328907,
+      "weighted_component_mean_kstep": 0.017136432230472565,
+      "loss": 1.4388649463653564,
+      "grad_norm": 2.365426540374756
+    },
+    {
+      "update": 100,
+      "term_bce": 0.00018183700740337372,
+      "term_acc": 1.0,
+      "robot_weighted_loss": 0.04792652279138565,
+      "object_weighted_loss": 0.012283085845410824,
+      "force_weighted_loss": 0.10144364833831787,
+      "weighted_regression_loss": 0.16165323555469513,
+      "weighted_component_mean_1step": 0.004842384718358517,
+      "weighted_component_mean_kstep": 0.0014450568705797195,
+      "loss": 0.16191071271896362,
+      "grad_norm": 0.651596188545227
+    },
+    {
+      "update": 200,
+      "term_bce": 4.9892812967300415e-05,
+      "term_acc": 1.0,
+      "robot_weighted_loss": 0.02502797171473503,
+      "object_weighted_loss": 0.0035761131439357996,
+      "force_weighted_loss": 0.02363504469394684,
+      "weighted_regression_loss": 0.052239127457141876,
+      "weighted_component_mean_1step": 0.0006328446906991303,
+      "weighted_component_mean_kstep": 0.0005987264448776841,
+      "loss": 0.052309777587652206,
+      "grad_norm": 0.5087851881980896
+    }
+  ],
+  "parameter_delta_L2": {
+    "trunk": 6.406816922956677,
+    "robot_head": 1.4041906595230103,
+    "object_head": 0.5253533720970154,
+    "force_head": 0.678402841091156
+  },
+  "last_head_gradient_L2": {
+    "robot": 0.33541449904441833,
+    "object": 0.11665830761194229,
+    "force": 0.2462664395570755
+  },
+  "readiness": {
+    "ready": false,
+    "reasons": [
+      "Controlled diagnostics do not establish natural HOI generalization",
+      "Missing validation coverage: left.onset",
+      "Missing validation coverage: right.onset",
+      "Validation thresholds/count requirements have not been fully specified"
+    ],
+    "actor_force_optimization_enabled": false,
+    "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+  },
+  "provenance": {
+    "kind": "controlled_P3_diagnostic",
+    "acceptance": "PASS",
+    "seed": 303,
+    "budget": "8 episodes x 4 worlds x 10 transitions = 320",
+    "natural_HOI_training_data": false,
+    "replay": {
+      "schema": "hoi-transition-v1",
+      "force_frame": "contemporaneous_box_at_substep_solve",
+      "force_sign": "hand_on_box",
+      "hand_order": [
+        "left",
+        "right"
+      ],
+      "primary_order": [
+        "wrist_pitch",
+        "wrist_yaw"
+      ],
+      "substep_order": "chronological",
+      "physics_dt_s": 0.005,
+      "decimation": 4,
+      "control_dt_s": 0.02,
+      "force_unit": "N",
+      "impulse_unit": "N s",
+      "force_on_N": 0.001,
+      "found_final_time": "fourth_solve_before_final_forward",
+      "frame": "transition_start; next=start+1",
+      "intent_ref": "global[start,end]",
+      "terminal": "physical_failure OR timeout OR clip_end; transition-indexed",
+      "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+      "references": [
+        {
+          "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+          "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+        }
+      ],
+      "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+      "sensors": {
+        "left_hand_box": {
+          "reduce": "netforce",
+          "num_slots": 1,
+          "history_length": 4,
+          "secondary_policy": "error"
+        },
+        "right_hand_box": {
+          "reduce": "netforce",
+          "num_slots": 1,
+          "history_length": 4,
+          "secondary_policy": "error"
+        }
+      },
+      "normalization": "none; raw physical units"
+    },
+    "last_interval": {
+      "episode": 7,
+      "step": 9,
+      "post_forward_overflow": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "transitions": 320,
+    "all_substep_capacity_guards_passed": true,
+    "archive_sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+    "episode_disjoint": true,
+    "reference_verified": true,
+    "simulator_labels_verified": true,
+    "cross_clip_generalization": false
+  }
+}

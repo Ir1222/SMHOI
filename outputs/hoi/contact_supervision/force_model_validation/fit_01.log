@@ -1,0 +1,37 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "train_rows": 240,
+  "validation_rows": 80,
+  "parameter_delta_L2": {
+    "trunk": 6.406816922956677,
+    "robot_head": 1.4041906595230103,
+    "object_head": 0.5253533720970154,
+    "force_head": 0.678402841091156
+  },
+  "unique_validation_coverage": {
+    "left.active": 12,
+    "left.inactive": 68,
+    "left.low": 6,
+    "left.high": 6,
+    "left.onset": 0,
+    "left.loss": 4,
+    "right.active": 8,
+    "right.inactive": 72,
+    "right.low": 3,
+    "right.high": 5,
+    "right.onset": 0,
+    "right.loss": 4
+  },
+  "readiness": {
+    "ready": false,
+    "reasons": [
+      "Controlled diagnostics do not establish natural HOI generalization",
+      "Missing validation coverage: left.onset",
+      "Missing validation coverage: right.onset",
+      "Validation thresholds/count requirements have not been fully specified"
+    ],
+    "actor_force_optimization_enabled": false,
+    "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+  }
+}
