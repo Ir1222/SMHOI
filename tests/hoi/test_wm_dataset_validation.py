@@ -11,6 +11,7 @@ from supermimic.hoi.dataset import (
     load_archive,
     partition_episodes,
     replay_from_archive,
+    validate_reference_intent,
 )
 from supermimic.hoi.force import ForceStatistics
 from supermimic.hoi.reference import ReferenceClip
@@ -27,7 +28,8 @@ HASH = "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
 
 
 def test_archive_episode_split_and_original_optimizer_update():
-    data, meta = load_archive(DATA, reference_hashes=[HASH])
+    clip = ReferenceClip(REF)
+    data, meta = load_archive(DATA, reference_hashes=[HASH], references=[clip])
     keys = episode_keys(data, meta)
     train_idx, valid_idx = partition_episodes(data, meta, {k for k in keys if k[2] >= 6})
     assert (len(train_idx), len(valid_idx)) == (240, 80)
@@ -35,16 +37,9 @@ def test_archive_episode_split_and_original_optimizer_update():
     replay = replay_from_archive(data, meta, train_idx)
     assert replay.window_mask(8).sum() == 72
     batch = replay.sample_windows(4, 8)
-    stats = ForceStatistics.fit(
-        torch.tensor(data["force_mean_box"][train_idx]),
-        torch.tensor(data["occupancy"][train_idx]),
-        force_on_N=0.001,
-        active_mass=0.5,
-    )
     wm = JointWorldModel(
         JointWorldModelCfg(hidden=(16, 16), weights=LossWeights(1.0, 1.0, 1.0)),
         AnalyticHeads,
-        stats,
         "cpu",
     )
     tr = JointWorldModelTrainer(
@@ -53,9 +48,21 @@ def test_archive_episode_split_and_original_optimizer_update():
     loss, _ = tr.loss_on(batch)
     modified = {k: v.clone() for k, v in batch.items()}
     modified["a_clean"].normal_(0, 50)
-    modified["intent_ref"].fill_(99)
+    modified["force_mean_box"].normal_(0, 100)
+    modified["occupancy"].fill_(0.73)
     same, _ = tr.loss_on(modified)
     torch.testing.assert_close(loss, same, atol=0, rtol=0)
+    modified["intent_ref"].fill_(99)
+    with pytest.raises(ValueError, match="binary"):
+        tr.loss_on(modified)
+    modified["intent_ref"].zero_()
+    with pytest.raises(ValueError, match="canonical reference"):
+        tr.loss_on(modified)
+    modified["intent_ref"] = batch["intent_ref"].clone()
+    changed_data = {k: v.copy() for k, v in data.items()}
+    changed_data["intent_ref"][0] = 0
+    with pytest.raises(ValueError, match="canonical reference"):
+        validate_reference_intent(changed_data, meta, [clip])
     refs = tr.references_for(batch)
     root = ReferenceClip(REF).arrays["body_names"].tolist().index("pelvis")
     np.testing.assert_array_equal(
@@ -65,6 +72,7 @@ def test_archive_episode_split_and_original_optimizer_update():
     before = wm.dynamics.mlp.net[-1].weight.detach().clone()
     result = tr.update(replay)
     assert np.isfinite(result["loss"]) and (wm.dynamics.mlp.net[-1].weight - before).abs().sum() > 0
+    assert tr.online_error(replay, n=4).shape == (8,)
     with pytest.raises(ValueError, match="whole source episodes"):
         replay_from_archive(data, meta, train_idx[1:])
     with pytest.raises(ValueError, match="reference identity"):

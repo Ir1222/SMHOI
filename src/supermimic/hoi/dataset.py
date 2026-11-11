@@ -11,7 +11,7 @@ from supermimic.hoi.reference import DEFAULT_ASSET, sha256
 from supermimic.hoi.replay import FORCE_SHAPES, HOIReplayBuffer
 
 
-def load_archive(directory, *, reference_hashes):
+def load_archive(directory, *, reference_hashes, references=None):
     directory = Path(directory)
     metadata = json.loads((directory / "metadata.json").read_text())
     if metadata.get("acceptance") != "PASS":
@@ -62,6 +62,10 @@ def load_archive(directory, *, reference_hashes):
         raise ValueError("Invalid archive transitions/identity")
     if data["clip"].max() >= len(reference_hashes):
         raise ValueError("Unknown archive clip")
+    if not np.isin(data["intent_ref"], [0, 1]).all():
+        raise ValueError("Reference contact intent must be binary")
+    if references is not None:
+        validate_reference_intent(data, metadata, references)
     if not np.array_equal(
         data["transition_terminal"], data["physical_failure"] | data["timeout"] | data["clip_end"]
     ):
@@ -76,6 +80,28 @@ def load_archive(directory, *, reference_hashes):
         if not np.allclose(rebuilt[name].numpy(), data[name], atol=2e-5, rtol=2e-6):
             raise ValueError(f"Saved physical label does not match raw substeps: {name}")
     return data, metadata
+
+
+def validate_reference_intent(data, metadata, references):
+    """Verify the existing global pair source; never infer or repair labels."""
+    if [c.manifest["sha256"] for c in references] != [
+        r["sha256"] for r in metadata["replay"]["references"]
+    ]:
+        raise ValueError("Contact reference identity mismatch")
+    pairs = data["intent_ref"]
+    if pairs.shape != (len(data["frame"]), 2) or not np.isin(pairs, [0, 1]).all():
+        raise ValueError("Reference contact intent must be binary pairs")
+    for clip_id in np.unique(data["clip"]):
+        if not 0 <= clip_id < len(references):
+            raise ValueError("Unknown contact clip")
+        selected = data["clip"] == clip_id
+        frame = data["frame"][selected]
+        intent = references[int(clip_id)].arrays["object_contact"]
+        if ((frame < 0) | (frame + 1 >= len(intent))).any():
+            raise ValueError("Contact frame outside reference; no clamping")
+        expected = np.stack((intent[frame], intent[frame + 1]), -1)
+        if not np.array_equal(pairs[selected], expected):
+            raise ValueError("Contact intent does not match canonical reference")
 
 
 def episode_keys(data, metadata):
