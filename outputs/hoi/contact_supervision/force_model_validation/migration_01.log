@@ -1,0 +1,19 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "acceptance": "PASS",
+  "source_path": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+  "source_sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+  "source_provenance": "External P0 candidate; no embedded training Git/data SHA. Target-local candidate remains missing. Architecture compatibility only, not selected HOI policy.",
+  "legacy_hidden": [
+    2048,
+    2048,
+    2048
+  ],
+  "legacy_robot_max_abs_error": 1.9073486328125e-06,
+  "new_force_max_abs_N": 0.0,
+  "strict_joint_roundtrip_max_abs_error": 0.0,
+  "joint_checkpoint_sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+  "source_unchanged": true,
+  "actor_optimizer_migration": false
+}

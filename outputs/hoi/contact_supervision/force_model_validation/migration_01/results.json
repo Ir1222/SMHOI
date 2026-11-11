@@ -1,0 +1,395 @@
+{
+  "acceptance": "PASS",
+  "source_path": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+  "source_sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+  "source_provenance": "External P0 candidate; no embedded training Git/data SHA. Target-local candidate remains missing. Architecture compatibility only, not selected HOI policy.",
+  "legacy_hidden": [
+    2048,
+    2048,
+    2048
+  ],
+  "legacy_robot_max_abs_error": 1.9073486328125e-06,
+  "new_force_max_abs_N": 0.0,
+  "mapping": {
+    "source": "robot71/action29/xi33/residual70",
+    "input_mapping": {
+      "robot.height": {
+        "source": [
+          0,
+          1
+        ],
+        "destination": [
+          0,
+          1
+        ]
+      },
+      "robot.rotation6": {
+        "source": [
+          1,
+          7
+        ],
+        "destination": [
+          1,
+          7
+        ]
+      },
+      "robot.linear_heading": {
+        "source": [
+          7,
+          10
+        ],
+        "destination": [
+          7,
+          10
+        ]
+      },
+      "robot.angular_body": {
+        "source": [
+          10,
+          13
+        ],
+        "destination": [
+          10,
+          13
+        ]
+      },
+      "robot.joint_position": {
+        "source": [
+          13,
+          42
+        ],
+        "destination": [
+          13,
+          42
+        ]
+      },
+      "robot.joint_velocity": {
+        "source": [
+          42,
+          71
+        ],
+        "destination": [
+          42,
+          71
+        ]
+      },
+      "action.executed": {
+        "source": [
+          71,
+          100
+        ],
+        "destination": [
+          104,
+          133
+        ]
+      },
+      "xi.friction": {
+        "source": [
+          100,
+          101
+        ],
+        "destination": [
+          133,
+          134
+        ]
+      },
+      "xi.encoder_bias": {
+        "source": [
+          101,
+          130
+        ],
+        "destination": [
+          134,
+          163
+        ]
+      },
+      "xi.torso_com_offset": {
+        "source": [
+          130,
+          133
+        ],
+        "destination": [
+          163,
+          166
+        ]
+      }
+    },
+    "robot_output_mapping": {
+      "dv_heading": [
+        0,
+        3
+      ],
+      "dw_body": [
+        3,
+        6
+      ],
+      "djoint_velocity": [
+        6,
+        35
+      ],
+      "dp_heading": [
+        35,
+        38
+      ],
+      "dtheta_body": [
+        38,
+        41
+      ],
+      "djoint_position": [
+        41,
+        70
+      ]
+    },
+    "new_input_columns": "zero",
+    "new_object_and_force_heads": "zero",
+    "optimizer": "not migrated; initialization, not resume"
+  },
+  "strict_joint_roundtrip_max_abs_error": 0.0,
+  "joint_checkpoint_sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+  "source_unchanged": true,
+  "actor_optimizer_migration": false,
+  "joint_checkpoint_metadata": {
+    "schema": "hoi-joint-wm-v1",
+    "dimensions": {
+      "state": 84,
+      "canonical": 86,
+      "support": 18,
+      "physical_residual": 82,
+      "force": 6
+    },
+    "config": {
+      "hidden": [
+        64,
+        64,
+        64
+      ],
+      "term_hidden": [
+        64,
+        64
+      ],
+      "state_spec": {
+        "dt": 0.02,
+        "err_scale": [
+          0.05,
+          0.1,
+          0.5,
+          1.0,
+          0.1,
+          2.0
+        ],
+        "out_scale": [
+          0.3,
+          0.5,
+          2.0,
+          0.01,
+          0.02,
+          0.02
+        ],
+        "in_scale": [
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          1.0,
+          5.0
+        ],
+        "explicit_integration": true,
+        "xi_offset": [
+          0.75,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "xi_scale": [
+          0.45,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.05,
+          0.05,
+          0.05
+        ]
+      },
+      "term_loss_weight": 1.4160031531976345,
+      "height_threshold": 0.25,
+      "tilt_threshold": 0.8,
+      "object_spec": {
+        "in_scale": [
+          1.0,
+          1.0,
+          1.0,
+          2.0
+        ],
+        "out_scale": [
+          0.3,
+          0.5,
+          0.01,
+          0.02
+        ],
+        "err_scale": [
+          0.05,
+          0.1,
+          0.5,
+          1.0
+        ]
+      },
+      "weights": {
+        "robot": 0.016480818629139207,
+        "object": 0.13455571473227598,
+        "force": 5.88598244156544
+      },
+      "force_loss": "huber",
+      "force_delta": 1.0,
+      "support_context": true
+    },
+    "replay": {
+      "schema": "hoi-transition-v1",
+      "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+      "force_frame": "contemporaneous_box_at_substep_solve",
+      "force_sign": "hand_on_box",
+      "hand_order": [
+        "left",
+        "right"
+      ],
+      "force_unit": "N",
+      "force_on_N": 0.001,
+      "physics_dt_s": 0.005,
+      "decimation": 4,
+      "control_dt_s": 0.02,
+      "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+      "sensors": {
+        "left_hand_box": {
+          "reduce": "netforce",
+          "num_slots": 1,
+          "history_length": 4,
+          "secondary_policy": "error"
+        },
+        "right_hand_box": {
+          "reduce": "netforce",
+          "num_slots": 1,
+          "history_length": 4,
+          "secondary_policy": "error"
+        }
+      },
+      "references": [
+        "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+      ]
+    },
+    "force_normalization": {
+      "scale_N": [
+        [
+          5.021431922912598
+        ],
+        [
+          4.181304931640625
+        ]
+      ],
+      "counts_inactive_active": [
+        [
+          516,
+          60
+        ],
+        [
+          534,
+          42
+        ]
+      ],
+      "median_active_N": [
+        4.974197864532471,
+        0.8448373079299927
+      ],
+      "class_weights": [
+        [
+          0.5581395626068115,
+          4.800000190734863
+        ],
+        [
+          0.5393258333206177,
+          6.857142925262451
+        ]
+      ],
+      "force_on_N": 0.0010000000474974513
+    },
+    "force_active_mass": 0.5,
+    "support_schema": "support-root-heading-p3-r6-v1",
+    "readiness": {
+      "ready": false,
+      "reasons": [
+        "Controlled diagnostics do not establish natural HOI generalization",
+        "Missing validation coverage: left.onset",
+        "Missing validation coverage: right.onset",
+        "Missing finite validation metric: events.left.onset.recall",
+        "Missing finite validation metric: events.right.onset.recall",
+        "Missing finite validation metric: horizon_8.force.left.all.direction_cosine",
+        "Missing finite validation metric: horizon_8.force.left.calibration.active_recall",
+        "Missing finite validation metric: horizon_8.force.right.all.direction_cosine",
+        "Missing finite validation metric: horizon_8.force.right.calibration.active_recall",
+        "Validation thresholds/count requirements have not been fully specified"
+      ],
+      "actor_force_optimization_enabled": false,
+      "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+    },
+    "provenance": {
+      "kind": "controlled_P3_diagnostic",
+      "updates": 200,
+      "source_archive_sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1"
+    },
+    "actor_force_optimization_enabled": false,
+    "lifecycle": "WM weights only; no optimizer/Replay/RNG resume"
+  }
+}

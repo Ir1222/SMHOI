@@ -169,3 +169,14 @@ steps (320 transitions total), before the observed failure, retaining eight-step
 windows. This narrows the diagnostic horizon, does not fix physical instability
 or change simulator settings/guards. Subsequent harness failures record the exact
 post-forward flags and interval. Natural rollout robustness remains blocked.
+
+## Regression fixture adaptation discovered during complete validation
+
+The M6.5 integrity test also hashes the pre-P3 shared WM source. The first full
+suite therefore reported one historical-source hash mismatch, with 101 passing
+and 17 unavailable-data skips. The historical baseline and `reconcile/common.py`
+remain unchanged. `tests/test_hoi_reconciliation.py` now explicitly verifies its
+old WM hash and pins the reviewed P3 replacement hash; every historical file is
+still hash-checked, with no broad exemption. The exact original/current WM loss,
+metric and gradient parity test complements this source-version transition. This
+is a test-fixture adaptation, not an exemption for assets or changed semantics.

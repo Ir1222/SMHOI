@@ -1,0 +1,44 @@
+........................................ssssssssss.................F.... [ 60%]
+.......................................ssssss.s                          [100%]
+=================================== FAILURES ===================================
+___________________ test_frozen_m6_and_references_unchanged ____________________
+
+>   def test_frozen_m6_and_references_unchanged():assert verify()>100
+                                                         ^^^^^^^^
+
+tests/test_hoi_reconciliation.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def verify():
+        d=json.loads((OUT/'baseline.json').read_text());changed=[p for p,h in d['protected_sha256'].items() if sha(p)!=h]
+>       if changed:raise RuntimeError(changed)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: ['/home/han/pyx/SMHOI/src/supermimic/world_model/world_model.py']
+
+scripts/hoi/reconcile/common.py:30: RuntimeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_analytic_heads.py:59: LAFAN1 npz not built
+SKIPPED [1] tests/test_analytic_heads.py:92: LAFAN1 npz not built
+SKIPPED [1] tests/test_analytic_heads.py:121: LAFAN1 npz not built
+SKIPPED [1] tests/test_analytic_heads.py:142: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:30: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:44: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:57: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:76: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:93: LAFAN1 npz not built
+SKIPPED [1] tests/test_env_smoke.py:105: LAFAN1 npz not built
+SKIPPED [1] tests/test_imagination.py:33: needs CUDA + LAFAN1 npz
+SKIPPED [1] tests/test_motion_convert.py:30: LAFAN1 G1 CSVs not downloaded
+SKIPPED [1] tests/test_motion_convert.py:65: LAFAN1 G1 CSVs not downloaded
+SKIPPED [1] tests/test_motion_convert.py:80: LAFAN1 G1 CSVs not downloaded
+SKIPPED [1] tests/test_motion_convert.py:109: LAFAN1 G1 CSVs not downloaded
+SKIPPED [1] tests/test_motion_library_compact.py:14: needs CUDA + LAFAN1 npz
+SKIPPED [1] tests/test_world_model.py:45: needs CUDA + LAFAN1 npz
+FAILED tests/test_hoi_reconciliation.py::test_frozen_m6_and_references_unchanged
+1 failed, 101 passed, 17 skipped, 1 warning in 16.74s
