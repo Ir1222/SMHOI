@@ -1443,14 +1443,12 @@ Preserve original TD(lambda), survival and bootstrap semantics.
 
 ## P7.6 P7-B: Staged short training
 
-Run separately authorized short experiments:
+Run separately authorized short experiments after P7-A has passed:
 1. Robot-only regression.
-2. Joint robot-object WM training.
-3. Joint WM validation.
-4. Robot/object tracking-only imagination.
-5. Add reference-conditioned geometric contact reward.
-6. Joint Actor BPTT and Critic training.
-7. Full short HOI policy training.
+2. Robot/object tracking-only imagination.
+3. Add reference-conditioned geometric contact reward.
+4. Joint Actor BPTT and Critic training.
+5. Full short HOI policy training.
 
 Each experiment has its own configuration, checkpoint and report.
 
