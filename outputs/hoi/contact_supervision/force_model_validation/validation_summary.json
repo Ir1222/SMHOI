@@ -1,0 +1,620 @@
+{
+  "stage": "P3",
+  "acceptance": "PARTIAL",
+  "implementation_and_regression": "PASS",
+  "natural_HOI_predictive_validation": "PARTIAL",
+  "force_ready": false,
+  "full_suite": {
+    "passed": 102,
+    "skipped": 17,
+    "failed": 0,
+    "log": "tests_full_02.log"
+  },
+  "reference_sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+  "data_archive_sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+  "training_data_kind": "controlled simulator-measured diagnostics, not natural HOI",
+  "train_validation_rows": [
+    240,
+    80
+  ],
+  "train_validation_episodes": [
+    24,
+    8
+  ],
+  "unique_validation_coverage": {
+    "left.active": 12,
+    "left.inactive": 68,
+    "left.low": 6,
+    "left.high": 6,
+    "left.onset": 0,
+    "left.loss": 4,
+    "right.active": 8,
+    "right.inactive": 72,
+    "right.low": 3,
+    "right.high": 5,
+    "right.onset": 0,
+    "right.loss": 4
+  },
+  "before_validation": {
+    "eligible_windows": 24,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 1.5327287912368774,
+            "magnitude_mae_N": 3.1724917888641357,
+            "direction_cosine": 0.0,
+            "direction_count": 12
+          },
+          "active": {
+            "count": 12,
+            "mae_N": 3.065457344055176,
+            "magnitude_mae_N": 6.344982624053955,
+            "direction_cosine": 0.0,
+            "direction_count": 12
+          },
+          "inactive": {
+            "count": 12,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 6,
+            "mae_N": 0.1529952734708786,
+            "magnitude_mae_N": 0.3018139898777008,
+            "direction_cosine": 0.0,
+            "direction_count": 6
+          },
+          "high": {
+            "count": 6,
+            "mae_N": 5.9779205322265625,
+            "magnitude_mae_N": 12.388152122497559,
+            "direction_cosine": 0.0,
+            "direction_count": 6
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.5,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 1.0397790670394897,
+            "magnitude_mae_N": 2.172063112258911,
+            "direction_cosine": 0.0,
+            "direction_count": 8
+          },
+          "active": {
+            "count": 8,
+            "mae_N": 3.119337320327759,
+            "magnitude_mae_N": 6.5161895751953125,
+            "direction_cosine": 0.0,
+            "direction_count": 8
+          },
+          "inactive": {
+            "count": 16,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 3,
+            "mae_N": 0.25800880789756775,
+            "magnitude_mae_N": 0.4700715243816376,
+            "direction_cosine": 0.0,
+            "direction_count": 3
+          },
+          "high": {
+            "count": 5,
+            "mae_N": 4.836134433746338,
+            "magnitude_mae_N": 10.14385986328125,
+            "direction_cosine": 0.0,
+            "direction_count": 5
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3333333432674408,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": 0.0,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.13186410069465637,
+          "object_nse": 0.04829761013388634,
+          "position_RMSE_m": 0.0034219471272081137,
+          "rotation_RMSE_rad": 0.008101539686322212,
+          "linear_RMSE_m_s": 0.25912508368492126,
+          "angular_RMSE_rad_s": 0.5474858283996582
+        },
+        "contact": {
+          "count": 16,
+          "robot_nse": 0.19380830228328705,
+          "object_nse": 0.0659274235367775,
+          "position_RMSE_m": 0.003815191565081477,
+          "rotation_RMSE_rad": 0.00992231909185648,
+          "linear_RMSE_m_s": 0.2854166030883789,
+          "angular_RMSE_rad_s": 0.6705304384231567
+        },
+        "noncontact": {
+          "count": 8,
+          "robot_nse": 0.007975720800459385,
+          "object_nse": 0.013037975877523422,
+          "position_RMSE_m": 0.002453118795529008,
+          "rotation_RMSE_rad": 4.292172377518e-07,
+          "linear_RMSE_m_s": 0.19624511897563934,
+          "angular_RMSE_rad_s": 3.732760524144396e-05
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.0,
+            "magnitude_mae_N": 0.0,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 0.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 0.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 2.0049002170562744,
+          "object_nse": 1.6872988939285278,
+          "position_RMSE_m": 0.14065688848495483,
+          "rotation_RMSE_rad": 0.09816890209913254,
+          "linear_RMSE_m_s": 1.653717041015625,
+          "angular_RMSE_rad_s": 0.6565134525299072
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 24,
+          "robot_nse": 2.0049002170562744,
+          "object_nse": 1.6872988939285278,
+          "position_RMSE_m": 0.14065688848495483,
+          "rotation_RMSE_rad": 0.09816890209913254,
+          "linear_RMSE_m_s": 1.653717041015625,
+          "angular_RMSE_rad_s": 0.6565134525299072
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 12,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 8,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "after_validation": {
+    "eligible_windows": 24,
+    "horizon": 8,
+    "evaluation_semantics": "each eligible start exactly once; horizons evaluated separately; event adjacency can repeat across windows",
+    "horizon_1": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1775699108839035,
+            "magnitude_mae_N": 0.31166091561317444,
+            "direction_cosine": 0.8121552467346191,
+            "direction_count": 12
+          },
+          "active": {
+            "count": 12,
+            "mae_N": 0.31514105200767517,
+            "magnitude_mae_N": 0.549580991268158,
+            "direction_cosine": 0.8121552467346191,
+            "direction_count": 12
+          },
+          "inactive": {
+            "count": 12,
+            "mae_N": 0.039998795837163925,
+            "magnitude_mae_N": 0.0737408772110939,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 6,
+            "mae_N": 0.15136529505252838,
+            "magnitude_mae_N": 0.2777026891708374,
+            "direction_cosine": 0.6250148415565491,
+            "direction_count": 6
+          },
+          "high": {
+            "count": 6,
+            "mae_N": 0.4789167642593384,
+            "magnitude_mae_N": 0.8214592933654785,
+            "direction_cosine": 0.999295711517334,
+            "direction_count": 6
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.5,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.3280927240848541,
+            "magnitude_mae_N": 0.6250276565551758,
+            "direction_cosine": 0.8453357219696045,
+            "direction_count": 8
+          },
+          "active": {
+            "count": 8,
+            "mae_N": 0.4444856345653534,
+            "magnitude_mae_N": 0.8064119815826416,
+            "direction_cosine": 0.8453357219696045,
+            "direction_count": 8
+          },
+          "inactive": {
+            "count": 16,
+            "mae_N": 0.2698962688446045,
+            "magnitude_mae_N": 0.5343355536460876,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 3,
+            "mae_N": 0.2205096334218979,
+            "magnitude_mae_N": 0.3191356658935547,
+            "direction_cosine": 0.6293297410011292,
+            "direction_count": 3
+          },
+          "high": {
+            "count": 5,
+            "mae_N": 0.5788711905479431,
+            "magnitude_mae_N": 1.0987777709960938,
+            "direction_cosine": 0.974939227104187,
+            "direction_count": 5
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.3333333432674408,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": 1.0,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.010425283573567867,
+          "object_nse": 0.0030131202656775713,
+          "position_RMSE_m": 0.0006737164221704006,
+          "rotation_RMSE_rad": 0.002200538059696555,
+          "linear_RMSE_m_s": 0.03981070965528488,
+          "angular_RMSE_rad_s": 0.1707397997379303
+        },
+        "contact": {
+          "count": 16,
+          "robot_nse": 0.012913605198264122,
+          "object_nse": 0.004511076025664806,
+          "position_RMSE_m": 0.0008205333142541349,
+          "rotation_RMSE_rad": 0.002670454094186425,
+          "linear_RMSE_m_s": 0.04867443069815636,
+          "angular_RMSE_rad_s": 0.2089824676513672
+        },
+        "noncontact": {
+          "count": 8,
+          "robot_nse": 0.005448644515126944,
+          "object_nse": 1.720864929666277e-05,
+          "position_RMSE_m": 0.00012301070091780275,
+          "rotation_RMSE_rad": 0.0005142523441463709,
+          "linear_RMSE_m_s": 0.004034504294395447,
+          "angular_RMSE_rad_s": 0.010435357689857483
+        }
+      }
+    },
+    "horizon_8": {
+      "force": {
+        "left": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1390421837568283,
+            "magnitude_mae_N": 0.2612994909286499,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.1390421837568283,
+            "magnitude_mae_N": 0.2612994909286499,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        },
+        "right": {
+          "all": {
+            "count": 24,
+            "mae_N": 0.1470402479171753,
+            "magnitude_mae_N": 0.280180960893631,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "active": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "inactive": {
+            "count": 24,
+            "mae_N": 0.1470402479171753,
+            "magnitude_mae_N": 0.280180960893631,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "low": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "high": {
+            "count": 0,
+            "mae_N": null,
+            "magnitude_mae_N": null,
+            "direction_cosine": null,
+            "direction_count": 0
+          },
+          "calibration": {
+            "actual_occupancy_active_rate": 0.0,
+            "predicted_mean_active_rate": 1.0,
+            "active_recall": null,
+            "inactive_false_positive_rate": 1.0
+          }
+        }
+      },
+      "state": {
+        "all": {
+          "count": 24,
+          "robot_nse": 0.05184335634112358,
+          "object_nse": 0.0063253785483539104,
+          "position_RMSE_m": 0.005248508416116238,
+          "rotation_RMSE_rad": 0.017674051225185394,
+          "linear_RMSE_m_s": 0.05605856701731682,
+          "angular_RMSE_rad_s": 0.14518381655216217
+        },
+        "contact": {
+          "count": 0,
+          "robot_nse": null,
+          "object_nse": null,
+          "position_RMSE_m": null,
+          "rotation_RMSE_rad": null,
+          "linear_RMSE_m_s": null,
+          "angular_RMSE_rad_s": null
+        },
+        "noncontact": {
+          "count": 24,
+          "robot_nse": 0.05184335634112358,
+          "object_nse": 0.0063253785483539104,
+          "position_RMSE_m": 0.005248508416116238,
+          "rotation_RMSE_rad": 0.017674051225185394,
+          "linear_RMSE_m_s": 0.05605856701731682,
+          "angular_RMSE_rad_s": 0.14518381655216217
+        }
+      }
+    },
+    "events": {
+      "left": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 12,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      },
+      "right": {
+        "onset": {
+          "true_count_with_window_repeats": 0,
+          "predicted_count_with_window_repeats": 0,
+          "recall": null,
+          "false_event_rate": 0.0
+        },
+        "loss": {
+          "true_count_with_window_repeats": 8,
+          "predicted_count_with_window_repeats": 0,
+          "recall": 0.0,
+          "false_event_rate": 0.0
+        }
+      }
+    }
+  },
+  "parameter_delta_L2": {
+    "trunk": 6.406816922956677,
+    "robot_head": 1.4041906595230103,
+    "object_head": 0.5253533720970154,
+    "force_head": 0.678402841091156
+  },
+  "readiness": {
+    "ready": false,
+    "reasons": [
+      "Controlled diagnostics do not establish natural HOI generalization",
+      "Missing validation coverage: left.onset",
+      "Missing validation coverage: right.onset",
+      "Missing finite validation metric: events.left.onset.recall",
+      "Missing finite validation metric: events.right.onset.recall",
+      "Missing finite validation metric: horizon_8.force.left.all.direction_cosine",
+      "Missing finite validation metric: horizon_8.force.left.calibration.active_recall",
+      "Missing finite validation metric: horizon_8.force.right.all.direction_cosine",
+      "Missing finite validation metric: horizon_8.force.right.calibration.active_recall",
+      "Validation thresholds/count requirements have not been fully specified"
+    ],
+    "actor_force_optimization_enabled": false,
+    "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+  },
+  "integrity": {
+    "checked": 452,
+    "unchanged": 449,
+    "intentional_existing_changes": 3,
+    "dependencies": 10
+  },
+  "no_next_stage_started": true,
+  "actor_force_optimization_enabled": false,
+  "reports": [
+    "docs/hoi/force_contact/p3/REPORT.md",
+    "docs/hoi/force_contact/p3/TRAINING_FRAMEWORK_REUSE_AUDIT.md",
+    "docs/hoi/force_contact/p3/VALIDATION.md"
+  ]
+}

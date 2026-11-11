@@ -1,0 +1,23 @@
+New P3 Python files: 20
+scripts/hoi/collect_p3_diagnostic.py
+scripts/hoi/diagnose_support_context.py
+scripts/hoi/fit_p3_diagnostic.py
+scripts/hoi/p3_common.py
+scripts/hoi/validate_wm_migration.py
+src/supermimic/hoi/checkpoint.py
+src/supermimic/hoi/dataset.py
+src/supermimic/hoi/force.py
+src/supermimic/hoi/state_spec.py
+src/supermimic/hoi/support_context.py
+src/supermimic/hoi/validation.py
+src/supermimic/hoi/wm_trainer.py
+src/supermimic/hoi/world_model.py
+tests/hoi/test_checkpoint_migration.py
+tests/hoi/test_force_head.py
+tests/hoi/test_joint_world_model.py
+tests/hoi/test_support_context.py
+tests/hoi/test_wm_dataset_validation.py
+tests/hoi/test_wm_reuse.py
+scripts/hoi/verify_p3_evidence.py
+All checks passed!
+20 files already formatted

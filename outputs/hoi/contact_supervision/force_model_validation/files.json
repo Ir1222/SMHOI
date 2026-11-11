@@ -1,0 +1,572 @@
+{
+  "base": "a991ee776b8da4f5f278dbc48947785e7011b5e8",
+  "review_parent": "98645f2e1fa69e43f6521e3250347bc878a90721",
+  "count": 63,
+  "files": [
+    {
+      "path": "docs/hoi/force_contact/p3/CHANGED_FILES.md",
+      "status": "A",
+      "sha256": "9869acfdce26f2c8bdf7e2ed4ed9b09a188bad7ebddeb4b270e6ea5a01227b88",
+      "added_removed_lines": [
+        "77",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/IMPLEMENTATION_SPEC.md",
+      "status": "A",
+      "sha256": "5a570a2b24e9d17f574ee15a1f71eb870831aee32024ad5803af7e634b39a99e",
+      "added_removed_lines": [
+        "182",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/REPORT.md",
+      "status": "A",
+      "sha256": "fc5bb5c71cc43887ac610bd70cd3b54fb3a47b0ab4286c64c58aab03b89047ec",
+      "added_removed_lines": [
+        "290",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/SUPPORT_CONTEXT.md",
+      "status": "A",
+      "sha256": "628bb344a2b55712820410ebda5883ea942ef475cee5721899e668d8b410f024",
+      "added_removed_lines": [
+        "53",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/TRAINING_FRAMEWORK_REUSE_AUDIT.md",
+      "status": "A",
+      "sha256": "24c83a7910579a453e5b156e4e6f8600ca5c28c25a926029c1a8fd7a0afa09dc",
+      "added_removed_lines": [
+        "58",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/VALIDATION.md",
+      "status": "A",
+      "sha256": "abdabe1b315be960a568a6bb68183b5e6e4dc7a478b8fa72b84124d2d1cfb9f8",
+      "added_removed_lines": [
+        "177",
+        "0"
+      ]
+    },
+    {
+      "path": "docs/hoi/force_contact/p3/baseline.json",
+      "status": "A",
+      "sha256": "5e4a452dba73981d913fb7fd3d1205f573a4c86e070354df54cba87fc85d65cf",
+      "added_removed_lines": [
+        "578",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/checkpoint_tests_01.log",
+      "status": "A",
+      "sha256": "ec4f4b5dcc6f00fbbfe6c14bad27367deb83408b41b0b8c31f56c3f0954e991d",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_01.log",
+      "status": "A",
+      "sha256": "44b3c50fb352035492716ca93ec53a8648c7078194e9a11fdcea62b75ab76652",
+      "added_removed_lines": [
+        "122",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_01/metadata.json",
+      "status": "A",
+      "sha256": "ce7f1e91659858ac39770a1089d2b1c732e328e4c5f7c8e5b538c6f5adb4ac8f",
+      "added_removed_lines": [
+        "56",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_01/transitions.npz",
+      "status": "A",
+      "sha256": "36d13b18cc3c5b52d49bfd8592772fe45f59022c971db4c783177528292242c7",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_02.log",
+      "status": "A",
+      "sha256": "7d23e602359af0a9147d5820124581840808667f5ff8af44790b11cba5065e73",
+      "added_removed_lines": [
+        "114",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_02/metadata.json",
+      "status": "A",
+      "sha256": "90d3e4151c32cb08d8e4305ea3d49bb3540909dec4c697030a1406ad01c6d16a",
+      "added_removed_lines": [
+        "67",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/collection_02/transitions.npz",
+      "status": "A",
+      "sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/data_tests_01.log",
+      "status": "A",
+      "sha256": "2c7326891f7169384e31cd41b7d3929245434b431bdc19f16e69d0eeaabad2de",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/data_tests_02.log",
+      "status": "A",
+      "sha256": "706ca5da5a117cfa11fa294d6607951c579f673db809c0b3d62a0fc794672c8d",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/files.json",
+      "status": "A",
+      "sha256": null,
+      "note": "Self-inventory hash intentionally omitted; Git records final bytes."
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/fit_01.log",
+      "status": "A",
+      "sha256": "4ade951146bebb700354aa12fdc334b7ee791469cf0d36738d3d06e6266ffc73",
+      "added_removed_lines": [
+        "37",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/fit_01/diagnostic_weights.pt",
+      "status": "A",
+      "sha256": "96b019523d088530f76b37a77fc335f2ba00cd166e74413885f092b35869a980",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/fit_01/predictions.npz",
+      "status": "A",
+      "sha256": "e72805252cfaaa0051e5ee9af1e8e6850a67b83c371fd1bbd0d77d0f2909ecbc",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/fit_01/results.json",
+      "status": "A",
+      "sha256": "8645cf5f833b1e6abc0d82f4e34e85204bebb3fb0fd740630aeb6703690f1492",
+      "added_removed_lines": [
+        "1658",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/integrity_01.log",
+      "status": "A",
+      "sha256": "c02e1d918292456fa4d239d691b2eb54908c244b582cdad0c0a717bec80f3609",
+      "added_removed_lines": [
+        "10",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/integrity_02.log",
+      "status": "A",
+      "sha256": "e6c4ee5a069a9de019518ccdecacfc9389e2a53b020a19ef5d7a803bb77090e5",
+      "added_removed_lines": [
+        "113",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/integrity_final.json",
+      "status": "A",
+      "sha256": "b83f624d7a0a4412d938a2efa24a2ab0b74fffeddff11df63556098e966406a8",
+      "added_removed_lines": [
+        "111",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/migration_01.log",
+      "status": "A",
+      "sha256": "f0b4916a51458318401695a43400f7427b12dac55402a40f82685f36b852079f",
+      "added_removed_lines": [
+        "19",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/migration_01/diagnostic_joint_weights.pt",
+      "status": "A",
+      "sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/migration_01/results.json",
+      "status": "A",
+      "sha256": "d4941eed6e729889fd8f62a4ead1bfdff4c57c3180ae78f9da4a8760d01a156f",
+      "added_removed_lines": [
+        "395",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/model_tests_01.log",
+      "status": "A",
+      "sha256": "0142e7f76ace2a21f6c868c1924b55bffbf17a71a3717a44ac2bbe2d3c9fbfc1",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/readiness_review.json",
+      "status": "A",
+      "sha256": "0df8d60aa84cdebd1433089caea79be2127d8adc8ad16796d210b8d50a4b254a",
+      "added_removed_lines": [
+        "17",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/state_tests.log",
+      "status": "A",
+      "sha256": "a72eebc204fee828e36c0310563041d3bb12e664554d4b09fd0a06281835a9d5",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/style_checks.log",
+      "status": "A",
+      "sha256": "0ddbb675e8f4c9f8e4b2bd05446f7bb79e7cc6166bee5d8c261f4a895bf30769",
+      "added_removed_lines": [
+        "23",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_01.log",
+      "status": "A",
+      "sha256": "cc6aabcda6dcf0322de8a9d9d7a62de817f822161261070e1777e3ef8d179b44",
+      "added_removed_lines": [
+        "9",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_02.log",
+      "status": "A",
+      "sha256": "b8781195ea82446e4a76af5eb54a45eb27763858940414651104617922774d10",
+      "added_removed_lines": [
+        "240",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_02/metadata.json",
+      "status": "A",
+      "sha256": "ecddd74d269584f6dc065a3f2323b5ce897eef27834a1faafa26c1e221654f44",
+      "added_removed_lines": [
+        "127",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_02/transitions.npz",
+      "status": "A",
+      "sha256": "c34ec7f9b9635ca28d1f5c7745cf379062e4ee1bbd808ceedc6b37cc5cd8915d",
+      "added_removed_lines": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_balanced_analysis.json",
+      "status": "A",
+      "sha256": "73c2b0fee51063651f241b91ad7ea0d7194bde951c1b93d97ddb2034c580f86e",
+      "added_removed_lines": [
+        "80",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/support_tests.log",
+      "status": "A",
+      "sha256": "ff1a9830047cfc58609e08520fa869dcc2b6622087a43e4c0c59db54a68c4827",
+      "added_removed_lines": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/tests_full_01.log",
+      "status": "A",
+      "sha256": "a002f43eb300a20d8b9fabab41f5544474faae0b72bb59df0e6a3a3e9869ac2b",
+      "added_removed_lines": [
+        "44",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/tests_full_02.log",
+      "status": "A",
+      "sha256": "fb5873c5c3b0dae3d292ef8dd4ac0cb53aca4307d1aec83af94ab97eda4891f9",
+      "added_removed_lines": [
+        "27",
+        "0"
+      ]
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/force_model_validation/validation_summary.json",
+      "status": "A",
+      "sha256": "925dda416bce9441b2ef71d3b6be63b82501880635533bdb558093b3701882b0",
+      "added_removed_lines": [
+        "620",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/collect_p3_diagnostic.py",
+      "status": "A",
+      "sha256": "32a302fbb163d4841c288961aed3549104ae1fdc566f573b41ef99916ff70c27",
+      "added_removed_lines": [
+        "92",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/diagnose_support_context.py",
+      "status": "A",
+      "sha256": "518eceda8c55f4642988b29e891c1488d9fce6313c5d813cd041980f9f2c11f6",
+      "added_removed_lines": [
+        "160",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/fit_p3_diagnostic.py",
+      "status": "A",
+      "sha256": "5bc0d1604181169f6afa5906acda7ea92a4d4556ee6d8b988f775055c46a74f1",
+      "added_removed_lines": [
+        "168",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/p3_common.py",
+      "status": "A",
+      "sha256": "a0142114afa4960c51e334a35e3ffe6044d7f57bddf16591278099ae941ecbb3",
+      "added_removed_lines": [
+        "46",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/validate_wm_migration.py",
+      "status": "A",
+      "sha256": "3a6815d6443d3dfe24b66a6b5b1cbd8b196136ba3c2a775ca93f89182de73fa3",
+      "added_removed_lines": [
+        "139",
+        "0"
+      ]
+    },
+    {
+      "path": "scripts/hoi/verify_p3_evidence.py",
+      "status": "A",
+      "sha256": "d55edd782d06e5897510fa834536e9698c769974c40a2868f771e576c2a4a2df",
+      "added_removed_lines": [
+        "134",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/checkpoint.py",
+      "status": "A",
+      "sha256": "8a82d546fdf86382d9aad4805bfcb501db66f0e074c115a66268dc71739f5e56",
+      "added_removed_lines": [
+        "224",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/dataset.py",
+      "status": "A",
+      "sha256": "0dc1f97f0d201fd32ebb15f37f7c3a0a6d5e3fc3730fad9d213518b65fef123c",
+      "added_removed_lines": [
+        "166",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/force.py",
+      "status": "A",
+      "sha256": "a477a87785fd5450830faf306822b2d06482635d806edfef23bd981ed6c315c4",
+      "added_removed_lines": [
+        "93",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/replay.py",
+      "status": "M",
+      "sha256": "30f5554eb414558efa1aa60ecde2d873479ef0f4b07efc9d29280e66ee85ba11",
+      "added_removed_lines": [
+        "5",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/state_spec.py",
+      "status": "A",
+      "sha256": "91c159527370757ebb2e3adf8e18a23527093c37c6ecdb6c39eb4021a057ccda",
+      "added_removed_lines": [
+        "186",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/support_context.py",
+      "status": "A",
+      "sha256": "1e78e64e1a27f70a16e194c9e024eb22b022a296bd3d52b4e661348155d4d93f",
+      "added_removed_lines": [
+        "54",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/validation.py",
+      "status": "A",
+      "sha256": "6523deb6a26a47e6ed663e206e8dac89f67cfc51e2629cff3e89ded4acbe34df",
+      "added_removed_lines": [
+        "273",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/wm_trainer.py",
+      "status": "A",
+      "sha256": "6365739211ef4ae9110df32b57caaed48a73357746a5bc80ad3e7c32ee981216",
+      "added_removed_lines": [
+        "68",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/hoi/world_model.py",
+      "status": "A",
+      "sha256": "a92fdf0598edf6dbbaaca6267f95dd6b148945d29f57f48a6dd7f4ed76eebcc1",
+      "added_removed_lines": [
+        "133",
+        "0"
+      ]
+    },
+    {
+      "path": "src/supermimic/world_model/world_model.py",
+      "status": "M",
+      "sha256": "d1e75e0ef550c8516701c736dff081ce681f8a0f114dd604f7a0386a2631d40a",
+      "added_removed_lines": [
+        "11",
+        "2"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_checkpoint_migration.py",
+      "status": "A",
+      "sha256": "64e8315b4e5b57534c73382894da0e346fa1b2db60e055a4f596c67cbb582dfe",
+      "added_removed_lines": [
+        "113",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_force_head.py",
+      "status": "A",
+      "sha256": "842e4e82b61d3a4d200d2c6dec5552cd193cc3ab5ce00b74060d0f4234db042c",
+      "added_removed_lines": [
+        "128",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_joint_world_model.py",
+      "status": "A",
+      "sha256": "a766bdbb9c596e346e77a2be5ec801ebd89cff0ec0c584031505d1f3075341ae",
+      "added_removed_lines": [
+        "98",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_support_context.py",
+      "status": "A",
+      "sha256": "85f4a637f60e465f4eba4af6841745c2900c8784e4e84bcd48a207499804bf8f",
+      "added_removed_lines": [
+        "26",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_wm_dataset_validation.py",
+      "status": "A",
+      "sha256": "8522aba693877392e73fa771b20b2cfdfed7db7f861c3c9dcc0542d31a63e808",
+      "added_removed_lines": [
+        "94",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/hoi/test_wm_reuse.py",
+      "status": "A",
+      "sha256": "bb25da1f982cc9807a40e1ba71642e8f40ef6185922614d16dcc40a8312a2539",
+      "added_removed_lines": [
+        "56",
+        "0"
+      ]
+    },
+    {
+      "path": "tests/test_hoi_reconciliation.py",
+      "status": "M",
+      "sha256": "b0af5ead538e749bf5ed300dd5b7be4cb4d87b03e8b067329bf0dd797eecf7ba",
+      "added_removed_lines": [
+        "12",
+        "2"
+      ]
+    }
+  ],
+  "excluded_preexisting_user_status": " M docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\n?? .vscode/\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? outputs/hoi/asset_audit/part_b/reference_refined/\n"
+}
