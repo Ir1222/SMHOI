@@ -1,0 +1,159 @@
+{
+  "verification": "PASS",
+  "overall_P3": "PARTIAL",
+  "implementation_unit_checks": "PASS",
+  "capture": "FAIL",
+  "gate_a": "NOT_EVALUATED",
+  "gate_b": "NOT_EVALUATED",
+  "baseline_head": "0a228cdcce01d896282c430d9ee77ac17a933163",
+  "review_head": "903ec78e5a0d6829175562c8607f330cd685fde3",
+  "protected_files_checked": 515,
+  "protected_files_unchanged": 503,
+  "intended_existing_file_changes": {
+    "scripts/hoi/collect_p3_diagnostic.py": {
+      "before": "32a302fbb163d4841c288961aed3549104ae1fdc566f573b41ef99916ff70c27",
+      "after": "a195f13790e6db921b01750afff94174af45b71e0912fc1792c38f4d0cf45c50"
+    },
+    "scripts/hoi/fit_p3_diagnostic.py": {
+      "before": "5bc0d1604181169f6afa5906acda7ea92a4d4556ee6d8b988f775055c46a74f1",
+      "after": "18956cf0b7389076de3afbeabcb48e446b57931553b9fc18d8d7ba24872b94af"
+    },
+    "scripts/hoi/validate_wm_migration.py": {
+      "before": "3a6815d6443d3dfe24b66a6b5b1cbd8b196136ba3c2a775ca93f89182de73fa3",
+      "after": "8e05efdb8d376257f2864492063849b1ce247d86cea70b5370fccfa0f0218549"
+    },
+    "scripts/hoi/verify_p3_evidence.py": {
+      "before": "d55edd782d06e5897510fa834536e9698c769974c40a2868f771e576c2a4a2df",
+      "after": "51ff8358eeccc7e40cbad1e99f2601111ecaab130041a07d31f95ad0633ddff0"
+    },
+    "src/supermimic/hoi/checkpoint.py": {
+      "before": "8a82d546fdf86382d9aad4805bfcb501db66f0e074c115a66268dc71739f5e56",
+      "after": "2b0607e24ba7cc2a72f3df1df0350934b9c31284538b9a74a8e3809a43474693"
+    },
+    "src/supermimic/hoi/dataset.py": {
+      "before": "0dc1f97f0d201fd32ebb15f37f7c3a0a6d5e3fc3730fad9d213518b65fef123c",
+      "after": "7225c73de87db3ed40c4283e357762d612bd0fcd436a72db296b6f854e3b26fa"
+    },
+    "src/supermimic/hoi/validation.py": {
+      "before": "6523deb6a26a47e6ed663e206e8dac89f67cfc51e2629cff3e89ded4acbe34df",
+      "after": "d3a58473f8bb5aa70a5a6038d43d6ac1d0b81307bcf09f678f0b0062b66a4a92"
+    },
+    "src/supermimic/hoi/wm_trainer.py": {
+      "before": "6365739211ef4ae9110df32b57caaed48a73357746a5bc80ad3e7c32ee981216",
+      "after": "e3907f6c9bdacd0a8d86bc1c21a3319f4b4710f362c0484ce51f4c7f5a3766ec"
+    },
+    "src/supermimic/hoi/world_model.py": {
+      "before": "a92fdf0598edf6dbbaaca6267f95dd6b148945d29f57f48a6dd7f4ed76eebcc1",
+      "after": "4941aef30ee30287391f14acc2d23e9b5a850c74b9be6414304d2add9a19c2aa"
+    },
+    "tests/hoi/test_checkpoint_migration.py": {
+      "before": "64e8315b4e5b57534c73382894da0e346fa1b2db60e055a4f596c67cbb582dfe",
+      "after": "88eb43b4c9407c5c2c8aad85ef2640cad507f742289c225633ec331378c07b7d"
+    },
+    "tests/hoi/test_force_head.py": {
+      "before": "842e4e82b61d3a4d200d2c6dec5552cd193cc3ab5ce00b74060d0f4234db042c",
+      "after": "6866cefac33bb47119592f6d20bed9eee35fb94835907583d564e96f4dabfc50"
+    },
+    "tests/hoi/test_wm_dataset_validation.py": {
+      "before": "8522aba693877392e73fa771b20b2cfdfed7db7f861c3c9dcc0542d31a63e808",
+      "after": "146ee78fee47a680939731b6659814f177aee1a464c23f55e19d24776a287e57"
+    }
+  },
+  "dependency_hashes_unchanged": 10,
+  "versions_unchanged": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "mujoco": "3.16.0",
+    "mujoco-warp": "3.16.0",
+    "warp-lang": "1.18.0"
+  },
+  "shared_source_changed": false,
+  "P1_P2_source_changed": false,
+  "reference_and_historical_outputs_unchanged": true,
+  "bounded_fit_executed": false,
+  "physical_capture_retries": 0,
+  "full_precollection_tests": {
+    "passed": 123,
+    "skipped": 17
+  },
+  "final_metric_tests": {
+    "passed": 8
+  },
+  "files_changed_this_revision": [
+    "docs/hoi/force_contact/p3/revision_task0/IMPLEMENTATION_REPORT.md",
+    "docs/hoi/force_contact/p3/revision_task0/TRAINING_FRAMEWORK_REUSE_AUDIT.md",
+    "docs/hoi/force_contact/p3/revision_task0/VALIDATION.md",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/baseline.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/failure_snapshot.npz",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/metadata.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/transitions.npz",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_failure_review.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/group1_tests.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/integrity_final.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_01.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_02.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_01/migrated_contact_weights.pt",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/migrated_contact_weights.pt",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/results.json",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_01.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_02.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_tests_01.log",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/tests_full_precollection_01.log",
+    "scripts/hoi/collect_p3_diagnostic.py",
+    "scripts/hoi/fit_p3_diagnostic.py",
+    "scripts/hoi/validate_wm_migration.py",
+    "scripts/hoi/verify_p3_evidence.py",
+    "src/supermimic/hoi/checkpoint.py",
+    "src/supermimic/hoi/dataset.py",
+    "src/supermimic/hoi/validation.py",
+    "src/supermimic/hoi/wm_trainer.py",
+    "src/supermimic/hoi/world_model.py",
+    "tests/hoi/test_checkpoint_migration.py",
+    "tests/hoi/test_contact_diagnostic.py",
+    "tests/hoi/test_contact_intent_head.py",
+    "tests/hoi/test_force_head.py",
+    "tests/hoi/test_wm_dataset_validation.py"
+  ],
+  "new_file_hashes": {
+    "docs/hoi/force_contact/p3/revision_task0/IMPLEMENTATION_REPORT.md": "949a916ac67cca61e06352c899a09121d2e83068e10905d6cdc4135d9a7b4f0a",
+    "docs/hoi/force_contact/p3/revision_task0/TRAINING_FRAMEWORK_REUSE_AUDIT.md": "22b7cf0ca75630c5c68382f0c67825a5fc88782a8a6ab4ed1fbf3291333fd712",
+    "docs/hoi/force_contact/p3/revision_task0/VALIDATION.md": "ca0eb17c33a296ddb0bb84776e4c508fba9a3ef0768a49ee28bd69d48a03b8fa",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/baseline.json": "6a4d85245094a1397a020e7929e0d84d1969f13d4a51b82491a8292e693f6728",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01.log": "5f32045786c9e26b393375a261efaf7c4e32fc69659e7c6c64d227570bf8ee4b",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/failure_snapshot.npz": "2205a5222e935d43ab3bd542fe2614c96e226e52f5044c6ecd141a6112c4b6ae",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/metadata.json": "c95286543b9c53513b2782aa955a05172a25639fc5e9522869ad093a9896d1e9",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/transitions.npz": "6e1a030578f4118e1f7965b805ad3a65983d8d137b69791415dbf575a3b0d051",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_failure_review.json": "d387b9071a6dee9bd53bfcf308b2fe9f45f754ddbd3ef89344641819290543b2",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/group1_tests.log": "64cb15a5267cc8a6efeeca5ac5f2dcf628a641bbb700fad9340cd510558e3d86",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.json": "b83f624d7a0a4412d938a2efa24a2ab0b74fffeddff11df63556098e966406a8",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.log": "e6c4ee5a069a9de019518ccdecacfc9389e2a53b020a19ef5d7a803bb77090e5",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_01.log": "1c19bf6b8fcd97f69eaaa786832f00d0e768855589be66d855c9532516565a55",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_02.log": "90ec7dce4128762cb1bc826ff4da56bb7772de8e6d6d8eccf57af2396e56509a",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_01/migrated_contact_weights.pt": "8cfed1f83cc885ef3b29d5139c89d5a951f54bc16012ac831b921c81c85b6c36",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/migrated_contact_weights.pt": "8cfed1f83cc885ef3b29d5139c89d5a951f54bc16012ac831b921c81c85b6c36",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/results.json": "e20a04efbf6ad0e60cd546f3cc977165a16da59eaeee0635b0d4d2effd1fbbeb",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_01.log": "dff0834204c29344cd97591ea7236fd7ab0db695e94787a826f8d9bfeb731ae7",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_02.log": "e4e4492da8442008066e08837e9376a63f9e95345790bee9a6da3fee347204a6",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_tests_01.log": "a6e4bb82263c6e7592d7adadc90c378b6acc5f923d96e9677f4f1e1d45c3116c",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/tests_full_precollection_01.log": "b9c8c95ff10db30903e3626fa442f262d604547f95cb742edc4a41d2ac87ece0",
+    "scripts/hoi/collect_p3_diagnostic.py": "a195f13790e6db921b01750afff94174af45b71e0912fc1792c38f4d0cf45c50",
+    "scripts/hoi/fit_p3_diagnostic.py": "18956cf0b7389076de3afbeabcb48e446b57931553b9fc18d8d7ba24872b94af",
+    "scripts/hoi/validate_wm_migration.py": "8e05efdb8d376257f2864492063849b1ce247d86cea70b5370fccfa0f0218549",
+    "scripts/hoi/verify_p3_evidence.py": "51ff8358eeccc7e40cbad1e99f2601111ecaab130041a07d31f95ad0633ddff0",
+    "src/supermimic/hoi/checkpoint.py": "2b0607e24ba7cc2a72f3df1df0350934b9c31284538b9a74a8e3809a43474693",
+    "src/supermimic/hoi/dataset.py": "7225c73de87db3ed40c4283e357762d612bd0fcd436a72db296b6f854e3b26fa",
+    "src/supermimic/hoi/validation.py": "d3a58473f8bb5aa70a5a6038d43d6ac1d0b81307bcf09f678f0b0062b66a4a92",
+    "src/supermimic/hoi/wm_trainer.py": "e3907f6c9bdacd0a8d86bc1c21a3319f4b4710f362c0484ce51f4c7f5a3766ec",
+    "src/supermimic/hoi/world_model.py": "4941aef30ee30287391f14acc2d23e9b5a850c74b9be6414304d2add9a19c2aa",
+    "tests/hoi/test_checkpoint_migration.py": "88eb43b4c9407c5c2c8aad85ef2640cad507f742289c225633ec331378c07b7d",
+    "tests/hoi/test_contact_diagnostic.py": "29d14041d40adfa1c7561eb74919370e426b7e320630c2eeed5b85517d13323e",
+    "tests/hoi/test_contact_intent_head.py": "bf72f33cd14fafef242ff3156a641099b498a3e86f3e648a0823d0d8925e50d9",
+    "tests/hoi/test_force_head.py": "6866cefac33bb47119592f6d20bed9eee35fb94835907583d564e96f4dabfc50",
+    "tests/hoi/test_wm_dataset_validation.py": "146ee78fee47a680939731b6659814f177aee1a464c23f55e19d24776a287e57"
+  },
+  "self_hash": "intentionally excluded",
+  "pending_user_files": " M docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md\n?? .vscode/\n?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md\n?? outputs/hoi/asset_audit/part_b/reference_refined/\n"
+}
