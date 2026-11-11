@@ -1,0 +1,113 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "verification": "PASS",
+  "stage_acceptance": "PARTIAL",
+  "protected_files_checked": 452,
+  "protected_files_unchanged": 449,
+  "intentional_existing_file_changes": {
+    "src/supermimic/hoi/replay.py": {
+      "before": "e333adf6c0f5d14fabedf466486463fde2433f981406f6b64c97c24867fe8c03",
+      "after": "30f5554eb414558efa1aa60ecde2d873479ef0f4b07efc9d29280e66ee85ba11"
+    },
+    "src/supermimic/world_model/world_model.py": {
+      "before": "24a6157e285584fd1f8433360cc93b2c0b5fe68395fa46ccc4358109ce0e7ba2",
+      "after": "d1e75e0ef550c8516701c736dff081ce681f8a0f114dd604f7a0386a2631d40a"
+    },
+    "tests/test_hoi_reconciliation.py": {
+      "before": "3c26c0883c62f943ebca14b06f39e15f47847ff5f6f95773aa0c86fcc54dfa2a",
+      "after": "b0af5ead538e749bf5ed300dd5b7be4cb4d87b03e8b067329bf0dd797eecf7ba"
+    }
+  },
+  "dependency_source_hashes_verified": 10,
+  "versions_verified": {
+    "torch": "2.14.1+cu130",
+    "mjlab": "1.6.0",
+    "mujoco": "3.16.0",
+    "mujoco-warp": "3.16.0",
+    "warp-lang": "1.18.0",
+    "numpy": "2.5.4"
+  },
+  "canonical_reference": {
+    "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+    "filename": "reference_refined.npz",
+    "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+    "frames": 840,
+    "fps": 50.0,
+    "manifests": {
+      "reference_refined_manifest.json": "155c558be01b8318f4093fc595154cdc805bf730c38a38f78e3cf16c48fd016a",
+      "reference_manifest.json": "5b375e66e52d7079363ddceae4abdc8b838f4e28f7fb5b1b28f09047fcd1a78e",
+      "reference_manifest.before_schema_fix.json": "27efec2f4bb10e661382a8e83090dc1e459651bfc3f840e7af5fc74693f4cdbf"
+    },
+    "p1_cache_shape": [
+      840,
+      84
+    ],
+    "changed_frame_ranges": {
+      "joint_pos": [
+        431,
+        489
+      ],
+      "joint_vel": [
+        430,
+        490
+      ],
+      "body_pos_w": [
+        431,
+        489
+      ],
+      "body_quat_w": [
+        431,
+        489
+      ],
+      "body_lin_vel_w": [
+        430,
+        490
+      ],
+      "body_ang_vel_w": [
+        430,
+        490
+      ],
+      "object_pos_w": [],
+      "object_quat_w": [],
+      "object_contact": []
+    }
+  },
+  "measured_archive_sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+  "train_validation_rows": [
+    240,
+    80
+  ],
+  "train_validation_windows": [
+    72,
+    24
+  ],
+  "support_comparison_reproduced": true,
+  "support_archive_sha256": "c34ec7f9b9635ca28d1f5c7745cf379062e4ee1bbd808ceedc6b37cc5cd8915d",
+  "force_labels_recomputed_from_saved_substeps": true,
+  "failed_capture_rejected": true,
+  "learned_parameter_updates_verified": true,
+  "readiness": {
+    "ready": false,
+    "reasons": [
+      "Controlled diagnostics do not establish natural HOI generalization",
+      "Missing validation coverage: left.onset",
+      "Missing validation coverage: right.onset",
+      "Missing finite validation metric: events.left.onset.recall",
+      "Missing finite validation metric: events.right.onset.recall",
+      "Missing finite validation metric: horizon_8.force.left.all.direction_cosine",
+      "Missing finite validation metric: horizon_8.force.left.calibration.active_recall",
+      "Missing finite validation metric: horizon_8.force.right.all.direction_cosine",
+      "Missing finite validation metric: horizon_8.force.right.calibration.active_recall",
+      "Validation thresholds/count requirements have not been fully specified"
+    ],
+    "actor_force_optimization_enabled": false,
+    "scope": "Predictive readiness only; P6 gradient fidelity remains separately required"
+  },
+  "real_checkpoint_source_unchanged": true,
+  "regression": {
+    "passed": 102,
+    "skipped": 17,
+    "failed": 0
+  }
+}

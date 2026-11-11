@@ -13,7 +13,7 @@ from p3_common import reference
 from supermimic.hoi.asset_manifest import load_manifest
 from supermimic.hoi.dataset import load_archive, partition_episodes, replay_from_archive
 from supermimic.hoi.reference import DEFAULT_ASSET, REPO, sha256
-from supermimic.hoi.validation import readiness_gate
+from supermimic.hoi.validation import legacy_force_readiness_gate
 
 OUT = REPO / "outputs/hoi/contact_supervision/force_model_validation"
 
@@ -79,7 +79,7 @@ def verify():
     assert windows == [72, 24]
     assert all(value > 0 for value in fit["parameter_delta_L2"].values())
     assert all(value > 0 for value in fit["last_head_gradient_L2"].values())
-    gate = readiness_gate(
+    gate = legacy_force_readiness_gate(
         fit["after_validation"],
         coverage=fit["unique_validation_coverage"],
         provenance=fit["provenance"],
