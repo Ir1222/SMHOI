@@ -1,0 +1,240 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Setting seed: 0
+Warp 1.18.0 initialized:
+   CUDA Toolkit 13.4, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 4090 D" (24 GiB, sm_89, mempool enabled)
+   Kernel cache:
+     /tmp/smhoi_p3_warp_cache/1.18.0
+Module mujoco_warp._src.smooth 43a6a77 load on device 'cuda:0' took 645.02 ms  (compiled)
+Module _nxn_broadphase__locals__kernel_32304148 3230414 load on device 'cuda:0' took 96.32 ms  (compiled)
+Module _nxn_broadphase__locals__kernel_32304148 2a885b9 load on device 'cuda:0' took 268.44 ms  (compiled)
+Module ccd_kernel_builder__locals__ccd_kernel_1dbaeac7 1dbaeac load on device 'cuda:0' took 618.52 ms  (compiled)
+Module _primitive_narrowphase__locals__primitive_narrowphase_00199ac9 00199ac load on device 'cuda:0' took 290.49 ms  (compiled)
+Module mujoco_warp._src.constraint 8d4d513 load on device 'cuda:0' took 28.32 ms  (compiled)
+Module _friction_dof__locals__kernel_f68ea16b f68ea16 load on device 'cuda:0' took 48.21 ms  (compiled)
+Module _limit_slide_hinge__locals__kernel_263562ea 263562e load on device 'cuda:0' took 51.01 ms  (compiled)
+Module _efc_contact_init__locals__kernel_db1e703e db1e703 load on device 'cuda:0' took 36.09 ms  (compiled)
+Module _efc_contact_jac_sparse__locals__kernel_07447225 0744722 load on device 'cuda:0' took 44.67 ms  (compiled)
+Module _efc_contact_update__locals__kernel_55b2a711 55b2a71 load on device 'cuda:0' took 50.64 ms  (compiled)
+Module mujoco_warp._src.sensor 8feaecd load on device 'cuda:0' took 457.60 ms  (compiled)
+Module mujoco_warp._src.forward 70fadf5 load on device 'cuda:0' took 331.07 ms  (compiled)
+Module mujoco_warp._src.passive 0de6fd1 load on device 'cuda:0' took 461.54 ms  (compiled)
+Module _qfrc_passive_kernel__locals__kernel_20315922 2031592 load on device 'cuda:0' took 30.05 ms  (compiled)
+Module _qfrc_smooth__locals__kernel_2c4e0694 2c4e069 load on device 'cuda:0' took 28.89 ms  (compiled)
+Module mujoco_warp._src.support 970ef9a load on device 'cuda:0' took 46.39 ms  (compiled)
+Module _small_cholesky_factorize_solve_block__locals__kernel_9c61f0b1 ffea8ea load on device 'cuda:0' took 85.46 ms  (compiled)
+Module _tile_cholesky_factorize_solve_block__locals__kernel_b778dc3e bc43cde load on device 'cuda:0' took 2881.68 ms  (compiled)
+Module _solve_init_dof__locals__kernel_a955d90a a955d90 load on device 'cuda:0' took 31.08 ms  (compiled)
+Module mujoco_warp._src.solver e4420b7 load on device 'cuda:0' took 60.29 ms  (compiled)
+Module _solve_init_jaref_kernel__locals__kernel_a373e283 a373e28 load on device 'cuda:0' took 31.11 ms  (compiled)
+Module mul_m_kernel__locals___mul_m_6d916077 6d91607 load on device 'cuda:0' took 30.40 ms  (compiled)
+Module _update_constraint_efc__locals__kernel_e1de18c7 e1de18c load on device 'cuda:0' took 46.56 ms  (compiled)
+Module _update_constraint_init_qfrc_constraint_sparse__locals__kernel_88431482 8843148 load on device 'cuda:0' took 33.85 ms  (compiled)
+Module _update_gradient_zero_grad_dot__locals__kernel_c4230897 c423089 load on device 'cuda:0' took 30.34 ms  (compiled)
+Module _update_gradient_grad__locals__kernel_21379838 2137983 load on device 'cuda:0' took 31.22 ms  (compiled)
+Module _update_gradient_init_h_sparse__locals__kernel_d095819a d095819 load on device 'cuda:0' took 35.23 ms  (compiled)
+Module _JTDACJ_sparse__locals__kernel_83157a18 83157a1 load on device 'cuda:0' took 36.42 ms  (compiled)
+Module _update_gradient_cholesky_blocked__locals__kernel_32b38bcb 7305e96 load on device 'cuda:0' took 4238.72 ms  (compiled)
+Module _linesearch_jv_fused_kernel__locals__kernel_489ce447 489ce44 load on device 'cuda:0' took 32.41 ms  (compiled)
+Module _linesearch_iterative_kernel__locals__kernel_2ea5b4e6 00877cd load on device 'cuda:0' took 268.97 ms  (compiled)
+Module _update_constraint_efc__locals__kernel_a341871c a341871 load on device 'cuda:0' took 48.67 ms  (compiled)
+Module _update_gradient_zero_grad_dot__locals__kernel_10c2b083 10c2b08 load on device 'cuda:0' took 32.54 ms  (compiled)
+Module _update_gradient_grad__locals__kernel_b8320cbe b8320cb load on device 'cuda:0' took 31.52 ms  (compiled)
+Module _update_gradient_h_incremental_sparse__locals__kernel_3754d96f 3754d96 load on device 'cuda:0' took 36.26 ms  (compiled)
+Module _update_gradient_cholesky_blocked_skip_unchanged__locals__kernel_9d96ed8a 6384045 load on device 'cuda:0' took 2204.19 ms  (compiled)
+Module _solve_done__locals__kernel_63147dda 63147dd load on device 'cuda:0' took 33.46 ms  (compiled)
+Module _contact_match_builder__locals___contact_match_480cf87a 480cf87 load on device 'cuda:0' took 54.62 ms  (compiled)
+Module _contact_sort__locals__contact_sort_acb63f94 7fe7daf load on device 'cuda:0' took 38.29 ms  (compiled)
+Module mujoco_warp._src.derivative 011f1dc load on device 'cuda:0' took 383.29 ms  (compiled)
+Module _next_time_builder__locals___next_time_e59def4b e59def4 load on device 'cuda:0' took 33.13 ms  (compiled)
+Module reset_data__locals__reset_xfrc_applied_b0a4c05b b0a4c05 load on device 'cuda:0' took 31.26 ms  (compiled)
+Module reset_data__locals__reset_M_2263bd42 2263bd4 load on device 'cuda:0' took 27.70 ms  (compiled)
+Module reset_data__locals__reset_mocap_8058fd6f 8058fd6 load on device 'cuda:0' took 31.45 ms  (compiled)
+Module reset_data__locals__reset_contact_adcd3765 adcd376 load on device 'cuda:0' took 35.97 ms  (compiled)
+Module reset_data__locals__reset_sleep_3246b46a 3246b46 load on device 'cuda:0' took 30.49 ms  (compiled)
+Module reset_data__locals__reset_nworld_9d8fd945 9d8fd94 load on device 'cuda:0' took 33.98 ms  (compiled)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 4      |
+| Environment device     | cuda:0 |
+| Environment seed       | 0      |
+| Physics step-size      | 0.005  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 0 active terms.
+
+[INFO] <NullCommandManager> (inactive)
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 29) |
++-------+-----------+-------------+
+| Index | Name      |   Dimension |
++-------+-----------+-------------+
+|   0   | joint_pos |          29 |
++-------+-----------+-------------+
+
+[INFO] <ObservationManager> contains 0 groups.
+
+[INFO] <TerminationManager> contains 0 active terms.
++--------------------------+
+| Active Termination Terms |
++-------+------+-----------+
+| Index | Name |  Time Out |
++-------+------+-----------+
++-------+------+-----------+
+
+[INFO] <RewardManager> contains 0 active terms.
++-----------------------+
+|  Active Reward Terms  |
++-------+------+--------+
+| Index | Name | Weight |
++-------+------+--------+
++-------+------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 1 active terms.
++--------------------------+
+|   Active Metrics Terms   |
++-------+------------------+
+| Index | Name             |
++-------+------------------+
+|   0   | contact_capacity |
++-------+------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+Module repeat_array_kernel_31f1cdc7 ab09835 load on device 'cuda:0' took 34.55 ms  (compiled)
+{
+  "kind": "controlled_support_pairs",
+  "acceptance": "PASS",
+  "replay": {
+    "schema": "hoi-transition-v1",
+    "force_frame": "contemporaneous_box_at_substep_solve",
+    "force_sign": "hand_on_box",
+    "hand_order": [
+      "left",
+      "right"
+    ],
+    "primary_order": [
+      "wrist_pitch",
+      "wrist_yaw"
+    ],
+    "substep_order": "chronological",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "force_unit": "N",
+    "impulse_unit": "N s",
+    "force_on_N": 0.001,
+    "found_final_time": "fourth_solve_before_final_forward",
+    "frame": "transition_start; next=start+1",
+    "intent_ref": "global[start,end]",
+    "terminal": "physical_failure OR timeout OR clip_end; transition-indexed",
+    "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+    "references": [
+      {
+        "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+        "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+      }
+    ],
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "sensors": {
+      "left_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      },
+      "right_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      }
+    },
+    "normalization": "none; raw physical units"
+  },
+  "canonical_pair_max_abs_error": 2.384185791015625e-07,
+  "pair_object_max_abs_pos_rot_linear_angular": [
+    0.003585636615753174,
+    0.002385394019987756,
+    0.2630076929926872,
+    0.13473386596888304
+  ],
+  "pair_force_max_abs_LR_N": [
+    18.204342663288116,
+    18.01209345459938
+  ],
+  "train_pair_ids": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    28,
+    29,
+    30
+  ],
+  "validation_pair_ids": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31
+  ],
+  "comparisons": {
+    "without_context": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.0009157580608822634,
+        0.0003534228069549095,
+        0.07085165600880956,
+        0.02511225518151307
+      ],
+      "force_MAE_LR_N": [
+        0.2402324511688453,
+        2.685410806640751
+      ],
+      "object_normalized_MSE": 0.005264597473885021
+    },
+    "with_candidate_context18": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.00016452336059653248,
+        0.0002612431726419488,
+        0.006466110970529414,
+        0.01784275415245251
+      ],
+      "force_MAE_LR_N": [
+        1.8585645860188735,
+        2.683337262302199
+      ],
+      "object_normalized_MSE": 0.00012581455351891462
+    }
+  },
+  "context_reduces_object_error": true
+}

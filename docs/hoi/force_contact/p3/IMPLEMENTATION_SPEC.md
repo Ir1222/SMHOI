@@ -137,3 +137,12 @@ No new physical skip can count as PASS. Exact commands, raw results, counts, met
 changed paths, review commits and preservation checks go in REPORT/VALIDATION and
 outputs/hoi/contact_supervision/force_model_validation/. Every group is fully reviewed,
 tested, staged by explicit path and committed under the user's authorization.
+
+## P3.4 resolved decision
+
+See SUPPORT_CONTEXT.md and support_balanced_analysis.json. Physical paired outcomes
+are nonidentifiable without support placement; candidate18 reduces held-out object
+normalized MSE .0048631→.00012414. Select the explicitly allowed two relative
+support transforms18, separate from xi33. Force ridge errors worsen (left1.258→1.971N,
+right1.244→1.935N); force generalization remains unresolved. Balanced pair split
+corrects the original side bias; both results are retained. No research amendment.

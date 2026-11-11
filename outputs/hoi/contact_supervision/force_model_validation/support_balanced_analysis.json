@@ -1,0 +1,80 @@
+{
+  "canonical_pair_max_abs_error": 2.384185791015625e-07,
+  "pair_object_max_abs_pos_rot_linear_angular": [
+    0.003585636615753174,
+    0.002385394019987756,
+    0.2630076929926872,
+    0.13473386596888304
+  ],
+  "pair_force_max_abs_LR_N": [
+    18.204342663288116,
+    18.01209345459938
+  ],
+  "train_pair_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "validation_pair_ids": [
+    6,
+    7,
+    14,
+    15,
+    22,
+    23,
+    30,
+    31
+  ],
+  "comparisons": {
+    "without_context": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.0008401528779448106,
+        0.0003094959197549829,
+        0.06803512377469104,
+        0.025404668251505134
+      ],
+      "force_MAE_LR_N": [
+        1.2584328141762742,
+        1.2443179087459266
+      ],
+      "object_normalized_MSE": 0.004863107738220307
+    },
+    "with_candidate_context18": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.00021886732423435825,
+        0.00024381099580698208,
+        0.006075033921577559,
+        0.017995126763562325
+      ],
+      "force_MAE_LR_N": [
+        1.970659300441081,
+        1.9346441107643804
+      ],
+      "object_normalized_MSE": 0.00012413856956114788
+    }
+  },
+  "context_reduces_object_error": true,
+  "source": "support_02/transitions.npz",
+  "correction": "Hold out final two pairs of each group of eight, so both hand fixture types appear; original modulo4 partition selected only right-hand fixtures."
+}

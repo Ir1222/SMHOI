@@ -1,0 +1,9 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/scripts/hoi/diagnose_support_context.py", line 159, in <module>
+    run(parser.parse_args().output)
+  File "/home/han/pyx/SMHOI/scripts/hoi/diagnose_support_context.py", line 102, in run
+    manifest = load_manifest()
+               ^^^^^^^^^^^^^^^
+TypeError: load_manifest() missing 1 required positional argument: 'path'

@@ -1,0 +1,127 @@
+{
+  "kind": "controlled_support_pairs",
+  "acceptance": "PASS",
+  "replay": {
+    "schema": "hoi-transition-v1",
+    "force_frame": "contemporaneous_box_at_substep_solve",
+    "force_sign": "hand_on_box",
+    "hand_order": [
+      "left",
+      "right"
+    ],
+    "primary_order": [
+      "wrist_pitch",
+      "wrist_yaw"
+    ],
+    "substep_order": "chronological",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "force_unit": "N",
+    "impulse_unit": "N s",
+    "force_on_N": 0.001,
+    "found_final_time": "fourth_solve_before_final_forward",
+    "frame": "transition_start; next=start+1",
+    "intent_ref": "global[start,end]",
+    "terminal": "physical_failure OR timeout OR clip_end; transition-indexed",
+    "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+    "references": [
+      {
+        "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+        "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+      }
+    ],
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "sensors": {
+      "left_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      },
+      "right_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      }
+    },
+    "normalization": "none; raw physical units"
+  },
+  "canonical_pair_max_abs_error": 2.384185791015625e-07,
+  "pair_object_max_abs_pos_rot_linear_angular": [
+    0.003585636615753174,
+    0.002385394019987756,
+    0.2630076929926872,
+    0.13473386596888304
+  ],
+  "pair_force_max_abs_LR_N": [
+    18.204342663288116,
+    18.01209345459938
+  ],
+  "train_pair_ids": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    28,
+    29,
+    30
+  ],
+  "validation_pair_ids": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31
+  ],
+  "comparisons": {
+    "without_context": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.0009157580608822634,
+        0.0003534228069549095,
+        0.07085165600880956,
+        0.02511225518151307
+      ],
+      "force_MAE_LR_N": [
+        0.2402324511688453,
+        2.685410806640751
+      ],
+      "object_normalized_MSE": 0.005264597473885021
+    },
+    "with_candidate_context18": {
+      "object_RMSE_pos_rot_linear_angular": [
+        0.00016452336059653248,
+        0.0002612431726419488,
+        0.006466110970529414,
+        0.01784275415245251
+      ],
+      "force_MAE_LR_N": [
+        1.8585645860188735,
+        2.683337262302199
+      ],
+      "object_normalized_MSE": 0.00012581455351891462
+    }
+  },
+  "context_reduces_object_error": true
+}
