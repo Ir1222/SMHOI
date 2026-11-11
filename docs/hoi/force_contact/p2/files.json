@@ -1,0 +1,133 @@
+{
+  "baseline": "a562d936541ac7a73c6fa70fcf727449e426f28a",
+  "files": [
+    {
+      "path": "docs/hoi/force_contact/p2/IMPLEMENTATION_SPEC.md",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/REPORT.md",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/TRAINING_FRAMEWORK_REUSE_AUDIT.md",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/VALIDATION.md",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/baseline.json",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/files.json",
+      "change": "new"
+    },
+    {
+      "path": "docs/hoi/force_contact/p2/validation_summary.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/full_suite_failure_01/diagnostics.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_01.log",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_01/diagnostics.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_01/raw_samples.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_01/transitions.npz",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_02.log",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_02/active_terminal.npz",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_02/diagnostics.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_02/raw_samples.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_02/transitions.npz",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_03.log",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_03/active_terminal.npz",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_03/diagnostics.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_03/raw_samples.json",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/run_03/transitions.npz",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/tests_cpu_01.log",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/tests_full_01.log",
+      "change": "new"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/replay_diagnostics/tests_full_02.log",
+      "change": "new"
+    },
+    {
+      "path": "scripts/hoi/diagnose_force_replay.py",
+      "change": "new"
+    },
+    {
+      "path": "src/supermimic/hoi/contact.py",
+      "change": "modified"
+    },
+    {
+      "path": "src/supermimic/hoi/recorder.py",
+      "change": "new"
+    },
+    {
+      "path": "src/supermimic/hoi/replay.py",
+      "change": "new"
+    },
+    {
+      "path": "tests/hoi/test_force_aggregation.py",
+      "change": "new"
+    },
+    {
+      "path": "tests/hoi/test_force_recorder.py",
+      "change": "new"
+    },
+    {
+      "path": "tests/hoi/test_force_replay.py",
+      "change": "new"
+    }
+  ]
+}
