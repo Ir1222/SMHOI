@@ -1,4 +1,4 @@
-"""Raw, pair-filtered hand-on-box sensing. No control-interval labels (P2)."""
+"""Pair-filtered hand-on-box sensing and four-substep physical labels."""
 
 from __future__ import annotations
 
@@ -83,3 +83,98 @@ def capacity_metric(env) -> torch.Tensor:
     """Existing mjlab substep metric hook; checks without replacing its loop."""
     assert_contact_capacity(env)
     return torch.zeros(env.num_envs, device=env.device)
+
+
+def aggregate_interval(raw_world, solve_quat, found, *, force_on):
+    """Four chronological solved samples; output physical units, hand order L/R.
+
+    raw_world: [E,4,2,2,3], solve_quat: [E,4,4] wxyz,
+    found: [E,4,2,2]. Found counts are separately captured, not force-derived.
+    """
+    n = raw_world.shape[0]
+    if (
+        raw_world.shape != (n, 4, 2, 2, 3)
+        or solve_quat.shape != (n, 4, 4)
+        or found.shape != (n, 4, 2, 2)
+    ):
+        raise ValueError("Expected four substeps, two hands and two primary bodies")
+    if not 0 < force_on < float("inf"):
+        raise ValueError("force_on must be an explicit positive finite threshold in N")
+    if not all(torch.isfinite(x).all() for x in (raw_world, solve_quat, found)):
+        raise ValueError("Nonfinite interval measurement")
+    if torch.any((solve_quat.norm(dim=-1) - 1).abs() > 1e-5):
+        raise ValueError("Expected unit solve-time Box quaternion")
+    if torch.any(found < 0) or torch.any(found != found.round()):
+        raise ValueError("Found must contain nonnegative constraint counts")
+    world = raw_world.sum(dim=3)
+    local = force_box_local(world, solve_quat[:, :, None])
+    magnitude = world.norm(dim=-1)
+    return {
+        "force_mean_box": local.mean(dim=1),
+        "impulse_world": 0.005 * world.sum(dim=1),
+        "force_peak": magnitude.amax(dim=1),
+        "occupancy": (magnitude > force_on).to(world.dtype).mean(dim=1),
+        "found_final": found[:, -1].sum(dim=-1).clone(),
+        "force_raw_world": raw_world.clone(),
+        "box_quat_solve": solve_quat.clone(),
+        "found_substeps": found.clone(),
+    }
+
+
+def torque_at_point(force, torque, centroid, point):
+    """Combine primary-column wrenches about one common WORLD point, N m.
+
+    Column dimension is -2. A rotation alone does not change a torque's origin.
+    """
+    return (torque + torch.cross(centroid - point.unsqueeze(-2), force, dim=-1)).sum(dim=-2)
+
+
+class IntervalCapture:
+    """Copy solved samples in the existing per-substep metric callback.
+
+    xquat deliberately lags integrated qpos here: it is exactly the orientation
+    used to solve the force. No dependency buffers or graph pointers are retained.
+    """
+
+    def __init__(self, env, state_io, force_on):
+        if env.cfg.decimation != 4 or abs(env.physics_dt - 0.005) > 1e-12:
+            raise ValueError("P2 requires .005 s x 4")
+        self.env, self.io, self.force_on = env, state_io, force_on
+        n, device = env.num_envs, env.device
+        self.raw = torch.zeros(n, 4, 2, 2, 3, device=device)
+        self.quat = torch.zeros(n, 4, 4, device=device)
+        self.found = torch.zeros(n, 4, 2, 2, device=device)
+        self.count = torch.zeros(n, dtype=torch.long, device=device)
+        self.next_state = torch.zeros(n, 84, device=device)
+
+    def sample(self):
+        env = self.env
+        assert_contact_capacity(env)
+        if torch.any(self.count >= 4):
+            raise RuntimeError("Unconsumed interval or extra substep")
+        e = torch.arange(env.num_envs, device=env.device)
+        k = self.count
+        self.raw[e, k] = torch.stack([env.scene[name].data.force for name in SENSOR_NAMES], dim=1)
+        self.found[e, k] = torch.stack([env.scene[name].data.found for name in SENSOR_NAMES], dim=1)
+        self.quat[e, k] = env.sim.data.xquat[:, self.io.box_body_id]
+        self.next_state.copy_(self.io.read())
+        self.count += 1
+
+    def consume(self, ids):
+        if torch.any(self.count[ids] != 4):
+            raise RuntimeError("Incomplete or stale four-substep interval")
+        # Reacquire native history; its storage is replaced on every update.
+        history = hand_force_history_world(self.env.scene)[ids].permute(0, 2, 1, 3).flip(1)
+        if not torch.equal(history, self.raw[ids].sum(dim=3)):
+            raise RuntimeError("Native history and captured action interval disagree")
+        result = aggregate_interval(
+            self.raw[ids], self.quat[ids], self.found[ids], force_on=self.force_on
+        )
+        self.count[ids] = 0
+        return result
+
+    def reset(self, ids):
+        self.count[ids] = 0
+        self.raw[ids] = 0
+        self.quat[ids] = 0
+        self.found[ids] = 0

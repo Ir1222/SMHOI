@@ -17,7 +17,8 @@ Read all 1,834 master lines; P0 coverage/report/closure/file map, architecture,
 dependency, dataset/asset and reference implementation audits; P1 specification,
 report, validation and reuse audit. P0's documented accepted IDs remain historical;
 current Git history has reconciled IDs, so preservation is checked by file hashes
-rather than claiming absent IDs are current ancestors. `baseline.json` records
+rather than claiming those retained objects are current ancestors (all three
+old P0 IDs exist but `merge-base --is-ancestor` returns 1). `baseline.json` records
 actual HEAD/status, versions, all 126 P1 protected hashes and ten matching dependency
 hashes, plus a snapshot of existing files. P1 source and evidence hashes are checked
 against its validation summary before implementation. User-owned master typo fix,
@@ -64,3 +65,20 @@ Acceptance requires executed GPU timing/copy/reset tests and original regression
 with deterministic algebra and identity checks. Missing physical evidence yields
 PARTIAL, not an invented threshold or PASS. Exact commands/results and final file
 list will be recorded in VALIDATION.md, REPORT.md and the reuse audit.
+
+## A1 — diagnostic fixture correction after full-suite failure
+
+`run_01` and `run_02` passed, but `tests_full_01.log` records the GPU rerun
+rejecting world3 with overflow flag1024. Installed `OverflowType` defines this as
+`LS_ITERATIONS`, not contact-array exhaustion. Preserve the failure at
+`replay_diagnostics/full_suite_failure_01/diagnostics.json`; the original harness
+had not flushed partial raw samples at failure (now corrected).
+
+Implementation-level diagnostic correction, stated before editing: translate the
+bilateral fixture's robot root and box root together +2 m in Z, preserving relative
+hand-box geometry while avoiding unrelated floor impacts during the 12-step noisy
+action sequence. Other P1 contact fixtures already use elevated roots. Keep native
+solver iterations10/line-search20, all assets, actual actions, gravity, overflow
+rejection and numerical acceptance tolerances unchanged. This is a controlled
+calibration fixture, never a reference edit or task-success claim. Rerun the
+physical diagnostic and full suite; any remaining overflow still blocks PASS.

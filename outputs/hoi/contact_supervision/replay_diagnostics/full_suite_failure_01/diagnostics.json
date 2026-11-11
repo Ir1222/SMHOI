@@ -1,0 +1,7 @@
+{
+  "acceptance": "FAIL",
+  "fixture": "P1 placements; 24 native steps x 4 worlds; no policy",
+  "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "asset_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay.py\", line 148, in run\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 0, 1024]\n"
+}
