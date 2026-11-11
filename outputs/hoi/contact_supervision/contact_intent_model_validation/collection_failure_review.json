@@ -1,0 +1,46 @@
+{
+  "capture_acceptance": "FAIL",
+  "overall_P3": "PARTIAL",
+  "gate_a": "NOT_EVALUATED",
+  "gate_b": "NOT_EVALUATED",
+  "approved_transitions": 32,
+  "completed_transitions": 1,
+  "completed_frame_pairs": [
+    [
+      256,
+      257
+    ]
+  ],
+  "intent_pairs": [
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "failed_transition": [
+    257,
+    258
+  ],
+  "failed_schedule_episode": "train onset",
+  "captured_substeps_in_failed_interval": [
+    2
+  ],
+  "overflow_flags": [
+    512
+  ],
+  "overflow_interpretation": "ITERATIONS: solver iteration limit reached",
+  "definition_source": ".venv/lib/python3.12/site-packages/mujoco_warp/_src/types.py",
+  "definition_source_sha256": "655f6a0ee10794e09205289ebb682c0a281a93c08d33348530905da5f7d31962",
+  "failed_archive_rejected_by_training_loader": true,
+  "saved_complete_interval_sensor_reconstruction": "PASS",
+  "reference_labels_verified": true,
+  "reference_sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+  "retry_count": 0,
+  "bounded_fit_executed": false,
+  "learned_contact_checkpoint_produced": false,
+  "preserved_files_sha256": {
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/failure_snapshot.npz": "2205a5222e935d43ab3bd542fe2614c96e226e52f5044c6ecd141a6112c4b6ae",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/metadata.json": "c95286543b9c53513b2782aa955a05172a25639fc5e9522869ad093a9896d1e9",
+    "outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/transitions.npz": "6e1a030578f4118e1f7965b805ad3a65983d8d137b69791415dbf575a3b0d051"
+  }
+}

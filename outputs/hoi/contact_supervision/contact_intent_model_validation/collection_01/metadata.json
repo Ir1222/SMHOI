@@ -1,0 +1,76 @@
+{
+  "kind": "controlled_P3_contact_boundary_diagnostic",
+  "acceptance": "FAIL",
+  "budget": "4 episodes x 8 transitions = 32",
+  "natural_HOI_training_data": false,
+  "cross_clip_generalization": false,
+  "episodes": [
+    {
+      "split": "train",
+      "regime": "onset",
+      "initial_frame": 256,
+      "seed": 411,
+      "env": 0,
+      "row_start": 0,
+      "rows": 1,
+      "episode": 0
+    }
+  ],
+  "label_semantics": "global desired reference intent",
+  "replay": {
+    "schema": "hoi-transition-v1",
+    "force_frame": "contemporaneous_box_at_substep_solve",
+    "force_sign": "hand_on_box",
+    "hand_order": [
+      "left",
+      "right"
+    ],
+    "primary_order": [
+      "wrist_pitch",
+      "wrist_yaw"
+    ],
+    "substep_order": "chronological",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "force_unit": "N",
+    "impulse_unit": "N s",
+    "force_on_N": 0.001,
+    "found_final_time": "fourth_solve_before_final_forward",
+    "frame": "transition_start; next=start+1",
+    "intent_ref": "global[start,end]",
+    "terminal": "physical_failure OR timeout OR clip_end; transition-indexed",
+    "state": "robot71+object13; local positions; wxyz; root-world-linear/body-angular",
+    "references": [
+      {
+        "path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz",
+        "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+      }
+    ],
+    "asset_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "sensors": {
+      "left_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      },
+      "right_hand_box": {
+        "reduce": "netforce",
+        "num_slots": 1,
+        "history_length": 4,
+        "secondary_policy": "error"
+      }
+    },
+    "normalization": "none; raw physical units"
+  },
+  "last_interval": {
+    "schedule_episode": 0,
+    "step": 1,
+    "start_frame": 257
+  },
+  "error": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/scripts/hoi/collect_p3_diagnostic.py\", line 77, in run_contact\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [512]\n",
+  "failure_snapshot": "failure_snapshot.npz",
+  "transitions": 1,
+  "archive_sha256": "6e1a030578f4118e1f7965b805ad3a65983d8d137b69791415dbf575a3b0d051"
+}
