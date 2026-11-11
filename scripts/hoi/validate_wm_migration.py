@@ -1,4 +1,4 @@
-"""Read-only named checkpoint migration and physical one/eight-step parity probes."""
+"""Non-overwriting named checkpoint migration and physical one/eight-step parity probes."""
 
 import argparse
 import copy
@@ -7,11 +7,11 @@ from dataclasses import asdict
 from pathlib import Path, PosixPath
 
 import torch
-from p3_common import reference
+from p3_common import archived_reference as reference
 
 from supermimic.hoi.checkpoint import (
-    contact_config,
     joint_checkpoint,
+    joint_config,
     legacy_joint_step,
     load_joint_weights,
     migrate_joint_weights,
@@ -34,7 +34,7 @@ def run(source, data_dir, output, robot_source=None):
     torch.manual_seed(402)
     source_hash = sha256(source)
     old = torch.load(source, map_location="cpu", weights_only=True)
-    cfg = contact_config(old["metadata"]["config"], legacy=True)
+    cfg = joint_config(old["metadata"]["config"], legacy=True)
     new = JointWorldModel(cfg, AnalyticHeads, "cpu")
     clip = reference()
     data, meta = load_archive(
@@ -46,23 +46,18 @@ def run(source, data_dir, output, robot_source=None):
     if not len(e):
         raise ValueError("No complete measured windows for parity probe")
     batch = replay._gather_windows(e[:16], t[:16], 8)
-    errors = {}
+    errors = []
     with torch.no_grad():
-        for contact in (0.0, 1.0, 0.37):
-            physical = batch["states"][0].clone()
-            z = torch.cat((physical, torch.full_like(physical[:, :1], contact)), -1)
-            per_step = []
-            for action in batch["a_exec"]:
-                physical = legacy_joint_step(old, new, physical, action, batch["xi"])
-                z, logit = new.predict(z, action, batch["xi"])
-                torch.testing.assert_close(physical, z[:, :84], atol=2e-6, rtol=2e-6)
-                assert logit.count_nonzero() == 0 and (z[:, 84] == 0.5).all()
-                per_step.append(float((physical - z[:, :84]).abs().max()))
-            errors[str(contact)] = per_step
+        physical = batch["states"][0].clone()
+        state = physical.clone()
+        for action in batch["a_exec"]:
+            physical = legacy_joint_step(old, new, physical, action, batch["xi"])
+            state = new.predict(state, action, batch["xi"])
+            torch.testing.assert_close(physical, state, atol=2e-6, rtol=2e-6)
+            errors.append(float((physical - state).abs().max()))
     payload = joint_checkpoint(
         new,
         replay_metadata=meta["replay"],
-        readiness={"overall": "PARTIAL", "reason": "Migration only; contact untrained"},
         provenance={
             "source_path": str(source.resolve()),
             "source_sha256": source_hash,
@@ -70,7 +65,7 @@ def run(source, data_dir, output, robot_source=None):
             "updates": 0,
         },
     )
-    path = output / "migrated_contact_weights.pt"
+    path = output / "migrated_physical_weights.pt"
     torch.save(payload, path)
     restored = JointWorldModel(copy.deepcopy(cfg), AnalyticHeads, "cpu")
     load_joint_weights(
@@ -79,9 +74,9 @@ def run(source, data_dir, output, robot_source=None):
     for key, tensor in new.state_dict().items():
         torch.testing.assert_close(tensor, restored.state_dict()[key], atol=0, rtol=0)
     with torch.no_grad():
-        predicted = new.predict(z, batch["a_exec"][0], batch["xi"])
-        recovered = restored.predict(z, batch["a_exec"][0], batch["xi"])
-    roundtrip = max(float((a - b).abs().max()) for a, b in zip(predicted, recovered))
+        predicted = new.predict(state, batch["a_exec"][0], batch["xi"])
+        recovered = restored.predict(state, batch["a_exec"][0], batch["xi"])
+    roundtrip = float((predicted - recovered).abs().max())
     assert roundtrip == 0
     robot_probe = {"status": "NOT_REQUESTED"}
     if robot_source is not None:
@@ -96,12 +91,12 @@ def run(source, data_dir, output, robot_source=None):
         joint_cfg = JointWorldModelCfg(
             **{k: v for k, v in asdict(robot_cfg).items() if k != "state_spec"},
             state_spec=copy.deepcopy(robot_cfg.state_spec),
-            weights=LossWeights(1, 1, 1),
+            weights=LossWeights(1, 1),
         )
         initialized = JointWorldModel(joint_cfg, AnalyticHeads, "cpu")
         robot_mapping = migrate_robot_state_dict(robot_checkpoint["wm"], robot_cfg, initialized)
         physical = batch["states"][0].clone()
-        z = torch.cat((physical, torch.full_like(physical[:, :1], 0.37)), -1)
+        z = physical.clone()
         robot = physical[:, :71].clone()
         robot_errors = []
         fp32_within_tolerance = []
@@ -117,7 +112,7 @@ def run(source, data_dir, output, robot_source=None):
         original.double()
         initialized.double()
         physical = batch["states"][0].double()
-        z = torch.cat((physical, torch.full_like(physical[:, :1], 0.37)), -1)
+        z = physical.clone()
         robot = physical[:, :71].clone()
         fp64_errors = []
         with torch.no_grad():
@@ -140,16 +135,19 @@ def run(source, data_dir, output, robot_source=None):
         }
     assert sha256(source) == source_hash
     result = {
-        "implementation_acceptance": "PASS",
+        "architecture_checks": "PASS",
+        "compatibility_acceptance": robot_probe["status"] if robot_source else "PASS",
         "source_sha256": source_hash,
         "joint_per_horizon_max_abs": errors,
         "named_mapping": mapping,
         "strict_roundtrip_max_abs": roundtrip,
-        "new_contact_probability": 0.5,
+        "predictive_validation": "DEFERRED to P7-A",
         "checkpoint_sha256": sha256(path),
         "original_robot_probe": robot_probe,
         "source_unchanged": True,
         "trained_model_claim": False,
+        "reference_check": "Exact archived NPZ SHA256/schema; historical sidecar manifests unavailable",
+        "support_check": "Exact M6.5 manifest and available sources; historical V3 document unavailable",
     }
     (output / "results.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     print(

@@ -3,7 +3,6 @@
 import torch
 
 from supermimic.hoi.reference import ReferenceClip
-from supermimic.hoi.world_model import augment_states
 from supermimic.world_model.heads import ReferenceFrame
 from supermimic.world_model.wm_trainer import WorldModelTrainer
 
@@ -15,7 +14,6 @@ class JointWorldModelTrainer(WorldModelTrainer):
         self.reference_hashes = [clip.manifest["sha256"] for clip in references]
         device = next(wm.parameters()).device
         self.reference_roots = []
-        self.reference_intents = []
         for clip in references:
             root = clip.arrays["body_names"].tolist().index("pelvis")
             self.reference_roots.append(
@@ -23,9 +21,6 @@ class JointWorldModelTrainer(WorldModelTrainer):
                     torch.tensor(clip.arrays[k][:, root].copy(), device=device)
                     for k in ("body_pos_w", "body_quat_w")
                 )
-            )
-            self.reference_intents.append(
-                torch.tensor(clip.arrays["object_contact"].copy(), device=device)
             )
         super().__init__(wm, None, cfg)
 
@@ -46,7 +41,7 @@ class JointWorldModelTrainer(WorldModelTrainer):
             ReferenceFrame(None, None, None, None, positions[j], quaternions[j]) for j in range(k)
         ]
 
-    def predictive_states(self, batch):
+    def physical_states(self, batch):
         if not batch["transition_valid"].all():
             raise ValueError("P3 uses full valid windows, no unmasked padding")
         if not torch.equal(batch["states"][1:], batch["next_state"]):
@@ -58,32 +53,22 @@ class JointWorldModelTrainer(WorldModelTrainer):
             :-1
         ].any():
             raise ValueError("Discontinuous or prematurely terminal window")
-        states = augment_states(batch["states"], batch["intent_ref"])
-        for c in batch["clip"].unique().tolist():
-            if not 0 <= c < len(self.reference_intents):
-                raise ValueError("Unknown clip identity")
-            selected = batch["clip"] == c
-            frames = batch["frame"][selected]
-            intent = self.reference_intents[c]
-            if ((frames < 0) | (frames + 1 >= len(intent))).any():
-                raise ValueError("Contact frame outside reference; no clamping")
-            expected = torch.stack((intent[frames], intent[frames + 1]), -1)
-            if not torch.equal(batch["intent_ref"][selected], expected.to(batch["intent_ref"])):
-                raise ValueError("Contact intent does not match canonical reference")
+        states = batch["states"]
+        if states.ndim != 3 or states.shape[-1] != 84 or not torch.isfinite(states).all():
+            raise ValueError("Expected finite physical states [K+1,N,84]")
         return states
 
     def loss_on(self, batch):
-        states = self.predictive_states(batch)
+        states = self.physical_states(batch)
         return self.wm.window_loss(
             states,
             batch["a_exec"],
             batch["xi"],
             batch["physical_failure"].float(),
             self.references_for(batch),
-            auxiliary_targets={"contact_intent_next": batch["intent_ref"][..., 1:2]},
         )
 
     @torch.no_grad()
     def online_error(self, buffer, n=1024, k=8):
         batch = buffer.sample_windows(n, k)
-        return self.wm.rollout_error(self.predictive_states(batch), batch["a_exec"], batch["xi"])
+        return self.wm.rollout_error(self.physical_states(batch), batch["a_exec"], batch["xi"])

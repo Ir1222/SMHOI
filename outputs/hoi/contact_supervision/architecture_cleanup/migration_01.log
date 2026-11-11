@@ -1,0 +1,24 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "architecture_checks": "PASS",
+  "compatibility_acceptance": "PARTIAL",
+  "source_sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+  "joint_per_horizon_max_abs": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "strict_roundtrip_max_abs": 0.0,
+  "predictive_validation": "DEFERRED to P7-A",
+  "checkpoint_sha256": "a226a40cf7a049fd67845fc473579b49d91a422ceaa05b7a11a205d847517360",
+  "source_unchanged": true,
+  "trained_model_claim": false,
+  "reference_check": "Exact archived NPZ SHA256/schema; historical sidecar manifests unavailable",
+  "support_check": "Exact M6.5 manifest and available sources; historical V3 document unavailable"
+}

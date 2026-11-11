@@ -48,7 +48,7 @@ OBJECT_RESIDUALS = {
     "dp_heading": slice(6, 9),
     "dtheta_body": slice(9, 12),
 }
-STATE_DIM, FEAT_DIM, DELTA_DIM, FORCE_DIM = 84, 86, 82, 6
+STATE_DIM, FEAT_DIM, DELTA_DIM = 84, 86, 82
 
 
 @dataclass(frozen=True)
@@ -140,7 +140,7 @@ class JointStateSpec:
 
     def integrate(self, state, delta):
         _width(state, STATE_DIM)
-        _width(delta, DELTA_DIM)  # Auxiliary forces must never enter integration.
+        _width(delta, DELTA_DIM)  # Only physical residuals enter integration.
         robot = self.robot.integrate(state[..., ROBOT], delta[..., :70])
         obj = state[..., OBJECT]
         q = quat_normalize(obj[..., 3:7])

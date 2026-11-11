@@ -9,9 +9,9 @@ import pytest
 import torch
 
 from supermimic.hoi.checkpoint import (
-    contact_config,
     input_columns,
     joint_checkpoint,
+    joint_config,
     legacy_joint_step,
     load_joint_weights,
     migrate_joint_weights,
@@ -34,7 +34,7 @@ def legacy_models():
         OLD / "migration_01/diagnostic_joint_weights.pt", map_location="cpu", weights_only=True
     )
     new = JointWorldModel(
-        contact_config(payload["metadata"]["config"], legacy=True), AnalyticHeads, "cpu"
+        joint_config(payload["metadata"]["config"], legacy=True), AnalyticHeads, "cpu"
     )
     return payload, new
 
@@ -47,7 +47,7 @@ def robot_models():
         old.dynamics.mlp.net[-1].weight.normal_(0, 0.01)
         old.dynamics.mlp.net[-1].bias.normal_(0, 0.01)
     new = JointWorldModel(
-        JointWorldModelCfg(hidden=cfg.hidden, weights=LossWeights(1, 1, 1)), AnalyticHeads, "cpu"
+        JointWorldModelCfg(hidden=cfg.hidden, weights=LossWeights(1, 1)), AnalyticHeads, "cpu"
     )
     return old, new
 
@@ -57,15 +57,14 @@ def test_robot_named_columns_and_eight_step_prediction_preservation():
     mapping = migrate_robot_state_dict(old.state_dict(), old.cfg, new)
     assert mapping["input_mapping"]["action.executed"] == {
         "source": [71, 100],
-        "destination": [105, 134],
+        "destination": [104, 133],
     }
     assert mapping["input_mapping"]["xi.friction"] == {
         "source": [100, 101],
-        "destination": [134, 135],
+        "destination": [133, 134],
     }
-    state = torch.randn(12, 85) * 0.1
+    state = torch.randn(12, 84) * 0.1
     state[:, 3] = state[:, 74] = 1
-    state[:, 84] = 0.37
     action = torch.randn(12, 29)
     xi = torch.randn(12, 33) * 0.001
     xi[:, 0] = 1
@@ -74,11 +73,10 @@ def test_robot_named_columns_and_eight_step_prediction_preservation():
         for _ in range(8):
             prior = new.spec.integrate(state[:, :84], torch.zeros(12, 82))
             robot = old.step(robot, action, xi)
-            state, logit = new.predict(state, action, xi)
+            state = new.predict(state, action, xi)
             torch.testing.assert_close(robot, state[:, :71], atol=2e-6, rtol=2e-6)
             torch.testing.assert_close(state[:, 71:84], prior[:, 71:84], atol=0, rtol=0)
-            assert logit.count_nonzero() == 0 and (state[:, 84] == 0.5).all()
-    for name, sl in input_columns(joint=True, support=True, contact=True).items():
+    for name, sl in input_columns(joint=True, support=True).items():
         if name.startswith(("object.", "support", "contact")):
             assert new.dynamics.mlp.net[0].weight[:, sl].count_nonzero() == 0
     bad = copy.deepcopy(old.cfg)
@@ -86,37 +84,34 @@ def test_robot_named_columns_and_eight_step_prediction_preservation():
     with pytest.raises(ValueError, match="normalization"):
         migrate_robot_state_dict(old.state_dict(), bad, new)
     extra = dict(old.state_dict(), unexpected=torch.zeros(1))
-    with pytest.raises(RuntimeError):
+    with pytest.raises(ValueError):
         migrate_robot_state_dict(extra, old.cfg, new)
 
 
-@pytest.mark.parametrize("contact", [0.0, 1.0, 0.37])
-def test_old_joint_preserves_all_named_columns_and_physical_eight_steps(contact):
+def test_old_joint_preserves_all_named_columns_and_physical_eight_steps():
     old, new = legacy_models()
     mapping = migrate_joint_weights(old, new, expected_replay_metadata=metadata())
     assert mapping["discarded_output_rows"] == [82, 88]
     first = "dynamics.mlp.net.0.weight"
     for name, span in input_columns(joint=True, support=True).items():
-        dst = input_columns(joint=True, support=True, contact=True)[name]
+        dst = input_columns(joint=True, support=True)[name]
         torch.testing.assert_close(
             new.state_dict()[first][:, dst], old["wm"][first][:, span], atol=0, rtol=0
         )
-    assert new.state_dict()[first][:, 86].count_nonzero() == 0
     for suffix in ("weight", "bias"):
         key = f"dynamics.mlp.net.6.{suffix}"
         torch.testing.assert_close(new.state_dict()[key][:82], old["wm"][key][:82], atol=0, rtol=0)
-        assert new.state_dict()[key][82:].count_nonzero() == 0
+        assert new.state_dict()[key].shape[0] == 82
     with np.load(OLD / "collection_02/transitions.npz") as data:
         physical = torch.tensor(data["state"][:4])
         actions = torch.tensor(data["action_exec"][:32]).reshape(8, 4, 29)
         xi = torch.tensor(data["xi"][:4])
-    state = torch.cat((physical, torch.full((4, 1), contact)), -1)
+    state = physical.clone()
     with torch.no_grad():
         for action in actions:
             physical = legacy_joint_step(old, new, physical, action, xi)
-            state, logit = new.predict(state, action, xi)
+            state = new.predict(state, action, xi)
             torch.testing.assert_close(physical, state[:, :84], atol=2e-6, rtol=2e-6)
-            assert logit.count_nonzero() == 0 and (state[:, 84] == 0.5).all()
 
 
 def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
@@ -125,15 +120,14 @@ def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
     payload = joint_checkpoint(
         new,
         replay_metadata=metadata(),
-        readiness={"status": "unvalidated"},
         provenance={"kind": "unit_test"},
     )
-    assert payload["metadata"]["schema"] == "hoi-joint-contact-wm-v2"
+    assert payload["metadata"]["schema"] == "hoi-joint-physical-wm-v3"
     assert "force_normalization" not in payload["metadata"]
     assert not any(k.startswith("force_statistics.") for k in payload["wm"])
     path = tmp_path / "new.pt"
     torch.save(payload, path)
-    restored = JointWorldModel(contact_config(payload["metadata"]["config"]), AnalyticHeads, "cpu")
+    restored = JointWorldModel(joint_config(payload["metadata"]["config"]), AnalyticHeads, "cpu")
     load_joint_weights(
         restored, torch.load(path, weights_only=True), expected_replay_metadata=metadata()
     )
@@ -141,9 +135,9 @@ def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
         torch.testing.assert_close(value, restored.state_dict()[key], atol=0, rtol=0)
     for section, key, value in [
         ("metadata", "schema", "hoi-joint-wm-v1"),
-        ("metadata", "contact", {"feedback": "teacher_forcing"}),
+        ("metadata", "dimensions", {"input": 167, "output": 83}),
         ("wm", "unexpected", torch.zeros(1)),
-        ("wm", "dynamics.mlp.net.0.weight", torch.zeros(64, 166)),
+        ("wm", "dynamics.mlp.net.0.weight", torch.zeros(64, 167)),
         ("wm", "dynamics.mlp.net.0.bias", torch.full((64,), float("nan"))),
         ("wm", "support.positions", payload["wm"]["support.positions"] + 1),
     ]:
@@ -178,3 +172,53 @@ def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
         old["wm"]["dynamics.mlp.net.6.weight"][70, 0] = float("nan")
     with pytest.raises(ValueError):
         migrate_joint_weights(old, new, expected_replay_metadata=metadata())
+
+
+def test_transitional_and_raw_fit_checkpoints_are_rejected():
+    _, wm = legacy_models()
+    transitional = torch.load(
+        ROOT
+        / "outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/migrated_contact_weights.pt",
+        map_location="cpu",
+        weights_only=True,
+    )
+    with pytest.raises(ValueError, match="transitional"):
+        load_joint_weights(wm, transitional, expected_replay_metadata=metadata())
+    with pytest.raises(ValueError, match="legacy schema"):
+        migrate_joint_weights(transitional, wm, expected_replay_metadata=metadata())
+    raw = torch.load(OLD / "fit_01/diagnostic_weights.pt", map_location="cpu", weights_only=True)
+    with pytest.raises(ValueError, match="payload"):
+        migrate_joint_weights(raw, wm, expected_replay_metadata=metadata())
+
+
+def test_named_robot_sentinel_columns_and_final_metadata():
+    old, new = robot_models()
+    with torch.no_grad():
+        w = old.dynamics.mlp.net[0].weight
+        w.copy_(torch.arange(w.shape[1]).expand_as(w))
+    migrate_robot_state_dict(old.state_dict(), old.cfg, new)
+    source, destination = input_columns(joint=False), input_columns(joint=True, support=True)
+    for name, span in source.items():
+        torch.testing.assert_close(
+            new.dynamics.mlp.net[0].weight[:, destination[name]],
+            old.dynamics.mlp.net[0].weight[:, span],
+            atol=0,
+            rtol=0,
+        )
+    payload = joint_checkpoint(new, replay_metadata=metadata(), provenance={"kind": "synthetic"})
+    assert payload["metadata"]["dimensions"] == {
+        "physical_state": 84,
+        "canonical": 86,
+        "support": 18,
+        "action": 29,
+        "xi": 33,
+        "input": 166,
+        "physical_residual": 82,
+        "output": 82,
+    }
+    assert payload["metadata"]["predictive_validation"] == {"status": "DEFERRED", "stage": "P7-A"}
+    for key in ("input", "output", "physical_state", "canonical", "support", "action", "xi"):
+        bad = copy.deepcopy(payload)
+        bad["metadata"]["dimensions"][key] += 1
+        with pytest.raises(ValueError, match="dimensions"):
+            load_joint_weights(new, bad, expected_replay_metadata=metadata())

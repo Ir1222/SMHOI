@@ -1,0 +1,630 @@
+FF.......FFFFFFFFFFFFF.....                                              [100%]
+=================================== FAILURES ===================================
+_____________ test_final_dimensions_prior_and_no_auxiliary_modules _____________
+
+    def test_final_dimensions_prior_and_no_auxiliary_modules():
+>       wm, states, action, xi, _ = fixture()
+                                    ^^^^^^^^^
+
+tests/hoi/test_joint_architecture.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_joint_architecture.py:16: in fixture
+    model = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+______ test_eight_step_physical_loss_backward_and_termination_separation _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ea4d58971d0>
+
+    def test_eight_step_physical_loss_backward_and_termination_separation(monkeypatch):
+        def forbidden(*args, **kwargs):
+            raise AssertionError("Optimizer updates are outside P3 cleanup")
+    
+        monkeypatch.setattr(torch.optim.Adam, "step", forbidden)
+>       wm, states, actions, xi, refs = fixture()
+                                        ^^^^^^^^^
+
+tests/hoi/test_joint_architecture.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_joint_architecture.py:16: in fixture
+    model = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+______ test_support_context_is_separate_time_varying_and_frame_covariant _______
+
+    def test_support_context_is_separate_time_varying_and_frame_covariant():
+>       support = SupportContext().double()
+                  ^^^^^^^^^^^^^^^^
+
+tests/hoi/test_support_context.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_______ test_robot_named_columns_and_eight_step_prediction_preservation ________
+
+    def test_robot_named_columns_and_eight_step_prediction_preservation():
+>       old, new = robot_models()
+                   ^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:49: in robot_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____ test_old_joint_preserves_all_named_columns_and_physical_eight_steps ______
+
+    def test_old_joint_preserves_all_named_columns_and_physical_eight_steps():
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+______________ test_strict_new_checkpoint_roundtrip_and_metadata _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-han/pytest-94/test_strict_new_checkpoint_rou0')
+
+    def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____ test_legacy_joint_rejects_incompatible_or_incomplete_source[missing] _____
+
+damage = 'missing'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+______ test_legacy_joint_rejects_incompatible_or_incomplete_source[extra] ______
+
+damage = 'extra'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____ test_legacy_joint_rejects_incompatible_or_incomplete_source[schema] ______
+
+damage = 'schema'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____ test_legacy_joint_rejects_incompatible_or_incomplete_source[config] ______
+
+damage = 'config'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+______ test_legacy_joint_rejects_incompatible_or_incomplete_source[stats] ______
+
+damage = 'stats'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+____ test_legacy_joint_rejects_incompatible_or_incomplete_source[nonfinite] ____
+
+damage = 'nonfinite'
+
+    @pytest.mark.parametrize("damage", ["missing", "extra", "schema", "config", "stats", "nonfinite"])
+    def test_legacy_joint_rejects_incompatible_or_incomplete_source(damage):
+>       old, new = legacy_models()
+                   ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+____________ test_transitional_and_raw_fit_checkpoints_are_rejected ____________
+
+    def test_transitional_and_raw_fit_checkpoints_are_rejected():
+>       _, wm = legacy_models()
+                ^^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:178: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:36: in legacy_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____________ test_named_robot_sentinel_columns_and_final_metadata _____________
+
+    def test_named_robot_sentinel_columns_and_final_metadata():
+>       old, new = robot_models()
+                   ^^^^^^^^^^^^^^
+
+tests/hoi/test_checkpoint_migration.py:195: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_checkpoint_migration.py:49: in robot_models
+    new = JointWorldModel(
+src/supermimic/hoi/world_model.py:46: in __init__
+    self.support = SupportContext()
+                   ^^^^^^^^^^^^^^^^
+src/supermimic/hoi/support_context.py:29: in __init__
+    manifest = load_manifest(manifest_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+____________ test_archive_episode_split_and_physical_loss_isolation ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ea5c0cec7d0>
+
+    def test_archive_episode_split_and_physical_loss_isolation(monkeypatch):
+        def forbidden(*args, **kwargs):
+            raise AssertionError("No optimizer update authorized")
+    
+        monkeypatch.setattr(torch.optim.Adam, "step", forbidden)
+>       clip = ReferenceClip(REF)
+               ^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_wm_dataset_validation.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/hoi/reference.py:200: in __init__
+    self.manifest = json.loads((self.path.parent / 'reference_manifest.json').read_text())
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../miniconda3/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_manifest.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_manifest.json'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_joint_architecture.py::test_final_dimensions_prior_and_no_auxiliary_modules
+FAILED tests/hoi/test_joint_architecture.py::test_eight_step_physical_loss_backward_and_termination_separation
+FAILED tests/hoi/test_support_context.py::test_support_context_is_separate_time_varying_and_frame_covariant
+FAILED tests/hoi/test_checkpoint_migration.py::test_robot_named_columns_and_eight_step_prediction_preservation
+FAILED tests/hoi/test_checkpoint_migration.py::test_old_joint_preserves_all_named_columns_and_physical_eight_steps
+FAILED tests/hoi/test_checkpoint_migration.py::test_strict_new_checkpoint_roundtrip_and_metadata
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[missing]
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[extra]
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[schema]
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[config]
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[stats]
+FAILED tests/hoi/test_checkpoint_migration.py::test_legacy_joint_rejects_incompatible_or_incomplete_source[nonfinite]
+FAILED tests/hoi/test_checkpoint_migration.py::test_transitional_and_raw_fit_checkpoints_are_rejected
+FAILED tests/hoi/test_checkpoint_migration.py::test_named_robot_sentinel_columns_and_final_metadata
+FAILED tests/hoi/test_wm_dataset_validation.py::test_archive_episode_split_and_physical_loss_isolation
+15 failed, 12 passed, 1 warning in 3.26s

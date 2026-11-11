@@ -1,0 +1,45 @@
+....................F........                                            [100%]
+=================================== FAILURES ===================================
+_______________ test_exact_pair_filters_and_two_primary_columns ________________
+
+    def test_exact_pair_filters_and_two_primary_columns():
+>       cfg = make_physical_env_cfg(PhysicalSceneCfg(num_envs=1))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_contact_sensor.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/hoi/scene.py:68: in make_physical_env_cfg
+    manifest = load_manifest(cfg.asset_manifest)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/asset_manifest.py:60: in load_manifest
+    validate_manifest(m, verify_sources)
+src/supermimic/hoi/asset_manifest.py:52: in validate_manifest
+    with Path(src['path']).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'
+
+../../miniconda3/lib/python3.12/pathlib.py:1013: FileNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_contact_sensor.py::test_exact_pair_filters_and_two_primary_columns
+1 failed, 28 passed, 1 warning in 3.47s

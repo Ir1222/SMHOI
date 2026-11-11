@@ -1,0 +1,93 @@
+[
+  {
+    "argv": [
+      ".venv/bin/ruff",
+      "check",
+      "--no-cache",
+      "scripts/hoi/collect_p3_diagnostic.py",
+      "scripts/hoi/fit_p3_diagnostic.py",
+      "scripts/hoi/p3_common.py",
+      "scripts/hoi/validate_wm_migration.py",
+      "scripts/hoi/verify_p3_evidence.py",
+      "src/supermimic/hoi/checkpoint.py",
+      "src/supermimic/hoi/state_spec.py",
+      "src/supermimic/hoi/support_context.py",
+      "src/supermimic/hoi/validation.py",
+      "src/supermimic/hoi/wm_trainer.py",
+      "src/supermimic/hoi/world_model.py",
+      "tests/hoi/test_checkpoint_migration.py",
+      "tests/hoi/test_contact_diagnostic.py",
+      "tests/hoi/test_wm_dataset_validation.py",
+      "src/supermimic/hoi/legacy_validation.py",
+      "tests/hoi/test_joint_architecture.py"
+    ],
+    "exit_code": 0,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      ".venv/bin/ruff",
+      "format",
+      "--check",
+      "--no-cache",
+      "scripts/hoi/collect_p3_diagnostic.py",
+      "scripts/hoi/fit_p3_diagnostic.py",
+      "scripts/hoi/p3_common.py",
+      "scripts/hoi/validate_wm_migration.py",
+      "scripts/hoi/verify_p3_evidence.py",
+      "src/supermimic/hoi/checkpoint.py",
+      "src/supermimic/hoi/state_spec.py",
+      "src/supermimic/hoi/support_context.py",
+      "src/supermimic/hoi/validation.py",
+      "src/supermimic/hoi/wm_trainer.py",
+      "src/supermimic/hoi/world_model.py",
+      "tests/hoi/test_checkpoint_migration.py",
+      "tests/hoi/test_contact_diagnostic.py",
+      "tests/hoi/test_wm_dataset_validation.py",
+      "src/supermimic/hoi/legacy_validation.py",
+      "tests/hoi/test_joint_architecture.py"
+    ],
+    "exit_code": 0,
+    "stdout": "16 files already formatted\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit_code": 2,
+    "known_raw_traceback_whitespace": {
+      "outputs/hoi/contact_supervision/architecture_cleanup/tests_01.log": 47,
+      "outputs/hoi/contact_supervision/architecture_cleanup/regression_01.log": 3
+    },
+    "unexpected_warnings": []
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      ".",
+      ":(exclude,glob)outputs/hoi/contact_supervision/architecture_cleanup/*.log"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

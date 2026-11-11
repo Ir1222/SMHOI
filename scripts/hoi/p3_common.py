@@ -2,10 +2,11 @@
 
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 
-from supermimic.hoi.reference import REPO, ReferenceClip, sha256
+from supermimic.hoi.reference import REPO, ReferenceClip, sha256, validate_arrays
 
 REFERENCE = REPO / "outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz"
 REFERENCE_SHA256 = "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
@@ -44,3 +45,25 @@ def save_rows(output, rows, metadata):
         )
         metadata["archive_sha256"] = sha256(Path(output) / "transitions.npz")
     (Path(output) / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
+
+
+def archived_reference():
+    """Migration/software probes only: exact archive identity without absent sidecars.
+
+    This is not ReferenceClip acceptance or authorization for physical training.
+    Historical reference() intentionally retains its full sidecar requirements.
+    """
+    if sha256(REFERENCE) != REFERENCE_SHA256:
+        raise ValueError("Historical refined archive identity mismatch")
+    with np.load(REFERENCE, allow_pickle=False) as archive:
+        arrays = {name: archive[name].copy() for name in archive.files}
+    validate_arrays(arrays)
+    for array in arrays.values():
+        array.flags.writeable = False
+    return SimpleNamespace(
+        path=REFERENCE,
+        arrays=arrays,
+        manifest={"sha256": REFERENCE_SHA256},
+        n_frames=len(arrays["joint_pos"]),
+        fps=float(arrays["fps"][0]),
+    )

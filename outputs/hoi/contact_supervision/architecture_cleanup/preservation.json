@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "baseline_head": "7251bf33f95fb4e2ee75f45a306f66fbadac85d1",
+  "baseline_file_count": 534,
+  "unchanged_file_count": 519,
+  "intentional_changed_or_removed_file_count": 15,
+  "intentional_changes": {
+    "scripts/hoi/collect_p3_diagnostic.py": {
+      "before": "a195f13790e6db921b01750afff94174af45b71e0912fc1792c38f4d0cf45c50",
+      "after": "a6326143564c4e0771794408bf7a59c1bec8701578330ecdaeda0691f2e2835a"
+    },
+    "scripts/hoi/fit_p3_diagnostic.py": {
+      "before": "18956cf0b7389076de3afbeabcb48e446b57931553b9fc18d8d7ba24872b94af",
+      "after": "58b04efca6f9384e4802c6c571c35bedc68904f4db9871fd207572cd5da87af0"
+    },
+    "scripts/hoi/p3_common.py": {
+      "before": "a0142114afa4960c51e334a35e3ffe6044d7f57bddf16591278099ae941ecbb3",
+      "after": "8074658c352b89d5450060f7f6205aa7f02b4479d9af3cac139299778e4bec84"
+    },
+    "scripts/hoi/validate_wm_migration.py": {
+      "before": "8e05efdb8d376257f2864492063849b1ce247d86cea70b5370fccfa0f0218549",
+      "after": "8ef5a487628160860a7e8ec7b259726adc28e81a11b10860ad13f73faaa80433"
+    },
+    "scripts/hoi/verify_p3_evidence.py": {
+      "before": "51ff8358eeccc7e40cbad1e99f2601111ecaab130041a07d31f95ad0633ddff0",
+      "after": "f15cb3408c63a9ca84ff63d416d8ab31e7dd15d42fb2f527654f8be53f56d64a"
+    },
+    "src/supermimic/hoi/checkpoint.py": {
+      "before": "2b0607e24ba7cc2a72f3df1df0350934b9c31284538b9a74a8e3809a43474693",
+      "after": "b9905924df0a7142bd631040e9829a15004bba5cc4f8dfc12d0717c2bf3ffc78"
+    },
+    "src/supermimic/hoi/state_spec.py": {
+      "before": "91c159527370757ebb2e3adf8e18a23527093c37c6ecdb6c39eb4021a057ccda",
+      "after": "42a43faa54deb265f73a59c81c15db96f2ef17b9d2fb384801aa1d2cf1992382"
+    },
+    "src/supermimic/hoi/support_context.py": {
+      "before": "1e78e64e1a27f70a16e194c9e024eb22b022a296bd3d52b4e661348155d4d93f",
+      "after": "443fed8c28c2a0b9a07c2aba99a32ba3e0b657657987c51af68e3fad11ed0df8"
+    },
+    "src/supermimic/hoi/validation.py": {
+      "before": "d3a58473f8bb5aa70a5a6038d43d6ac1d0b81307bcf09f678f0b0062b66a4a92",
+      "after": "fd2b0aeef5cf1ef3f990771ff71e82ffebf2de5311fb88f4aee3856349aef9b3"
+    },
+    "src/supermimic/hoi/wm_trainer.py": {
+      "before": "e3907f6c9bdacd0a8d86bc1c21a3319f4b4710f362c0484ce51f4c7f5a3766ec",
+      "after": "4f1cd7cef6fc71a3f1f7bc061817b301c92204b19a5ef47cb1457c728a52b566"
+    },
+    "src/supermimic/hoi/world_model.py": {
+      "before": "4941aef30ee30287391f14acc2d23e9b5a850c74b9be6414304d2add9a19c2aa",
+      "after": "3e78b8f657952b4423ebf871356533811542fc6e3f219763d90b10fe76bb486f"
+    },
+    "tests/hoi/test_checkpoint_migration.py": {
+      "before": "88eb43b4c9407c5c2c8aad85ef2640cad507f742289c225633ec331378c07b7d",
+      "after": "92bf143425cbf65ce3cd4dc3161efad1ab9cf3c628e4dd6d7776b8639cd76a1d"
+    },
+    "tests/hoi/test_contact_diagnostic.py": {
+      "before": "29d14041d40adfa1c7561eb74919370e426b7e320630c2eeed5b85517d13323e",
+      "after": "478bd80eb74c1d31841ee7283936a22c74f3564c281f01cdc00dc35a97d107a8"
+    },
+    "tests/hoi/test_contact_intent_head.py": {
+      "before": "bf72f33cd14fafef242ff3156a641099b498a3e86f3e648a0823d0d8925e50d9",
+      "after": null
+    },
+    "tests/hoi/test_wm_dataset_validation.py": {
+      "before": "146ee78fee47a680939731b6659814f177aee1a464c23f55e19d24776a287e57",
+      "after": "66175b8c9924ad9fa85488371dd282dc501660fc37e28dd70f89ae88b55247b7"
+    }
+  },
+  "unexpected_changes": [],
+  "dependency_source_count": 10,
+  "dependency_sources_unchanged": true,
+  "legacy_gate_ast_unchanged": true,
+  "external_robot_checkpoint_sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+  "unchanged_groups": {
+    "docs/hoi/": 262,
+    "outputs/hoi/": 127,
+    "data/assets/": 2,
+    ".vscode/": 1,
+    "src/supermimic/world_model/": 6,
+    "src/supermimic/training/": 4,
+    "src/supermimic/envs/": 11
+  },
+  "scope": "Existing files present at baseline only; absent historical documents remain unavailable."
+}

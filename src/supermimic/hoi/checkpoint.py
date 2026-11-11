@@ -1,4 +1,4 @@
-"""Named robot/legacy-joint migration and strict reference-contact WM checkpoints.
+"""Named robot/legacy-joint migration and strict physical-only WM checkpoints.
 
 Initialization only: no Actor/Critic migration, optimizer reuse or stochastic resume.
 """
@@ -19,7 +19,7 @@ from supermimic.world_model.state_spec import StateSpecCfg
 from supermimic.world_model.world_model import WorldModel, WorldModelCfg
 
 
-def input_columns(*, joint, support=False, contact=False):
+def input_columns(*, joint, support=False):
     columns = {f"robot.{k}": v for k, v in ROBOT_FEATURES.items()}
     offset = 71
     if joint:
@@ -31,9 +31,6 @@ def input_columns(*, joint, support=False, contact=False):
         ]:
             columns[f"object.{name}"] = slice(offset, offset + width)
             offset += width
-        if contact:
-            columns["contact_intent.current"] = slice(offset, offset + 1)
-            offset += 1
         if support:
             for support_id in range(2):
                 for name, width in [("position_heading", 3), ("rotation6_heading", 6)]:
@@ -63,8 +60,8 @@ def robot_config(mapping):
     return WorldModelCfg(**mapping, state_spec=StateSpecCfg(**state))
 
 
-def contact_config(mapping, *, legacy=False):
-    """Explicit config translation; force coefficients never become contact weights."""
+def joint_config(mapping, *, legacy=False):
+    """Explicit physical config translation; auxiliary coefficients are discarded."""
     mapping = dict(mapping)
     if legacy:
         if mapping.pop("force_loss") not in ("huber", "l1") or not 0 < mapping.pop(
@@ -74,10 +71,13 @@ def contact_config(mapping, *, legacy=False):
         weights = mapping["weights"]
         if set(weights) != {"robot", "object", "force"}:
             raise ValueError("Invalid legacy loss weights")
+        if any(
+            not isinstance(v, (int, float)) or not 0 <= v < float("inf") for v in weights.values()
+        ):
+            raise ValueError("Invalid legacy loss coefficient")
         mapping["weights"] = {
             "robot": weights["robot"],
             "object": weights["object"],
-            "contact": 1.0,
         }
     obj = ObjectSpecCfg(**{k: tuple(v) for k, v in mapping.pop("object_spec").items()})
     weights = LossWeights(**mapping.pop("weights"))
@@ -106,12 +106,14 @@ def migrate_robot_state_dict(source_dict, source_cfg, target):
             "Incompatible robot trunk, normalization, integration or termination contract"
         )
     original = WorldModel(source_cfg, target.heads, "cpu")
+    _validate_architecture(target)
+    _check_tensors(source_dict, original.state_dict())
     original.load_state_dict(source_dict, strict=True)
     if any(not torch.isfinite(t).all() for t in source_dict.values()):
         raise ValueError("Nonfinite source checkpoint")
     destination = {k: v.clone() for k, v in target.state_dict().items()}
     old_columns = input_columns(joint=False)
-    new_columns = input_columns(joint=True, support=True, contact=True)
+    new_columns = input_columns(joint=True, support=True)
     first = "dynamics.mlp.net.0.weight"
     final_index = 2 * len(source_cfg.hidden)
     last = f"dynamics.mlp.net.{final_index}.weight"
@@ -142,7 +144,7 @@ def migrate_robot_state_dict(source_dict, source_cfg, target):
         },
         "robot_output_mapping": {k: [v.start, v.stop] for k, v in ROBOT_RESIDUALS.items()},
         "new_input_columns": "zero",
-        "new_object_and_contact_heads": "zero (contact probability 0.5)",
+        "new_object_head": "zero constant-velocity residual",
         "optimizer": "not migrated; initialization, not resume",
     }
 
@@ -170,6 +172,8 @@ def _replay_contract(metadata):
     contract["references"] = [r["sha256"] for r in metadata["references"]]
     if (
         contract["schema"] != "hoi-transition-v1"
+        or contract["state"]
+        != "robot71+object13; local positions; wxyz; root-world-linear/body-angular"
         or contract["force_frame"] != "contemporaneous_box_at_substep_solve"
         or contract["force_sign"] != "hand_on_box"
         or contract["force_unit"] != "N"
@@ -182,50 +186,50 @@ def _replay_contract(metadata):
     return contract
 
 
-CONTACT_CONTRACT = {
-    "source": "canonical_reference.object_contact",
-    "meaning": "global_desired_reference_contact_intent",
-    "pair": "intent_ref=[contact_t,contact_t+1]",
-    "feedback": "sigmoid_probability_without_teacher_forcing",
-    "threshold": 0.5,
-    "frame_index_input": False,
-}
+SCHEMA = "hoi-joint-physical-wm-v3"
 DIMENSIONS = {
     "physical_state": 84,
-    "predictive_state": 85,
     "canonical": 86,
-    "contact": 1,
     "support": 18,
-    "input": 167,
+    "action": 29,
+    "xi": 33,
+    "input": 166,
     "physical_residual": 82,
-    "output": 83,
+    "output": 82,
 }
 
 
-def joint_checkpoint(wm, *, replay_metadata, readiness, provenance):
+def _validate_architecture(wm):
+    first, last = wm.dynamics.mlp.net[0], wm.dynamics.mlp.net[-1]
+    if first.in_features != 166 or last.out_features != 82 or wm.support.dimension != 18:
+        raise ValueError("Final joint architecture requires input166/output82/support18")
+    if set(asdict(wm.cfg.weights)) != {"robot", "object"}:
+        raise ValueError("Final joint loss accepts robot/object coefficients only")
+    if any(k.startswith("force_statistics.") for k in wm.state_dict()):
+        raise ValueError("Auxiliary force buffers are not final model state")
+
+
+def joint_checkpoint(wm, *, replay_metadata, provenance):
+    _validate_architecture(wm)
     contract = _replay_contract(replay_metadata)
     if wm.spec.dt != contract["control_dt_s"]:
         raise ValueError("State integration timestep differs from measurements")
     if wm.support.asset_sha256 != contract["asset_manifest_sha256"]:
         raise ValueError("Support geometry asset mismatch")
-    if replay_metadata.get("intent_ref") != "global[start,end]":
-        raise ValueError("Global reference intent Replay contract required")
     metadata = {
-        "schema": "hoi-joint-contact-wm-v2",
+        "schema": SCHEMA,
         "dimensions": dict(DIMENSIONS),
-        "contact": dict(CONTACT_CONTRACT),
         "config": asdict(wm.cfg),
-        "replay": contract,  # Physical sensors remain provenance, never targets.
+        "replay": contract,  # Existing sensor fields are provenance, never WM targets.
         "support_schema": wm.support.schema,
-        "readiness": readiness,
+        "predictive_validation": {"status": "DEFERRED", "stage": "P7-A"},
         "provenance": provenance,
-        "actor_force_optimization_enabled": False,
         "lifecycle": "WM weights only; no optimizer/Replay/RNG resume",
     }
-    return {
-        "metadata": metadata,
-        "wm": {k: v.detach().cpu().clone() for k, v in wm.state_dict().items()},
-    }
+    _canonical(metadata)
+    weights = {k: v.detach().cpu().clone() for k, v in wm.state_dict().items()}
+    _check_tensors(weights, {k: v.cpu() for k, v in wm.state_dict().items()})
+    return {"metadata": metadata, "wm": weights}
 
 
 def _check_tensors(weights, expected):
@@ -251,12 +255,14 @@ def load_joint_weights(wm, checkpoint, *, expected_replay_metadata):
     if set(checkpoint) != {"metadata", "wm"}:
         raise ValueError("Checkpoint payload keys must match exactly")
     metadata = checkpoint["metadata"]
-    expected = joint_checkpoint(
-        wm, replay_metadata=expected_replay_metadata, readiness={}, provenance={}
-    )["metadata"]
+    if metadata.get("schema") != SCHEMA:
+        raise ValueError("Final schema required; transitional contact checkpoints cannot be loaded")
+    expected = joint_checkpoint(wm, replay_metadata=expected_replay_metadata, provenance={})[
+        "metadata"
+    ]
     if metadata.keys() != expected.keys():
         raise ValueError("Checkpoint metadata keys must match exactly")
-    for key in expected.keys() - {"readiness", "provenance"}:
+    for key in expected.keys() - {"provenance"}:
         if _canonical(metadata[key]) != _canonical(expected[key]):
             raise ValueError(f"Checkpoint metadata mismatch: {key}")
     _canonical(metadata)  # Reject nonfinite/non-JSON metadata too.
@@ -270,6 +276,8 @@ def load_joint_weights(wm, checkpoint, *, expected_replay_metadata):
 def validate_legacy_joint(checkpoint, target, *, expected_replay_metadata):
     """Validate an old 166/88 payload completely, only for historical migration."""
     from supermimic.hoi.force import ForceStatistics
+
+    _validate_architecture(target)
 
     if set(checkpoint) != {"metadata", "wm"}:
         raise ValueError("Legacy payload keys must match exactly")
@@ -297,7 +305,7 @@ def validate_legacy_joint(checkpoint, target, *, expected_replay_metadata):
         "force": 6,
     }:
         raise ValueError("Incompatible legacy dimensions")
-    cfg = contact_config(meta["config"], legacy=True)
+    cfg = joint_config(meta["config"], legacy=True)
     # Preserve physical/termination coefficients as well as integration and architecture.
     if _canonical(asdict(cfg)) != _canonical(asdict(target.cfg)):
         raise ValueError("Incompatible legacy config/normalization/architecture")
@@ -355,7 +363,7 @@ def migrate_joint_weights(checkpoint, target, *, expected_replay_metadata):
     source = checkpoint["wm"]
     destination = {k: v.clone() for k, v in target.state_dict().items()}
     old_columns = input_columns(joint=True, support=True)
-    new_columns = input_columns(joint=True, support=True, contact=True)
+    new_columns = input_columns(joint=True, support=True)
     destination[first].zero_()
     for name, old_slice in old_columns.items():
         destination[first][:, new_columns[name]] = source[first][:, old_slice]
@@ -373,7 +381,7 @@ def migrate_joint_weights(checkpoint, target, *, expected_replay_metadata):
     target.load_state_dict(destination, strict=True)
     return {
         "source_schema": "hoi-joint-wm-v1",
-        "destination_schema": "hoi-joint-contact-wm-v2",
+        "destination_schema": SCHEMA,
         "input_mapping": {
             k: {
                 "source": [v.start, v.stop],
@@ -382,13 +390,9 @@ def migrate_joint_weights(checkpoint, target, *, expected_replay_metadata):
             for k, v in old_columns.items()
         },
         "output_mapping": {k: [v.start, v.stop] for k, v in output_rows.items()},
-        "new_contact_input_column": [86, 87],
-        "new_contact_input_initialization": "zero",
         "discarded_output_rows": [82, 88],
-        "new_contact_output_row": [82, 83],
-        "new_contact_output_initialization": "weight/bias zero; probability 0.5",
         "discarded_tensors": sorted(k for k in source if k.startswith("force_statistics.")),
-        "readiness": "unvalidated",
+        "predictive_validation": "DEFERRED to P7-A",
         "optimizer": "not migrated; initialization, not resume",
     }
 
