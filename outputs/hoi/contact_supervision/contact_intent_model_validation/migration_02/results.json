@@ -1,0 +1,463 @@
+{
+  "implementation_acceptance": "PASS",
+  "source_sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+  "joint_per_horizon_max_abs": {
+    "0.0": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "1.0": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "0.37": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "named_mapping": {
+    "source_schema": "hoi-joint-wm-v1",
+    "destination_schema": "hoi-joint-contact-wm-v2",
+    "input_mapping": {
+      "robot.height": {
+        "source": [
+          0,
+          1
+        ],
+        "destination": [
+          0,
+          1
+        ]
+      },
+      "robot.rotation6": {
+        "source": [
+          1,
+          7
+        ],
+        "destination": [
+          1,
+          7
+        ]
+      },
+      "robot.linear_heading": {
+        "source": [
+          7,
+          10
+        ],
+        "destination": [
+          7,
+          10
+        ]
+      },
+      "robot.angular_body": {
+        "source": [
+          10,
+          13
+        ],
+        "destination": [
+          10,
+          13
+        ]
+      },
+      "robot.joint_position": {
+        "source": [
+          13,
+          42
+        ],
+        "destination": [
+          13,
+          42
+        ]
+      },
+      "robot.joint_velocity": {
+        "source": [
+          42,
+          71
+        ],
+        "destination": [
+          42,
+          71
+        ]
+      },
+      "object.position_heading": {
+        "source": [
+          71,
+          74
+        ],
+        "destination": [
+          71,
+          74
+        ]
+      },
+      "object.rotation6_heading": {
+        "source": [
+          74,
+          80
+        ],
+        "destination": [
+          74,
+          80
+        ]
+      },
+      "object.linear_heading": {
+        "source": [
+          80,
+          83
+        ],
+        "destination": [
+          80,
+          83
+        ]
+      },
+      "object.angular_body": {
+        "source": [
+          83,
+          86
+        ],
+        "destination": [
+          83,
+          86
+        ]
+      },
+      "support0.position_heading": {
+        "source": [
+          86,
+          89
+        ],
+        "destination": [
+          87,
+          90
+        ]
+      },
+      "support0.rotation6_heading": {
+        "source": [
+          89,
+          95
+        ],
+        "destination": [
+          90,
+          96
+        ]
+      },
+      "support1.position_heading": {
+        "source": [
+          95,
+          98
+        ],
+        "destination": [
+          96,
+          99
+        ]
+      },
+      "support1.rotation6_heading": {
+        "source": [
+          98,
+          104
+        ],
+        "destination": [
+          99,
+          105
+        ]
+      },
+      "action.executed": {
+        "source": [
+          104,
+          133
+        ],
+        "destination": [
+          105,
+          134
+        ]
+      },
+      "xi.friction": {
+        "source": [
+          133,
+          134
+        ],
+        "destination": [
+          134,
+          135
+        ]
+      },
+      "xi.encoder_bias": {
+        "source": [
+          134,
+          163
+        ],
+        "destination": [
+          135,
+          164
+        ]
+      },
+      "xi.torso_com_offset": {
+        "source": [
+          163,
+          166
+        ],
+        "destination": [
+          164,
+          167
+        ]
+      }
+    },
+    "output_mapping": {
+      "robot.dv_heading": [
+        0,
+        3
+      ],
+      "robot.dw_body": [
+        3,
+        6
+      ],
+      "robot.djoint_velocity": [
+        6,
+        35
+      ],
+      "robot.dp_heading": [
+        35,
+        38
+      ],
+      "robot.dtheta_body": [
+        38,
+        41
+      ],
+      "robot.djoint_position": [
+        41,
+        70
+      ],
+      "object.dv_heading": [
+        70,
+        73
+      ],
+      "object.dw_body": [
+        73,
+        76
+      ],
+      "object.dp_heading": [
+        76,
+        79
+      ],
+      "object.dtheta_body": [
+        79,
+        82
+      ]
+    },
+    "new_contact_input_column": [
+      86,
+      87
+    ],
+    "new_contact_input_initialization": "zero",
+    "discarded_output_rows": [
+      82,
+      88
+    ],
+    "new_contact_output_row": [
+      82,
+      83
+    ],
+    "new_contact_output_initialization": "weight/bias zero; probability 0.5",
+    "discarded_tensors": [
+      "force_statistics.class_weights",
+      "force_statistics.counts_inactive_active",
+      "force_statistics.force_on_N",
+      "force_statistics.median_active_N",
+      "force_statistics.scale_N"
+    ],
+    "readiness": "unvalidated",
+    "optimizer": "not migrated; initialization, not resume"
+  },
+  "strict_roundtrip_max_abs": 0.0,
+  "new_contact_probability": 0.5,
+  "checkpoint_sha256": "8cfed1f83cc885ef3b29d5139c89d5a951f54bc16012ac831b921c81c85b6c36",
+  "original_robot_probe": {
+    "status": "PARTIAL",
+    "source": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+    "source_sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+    "per_horizon_max_abs": [
+      3.725290298461914e-08,
+      7.62939453125e-06,
+      1.33514404296875e-05,
+      1.33514404296875e-05,
+      1.9073486328125e-05,
+      1.621246337890625e-05,
+      1.621246337890625e-05,
+      2.288818359375e-05
+    ],
+    "float32_per_horizon_within_approved_tolerance": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "float64_per_horizon_max_abs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "float64_parity": "PASS",
+    "mapping": {
+      "source": "robot71/action29/xi33/residual70",
+      "input_mapping": {
+        "robot.height": {
+          "source": [
+            0,
+            1
+          ],
+          "destination": [
+            0,
+            1
+          ]
+        },
+        "robot.rotation6": {
+          "source": [
+            1,
+            7
+          ],
+          "destination": [
+            1,
+            7
+          ]
+        },
+        "robot.linear_heading": {
+          "source": [
+            7,
+            10
+          ],
+          "destination": [
+            7,
+            10
+          ]
+        },
+        "robot.angular_body": {
+          "source": [
+            10,
+            13
+          ],
+          "destination": [
+            10,
+            13
+          ]
+        },
+        "robot.joint_position": {
+          "source": [
+            13,
+            42
+          ],
+          "destination": [
+            13,
+            42
+          ]
+        },
+        "robot.joint_velocity": {
+          "source": [
+            42,
+            71
+          ],
+          "destination": [
+            42,
+            71
+          ]
+        },
+        "action.executed": {
+          "source": [
+            71,
+            100
+          ],
+          "destination": [
+            105,
+            134
+          ]
+        },
+        "xi.friction": {
+          "source": [
+            100,
+            101
+          ],
+          "destination": [
+            134,
+            135
+          ]
+        },
+        "xi.encoder_bias": {
+          "source": [
+            101,
+            130
+          ],
+          "destination": [
+            135,
+            164
+          ]
+        },
+        "xi.torso_com_offset": {
+          "source": [
+            130,
+            133
+          ],
+          "destination": [
+            164,
+            167
+          ]
+        }
+      },
+      "robot_output_mapping": {
+        "dv_heading": [
+          0,
+          3
+        ],
+        "dw_body": [
+          3,
+          6
+        ],
+        "djoint_velocity": [
+          6,
+          35
+        ],
+        "dp_heading": [
+          35,
+          38
+        ],
+        "dtheta_body": [
+          38,
+          41
+        ],
+        "djoint_position": [
+          41,
+          70
+        ]
+      },
+      "new_input_columns": "zero",
+      "new_object_and_contact_heads": "zero (contact probability 0.5)",
+      "optimizer": "not migrated; initialization, not resume"
+    },
+    "provenance": "Qualified external P0 candidate; architecture compatibility only"
+  },
+  "source_unchanged": true,
+  "trained_model_claim": false
+}

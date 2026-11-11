@@ -1,0 +1,14 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/scripts/hoi/validate_wm_migration.py", line 153, in <module>
+    run(args.source, args.data, args.output, args.robot_source)
+  File "/home/han/pyx/SMHOI/scripts/hoi/validate_wm_migration.py", line 111, in run
+    torch.testing.assert_close(robot, z[:, :71], atol=2e-6, rtol=2e-6)
+  File "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1689, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 1 / 1136 (0.1%)
+Greatest absolute difference: 3.814697265625e-06 at index (13, 51) (up to 2e-06 allowed)
+Greatest relative difference: 1.6026182493078522e-05 at index (13, 51) (up to 2e-06 allowed)
