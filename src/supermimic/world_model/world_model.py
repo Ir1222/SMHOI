@@ -74,12 +74,15 @@ class WorldModel(nn.Module):
     def enable_compile(self, mode: str | None = "default") -> None:
         self._loss_step_fn = torch.compile(self._loss_step, mode=None if mode == "default" else mode, dynamic=False) if mode else self._loss_step
 
-    def window_loss(self, states: torch.Tensor, a_exec: torch.Tensor, xi: torch.Tensor, done: torch.Tensor, refs: list[ReferenceFrame]):
+    def window_loss(self, states: torch.Tensor, a_exec: torch.Tensor, xi: torch.Tensor, done: torch.Tensor, refs: list[ReferenceFrame], *, auxiliary_targets=None):
         """k-step autoregressive loss.
 
         states: (k+1, n, 71) logged states; a_exec: (k, n, 29); xi: (n, 33);
         done: (k, n) termination label of states 1..k; refs[j]: reference of transition j (for the
         termination features of state j+1).
+        auxiliary_targets optionally supplies per-step keyword targets to a subclass
+        loss step; that subclass also defines auxiliary_loss_metrics. The default
+        robot path keeps its original signature, reductions and metrics.
         """
         k = a_exec.shape[0]
         s = states[0]
@@ -89,9 +92,14 @@ class WorldModel(nn.Module):
         err_first = None
         err_last = None
         acc_num = 0.0
+        auxiliary_metrics = {}
         step_fn = getattr(self, "_loss_step_fn", None) or self._loss_step
         for j in range(k):
-            s, sq, bce, logits = step_fn(s, a_exec[j], xi, states[j + 1], done[j], refs[j].root_pos_w, refs[j].root_quat_w)
+            targets = {} if auxiliary_targets is None else {name: value[j] for name, value in auxiliary_targets.items()}
+            s, sq, bce, logits = step_fn(s, a_exec[j], xi, states[j + 1], done[j], refs[j].root_pos_w, refs[j].root_quat_w, **targets)
+            if auxiliary_targets is not None:
+                for name, value in self.auxiliary_loss_metrics(sq).items():
+                    auxiliary_metrics[name] = auxiliary_metrics.get(name, 0.0) + value.detach()
             total_state = total_state + sq.sum(-1).mean()
             total_term = total_term + bce.mean()
             with torch.no_grad():
@@ -110,6 +118,7 @@ class WorldModel(nn.Module):
             nse_kstep=err_last.detach(),
             term_acc=(acc_num / k).detach(),
         )
+        metrics.update({name: value / k for name, value in auxiliary_metrics.items()})
         return loss, metrics
 
     # ------------------------------------------------------------------ diagnostics
