@@ -1,0 +1,231 @@
+{
+  "p1": {
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/scene.py": {
+      "expected": "64042a24e7d5252e6f2bad6d7ab95c51ecfe25ffbbf86d0102033fbefb17fd9e",
+      "actual": "64042a24e7d5252e6f2bad6d7ab95c51ecfe25ffbbf86d0102033fbefb17fd9e",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/state.py": {
+      "expected": "c68fbb7e2b5d784c5fb140b3ea81d3ac8955249938c3c64edb5562e6cb68312b",
+      "actual": "c68fbb7e2b5d784c5fb140b3ea81d3ac8955249938c3c64edb5562e6cb68312b",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py": {
+      "expected": "1d9c08fb5bb7bdd8f58cd2afb4395c1d0a3b783b57a753fa059ee2785b7a5e60",
+      "actual": "aa3c0df35afc269030852faf868aec6cd2a3ddf96e7668077caf31895d5bff60",
+      "match": false
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/calibrate_contacts.py": {
+      "expected": "ef038a62d23f30ddf3ae1e0a3e1f11555240eeb64b25df4b192cc63e1bf73a59",
+      "actual": "ef038a62d23f30ddf3ae1e0a3e1f11555240eeb64b25df4b192cc63e1bf73a59",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_joint_scene.py": {
+      "expected": "537144ec4df9d906affb4940ade13832724f92e6cf70f98a0811f3b03ca54a1a",
+      "actual": "537144ec4df9d906affb4940ade13832724f92e6cf70f98a0811f3b03ca54a1a",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_contact_sensor.py": {
+      "expected": "60534964ef4fd6ca3784266a3e8144887a94df90d3c754ccc2f60e67e28d9331",
+      "actual": "60534964ef4fd6ca3784266a3e8144887a94df90d3c754ccc2f60e67e28d9331",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_robot_only_regression.py": {
+      "expected": "ea353454edb90ad4909e1327254e2270cbc4fa430204199dd1327c300f894051",
+      "actual": "ea353454edb90ad4909e1327254e2270cbc4fa430204199dd1327c300f894051",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_05.log": {
+      "expected": "8afb124b431318631622c02fe1d40ea02ba9014dca68378822678357390a7add",
+      "actual": "8afb124b431318631622c02fe1d40ea02ba9014dca68378822678357390a7add",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_full_02.log": {
+      "expected": "8c0d5c8351bce1d0bdf453dd7b1e27d24666b5d0f4d73bf7c0c19d2988849440",
+      "actual": "8c0d5c8351bce1d0bdf453dd7b1e27d24666b5d0f4d73bf7c0c19d2988849440",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_full_01.log": {
+      "expected": "11e46aaa9e73023a854402da2bf88b2bf76a372d01773834f26840c71e22aa7f",
+      "actual": "11e46aaa9e73023a854402da2bf88b2bf76a372d01773834f26840c71e22aa7f",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_03.log": {
+      "expected": "6958b1b9d1b1e178e59b19fe526d0f81f78e52b2cf4cabdec7acbf700465646e",
+      "actual": "6958b1b9d1b1e178e59b19fe526d0f81f78e52b2cf4cabdec7acbf700465646e",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_04.log": {
+      "expected": "6da6b1f7275165ca5f387c88188749c0a97b65f6f7ce2598a0173a1d66242843",
+      "actual": "6da6b1f7275165ca5f387c88188749c0a97b65f6f7ce2598a0173a1d66242843",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_01.log": {
+      "expected": "30bf60b044503ff371b3e2e477567eeefad459e99b1385d80eb632070bbbf551",
+      "actual": "30bf60b044503ff371b3e2e477567eeefad459e99b1385d80eb632070bbbf551",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_02.log": {
+      "expected": "083b2fde31b0a5d25ca6e4d595a410610040278b84ad87cc85b27a92c399f1f7",
+      "actual": "083b2fde31b0a5d25ca6e4d595a410610040278b84ad87cc85b27a92c399f1f7",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_02.log": {
+      "expected": "f640c303b14b10bf52b120444147293536810925c26dabfa96451b643b26e685",
+      "actual": "f640c303b14b10bf52b120444147293536810925c26dabfa96451b643b26e685",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_04/calibration.json": {
+      "expected": "a22e286840e2ecaa729d0760a6d83bb7bd36180d456485d0f067b26656deefce",
+      "actual": "a22e286840e2ecaa729d0760a6d83bb7bd36180d456485d0f067b26656deefce",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_01/calibration.json": {
+      "expected": "91ed3e26aecef36d8166cadc1358c6cc818f7d62d57d886faa69d409aacbd88f",
+      "actual": "91ed3e26aecef36d8166cadc1358c6cc818f7d62d57d886faa69d409aacbd88f",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_03/calibration.json": {
+      "expected": "d31bd98c9bcbab07e72e05f38a4379b674edb1246a91b50ece68e4ad80655464",
+      "actual": "d31bd98c9bcbab07e72e05f38a4379b674edb1246a91b50ece68e4ad80655464",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_02/calibration.json": {
+      "expected": "6af7a896899ec1b4dfc522f296b69b606484d22e09a10720458590f770240edf",
+      "actual": "6af7a896899ec1b4dfc522f296b69b606484d22e09a10720458590f770240edf",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_05/calibration.json": {
+      "expected": "10fa08d65c6eb03fd3b67115b0f555b6db96d6efad1d77d5c04c935aae701b62",
+      "actual": "10fa08d65c6eb03fd3b67115b0f555b6db96d6efad1d77d5c04c935aae701b62",
+      "match": true
+    }
+  },
+  "p2": {
+    "/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay.py": {
+      "expected": "456bed956155a763c88364fc54d44c352eebf823bee0f155050922297816b572",
+      "actual": "456bed956155a763c88364fc54d44c352eebf823bee0f155050922297816b572",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py": {
+      "expected": "aa3c0df35afc269030852faf868aec6cd2a3ddf96e7668077caf31895d5bff60",
+      "actual": "aa3c0df35afc269030852faf868aec6cd2a3ddf96e7668077caf31895d5bff60",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/recorder.py": {
+      "expected": "0df5df938e1b0dd70cbc241c8c5413ce3cd4f0b4dacbc6f072685294e2dc8265",
+      "actual": "0df5df938e1b0dd70cbc241c8c5413ce3cd4f0b4dacbc6f072685294e2dc8265",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/replay.py": {
+      "expected": "e333adf6c0f5d14fabedf466486463fde2433f981406f6b64c97c24867fe8c03",
+      "actual": "30f5554eb414558efa1aa60ecde2d873479ef0f4b07efc9d29280e66ee85ba11",
+      "match": false
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_aggregation.py": {
+      "expected": "720e18df026d439fc0adbb04ec0d5ac8064173797ce505b6c3c93e9ab4e05a42",
+      "actual": "720e18df026d439fc0adbb04ec0d5ac8064173797ce505b6c3c93e9ab4e05a42",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_recorder.py": {
+      "expected": "1e02d9edbe9a98aa9ec1c8a758a4d1e61cece2ad744d5054241e4f46717f1584",
+      "actual": "1e02d9edbe9a98aa9ec1c8a758a4d1e61cece2ad744d5054241e4f46717f1584",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_replay.py": {
+      "expected": "8909567a7317724400339b6582c4e0e3316d14fb35804678e1395270e09e1357",
+      "actual": "8909567a7317724400339b6582c4e0e3316d14fb35804678e1395270e09e1357",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_full_02.log": {
+      "expected": "2ca61bca40f31e48481d3c507bd620f1935b0acbf542e44a0c82e1799764c7bd",
+      "actual": "2ca61bca40f31e48481d3c507bd620f1935b0acbf542e44a0c82e1799764c7bd",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_full_01.log": {
+      "expected": "712c2f374889dd4cf4db9158707628e9f9378a3fb845a2a50547eef397e57206",
+      "actual": "712c2f374889dd4cf4db9158707628e9f9378a3fb845a2a50547eef397e57206",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03.log": {
+      "expected": "affbd375ea13c03dc6ae13fdf401117e9fa50a2099bacdb4fc0da2b1ccb75ec0",
+      "actual": "affbd375ea13c03dc6ae13fdf401117e9fa50a2099bacdb4fc0da2b1ccb75ec0",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01.log": {
+      "expected": "1409858087bc9bbcdcb5fd0ea090ec46f5fb8dae762a7f7f8ef5b48a6cc8c5d0",
+      "actual": "1409858087bc9bbcdcb5fd0ea090ec46f5fb8dae762a7f7f8ef5b48a6cc8c5d0",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_cpu_01.log": {
+      "expected": "6e0d3604e403a31324735c4feb81769bd7ba42cd4130cd731b91e5c971f840e9",
+      "actual": "6e0d3604e403a31324735c4feb81769bd7ba42cd4130cd731b91e5c971f840e9",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02.log": {
+      "expected": "65386e602def87c28ae4c69f495ddd3636f69418f941f46c64e7ed4b7c06fee4",
+      "actual": "65386e602def87c28ae4c69f495ddd3636f69418f941f46c64e7ed4b7c06fee4",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/raw_samples.json": {
+      "expected": "313c42ecf4fd079060c5f592771a28b7e421fa3aea4a6c52610981de8e290fd9",
+      "actual": "313c42ecf4fd079060c5f592771a28b7e421fa3aea4a6c52610981de8e290fd9",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/transitions.npz": {
+      "expected": "c0482c128beb1152b37e15dc641ed409aff844e303232b202a83b68986c5a306",
+      "actual": "c0482c128beb1152b37e15dc641ed409aff844e303232b202a83b68986c5a306",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/diagnostics.json": {
+      "expected": "596916b34bfcef3042646c77748fa89ee16cca7d827ae34ae51922e622ec0f4a",
+      "actual": "596916b34bfcef3042646c77748fa89ee16cca7d827ae34ae51922e622ec0f4a",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/full_suite_failure_01/diagnostics.json": {
+      "expected": "8997f60d35772b4960b7b93acf3506e5e3b3f1a6382e8c6ce609cf8840ed13a7",
+      "actual": "8997f60d35772b4960b7b93acf3506e5e3b3f1a6382e8c6ce609cf8840ed13a7",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/raw_samples.json": {
+      "expected": "f7abe02af09dead6ddf11269e569e3c83e5d9b4a600b0c714fe01fa0145137ea",
+      "actual": "f7abe02af09dead6ddf11269e569e3c83e5d9b4a600b0c714fe01fa0145137ea",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/transitions.npz": {
+      "expected": "a3d3c4e57b8c6479fbd8ba2196930f85348ca1cc60ab44b299a26422a3f6b6dd",
+      "actual": "a3d3c4e57b8c6479fbd8ba2196930f85348ca1cc60ab44b299a26422a3f6b6dd",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/active_terminal.npz": {
+      "expected": "2057a7519fac877d81b0c70a3390ac7798847b6be9ca239334906bb848181655",
+      "actual": "2057a7519fac877d81b0c70a3390ac7798847b6be9ca239334906bb848181655",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/diagnostics.json": {
+      "expected": "4d80c2a597548e19de85a868b5746d2164d0c5f30397685ca292e47048116848",
+      "actual": "4d80c2a597548e19de85a868b5746d2164d0c5f30397685ca292e47048116848",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/raw_samples.json": {
+      "expected": "5e8a4f125f5fc1ba8b4d54d6a17e774b775af07758b206dba0a3f1ca014af829",
+      "actual": "5e8a4f125f5fc1ba8b4d54d6a17e774b775af07758b206dba0a3f1ca014af829",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/transitions.npz": {
+      "expected": "72f391c226e317b114294bdbb15fb6b539c75e860f56798daea2685abe1341c1",
+      "actual": "72f391c226e317b114294bdbb15fb6b539c75e860f56798daea2685abe1341c1",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/active_terminal.npz": {
+      "expected": "f21d73ac889db5a90140506fa7b54df1218117754e5eaef3ab85ffdde9cc003b",
+      "actual": "f21d73ac889db5a90140506fa7b54df1218117754e5eaef3ab85ffdde9cc003b",
+      "match": true
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/diagnostics.json": {
+      "expected": "7ee5805973f5b82ee881a2a075490a37de177998c6f4604a12866291ed4b1626",
+      "actual": "7ee5805973f5b82ee881a2a075490a37de177998c6f4604a12866291ed4b1626",
+      "match": true
+    }
+  }
+}

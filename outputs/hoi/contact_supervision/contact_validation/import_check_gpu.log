@@ -1,0 +1,9 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+usage: run_p6.py [-h] --output OUTPUT --mode
+                 {geometry,calibration,dynamics,isolation,filters,replay}
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT
+  --mode {geometry,calibration,dynamics,isolation,filters,replay}

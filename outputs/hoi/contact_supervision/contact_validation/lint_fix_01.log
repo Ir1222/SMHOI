@@ -1,0 +1,231 @@
+B023 Function definition does not bind loop variable `ids`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:16:5
+   |
+14 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |     ^^^
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:16:44
+   |
+14 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                            ^
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `sign`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:16:77
+   |
+14 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                                                             ^^^^
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:16:104
+   |
+14 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                                                                                        ^
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:17:33
+   |
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+   |                                 ^
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+19 | P.forward(s);c=cpu_contacts(m,P.data,0);print('FIT',fits,'contacts',[(a['category'],a['dist'],a['names']) for a in c]);save(__import__…
+   |
+
+B023 Function definition does not bind loop variable `init`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:17:53
+   |
+15 |  def f(q):
+16 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+17 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+   |                                                     ^^^^
+18 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+19 | P.forward(s);c=cpu_contacts(m,P.data,0);print('FIT',fits,'contacts',[(a['category'],a['dist'],a['names']) for a in c]);save(__import__…
+   |
+
+F841 Local variable `nq` is assigned to but never used
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py:34:5
+   |
+32 |                 {'sample':int(i),'env':int(e),'flags':int(flags[i,e]),'time_s':(i+1)*.005} for i,e in np.argwhere(flags!=0)],
+33 |             'constraint_penetration_by_env':{},'all_records_penetration_by_env':{},'worlds':{}}
+34 |     nq=model.nq;rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+   |     ^^
+35 |     # Resolve both free roots and hinges by names; compiled global ordering can differ.
+36 |     robot_free=model.joint('robot/floating_base_joint').id;box_free=model.joint('box/bread_box_root').id
+   |
+help: Remove assignment to unused variable `nq`
+   |
+33 |             'constraint_penetration_by_env':{},'all_records_penetration_by_env':{},'worlds':{}}
+   -     nq=model.nq;rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+34 +     rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+35 |     # Resolve both free roots and hinges by names; compiled global ordering can differ.
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+BLE001 Do not catch blind exception: `Exception`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:35:12
+   |
+33 |         load_manifest(DEFAULT_ASSET)
+34 |         strict = 'PASS'
+35 |     except Exception as e:
+   |            ^^^^^^^^^
+36 |         strict = repr(e)
+37 |     result = {'sources': sources, 'strict_production_loader': strict,
+   |
+
+B023 Function definition does not bind loop variable `indices`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:68:19
+   |
+66 |         initial = state[indices].copy()
+67 |         def residual(q):
+68 |             state[indices] = q
+   |                   ^^^^^^^
+69 |             placements.forward(state)
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:70:46
+   |
+68 |             state[indices] = q
+69 |             placements.forward(state)
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+   |                                              ^^^
+71 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+72 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+   |
+
+B023 Function definition does not bind loop variable `target`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:71:13
+   |
+69 |             placements.forward(state)
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+71 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |             ^^^^^^
+72 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+73 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `sign`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:71:25
+   |
+69 |             placements.forward(state)
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+71 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |                         ^^^^
+72 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+73 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:71:56
+   |
+69 |             placements.forward(state)
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+71 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |                                                        ^^^
+72 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+73 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `side`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:72:41
+   |
+70 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+71 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+72 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+   |                                         ^^^^
+73 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+74 |                          model.geom('box/'+name).id, 1., None)
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:76:52
+   |
+74 |                          model.geom('box/'+name).id, 1., None)
+75 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+76 |             return np.r_[placements.data.geom_xpos[gid]-target,
+   |                                                    ^^^
+77 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+78 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+   |
+
+B023 Function definition does not bind loop variable `target`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:76:57
+   |
+74 |                          model.geom('box/'+name).id, 1., None)
+75 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+76 |             return np.r_[placements.data.geom_xpos[gid]-target,
+   |                                                         ^^^^^^
+77 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+78 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+   |
+
+B023 Function definition does not bind loop variable `initial`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:77:81
+   |
+75 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+76 |             return np.r_[placements.data.geom_xpos[gid]-target,
+77 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+   |                                                                                 ^^^^^^^
+78 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+79 |                             max_nfev=1500, ftol=1e-12, xtol=1e-12, gtol=1e-12)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:239:12
+    |
+237 |             rows.append(row)
+238 |         result['status'] = 'PASS'
+239 |     except Exception as error:
+    |            ^^^^^^^^^
+240 |         result.update(status='FAIL', error=repr(error), traceback=traceback.format_exc(),
+241 |                       overflow_at_failure=env.sim.data.overflow[:].cpu().numpy())
+    |
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> src/supermimic/hoi/contact_validation.py:88:25
+   |
+86 |             if np.any(np.diff(start[indices]) <= 0):
+87 |                 raise ValueError("Duplicate/nonmonotonic episode frames")
+88 |             for i, j in zip(indices[:-1], indices[1:]):
+   |                         ^^^
+89 |                 if mask[i] and mask[j] and start[j] == end[i]:
+90 |                     adj += 1
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+   |
+4  | import numpy as np
+5  + import itertools
+6  |
+--------------------------------------------------------------------------------
+88 |                 raise ValueError("Duplicate/nonmonotonic episode frames")
+   -             for i, j in zip(indices[:-1], indices[1:]):
+89 +             for i, j in itertools.pairwise(indices):
+90 |                 if mask[i] and mask[j] and start[j] == end[i]:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 33 errors (14 fixed, 19 remaining).
+2 unsafe fixes available with `--fix --unsafe-fixes`.

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "completed_intervals": 150,
+  "solved_vector_substeps": 600,
+  "raw_sensor_max_error_N": 0.0
+}

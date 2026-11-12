@@ -1,0 +1,42 @@
+{
+  "independent_hand_release": {
+    "status": "FAIL",
+    "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 1024, 0]')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 219, in run_intervals\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 209, in observe\n    original()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 1024, 0]\n",
+    "overflow_at_failure": [
+      0,
+      0,
+      1024,
+      0
+    ],
+    "completed_intervals": 41,
+    "solved_vector_substeps": 167,
+    "raw_sensor_max_error_N": 1.9073486328125e-06
+  },
+  "original_supports_parallel": {
+    "status": "FAIL",
+    "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 1024, 0, 0]')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 219, in run_intervals\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 209, in observe\n    original()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 1024, 0, 0]\n",
+    "overflow_at_failure": [
+      0,
+      1024,
+      0,
+      0
+    ],
+    "completed_intervals": 34,
+    "solved_vector_substeps": 140,
+    "raw_sensor_max_error_N": 0.0
+  },
+  "historical_fixture_elevation0.0": {
+    "status": "PASS",
+    "completed_intervals": 24,
+    "solved_vector_substeps": 96,
+    "raw_sensor_max_error_N": 2.384185791015625e-06
+  },
+  "historical_fixture_elevation2.0": {
+    "status": "PASS",
+    "completed_intervals": 24,
+    "solved_vector_substeps": 96,
+    "raw_sensor_max_error_N": 9.5367431640625e-07
+  }
+}

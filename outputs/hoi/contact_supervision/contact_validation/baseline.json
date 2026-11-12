@@ -1,0 +1,3112 @@
+{
+  "branch": "main",
+  "head": "e4f574185597d23570fad462224f76f741b36538",
+  "status_before": "?? .vscode/\n",
+  "master_sha256": "68142af38edb0a9a443aac5815491aaae90dba696acc84d30fc54223c6e4a9cc",
+  "files": {
+    "/home/han/pyx/SMHOI/.gitignore": {
+      "sha256": "d820f553dd438fc9cbb97aa2a7aa5fef9c371ecd7685dd0c1937998d00daa941",
+      "bytes": 142
+    },
+    "/home/han/pyx/SMHOI/.python-version": {
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+      "bytes": 5
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/g1_constants.py": {
+      "sha256": "30805e420c1dd03518ee582465fbce9cf097f4dc2eb0c1c2fce55c0332040c07",
+      "bytes": 7518
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/xmls/g1.xml": {
+      "sha256": "febdcbeffbbf84051556ae41a5ac1b43fb479a5d76bdb3f54824dbc2721c20aa",
+      "bytes": 22290
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/entity/data.py": {
+      "sha256": "03deabf1afc122192f031ef71a328e1443d602801d70da5cefe4b754980cfb71",
+      "bytes": 23778
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py": {
+      "sha256": "e05034969baaa6ca38d7587190eef95d468fd413f182edd2c8d387c2950701f1",
+      "bytes": 23787
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/recorder_manager.py": {
+      "sha256": "9c30862b75b2c2a77b49f331125be382912099147c6ae982aa682a58ce7c3e66",
+      "bytes": 9539
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/scene/scene.py": {
+      "sha256": "42893e03dc3cc3ad2199831f5b70331bfe8be56cd0b785e07b8dad6b8fb73897",
+      "bytes": 9521
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/contact_sensor.py": {
+      "sha256": "8b55ab0d6a21d0256e2fc29187c00cbfe4412cd08993050386c6a1f08197fac7",
+      "bytes": 24589
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/sensor.py": {
+      "sha256": "c700983150dbd74fbceec7486b842af4dc8917a251af0277436aee09a69dd077",
+      "bytes": 4597
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py": {
+      "sha256": "5713308a0d542f9463fee2a6782ad777cb5f177e25d47fab17894dc76cdfe966",
+      "bytes": 21158
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/forward.py": {
+      "sha256": "eb6fb81d29c1cfdb7ff6b53f88d692a30d99cc0cae44292a3c351082f667914c",
+      "bytes": 68088
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/sensor.py": {
+      "sha256": "dda71dd5ccf57f0440376db566db32d8680622a5249e18d9733362b3c33faef5",
+      "bytes": 91454
+    },
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/support.py": {
+      "sha256": "f84263a9c812c818a8934f725e1b7466ec8f3b47600302a001ab8f8fcb2f712d",
+      "bytes": 34918
+    },
+    "/home/han/pyx/SMHOI/.vscode/settings.json": {
+      "sha256": "a48b1ccc2582ba0be310eb274eab5636650975ee4dec4d4a3b376cbad0c90162",
+      "bytes": 29
+    },
+    "/home/han/pyx/SMHOI/LICENSE": {
+      "sha256": "9892007d6c8f8b28c00a48557289fa42a285915cb500b5cf01ec2bb0c15f197f",
+      "bytes": 1065
+    },
+    "/home/han/pyx/SMHOI/README.md": {
+      "sha256": "6b29da73c4fcafec974b0d649efbaa9df0fd4e4bfc9f30a04f4d0565e5d3ffa9",
+      "bytes": 22276
+    },
+    "/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md": {
+      "status": "MISSING"
+    },
+    "/home/han/pyx/SMHOI/data/assets/hdmi_bread_box/asset_manifest.json": {
+      "sha256": "8cee449a0af34365e28b3265479436fb72a6371f0a065b0c87f2d199e4c400fb",
+      "bytes": 31046
+    },
+    "/home/han/pyx/SMHOI/data/assets/hdmi_bread_box/asset_manifest_m6_5.json": {
+      "sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+      "bytes": 33590
+    },
+    "/home/han/pyx/SMHOI/docs/EXPERIMENTS.md": {
+      "sha256": "9f47edb42710c9fe2deaab1f5af0ddeaac0561ed8d495c66417bcd9cd376afb2",
+      "bytes": 21051
+    },
+    "/home/han/pyx/SMHOI/docs/PAPER_SPEC.md": {
+      "sha256": "ff0dbadf4c21638e368dbfee1130e17fa97c438fc4bd1d6bdf404c9af5bd3c09",
+      "bytes": 23086
+    },
+    "/home/han/pyx/SMHOI/docs/REPRODUCTION_PLAN.md": {
+      "sha256": "a78933feb7b01cc7434017985a26eef41d61d24a56156e9e05eea772a2727482",
+      "bytes": 61864
+    },
+    "/home/han/pyx/SMHOI/docs/REVIEW_LOG.md": {
+      "sha256": "b3d98221290d37fb0adc77693b4d51419581909ecf5f4d961ae5154344486d54",
+      "bytes": 12415
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M1.md": {
+      "sha256": "3107d32c53c1c472b2e2c43519916ca15e03e0ff7b4599482fe5491115a5184d",
+      "bytes": 1003
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M2.md": {
+      "sha256": "5d1bcf4a9d1f74e30a4f3b2f10cce104ad097ecfb5dd14a911f5b6f47a0ddf13",
+      "bytes": 1034
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M3.md": {
+      "sha256": "d1a149e28fdf2591efccb89518d46ba36e8c1f986532319098a2f951258de92a",
+      "bytes": 2363
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M4.md": {
+      "sha256": "3cc39ad44ae6dcc226ed2a972fbe738b93917f7e6f265911840ba64047d3c2a2",
+      "bytes": 2228
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M5.md": {
+      "sha256": "db0be379eb8fccca9fdc9cd335f86558d26d7a16f65f60e29e63572f0e415ba5",
+      "bytes": 2176
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/M6_5_RECONCILIATION.md": {
+      "sha256": "940459431b4b22316b795bdee38f495a7521a8a0eb96514284ee85a1b2fbf69d",
+      "bytes": 20862
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/REPORT.md": {
+      "sha256": "134e26deb2a986fc2803a45a4ed14ca279e0af6fce6358f20ece486a641d22ea",
+      "bytes": 13922
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/VALIDATION.md": {
+      "sha256": "8623bc23afb4d8ee710668ca7940a228a3fdc114727458973a7e5d8d657874a1",
+      "bytes": 3108
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/WORK_LOG.md": {
+      "sha256": "adecd9e5aab23a4f9ade0b62385b6ce26626fd079a62d02d990e7c6d916a2209",
+      "bytes": 2269
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/asset_tests.txt": {
+      "sha256": "a012db322560a50ba8bd1582fbd1aec7009b99818830927b09cbfadbde2918b8",
+      "bytes": 559
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/baseline.json": {
+      "sha256": "d5d0764ef93b79ff449f125836b756e5628f4786b085cb023fad43f43c0b6eb0",
+      "bytes": 11540
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/baseline.md": {
+      "sha256": "f267247b86f698a6d2b5a145dca7ee4b0ecbab2a0ad234d6c7bcd19efd2c3314",
+      "bytes": 679
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/box_audit.json": {
+      "sha256": "2ef9a9e5b7f8be3a61101305b137640ec2255949d737a641dd762106799d7ef5",
+      "bytes": 9779
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_points.csv": {
+      "sha256": "b1c0a2756593385c3257791eb90854cfb4be4db4d053f89b2dd5cc98560f5a69",
+      "bytes": 614735
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_snapshots_1.png": {
+      "sha256": "a3c8d43cfdcbdaca98cb39dba04dd532cf17d4cabade5885fc3c1cda4ba91f35",
+      "bytes": 493060
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_snapshots_2.png": {
+      "sha256": "024664f0757a6a427b7681ba2ccc690e69d84e86aa3a657d259ef6814de204fa",
+      "bytes": 1004911
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_summary.json": {
+      "sha256": "3d3e3d496de72e21d2a2f4d996896262306fe798bcb1d8609994800de31bf35a",
+      "bytes": 4891
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_timeseries.pdf": {
+      "sha256": "0e5e2964979b0a307b0ad3f9eb92b16314b8313c3cd12f76cc53c160a6321915",
+      "bytes": 34592
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/contact_timeseries.png": {
+      "sha256": "d8e74e0f9af95cd4ba00270e85b3691d3b522921beee49230ac93c39e3b033ef",
+      "bytes": 235705
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/gates.json": {
+      "sha256": "d43795afa83167e700e22f6932c58f33eef794f6da60ba34c6dd18308d114a94",
+      "bytes": 1545
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/hand_box_frames.csv": {
+      "sha256": "42ae4364d9ee7de8e4d7935e2d680e5f9ce6f758b29c0509ed623f9fd068eafb",
+      "bytes": 397230
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/hand_box_pairs.csv": {
+      "sha256": "07f81656adf0ea96c0a9100f0c334e3694e10d17a5a21ee22ddbfcc3074dad60",
+      "bytes": 4203927
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/hand_internal_pairs.csv": {
+      "sha256": "c63388aaeaae312050a731281da5073ae3a877637a393c6cec8b5fe7ac91c1b8",
+      "bytes": 8194
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/integrity_final.json": {
+      "sha256": "fc8f9e3af4f23b3d167d44e1658f93e5422b2e4f72e53d6cfa65e2b4fd3a3da9",
+      "bytes": 4921
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/CANDIDATES.md": {
+      "sha256": "11b27d7ac3764d90a96cb872bf71e98808a0f40ab6938db099e75eb8ce42bc80",
+      "bytes": 2981
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/DYNAMICS_PROTOCOL.md": {
+      "sha256": "41894feef695162d8741c20109020c3db2f9cab45f15ad59a08e757f1be4b81f",
+      "bytes": 3347
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/PROTOCOL.md": {
+      "sha256": "bc9515581279b1a71737c001f91ac08284aa0bc53b061c7933cf887bb681bb6a",
+      "bytes": 2194
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/WORK_LOG.md": {
+      "sha256": "a2cbb200e78d3b667fe64354cf7d480f8f3f255ecdf2112992adc878c18a6231",
+      "bytes": 3175
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/additional_sources.json": {
+      "sha256": "828125e22577210fb2e971a66f35419614dbce831f7a05f4aa1ac607df739300",
+      "bytes": 912
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/artifact_hashes.json": {
+      "sha256": "b26171ca9e8573bc6124059442759278df00d4cdb04aec42ec186bb0584ea5e9",
+      "bytes": 24431
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/baseline.json": {
+      "sha256": "806cf1d43d47f7163580610a8961576db3694308e6880aaa48a27fd48700fc09",
+      "bytes": 25104
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/box_pose_feasibility.csv": {
+      "sha256": "ecabf2663e9171d5eec9b4c2c649623281d548415afeaea48833abec926d5125",
+      "bytes": 6069
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/collision_surface_snapshots.pdf": {
+      "sha256": "4f9d86f6a7810999de79949721c9f36851a93f2aad35497d5b317b732c6a0fcc",
+      "bytes": 63200
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/collision_surface_snapshots.png": {
+      "sha256": "c0d144c62b29692531e1850dac12c738dc6ffb74e982308aef35b4a00a5e102e",
+      "bytes": 330624
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_comparison.pdf": {
+      "sha256": "7c152db0ec1bc9cd97dca6269af70060fa6202c58cde24ca238daf85fdb9531e",
+      "bytes": 39478
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_comparison.png": {
+      "sha256": "c3264f6e94327d4d7a8f15a855e135d87945578b3ebe438eaf16a1daa338e71d",
+      "bytes": 394889
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z0_dt2p5ms/contacts.csv": {
+      "sha256": "5b7151481744fda4d0d2a4e1267c18b2880a1e346b1339c0e6cad1a3529beb82",
+      "bytes": 1373708
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z0_dt2p5ms/summary.json": {
+      "sha256": "c11e74bf0668c1a604af32235bdbabd07198f5c72a1b2c20785070903ffe5d90",
+      "bytes": 1084
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z0_dt2p5ms/trajectory.csv": {
+      "sha256": "c6051a971e4189516f5f7e36d1167d9126650db4edd40e0900b277d9af37716c",
+      "bytes": 419020
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z10_dt2p5ms/contacts.csv": {
+      "sha256": "4176ff248c105e57278cd97e988e02e97590c88a9ba61b59768b897311702c98",
+      "bytes": 1212043
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z10_dt2p5ms/summary.json": {
+      "sha256": "368b011474a5e0e731c3de71f512b5e256da618e036117a2bd67491759a0756a",
+      "bytes": 1089
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/box_only_z10_dt2p5ms/trajectory.csv": {
+      "sha256": "3cc2f527131518722dd86069b1e471289ed43cb69c116861f4f4d07ad3ebd54d",
+      "bytes": 426480
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f400_dt2p5ms/contacts.csv": {
+      "sha256": "d571ed5f0856d96ca71e2fc12ead055107081b97a4bf07ef0e5aa54379d71a1e",
+      "bytes": 242502
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f400_dt2p5ms/summary.json": {
+      "sha256": "131ee2acb2b5a493738b5de4a3e9b7f3df490252ef5fde3c58e12fa2be8154b3",
+      "bytes": 9414
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f400_dt2p5ms/trajectory.csv": {
+      "sha256": "340604e0bbfa4f4efafee8e650ffe3e06451eec11bde9ba87e2ab46e251f8efa",
+      "bytes": 183659
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f530_dt2p5ms/contacts.csv": {
+      "sha256": "ffa3f56271b1c283a52b76fe5c1e3374b2191eb6080cf2fd4fb00ba5b125dd40",
+      "bytes": 454764
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f530_dt2p5ms/summary.json": {
+      "sha256": "e1f916b9e633a2ba3adafc3c3e9bac551ce66622793cc22d7aaec5cf1e549f03",
+      "bytes": 9416
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/hdmi_f530_dt2p5ms/trajectory.csv": {
+      "sha256": "c05576825cfa118ff2ba355d44540a85465d00e256dbe427b6d1dd05da637fe6",
+      "bytes": 355223
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f400_dt2p5ms/contacts.csv": {
+      "sha256": "a820bcfda1227cd1b7da6c071bad24eca5d01db1db4ba5deb969b1c9c8c5ac53",
+      "bytes": 245422
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f400_dt2p5ms/summary.json": {
+      "sha256": "1c3abccd0be63fb799f9569824ac0bd0bfdc4b6ae5edbd12d69033a5603c9dd1",
+      "bytes": 9411
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f400_dt2p5ms/trajectory.csv": {
+      "sha256": "93267d07e47de6cbffc72edc9421f95e191b0fc97535f4ac29c8e943b73ab293",
+      "bytes": 180227
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f530_dt2p5ms/contacts.csv": {
+      "sha256": "3fe892ef6c3db1066667deffabf1bb38a60e358d19b9cff7ad8c871c795efb36",
+      "bytes": 516601
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f530_dt2p5ms/summary.json": {
+      "sha256": "7e5a2056492b6e0c3f8d499ddfb2b80bd7600ec694b3fb5ce3b5af452511502e",
+      "bytes": 9417
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/native_f530_dt2p5ms/trajectory.csv": {
+      "sha256": "f521a431f39371b212fac805229148ab968a3cdccb408d02f92a7d254ecbb792",
+      "bytes": 355909
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_half_step/summary.json": {
+      "sha256": "d814f3594888d86e14969b23efed858c1764cb549f2868f2b76c86dbeaa69a79",
+      "bytes": 43184
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/STATUS.md": {
+      "sha256": "9977a3d782cd46e6494070362640faf0958d3f12b8b10202533fc75584072d0f",
+      "bytes": 399
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f0/contacts.csv": {
+      "sha256": "b66a5ed5aa91e7923eb9e58c25922f1806bafd8b015d60bece5a1c1f2b9d3f47",
+      "bytes": 465054
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f0/summary.json": {
+      "sha256": "a2653153c3e90edbff9be455a19eb621ed6c83c01afbc6752e8583c54ceafc00",
+      "bytes": 1071
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f0/trajectory.csv": {
+      "sha256": "ea5ddb9236f77792f8e40ef401ba8a107b537b296689034550b58ed22947f533",
+      "bytes": 213836
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f839/contacts.csv": {
+      "sha256": "83fae964afd9a6c3b2a93ca0305b8a486eae2ff963ccf51e7832e8d0f553b04c",
+      "bytes": 463881
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f839/summary.json": {
+      "sha256": "83e9c6cca23dbf649dc8aeb0007709d68ee7a0699d6dc942aa23458d68b5fe88",
+      "bytes": 1074
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/box_only_z10_f839/trajectory.csv": {
+      "sha256": "b3cfb62421546489579cdf87ff70a979e8cf12c9e89bb097d71d0ed27f2dfb9e",
+      "bytes": 214290
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/native_z0_f250/contacts.csv": {
+      "sha256": "8e7664585e6dc75fbdc2292abf1511b1d34d60396796420a34c6db3a672877fb",
+      "bytes": 84309
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/native_z0_f250/summary.json": {
+      "sha256": "e358e0780b29e9efc137c8c3f9a05cb19b0f01926efc8c6f277f89dc04d4ad24",
+      "bytes": 9365
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/native_z0_f250/trajectory.csv": {
+      "sha256": "70c2a5f68e3277d00f62f86c20c601fa271ef5c26e2c56d4602e03dd605412f5",
+      "bytes": 105321
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_smoke/summary.json": {
+      "sha256": "415880055af319ee1bca060d034362a718bd6fe29b75455423d2453b5d806c1a",
+      "bytes": 12484
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f0/contacts.csv": {
+      "sha256": "71361707867aaf9be3b4a430de00d0834961c70ad04af9b1fe52fa76c6dfabc4",
+      "bytes": 680221
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f0/summary.json": {
+      "sha256": "081fc983b0ca19861511ca6613af84713c9c9e3ee125e4257584a2fbef341b0c",
+      "bytes": 1064
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f0/trajectory.csv": {
+      "sha256": "941a936eff9a12a3accc7a83cda23ccaaa90b6172df61ffe12ea4dfd3fe16944",
+      "bytes": 210548
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f839/contacts.csv": {
+      "sha256": "e0cffa16e49011710b7b36b14c44309196e9e057efaea0b44c0319be8f1b55f1",
+      "bytes": 680191
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f839/summary.json": {
+      "sha256": "b6a04b32c21f0abcc00ec74b398f3fafe8893f4a8616395246990938b3ae884f",
+      "bytes": 1081
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z0_f839/trajectory.csv": {
+      "sha256": "55159648857cef2e910c43d51395499dc4792e7e3ab7554028d877d263979ace",
+      "bytes": 210474
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f0/contacts.csv": {
+      "sha256": "15e14a9ab3884064310f64ea7eee75a4e306482ec97b0a3b55ab0343efe7c963",
+      "bytes": 630523
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f0/summary.json": {
+      "sha256": "a2653153c3e90edbff9be455a19eb621ed6c83c01afbc6752e8583c54ceafc00",
+      "bytes": 1071
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f0/trajectory.csv": {
+      "sha256": "0c7a28ff03ee743fd379e1636ea3d3ccacccad224c86f86e892633a1c905d1a7",
+      "bytes": 213832
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f839/contacts.csv": {
+      "sha256": "10d08470ed4da3edf3c54a386d923a3bbd303f92eeefea2c17201e6aceb50d7b",
+      "bytes": 627647
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f839/summary.json": {
+      "sha256": "83e9c6cca23dbf649dc8aeb0007709d68ee7a0699d6dc942aa23458d68b5fe88",
+      "bytes": 1074
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z10_f839/trajectory.csv": {
+      "sha256": "b3cfb62421546489579cdf87ff70a979e8cf12c9e89bb097d71d0ed27f2dfb9e",
+      "bytes": 214290
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f0/contacts.csv": {
+      "sha256": "04217a99557c6a374b1195770f284295c82b2f24a2b8e4fe7fab70c0d59938df",
+      "bytes": 685964
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f0/summary.json": {
+      "sha256": "956daa7dd76011f4ec3df70a3311a23eb7446e8ddcb55b1dac329594b7d47a02",
+      "bytes": 1066
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f0/trajectory.csv": {
+      "sha256": "9ca98089497fb3abd780e75cc8680c61cf784047b12b002a33147ea396531c31",
+      "bytes": 210192
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f839/contacts.csv": {
+      "sha256": "433ef8b91e2532eb26152beadba129e7c140153a5afdf19d8f82ba2d744bdb7e",
+      "bytes": 688136
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f839/summary.json": {
+      "sha256": "85cb5a45a6dd5a2aefff9290369b411b08edb459bd94a354678a655ea9dd70a5",
+      "bytes": 1080
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/box_only_z4_f839/trajectory.csv": {
+      "sha256": "be3a8b44bc8d2f9f28451cdd55e80996e0ec200e9d4e41f381fed8bb1530a710",
+      "bytes": 210348
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f250/contacts.csv": {
+      "sha256": "7f85bd04189f395de10c3c1068a87e4c70e7b0fba95124ecce17c3207f1c9a8a",
+      "bytes": 116474
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f250/summary.json": {
+      "sha256": "a6674a38674e5b5dc56bbfb2f0011a10be1f984265bef5202bdac011b88e18a8",
+      "bytes": 9392
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f250/trajectory.csv": {
+      "sha256": "0be44cb9f85d53247873435d86d46948aee653db3e3a471c5bcf703f4b5cfee8",
+      "bytes": 101886
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f400/contacts.csv": {
+      "sha256": "f2e46be3b68305c3ad057e0d3b4ee31aa447229c186bc066682bac65715eaac2",
+      "bytes": 122526
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f400/summary.json": {
+      "sha256": "5b67b6fbc6ef8aaed57ac83158282d9576c5679a3164aa6446e43c0fd2885876",
+      "bytes": 9393
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f400/trajectory.csv": {
+      "sha256": "84d6831383ddbbee35424035d6c34fa6433d711d378bbd20537613e383adc16e",
+      "bytes": 91850
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f530/contacts.csv": {
+      "sha256": "60ef4be75e6f1bfe9ee736ec09f9fd0e2aef01f010e6d6c30f5aa472d2d08d8f",
+      "bytes": 240379
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f530/summary.json": {
+      "sha256": "2682d94288c8a5eac1c26e4711f3ed5ba076a1e273657c7ca916096bd67b5715",
+      "bytes": 9397
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f530/trajectory.csv": {
+      "sha256": "4fecc3c7f8a25de840970dc1bd512e1ab98943a940a0157afc7c6ffc1fef5b17",
+      "bytes": 177962
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f550/contacts.csv": {
+      "sha256": "05094b4c6d19f02fa2436cc018a4b880b6caed0ca5c730fae67eacbdddba4af4",
+      "bytes": 407302
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f550/summary.json": {
+      "sha256": "6ff73b4d755a7db3df0b898b7d34c75d6d63bce8b4a0fce2e92ed38881f2b787",
+      "bytes": 9386
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f550/trajectory.csv": {
+      "sha256": "bdf518b7cc677b53178ec58b55d630c6c486141b680385f632a4ff4c026cee5d",
+      "bytes": 268735
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f839/contacts.csv": {
+      "sha256": "78a0732becfd2ff88bda597c5ee652c52e4cc33e635b21c102c4c7830f7a81a0",
+      "bytes": 679954
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f839/summary.json": {
+      "sha256": "26a9b03dfbf4aa61c87f33b0d948fd04e93b1078ace53e371a9baf392e17fb37",
+      "bytes": 9289
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z0_f839/trajectory.csv": {
+      "sha256": "01188c8b306edba22a717fcb208890f042db8a98ec22d5c2733b36c47406b7a3",
+      "bytes": 256632
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f250/contacts.csv": {
+      "sha256": "83d7aa0620f94dc051347d7711696b0a22285b2ba9afa1f25174632942089a8c",
+      "bytes": 115982
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f250/summary.json": {
+      "sha256": "971b2549eccc919613e17140de1a9892b1eaf498d3c4061b213cc72a05c38704",
+      "bytes": 9378
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f250/trajectory.csv": {
+      "sha256": "64bacce966d81709ef64a1b80382b3be998b3f8da4a48053b32880aebe8be623",
+      "bytes": 103924
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f400/contacts.csv": {
+      "sha256": "f2e46be3b68305c3ad057e0d3b4ee31aa447229c186bc066682bac65715eaac2",
+      "bytes": 122526
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f400/summary.json": {
+      "sha256": "cd22c9c3e062fd1ff781900c3b8bfc17f114e22a264eb7a34365d7e3175475d2",
+      "bytes": 9395
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f400/trajectory.csv": {
+      "sha256": "84d6831383ddbbee35424035d6c34fa6433d711d378bbd20537613e383adc16e",
+      "bytes": 91850
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f530/contacts.csv": {
+      "sha256": "3144156bdc8e54b6db7fe03f67282b73050006a283b11d0e2528d5d08b20ca71",
+      "bytes": 197270
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f530/summary.json": {
+      "sha256": "43bb1a2eb81d5ec9af89296441ce46e7a9a4a1b8596e20dfd5e215f9af7becc3",
+      "bytes": 9397
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f530/trajectory.csv": {
+      "sha256": "225d580dcab9af21af252547f7f0aba17a7883fa6efd7cec1551305af015fc02",
+      "bytes": 177440
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f550/contacts.csv": {
+      "sha256": "062b7c7c979d96b4364c9f4ad04f5491a7d49976b43591e4eeeb3a1b714f5269",
+      "bytes": 471051
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f550/summary.json": {
+      "sha256": "e3c685c0563ec8fadfe4accbfeecaeeb2276e1947ca98a763f4ceca747823ef4",
+      "bytes": 9394
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f550/trajectory.csv": {
+      "sha256": "21f9b85e7845a26379b7973dad8725617e5b9e58e4bbea52061405de097cb565",
+      "bytes": 271045
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f839/contacts.csv": {
+      "sha256": "4e5a3c5ea4277233826ade9ef25eb6302fa45a7bf9ddb0441f184b6ff043a8a4",
+      "bytes": 627738
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f839/summary.json": {
+      "sha256": "d53e3c4bae7340339da8eedb61f590e976685cb15fa1d494c29189e930c844eb",
+      "bytes": 9310
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z10_f839/trajectory.csv": {
+      "sha256": "34b5dbfd2c488215d1ccd2db04e8da12537562e330ec6d077bf39fec91e51e54",
+      "bytes": 260726
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f250/contacts.csv": {
+      "sha256": "c5f42225f086aa737b58facedb41fee5cb57cfcbd1e2def3bdc06fb9a8f5aeed",
+      "bytes": 122095
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f250/summary.json": {
+      "sha256": "3a8200be07ee1ef9cb7a159f6b953917c1127f6956b02278bb8e882b8457e2c5",
+      "bytes": 9395
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f250/trajectory.csv": {
+      "sha256": "b02b2c0a0bf9114352b46fa22dff142d0619a2cd542f8bb5e23cf847bc517755",
+      "bytes": 103764
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f400/contacts.csv": {
+      "sha256": "f2e46be3b68305c3ad057e0d3b4ee31aa447229c186bc066682bac65715eaac2",
+      "bytes": 122526
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f400/summary.json": {
+      "sha256": "2f987bc0dc92c542093048baa2388fac07409a3559d7f6f35d3ecbdd58115b66",
+      "bytes": 9395
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f400/trajectory.csv": {
+      "sha256": "84d6831383ddbbee35424035d6c34fa6433d711d378bbd20537613e383adc16e",
+      "bytes": 91850
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f530/contacts.csv": {
+      "sha256": "9a09157279720ae547fd344b4e5d353d23a3cd95f7d59aa1cac31651adab7c6b",
+      "bytes": 235906
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f530/summary.json": {
+      "sha256": "808e3202fe2edcfbca6f88f717930ef210ef9b30000af8ac1cc3d1c7e722ae08",
+      "bytes": 9396
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f530/trajectory.csv": {
+      "sha256": "17ea4eb93796fdaa7335096ae4e69828e137c1ec3f0808e197c534da02933481",
+      "bytes": 178430
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f550/contacts.csv": {
+      "sha256": "789781cc9f3bb46ac6a7ca55d23260dbbf5e5b20cc5ea8fb46e5693b39279d1c",
+      "bytes": 400305
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f550/summary.json": {
+      "sha256": "628eb42ad1ec50e977ee0867c94592a1bba28a29387b6c0cfb7e84a3f73167cc",
+      "bytes": 9394
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f550/trajectory.csv": {
+      "sha256": "0d7992478c3abd3c3dd0cc6b49c66cb772d47b1ca8f4a888193633af3d1e52a1",
+      "bytes": 270066
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f839/contacts.csv": {
+      "sha256": "a36a3d1b770f8df661341998d9c31a5f241fd90e6e8d76a50082ee2da70295f8",
+      "bytes": 688109
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f839/summary.json": {
+      "sha256": "0ffb2472746aaff91df332228f823ed82679e6a00061a39d028c26b29aaf166d",
+      "bytes": 9306
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/hdmi_z4_f839/trajectory.csv": {
+      "sha256": "a50ce22a4d541647ff5d0698bb3e7f667f5f2e132269f9a6bc8b3b1981a0dab7",
+      "bytes": 256425
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f250/contacts.csv": {
+      "sha256": "7d604d3fd6489e5f0ca2fa6850c586ffd8f8aa2097f57ee5ac2146df66e30153",
+      "bytes": 130448
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f250/summary.json": {
+      "sha256": "01ae70daf7a6df801b50b44c7d2c181f77f5e44b5bb6b2eac703d2047377909b",
+      "bytes": 9379
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f250/trajectory.csv": {
+      "sha256": "fb455c4ea843eaf2c79248433e611c8041b3f7fffeeeb219b24f6087aa494a0a",
+      "bytes": 103667
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f400/contacts.csv": {
+      "sha256": "78b7be3e2291c9271fb068a0b459bd90a2605cca542912139756d60408801453",
+      "bytes": 111339
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f400/summary.json": {
+      "sha256": "11c5f9684c94c7492716f6fec3c3ea70569ea9d5c3e67e22514f20c67029b905",
+      "bytes": 9391
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f400/trajectory.csv": {
+      "sha256": "0bc04c0bd0ab0b459a683f78f73503e88a5929a1f2de6ba152d5e326fc57fc87",
+      "bytes": 90347
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f530/contacts.csv": {
+      "sha256": "831ea06bc136a39ee7d7327f87beddf3a1e66813a9e1839721a598a4d9f1a2ca",
+      "bytes": 248614
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f530/summary.json": {
+      "sha256": "e01d6407a339e09f6c2a292b8bcb7bea78813fbcb633b2d5d07977c896b9c941",
+      "bytes": 9402
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f530/trajectory.csv": {
+      "sha256": "9c246e635f9e5ae36010e50ec2e4f7e1b9e384ca7d58994eea513858c009b10f",
+      "bytes": 178516
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f550/contacts.csv": {
+      "sha256": "03e8fdf3cd77e64ed834cd5f2c995e06e5984fe1985a1190a69096f39ec32f32",
+      "bytes": 420633
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f550/summary.json": {
+      "sha256": "d6d4f77981e2534ad5346e21721cd4b3c0e80f6a3ad92e3dbf5f97eb7be229a5",
+      "bytes": 9395
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f550/trajectory.csv": {
+      "sha256": "534e4f750e62b40941bf8a7a460f79af55333c9987299aad51671e5a1655968e",
+      "bytes": 269656
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f839/contacts.csv": {
+      "sha256": "d8afee6f45dc2eea99992aabe710414d2226e785a0c85e610dac38aec61b10d9",
+      "bytes": 680070
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f839/summary.json": {
+      "sha256": "adc0106c8f32de9133f730f01b25477c22c3581b148428ae3d2ec2a20026bf7b",
+      "bytes": 9292
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z0_f839/trajectory.csv": {
+      "sha256": "039878d52f7cb8d45a34add5de5f902ab77326086bfda981c10915f215a9f84a",
+      "bytes": 256313
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f250/contacts.csv": {
+      "sha256": "3a35f9947625c2e8e7d294197b38cd40c9c9093c189082e93055f48acd038b6b",
+      "bytes": 119602
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f250/summary.json": {
+      "sha256": "6cb9765a62b6a6ebaa05d9051e6a3691a8127f43149c2e63d223cc6cd199dac5",
+      "bytes": 9397
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f250/trajectory.csv": {
+      "sha256": "59ff4b72390cc25515bef79902368160c9d1ce807f8ee0894e13b06ee31671fb",
+      "bytes": 103715
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f400/contacts.csv": {
+      "sha256": "78b7be3e2291c9271fb068a0b459bd90a2605cca542912139756d60408801453",
+      "bytes": 111339
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f400/summary.json": {
+      "sha256": "31a7fccd8c5f7537903a8eca2ca645370246e80cd47d1c9d1d05709ead74ec42",
+      "bytes": 9393
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f400/trajectory.csv": {
+      "sha256": "0bc04c0bd0ab0b459a683f78f73503e88a5929a1f2de6ba152d5e326fc57fc87",
+      "bytes": 90347
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f530/contacts.csv": {
+      "sha256": "e9e860392b1a6568eaa30fb12fc2bdebb2097ad52f146107b297b20d4d13a76f",
+      "bytes": 255978
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f530/summary.json": {
+      "sha256": "cca1f5fed991b1f1828e028b57dc89b8b1aa909942343f55ea6372f4657f07cb",
+      "bytes": 9401
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f530/trajectory.csv": {
+      "sha256": "faae2ca06138cb5ca21123f7667b503b176034442827f1812e1025a4e6098e82",
+      "bytes": 178062
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f550/contacts.csv": {
+      "sha256": "8be218f4f0236adffe2aa5a24b68728c3ace0c2e1bf708b670e7c5c868b72a90",
+      "bytes": 364939
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f550/summary.json": {
+      "sha256": "b429110c9e1fcfc492f854b90b4aa74b584fd77db10c90e08ff124aa0ab6e5f3",
+      "bytes": 9400
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f550/trajectory.csv": {
+      "sha256": "f025cfffdc28cf79d9915988adcf451f61f5c65b8ced66907e681bf52f922910",
+      "bytes": 268437
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f839/contacts.csv": {
+      "sha256": "2fbb517c1ad18683f7d4e059df3cdf79f3e47b6bbc58a4ce8e91dffa2bd91346",
+      "bytes": 627686
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f839/summary.json": {
+      "sha256": "86328dc17d59968ed050043fd230b1d1c32d3ad95d7921b8911d595bdc2f03a5",
+      "bytes": 9314
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z10_f839/trajectory.csv": {
+      "sha256": "eca12f6ec0cbbfdec288e29afcd6b38df3c8cbf1ecac544723caf29100b9aae3",
+      "bytes": 259825
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f250/contacts.csv": {
+      "sha256": "da212a0f9a0f9a942f54b1d4d11c5bb55f07df48716612668032ac552fb9abba",
+      "bytes": 124112
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f250/summary.json": {
+      "sha256": "0df1bc78652e1d08a5d47e0b834e9bca7a6bea80341b4a569da290fce8026de5",
+      "bytes": 9396
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f250/trajectory.csv": {
+      "sha256": "2171b6e1938d0ebefa355a8c0fc52abe889456dbab855af365bb38288c88dd34",
+      "bytes": 103681
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f400/contacts.csv": {
+      "sha256": "78b7be3e2291c9271fb068a0b459bd90a2605cca542912139756d60408801453",
+      "bytes": 111339
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f400/summary.json": {
+      "sha256": "e7f7483cb626c7ba822226484cf23423dc73582dd4fbe8d886ef87df099bb35e",
+      "bytes": 9393
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f400/trajectory.csv": {
+      "sha256": "0bc04c0bd0ab0b459a683f78f73503e88a5929a1f2de6ba152d5e326fc57fc87",
+      "bytes": 90347
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f530/contacts.csv": {
+      "sha256": "a2efc341c0a57c830a459cc4578c6f2c8082741d34326226bf1cd0fb6142b0fa",
+      "bytes": 254240
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f530/summary.json": {
+      "sha256": "6f8878e985b7e49e7585e0eca19977c98f43a5c83f455e79a5bfac160958b06e",
+      "bytes": 9405
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f530/trajectory.csv": {
+      "sha256": "a26985cb93fe4f671cf955ff2fd4e4ddce893082594bd41096a7b35630aa1e3d",
+      "bytes": 178500
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f550/contacts.csv": {
+      "sha256": "519682215f741c8be23c385f3eed79f4c75fcc6d0ea9141a8b52c8e9b9a2e28d",
+      "bytes": 463546
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f550/summary.json": {
+      "sha256": "ba47cefad4b497ef0a6910ff4f2607f18e889e645e16c1e9ad61371f1f813751",
+      "bytes": 9398
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f550/trajectory.csv": {
+      "sha256": "7328790af33b706c50392f682aa5551850ddd7cd4c74182ae93bb017d0bec65e",
+      "bytes": 269709
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f839/contacts.csv": {
+      "sha256": "93ba0d34cdf9be93c5a0529d8b9a99f1673605a75c577f4310683944c49ead57",
+      "bytes": 688337
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f839/summary.json": {
+      "sha256": "812577e05eadf8687c959fb95ccc6b1bec05e6b73f669fd8e0a6a842cd951f25",
+      "bytes": 9310
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/native_z4_f839/trajectory.csv": {
+      "sha256": "09f9d6f1f8499bc5517eaf4174472596849625696aeeea61a317f4b26d99b1a7",
+      "bytes": 256630
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/dynamics_v1/summary.json": {
+      "sha256": "9edc54a6e05592baf4aa819fa7f81f921d970b74a595661e6fab5eb64bd26ad0",
+      "bytes": 311938
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/eef_candidates.csv": {
+      "sha256": "f54a164b2708da4cf001f3b075459df68d2fe0081f1497c9c6f2f6de5fe31b15",
+      "bytes": 1027043
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/eef_candidates.json": {
+      "sha256": "f592163dcfe3ccb2841f349d75e8f5c8f62f97453c2bae494d0916379bcec2a1",
+      "bytes": 8772
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/eef_comparison.pdf": {
+      "sha256": "6617cee85ca704d28942149a810e2461588dfe5e048e063b12a0cb725ce7829c",
+      "bytes": 19826
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/eef_comparison.png": {
+      "sha256": "f754619b1f0cea4345a1ba2ed231af84e3427b6b74935c2822660baeb057a5f6",
+      "bytes": 78803
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_ablations.csv": {
+      "sha256": "0d540411ac9cb2d46dc92185448981adbd948e4836b22ea5aa8a9d0a36ff8d77",
+      "bytes": 402194
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_candidates.csv": {
+      "sha256": "48886d744f288afe66c18320ac95334090b2495180913250dd8e1fe153324d38",
+      "bytes": 518102
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_candidates.json": {
+      "sha256": "86859250edfa245c14ae8963d4e8ece2d0cab1c376b961a8f11874b9eae273d6",
+      "bytes": 5017
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_geometry_comparison.pdf": {
+      "sha256": "f69794822f46b7487f74205fcb75f178054b400f59e41dff8a7a263bdb029d65",
+      "bytes": 34996
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/hand_geometry_comparison.png": {
+      "sha256": "3e634920a6ebc3624cb0f5c9076d61ad4694e3439e3acdf7429a0a96df4b57ca",
+      "bytes": 347519
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/integrity_final.json": {
+      "sha256": "18f764704e587125ab668b6ad006861485febdfbd1b7afcc67f6bcad09cdd0c2",
+      "bytes": 526
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_candidates.csv": {
+      "sha256": "e06cb1b3e346cfdee17d28e213629c0f50beace579ffab27e277732fb32250e9",
+      "bytes": 644991
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_candidates.json": {
+      "sha256": "611beea2459e35c17b5a65a7d7260cfc6c15ddef842bad5093d74c1995a853b4",
+      "bytes": 3140
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_footprints.csv": {
+      "sha256": "260bf34110c5680e690adb3f6530e78f1311334f24d58a6454dcf09d7855104d",
+      "bytes": 108962
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_footprints.pdf": {
+      "sha256": "121400127405af105c462edb2764c97e2145e8b84cc747459df7da139621d50e",
+      "bytes": 18195
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_footprints.png": {
+      "sha256": "b7712fb1a41aeb12a3c1d02fb90eb606882142a1394b951035ca8c4e7c1c0286",
+      "bytes": 81198
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_height_comparison.pdf": {
+      "sha256": "a60d98cfa0c7b38fee58b8a981ed6ac64532efffc84483ec89993bde26f0f577",
+      "bytes": 19242
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/support_height_comparison.png": {
+      "sha256": "21a50d278b79575594515c4bf37219d03d4f43546ce409b26a2f8d78fde7ce3e",
+      "bytes": 112508
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/terminal_stability.pdf": {
+      "sha256": "034f1130fe2efdb98b0f7a22a1e3aab7d9f165a5cc3334fd6a1b742ae63b5887",
+      "bytes": 20648
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/terminal_stability.png": {
+      "sha256": "c08135a499a9f2cb7724b0fd0dee93b00dcba07ecfd2dc755cf04f7f6be009b8",
+      "bytes": 108966
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/tests.txt": {
+      "sha256": "9b73763d5de0f4e23a3855109234bfdd7b4e6be3a982acdf23806503c6fc3686",
+      "bytes": 567
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/m6_5/validation_all.txt": {
+      "sha256": "6a3f12d02a3065ddc3ba76d3c7bb6bc0d41b31a69826e3d9f4d736711bbbcf85",
+      "bytes": 568
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/native_fk_check.csv": {
+      "sha256": "c15865ddb27faa408fa8b4a6016ac8e2a177bcbdf6b5f71b7f7e4e83e664159e",
+      "bytes": 93075
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/native_fk_tests.txt": {
+      "sha256": "d4653b63ad9754ee5f8d47434d936421b1c73f978ec10964f3b26f210eb5df27",
+      "bytes": 542
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/npz_audit.json": {
+      "sha256": "fe34237a181f77f0ea2862107a1eec3c28d049b542f68819457ee558bd4310c3",
+      "bytes": 20619
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/robot_audit.json": {
+      "sha256": "9bec0b61a026f84b65e5b4c1f550dba1e87438a17730b2f4eb55cfd989fac543",
+      "bytes": 69418
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/support_audit.json": {
+      "sha256": "0c1f87b7a069673a5df72fc82babb9a94dddf78d6bc7d12e723f2d0b7b3e455c",
+      "bytes": 6730
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/support_frames.csv": {
+      "sha256": "b729c5d8f7f04cb0d33290ea13ca966dbf22447a748221bd4e856a6f06ea4c45",
+      "bytes": 197604
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/support_gaps.pdf": {
+      "sha256": "b87910e89b780cf487677d5b8ed304d36851bc0fb50815d42fdee9eea651d511",
+      "bytes": 19248
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/support_gaps.png": {
+      "sha256": "1d484886fae15c46c6775f541d181491ff852b70149fc3072f8f7daa3246bdbf",
+      "bytes": 109199
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/usd_materials.json": {
+      "sha256": "59b156da9a46d88e0f1e6f680f2efc4f7a22edc36816e12b7c593c625bd7733c",
+      "bytes": 7648
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/usd_reread.json": {
+      "sha256": "a525bfae44603100bf9fd9a9ef0b11811eec94235912f315da2637552d3b7cb9",
+      "bytes": 31477
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/asset_audit/wrist_inertia_comparison.json": {
+      "sha256": "dbf1063c06d23bd89cf17bb62f984d633ace7bdf566e1b1f73ea10a466bbb172",
+      "bytes": 2158
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md": {
+      "sha256": "68142af38edb0a9a443aac5815491aaae90dba696acc84d30fc54223c6e4a9cc",
+      "bytes": 141552
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/ARCHITECTURE_AUDIT.md": {
+      "sha256": "3b1f19bcc9c8e4827b4fa38078ce1a77a4538789f2a63e5855e5ade26717d85a",
+      "bytes": 13788
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/AUDIT_PROBES.md": {
+      "sha256": "2a9b6c28aaf6ae94732c9af1f0ff1b6128afd12ac972891db7229b44c2d1f3c9",
+      "bytes": 14149
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/CLOSURE.md": {
+      "sha256": "d510e7be6a3400728b01993a03e6b222f3f182d6bf45acff67b85bfd46730f1d",
+      "bytes": 8562
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/CLOSURE_CHECKS.md": {
+      "sha256": "9c9c1ef8f804cba54971319c9c5938f51eb319de14e7c284abdb43892b67bf46",
+      "bytes": 19075
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/DATASET_ASSET_AUDIT.md": {
+      "sha256": "30c250357736438caf2e6a8eb5be10606fac3a79a5d56ed63f16364b02cc46d5",
+      "bytes": 19836
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/DEPENDENCY_CONTACT_AUDIT.md": {
+      "sha256": "d7aaf3997a71936b4022d7a0a5d6ee35160870b4ce295c63e4e220cefa2bd632",
+      "bytes": 12729
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/FILE_CHANGE_MAP.md": {
+      "sha256": "39e815e7c8c1c1f4bc639eec44a19e507f8b1c7158793d59af3a895f1ef2469a",
+      "bytes": 11564
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/REFERENCE_IMPLEMENTATION_AUDIT.md": {
+      "sha256": "ef6c430efb66f428e1e6073559f954e23816ac951a18d9cead07804204221389",
+      "bytes": 9755
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/REPORT.md": {
+      "sha256": "b3366004123789495d7a1fee7c2db5d4cab5b6c938170140e12eda49f77a2906",
+      "bytes": 7189
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/REQUIREMENT_COVERAGE.md": {
+      "sha256": "593ec4943d85bcd58f7087f758094c7c58c3e1db578c36f8d62a716cd85ae8fd",
+      "bytes": 10604
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/VALIDATION.md": {
+      "sha256": "a156cc38a38fe1b195d22b2ad48390725c441e16e9607e56f1441ac9f1959d39",
+      "bytes": 8797
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/architecture_checks.json": {
+      "sha256": "56a17d68db9b25e478e47aa3b7cc40b5f73e0c89769587ee1d421ce5a4734f1e",
+      "bytes": 1079
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/artifact_inventory.json": {
+      "sha256": "ab16b8aefbbd7c8090f9eb050e35555d7ba4655b1102c7d7f8fb0a96884662fc",
+      "bytes": 132169
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/audit_checks.json": {
+      "sha256": "0ed5d2e0752b650b728f7427a4ae35b5a69205a2bc74e21e3335b838805d33f8",
+      "bytes": 20090
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/baseline_tests.txt": {
+      "sha256": "2a631352114e1666df8ab4f8eca27b1d62409c615a2eef096b53b93fefba21f1",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/checkpoint_audit.json": {
+      "sha256": "684a81d1e4116664cfa85f113512b305ebef71117c707acaa5f18df2881a2e2e",
+      "bytes": 9614
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/checkpoint_files.json": {
+      "sha256": "d3953f473e52037a326d57add223bc3538063d8cb0e0a378bbf029168d04aced",
+      "bytes": 5620
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/closure_checks.json": {
+      "sha256": "084f09d20109bb37c164124ca22a6a675aaa6323d5e90c04b23f46bc04cdaeaf",
+      "bytes": 3788
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/coordinate_closure_checks.json": {
+      "sha256": "c7cb787bae4b8fdc1c77d481fae28b9cebe9c216b32a27e3618d9ed6e851dc68",
+      "bytes": 1806
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/dependencies.json": {
+      "sha256": "be807f7a9f06419c754c611f9f45ec377f8572ceca60acc19edcc35f8b3893b4",
+      "bytes": 3941
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/force_probe.log": {
+      "sha256": "ebfdf54ea80694c070eb0884d8dfda24c67591f424b0c978280f92b1a0cc1b79",
+      "bytes": 1732
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/force_sign_probe.json": {
+      "sha256": "dd6ec7606c83633bd454909f3940fddcc6c0c7d16e4c92f336649a8d7eb0379b",
+      "bytes": 977
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/preservation_baseline.json": {
+      "sha256": "1f16b95c549547c80693747a471b763b56ac3cbbaed9929f4bc5bde5bc3384d2",
+      "bytes": 44653
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/preservation_final.json": {
+      "sha256": "868db1673a308124aea19689c33a0a38877da3b912f387e81e11e5bea69cb379",
+      "bytes": 2083
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/processes.txt": {
+      "sha256": "9177d5b711207b38138aa90bfd299abc3d18c33eaa280d695842eaf888d2c7b8",
+      "bytes": 325
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/reconciliation_checks.json": {
+      "sha256": "88b175c83a7a62c17385ce3aed53818da034b29757e16a6240710c9d608f642e",
+      "bytes": 9542
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/reference_implementation_checks.json": {
+      "sha256": "7806aa8e66a16d91be715c9b7f1d6019bf85b3ea78f463b8bf2ed48294f173fc",
+      "bytes": 10378
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/repositories.json": {
+      "sha256": "b7d5c1922c2f08d43a5c39704eecdc594fec3c2b90609f3dcd6ba5009e7c00db",
+      "bytes": 6921
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p0/source_inventory.json": {
+      "sha256": "def453d57bd218604a60cb233e3dddcb034bc7561e62e4f1f71fc58e8f2dd031",
+      "bytes": 6729
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/IMPLEMENTATION_SPEC.md": {
+      "sha256": "c3bb75c0e8a5c74b7b12d13d7d1c521e82df739489ef91acede02d5161d9c911",
+      "bytes": 10757
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/REPORT.md": {
+      "sha256": "4db6bedec85fb390442975de89914e8de0cf8581621838e757b8cb62d68d6b76",
+      "bytes": 11424
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/TRAINING_FRAMEWORK_REUSE_AUDIT.md": {
+      "sha256": "91dbc8c36d748c587904abe8b781f254ce9313a396eefe1e5729d9de1bceef73",
+      "bytes": 4069
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/VALIDATION.md": {
+      "sha256": "b46cdae560b92b6217678b75c6d7d1aaa68b84027f730b267606e2a8792b6318",
+      "bytes": 7209
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/baseline.json": {
+      "sha256": "3d66f16b78bebe6bb91c6d6960d99d405c0b5e5829fa08ac5a376e7f9629dacc",
+      "bytes": 16649
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p1/validation_summary.json": {
+      "sha256": "b01552df698f4d8ca721255d5ac044de3af7c9dae693001c147f109f3c93be36",
+      "bytes": 4429
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/IMPLEMENTATION_SPEC.md": {
+      "sha256": "3b2f41b2af66f38127f98959a66c77c238ebbafd89c3b23f184c7b26f7da68f3",
+      "bytes": 10123
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/REPORT.md": {
+      "sha256": "d396481f85d84d5a954865c7425f2b4f543859196cdf144db4433ac6ebd21663",
+      "bytes": 11376
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/TRAINING_FRAMEWORK_REUSE_AUDIT.md": {
+      "sha256": "2841bebfccc438dd3ccb9467da00162df31fba5c8ef5a5ada3971e8ca628a9b0",
+      "bytes": 3662
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/VALIDATION.md": {
+      "sha256": "6c18fe515e410f645cc0e387ee3ca56280371211d61c42b5825b69da15eda4b9",
+      "bytes": 10683
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/baseline.json": {
+      "sha256": "db63651ddbde35eef602db0315d08ded98295b202a8176849a2bbde330faa2c1",
+      "bytes": 63603
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/files.json": {
+      "sha256": "b24c75165c31b7fb9abca775a9920646b5a97575f5541ab3591613a50a12ba09",
+      "bytes": 3596
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p2/validation_summary.json": {
+      "sha256": "19bf612f8c8f1445ad510ad214ff1cdc8ad6dec842d8f9069718b709e99a4ef7",
+      "bytes": 84757
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/CHANGED_FILES.md": {
+      "sha256": "9869acfdce26f2c8bdf7e2ed4ed9b09a188bad7ebddeb4b270e6ea5a01227b88",
+      "bytes": 4826
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/IMPLEMENTATION_SPEC.md": {
+      "sha256": "5a570a2b24e9d17f574ee15a1f71eb870831aee32024ad5803af7e634b39a99e",
+      "bytes": 17066
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/REPORT.md": {
+      "sha256": "fc5bb5c71cc43887ac610bd70cd3b54fb3a47b0ab4286c64c58aab03b89047ec",
+      "bytes": 18883
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/SUPPORT_CONTEXT.md": {
+      "sha256": "628bb344a2b55712820410ebda5883ea942ef475cee5721899e668d8b410f024",
+      "bytes": 3400
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/TRAINING_FRAMEWORK_REUSE_AUDIT.md": {
+      "sha256": "24c83a7910579a453e5b156e4e6f8600ca5c28c25a926029c1a8fd7a0afa09dc",
+      "bytes": 4929
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/VALIDATION.md": {
+      "sha256": "abdabe1b315be960a568a6bb68183b5e6e4dc7a478b8fa72b84124d2d1cfb9f8",
+      "bytes": 10863
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/architecture_cleanup/CHANGED_FILES.md": {
+      "sha256": "be778240e9d521683d0baf0ce387ba9dd9f9c7b762a7bccf6892c952a1d130cd",
+      "bytes": 3491
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/architecture_cleanup/IMPLEMENTATION_SPEC.md": {
+      "sha256": "5fd148073de2d986dfe522fa0324994dc2116c61e94cce416fb911014b0b5a1e",
+      "bytes": 8064
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/architecture_cleanup/REPORT.md": {
+      "sha256": "f47b73922144b39d6ab0c605fcde73aa28e084b15471ff2d59a49d7ca0406333",
+      "bytes": 11977
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/architecture_cleanup/VALIDATION.md": {
+      "sha256": "134b5fbf3127064aab959075d43eae492150478d33be03ff2b72da4215530af0",
+      "bytes": 7441
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/baseline.json": {
+      "sha256": "5e4a452dba73981d913fb7fd3d1205f573a4c86e070354df54cba87fc85d65cf",
+      "bytes": 61304
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/revision_task0/IMPLEMENTATION_AUDIT.md": {
+      "sha256": "6cb8535d4f2a5a4ffd8b68f0ea791c2465f65f2005d1fbf205e6787c77de98aa",
+      "bytes": 15853
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/revision_task0/IMPLEMENTATION_REPORT.md": {
+      "sha256": "949a916ac67cca61e06352c899a09121d2e83068e10905d6cdc4135d9a7b4f0a",
+      "bytes": 11397
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/revision_task0/REVISION_SPEC.md": {
+      "sha256": "0161cb0d6225f94de98a8d488007c7151e6a71620b5092f67a774d146be13f21",
+      "bytes": 12929
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/revision_task0/TRAINING_FRAMEWORK_REUSE_AUDIT.md": {
+      "sha256": "22b7cf0ca75630c5c68382f0c67825a5fc88782a8a6ab4ed1fbf3291333fd712",
+      "bytes": 3431
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p3/revision_task0/VALIDATION.md": {
+      "sha256": "ca0eb17c33a296ddb0bb84776e4c508fba9a3ef0768a49ee28bd69d48a03b8fa",
+      "bytes": 8014
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p4/CONTACT_TARGET_AUDIT.md": {
+      "sha256": "dfee49915b44a2d7aae56b6b4b61d3495fc4a5bd98b756b48a81abca6eec6aa0",
+      "bytes": 5514
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p4/IMPLEMENTATION_SPEC.md": {
+      "sha256": "1f51bc860656836d52ab035f7d04c41a8ef47ab346c0fad4090bc54f19b6ca2a",
+      "bytes": 10285
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p4/REPORT.md": {
+      "sha256": "3ec9cb533d3dcaeb1e2c92dc7b7f7f5404ea7b35066b5835c5c9cd72b04b86da",
+      "bytes": 8149
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p4/REWARD_INTEGRATION_REVIEW.md": {
+      "sha256": "420821717532bcb371ff8af67f3963ce46f0223012aa51da67c8755a9b742326",
+      "bytes": 30696
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p4/VALIDATION.md": {
+      "sha256": "f94e031fad6a58bcf1222a0067aca9a47ee2e28e9634f83b2e595ff463684e57",
+      "bytes": 5007
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p5/IMPLEMENTATION_SPEC.md": {
+      "sha256": "e236ce5ce0e9fb472239e743d4cc329701f051257a508d4d829043f425414f7f",
+      "bytes": 72612
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p5/P5_A_REPORT.md": {
+      "sha256": "434314d694f3b403fcb523a5d03d4ce37ca8823a7f75ab0e004d3da0e8a3452c",
+      "bytes": 7155
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p5/P5_B_REPORT.md": {
+      "sha256": "c3a95b44f451c77c4a1d1fadc1a1fb9af24b138c9ac4cf076c44ab82db57784f",
+      "bytes": 7524
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p5/P5_C_REPORT.md": {
+      "sha256": "5d966cd72e3bebf4f475ac8eacdd2f6b01341bf18b3459cb022ec9cc95c9f866",
+      "bytes": 12843
+    },
+    "/home/han/pyx/SMHOI/docs/hoi/force_contact/p5/REPORT.md": {
+      "sha256": "1976e3e7f82b700e2a06eca294200f0ee9fc85e8bd70005a3b9746809ae6da7f",
+      "bytes": 13555
+    },
+    "/home/han/pyx/SMHOI/logs/hdmi_robot_only/ckpt_0012000.pt": {
+      "status": "MISSING"
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/DATA_ACCEPTANCE.md": {
+      "sha256": "17972d7e7b3c6bbae395418eee9055dabcf199bf56ad84510a37b6a4d19d20fe",
+      "bytes": 9004
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/FILES.md": {
+      "sha256": "931232914639eb8052c7e78259f5148d73ef3a002caacb5620096f0a14968741",
+      "bytes": 3591
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/WORK_LOG.md": {
+      "sha256": "568136d4c4219266983ae8a13ac766673016c1e97ae04ebdfa8e25b0e65d73b7",
+      "bytes": 7915
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/b2_tests.txt": {
+      "sha256": "351eed02db5e1124b1d249ac0ab866df62fe2a573cdf144df413de84642db035",
+      "bytes": 538
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/browser_tests.txt": {
+      "sha256": "245c36cceb49b06f77ef0566f17f45bd145e7a91500b1d37d4c4a98999ae1016",
+      "bytes": 98
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/final_tests.txt": {
+      "sha256": "9782548f65493c19558e6fa09ac2e1db42a9b496f1abe0ef1b6ec038eeb4844a",
+      "bytes": 538
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/gui_egl_probe.txt": {
+      "sha256": "d058965305a320a33f36ef822f5897bfb4f3bead73a6600a69bcb603e5904198",
+      "bytes": 406
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/gui_mujoco_log.txt": {
+      "sha256": "742a2a6629d4cf33732069bca8607bdfe5bcdc5486fc57d2a048d642e92f1c1d",
+      "bytes": 170
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/gui_smoke.txt": {
+      "sha256": "c3b44204c0bfb2f9bfe962b24b18fd32a646cfb17292914987dbef02b1a18acd",
+      "bytes": 791
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/gui_software_retry.txt": {
+      "sha256": "c3b44204c0bfb2f9bfe962b24b18fd32a646cfb17292914987dbef02b1a18acd",
+      "bytes": 791
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/headless_run.txt": {
+      "sha256": "18d0a504533d77c31fd5e068b83ba4d2d2cb3a870560b74494dcb12ae453d7ce",
+      "bytes": 1905
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0000_contact.png": {
+      "sha256": "6f01e4231d8f749edab9f53d60ca5b77ff11ea856b7fa41cb0b9ded3a2f30513",
+      "bytes": 56492
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0000_overview.png": {
+      "sha256": "1c34c19c8800c35c4d037eb3e4de9657654ca60e2922ddeb82477559c4af31fd",
+      "bytes": 77215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0260_contact.png": {
+      "sha256": "0db71df098fb51d8e66332ebb730760b118a4ea4d803f851e6057a292baf85eb",
+      "bytes": 156361
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0260_overview.png": {
+      "sha256": "cceaaf19f77d2a833b085e1a0a9f6abfc7c9589329c0fad36e6baa5b3f283660",
+      "bytes": 71003
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0280_contact.png": {
+      "sha256": "ffcfe175f2096a9071d3fda2fb0190815bd9d9d98e38deb56ec26423309f002e",
+      "bytes": 162976
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0280_overview.png": {
+      "sha256": "32caac4ca438291b304f66b3964b1c99a6cad7fa5269fdbf1b48d04685c495f7",
+      "bytes": 73021
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0298_contact.png": {
+      "sha256": "0f504d4344d42ac54851c10d05aa6d4404406127563f4cd25372e398e3ae57e4",
+      "bytes": 156745
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0298_overview.png": {
+      "sha256": "a67e5d105a73a4d52146afff14da403d9d5f8e2bf77fe477b5745188602507ac",
+      "bytes": 73650
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0400_contact.png": {
+      "sha256": "e5c2eaffca2e003d9babd6987977a21d0f0be69c3da2c7c9bee07b68bc956cc6",
+      "bytes": 155679
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0400_overview.png": {
+      "sha256": "6f12c2ada5dd61ff0245b2becf51370b0db69af8e87d81e513ca80b357447d15",
+      "bytes": 74512
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0530_contact.png": {
+      "sha256": "2847650ca4d06885a8dad2ac5d3b125e612b5978caaf42df441e22df6698c8b3",
+      "bytes": 148516
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0530_overview.png": {
+      "sha256": "e12bb265f3773b8dba8c412ad4b500e12c8de52df5a9c5de0619e3551a659d1a",
+      "bytes": 78917
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0549_contact.png": {
+      "sha256": "c239943edd0a0ed336dc084c576fb9b66de71dca5f97a8b0adc82929bde9131b",
+      "bytes": 146608
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0549_overview.png": {
+      "sha256": "59ce075a4447558693d32c5f4fc9aaf98300671516e17c3bcc23587bf2ee9f90",
+      "bytes": 78136
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0550_contact.png": {
+      "sha256": "1c6d91350398ca7b988d021c3000b7f246e331b44a418e6ddf44234d5f6b3bd2",
+      "bytes": 146238
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0550_overview.png": {
+      "sha256": "7d9db661c032edbcc61aa98ad00f44da3feab0cec609c02d88407f5173a98327",
+      "bytes": 77791
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0839_contact.png": {
+      "sha256": "e0e2343b917492ac60ebcc91955da8cdd5a8045944d2ecfe04b0993035e32468",
+      "bytes": 137510
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frame_0839_overview.png": {
+      "sha256": "1bb2a4568afdcdbad5166212f0452a6c4ef6b79a0d4a73d803979ee5b81da246",
+      "bytes": 78445
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/frames.csv": {
+      "sha256": "9e0e19460477d513e09716ae80f6db78925e7ffe4e4012c3df360b5d6a6a3e36",
+      "bytes": 122998
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/inspection.json": {
+      "sha256": "08c3d9d08c2fb185bc0ac3fa6f9639cfbfb5d5799fb1c677c89ba1d0a9675770",
+      "bytes": 1658
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/overview_montage.png": {
+      "sha256": "24b842711e4b46fdaf0fd2d0146134432f6eefee41ff5c18941df8da1639b78f",
+      "bytes": 313993
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/inspection/reference_50hz.mp4": {
+      "sha256": "6d49949f715c67861e43409be83a009f82837d56bf749f9ab938724da3e01b6b",
+      "bytes": 877874
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/lint.txt": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/preservation_baseline.json": {
+      "sha256": "330a8513f8227acef7950ca8318dcffbe7c7691d8e81b5c086865e869c0dbe5d",
+      "bytes": 38812
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/preservation_final.json": {
+      "sha256": "ed66d7e3fd32da380deed39e48f8f8af0c932550c85375c9febc801f69b5e6a2",
+      "bytes": 587
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/VALIDATION.md": {
+      "sha256": "2bdbc18f43ed7c1ac18becc5c9beeb84d401e781a9a38fd772a7c3c5d5810ac4",
+      "bytes": 1646
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/experiment_profile.json": {
+      "sha256": "f9d34c0855d55ac2cad75af2d325490a0fe6db0c276a422646eadee09beebb44",
+      "bytes": 796
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference.npz": {
+      "sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+      "bytes": 888300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference_manifest.json": {
+      "sha256": "129e1181fda2528250d2cd64fa214c2de4d7998ed37698c17302cc4f58128efb",
+      "bytes": 4436
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference_refined.npz": {
+      "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      "bytes": 899821
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/validation.json": {
+      "sha256": "7cf90c3a3c8d7b8daf83cd7883ab45d7287bb53bd841edc87ff6b857c53c82fb",
+      "bytes": 2515
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz": {
+      "sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+      "bytes": 899821
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/video_validation.json": {
+      "sha256": "0500e7e2ad7a624996423fecd0a504dbf6d272a02b0545f2e1da8dfacf05436f",
+      "bytes": 308
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/baseline.json": {
+      "sha256": "e98f5e046b2bea4dce9cce070af3af95851f7864669dd8e3974093a8f68b81d2",
+      "bytes": 70335
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/migration_01/migrated_physical_weights.pt": {
+      "sha256": "a226a40cf7a049fd67845fc473579b49d91a422ceaa05b7a11a205d847517360",
+      "bytes": 126926
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/migration_01/results.json": {
+      "sha256": "a53fce4d170269ab2292fecb074a779a979ad463a74e2482c97272a150de1bb9",
+      "bytes": 8154
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/migration_01.log": {
+      "sha256": "cbe2b049c2944f974cb9f25684b44746501a1add7940d3f20012034888a4034e",
+      "bytes": 905
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/preservation.json": {
+      "sha256": "a07501a751c35f0fb84770aec22b3a05dc767419be6cfe3a364f21c9c149eda8",
+      "bytes": 3990
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/regression_01.log": {
+      "sha256": "77e9d6dc2b5b02bf16b3605ccec702ed59f4544966064dc6262e3235acf349f7",
+      "bytes": 2475
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/static_checks.json": {
+      "sha256": "cf01243bdb1768cf1d6abc031e2c46a2432292d906b7ee99589a0a12bba881ae",
+      "bytes": 2498
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/tests_01.log": {
+      "sha256": "fbba28debae9adface76c96daccc49998aed982827331be2f74b619b87e0ba58",
+      "bytes": 31011
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/architecture_cleanup/tests_02.log": {
+      "sha256": "e70ea5e410f2f8ffd77328d73ed11cd7106d4cc399e9cb380f13b34173f75799",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/baseline.json": {
+      "sha256": "6a4d85245094a1397a020e7929e0d84d1969f13d4a51b82491a8292e693f6728",
+      "bytes": 66117
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/failure_snapshot.npz": {
+      "sha256": "2205a5222e935d43ab3bd542fe2614c96e226e52f5044c6ecd141a6112c4b6ae",
+      "bytes": 1840
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/metadata.json": {
+      "sha256": "c95286543b9c53513b2782aa955a05172a25639fc5e9522869ad093a9896d1e9",
+      "bytes": 3330
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01/transitions.npz": {
+      "sha256": "6e1a030578f4118e1f7965b805ad3a65983d8d137b69791415dbf575a3b0d051",
+      "bytes": 5626
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/collection_01.log": {
+      "sha256": "5f32045786c9e26b393375a261efaf7c4e32fc69659e7c6c64d227570bf8ee4b",
+      "bytes": 8611
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/collection_failure_review.json": {
+      "sha256": "d387b9071a6dee9bd53bfcf308b2fe9f45f754ddbd3ef89344641819290543b2",
+      "bytes": 1631
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/group1_tests.log": {
+      "sha256": "64cb15a5267cc8a6efeeca5ac5f2dcf628a641bbb700fad9340cd510558e3d86",
+      "bytes": 530
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.json": {
+      "sha256": "b83f624d7a0a4412d938a2efa24a2ab0b74fffeddff11df63556098e966406a8",
+      "bytes": 3753
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/historical_force_integrity.log": {
+      "sha256": "e6c4ee5a069a9de019518ccdecacfc9389e2a53b020a19ef5d7a803bb77090e5",
+      "bytes": 3953
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/integrity_final.json": {
+      "sha256": "ff9ac21290b36173f1001cf7597eb231f7d109d25d9079b0b141320f72f9bbc5",
+      "bytes": 11431
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_01.log": {
+      "sha256": "1c19bf6b8fcd97f69eaaa786832f00d0e768855589be66d855c9532516565a55",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/metrics_tests_02.log": {
+      "sha256": "90ec7dce4128762cb1bc826ff4da56bb7772de8e6d6d8eccf57af2396e56509a",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_01/migrated_contact_weights.pt": {
+      "sha256": "8cfed1f83cc885ef3b29d5139c89d5a951f54bc16012ac831b921c81c85b6c36",
+      "bytes": 127991
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/migrated_contact_weights.pt": {
+      "sha256": "8cfed1f83cc885ef3b29d5139c89d5a951f54bc16012ac831b921c81c85b6c36",
+      "bytes": 127991
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_02/results.json": {
+      "sha256": "e20a04efbf6ad0e60cd546f3cc977165a16da59eaeee0635b0d4d2effd1fbbeb",
+      "bytes": 8395
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_01.log": {
+      "sha256": "dff0834204c29344cd97591ea7236fd7ab0db695e94787a826f8d9bfeb731ae7",
+      "bytes": 967
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_probe_02.log": {
+      "sha256": "e4e4492da8442008066e08837e9376a63f9e95345790bee9a6da3fee347204a6",
+      "bytes": 908
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/migration_tests_01.log": {
+      "sha256": "a6e4bb82263c6e7592d7adadc90c378b6acc5f923d96e9677f4f1e1d45c3116c",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_intent_model_validation/tests_full_precollection_01.log": {
+      "sha256": "b9c8c95ff10db30903e3626fa442f262d604547f95cb742edc4a41d2ac87ece0",
+      "bytes": 1847
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/checkpoint_tests_01.log": {
+      "sha256": "ec4f4b5dcc6f00fbbfe6c14bad27367deb83408b41b0b8c31f56c3f0954e991d",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_01/metadata.json": {
+      "sha256": "ce7f1e91659858ac39770a1089d2b1c732e328e4c5f7c8e5b538c6f5adb4ac8f",
+      "bytes": 1997
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_01/transitions.npz": {
+      "sha256": "36d13b18cc3c5b52d49bfd8592772fe45f59022c971db4c783177528292242c7",
+      "bytes": 43145
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_01.log": {
+      "sha256": "44b3c50fb352035492716ca93ec53a8648c7078194e9a11fdcea62b75ab76652",
+      "bytes": 7813
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_02/metadata.json": {
+      "sha256": "90d3e4151c32cb08d8e4305ea3d49bb3540909dec4c697030a1406ad01c6d16a",
+      "bytes": 1949
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_02/transitions.npz": {
+      "sha256": "663a332f61f0073345e7a6e0da9d851698b479f7c65be36b319400a790b0c4e1",
+      "bytes": 254091
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/collection_02.log": {
+      "sha256": "7d23e602359af0a9147d5820124581840808667f5ff8af44790b11cba5065e73",
+      "bytes": 7357
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/data_tests_01.log": {
+      "sha256": "2c7326891f7169384e31cd41b7d3929245434b431bdc19f16e69d0eeaabad2de",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/data_tests_02.log": {
+      "sha256": "706ca5da5a117cfa11fa294d6607951c579f673db809c0b3d62a0fc794672c8d",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/files.json": {
+      "sha256": "add1ea5b685477c9b32517506bcf0c9ff1e75eade3e0c2cb6ae9ba7b4328b1d1",
+      "bytes": 16554
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/fit_01/diagnostic_weights.pt": {
+      "sha256": "96b019523d088530f76b37a77fc335f2ba00cd166e74413885f092b35869a980",
+      "bytes": 127573
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/fit_01/predictions.npz": {
+      "sha256": "e72805252cfaaa0051e5ee9af1e8e6850a67b83c371fd1bbd0d77d0f2909ecbc",
+      "bytes": 92567
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/fit_01/results.json": {
+      "sha256": "8645cf5f833b1e6abc0d82f4e34e85204bebb3fb0fd740630aeb6703690f1492",
+      "bytes": 47277
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/fit_01.log": {
+      "sha256": "4ade951146bebb700354aa12fdc334b7ee791469cf0d36738d3d06e6266ffc73",
+      "bytes": 1182
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/integrity_01.log": {
+      "sha256": "c02e1d918292456fa4d239d691b2eb54908c244b582cdad0c0a717bec80f3609",
+      "bytes": 651
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/integrity_02.log": {
+      "sha256": "e6c4ee5a069a9de019518ccdecacfc9389e2a53b020a19ef5d7a803bb77090e5",
+      "bytes": 3953
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/integrity_final.json": {
+      "sha256": "b83f624d7a0a4412d938a2efa24a2ab0b74fffeddff11df63556098e966406a8",
+      "bytes": 3753
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/migration_01/diagnostic_joint_weights.pt": {
+      "sha256": "6246b001cb14a4966a90f6a99815b2fb45172b82f9cf57a867e6cdd0ce95d56b",
+      "bytes": 129021
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/migration_01/results.json": {
+      "sha256": "d4941eed6e729889fd8f62a4ead1bfdff4c57c3180ae78f9da4a8760d01a156f",
+      "bytes": 8452
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/migration_01.log": {
+      "sha256": "f0b4916a51458318401695a43400f7427b12dac55402a40f82685f36b852079f",
+      "bytes": 937
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/model_tests_01.log": {
+      "sha256": "0142e7f76ace2a21f6c868c1924b55bffbf17a71a3717a44ac2bbe2d3c9fbfc1",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/readiness_review.json": {
+      "sha256": "0df8d60aa84cdebd1433089caea79be2127d8adc8ad16796d210b8d50a4b254a",
+      "bytes": 899
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/state_tests.log": {
+      "sha256": "a72eebc204fee828e36c0310563041d3bb12e664554d4b09fd0a06281835a9d5",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/style_checks.log": {
+      "sha256": "0ddbb675e8f4c9f8e4b2bd05446f7bb79e7cc6166bee5d8c261f4a895bf30769",
+      "bytes": 743
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_01.log": {
+      "sha256": "cc6aabcda6dcf0322de8a9d9d7a62de817f822161261070e1777e3ef8d179b44",
+      "bytes": 586
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_02/metadata.json": {
+      "sha256": "ecddd74d269584f6dc065a3f2323b5ce897eef27834a1faafa26c1e221654f44",
+      "bytes": 2916
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_02/transitions.npz": {
+      "sha256": "c34ec7f9b9635ca28d1f5c7745cf379062e4ee1bbd808ceedc6b37cc5cd8915d",
+      "bytes": 17632
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_02.log": {
+      "sha256": "b8781195ea82446e4a76af5eb54a45eb27763858940414651104617922774d10",
+      "bytes": 10359
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_balanced_analysis.json": {
+      "sha256": "73c2b0fee51063651f241b91ad7ea0d7194bde951c1b93d97ddb2034c580f86e",
+      "bytes": 1581
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/support_tests.log": {
+      "sha256": "ff1a9830047cfc58609e08520fa869dcc2b6622087a43e4c0c59db54a68c4827",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/tests_full_01.log": {
+      "sha256": "a002f43eb300a20d8b9fabab41f5544474faae0b72bb59df0e6a3a3e9869ac2b",
+      "bytes": 2730
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/tests_full_02.log": {
+      "sha256": "fb5873c5c3b0dae3d292ef8dd4ac0cb53aca4307d1aec83af94ab97eda4891f9",
+      "bytes": 1847
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/force_model_validation/validation_summary.json": {
+      "sha256": "925dda416bce9441b2ef71d3b6be63b82501880635533bdb558093b3701882b0",
+      "bytes": 19271
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/.gitattributes": {
+      "sha256": "8e050484c80c85d0da471128649a048139d27608442256e95d5fb183bcb8416e",
+      "bytes": 106
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/baseline.json": {
+      "sha256": "eca676388c5222682cf56ebf3cc60c21a0803fe7a52a89c357ca64d1343524dc",
+      "bytes": 84664
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_01/parity_cpu_float32.json": {
+      "sha256": "a25226d2911192503caeb1bfa0c1652611d410c4462aa3255046f39d53ce5fb0",
+      "bytes": 6647
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_01.log": {
+      "sha256": "7ba3c50bd31117cbe853e2ebaa1c9611b4a6488dc79ece67f0a30dcdd34416a6",
+      "bytes": 3345
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_01.xml": {
+      "sha256": "e43f2b5fa18f92985a501e0f2f7cc05c618e7496eff27f4556ca4c5bd7965459",
+      "bytes": 2516
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final/pytest.log": {
+      "sha256": "6343da02e2e512bec1e09527eddfb64e6fdb90343850dff66be6cfd17f9700d5",
+      "bytes": 357743
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final/summary.json": {
+      "sha256": "ce6a6d2c24d99f9721725009f8101535d93d3e31d787a61f6d2d7944f0424e46",
+      "bytes": 829
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final/tests.xml": {
+      "sha256": "233f781058fdcd54cf10c7ceabc10b9783a20f237989192c249509b9a096bb9a",
+      "bytes": 6302
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_driver.log": {
+      "sha256": "04d09ab6c65c71749ddbc4cad057c931906db4a96dc4c78a9a8dd66a737ac866",
+      "bytes": 441
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/measurements/parity_cpu_float32.json": {
+      "sha256": "b34fd9b3baaad2f1a33041e5f890231a705d6f6e3f619218e5810a4339f9db91",
+      "bytes": 16855
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/measurements/parity_cpu_float64.json": {
+      "sha256": "0c9854c0b77f130ce053820dfd2ed7f05c5c25ea83fb25bd4b9df0f3af1ec3f4",
+      "bytes": 16721
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/measurements/parity_cuda_float32.json": {
+      "sha256": "c34a7b529aec5f892bb9dc9c458899024c114098e2eca241681de10799f48d03",
+      "bytes": 17103
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/measurements/parity_cuda_float64.json": {
+      "sha256": "ae40b1adc0b4014b2bea919395cb10d2c608b45a584ff9f1825bc61a4510935d",
+      "bytes": 17124
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/pytest.log": {
+      "sha256": "7993ce384ead94e74f47a3db8fcbd0e52e68df9f0da7725ba140d1fbc69bd622",
+      "bytes": 541
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/summary.json": {
+      "sha256": "a98382c5a4071b61430b1adb0d9d274e7b295dff337129e6b409d55a06975b85",
+      "bytes": 1148
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/tests.xml": {
+      "sha256": "a645749a06effbc6dcb007d3fc9f1465335a8ef3bc2fe8c8f9a04a9120b2fc0f",
+      "bytes": 710
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v2_driver.log": {
+      "sha256": "b38a791294fa192b814ddd492f33f6e7ad992bc3e02b5885ad6123083646b9e8",
+      "bytes": 442
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/measurements/parity_cpu_float32.json": {
+      "sha256": "b34fd9b3baaad2f1a33041e5f890231a705d6f6e3f619218e5810a4339f9db91",
+      "bytes": 16855
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/measurements/parity_cpu_float64.json": {
+      "sha256": "0c9854c0b77f130ce053820dfd2ed7f05c5c25ea83fb25bd4b9df0f3af1ec3f4",
+      "bytes": 16721
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/measurements/parity_cuda_float32.json": {
+      "sha256": "c34a7b529aec5f892bb9dc9c458899024c114098e2eca241681de10799f48d03",
+      "bytes": 17103
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/measurements/parity_cuda_float64.json": {
+      "sha256": "ae40b1adc0b4014b2bea919395cb10d2c608b45a584ff9f1825bc61a4510935d",
+      "bytes": 17124
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/pytest.log": {
+      "sha256": "2a3512b8926bfbabaa60c6b144c7e733ebea94afa6b251c445dc90184ea0eace",
+      "bytes": 540
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/summary.json": {
+      "sha256": "56e9d73bbebcd0b60facf62bbfe8ff7929b99e14a1023f113e29498830b35489",
+      "bytes": 1148
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3/tests.xml": {
+      "sha256": "b84bddf79916e29078c6a6f24d609eae907134789f9dc3691e130f3a9be04123",
+      "bytes": 706
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/compiled_final_v3_driver.log": {
+      "sha256": "b13ef0774a7c748f2f6b8fb58e4518026a2f186cf4c23ea260cf94c356f99426",
+      "bytes": 442
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cpu_diagnosis_01.log": {
+      "sha256": "1bd3b9935ef93344729e92b7678704e06d23ca129498193d8c46497a60ff582b",
+      "bytes": 312318
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cuda_diagnosis_01.log": {
+      "sha256": "3b5e3c61af98c585ba8f4d8f1c22b14829677d4b0ecdc166901ec55da3bb680f",
+      "bytes": 453
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cuda_diagnosis_02.log": {
+      "sha256": "6ac2b9343d69d27e3384120c48a64405fe6ed6598a1684e80302fe906dc26117",
+      "bytes": 6049
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cuda_goal_diagnosis.json": {
+      "sha256": "8373829b9b7026d7a7741b8616148d533296be7aa284038b05b622f83e1cb861",
+      "bytes": 341
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cuda_repair_01.log": {
+      "sha256": "1c949bbd51c18d12042efc5768e7f871903bf4aceb85b0d7cdd31159080926df",
+      "bytes": 6973
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/cuda_repair_02.log": {
+      "sha256": "f0894cd12524ff99cb80f0df7a74072f7ff2696781607e1c83c55e16b49bfbef",
+      "bytes": 543
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/multi_clip.json": {
+      "sha256": "6b8c68541a1fceb22c4ecaecbf424c5787486913a5cc542376e1e42d0e1abc95",
+      "bytes": 2333
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03.log": {
+      "sha256": "b2c3a8f3d0930cbee55a40692eaa6da6ef109c96413db969c4299c5115707099",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_03.xml": {
+      "sha256": "234bec22b0fb209700c8b4877f053c39b94b52890c45b36db8d57e28115c70f6",
+      "bytes": 5111
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/multi_clip.json": {
+      "sha256": "a3e557a76109851469e1a61fb05ebe42807a4b9159ce5cd12d12c5142bb2d144",
+      "bytes": 2334
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/measurements/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/pytest.log": {
+      "sha256": "b5e1d8fe4717f66ac03e14e32be474e21ab80f97684ca9eaa78fb13a79b78fdb",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/summary.json": {
+      "sha256": "4a0cb3ea588f7750ec94bedcb0626f1e3bb21c4ecc88b14e08f0872bdf980d17",
+      "bytes": 6170
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final/tests.xml": {
+      "sha256": "8dcc705a8526429883f0b796fabc57d653751ae83099bb3cd5d8df0731a289d2",
+      "bytes": 5111
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/multi_clip.json": {
+      "sha256": "8a3e3314e043f7f0156b763dc91fa7fc50ca1e6182bf6e79f030ba2a2b8ce45a",
+      "bytes": 2334
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/measurements/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/pytest.log": {
+      "sha256": "829e1d6e5d2a2ef2f50b2f627badd2fda5d3337fa847dda35994600e64173649",
+      "bytes": 530
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/summary.json": {
+      "sha256": "1f4451a380edf42ba993516e1a59def61769796bba6b7c044b067422a9d84139",
+      "bytes": 6467
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v2/tests.xml": {
+      "sha256": "25d7107bc6bc6272bebc0eb734a4d558b26d4142b119f7eece5c40b489bc2b9d",
+      "bytes": 5382
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/multi_clip.json": {
+      "sha256": "4a6c27edf1ad5359e3da829bbcd675fee2bee2ad6ccc8dbcb28cece7726787c6",
+      "bytes": 2334
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/measurements/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/pytest.log": {
+      "sha256": "6aa27589fe3d9abb0e5df00a2c002a0d6a09a67ff77ec92f39fd7bf7f587ee51",
+      "bytes": 530
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/summary.json": {
+      "sha256": "d47808f6240aa3892d4c3424a6c06d11c9b0443f3bc6ed86f1fc2b7debd3bd8d",
+      "bytes": 6624
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v3/tests.xml": {
+      "sha256": "ee8dc29e96a3eafa17e71c7299bb94791d482aca4f52b24adced71c1e78746d5",
+      "bytes": 5526
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/multi_clip.json": {
+      "sha256": "3c658b22ca852032be42d0e8b15286b6d7fdcc46c22c07793e8a5e21cb111a2a",
+      "bytes": 2334
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/recurrence_paths.json": {
+      "sha256": "03eb94cc1086010affad6c29484b5783d771fa93374a9057d4826d41b864794b",
+      "bytes": 287
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/measurements/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/pytest.log": {
+      "sha256": "681548811b46aeef90f3961470145da035480d3d51a4554f70535cbcd07c6894",
+      "bytes": 530
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/summary.json": {
+      "sha256": "c07b9586cb0e715d34994b8b3394ce052af6c0781739c3b1eb441846f4c58795",
+      "bytes": 6634
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v4/tests.xml": {
+      "sha256": "aabecb1098e955a6c7b7ed01d0a5c25c8f728004cb89948e17a2a33e03fd08b3",
+      "bytes": 5526
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/bptt_isolation.json": {
+      "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b",
+      "bytes": 393
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/checkpoint.json": {
+      "sha256": "73cdfb9ca10d06adb27884602fc03cc31f9ae4de781f79bc0f57024274e04d04",
+      "bytes": 433
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/component_gradients.json": {
+      "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f",
+      "bytes": 2088
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/initialized_model.json": {
+      "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70",
+      "bytes": 215
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/multi_clip.json": {
+      "sha256": "b121f862554961de33123355b89f3e352d2d2560f3b39415be1b21ce2cf1e41a",
+      "bytes": 2334
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/quaternion_float32.json": {
+      "sha256": "5cdc235a6dc97752c68c0ffeaeee51ae33d98488d4ad105a623680781dccff88",
+      "bytes": 3756
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/quaternion_float64.json": {
+      "sha256": "a9bb60bee54cf73cf2a736cd3bc4f458bb9fef03e40af51fb6243558f7846a49",
+      "bytes": 3854
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/recurrence_paths.json": {
+      "sha256": "03eb94cc1086010affad6c29484b5783d771fa93374a9057d4826d41b864794b",
+      "bytes": 287
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/reference_840.json": {
+      "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b",
+      "bytes": 1300
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/measurements/scale_audit_840.json": {
+      "sha256": "00d67cc5704772c9b9dda0b4b5af91d301d6f641443290122535723d31d9a8a6",
+      "bytes": 3373
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/pytest.log": {
+      "sha256": "c6642479a0a17c4cd8b186f101f842adc403ea0cbb077ff174031c5f0877bfb2",
+      "bytes": 530
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/summary.json": {
+      "sha256": "01c77faf64d6b57ee524f4561e51acdd4716d6fdd50d9d7a1aa9830c61c93ded",
+      "bytes": 6634
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/eager_final_v5/tests.xml": {
+      "sha256": "78d812fb66355d9ee5a0f6a2583bba8729a6e1b7ae3724baf800bb282e929dde",
+      "bytes": 5526
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/infrastructure_01.log": {
+      "sha256": "b5fa0dd7cad56d8aabb9f153a12d13f07f388bf4fd103a8ce201b70cd0d7c321",
+      "bytes": 4025
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/integration_02.log": {
+      "sha256": "66b3fe50ea79981a0bc4c3fd1007b85c7f273c17ee45b80748a2a962830e632d",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/lint_01.log": {
+      "sha256": "3169726c4e148e2e418ea8d764c9202543bdaf2a947e913a9ad059af82162ce0",
+      "bytes": 1635
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/lint_02.log": {
+      "sha256": "e8bde2049acb936715c3f11379fd9284536fa1ec4b012a3f0b05dccff0c9a554",
+      "bytes": 126
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/lint_final.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/preservation.json": {
+      "sha256": "14c84aaa69c49aab567036f162576d53c2f1ced9575a8c77333c56a89fc2f3b9",
+      "bytes": 2184
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/regression_01.log": {
+      "sha256": "5d4e0579fe7b373618ac0fce5caaa67c2910e696394b841f33fcd0c489518ac5",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/regression_01.xml": {
+      "sha256": "bf5fe01a80f31a08d17fdbff3a7e622f272340036ac0e03b0ec11c62a1e1b7ed",
+      "bytes": 8986
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/regression_final/pytest.log": {
+      "sha256": "ab13aa0d7b5fd6c6d2c187f3066ca78bf8424f9a5c5ca7bc679509efb17f72be",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/regression_final/summary.json": {
+      "sha256": "86358da14b6beec5341bf2ba7a578ef4686f0b4ad22d3288b23f23190f65686f",
+      "bytes": 10857
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/regression_final/tests.xml": {
+      "sha256": "7a13dacf0c50c057411077d7733f2cf2e95e47fac5d88336d564776909bac475",
+      "bytes": 8986
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/review.json": {
+      "sha256": "3995ce0c5dce833ab1a419f01befbec781ca2eaab62ff98f7860c664a1c97ee5",
+      "bytes": 784
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/reward_01.log": {
+      "sha256": "c047b3831cddf20fe25cc41a8eb31095f53f97996d3c0ec949459c1aa2024c26",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/source_manifest.json": {
+      "sha256": "de69c934bb225d0dad5207fb7374b0e31fa4091f77ee7f1f5d84cc848f1ca777",
+      "bytes": 2077
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/summary.json": {
+      "sha256": "70bc469300dd1acc7db6d9545adc51232256446003644ef5e51857451f43bb70",
+      "bytes": 4203
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p5_validation/validation_history.json": {
+      "sha256": "c7e3a96a6e830c18464c1def78dc55fa87a68dfd4e6802718fc1d0c0d67730fe",
+      "bytes": 3008
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/full_suite_failure_01/diagnostics.json": {
+      "sha256": "8997f60d35772b4960b7b93acf3506e5e3b3f1a6382e8c6ce609cf8840ed13a7",
+      "bytes": 1416
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/diagnostics.json": {
+      "sha256": "596916b34bfcef3042646c77748fa89ee16cca7d827ae34ae51922e622ec0f4a",
+      "bytes": 72029
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/raw_samples.json": {
+      "sha256": "313c42ecf4fd079060c5f592771a28b7e421fa3aea4a6c52610981de8e290fd9",
+      "bytes": 1024013
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01/transitions.npz": {
+      "sha256": "c0482c128beb1152b37e15dc641ed409aff844e303232b202a83b68986c5a306",
+      "bytes": 80546
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_01.log": {
+      "sha256": "1409858087bc9bbcdcb5fd0ea090ec46f5fb8dae762a7f7f8ef5b48a6cc8c5d0",
+      "bytes": 7757
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/active_terminal.npz": {
+      "sha256": "f21d73ac889db5a90140506fa7b54df1218117754e5eaef3ab85ffdde9cc003b",
+      "bytes": 4940
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/diagnostics.json": {
+      "sha256": "7ee5805973f5b82ee881a2a075490a37de177998c6f4604a12866291ed4b1626",
+      "bytes": 72690
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/raw_samples.json": {
+      "sha256": "5e8a4f125f5fc1ba8b4d54d6a17e774b775af07758b206dba0a3f1ca014af829",
+      "bytes": 1093057
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02/transitions.npz": {
+      "sha256": "72f391c226e317b114294bdbb15fb6b539c75e860f56798daea2685abe1341c1",
+      "bytes": 80564
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_02.log": {
+      "sha256": "65386e602def87c28ae4c69f495ddd3636f69418f941f46c64e7ed4b7c06fee4",
+      "bytes": 7599
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/active_terminal.npz": {
+      "sha256": "2057a7519fac877d81b0c70a3390ac7798847b6be9ca239334906bb848181655",
+      "bytes": 4950
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/diagnostics.json": {
+      "sha256": "4d80c2a597548e19de85a868b5746d2164d0c5f30397685ca292e47048116848",
+      "bytes": 73522
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/raw_samples.json": {
+      "sha256": "f7abe02af09dead6ddf11269e569e3c83e5d9b4a600b0c714fe01fa0145137ea",
+      "bytes": 419214
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03/transitions.npz": {
+      "sha256": "a3d3c4e57b8c6479fbd8ba2196930f85348ca1cc60ab44b299a26422a3f6b6dd",
+      "bytes": 80665
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/run_03.log": {
+      "sha256": "affbd375ea13c03dc6ae13fdf401117e9fa50a2099bacdb4fc0da2b1ccb75ec0",
+      "bytes": 7599
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_cpu_01.log": {
+      "sha256": "6e0d3604e403a31324735c4feb81769bd7ba42cd4130cd731b91e5c971f840e9",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_full_01.log": {
+      "sha256": "712c2f374889dd4cf4db9158707628e9f9378a3fb845a2a50547eef397e57206",
+      "bytes": 13409
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/replay_diagnostics/tests_full_02.log": {
+      "sha256": "2ca61bca40f31e48481d3c507bd620f1935b0acbf542e44a0c82e1799764c7bd",
+      "bytes": 1846
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/baseline.json": {
+      "sha256": "0e891c07fe0a3f1911b0eb722adeb9acc88ca7c69e745e5b69e7c26ad7666e3c",
+      "bytes": 70916
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/geometry_01/distances.csv": {
+      "sha256": "91ae7b01423c01f818ee107b9421ed07b1a1462ab0505d8f970b9a8908effc8f",
+      "bytes": 37607
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/geometry_01/geometry.json": {
+      "sha256": "dc79ab18262ed048271b8c2990d89e2bd3f0b1682fd569520d28cc9f487c2646",
+      "bytes": 30163
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/geometry_01.log": {
+      "sha256": "0cd692dc8ed236e9d14cfcbf53179fc26e0b9ac57af57fbe56d5d10f15ec043d",
+      "bytes": 2646
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/preservation.json": {
+      "sha256": "02d01da0a4f928b2eed7adca4fb174408486a3c64189eab8daab644cfa94d085",
+      "bytes": 447
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/scales_01/scales.json": {
+      "sha256": "ed7b79a030d77863323f4bdaad3368809ff146b46f9503797adac07a1eb8c0a5",
+      "bytes": 19324
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/scales_01.log": {
+      "sha256": "dc306a0f73082a7b8d0556259bed53cc326d6bda86e3048ce22bcc048a708ebe",
+      "bytes": 2505
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/static_checks.log": {
+      "sha256": "cd7f41cf1ad5ba8b6263217889865f18d2b85df5ad631a05d6d321f51fd1b7b2",
+      "bytes": 45
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/tests_01.log": {
+      "sha256": "012112709d509d09361eb069e9f0f1681c08ec8e47f04f0745fa7ef6c38f7a16",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/reward_validation/tests_02.log": {
+      "sha256": "dffb217068927a752b87aed0e1ce7d7603ce89208c4b5ac2a1e6ece792fbb673",
+      "bytes": 529
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_01/calibration.json": {
+      "sha256": "91ed3e26aecef36d8166cadc1358c6cc818f7d62d57d886faa69d409aacbd88f",
+      "bytes": 2638
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_01.log": {
+      "sha256": "30bf60b044503ff371b3e2e477567eeefad459e99b1385d80eb632070bbbf551",
+      "bytes": 12237
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_02/calibration.json": {
+      "sha256": "6af7a896899ec1b4dfc522f296b69b606484d22e09a10720458590f770240edf",
+      "bytes": 116692
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_02.log": {
+      "sha256": "f640c303b14b10bf52b120444147293536810925c26dabfa96451b643b26e685",
+      "bytes": 12189
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_03/calibration.json": {
+      "sha256": "d31bd98c9bcbab07e72e05f38a4379b674edb1246a91b50ece68e4ad80655464",
+      "bytes": 147421
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_03.log": {
+      "sha256": "6958b1b9d1b1e178e59b19fe526d0f81f78e52b2cf4cabdec7acbf700465646e",
+      "bytes": 12352
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_04/calibration.json": {
+      "sha256": "a22e286840e2ecaa729d0760a6d83bb7bd36180d456485d0f067b26656deefce",
+      "bytes": 359787
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_04.log": {
+      "sha256": "6da6b1f7275165ca5f387c88188749c0a97b65f6f7ce2598a0173a1d66242843",
+      "bytes": 9440
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_05/calibration.json": {
+      "sha256": "10fa08d65c6eb03fd3b67115b0f555b6db96d6efad1d77d5c04c935aae701b62",
+      "bytes": 359359
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/run_05.log": {
+      "sha256": "8afb124b431318631622c02fe1d40ea02ba9014dca68378822678357390a7add",
+      "bytes": 12352
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_02.log": {
+      "sha256": "083b2fde31b0a5d25ca6e4d595a410610040278b84ad87cc85b27a92c399f1f7",
+      "bytes": 528
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_full_01.log": {
+      "sha256": "11e46aaa9e73023a854402da2bf88b2bf76a372d01773834f26840c71e22aa7f",
+      "bytes": 622
+    },
+    "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/sensor_calibration/tests_full_02.log": {
+      "sha256": "8c0d5c8351bce1d0bdf453dd7b1e27d24666b5d0f4d73bf7c0c19d2988849440",
+      "bytes": 1846
+    },
+    "/home/han/pyx/SMHOI/pyproject.toml": {
+      "sha256": "375477f1d1ab4a05557fc771088b7432fe5e92c30b7062c052801595ade06bf0",
+      "bytes": 1646
+    },
+    "/home/han/pyx/SMHOI/scripts/bench_imagination.py": {
+      "sha256": "fd17c15654b89082ecd8cb544f69c78d66d9b7c872ee4a469cfcedddc5f883c7",
+      "bytes": 3092
+    },
+    "/home/han/pyx/SMHOI/scripts/bench_sim_speed.py": {
+      "sha256": "8a2d4b0609d8fab3de3e045c45fdd74dbaae77633613cc1dc4e214b45a0dff23",
+      "bytes": 1332
+    },
+    "/home/han/pyx/SMHOI/scripts/data/build_library.py": {
+      "sha256": "a3fd8a011f4df1ff00227787a4ba2d3bf7464c15faba65b87edf64cf90bb53ee",
+      "bytes": 1664
+    },
+    "/home/han/pyx/SMHOI/scripts/data/csv_to_npz_batch.py": {
+      "sha256": "b56990148d95710438816131ef3f2ffcb8d7692adfc94600c6d51f66953c664e",
+      "bytes": 3862
+    },
+    "/home/han/pyx/SMHOI/scripts/data/filter_bones_seed.py": {
+      "sha256": "862636774444ca2331c3b3e054e45398f7c74854172242111fdb4bc128c9d463",
+      "bytes": 6681
+    },
+    "/home/han/pyx/SMHOI/scripts/diag_drift.py": {
+      "sha256": "2b3aa734f3f3096ffb7d186db5280ee6d93e42ad03540e6e5a99c80c2c5d347b",
+      "bytes": 7143
+    },
+    "/home/han/pyx/SMHOI/scripts/eval_benchmark.py": {
+      "sha256": "a55af1c84945133ab7340efb2e869f40e2edda3df89667b3433cdf06483e414c",
+      "bytes": 1839
+    },
+    "/home/han/pyx/SMHOI/scripts/eval_push.py": {
+      "sha256": "25859b322f290eaeb7e5ecf27ef206d00e1bba6f39ee1c9ad0233e5dba54e45c",
+      "bytes": 4674
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/asset_common.py": {
+      "sha256": "70c477a9c0554b6c9bdd5657b6abe4b23e6c08f4e8f20a7da1ec629a06e652a6",
+      "bytes": 5158
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_contact.py": {
+      "sha256": "aa878b17355767936d171ac2cbf694a57419f96c5aff523c533bc78b6e853a1e",
+      "bytes": 9068
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_internal.py": {
+      "sha256": "bb2415c06f6a2b2bde11d3c45bae1cd5ef7017a46d35340552241b15437b2a6e",
+      "bytes": 1471
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_npz.py": {
+      "sha256": "6677b281673ddc413d02f3a1e6f80288e79b07e44b4c952d4af45ba2310602f1",
+      "bytes": 5237
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_proximity_reward.py": {
+      "sha256": "e85e3182ac46e04da625902974b50b45028587e3cc6fad03ae80c67e6cdcb487",
+      "bytes": 8534
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_robot.py": {
+      "sha256": "0e625615f9be913af6586eb7be87d6e9ff04a793c82e1ceb06c920dbd535c5eb",
+      "bytes": 5086
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/audit_support.py": {
+      "sha256": "fee57b2f0f5a90644175e4386ed97b2653a635aa5fdb910c40da54ca3e8f0aa7",
+      "bytes": 3695
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/baseline.py": {
+      "sha256": "85ba7575d51e862bd3f02882fdb77c7a74b2bc121117c8c8dc518de8a4ab54cd",
+      "bytes": 3158
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/build_manifest.py": {
+      "sha256": "68d29d96b5023299bd0bd083febe4a84202995f6c3d9d60d7043c3da7a20f955",
+      "bytes": 5991
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/calibrate_contacts.py": {
+      "sha256": "ef038a62d23f30ddf3ae1e0a3e1f11555240eeb64b25df4b192cc63e1bf73a59",
+      "bytes": 23728
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/collect_p3_diagnostic.py": {
+      "sha256": "a6326143564c4e0771794408bf7a59c1bec8701578330ecdaeda0691f2e2835a",
+      "bytes": 590
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay.py": {
+      "sha256": "456bed956155a763c88364fc54d44c352eebf823bee0f155050922297816b572",
+      "bytes": 16656
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/diagnose_support_context.py": {
+      "sha256": "518eceda8c55f4642988b29e891c1488d9fce6313c5d813cd041980f9f2c11f6",
+      "bytes": 7228
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/fit_p3_diagnostic.py": {
+      "sha256": "58b04efca6f9384e4802c6c571c35bedc68904f4db9871fd207572cd5da87af0",
+      "bytes": 586
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/measure_proximity_scale.py": {
+      "sha256": "f2b2c7db3e188d8090ec330a030979c1ef0be5ba6c7cbfc795f9872d4c3395a4",
+      "bytes": 7303
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/p3_common.py": {
+      "sha256": "8074658c352b89d5450060f7f6205aa7f02b4479d9af3cac139299778e4bec84",
+      "bytes": 2460
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/process_reference.py": {
+      "sha256": "2a2766b4102c61489040f7b10f8f1b2b284fbbe16e410ceb45dc1e0f92ddb39b",
+      "bytes": 849
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/read_usd.py": {
+      "sha256": "999d98a13c3b981430ceff1217aa559b365c424399022cadd0b9ac9b91d866cc",
+      "bytes": 1577
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/common.py": {
+      "sha256": "4965edeeb31e6f8591efe692a6d08c9bd6c661018f806732c23ccd0372c0c74f",
+      "bytes": 2157
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/decision.py": {
+      "sha256": "592d5a4f95f53ac1f95a24c93f8baa8a60e89c43cb66417eeec3323e55d8c332",
+      "bytes": 3267
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/dynamics.py": {
+      "sha256": "b340301195d11c8815a38d577b42f559dd35359a1379853a2b1f5f038ce0129c",
+      "bytes": 11058
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/geometry.py": {
+      "sha256": "fc54a780b02c0032fec859543d39b0fdccaa7a74d419b50df1bd1530af036acc",
+      "bytes": 12289
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/plots.py": {
+      "sha256": "bb2783bda1fc0036be7d42036a2cac7d374b5007714544526192bad6d40c9d16",
+      "bytes": 8309
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/reconcile/sensitivity.py": {
+      "sha256": "ce7399c43513b4eaef368f3aa4a647879af506bcc4b30f0aa9fcc99c3132ba0f",
+      "bytes": 802
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/replay_reference.py": {
+      "sha256": "381ea5b553efb621fb4bae8c13bcca6ff2fd37ced6cdcf1461a7cac61dee117c",
+      "bytes": 2670
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/run_audit.py": {
+      "sha256": "99e59dac493da1c9403b1e13cfbe828e14a4e6112fabad2490b94ffa9b86a765",
+      "bytes": 1451
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/validate_p5.py": {
+      "sha256": "1239f6051d44f40b743863bebd7909de252c00e64bd62630218a9ebe5260651a",
+      "bytes": 4711
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/validate_wm_migration.py": {
+      "sha256": "8ef5a487628160860a7e8ec7b259726adc28e81a11b10860ad13f73faaa80433",
+      "bytes": 7602
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/verify_p3_evidence.py": {
+      "sha256": "f15cb3408c63a9ca84ff63d416d8ab31e7dd15d42fb2f527654f8be53f56d64a",
+      "bytes": 6460
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/visualize_audit.py": {
+      "sha256": "9ffdb080afa2f6904c04b2bfaed5adfe0d32ae3db8416c6d67a0f8c822d7597b",
+      "bytes": 5135
+    },
+    "/home/han/pyx/SMHOI/scripts/hoi/visualize_support.py": {
+      "sha256": "bd64b4f2dc18608af7110328a5785346894daf9131bf3309cd78feadc2679040",
+      "bytes": 1313
+    },
+    "/home/han/pyx/SMHOI/scripts/media/record_rollout.py": {
+      "sha256": "50c49570867192f92e64a65598ebd07a263774144f875e0c930d2c862c089c43",
+      "bytes": 4011
+    },
+    "/home/han/pyx/SMHOI/scripts/media/render_rollout.py": {
+      "sha256": "8dadf3ae85f10360004ce68c8c02c1f7f634eabb645b28a551914d9add05f495",
+      "bytes": 7755
+    },
+    "/home/han/pyx/SMHOI/scripts/merge_benchmark_shards.py": {
+      "sha256": "00972d2c777258e5efca3a5463049065af3af386e913d6d7ba82d8eae24a3ee6",
+      "bytes": 1249
+    },
+    "/home/han/pyx/SMHOI/scripts/play.py": {
+      "sha256": "770f1ec70198ab362018ca5ae886e2f4e4973979ef0939c56e1ed640b31c39f7",
+      "bytes": 2771
+    },
+    "/home/han/pyx/SMHOI/scripts/pull_and_eval.sh": {
+      "sha256": "1b7848bb41e51387f3970462e895e860e88ecdb1f5f41df42aa69fef20c3787c",
+      "bytes": 955
+    },
+    "/home/han/pyx/SMHOI/scripts/tb_tail.py": {
+      "sha256": "36ba9d359b6184fe2a4514df06d90e16c05e5edc1976a24f35d4936747f37e07",
+      "bytes": 806
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/__init__.py": {
+      "sha256": "125f22c257d97507d23ebfb893b5afc51031273f46c9dbbc079800df93064111",
+      "bytes": 115
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/config.py": {
+      "sha256": "a76ab80d738f2b706ea3f030a1a6fa2a4f44dfb4e6454224ed45d666f9ab3992",
+      "bytes": 2297
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/data/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/data/motion_convert.py": {
+      "sha256": "032047915b7dde7b348e72e5dca1529cee15d7259800d5d81144a5c9a82f5bc1",
+      "bytes": 12888
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/data/recorder.py": {
+      "sha256": "8f1b64cac80fca0a8fe548c0190eb1bfdd1b5f399c44f01d5e30b6e409d0784a",
+      "bytes": 5073
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/data/replay_buffer.py": {
+      "sha256": "86820f0f1c0ca0418fb47dab60480cb56b66b911c4e563715a149a670f8be685",
+      "bytes": 8285
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/__init__.py": {
+      "sha256": "1489391ed86aefc970651989774178018a94a020830b711b2bbb9e3ac94c715d",
+      "bytes": 181
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/actions.py": {
+      "sha256": "1aff867e972ba837cc66f61dced65aefc7a16430b21a9520c7a23423e7c97c24",
+      "bytes": 2011
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/commands.py": {
+      "sha256": "8dfab184c80903a930133d9c632c9aa04a1e78a9c3b7e6547d9eda95e2310dc7",
+      "bytes": 19867
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/motion_library.py": {
+      "sha256": "359261b2330b8eb5961559e27ac105e053643c780a0ec91085354637c7ede966",
+      "bytes": 12019
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/observations.py": {
+      "sha256": "7783bc1715269b4c011a2492557716e2ed59a7de7869452a64d748c6e1e94cea",
+      "bytes": 477
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/rewards.py": {
+      "sha256": "05e3092631f89db9e21f9b4c7cfe4f1c8a6859cae35235829c3e2a6959a6319e",
+      "bytes": 5489
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/mdp/terminations.py": {
+      "sha256": "6335cfe6995b69b3b38d3441b7caca8156bd3b7643d2b2d6691b22276cb7a9b0",
+      "bytes": 1198
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/sim_context.py": {
+      "sha256": "9e4d05a5fc2e12453bfa4cb14aba936f32cd7935f5a093e4c9109c98b8e618d5",
+      "bytes": 1640
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/state_io.py": {
+      "sha256": "59d119ec4c7bee6403d0f8dddc4237c8d8a32cc6054711afbb3ae7ff683fb4b6",
+      "bytes": 1630
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/envs/tracking_env_cfg.py": {
+      "sha256": "54c3bc7a81221b9e4e1a94935bed1040427af1b715ab46e33f10190403914404",
+      "bytes": 11584
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/eval/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/eval/benchmark.py": {
+      "sha256": "81ab68c56d09864e6f4dc4ca1e5c56df16d4c81d1dd54570e05462a7f8b96940",
+      "bytes": 5658
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/__init__.py": {
+      "sha256": "8b5790799f1c80e9f69a891daef10e89cc3b5c7ea822bf98a824791874bef539",
+      "bytes": 86
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/asset_manifest.py": {
+      "sha256": "caf4311d24ac3ee06570736e7b3ae0e9dbd4995f1a4fa043672b384e8338ec75",
+      "bytes": 4766
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/checkpoint.py": {
+      "sha256": "b9905924df0a7142bd631040e9829a15004bba5cc4f8dfc12d0717c2bf3ffc78",
+      "bytes": 16979
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py": {
+      "sha256": "aa3c0df35afc269030852faf868aec6cd2a3ddf96e7668077caf31895d5bff60",
+      "bytes": 7719
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/dataset.py": {
+      "sha256": "7225c73de87db3ed40c4283e357762d612bd0fcd436a72db296b6f854e3b26fa",
+      "bytes": 8506
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/force.py": {
+      "sha256": "a477a87785fd5450830faf306822b2d06482635d806edfef23bd981ed6c315c4",
+      "bytes": 4400
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/imagination.py": {
+      "sha256": "a8eafc42090fb053293074ae12f84339f13e86ec5f33bdb85eb471b29ed69198",
+      "bytes": 14716
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/legacy_validation.py": {
+      "sha256": "29d75c8e2fb76eac612517de57c76990521f5315baa958dbe9d56701458cdea0",
+      "bytes": 4144
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/recorder.py": {
+      "sha256": "0df5df938e1b0dd70cbc241c8c5413ce3cd4f0b4dacbc6f072685294e2dc8265",
+      "bytes": 8362
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/reference.py": {
+      "sha256": "9fdb474492be5aae915b3dc2ad7ca53e176a104d247cad50b8cb6fd6a4279fb6",
+      "bytes": 12435
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/reference_browser.py": {
+      "sha256": "5102e2086d02618e53e49ef988fe6d5e317459005feb88a365dd83eddf8f291f",
+      "bytes": 3583
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/reference_viewer.py": {
+      "sha256": "de084f19c087ddfd9164f8693e2277deb58f7b1f56dc8c786b75cec7ce67c1de",
+      "bytes": 20327
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/replay.py": {
+      "sha256": "30f5554eb414558efa1aa60ecde2d873479ef0f4b07efc9d29280e66ee85ba11",
+      "bytes": 8632
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/reward_reference.py": {
+      "sha256": "ee16690f573ae40523704e2021d4d166bee0c5a39fbafd03f93d6ed6c01d8601",
+      "bytes": 13666
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py": {
+      "sha256": "08a7fa4d49a2d02557f438b764b3af586248e1eaba81577ae2a722a6eeb61e40",
+      "bytes": 7501
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/scene.py": {
+      "sha256": "64042a24e7d5252e6f2bad6d7ab95c51ecfe25ffbbf86d0102033fbefb17fd9e",
+      "bytes": 6721
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/state.py": {
+      "sha256": "c68fbb7e2b5d784c5fb140b3ea81d3ac8955249938c3c64edb5562e6cb68312b",
+      "bytes": 7870
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/state_spec.py": {
+      "sha256": "42a43faa54deb265f73a59c81c15db96f2ef17b9d2fb384801aa1d2cf1992382",
+      "bytes": 6779
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/support_context.py": {
+      "sha256": "443fed8c28c2a0b9a07c2aba99a32ba3e0b657657987c51af68e3fad11ed0df8",
+      "bytes": 3091
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/tracking_reward.py": {
+      "sha256": "f6f0acffa8c299b4907a7d1524216daedb6c575b7fc26922fd66f2e1238a0b3c",
+      "bytes": 6966
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/validation.py": {
+      "sha256": "fd2b0aeef5cf1ef3f990771ff71e82ffebf2de5311fb88f4aee3856349aef9b3",
+      "bytes": 2762
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/viewer/index.html": {
+      "sha256": "d9e7824509a942b02923853484f3160a976c60922a70045dcb4f93a67f169127",
+      "bytes": 2458
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/viewer/player.mjs": {
+      "sha256": "109eeabadb8cfa31df5d81a35bc8198fa0c82199f62fba54a2f7e0fe5525c4c1",
+      "bytes": 3460
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/wm_trainer.py": {
+      "sha256": "4f1cd7cef6fc71a3f1f7bc061817b301c92204b19a5ef47cb1457c728a52b566",
+      "bytes": 3343
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/hoi/world_model.py": {
+      "sha256": "3e78b8f657952b4423ebf871356533811542fc6e3f219763d90b10fe76bb486f",
+      "bytes": 4994
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/imagination/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/imagination/compiled.py": {
+      "sha256": "83be5834e305714deb37d04cca08087ce7f8fe31981b95060f7a5ec4377f4be0",
+      "bytes": 2302
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/imagination/objective.py": {
+      "sha256": "653344730cfb1e7f66355315f3272eb7dd4a7cd0f2da07ab9603280787a93bd0",
+      "bytes": 2839
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/imagination/policy_trainer.py": {
+      "sha256": "89adff2747dac9371000e202eb83f6114d58d3e8ce9c2b3c985f6c05ae075bc5",
+      "bytes": 9579
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/imagination/rollout.py": {
+      "sha256": "e5d2abcdf0d95c78e26619cea59f8e0077b8bb06b0a7be20897c800e9a1b9037",
+      "bytes": 7975
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/kinematics/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/kinematics/g1_fk.py": {
+      "sha256": "4635eea9db60cc1f0541a1ed480986392984dbf8e83802775bb3d53665a91657",
+      "bytes": 7265
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/kinematics/rotations.py": {
+      "sha256": "e4120edd12b5fdf97a1927a6d4a14b392d2d2736308bb473f6ffa89219aa0c47",
+      "bytes": 3676
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/policy/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/policy/nets.py": {
+      "sha256": "02e33aeaf0b371129f349223429682819868a831f4dac8dd834fdc848e57e471",
+      "bytes": 3769
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/scripts/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/scripts/train.py": {
+      "sha256": "8afeeda3739bf2200b9bdf7b148442de19b1a0d07689a475734ae5ef744d72f2",
+      "bytes": 1819
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/training/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/training/distributed.py": {
+      "sha256": "ebf2d6d37ce6102f55941c0ab328c9deb4021964c46f7bd35a8bc1bb767f5a21",
+      "bytes": 3011
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/training/loop.py": {
+      "sha256": "c06c3b7890279fc90af8a1fb1568268a2444e702667b0dda9c5647116c68b515",
+      "bytes": 13881
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/training/schedule.py": {
+      "sha256": "3848bc4432d6f87bc81d93660dff0cbe7491122f4f0413c42808be27cef6c2ee",
+      "bytes": 569
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/dynamics.py": {
+      "sha256": "ce21b40a69c6abddebd85e7e2f000fadfd37f9bebbdecd5d61510e1f68736cd7",
+      "bytes": 1480
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/heads.py": {
+      "sha256": "553757489a9fb681335b5d79280da1263640fe1f7e168a64d9711a7dc8326a00",
+      "bytes": 7058
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/state_spec.py": {
+      "sha256": "5e2cbc177056f010a1f4df80d9a3b4cf3ec4b5e84f0ff6a2c05d195500019c72",
+      "bytes": 6030
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/wm_trainer.py": {
+      "sha256": "e5014cbe41325d2f5578e4b702dd6f562c76b9fae5daafce0f2e737fa749d2c2",
+      "bytes": 2892
+    },
+    "/home/han/pyx/SMHOI/src/supermimic/world_model/world_model.py": {
+      "sha256": "d1e75e0ef550c8516701c736dff081ce681f8a0f114dd604f7a0386a2631d40a",
+      "bytes": 6462
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/p5_fixtures.py": {
+      "sha256": "5138a830a725fe899945d166a554b26891f9785aad0b022cd87dc3349e621999",
+      "bytes": 6260
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_box_tracking_reward.py": {
+      "sha256": "6e62b81403a6abd9b1243cb5ccd151c8fb271c444f4207a9232309c6b5de98ae",
+      "bytes": 4900
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_checkpoint_migration.py": {
+      "sha256": "92bf143425cbf65ce3cd4dc3161efad1ab9cf3c628e4dd6d7776b8639cd76a1d",
+      "bytes": 9438
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_contact_diagnostic.py": {
+      "sha256": "478bd80eb74c1d31841ee7283936a22c74f3564c281f01cdc00dc35a97d107a8",
+      "bytes": 618
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_contact_sensor.py": {
+      "sha256": "60534964ef4fd6ca3784266a3e8144887a94df90d3c754ccc2f60e67e28d9331",
+      "bytes": 1983
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_contact_target_audit.py": {
+      "sha256": "19a670ed24e997a61da5501d88013f09a31a64eae3f010215165705ca274f7bb",
+      "bytes": 1155
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_aggregation.py": {
+      "sha256": "720e18df026d439fc0adbb04ec0d5ac8064173797ce505b6c3c93e9ab4e05a42",
+      "bytes": 3110
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_head.py": {
+      "sha256": "6866cefac33bb47119592f6d20bed9eee35fb94835907583d564e96f4dabfc50",
+      "bytes": 3058
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_recorder.py": {
+      "sha256": "1e02d9edbe9a98aa9ec1c8a758a4d1e61cece2ad744d5054241e4f46717f1584",
+      "bytes": 1310
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_force_replay.py": {
+      "sha256": "8909567a7317724400339b6582c4e0e3316d14fb35804678e1395270e09e1357",
+      "bytes": 3828
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_geometric_contact_reward.py": {
+      "sha256": "e640f69727e828ce4c376950f26bf7b7aba1062c12cbfbffe102c9abe2bec7e3",
+      "bytes": 11459
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_imagination_boundaries.py": {
+      "sha256": "deba3ea2101a04aca41685b90c2dae13593b2233580fca4ac98e70c49f4a3a82",
+      "bytes": 8842
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_imagination_parity.py": {
+      "sha256": "faec2641b43ed292e64f5eb08ef917171fe9b578209c60585c3e9f51f6f4784c",
+      "bytes": 6731
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_joint_architecture.py": {
+      "sha256": "0a3da3a2937ca5de81b18806a2756fdce399077b4b7c4b3fb7fa219ef6c2cfbe",
+      "bytes": 5574
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_joint_scene.py": {
+      "sha256": "537144ec4df9d906affb4940ade13832724f92e6cf70f98a0811f3b03ca54a1a",
+      "bytes": 8510
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_joint_world_model.py": {
+      "sha256": "a766bdbb9c596e346e77a2be5ec801ebd89cff0ec0c584031505d1f3075341ae",
+      "bytes": 4314
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_p5_validation.py": {
+      "sha256": "1aa344bf340733456d5a7b99938837524f2e63f79a0bb4dc7cf08d38c21a43d0",
+      "bytes": 8637
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_policy_adapter.py": {
+      "sha256": "0356a96eb2ca570e0cfcee990932995c007d87bf682a7f395727b427279a8cbe",
+      "bytes": 14870
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_quaternion_reward_numerics.py": {
+      "sha256": "3782a9a67881eb0c56cefb071ebf1c67b9ee98bd4f617c05b0c593ea687d32bb",
+      "bytes": 3986
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_reward_reference.py": {
+      "sha256": "98b9c116de26aa29267b5ddccc3ac4c797e1eccf80e9bc02b8d6f07021d851c5",
+      "bytes": 10209
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_robot_only_regression.py": {
+      "sha256": "ea353454edb90ad4909e1327254e2270cbc4fa430204199dd1327c300f894051",
+      "bytes": 1935
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_support_context.py": {
+      "sha256": "85f4a637f60e465f4eba4af6841745c2900c8784e4e84bcd48a207499804bf8f",
+      "bytes": 1166
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_wm_dataset_validation.py": {
+      "sha256": "66175b8c9924ad9fa85488371dd282dc501660fc37e28dd70f89ae88b55247b7",
+      "bytes": 4756
+    },
+    "/home/han/pyx/SMHOI/tests/hoi/test_wm_reuse.py": {
+      "sha256": "bb25da1f982cc9807a40e1ba71642e8f40ef6185922614d16dcc40a8312a2539",
+      "bytes": 2261
+    },
+    "/home/han/pyx/SMHOI/tests/hoi_browser_controls.mjs": {
+      "sha256": "ce3945d5edc04eaeebc8024d1dc8bd12b12f80cb859b013ad88d00f97657f683",
+      "bytes": 2588
+    },
+    "/home/han/pyx/SMHOI/tests/test_analytic_heads.py": {
+      "sha256": "cfb2f5cfceb1977372297b326b661135688b1d697eb7c66db4b401ae856c0e26",
+      "bytes": 8364
+    },
+    "/home/han/pyx/SMHOI/tests/test_env_smoke.py": {
+      "sha256": "50e90cf43b3e301e102d51d3f9b8eded58b82bc0ac049bcf0c163bd4e352e8bf",
+      "bytes": 4915
+    },
+    "/home/han/pyx/SMHOI/tests/test_g1_fk.py": {
+      "sha256": "9c204b346806ba8f7d52bb1e8ee66b5c7bb97107364fe6b83b5b95a4a491c13a",
+      "bytes": 4721
+    },
+    "/home/han/pyx/SMHOI/tests/test_hoi_asset_audit.py": {
+      "sha256": "2399c6a89403983a0eaa1eb0cf212d92ef81c55c8d6ee0dc5ecef7da861add62",
+      "bytes": 6064
+    },
+    "/home/han/pyx/SMHOI/tests/test_hoi_reconciliation.py": {
+      "sha256": "b0af5ead538e749bf5ed300dd5b7be4cb4d87b03e8b067329bf0dd797eecf7ba",
+      "bytes": 4600
+    },
+    "/home/han/pyx/SMHOI/tests/test_hoi_reference.py": {
+      "sha256": "326ad0bd0aaedb28907eee56d4a89f222ad1bdf43f0b8d7c1adc3443d39c96f2",
+      "bytes": 4252
+    },
+    "/home/han/pyx/SMHOI/tests/test_hoi_reference_browser.py": {
+      "sha256": "af751c3d8fac8d7addf870bc5ece1f4cf15fb5dc5c6caca50da51a4eae1c4f0b",
+      "bytes": 3048
+    },
+    "/home/han/pyx/SMHOI/tests/test_hoi_reference_viewer.py": {
+      "sha256": "a6980ad8ffc73f2ccb1ee2422a7ec2a51d17904d68e47a06b0ad34e75e55795a",
+      "bytes": 5809
+    },
+    "/home/han/pyx/SMHOI/tests/test_imagination.py": {
+      "sha256": "f819d91e679732d741edea1fa3c1874d64812b4bee1d37d247ff6f2599b2fbe3",
+      "bytes": 2263
+    },
+    "/home/han/pyx/SMHOI/tests/test_motion_convert.py": {
+      "sha256": "e6de1fdc4469143325cfeb194804062a222986353142a91b6fcb15bf4731b790",
+      "bytes": 5179
+    },
+    "/home/han/pyx/SMHOI/tests/test_motion_library_compact.py": {
+      "sha256": "b40c8baa93718147a91d3bd695509b9d0a6a05283fdd0136a81e113c263d72d3",
+      "bytes": 2107
+    },
+    "/home/han/pyx/SMHOI/tests/test_world_model.py": {
+      "sha256": "73c97c06b078847c5c02be7720c238602c94b742ff1ad2f3de508f0d5fdd6b50",
+      "bytes": 4476
+    },
+    "/home/han/pyx/SMHOI/uv.lock": {
+      "sha256": "0b7f650ed31337967af38d1735380631f2da020f6aaec913bd8d5fb048e7732b",
+      "bytes": 265628
+    },
+    "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt": {
+      "sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+      "bytes": 215360015
+    },
+    "/home/han/pyx/hdmi_bread_box_hoi_v1.npz": {
+      "sha256": "d89da14d49cc5f86398f3a86ad6037e777f5588972eaf7441917833da4b04dbe",
+      "bytes": 897802
+    },
+    "/home/han/pyx/hdmi_bread_box_robot_only_50hz_supermimic_pyx.npz": {
+      "sha256": "8da85c075132ac9a887d435c6c3e92abc9907e3e0cb15d854e69864b2fdf9527",
+      "bytes": 882198
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/meta.json": {
+      "sha256": "28f02a2f4fe3ccd5c8582f301e0b557d5df0ef5ae80bb762e8b1419dba2d2f4b",
+      "bytes": 1945
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/external/hdmi/carry_and_place_bread_box-0829/motion.npz": {
+      "sha256": "ff35558659a4b7fca63df6fc686cfd518b40bbc2cf4e3b5063e69e0ea73d7344",
+      "bytes": 1666169
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_hoi_v1.json": {
+      "sha256": "3d2dafff9ab0bf0dbd29b36f128ca404042c38dcbf2f39d2ed6e292743b942a4",
+      "bytes": 1419
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp.json": {
+      "sha256": "b558dc4c035caa040232af3d470514888cafa8bdc7a60579e0bf8705b3129574",
+      "bytes": 1133
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_bread_box_pcp_v2.json": {
+      "sha256": "1a18fac661fa19e8aa5da8f747340524a88e99b58520e2ddbaa7fb831d01fba8",
+      "bytes": 2249
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_final_audit_20261106.json": {
+      "sha256": "17198c0fe2489f0152491800d1c945f3ac0f1609834743f1aa66acdada30850a",
+      "bytes": 58141
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_review750_20261106.json": {
+      "sha256": "30e818e8c02aaf5c565aeb85283fa649344c3ec5f7ffd8971052be0cfd688a69",
+      "bytes": 14164
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_invalid.json": {
+      "sha256": "22bee0cd118413ac7c8ea7f4328b1a59d177693e38f01dccb06236fe8d4576c8",
+      "bytes": 2293
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_full_motion_smoke_20261106_v2.json": {
+      "sha256": "4f85c20cdc161103c727d5d0dca68b131557328ace952f4881f6b1bf2db0298a",
+      "bytes": 6834
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_mesh_summary.json": {
+      "sha256": "45e1991b77b02939d203e2e97dcd525a4bd4df2e8aca7b7f2f5e5714edc65801",
+      "bytes": 22985
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_gate0_summary.json": {
+      "sha256": "135beef0194c8bfd80550b1883c7b98a9cd35febb313f7e67748591df631a19f",
+      "bytes": 22753
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_long_training_validation_20261106.json": {
+      "sha256": "626c43da00e694de71443982b511849c44b18365550bf7b9e10edb3712c1f594",
+      "bytes": 16171
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_native_validation_v2.json": {
+      "sha256": "17f0716d055b916d8cf26ce58b96317aa49b562189468b98f3cfc662f3612d1b",
+      "bytes": 28525
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_reference_validation_v2.json": {
+      "sha256": "78499a2844319c29dff75b4ee8f2e97e1b0429237970150fcb723b1c6880683d",
+      "bytes": 50144
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_contact_assets.json": {
+      "sha256": "ad7776c36fc12e9c2da1fda4f80e650d2fb8ce4ca88ce5c7be08bea76edefe06",
+      "bytes": 27941
+    },
+    "/home/han/pyx/humanoid-amp-ppo/dataset/hoi/manifests/hdmi_usd_support_assets.json": {
+      "sha256": "5b5fdece8de408e7f5cd867ae4aa4d3e3dd09523908b51b9d98856cda68d735d",
+      "bytes": 3674
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/__init__.py": {
+      "sha256": "4321c7372abdd61ab6f065de978815cd58c3f2f947fbbe98f0b28455b84eb2e2",
+      "bytes": 446
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/contact_targets.py": {
+      "sha256": "c713a65e6e0785ba5621b66f4ee12f8eadf80dc3d901bbca2d84745e4e77a766",
+      "bytes": 5724
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/env.py": {
+      "sha256": "5bc594aa4d790496c94eb4b9442e446d57ecc28ec3ba56ace2927156c91067e1",
+      "bytes": 14083
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/evaluation.py": {
+      "sha256": "9a8286f4e4fe42896dc3f1eba9f488663a371d575f76fae516d69bf108b14751",
+      "bytes": 12263
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/experiments.py": {
+      "sha256": "737e2f4595c2a09c7f48cce1943a23133849a4b2a955e41e2a5d9e565edd27fe",
+      "bytes": 1780
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/features.py": {
+      "sha256": "9323b1cc20be8a10c168ffa03381da57e81059134209ed66122418629eabdb52",
+      "bytes": 3296
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/gate0.py": {
+      "sha256": "94b9bc4be7f74268df5cab55c9b3de50def875cffe420681dc5e0d20bc5a7fa9",
+      "bytes": 29256
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi.py": {
+      "sha256": "f981aa5e3de76d671316e861e2b0ac964444e3d3b68b19ee5ecd098f1130269b",
+      "bytes": 15097
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/hdmi_colliders.py": {
+      "sha256": "c1bd2d6445e439dda7e16f3c8219edaf9c08ac66c54bfdc59e33316ba36c8e03",
+      "bytes": 1877
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik.py": {
+      "sha256": "795b7911f73e6e78c4f7bc048b51e9c2a515779d80c6327fba18aa4710b2b520",
+      "bytes": 3326
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/ik_adapter.py": {
+      "sha256": "6c9333adedd8e0f8b9060e4a21446ff9ace45ab53c4b068171a21719733c0824",
+      "bytes": 808
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/integration.py": {
+      "sha256": "5eee32b143fe48eed5fdda0809ac3fe8890cf7be60e2ecd312669cd59d9d5504",
+      "bytes": 2913
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/physical_evaluation.py": {
+      "sha256": "cae88e55b8d3ed1151647511394eb5dd6c9f0bebd4e411ea01ed5312c6e610cb",
+      "bytes": 5532
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reference.py": {
+      "sha256": "99fb9327c82f8a535678a8089595cfbb86c19ad3780aa540815280b1b2eed3cf",
+      "bytes": 10216
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/replay.py": {
+      "sha256": "4b0127a342274a9650a857fe1cbf19dc6b6ea52f5e8fd0cedfab1d43526481c7",
+      "bytes": 7035
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/resources.py": {
+      "sha256": "0cdc990f1cde8f74cc7557d37eda17ccff3f0f2967f31371d775ecf0524aa80d",
+      "bytes": 1159
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/retarget.py": {
+      "sha256": "e87472c0bed321848c7aaf37750ee48f3e74cbb19313849e37db1320f20c9e29",
+      "bytes": 18431
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/reward.py": {
+      "sha256": "ff4739d006bfe8831a33e03eb80d8a6a39c07d7d9fe9954d7d39df9040bb075f",
+      "bytes": 4805
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/schema.py": {
+      "sha256": "2753088cb0f8a1a7c3eaff1569cab366aaa405d0e5bd4ac15f24cf40f69cc6f6",
+      "bytes": 7141
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/simulator.py": {
+      "sha256": "26577d32e7a90b8ae84e70883115d803f4ecc6f0641df522c602fef50efcf7a5",
+      "bytes": 4142
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/targets.py": {
+      "sha256": "3af2ba541e516f0382b3f820efa115c8e4e35a8a42e1fad0988ff65e6b109550",
+      "bytes": 1357
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/training.py": {
+      "sha256": "52592f5070e4e9f119a10b1e965a19074b0d2d3fca251c2e60a28dc3b65a500e",
+      "bytes": 7927
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave.py": {
+      "sha256": "63542bc41a01cbd70be5245f360ef5d6d581b5ba6e47ff37fa5a853445f1b054",
+      "bytes": 10278
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/weave_archive.py": {
+      "sha256": "cec049631be5cc40d20c28381b8bf7029893f3e1c0fd315644d3188602edcb4e",
+      "bytes": 5405
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/hoi/world_model.py": {
+      "sha256": "847780813e8b66915406525964602bcd76b36ed1abee279ad4643e33292327f5",
+      "bytes": 2163
+    },
+    "/home/han/pyx/humanoid-amp-ppo/src/mjlab_g1/scripts/hoi_inspect_hdmi_usd.py": {
+      "sha256": "39c7c3f842fe0d3fae76157e3e15157c39018cc6b676e47ae82dd98f2e2e7dec",
+      "bytes": 3416
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/g1/g1_29dof_rubberhand-feet_sphere-eef_box-body_capsule.usd": {
+      "sha256": "faf4d267a7a93fd16186e77e4c2802aa8ea977b5bb971b72fa63dee99c33200d",
+      "bytes": 27246027
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/bread_box/bread_box.usd": {
+      "sha256": "a1dab021725a8f23d068aaa97018476af81797db5fa18adb2f1718c2fa075943",
+      "bytes": 11265
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd": {
+      "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523",
+      "bytes": 6010
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd": {
+      "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851",
+      "bytes": 6010
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects.py": {
+      "sha256": "d6a018fcb0481292d71892ebd52dccdd87ea494ec6574dc7852d27703c7972bd",
+      "bytes": 10477
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets_mjcf/objects/bread_box/bread_box.xml": {
+      "sha256": "b91114480649634e49cd9f16e577109e01860c6d7607176a5b4e3f02a38087c6",
+      "bytes": 1559
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/envs/mdp/commands/hdmi/randomizations.py": {
+      "sha256": "729d8c6cf3ff786cedfc9378a4165454fde1f47fdf395dc1775bdeee45f5c73b",
+      "bytes": 10901
+    },
+    "/tmp/supermimic_hoi_audit_20261104/HDMI/cfg/task/G1/hdmi/carry_and_place_bread_box.yaml": {
+      "sha256": "a8ff4820b8e51c6a7dce5fbb92257f7d3331ce26d93085c578510bbcc4546561",
+      "bytes": 1448
+    }
+  },
+  "versions": {
+    "mjlab": "1.6.0",
+    "mujoco": "3.16.0",
+    "mujoco-warp": "3.16.0",
+    "warp-lang": "1.18.0",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4"
+  },
+  "dependency_hashes_match_p0": {
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/contact_sensor.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sensor/sensor.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/scene/scene.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/recorder_manager.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/entity/data.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/sensor.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/forward.py": true,
+    "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/support.py": true
+  },
+  "missing_manifest_sources": [
+    {
+      "path": "/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md",
+      "sha256": "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
+    }
+  ]
+}

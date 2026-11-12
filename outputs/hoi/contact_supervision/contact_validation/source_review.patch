@@ -1,0 +1,2751 @@
+diff --git a/src/supermimic/hoi/contact_validation.py b/src/supermimic/hoi/contact_validation.py
+new file mode 100644
+index 0000000..b0b6a36
+--- /dev/null
++++ b/src/supermimic/hoi/contact_validation.py
+@@ -0,0 +1,192 @@
++"""P6 offline physical measurements; never imported by learning/reward paths."""
++
++from __future__ import annotations
++
++from itertools import pairwise
++
++import numpy as np
++
++
++def actual_contact(raw_world, thresholds, occupancy_cutoffs):
++    """Chronological [N,4,2,2,3] primary forces → independent hand decisions.
++
++    Strict inequalities follow Master §11. No smoothing, reference labels, or
++    absolute sum of opposing local loads. Cutoffs .25 require >=2 of 4 solves.
++    """
++    raw = np.asarray(raw_world)
++    tau, rho = np.asarray(thresholds), np.asarray(occupancy_cutoffs)
++    if raw.ndim != 5 or raw.shape[1:] != (4, 2, 2, 3):
++        raise ValueError("Expected [N,4,2,2,3] raw force")
++    if tau.shape != (2,) or rho.shape != (2,):
++        raise ValueError("Independent L/R thresholds and cutoffs required")
++    if (
++        not np.isfinite(raw).all()
++        or not np.isfinite(tau).all()
++        or not np.isfinite(rho).all()
++        or np.any(tau <= 0)
++        or np.any(rho < 0)
++        or np.any(rho >= 1)
++    ):
++        raise ValueError("Invalid physical contact measurement/definition")
++    magnitude = np.linalg.norm(raw.sum(axis=3), axis=-1)
++    occupancy = (magnitude > tau).mean(axis=1)
++    hands = occupancy > rho
++    return {
++        "magnitude_N": magnitude,
++        "occupancy": occupancy,
++        "hands": hands,
++        "any": hands.any(axis=1),
++        "bilateral": hands.all(axis=1),
++    }
++
++
++def confusion(reference, measured):
++    reference, measured = np.asarray(reference), np.asarray(measured)
++    if reference.dtype != bool or measured.dtype != bool or reference.shape != measured.shape:
++        raise ValueError("Expected equally shaped bool labels")
++    tn = int((~reference & ~measured).sum())
++    fp = int((~reference & measured).sum())
++    fn = int((reference & ~measured).sum())
++    tp = int((reference & measured).sum())
++
++    def ratio(a, b):
++        return a / b if b else None
++
++    recall, specificity = ratio(tp, tp + fn), ratio(tn, tn + fp)
++    return {
++        "matrix_ref_rows_sim_columns": [[tn, fp], [fn, tp]],
++        "TN": tn,
++        "FP": fp,
++        "FN": fn,
++        "TP": tp,
++        "count": tn + fp + fn + tp,
++        "accuracy": ratio(tp + tn, tn + fp + fn + tp),
++        "precision": ratio(tp, tp + fp),
++        "recall": recall,
++        "F1": ratio(2 * tp, 2 * tp + fp + fn),
++        "balanced_accuracy": (recall + specificity) / 2
++        if recall is not None and specificity is not None
++        else None,
++    }
++
++
++def agreement(raw, labels, frames_start, frames_end, episodes, valid, thresholds, cutoffs):
++    """Compare interval force against exact reached frame t+1, one shared mask.
++
++    Episodes identify distinct source/world episodes. Tracking failures do not
++    remove otherwise finite, aligned, solver-valid measurements.
++    """
++    labels = np.asarray(labels)
++    start, end, ep, mask = map(np.asarray, (frames_start, frames_end, episodes, valid))
++    n = len(raw)
++    if labels.dtype != bool or labels.ndim != 1 or mask.dtype != bool:
++        raise ValueError("Bool reference and explicit bool validity required")
++    if any(x.shape != (n,) for x in (start, end, ep, mask)):
++        raise ValueError("Metadata lengths differ")
++    if start.dtype.kind not in "iu" or end.dtype.kind not in "iu":
++        raise ValueError("Integer frame indices required")
++    if np.any(end != start + 1) or np.any(start < 0) or np.any(end >= len(labels)):
++        raise ValueError("Misaligned or out-of-clip frame; never clamp")
++    contact = actual_contact(raw, thresholds, cutoffs)
++    ref = labels[end]
++    result = {
++        "total_rows": n,
++        "valid_rows": int(mask.sum()),
++        "invalid_rows": np.flatnonzero(~mask).tolist(),
++        "alignment": "interval [t,t+1] compared to unchanged object_contact[t+1]",
++        "any": confusion(ref[mask], contact["any"][mask]),
++        "bilateral": confusion(ref[mask], contact["bilateral"][mask]),
++    }
++    for name, values in (
++        ("left", contact["hands"][:, 0]),
++        ("right", contact["hands"][:, 1]),
++        ("any", contact["any"]),
++        ("bilateral", contact["bilateral"]),
++    ):
++        record = result.setdefault(name, {})
++        record["contact_ratio"] = float(values[mask].mean()) if mask.any() else None
++        for phase, select in (("ON", mask & ref), ("OFF", mask & ~ref)):
++            count = int(select.sum())
++            record[phase] = {
++                "frames": count,
++                "duration_s": count * 0.02,
++                "contact_duration_s": int(values[select].sum()) * 0.02,
++                "contact_ratio": float(values[select].mean()) if count else None,
++            }
++        onsets = losses = adj = 0
++        for episode in np.unique(ep):
++            indices = np.flatnonzero(ep == episode)
++            # Require recorded ordering, do not silently repair a scrambled episode.
++            if np.any(np.diff(start[indices]) <= 0):
++                raise ValueError("Duplicate/nonmonotonic episode frames")
++            for i, j in pairwise(indices):
++                if mask[i] and mask[j] and start[j] == end[i]:
++                    adj += 1
++                    onsets += int(not values[i] and values[j])
++                    losses += int(values[i] and not values[j])
++        record.update(
++            onsets=onsets,
++            losses=losses,
++            adjacency_duration_s=adj * 0.02,
++            onset_Hz=onsets / (adj * 0.02) if adj else None,
++            loss_Hz=losses / (adj * 0.02) if adj else None,
++        )
++    for hand, name in enumerate(("left", "right")):
++        for phase, select in (("ON", mask & ref), ("OFF", mask & ~ref)):
++            occ = contact["occupancy"][select, hand]
++            result[name][phase].update(
++                mean_occupancy=float(occ.mean()) if len(occ) else None,
++                force_bearing_substep_duration_s=float(occ.sum() * 0.02),
++            )
++    return result
++
++
++def penetration_summary(contacts, sample_count, dt=0.005):
++    """One time sample per solver evaluation; empty samples stay in denominator.
++
++    Mean depth is over contact records including zero depth, not time-weighted.
++    Duration counts unique solver samples, not manifold point multiplicity.
++    """
++    if sample_count < 0 or dt <= 0:
++        raise ValueError("Invalid sampling interval/count")
++    result = {}
++    categories = ["left", "right", "hand_box", "support", "ground", "robot_body", "all_box"]
++    for category in categories:
++        selected = [
++            c
++            for c in contacts
++            if category == "all_box"
++            or c["category"] == category
++            or (category == "hand_box" and c["category"] in ("left", "right"))
++        ]
++        distances = np.array([c["dist"] for c in selected], dtype=float)
++        samples = np.array([c["sample"] for c in selected], dtype=int)
++        if (
++            not np.isfinite(distances).all()
++            or np.any(samples < 0)
++            or np.any(samples >= sample_count)
++        ):
++            raise ValueError("Invalid contact sample/distance")
++        depths = np.maximum(-distances, 0)
++        record = {
++            "contact_records": len(selected),
++            "contact_samples": len(np.unique(samples)),
++            "min_signed_distance_m": float(distances.min()) if len(distances) else None,
++            "max_penetration_m": float(depths.max()) if len(depths) else 0.0,
++            "mean_depth_during_contact_m": float(depths.mean()) if len(depths) else None,
++            "duration_s": sample_count * dt,
++        }
++        for limit in (0.0, 0.0001, 0.001, 0.005):
++            active = np.zeros(sample_count, dtype=bool)
++            active[samples[depths > limit]] = True
++            padded = np.r_[False, active, False].astype(int)
++            starts, ends = np.where(np.diff(padded) == 1)[0], np.where(np.diff(padded) == -1)[0]
++            record[str(limit)] = {
++                "samples": int(active.sum()),
++                "duration_s": float(active.sum() * dt),
++                "frequency_fraction": float(active.mean()) if sample_count else None,
++                "episodes": len(starts),
++                "max_contiguous_s": float((ends - starts).max() * dt) if len(starts) else 0.0,
++            }
++        result[category] = record
++    return result
+diff --git a/tests/hoi/test_collision_diagnostics.py b/tests/hoi/test_collision_diagnostics.py
+new file mode 100644
+index 0000000..cfa9dcb
+--- /dev/null
++++ b/tests/hoi/test_collision_diagnostics.py
+@@ -0,0 +1,34 @@
++import pytest
++
++from supermimic.hoi.contact_validation import penetration_summary
++
++
++def test_manifold_multiplicity_does_not_multiply_duration():
++    contacts = [
++        {"sample": i, "dist": d, "category": c}
++        for i, d, c in [
++            (0, -0.002, "left"),
++            (0, -0.004, "left"),
++            (1, 0.001, "left"),
++            (3, -0.0001, "support"),
++        ]
++    ]
++    r = penetration_summary(contacts, 5)
++    assert r["left"]["contact_records"] == 3 and r["left"]["contact_samples"] == 2
++    assert r["hand_box"]["0.001"]["duration_s"] == 0.005
++    assert r["hand_box"]["0.001"]["frequency_fraction"] == 0.2
++    assert r["hand_box"]["max_penetration_m"] == 0.004
++    assert r["hand_box"]["mean_depth_during_contact_m"] == pytest.approx(0.002)
++    assert r["support"]["contact_records"] == 1 and r["right"]["contact_records"] == 0
++    assert r["right"]["min_signed_distance_m"] is None
++
++
++def test_persistent_penetration_and_gaps():
++    cs = [{"sample": i, "dist": -0.002, "category": "right"} for i in list(range(20)) + [21]]
++    r = penetration_summary(cs, 23)["right"]["0.001"]
++    assert r["episodes"] == 2 and r["max_contiguous_s"] == 0.1 and r["duration_s"] == 0.105
++
++
++def test_invalid_contact_sample_rejected():
++    with pytest.raises(ValueError):
++        penetration_summary([{"sample": 3, "dist": -0.1, "category": "left"}], 3)
+diff --git a/tests/hoi/test_physical_contact_agreement.py b/tests/hoi/test_physical_contact_agreement.py
+new file mode 100644
+index 0000000..5069295
+--- /dev/null
++++ b/tests/hoi/test_physical_contact_agreement.py
+@@ -0,0 +1,82 @@
++import numpy as np
++import pytest
++
++from supermimic.hoi.contact_validation import actual_contact, agreement, confusion
++
++
++def test_strict_threshold_occupancy_and_net_cancellation():
++    raw = np.zeros((4, 4, 2, 2, 3))
++    raw[0, :, 0, 0, 0] = 1.0  # equal threshold is OFF
++    raw[1, 0, 0, 0, 0] = 2.0  # one solve occupancy=.25 is OFF
++    raw[2, :2, 0, 0, 0] = 2.0  # two solves ON
++    raw[3, :, 0, 0, 0] = 2.0
++    raw[3, :, 0, 1, 0] = -2.0  # opposing loads cancel
++    x = actual_contact(raw, [1, 1], [0.25, 0.25])
++    assert x["hands"][:, 0].tolist() == [False, False, True, False]
++    assert not x["bilateral"].any()
++    assert x["occupancy"][:, 0].tolist() == [0, 0.25, 0.5, 0]
++
++
++def test_confusion_undefined_and_class_imbalance():
++    x = confusion(np.array([0, 0, 1, 1], bool), np.array([0, 1, 0, 1], bool))
++    assert x["matrix_ref_rows_sim_columns"] == [[1, 1], [1, 1]]
++    assert all(x[k] == 0.5 for k in ["accuracy", "precision", "recall", "F1", "balanced_accuracy"])
++    y = confusion(np.array([0, 0], bool), np.array([0, 0], bool))
++    assert y["accuracy"] == 1 and y["precision"] is None and y["recall"] is None
++    assert y["balanced_accuracy"] is None and y["F1"] is None
++
++
++def test_alignment_shared_mask_and_episode_boundaries():
++    raw = np.zeros((4, 4, 2, 2, 3))
++    raw[1:, :, 0, 0, 0] = 2
++    raw[2:, :, 1, 0, 0] = 2
++    labels = np.array([0, 1, 0, 1, 0], bool)
++    x = agreement(
++        raw,
++        labels,
++        np.arange(4),
++        np.arange(1, 5),
++        np.array([0, 0, 1, 1]),
++        np.array([1, 0, 1, 1], bool),
++        [1, 1],
++        [0.25, 0.25],
++    )
++    assert x["valid_rows"] == 3 and x["invalid_rows"] == [1]
++    assert x["any"]["matrix_ref_rows_sim_columns"] == [[0, 1], [1, 1]]
++    assert x["any"]["count"] == x["bilateral"]["count"] == 3
++    assert x["left"]["onsets"] == 0  # reset boundary cannot invent onset
++    assert x["left"]["OFF"]["contact_duration_s"] == 0.02
++    assert x["left"]["ON"]["force_bearing_substep_duration_s"] == 0.02
++    with pytest.raises(ValueError, match="Misaligned"):
++        agreement(
++            raw,
++            labels,
++            np.arange(4),
++            np.arange(4),
++            np.zeros(4),
++            np.ones(4, bool),
++            [1, 1],
++            [0.25, 0.25],
++        )
++
++
++@pytest.mark.parametrize(
++    "tau,rho", [([0, 1], [0.25, 0.25]), ([1, 1], [1, 0.25]), ([np.nan, 1], [0.25, 0.25])]
++)
++def test_invalid_definition_rejected(tau, rho):
++    with pytest.raises(ValueError):
++        actual_contact(np.zeros((1, 4, 2, 2, 3)), tau, rho)
++
++
++def test_duplicate_reference_frames_in_same_episode_rejected():
++    with pytest.raises(ValueError, match="Duplicate"):
++        agreement(
++            np.zeros((2, 4, 2, 2, 3)),
++            np.zeros(4, bool),
++            np.array([0, 0]),
++            np.array([1, 1]),
++            np.zeros(2),
++            np.ones(2, bool),
++            [1, 1],
++            [0.25, 0.25],
++        )
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py b/outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py
+new file mode 100644
+index 0000000..2ccccae
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py
+@@ -0,0 +1,265 @@
++"""Recompute P6 measurements from immutable run outputs, never from reference relabels."""
++
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import numpy as np
++from common import ROOT, inputs, save
++
++from supermimic.hoi.contact_validation import actual_contact, agreement
++
++
++def calibrate(root):
++    training = [[], []]
++    null = [[], []]
++    held = [[], []]
++    rows = []
++    for folder in sorted((root / "calibration_02").glob("roll*")):
++        samples = json.loads((folder / "samples.json").read_text())
++        if len(samples) != 4 or any(np.any(s["overflow"]) for s in samples):
++            raise ValueError("Incomplete/invalid calibration")
++        raw = np.stack([s["raw_world_N"] for s in samples], axis=1)
++        norms = np.linalg.norm(raw.sum(3), axis=-1)
++        holdout = "roll0.31_" in folder.name
++        for h in range(2):
++            (held if holdout else training)[h].append(norms[h + 1, 0, h])
++            null[h].extend(norms[0, :, h])
++            null[h].extend(norms[2 - h, :, h])
++        rows.append((folder.name, raw, holdout))
++    nmax = np.array([max(x) for x in null])
++    p05 = np.array([np.quantile(x, 0.05) for x in training])
++    if np.any(nmax >= p05) or np.any(nmax > 1e-6):
++        raise ValueError("No reliable force separation")
++    tau = 0.5 * (nmax + p05)
++    rho = np.array([0.25, 0.25])
++    results = []
++    for name, raw, heldout in rows:
++        result = actual_contact(raw, tau, rho)
++        results.append(
++            {
++                "name": name,
++                "held_out": heldout,
++                "occupancy": result["occupancy"],
++                "actual_hands": result["hands"],
++                "first_force_N": result["magnitude_N"][:, 0],
++            }
++        )
++    previous = json.loads(
++        (
++            ROOT / "outputs/hoi/contact_supervision/sensor_calibration/run_05/calibration.json"
++        ).read_text()
++    )
++    transients = {}
++    for key in ("substep1_only", "substep4_only", "contact_ends_before_final"):
++        samples = previous["scenarios"][key]["samples"]
++        raw = np.stack([x["force_columns_world_N"] for x in samples], axis=1)
++        r = actual_contact(raw, tau, rho)
++        transients[key] = {
++            "original_pattern": previous["scenarios"][key]["pattern"],
++            "occupancy": r["occupancy"],
++            "actual_hands": r["hands"],
++        }
++    result = {
++        "thresholds_N_LR": tau,
++        "occupancy_cutoffs_LR": rho,
++        "strict_comparison": ">",
++        "definition": "norm of simultaneous pitch+yaw net force > tau at >=2/4 substeps; no reference used",
++        "null_max_N_LR": nmax,
++        "train_positive_p05_N_LR": p05,
++        "training_first_solve_N_LR": training,
++        "heldout_first_solve_N_LR": held,
++        "heldout_first_solve_recall_LR": [
++            float((np.array(v) > t).mean()) for v, t in zip(held, tau)
++        ],
++        "training_rolls_rad": [0.0, 0.63],
++        "heldout_roll_rad": 0.31,
++        "depths_m": [0.00025, 0.0005, 0.001, 0.002, 0.003],
++        "fixtures": results,
++        "reused_P1_transients_at_new_definition": transients,
++        "scope": "deterministic native controlled loads; excludes subthreshold/genuine one-substep impacts; net cancellation remains possible",
++    }
++    save(root / "calibration.json", result)
++    return result
++
++
++def geometry(root):
++    rows = json.loads((root / "geometry_02/reference_geometry.json").read_text())
++    on = np.array([r["contact_ref"] for r in rows])
++    d = np.array([r["distance_m"] for r in rows])
++    pairs = np.array([r["min_pair_distance_LR_m"] for r in rows])
++
++    def stats(x):
++        return {
++            "min": x.min(0),
++            "median": np.median(x, axis=0),
++            "max": x.max(0),
++            "rms": np.sqrt((x * x).mean(0)),
++        }
++
++    result = {
++        "frames": len(rows),
++        "on": int(on.sum()),
++        "off": int((~on).sum()),
++        "eef_target_m_ON": stats(d[on]),
++        "eef_target_m_OFF": stats(d[~on]),
++        "pair_distance_m_ON": stats(pairs[on]),
++        "overlap_gt_1mm_ON_LR": (pairs[on] < -0.001).sum(0),
++        "gap_gt_2mm_ON_LR": (pairs[on] > 0.002).sum(0),
++        "both_in_M6_band_ON": int(((pairs[on] >= -0.001) & (pairs[on] <= 0.002)).all(1).sum()),
++        "frame_worst_overlap_LR": pairs.argmin(0),
++        "worst_overlap_m_LR": -pairs.min(0),
++    }
++    scans = json.loads((root / "geometry_02/approach_scans.json").read_text())
++    approach = {}
++    for side in ("left", "right"):
++        for part in ("wrist", "hand"):
++            rs = [r for r in scans if r["side"] == side and r["part"] == part]
++            touching = [r for r in rs if any(c["category"] == side for c in r["contacts"])]
++            first = touching[0] if touching else None
++            approach[side + "_" + part] = {
++                "placements": len(rs),
++                "initial_hand_contacts": sum(
++                    c["category"] in ("left", "right") for c in rs[0]["contacts"]
++                ),
++                "first_shift_m": first["box_x_shift_m"] if first else None,
++                "first_min_dist_m": min(
++                    c["dist"] for c in first["contacts"] if c["category"] == side
++                )
++                if first
++                else None,
++                "opposite_hand_contact_placements": sum(
++                    any(
++                        c["category"] not in (side, "support", "ground", "robot_body")
++                        for c in r["contacts"]
++                    )
++                    for r in rs
++                ),
++            }
++    result["approach"] = approach
++    save(root / "geometry_summary.json", result)
++    return result
++
++
++def replay(root, cal):
++    raws = []
++    starts = []
++    ends = []
++    episodes = []
++    valid = []
++    meta = []
++    case_results = {}
++    labels = inputs()[1].arrays["object_contact"]
++    for ci, folder in enumerate(sorted((root / "replay_01").glob("reference_f*"))):
++        frame = int(folder.name.split("_f")[1])
++        rows = json.loads((folder / "intervals.json").read_text())
++        status = json.loads((folder / "result.json").read_text())
++        case_results[folder.name] = status
++        for k, row in enumerate(rows):
++            for e in range(4):
++                raw = np.array(row["force_raw_world"][e])
++                raws.append(raw)
++                starts.append(frame + k)
++                ends.append(frame + k + 1)
++                episodes.append(ci * 4 + e)
++                valid.append(True)
++                meta.append(
++                    {
++                        "case": folder.name,
++                        "world": e,
++                        "frame_start": frame + k,
++                        "frame_end": frame + k + 1,
++                        "state": row["state"][e],
++                        "next_state": row["next_state"][e],
++                    }
++                )
++    if not raws:
++        raise ValueError("No valid replay intervals")
++    raw = np.array(raws)
++    start = np.array(starts)
++    end = np.array(ends)
++    ep = np.array(episodes)
++    mask = np.array(valid)
++    tau = cal["thresholds_N_LR"]
++    rho = cal["occupancy_cutoffs_LR"]
++    result = agreement(raw, labels, start, end, ep, mask, tau, rho)
++    result.update(
++        cases=case_results,
++        task_required_aggregate="bilateral AND during ON260..549, P4.1 explicit manifest evidence",
++        failed_partial_substeps_excluded="Solver-invalid/incomplete final interval retained in per-case samples; all earlier complete rows retained, including bad tracking",
++        unique_reference_end_frames=len(np.unique(end)),
++        thresholds_N_LR=tau,
++        cutoffs_LR=rho,
++    )
++    result["sensitivity"] = {}
++    for multiplier in (0.5, 1.0, 2.0):
++        for cutoff in (0.0, 0.25, 0.5, 0.75):
++            metrics = agreement(
++                raw, labels, start, end, ep, mask, np.array(tau) * multiplier, [cutoff] * 2
++            )
++            result["sensitivity"][f"tau_x{multiplier}_rho{cutoff}"] = {
++                a: metrics[a] for a in ("any", "bilateral")
++            }
++    save(root / "replay_summary.json", result)
++    # Independent P4 FK geometry at integrated end states, no force in reward path.
++    import torch
++    from audit_robot import target_spec
++
++    from supermimic.hoi.rewards import ProximityReward
++    from supermimic.kinematics.g1_fk import G1Kinematics
++
++    m, clip, _ = inputs()
++    fk = G1Kinematics(target_spec().compile(), dtype=torch.float64)
++    proxy = ProximityReward(
++        fk,
++        tuple(m["contact"]["wrist_bodies"]),
++        m["contact"]["target_root_m"],
++        m["contact"]["eef_offset_wrist_m"],
++        sigma_pos=1.0,
++    )
++    # Named runtime order verified separately against FK; never assume index coincidence.
++    source_names = clip.arrays["joint_names"].tolist()
++    order = [source_names.index(n) for n in fk.joint_names[1:]]
++    for folder in (root / "replay_01").glob("reference_f*"):
++        f = int(folder.name.split("_f")[1])
++        initial = np.array(json.loads((folder / "initial.json").read_text())["state84"])
++        np.testing.assert_allclose(
++            initial[:, 7:36],
++            np.broadcast_to(clip.arrays["joint_pos"][f, order], (4, 29)),
++            atol=1e-7,
++            rtol=0,
++        )
++    states = torch.tensor([r["next_state"] for r in meta], dtype=torch.float64)
++    eef, target = proxy.geometry(states)
++    distance = (eef - target).norm(dim=-1).numpy()
++    actual = actual_contact(raw, tau, rho)
++    for i, row in enumerate(meta):
++        row.update(
++            contact_ref=bool(labels[end[i]]),
++            actual_LR=actual["hands"][i],
++            actual_any=bool(actual["any"][i]),
++            actual_bilateral=bool(actual["bilateral"][i]),
++            occupancy_LR=actual["occupancy"][i],
++            force_peak_N_LR=actual["magnitude_N"][i].max(0),
++            eef_target_distance_LR_m=distance[i],
++            eef_world=eef[i].numpy(),
++            targets_world=target[i].numpy(),
++            validity=True,
++        )
++    save(root / "replay_rows.json", meta)
++    return result
++
++
++if __name__ == "__main__":
++    p = argparse.ArgumentParser()
++    p.add_argument("--root", type=Path, required=True)
++    p.add_argument("--part", choices=["calibration", "geometry", "replay", "all"], default="all")
++    a = p.parse_args()
++    if a.part in ("calibration", "all"):
++        calibrate(a.root)
++    if a.part in ("geometry", "all"):
++        geometry(a.root)
++    if a.part in ("replay", "all"):
++        replay(a.root, json.loads((a.root / "calibration.json").read_text()))
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py b/outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py
+new file mode 100644
+index 0000000..1f99fda
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py
+@@ -0,0 +1,278 @@
++"""P6 independent CPU dynamics of the unchanged nominal free Box and supports."""
++
++from __future__ import annotations
++
++import argparse
++from pathlib import Path
++
++from common import cpu_contacts, inputs, rot, save  # isort: skip
++
++import mujoco
++import numpy as np
++from asset_common import vertices
++
++from supermimic.hoi.contact_validation import penetration_summary
++from supermimic.hoi.scene import _add_supports, _box_spec
++
++
++def model_for(manifest, origin=(0, 0, 0)):
++    spec = mujoco.MjSpec()
++    _add_supports(manifest, spec)
++    for body in spec.bodies:
++        if "support" in body.name:
++            body.pos = np.asarray(body.pos) + origin
++    spec.attach(_box_spec(manifest), frame=spec.worldbody.add_frame(), prefix="box/")
++    spec.worldbody.add_geom(
++        name="ground",
++        type=mujoco.mjtGeom.mjGEOM_PLANE,
++        size=[0, 0, 0.05],
++        friction=[1, 0.005, 0.0001],
++        condim=3,
++    )
++    spec.option.timestep = 0.005
++    spec.option.integrator = mujoco.mjtIntegrator.mjINT_IMPLICITFAST
++    spec.option.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
++    spec.option.iterations = 10
++    spec.option.ls_iterations = 20
++    m = spec.compile()
++    assert m.nq == 7 and m.nv == 6 and m.nu == 0 and m.neq == 0 and m.nmocap == 0
++    return m
++
++
++def proposal(manifest):
++    gs = manifest["object"]["geoms"]
++    mass = manifest["object"]["inertia"]["mass_kg"]
++    volumes = np.array([8 * np.prod(g["size"]) for g in gs])
++    masses = mass * volumes / volumes.sum()
++    centers = np.array([g["pos"] for g in gs])
++    com = (masses[:, None] * centers).sum(0) / mass
++    inertia = np.zeros((3, 3))
++    for g, m, c in zip(gs, masses, centers):
++        h = np.array(g["size"])
++        diag = (
++            m / 3 * np.array([h[1] ** 2 + h[2] ** 2, h[0] ** 2 + h[2] ** 2, h[0] ** 2 + h[1] ** 2])
++        )
++        r = rot(g["quat"]).as_matrix()
++        offset = c - com
++        inertia += r @ np.diag(diag) @ r.T + m * (
++            np.dot(offset, offset) * np.eye(3) - np.outer(offset, offset)
++        )
++    points = np.concatenate([vertices(g) for g in gs])
++    eigval, eigvec = np.linalg.eigh(inertia)
++    if np.linalg.det(eigvec) < 0:
++        eigvec[:, 0] *= -1
++    return {
++        "status": "PROPOSAL_ONLY_NOT_APPLIED",
++        "assumption": "uniform density seven separately weighted cuboids; overlapping volumes counted per component; no material measurement",
++        "original": manifest["object"]["inertia"],
++        "envelope_min": points.min(0),
++        "envelope_max": points.max(0),
++        "component_mass_kg": dict(zip([g["name"] for g in gs], masses)),
++        "proposal_com_root_m": com,
++        "proposal_inertia_root_axes_at_com_kg_m2": inertia,
++        "principal_inertia_kg_m2": eigval,
++        "principal_axes_wxyz": rot_from_matrix(eigvec),
++        "expected_effect": "moves COM inside geometry, changes gravitational/contact torque arms and angular acceleration; likely reduces artificial pendulum stability",
++        "required_approval": "new versioned asset profile, material/mass assumptions, all P1 pair/sign/reset and P6 dynamics/solver/support/release regressions, separate reference comparison; original preserved",
++    }
++
++
++def rot_from_matrix(matrix):
++    from scipy.spatial.transform import Rotation
++
++    return Rotation.from_matrix(matrix).as_quat(scalar_first=True)
++
++
++def run_case(case, manifest, output):
++    folder = output / case["name"]
++    folder.mkdir(exist_ok=False)
++    origin = np.array(case.get("origin", [0, 0, 0]))
++    m = model_for(manifest, origin)
++    d = mujoco.MjData(m)
++    bid = m.body("box/bread_box").id
++    d.qpos[:3] = case["position"]
++    d.qpos[3:7] = case["quaternion"]
++    d.qvel[:] = 0
++    mujoco.mj_forward(m, d)
++    initial = d.qpos.copy()
++    records = []
++    contacts = []
++    dt = m.opt.timestep
++    steps = round(case["seconds"] / dt)
++    for k in range(steps):
++        time = k * dt
++        wrench = np.zeros(6)
++        if case["kind"] == "force":
++            wrench[:3] = case["force"]
++        if case["kind"] == "torque":
++            wrench[3:] = case["torque"]
++        if case["kind"] == "lift" and 0.5 <= time < 0.75:
++            wrench[2] = 24.0
++        d.xfrc_applied[:] = 0
++        d.xfrc_applied[bid] = wrench
++        assert not np.any(d.qfrc_applied)
++        # mj_step owns all state changes after this case's initial reset.
++        mujoco.mj_step(m, d)
++        new_contacts = cpu_contacts(m, d, k)
++        contacts.extend(new_contacts)
++        q = d.qpos[3:7].copy()
++        r = rot(q)
++        omega = r.apply(d.qvel[3:6])
++        com_velocity = d.qvel[:3] + np.cross(omega, r.apply(m.body_ipos[bid]))
++        forces = {cat: np.zeros(3) for cat in ("support", "ground", "left", "right", "robot_body")}
++        for c in new_contacts:
++            sign = 1 if c["names"][1].startswith("box/") else -1
++            forces[c["category"]] += sign * c["world_force_on_geom2_N"]
++        records.append(
++            {
++                "sample": k,
++                "time_end_s": float(d.time),
++                "qpos": d.qpos.copy(),
++                "qvel": d.qvel.copy(),
++                "com_velocity_world": com_velocity,
++                "omega_world": omega,
++                "external_wrench": wrench,
++                "box_contact_force_world": forces,
++                "solver_niter": d.solver_niter.copy(),
++                "warnings": {
++                    mujoco.mjtWarning(i).name: int(d.warning[i].number)
++                    for i in range(len(d.warning))
++                },
++                "ncon": d.ncon,
++                "orientation_error_rad": float((rot(initial[3:7]).inv() * r).magnitude()),
++            }
++        )
++        if not np.isfinite(d.qpos).all() or not np.isfinite(d.qvel).all():
++            break
++    tail = records[-min(100, len(records)) :]
++    speeds = [np.linalg.norm(x["com_velocity_world"]) for x in tail]
++    ang = [np.linalg.norm(x["omega_world"]) for x in tail]
++    support_z = [x["box_contact_force_world"]["support"][2] for x in tail]
++    ground_z = [x["box_contact_force_world"]["ground"][2] for x in tail]
++    analytical = None
++    if case["kind"] in ("force", "torque", "freefall"):
++        force = np.array(case.get("force", [0, 0, 0]))
++        torque = np.array(case.get("torque", [0, 0, 0]))
++        R = rot(initial[3:7]).as_matrix() @ rot(m.body_iquat[bid]).as_matrix()
++        I = R @ np.diag(m.body_inertia[bid]) @ R.T
++        expected_v = (force / m.body_mass[bid] + m.opt.gravity) * dt
++        expected_omega = np.linalg.solve(I, torque) * dt
++        analytical = {
++            "expected_first_com_velocity": expected_v,
++            "expected_first_world_omega": expected_omega,
++            "first_velocity_error": float(
++                np.linalg.norm(records[0]["com_velocity_world"] - expected_v)
++            ),
++            "first_omega_error": float(np.linalg.norm(records[0]["omega_world"] - expected_omega)),
++        }
++    result = {
++        "case": case,
++        "samples": len(records),
++        "warnings": records[-1]["warnings"],
++        "solver_iterations_max": max(int(x["solver_niter"].max()) for x in records),
++        "initial_qpos": initial,
++        "final_qpos": d.qpos.copy(),
++        "final_qvel": d.qvel.copy(),
++        "max_rise_m": max(x["qpos"][2] - initial[2] for x in records),
++        "final_displacement_m": float(np.linalg.norm(d.qpos[:3] - initial[:3])),
++        "tail_max_COM_speed_m_s": max(speeds),
++        "tail_max_angular_speed_rad_s": max(ang),
++        "tail_max_orientation_error_rad": max(x["orientation_error_rad"] for x in tail),
++        "tail_mean_support_z_N": float(np.mean(support_z)),
++        "tail_mean_ground_z_N": float(np.mean(ground_z)),
++        "external_impulse_Ns": sum((r["external_wrench"][:3] * dt for r in records), np.zeros(3)),
++        "analytical": analytical,
++        "penetration": penetration_summary(contacts, len(records)),
++        "stable_tail": bool(
++            max(speeds) < 0.02
++            and max(ang) < 0.1
++            and max(x["orientation_error_rad"] for x in tail) < 0.05
++            and (min(support_z) > 1 or min(ground_z) > 1)
++        ),
++        "no_state_reposition_after_reset": True,
++    }
++    save(folder / "trajectory.json", records)
++    save(folder / "contacts.json", contacts)
++    save(folder / "summary.json", result)
++    print(
++        case["name"], "stable", result["stable_tail"], "max rise", result["max_rise_m"], flush=True
++    )
++    return result
++
++
++def main(output):
++    output.mkdir(parents=True, exist_ok=False)
++    m, _, sources = inputs()
++    save(output / "mass_proposal.json", proposal(m))
++    cases = []
++    for kind, extra in [
++        ("freefall", {}),
++        ("force", {"force": [4.0, 0, 0]}),
++        ("torque", {"torque": [0.02, 0, 0]}),
++    ]:
++        for angle in (0.0, 0.6):
++            from scipy.spatial.transform import Rotation
++
++            cases.append(
++                {
++                    "name": f"{kind}_rotation{angle}",
++                    "kind": kind,
++                    "seconds": 0.1,
++                    "position": [0, 0, 3],
++                    "quaternion": Rotation.from_rotvec([0, 0, angle])
++                    .as_quat(scalar_first=True)
++                    .tolist(),
++                    **extra,
++                }
++            )
++    for i, s in enumerate(m["supports"]):
++        for kind, dz in [("settle", 0.04), ("drop", 0.13), ("lift", 0.03)]:
++            cases.append(
++                {
++                    "name": f"support{i}_{kind}",
++                    "kind": kind,
++                    "seconds": 3.0,
++                    "position": (np.array(s["root_pos_world"]) + [0, 0, dz]).tolist(),
++                    "quaternion": s["root_quat_wxyz"],
++                }
++            )
++    cases.append(
++        {
++            "name": "floor_drop",
++            "kind": "drop",
++            "seconds": 3.0,
++            "position": [0, 0, 0.11],
++            "quaternion": [1, 0, 0, 0],
++        }
++    )
++    s = m["supports"][0]
++    origin = np.array([4, -4, 0])
++    cases.append(
++        {
++            "name": "support0_offset_settle",
++            "kind": "settle",
++            "seconds": 3.0,
++            "origin": origin.tolist(),
++            "position": (np.array(s["root_pos_world"]) + origin + [0, 0, 0.04]).tolist(),
++            "quaternion": s["root_quat_wxyz"],
++        }
++    )
++    save(
++        output / "config.json",
++        {
++            "cases": cases,
++            "sources": sources,
++            "dt": 0.005,
++            "iterations": 10,
++            "ls_iterations": 20,
++            "mode": "isolated free Box, unchanged mass/COM/inertia/geoms, explicit world COM wrench only in named tests",
++        },
++    )
++    results = [run_case(c, m, output) for c in cases]
++    save(output / "results.json", results)
++
++
++if __name__ == "__main__":
++    p = argparse.ArgumentParser()
++    p.add_argument("--output", type=Path, required=True)
++    main(p.parse_args().output)
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/common.py b/outputs/hoi/contact_supervision/contact_validation/scripts/common.py
+new file mode 100644
+index 0000000..4b7c7eb
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/common.py
+@@ -0,0 +1,116 @@
++"""P6-only bounded diagnostic adapter. Production provenance gates are untouched."""
++
++import json
++import sys
++from pathlib import Path
++from unittest.mock import patch
++
++import numpy as np
++from scipy.spatial.transform import Rotation
++
++ROOT = Path(__file__).resolve().parents[5]
++sys.path.insert(0, str(ROOT / "scripts/hoi"))
++from supermimic.hoi import scene
++from supermimic.hoi.asset_manifest import load_manifest
++from supermimic.hoi.reference import DEFAULT_ASSET, DEFAULT_OUTPUT, ReferenceClip, sha256
++
++ASSET_SHA = "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
++REF_SHA = "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b"
++MISSING_SHA = "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
++
++
++def save(path, value):
++    def convert(x):
++        if hasattr(x, "tolist"):
++            return x.tolist()
++        if isinstance(x, Path):
++            return str(x)
++        raise TypeError(type(x))
++
++    path.write_text(json.dumps(value, indent=2, default=convert, allow_nan=False) + "\n")
++
++
++def inputs():
++    if sha256(DEFAULT_ASSET) != ASSET_SHA:
++        raise ValueError("Changed accepted asset")
++    m = load_manifest(DEFAULT_ASSET, verify_sources=False)
++    sources = []
++    for s in m["sources"]:
++        p = Path(s["path"])
++        actual = sha256(p) if p.is_file() else None
++        if actual != s["sha256"] and not (
++            actual is None
++            and p == ROOT / "SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md"
++            and s["sha256"] == MISSING_SHA
++        ):
++            raise ValueError(f"Unapproved missing/changed source {p}")
++        sources.append({**s, "actual_sha256": actual})
++    clip = ReferenceClip(DEFAULT_OUTPUT / "reference.npz")
++    if sha256(clip.path) != REF_SHA:
++        raise ValueError("Changed original Part B")
++    return m, clip, sources
++
++
++def physical_env(num_envs=4, noise=0.0):
++    m, _, sources = inputs()
++
++    def diagnostic_load(path):
++        if Path(path).resolve() != DEFAULT_ASSET.resolve() or sha256(path) != ASSET_SHA:
++            raise ValueError("Diagnostic adapter only accepts pinned original manifest")
++        return m
++
++    with patch.object(scene, "load_manifest", diagnostic_load):
++        env = scene.make_physical_env(
++            scene.PhysicalSceneCfg(num_envs=num_envs, action_noise_std=noise)
++        )
++    return env, m, sources
++
++
++def rot(q):
++    return Rotation.from_quat(q, scalar_first=True)
++
++
++def pair_category(model, g1, g2, box_prefix="box/"):
++    names = [model.geom(int(g)).name for g in (g1, g2)]
++    box = [n.startswith(box_prefix) for n in names]
++    if sum(box) != 1:
++        return None
++    other = int(g2 if box[0] else g1)
++    name = model.geom(other).name
++    body = model.body(int(model.geom_bodyid[other])).name
++    for side in ("left", "right"):
++        if body in (f"robot/{side}_wrist_pitch_link", f"robot/{side}_wrist_yaw_link"):
++            return side
++    if "support" in name:
++        return "support"
++    if "terrain" in name or name == "ground":
++        return "ground"
++    return "robot_body"
++
++
++def cpu_contacts(model, data, sample):
++    import mujoco
++
++    result = []
++    for i in range(data.ncon):
++        c = data.contact[i]
++        category = pair_category(model, c.geom1, c.geom2)
++        if category is None:
++            continue
++        f = np.zeros(6)
++        mujoco.mj_contactForce(model, data, i, f)
++        result.append(
++            {
++                "sample": sample,
++                "category": category,
++                "dist": float(c.dist),
++                "pos": c.pos.copy(),
++                "frame": c.frame.reshape(3, 3).copy(),
++                "geom1": int(c.geom1),
++                "geom2": int(c.geom2),
++                "names": [model.geom(int(c.geom1)).name, model.geom(int(c.geom2)).name],
++                "local_force_N": f[:3],
++                "world_force_on_geom2_N": c.frame.reshape(3, 3).T @ f[:3],
++            }
++        )
++    return result
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/export_commands.py b/outputs/hoi/contact_supervision/contact_validation/scripts/export_commands.py
+new file mode 100644
+index 0000000..3dc0978
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/export_commands.py
+@@ -0,0 +1,39 @@
++"""Export exact shell commands from this task's own Codex tool-call transcript."""
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++
++def main(session, output):
++    commands = []
++    pattern = re.compile(r'tools\.exec_command\(\{cmd:\s*("(?:\\.|[^"\\])*")')
++    for line in session.read_text().splitlines():
++        record = json.loads(line)
++        call = record.get("payload", {})
++        if call.get("type") != "custom_tool_call" or call.get("name") != "exec":
++            continue
++        code = call["input"]
++        for match in pattern.finditer(code):
++            commands.append(
++                {
++                    "number": len(commands) + 1,
++                    "timestamp": record.get("timestamp"),
++                    "call_id": call.get("call_id"),
++                    "cwd": "/home/han/pyx/SMHOI",
++                    "command": json.loads(match.group(1)),
++                }
++            )
++    output.write_text(
++        json.dumps({"source_session": str(session), "commands": commands}, indent=2) + "\n"
++    )
++    print("Exact shell commands exported:", len(commands))
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--session", type=Path, required=True)
++    parser.add_argument("--output", type=Path, required=True)
++    args = parser.parse_args()
++    main(args.session, args.output)
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py b/outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py
+new file mode 100644
+index 0000000..7ac1296
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py
+@@ -0,0 +1,52 @@
++import sys
++
++sys.path.insert(0, "outputs/hoi/contact_supervision/contact_validation/scripts")
++import numpy as np
++from calibrate_contacts import Placements
++from common import cpu_contacts, physical_env, save
++from scipy.optimize import least_squares
++
++from supermimic.hoi.state import JointStateIO
++
++E, _, _ = physical_env()
++P = Placements(E, JointStateIO(E))
++m = P.model
++s = P.base.copy()
++s[71:78] = [0.35, 0, 2.87, 1, 0, 0, 0]
++fits = []
++for side, sign in [("left", 1), ("right", -1)]:
++    names = [
++        n
++        for n in P.io.joint_names
++        if n.startswith(side + "_") and any(w in n for w in ["shoulder", "elbow", "wrist"])
++    ]
++    ids = [7 + P.io.joint_names.index(n) for n in names]
++    lim = np.array([m.jnt_range[m.joint("robot/" + n).id] for n in names])
++    init = s[ids].copy()
++    g = m.geom("robot/" + side + "_hand_collision").id
++
++    def f(q, ids=ids, g=g, sign=sign, init=init):
++        s[ids] = q
++        P.forward(s)
++        a = P.data.geom_xmat[g].reshape(3, 3)[:, 2]
++        target = [0.35, sign * (0.17 + 0.035 + m.geom_size[g, 1] * abs(a[1]) - 0.0005), 3.0]
++        return np.r_[P.data.geom_xpos[g] - target, 0.00001 * (q - init)]
++
++    sol = least_squares(
++        f,
++        init,
++        bounds=(lim[:, 0] + 1e-5, lim[:, 1] - 1e-5),
++        max_nfev=2000,
++        ftol=1e-12,
++        gtol=1e-12,
++        xtol=1e-12,
++    )
++    s[ids] = sol.x
++    fits.append(f(sol.x).tolist())
++P.forward(s)
++c = cpu_contacts(m, P.data, 0)
++print("FIT", fits, "contacts", [(a["category"], a["dist"], a["names"]) for a in c])
++save(
++    __import__("pathlib").Path("/tmp/p6_ik_probe.json"), {"state84": s, "contacts": c, "fits": fits}
++)
++E.close()
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py b/outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py
+new file mode 100644
+index 0000000..c025338
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py
+@@ -0,0 +1,205 @@
++"""Audit saved solver samples, physical trajectories, slip and preservation reuse."""
++
++from __future__ import annotations
++
++import argparse
++import gzip
++import json
++from collections import Counter
++from pathlib import Path
++
++import mujoco
++import numpy as np
++from common import ROOT, rot, save
++
++from supermimic.hoi.contact_validation import actual_contact, penetration_summary
++from supermimic.hoi.reference import sha256
++
++
++def com_twist(state, com):
++    r = rot(state[74:78])
++    omega = r.apply(state[81:84])
++    return state[78:81] + np.cross(omega, r.apply(com)), omega
++
++
++def analyze_case(folder, tau, rho, model, origins):
++    samples = json.loads((folder / "samples.json").read_text())
++    rows = json.loads((folder / "intervals.json").read_text())
++    with gzip.open(folder / "contacts.json.gz", "rt") as f:
++        all_contacts = json.load(f)
++    contacts = [c for c in all_contacts if c["type"] & 1]
++    body = model.body("box/bread_box").id
++    com = model.body_ipos[body]
++    flags = np.array([x["overflow"] for x in samples])
++    solver = np.array([x["solver_niter"] for x in samples])
++    result = {
++        "result": json.loads((folder / "result.json").read_text()),
++        "contact_type_counts": dict(Counter(str(x["type"]) for x in all_contacts)),
++        "max_nacon_shared": max(x["nacon"] for x in samples),
++        "max_nefc": int(np.array([x["nefc"] for x in samples]).max()),
++        "max_solver_niter": int(solver.max()),
++        "flagged_samples": [
++            {"sample": int(i), "env": int(e), "flags": int(flags[i, e]), "time_s": (i + 1) * 0.005}
++            for i, e in np.argwhere(flags != 0)
++        ],
++        "constraint_penetration_by_env": {},
++        "all_records_penetration_by_env": {},
++        "worlds": {},
++    }
++    rq = list(range(36))
++    rv = list(range(35))
++    bq = list(range(36, 43))
++    bv = list(range(35, 41))
++    # Resolve both free roots and hinges by names; compiled global ordering can differ.
++    robot_free = model.joint("robot/floating_base_joint").id
++    box_free = model.joint("box/bread_box_root").id
++    rq = list(range(model.jnt_qposadr[robot_free], model.jnt_qposadr[robot_free] + 7))
++    rv = list(range(model.jnt_dofadr[robot_free], model.jnt_dofadr[robot_free] + 6))
++    # Native qpos order is also the named JointStateIO order, verified against reference.
++    robot_joints = sorted(
++        [
++            i
++            for i in range(model.njnt)
++            if model.joint(i).name.startswith("robot/")
++            and model.jnt_type[i] == mujoco.mjtJoint.mjJNT_HINGE
++        ],
++        key=lambda i: model.jnt_qposadr[i],
++    )
++    rq += [int(model.jnt_qposadr[i]) for i in robot_joints]
++    rv += [int(model.jnt_dofadr[i]) for i in robot_joints]
++    bq = list(range(model.jnt_qposadr[box_free], model.jnt_qposadr[box_free] + 7))
++    bv = list(range(model.jnt_dofadr[box_free], model.jnt_dofadr[box_free] + 6))
++    initial = np.array(json.loads((folder / "initial.json").read_text())["state84"])
++    for e in range(4):
++        cs = [c for c in contacts if c["env"] == e]
++        result["constraint_penetration_by_env"][str(e)] = penetration_summary(cs, len(samples))
++        result["all_records_penetration_by_env"][str(e)] = penetration_summary(
++            [c for c in all_contacts if c["env"] == e], len(samples)
++        )
++        states = np.array([x["state84"][e] for x in samples])
++        twists = np.array([com_twist(x, com) for x in states])
++        force_support = np.zeros((len(samples), 3))
++        slip = np.zeros(2)
++        data = mujoco.MjData(model)
++        grouped = {}
++        for c in cs:
++            grouped.setdefault(c["sample"], []).append(c)
++            if c["category"] == "support":
++                sign = 1 if c["names"][1].startswith("box/") else -1
++                force_support[c["sample"]] += sign * np.array(c["world_force_on_geom2_N"])
++        for k, points in grouped.items():
++            hands = [c for c in points if c["category"] in ("left", "right")]
++            if not hands:
++                continue
++            state = np.array(samples[k].get("solve_state84", samples[k]["state84"])[e])
++            data.qpos[rq] = state[:36]
++            data.qvel[rv] = state[36:71]
++            data.qpos[bq] = state[71:78]
++            data.qvel[bv] = state[78:84]
++            mujoco.mj_fwdPosition(model, data)
++            mujoco.mj_fwdVelocity(model, data)
++            for h, side in enumerate(("left", "right")):
++                weights = []
++                speeds = []
++                for c in hands:
++                    if c["category"] != side:
++                        continue
++                    normal = np.array(c["frame"])[0]
++                    weight = abs(np.dot(c["world_force_on_geom2_N"], normal))
++                    if weight <= tau[h]:
++                        continue
++                    other = c["geom2"] if c["names"][0].startswith("box/") else c["geom1"]
++                    point = np.array(c["pos"]) - origins[e]
++                    velocities = []
++                    for b in (int(model.geom_bodyid[other]), body):
++                        v = np.zeros(6)
++                        mujoco.mj_objectVelocity(model, data, mujoco.mjtObj.mjOBJ_XBODY, b, v, 0)
++                        velocities.append(v[3:] + np.cross(v[:3], point - data.xpos[b]))
++                    rel = velocities[0] - velocities[1]
++                    tangent = rel - np.dot(rel, normal) * normal
++                    weights.append(weight)
++                    speeds.append(np.linalg.norm(tangent))
++                if weights:
++                    slip[h] += np.average(speeds, weights=weights) * 0.005
++        raw = (
++            np.array([x["force_raw_world"][e] for x in rows]) if rows else np.empty((0, 4, 2, 2, 3))
++        )
++        actual = actual_contact(raw, tau, rho)
++        result["worlds"][str(e)] = {
++            "initial_box_position": initial[e, 71:74],
++            "final_box_position": states[-1, 71:74],
++            "box_displacement_m": float(np.linalg.norm(states[-1, 71:74] - initial[e, 71:74])),
++            "max_box_height_change_m": float((states[:, 73] - initial[e, 73]).max()),
++            "final_root_z": states[-1, 2],
++            "tail_max_box_COM_speed_m_s": float(np.linalg.norm(twists[-100:, 0], axis=-1).max()),
++            "tail_max_box_angular_speed_rad_s": float(
++                np.linalg.norm(twists[-100:, 1], axis=-1).max()
++            ),
++            "tail_mean_support_world_N": force_support[-100:].mean(0),
++            "measured_hand_contact_duration_LR_s": actual["hands"].sum(0) * 0.02,
++            "force_bearing_duration_LR_s": actual["occupancy"].sum(0) * 0.02,
++            "last_contact_interval_LR": [
++                int(np.flatnonzero(actual["hands"][:, h])[-1])
++                if actual["hands"][:, h].any()
++                else None
++                for h in range(2)
++            ],
++            "peak_N_LR": actual["magnitude_N"].max((0, 1)) if len(rows) else None,
++            "slip_path_m_LR": slip,
++            "slip_convention": "normal-load-weighted relative tangential point speed integrated at 5ms; threshold calibrated hand force value; solve-state kinematics",
++            "slip_solve_state_available": all("solve_state84" in x for x in samples),
++        }
++    other = folder / "non_box_contacts.json.gz"
++    if other.exists():
++        with gzip.open(other, "rt") as f:
++            ncs = json.load(f)
++        result["non_box_type_counts"] = dict(Counter(str(c["type"]) for c in ncs))
++        result["non_box_at_failure"] = [
++            c for c in ncs if c["type"] & 1 and flags[c["sample"], c["env"]] != 0
++        ]
++    return result
++
++
++def main(root, output):
++    output.mkdir(exist_ok=False)
++    model = mujoco.MjModel.from_binary_path(str(root / "geometry_02/model.mjb"))
++    inventory = json.loads((root / "geometry_02/inventory.json").read_text())
++    origins = np.array(inventory["origins"])
++    cal = json.loads((root / "calibration.json").read_text())
++    tau = cal["thresholds_N_LR"]
++    rho = cal["occupancy_cutoffs_LR"]
++    results = {}
++    for name in ("dynamics_01", "isolation_01", "filters_02", "replay_01"):
++        for folder in sorted((root / name).iterdir()):
++            if folder.is_dir() and (folder / "samples.json").exists():
++                results[name + "/" + folder.name] = analyze_case(folder, tau, rho, model, origins)
++    save(output / "dynamics_analysis.json", results)
++    # Preserve checksums of reused P1/P2 evidence; current implementation can contain
++    # documented P2 extensions, so compare to its final hashes, not old P1 whole file.
++    reuse = {}
++    for stage in ("p1", "p2"):
++        old = json.loads(
++            (ROOT / f"docs/hoi/force_contact/{stage}/validation_summary.json").read_text()
++        )
++        reused = {}
++        for group in ("implementation_sha256", "evidence_sha256"):
++            for path, expected in old[group].items():
++                p = Path(path)
++                p = p if p.is_absolute() else ROOT / p
++                actual = sha256(p) if p.is_file() else None
++                reused[str(p)] = {
++                    "expected": expected,
++                    "actual": actual,
++                    "match": actual == expected,
++                }
++        reuse[stage] = reused
++    save(output / "evidence_reuse.json", reuse)
++    print("Analyzed", len(results), "GPU cases")
++
++
++if __name__ == "__main__":
++    p = argparse.ArgumentParser()
++    p.add_argument("--root", type=Path, required=True)
++    p.add_argument("--output", type=Path, required=True)
++    a = p.parse_args()
++    main(a.root, a.output)
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py b/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py
+new file mode 100644
+index 0000000..590afb2
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py
+@@ -0,0 +1,564 @@
++"""Bounded P6 native GPU tests; no policy, optimizer, or source-asset mutations."""
++
++from __future__ import annotations
++
++import argparse
++import gzip
++import json
++import traceback
++from pathlib import Path
++
++from common import ROOT, cpu_contacts, inputs, pair_category, physical_env, rot, save  # isort: skip
++
++import mujoco
++import mujoco_warp as mjwarp
++import numpy as np
++import torch
++import warp as wp
++from asset_common import geom
++from calibrate_contacts import Placements, reset_states
++from scipy.optimize import least_squares
++
++from supermimic.hoi.contact import SENSOR_NAMES, IntervalCapture, assert_contact_capacity
++from supermimic.hoi.contact_validation import penetration_summary
++from supermimic.hoi.recorder import install_recording
++from supermimic.hoi.state import JointStateIO, ReferenceResetCache
++
++
++def inventory(env, manifest, sources, output):
++    model = env.sim.mj_model
++    mujoco.mj_saveModel(model, str(output / "model.mjb"))
++    body = model.body("box/bread_box").id
++    from supermimic.hoi.asset_manifest import load_manifest
++    from supermimic.hoi.reference import DEFAULT_ASSET
++
++    try:
++        load_manifest(DEFAULT_ASSET)
++        strict = "PASS"
++    except (OSError, ValueError) as e:
++        strict = repr(e)
++    result = {
++        "sources": sources,
++        "strict_production_loader": strict,
++        "diagnostic_adapter": "P6 spec A1; exact immutable manifest, missing V3 only",
++        "nq_nv_nu": [model.nq, model.nv, model.nu],
++        "mass": model.body_mass[body],
++        "com": model.body_ipos[body],
++        "inertia": model.body_inertia[body],
++        "axes": model.body_iquat[body],
++        "geoms": [geom(model, i) for i in range(model.ngeom) if model.geom_contype[i]],
++        "support_roots_per_world": {
++            s["name"]: env.sim.model.body_pos[:, model.body(s["name"]).id].cpu().numpy()
++            for s in manifest["supports"]
++        },
++        "origins": env.scene.env_origins.cpu().numpy(),
++        "options": {
++            k: np.asarray(getattr(model.opt, k))
++            for k in [
++                "timestep",
++                "iterations",
++                "ls_iterations",
++                "gravity",
++                "integrator",
++                "cone",
++                "tolerance",
++            ]
++        },
++        "explicit_pairs": model.npair,
++        "excluded_body_pairs": model.nexclude,
++        "runtime_joint_names": list(env.scene["robot"].joint_names),
++    }
++    save(output / "inventory.json", result)
++
++
++def bilateral(placements):
++    """Independent native keyframe IK; box pose/target surface fixed, no reference."""
++    model = placements.model
++    state = placements.base.copy()
++    state[71:78] = [0.35, 0, 2.87, 1, 0, 0, 0]
++    fit = []
++    for side, sign in [("left", 1), ("right", -1)]:
++        names = [
++            n
++            for n in placements.io.joint_names
++            if n.startswith(side + "_") and any(w in n for w in ["shoulder", "elbow", "wrist"])
++        ]
++        indices = [7 + placements.io.joint_names.index(n) for n in names]
++        limits = np.array([model.jnt_range[model.joint("robot/" + n).id] for n in names])
++        target = np.array([0.35, sign * 0.2045, 3.0])
++        gid = model.geom(f"robot/{side}_hand_collision").id
++        initial = state[indices].copy()
++
++        def residual(
++            q, indices=indices, gid=gid, target=target, sign=sign, side=side, initial=initial
++        ):
++            state[indices] = q
++            placements.forward(state)
++            axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
++            target[1] = sign * (0.17 + 0.035 + model.geom_size[gid, 1] * abs(axis[1]) - 0.0005)
++            pitch = model.geom(f"robot/{side}_wrist_collision").id
++            clearance = [
++                mujoco.mj_geomDistance(
++                    model, placements.data, pitch, model.geom("box/" + name).id, 1.0, None
++                )
++                for name in (
++                    "bottom",
++                    "side1",
++                    "side2",
++                    "side3",
++                    "side4",
++                    "handle_left",
++                    "handle_right",
++                )
++            ]
++            return np.r_[
++                placements.data.geom_xpos[gid] - target,
++                5 * np.maximum(-np.array(clearance) - 0.0005, 0),
++                0.00001 * (q - initial),
++            ]
++
++        sol = least_squares(
++            residual,
++            initial,
++            bounds=(limits[:, 0] + 1e-5, limits[:, 1] - 1e-5),
++            max_nfev=1500,
++            ftol=1e-12,
++            xtol=1e-12,
++            gtol=1e-12,
++        )
++        state[indices] = sol.x
++        fit.append(
++            {"side": side, "success": sol.success, "residual": residual(sol.x), "joints": names}
++        )
++    placements.forward(state)
++    if max(np.linalg.norm(f["residual"][:3]) for f in fit) > 1e-5:
++        raise ValueError("Independent bilateral IK did not reach its surface targets")
++    contacts = cpu_contacts(model, placements.data, 0)
++    if not all(any(c["category"] == side for c in contacts) for side in ("left", "right")):
++        raise ValueError("Independent bilateral fixture lacks both hand pairs")
++    if any(c["dist"] < -0.001 for c in contacts):
++        raise ValueError("Independent bilateral fixture has >1 mm initial overlap")
++    return state, fit
++
++
++def geometry(env, io, placements, cache, output):
++    model = env.sim.mj_model
++    bi, fits = bilateral(placements)
++    save(
++        output / "independent_bilateral.json",
++        {"state84": bi, "fit": fits, "contacts": cpu_contacts(model, placements.data, 0)},
++    )
++    scans = []
++    for side in ("left", "right"):
++        for part in ("wrist", "hand"):
++            state = placements.contact(side, part)
++            for shift in np.linspace(0.023, -0.002, 51):
++                s = state.copy()
++                s[71] += shift
++                placements.forward(s)
++                contacts = cpu_contacts(model, placements.data, 0)
++                scans.append(
++                    {
++                        "side": side,
++                        "part": part,
++                        "box_x_shift_m": shift,
++                        "state84": s,
++                        "contacts": contacts,
++                    }
++                )
++    save(output / "approach_scans.json", scans)
++    # Whole-motion geometry uses original reference poses, never integrated states.
++    rows, contacts = [], []
++    box_geoms = [model.geom("box/" + g["name"]).id for g in inputs()[0]["object"]["geoms"]]
++    manifest, clip, _ = inputs()
++    for frame, state in enumerate(cache.states.cpu().numpy()):
++        placements.forward(state)
++        data = placements.data
++        eefs, targets, pairs = [], [], []
++        for side_i, side in enumerate(("left", "right")):
++            bid = model.body(f"robot/{side}_wrist_yaw_link").id
++            eefs.append(data.xpos[bid] + data.xmat[bid].reshape(3, 3) @ np.array([0.05, 0, 0]))
++            targets.append(
++                state[71:74] + rot(state[74:78]).apply(manifest["contact"]["target_root_m"][side_i])
++            )
++            values = []
++            for part in ("wrist", "hand"):
++                gid = model.geom(f"robot/{side}_{part}_collision").id
++                for other in box_geoms:
++                    values.append(
++                        (mujoco.mj_geomDistance(model, data, gid, other, 10.0, None), gid, other)
++                    )
++            pairs.append(min(values))
++        rows.append(
++            {
++                "frame": frame,
++                "contact_ref": bool(clip.arrays["object_contact"][frame]),
++                "eef": eefs,
++                "targets": targets,
++                "distance_m": np.linalg.norm(np.array(eefs) - targets, axis=-1),
++                "min_pair_distance_LR_m": [p[0] for p in pairs],
++                "nearest_pairs": pairs,
++            }
++        )
++        contacts.extend(cpu_contacts(model, data, frame))
++    save(output / "reference_geometry.json", rows)
++    save(output / "reference_geometry_contacts.json", contacts)
++    return bi
++
++
++class Observer:
++    """Capture solved contacts BEFORE the original fail-closed capacity callback."""
++
++    def __init__(self, env, io):
++        self.env, self.io = env, io
++        self.samples, self.contacts, self.non_box_contacts = [], [], []
++        self.raw_error = 0.0
++
++    def sample(self):
++        env, model = self.env, self.env.sim.mj_model
++        n = int(env.sim.data.nacon[0])
++        c = env.sim.wp_data.contact
++        with wp.ScopedDevice(env.sim.wp_device):
++            ids = wp.array(np.arange(n, dtype=np.int32), dtype=wp.int32)
++            forces = wp.zeros(n, dtype=wp.spatial_vector)
++            if n:
++                mjwarp.contact_force(env.sim.wp_model, env.sim.wp_data, ids, True, forces)
++            force = forces.numpy()
++        geoms, worlds, types = c.geom.numpy()[:n], c.worldid.numpy()[:n], c.type.numpy()[:n]
++        distances, pos, frames = c.dist.numpy()[:n], c.pos.numpy()[:n], c.frame.numpy()[:n]
++        direct = np.zeros((env.num_envs, 2, 2, 3))
++        sample = len(self.samples)
++        for i, (g1, g2) in enumerate(geoms):
++            if min(g1, g2) < 0:
++                continue
++            cat = pair_category(model, g1, g2)
++            if cat is None:
++                self.non_box_contacts.append(
++                    {
++                        "sample": sample,
++                        "env": int(worlds[i]),
++                        "dist": float(distances[i]),
++                        "pos": pos[i].copy(),
++                        "frame": frames[i].copy(),
++                        "geom1": int(g1),
++                        "geom2": int(g2),
++                        "type": int(types[i]),
++                        "names": [model.geom(int(g1)).name, model.geom(int(g2)).name],
++                        "world_force_on_geom2_N": force[i, :3].copy(),
++                    }
++                )
++                continue
++            row = {
++                "sample": sample,
++                "env": int(worlds[i]),
++                "category": cat,
++                "dist": float(distances[i]),
++                "pos": pos[i].copy(),
++                "frame": frames[i].copy(),
++                "geom1": int(g1),
++                "geom2": int(g2),
++                "type": int(types[i]),
++                "names": [model.geom(int(g1)).name, model.geom(int(g2)).name],
++                "world_force_on_geom2_N": force[i, :3].copy(),
++            }
++            self.contacts.append(row)
++            if cat in ("left", "right") and int(types[i]) & 1:
++                hand_g = int(g2 if model.geom(int(g1)).name.startswith("box/") else g1)
++                col = int("yaw" in model.body(int(model.geom_bodyid[hand_g])).name)
++                sign = -1 if hand_g == g2 else 1
++                direct[int(worlds[i]), int(cat == "right"), col] += sign * force[i, :3]
++        raw = np.stack([env.scene[n].data.force.cpu().numpy() for n in SENSOR_NAMES], 1)
++        overflow = env.sim.data.overflow[:].cpu().numpy().copy()
++        self.samples.append(
++            {
++                "state84": self.io.read().cpu().numpy(),
++                "solve_state84": self.solve_state,
++                "raw_world_N": raw,
++                "solve_quat": env.sim.data.xquat[:, self.io.box_body_id].cpu().numpy().copy(),
++                "found": np.stack([env.scene[n].data.found.cpu().numpy() for n in SENSOR_NAMES], 1),
++                "overflow": overflow,
++                "nacon": n,
++                "nefc": env.sim.data.nefc[:].cpu().numpy().copy(),
++                "solver_niter": env.sim.wp_data.solver_niter.numpy().copy(),
++            }
++        )
++        if not overflow.any():
++            self.raw_error = max(self.raw_error, float(np.max(np.abs(raw - direct))))
++
++    def write(self, folder):
++        save(folder / "samples.json", self.samples)
++        with gzip.open(folder / "contacts.json.gz", "wt") as f:
++            json.dump(self.contacts, f, default=lambda x: x.tolist(), allow_nan=False)
++        with gzip.open(folder / "non_box_contacts.json.gz", "wt") as f:
++            json.dump(self.non_box_contacts, f, default=lambda x: x.tolist(), allow_nan=False)
++        summaries = {}
++        for e in range(self.env.num_envs):
++            summaries[str(e)] = penetration_summary(
++                [c for c in self.contacts if c["env"] == e], len(self.samples)
++            )
++        save(folder / "penetration.json", summaries)
++
++
++def run_intervals(env, io, states, count, folder, action_fn=None, recorder=None, frames_start=None):
++    folder.mkdir(exist_ok=False)
++    save(
++        folder / "initial.json",
++        {
++            "state84": states,
++            "policy_steps_requested": count,
++            "reference_start": frames_start,
++            "external_forces": "zero",
++        },
++    )
++    reset_states(env, io, states)
++    ids = torch.arange(env.num_envs, device=env.device)
++    if recorder is not None:
++        recorder.begin_episode(
++            ids, torch.full((env.num_envs,), frames_start, device=env.device), torch.zeros_like(ids)
++        )
++    capture = IntervalCapture(env, io, force_on=0.001) if recorder is None else None
++    observer = Observer(env, io)
++    native_step = env.sim.step
++
++    def solve():
++        observer.solve_state = io.read().cpu().numpy()
++        native_step()
++
++    env.sim.step = solve
++    original = env.metrics_manager.compute_substep
++
++    def observe():
++        observer.sample()
++        original()
++        if capture is not None:
++            capture.sample()
++
++    env.metrics_manager.compute_substep = observe
++    rows, result = [], {"status": "RUNNING"}
++    try:
++        for k in range(count):
++            before = io.read().clone()
++            action = action_fn(k) if action_fn else torch.zeros(env.num_envs, 29, device=env.device)
++            ptr = recorder.buffer.ptr.clone() if recorder else None
++            env.step(action)
++            assert_contact_capacity(env)  # Also catches final-forward warnings.
++            if recorder:
++                labels = {
++                    key: value[ids, ptr].cpu().numpy().copy()
++                    for key, value in recorder.buffer.fields.items()
++                }
++            else:
++                labels = {key: value.cpu().numpy() for key, value in capture.consume(ids).items()}
++                labels["next_state"] = io.read().cpu().numpy()
++            row = {"state": before.cpu().numpy(), "action": action.cpu().numpy(), **labels}
++            rows.append(row)
++        result["status"] = "PASS"
++    except Exception as error:  # noqa: BLE001 -- preserve all failures and partial evidence
++        result.update(
++            status="FAIL",
++            error=repr(error),
++            traceback=traceback.format_exc(),
++            overflow_at_failure=env.sim.data.overflow[:].cpu().numpy(),
++        )
++    finally:
++        env.metrics_manager.compute_substep = original
++        env.sim.step = native_step
++        observer.write(folder)
++        save(folder / "intervals.json", rows)
++        result.update(
++            completed_intervals=len(rows),
++            solved_vector_substeps=len(observer.samples),
++            raw_sensor_max_error_N=observer.raw_error,
++        )
++        save(folder / "result.json", result)
++    print(folder.name, result["status"], len(rows), flush=True)
++    return result, rows, observer
++
++
++def main(output, mode):
++    output.mkdir(parents=True, exist_ok=False)
++    import shutil
++
++    snapshot = output / "source_snapshot"
++    snapshot.mkdir()
++    for source in Path(__file__).parent.glob("*.py"):
++        shutil.copy2(source, snapshot / source.name)
++    shutil.copy2(
++        ROOT / "src/supermimic/hoi/contact_validation.py", snapshot / "contact_validation.py"
++    )
++    torch.manual_seed(606)
++    torch.set_num_threads(1)
++    wp.config.kernel_cache_dir = "/tmp/smhoi_p6_warp_cache"
++    env, manifest, sources = physical_env()
++    try:
++        io = JointStateIO(env)
++        placements = Placements(env, io)
++        cache = ReferenceResetCache(inputs()[1], io.joint_names, env.device)
++        inventory(env, manifest, sources, output)
++        if mode == "geometry":
++            geometry(env, io, placements, cache, output)
++        elif mode == "calibration":
++            bi, fit = bilateral(placements)
++            save(output / "bilateral_fixture.json", {"state84": bi, "fit": fit})
++            results = {}
++            for roll in (0.0, 0.31, 0.63):
++                for depth in (0.00025, 0.0005, 0.001, 0.002, 0.003):
++                    states = [placements.base.copy()]
++                    for side in ("left", "right"):
++                        s = placements.contact(side, roll=roll)
++                        s[71] += 0.003 - depth
++                        states.append(s)
++                    states.append(bi)
++                    name = f"roll{roll}_depth{depth}"
++                    results[name] = run_intervals(env, io, states, 1, output / name)[0]
++            save(output / "results.json", results)
++        elif mode == "dynamics":
++            results = {}
++            bi, fit = bilateral(placements)
++            states = [
++                placements.base.copy(),
++                placements.contact("left"),
++                placements.contact("right"),
++                bi,
++            ]
++            action = env.action_manager.get_term("joint_pos")
++            targets = torch.tensor(
++                np.array(states)[:, 7:36], device=env.device, dtype=torch.float32
++            )
++            hold = (targets - action._offset) / action._scale
++            results["independent_hand_release"] = run_intervals(
++                env, io, states, 50, output / "independent_hand_release", lambda k: hold
++            )[0]
++            states = []
++            for e in range(4):
++                s = placements.base.copy()
++                s[:3] = [5.0, 5.0, 3.0]
++                sup = manifest["supports"][e % 2]
++                s[71:74] = np.array(sup["root_pos_world"]) + [0, 0, 0.04]
++                s[74:78] = sup["root_quat_wxyz"]
++                states.append(s)
++            results["original_supports_parallel"] = run_intervals(
++                env, io, states, 150, output / "original_supports_parallel"
++            )[0]
++            # Reproduce the historical floor fixture without relabeling it as independent.
++            base = cache.states[260].cpu().numpy().copy()
++            base[36:71] = 0
++            base[78:84] = 0
++            for elevation in (0.0, 2.0):
++                states = [
++                    placements.base.copy(),
++                    placements.contact("left", roll=0.63),
++                    placements.contact("right"),
++                    base.copy(),
++                ]
++                states[-1][2] += elevation
++                states[-1][73] += elevation
++
++                def prescribed(k):
++                    return (
++                        torch.sin(
++                            torch.arange(29, device=env.device)[None, :] * 0.2 + k * 0.31
++                        ).expand(4, -1)
++                        * 0.05
++                    )
++
++                name = f"historical_fixture_elevation{elevation}"
++                results[name] = run_intervals(env, io, states, 24, output / name, prescribed)[0]
++            save(output / "results.json", results)
++        elif mode == "filters":
++            states = []
++            for name in ("pelvis_collision", "torso_collision"):
++                s = placements.base.copy()
++                placements.forward(s)
++                gid = env.sim.mj_model.geom("robot/" + name).id
++                g = env.sim.mj_model
++                axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
++                extent = g.geom_size[gid, 0] + (
++                    g.geom_size[gid, 1] * abs(axis[0])
++                    if g.geom_type[gid] == mujoco.mjtGeom.mjGEOM_CAPSULE
++                    else 0
++                )
++                tip = placements.data.geom_xpos[gid] + np.array([extent, 0, 0])
++                depth = 0.002 if name == "torso_collision" else 0.0005
++                s[71:74] = tip + [0.09 - depth, 0, -0.13]
++                s[74:78] = [1, 0, 0, 0]
++                states.append(s)
++            states += [placements.box_support(), placements.base.copy()]
++            results = {
++                "non_hand_box_filter": run_intervals(
++                    env, io, states, 1, output / "non_hand_box_filter"
++                )[0]
++            }
++        elif mode == "isolation":
++            results = {}
++            bi, fit = bilateral(placements)
++            states = [
++                placements.base.copy(),
++                placements.contact("left"),
++                placements.contact("right"),
++                bi,
++            ]
++            for s in states:
++                s[2] += 10.0
++                s[73] += 10.0
++            action = env.action_manager.get_term("joint_pos")
++            targets = torch.tensor(
++                np.array(states)[:, 7:36], device=env.device, dtype=torch.float32
++            )
++            hold = (targets - action._offset) / action._scale
++            results["hand_release_no_floor"] = run_intervals(
++                env, io, states, 50, output / "hand_release_no_floor", lambda k: hold
++            )[0]
++            for robot_z in (3.0, 50.0):
++                states = []
++                for e in range(4):
++                    s = placements.base.copy()
++                    s[:3] = [5.0, 5.0, robot_z]
++                    sup = manifest["supports"][e % 2]
++                    s[71:74] = np.array(sup["root_pos_world"]) + [0, 0, 0.04]
++                    s[74:78] = sup["root_quat_wxyz"]
++                    states.append(s)
++                name = f"original_supports_robot_z{robot_z}"
++                results[name] = run_intervals(env, io, states, 150, output / name)[0]
++            save(output / "results.json", results)
++        elif mode == "replay":
++            recorder = install_recording(
++                env, force_on=0.001, capacity=128, references=[str(inputs()[1].path)]
++            )
++            action = env.action_manager.get_term("joint_pos")
++            results = {}
++            for start, count in [(0, 50), (250, 60), (400, 50), (530, 60), (550, 60), (800, 39)]:
++                state = cache.states[start].cpu().numpy()
++
++                def prescribed(k, start=start):
++                    target = cache.states[start + k, 7:36][None, :].expand(4, -1)
++                    return (target - action._offset) / action._scale
++
++                name = f"reference_f{start}"
++                results[name] = run_intervals(
++                    env,
++                    io,
++                    [state.copy() for _ in range(4)],
++                    count,
++                    output / name,
++                    prescribed,
++                    recorder,
++                    start,
++                )[0]
++            save(output / "results.json", results)
++    finally:
++        env.close()
++    if "results" in locals() and any(r["status"] == "FAIL" for r in results.values()):
++        raise SystemExit(1)  # Completed diagnostics can retain failed physical cases.
++
++
++if __name__ == "__main__":
++    p = argparse.ArgumentParser()
++    p.add_argument("--output", type=Path, required=True)
++    p.add_argument(
++        "--mode",
++        choices=["geometry", "calibration", "dynamics", "isolation", "filters", "replay"],
++        required=True,
++    )
++    a = p.parse_args()
++    main(a.output, a.mode)
+diff --git a/outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py b/outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py
+new file mode 100644
+index 0000000..eeaab81
+--- /dev/null
++++ b/outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py
+@@ -0,0 +1,162 @@
++"""P6 final measurement verification; failed physical gates remain explicit."""
++
++import argparse
++import gzip
++import json
++from pathlib import Path
++
++import numpy as np
++from common import inputs, rot, save
++
++
++def main(root, output):
++    if output.exists():
++        raise FileExistsError(output)
++    checks = {}
++    _manifest, clip, _ = inputs()
++    cal = json.loads((root / "calibration.json").read_text())
++    checks["original_reference_hash_and_schema"] = True
++    checks["independent_thresholds_not_P2_default"] = all(t > 0.001 for t in cal["thresholds_N_LR"])
++    checks["no_contact_baseline"] = max(cal["null_max_N_LR"]) <= 1e-6
++    checks["heldout_low_load_sensitivity"] = min(cal["heldout_first_solve_recall_LR"]) >= 0.95
++    expected = [[False, False], [True, False], [False, True], [True, True]]
++    checks["calibration_policy_contact_heldout"] = all(
++        f["actual_hands"] == expected for f in cal["fixtures"] if f["held_out"]
++    )
++    transients = cal["reused_P1_transients_at_new_definition"]
++    checks["occupancy_single_sample_rejected"] = all(
++        not np.any(transients[k]["actual_hands"]) for k in ("substep1_only", "substep4_only")
++    )
++    checks["occupancy_two_samples_detected"] = all(
++        x == [True, False] for x in transients["contact_ends_before_final"]["actual_hands"]
++    )
++    # Independent NumPy frame/force algebra over every new captured complete row.
++    errors = {"mean_box_N": 0.0, "impulse_Ns": 0.0, "peak_N": 0.0}
++    rows_checked = 0
++    for mode in ("calibration_02", "dynamics_01", "isolation_01", "filters_02", "replay_01"):
++        for path in sorted((root / mode).glob("*/intervals.json")):
++            rows = json.loads(path.read_text())
++            for k, row in enumerate(rows):
++                raw = np.array(row["force_raw_world"])
++                q = np.array(row["box_quat_solve"])
++                world = raw.sum(3)
++                matrices = rot(q.reshape(-1, 4)).as_matrix().reshape(4, 4, 3, 3)
++                expected_mean = np.einsum("ekji,ekhj->ekhi", matrices, world).mean(1)
++                for key, actual, desired, tol in (
++                    ("mean_box_N", row["force_mean_box"], expected_mean, 3e-5),
++                    ("impulse_Ns", row["impulse_world"], 0.005 * world.sum(1), 3e-6),
++                    ("peak_N", row["force_peak"], np.linalg.norm(world, axis=-1).max(1), 3e-4),
++                ):
++                    err = float(np.max(np.abs(actual - desired)))
++                    errors[key] = max(errors[key], err)
++                    np.testing.assert_allclose(actual, desired, atol=tol, rtol=2e-6)
++                rows_checked += 4
++                if mode == "replay_01":
++                    start = int(path.parent.name.split("_f")[1]) + k
++                    intents = np.broadcast_to(
++                        clip.arrays["object_contact"][start : start + 2], (4, 2)
++                    )
++                    np.testing.assert_array_equal(row["intent_ref"], intents)
++                    if k:
++                        np.testing.assert_array_equal(row["state"], rows[k - 1]["next_state"])
++    checks["four_substep_aggregation_recomputed"] = True
++    checks["reference_intent_and_state_continuity"] = True
++    geometry = json.loads((root / "geometry_summary.json").read_text())
++    checks["all840_geometry_and_original_timing"] = (
++        geometry["frames"] == 840 and geometry["on"] == 290 and geometry["off"] == 550
++    )
++    checks["native_approach_isolation"] = all(
++        a["initial_hand_contacts"] == 0
++        and a["first_min_dist_m"] is not None
++        and a["first_min_dist_m"] >= -0.00051
++        and a["opposite_hand_contact_placements"] == 0
++        for a in geometry["approach"].values()
++    )
++    checks["bounded_bilateral_initial_overlap"] = all(
++        c["dist"] >= -0.001
++        for c in json.loads((root / "geometry_02/independent_bilateral.json").read_text())[
++            "contacts"
++        ]
++    )
++    filt = root / "filters_02/non_hand_box_filter"
++    samples = json.loads((filt / "samples.json").read_text())
++    with gzip.open(filt / "contacts.json.gz", "rt") as f:
++        contacts = json.load(f)
++    checks["robot_body_and_support_excluded"] = not np.any(
++        [s["raw_world_N"] for s in samples]
++    ) and all(
++        any(
++            c["env"] == e
++            and c["category"] == category
++            and np.linalg.norm(c["world_force_on_geom2_N"]) > 1
++            for c in contacts
++        )
++        for e, category in [(0, "robot_body"), (1, "robot_body"), (2, "support")]
++    )
++    box = json.loads((root / "box_dynamics_01/results.json").read_text())
++    checks["box_force_torque_analytic"] = all(
++        max(b["analytical"]["first_velocity_error"], b["analytical"]["first_omega_error"]) < 1e-5
++        for b in box
++        if b["analytical"]
++    )
++    checks["isolated_support_floor_stability"] = all(
++        b["stable_tail"] for b in box if b["case"]["kind"] in ("settle", "drop", "lift")
++    )
++    checks["controlled_external_lift"] = all(
++        b["max_rise_m"] > 0.03 and b["stable_tail"] for b in box if b["case"]["kind"] == "lift"
++    )
++    checks["support_gravity_balance"] = all(
++        abs(b["tail_mean_support_z_N"] - 19.62) < 0.05 * 19.62
++        for b in box
++        if b["case"]["name"].startswith("support")
++    )
++    analysis = json.loads((root / "analysis_02/dynamics_analysis.json").read_text())
++    isolated = analysis["isolation_01/original_supports_robot_z50.0"]
++    checks["original_supports_four_worlds_without_floor_impact"] = not isolated[
++        "flagged_samples"
++    ] and all(
++        w["tail_max_box_COM_speed_m_s"] < 0.02
++        and w["tail_max_box_angular_speed_rad_s"] < 0.1
++        and abs(w["tail_mean_support_world_N"][2] - 19.62) < 0.981
++        for w in isolated["worlds"].values()
++    )
++    agreement = json.loads((root / "replay_summary.json").read_text())
++    checks["same_reference_metric_denominator"] = (
++        agreement["any"]["count"] == agreement["bilateral"]["count"] == 1124
++    )
++    # These are acceptance failures/limitations, never disguised as unit-test PASS.
++    physical_gates = {
++        "nominal_box_numerical_dynamics": "PASS",
++        "nominal_support_capacity": "PASS",
++        "native_hand_sensing_and_force_definition": "PASS",
++        "mass_distribution_matches_collision_envelope": "FAIL",
++        "coupled_original_floor_solver_reliability": "FAIL",
++        "externally_forced_lift_release": "PASS",
++        "natural_hand_driven_lift_carry": "NOT TESTED",
++        "strict_production_provenance_loader": "FAIL",
++        "reference_whole_motion_native_geometry": "FAIL",
++        "reference_driven_bilateral_agreement": "FAIL",
++    }
++    result = {
++        "checks": {k: "PASS" if v else "FAIL" for k, v in checks.items()},
++        "rows_recomputed": rows_checked,
++        "aggregation_max_errors": errors,
++        "physical_and_reference_gates": physical_gates,
++        "P6": "PARTIAL",
++        "PHYSICAL_VALIDITY": "PARTIAL",
++        "REFERENCE_COMPATIBILITY": "FAIL",
++        "P7_prerequisites_satisfied": False,
++        "no_training_executed": True,
++    }
++    save(output, result)
++    print(json.dumps(result, indent=2))
++    if not all(checks.values()):
++        raise SystemExit(1)
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--root", type=Path, required=True)
++    parser.add_argument("--output", type=Path, required=True)
++    args = parser.parse_args()
++    main(args.root, args.output)
+diff --git a/docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md b/docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md
+new file mode 100644
+index 0000000..4b86b08
+--- /dev/null
++++ b/docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md
+@@ -0,0 +1,147 @@
++# P6 implementation specification
++
++Authority: complete current Master Plan, especially §§1.3, 3, 4, 9, 11, 14–17;
++user authorization covers all P6-A/P6-B implementation and bounded validation as
++one stage. No P7/P8, optimization, checkpoint migration, commit or push.
++
++Baseline: main at e4f574185597d23570fad462224f76f741b36538; Master SHA256
++68142af38edb0a9a443aac5815491aaae90dba696acc84d30fc54223c6e4a9cc.
++No applicable AGENTS.md exists in the repository or its ancestor directories.
++Pre-existing untracked `.vscode/` is protected. `baseline.json` in the evidence root
++hashes 770 paths, including ignored references/checkpoints and external sources.
++Installed mjlab1.6.0 (8bb2bc9), MuJoCo/Warp3.16.0, Warp1.18.0, Torch2.14.1+cu130;
++all ten P0 dependency hashes match. P5 software PASS is already committed; P3/P4
++historical PARTIAL and M6.5 NO-GO remain. P0 superseded force-head designs do not
++apply to this stage. No prior passing P1/P2 suite is scheduled for repetition.
++
++Evidence root: `outputs/hoi/contact_supervision/contact_validation/` (abbreviated E).
++New diagnostics/configuration live in E; reusable evaluation mathematics in
++`src/supermimic/hoi/contact_validation.py`; focused tests in
++`tests/hoi/test_physical_contact_agreement.py` and `test_collision_diagnostics.py`.
++Four required reports live here. Existing shared/training/asset/dependency files
++are not expected to change. Every run uses a new directory and preserves failures.
++
++## Evidence inspected and reused
++
++P0 CLOSURE, REQUIREMENT_COVERAGE, REPORT, FILE_CHANGE_MAP, architecture,
++dependency/contact, dataset/asset and reference implementation audits; P1/P2
++reports and actual scene/contact/state/recorder/Replay/calibration implementations;
++P3 report, cleanup and failed contact evidence; P4 report and CONTACT_TARGET_AUDIT;
++P5 report and final suite summaries; M6.5 reconciliation, dynamics protocol and
++failed dynamics records. The current installed environment step confirms exactly
++four solve → sensor → history → metric callbacks, then one final forward.
++
++P1 run_05 already establishes all 28 hand/primary/Box-geom combinations, world
++hand-on-box force sign, rotated-Box frame, raw sums (3.82e-6 N error), isolated
++support/ground filtering, histories, reset/parallel isolation, graph parity and
++intentional capacity rejection. P2 run_03 establishes contemporaneous quaternion
++aggregation, interval/action/next-state alignment, terminal copies, Replay windows
++and reset isolation (raw sum error 1.76e-6 N). Reuse these results with their original
++scope, source hashes and failures. New tests cover new physical regimes and newly
++calibrated binary definitions, not a rerun of their acceptance suites.
++
++## Implementation adjustment A1: bounded diagnostic provenance
++
++The exact manifest is SHA256 1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1.
++Only its declared historical V3 planning text (SHA256 168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c)
++is absent; all physical source files remain verifiable. Strict production loading
++must continue to reject the missing source. The P6 harness will verify the exact
++manifest, structural schema, all available source hashes and precisely this one
++allowed missing planning filename/hash, then scope a loader adapter around the
++unchanged P1 factory. This is an implementation-only diagnostic construction
++adapter, permitted by the user's bounded P6 authorization. It does not set
++training_ready, rewrite sources or approve learning. Any different missing or
++changed source fails closed. Report strict-loader failure separately. No physical
++parameter, sensor, control or solver setting changes in this adapter.
++
++## P6-A traceability and concrete procedure
++
++| Requirement | Existing evidence / actual implementation | New work and exact utilities | Setup, measurements and predeclared acceptance | Risks |
++|---|---|---|---|---|
++| A.1 native geoms, masks, transforms, pair identification | P0 DEPENDENCY_CONTACT_AUDIT; P1 scene.validate_scene, contact.HAND_BODIES, calibrate_contacts.Placements | E/run_p6.py compiled inventory and geometry approach scan | Original four pitch/yaw capsules, seven Box geoms, enabled masks, parent/world transforms, raw pair IDs and EEF marker distance; approach from +20 mm to shallow overlap, left/right and independent bilateral initial states; separate detection and dynamics | EEF marker is internal; FK scan is not lifting |
++| A.1 separated/approach/first contact/displacement/release | P1 all-pair coverage reused | E/run_p6.py geometry scan and independent IK fixture from native keyframe, never reference260 | Save every initialized state and contact.dist/pos/frame/geom IDs; separated states have no hand pair, intended contacts appear near surface, opposite hand remains separated in unilateral tests | A fixture may fail; preserve and correct only fixture |
++| A.2 force calibration and policy occupancy | P1 calibrated sensors, P2 aggregate_interval and IntervalCapture | E/run_p6.py calibration, E/analyze_p6.py; contact_validation.py | Per-side measured null and shallow loaded force distributions; thresholds selected independently by half the gap between max null and 5th-percentile positive load, require separation and held-out checks; no copied .001 N threshold | Net vector cancellation and low-load contact are explicitly limited |
++| A.2 sign/frame/mean/peak/impulse/filtering/history/reset/overflow | P1 run_05 and P2 run_03 reused; actual source hashes pinned | New runs call existing capture/aggregation and capacity guard, add contact geometry and warnings before guard throws | Four .005 s samples; mean N, peak N, impulse .005 sum N s; independent raw contacts vs sensors; verify new fixture histories, support-only force separation and no hidden solver flags | Overflow is failure, never silently ignored |
++| A.2 occupancy | P1 transient [1,0,0,0], [0,0,0,1], [1,1,0,0] samples reusable | Reanalyze raw transient evidence at calibrated thresholds; strict occupancy > rho | Proposed rho=.25 (at least 2/4 force-bearing solves) separates single-solve impulses from persistent force. Require measured two/four-solve detection; save sensitivities rho=0,.25,.5,.75. No tuning against reference agreement | Definition excludes genuine short impacts; retain raw force/occupancy |
++| A.3 mass/root/COM/inertia/geoms/free joint | M6.5 nominal 2 kg, COM(0,0,-.2), inertia(.0334,.02167,.04167), build_audit_scene/_box_spec | E/run_p6.py physical inventory and force/torque experiment; E/analyze_p6.py mass-distribution proposal | Check compiled equality, positive inertia/triangle, root at bottom plate, COM vs envelope, known COM force F/m and torque I^-1 tau, gravity -9.81 at COM; analytic one-step error <=1e-5 CPU /2e-4 GPU | Mathematical consistency is not plausible bread-box mass distribution |
++| A.3 reconcile COM concern | M6.5 explicitly retained for source parity only | Report uniform-density seven-box mass/COM/full inertia as a proposal, not applied | Compute volume-weighted centroid and parallel-axis inertia; note overlapping parts and missing measured material distribution; retain original scene | Asset revision requires separately approved versioned profile/regressions |
++| A.4 support/static/release/origins/reset | P1 fixed-support cache offset fix, M6.5 terminal settle | E/run_p6.py independent Box at original support0/support1, floor, translated world fixtures | Gravity settle and recontact for 3 s; tail .5 s support vertical force within 5% of 19.62 N, speeds <.02 m/s and .1 rad/s, orientation drift <.05 rad, displacement <.02 m for static settle; same support origins across worlds | Isolated support capacity is not achieved delivery |
++| A.4 historical solver failures | P2 full_suite_failure_01 LS1024; P3 ITERATIONS512 | E/run_p6.py original floor and elevated diagnostic cases, capture flags before failure; CPU replay comparison where useful | Same dt .005, decimation4, iterations10/ls20; report max iteration, bit values, contact counts, penetration and full state on failure; no solver retuning | Nonreproduction cannot resolve an intermittent failure |
++| A.5 known translation/rotation/lift/gravity/release/recontact | P1 fixed-robot impulse and M6.5 support-only evidence | E/run_p6.py independent native hand contact dynamics and explicitly forced Box lift from original support | Apply documented world COM wrench, then zero all applied forces; no post-reset Box teleport. Require lift >.03 m, support loss/recontact, tail stability; report force/impulse, pose/twist and contact slip. Separate hand release from externally assisted lift | External lift is not natural hand carrying; no successful grasp assumed |
++| A.6 penetration | P0 sensor netforce dist unusable; M6.5 large overlap failures | contact_validation.py per-category raw-contact summary; E/run_p6.py raw records | Save dist,pos,full frame,geom1/2 at each solve, count,min signed,max/mean overlap, duration/frequency. Diagnostic bands .1 mm/1 mm/5 mm; >1 mm persisting >=.1 s is flagged significant, not erased. Report solver limits independently | Contact manifold records cannot prove absence of missed/tunnelled pairs |
++
++Independent fixtures use the native keyframe/FK geometry, support transforms and
++known forces, not HDMI contact agreement. A separately labeled reference260 floor
++probe may reproduce a historical failure but cannot be used as independent success.
++Bilateral placement may use bounded numerical IK in a disposable diagnostic state;
++no asset/reference modification. Dynamics logs distinguish fixed robot fixtures,
++free actuated robot, isolated free Box and known external wrench experiments.
++
++## P6-B traceability and concrete procedure
++
++| Requirement | Existing evidence / implementation | New work / files | Acceptance and limitations |
++|---|---|---|---|
++| B.1 original geometry/timing/reachability | P4 geometry_01, audit_proximity_reward; rewards.ContactGeometry; ReferenceClip/ReferenceResetCache | E/run_p6.py all840 native collision geometry audit, E/analyze_p6.py geometry summary | Original accepted NPZ hash bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b; preserve 290 ON260–549/550 OFF; EEF/target per-frame trajectory and native pair distances; reuse P4 FK checks. No unconstrained IK claimed as whole-motion force feasibility |
++| B.2 bounded original-PD physical replay | P2 recorder/Replay; M6.5 original PD and actions | E/run_p6.py bounded native GPU replay episodes; E/analyze_p6.py | Reset at specified frames (0,250,400,530,550,800), original reference joint commands, free robot and Box; no root aid or Box wrench. 40–60 policy steps per episode, never beyond838→839. Stop failed world/episode with raw failure snapshot. No learned-policy or full-task evaluation |
++| B.2 exact alignment/validity | P2 transition s_t,a_t→s_t+1 with c[t],c[t+1]; P5 next-state reference | P2 install_recording reused where valid; capture owns four solve samples | Row stores start frame t, end frame t+1; force interval compared to original c[t+1] consistently. State/geometry at end state; also store solve states. No shift/smoothing. Same mask all metrics; incomplete/overflow rows explicitly invalid, failed physical tracking remains visible |
++| B.3 independent actual contact | A calibrated tau_L/R and rho_L/R | contact_validation.py binary + confusion/phase/duration metrics | Strict norm>tau, occupancy>rho; independent L/R, OR, AND; TN/FP/FN/TP, accuracy/precision/recall/F1/balanced accuracy; undefined denominators null, ON/OFF durations, occupancy, onset/loss across adjacent rows only |
++| B.3 aggregate interpretation | P4 CONTACT_TARGET_AUDIT cites manifest bilateral_force_required=true | E/analyze_p6.py reports both aggregates regardless of score | AND task-required only ON260–549; OR mandatory for unintended OFF contact. No invented per-hand reference label |
++| B.4 classification | P4 internal marker / M6.5 overlap and support10mm gap / A physical evidence | REFERENCE_COMPATIBILITY_REPORT.md and E summaries | Classify hand/Box reconstruction, coordinate mismatch, surface mismatch, timing, control, physical/solver, insufficient evidence; distinguish evidence from inference. No automatic retarget or asset correction |
++
++No arbitrary target agreement percentage is invented as a physical validity gate.
++Reference compatibility decision follows measured geometry and contact failures;
++software/measurement completion and task feasibility have separate statuses.
++
++## Validation and stop criteria
++
++Focused tests cover strict threshold/occupancy inequalities, identical validity
++masks, aligned indices, undefined metrics, contact episodes/durations, pair category
++and penetration summaries. New physical fixture guards cover saved initial states,
++no post-reset Box assignment in dynamic trials, correct 4-sample timing, finite
++state and fail-closed solver diagnostics. Do not rerun old passing suites without
++an affected interface. Hash preservation proves unchanged original training paths;
++new evaluation code is never imported into reward/WM/Actor.
++
++Failures retain original output and partial measurements. Classify implementation,
++fixture, physical-model, solver or reference issue; minimal implementation/fixture
++repairs may proceed with failed-test and affected-regression reruns. Research-level
++asset/solver/reference changes require approval; finish all independent work first.
++Final reports distinguish PASS/PARTIAL/FAIL/NOT TESTED, give separate
++PHYSICAL_VALIDITY/REFERENCE_COMPATIBILITY, exact commands/files/evidence and P7
++prerequisite disposition. Review full diff and every preservation hash; no commit.
++
++## Executed reconciliation
++
++All work packages were executed without an intermediate approval gate. Final
++machine evidence: `calibration_02`, `geometry_02`, `box_dynamics_01`, `dynamics_01`,
++`isolation_01`, `filters_02`, `replay_01`, `analysis_02`, `verification_02.json`, and
++`tests_final.log` in E. The earlier calibration/geometry/IK/filter attempts and
++physical failures remain intact. Only disposable fixtures and evaluation tooling
++were corrected; no production scene/source/solver parameter was changed.
++
++Actual new utility files: E/scripts/common.py, run_p6.py, box_dynamics.py,
++analyze_p6.py, physical_analysis.py, verify_evidence.py, export_commands.py and
++ik_fixture_probe.py; source/test paths remain as specified. The latter probe is
++preserved diagnostic development evidence, not an acceptance runner.
++
++A2 (implementation/fixture): initial bilateral IK's success flag did not imply
++small target residual or pitch-collider clearance. The corrected independent
++fixture explicitly guards both, with residuals <1.4e-9 m and ≤0.5 mm overlap.
++A3 (diagnostic isolation): original-support tests failed when a distant robot
++landed. A paired remote-robot z=50 m test keeps original Box/support coordinates;
++all three seconds complete. The z=3 m floor failure is retained, not replaced.
++A4 (fixture): the first torso filtering load was 0.663 N, below the verification
++criterion >1 N. Diagnostic compression 0.5→2 mm produces 2.709 N. Sensors remain
++zero. `verification_01` FAIL and corrected `verification_02` PASS are distinct.
++
++Final calibrated τL/R=0.0743401046875/0.0737510181777 N; strict ρL/R=.25.
++The missing planning-source adaptation remains diagnostic-only. P1/P2 prior hash
++differences are explained by already accepted P2 contact additions and P3 Replay
++method extraction, not P6 changes. Exact force/interval arithmetic and reference
++intent/state continuity were checked on the new captures.
++
++Research-level proposals remain UNAPPLIED: Box mass-distribution correction and
++any solver/asset/reference changes. Physical validity PARTIAL, reference
++compatibility FAIL; original-floor reliability and M6.5 readiness remain blocked.
++Natural hand-driven lifting/carrying is NOT TESTED as a successful task. No P7/P8,
++training, commit or push. Reports and final preservation review complete this stage.
+diff --git a/docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md b/docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md
+new file mode 100644
+index 0000000..d6325c3
+--- /dev/null
++++ b/docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md
+@@ -0,0 +1,210 @@
++# P6-A independent physical validation
++
++**PHYSICAL_VALIDITY = PARTIAL.** Native collision/sensing and the nominal Box's
++bounded dynamics are measurable and internally consistent. Original coupled
++floor-contact solver reliability and plausible Box mass distribution remain
++unresolved. This is not full physical training readiness.
++
++All paths below are relative to `outputs/hoi/contact_supervision/contact_validation/`
++(E). The approved stage was executed on main/e4f5741 without training, asset edits,
++solver retuning or reference modification. The exact compiled model, active geom
++transforms, masks, materials, joints, options, per-world support roots and sources
++are in `geometry_02/inventory.json` and `model.mjb`.
++
++## Preserved construction and reused evidence
++
++P1 `sensor_calibration/run_05` already validated all 28 native hand/primary/Box-geom
++combinations (112 placements across four worlds), force-on-Box sign, world/Box
++frames, independent raw sums, transient history, selected reset, deliberate
++capacity rejection and graph/eager parity. P2 `replay_diagnostics/run_03` validated
++four-solve aggregation, terminal-before-reset copies, action alignment and Replay
++windows. Their original results and failures were reused, not rerun.
++
++The ten P0 dependency-source hashes still match. Current P1 `contact.py` includes
++its accepted P2 extensions; current P2 `replay.py` includes the accepted P3 extraction
++of `_gather_windows` from `sample_windows`, with the gathering body unchanged.
++These explain the two historical whole-file hash differences in
++`analysis_02/evidence_reuse.json`; neither file changed during P6. New P6 capture
++uses those actual current implementations, including fail-closed capacity checks
++and exact native-history equality.
++
++The strict production loader still rejects the absent historical V3 document.
++The diagnostic adapter described in specification A1 pins the original M6.5
++manifest and verifies every physical source, allowing only that exact missing
++planning filename/hash. It leaves production loading and M6.5 readiness unchanged.
++This limited construction is authorized for the present bounded P6 experiments.
++
++## Native collision surfaces and independent initialization
++
++Both hands retain pitch and yaw capsules, masks 1/1. Pitch radius/half-length are
++35/35 mm, center (25,0,0) mm. Yaw radius/half-length are 35/41.231 mm, centers
++(110,−10,0)/(110,+10,0) mm. Full local quaternions, parent transforms and all seven
++Box pairs are saved in the inventory. Box priority1/condim3 and native hand
++priority0/condim1 remain unchanged. No contact pair or geometry was added.
++
++Four approach scans contain **204 FK placements**: left/right × pitch/yaw ×51
++steps of 0.5 mm. Each begins separated; no opposite-hand contact appears. First
++yaw contact is within floating-point zero distance; first pitch contact is at
++−0.5 mm, consistent with scan resolution. These are geometric tests only.
++
++Independent bilateral initialization uses native-keyframe arm IK and actual
++capsule surface clearance, without HDMI poses. Final position residuals are
++1.26e-9/1.37e-9 m; pitch/yaw overlaps are bounded to 0.5 mm (guard ≤1 mm).
++`geometry_02/independent_bilateral.json` stores full state and contacts. This proves
++that bounded bilateral surface contact can be constructed, not that a free robot
++can lift or carry the Box.
++
++The initial orientation-constrained IK was a **failed fixture**: target residual
++34.14 mm and approximately 97 N initial bilateral loads. `calibration_01` and
++`geometry_01` remain intact. A position-only probe still intersected pitch
++colliders by 3.33 mm. Adding actual pitch clearance and explicit residual/penetration
++guards corrected only the disposable fixture. `calibration_02` and `geometry_02`
++are the accepted replacements; the original attempts are not physical passes.
++
++## Force calibration and binary definition
++
++Fifteen calibration intervals × four worlds = **60 world-transitions**, each with
++four 5 ms solves. Worlds are separated, left-only, right-only and independent
++bilateral contact. Unilateral initial compression is 0.25, 0.5, 1, 2 or 3 mm;
++Box rolls are 0, 0.31 or 0.63 rad. Full initial states, force columns, solve-time
++quaternions, found counts, contacts, overflow and next state are preserved.
++
++Training calibration uses rolls 0 and 0.63; roll 0.31 is held out. For each hand,
++select the midpoint between maximum measured null force and the fifth percentile
++of first-solve shallow-contact load. This rule was specified before measurements
++and uses no reference label or agreement score.
++
++| Quantity | Left | Right |
++|---|---:|---:|
++| Maximum null force | 0 N | 0 N |
++| Training positive-load p05 | 0.1486802094 N | 0.1475020364 N |
++| Calibrated threshold τ | **0.07434010469 N** | **0.07375101818 N** |
++| Held-out first-solve detection | 5/5 | 5/5 |
++| Occupancy cutoff ρ | 0.25 | 0.25 |
++
++At each substep, sum the two simultaneous primary vectors, then threshold their
++norm using strict `F > τ`. A policy interval is active only if occupancy `>0.25`,
++thus **at least two of four solves**. Both hands remain independent. All held-out
++policy-step no/left/right/bilateral decisions match their controlled setups.
++Reanalysis of P1's actual stored transients at these thresholds rejects one-solve
++pulses and accepts the two-solve pulse. This is a persistence definition; genuine
++single-solve impacts, subthreshold loads and cancelling local forces remain visible
++in raw diagnostics but need not be binary ON. It is not a universal sensor-noise
++model or a reward coefficient.
++
++`calibration.json` contains the rule, distributions, holdout outcomes and transient
++reanaly­sis. P2's scalar 0.001 N remains only the unchanged recorder's legacy raw
++occupancy field. Final P6 contact is recomputed from saved force columns with the
++above independent thresholds, never taken from that legacy field.
++
++New pelvis/torso–Box and Box-support exclusion fixtures have nonzero raw excluded
++contact loads while both hand sensors remain exactly zero. They deliberately
++initialize body contact and are filtering tests, not manipulation demonstrations.
++The first torso fixture produced only 0.663 N, failing the verifier's >1 N load
++criterion; increasing only its diagnostic compression to 2 mm passes in
++`filters_02`. `filters_01` and `verification_01` retain the failure. The pelvis
++filter fixture has a deliberately large initial overlap; it is not a physical
++stability acceptance case.
++
++Independent saved-data recomputation checks **2,616 world-transitions**. Maximum
++errors are 7.62e-6 N for contemporaneous Box-frame mean, 1.48e-7 N·s for impulse,
++and 9.75e-6 N for peak. Four-solve timing/history guards remain active. No new
++force feature enters state, WM loss, imagination, Actor reward or observations.
++
++## Box model, analytic response and proposed correction
++
++Nominal model: one free rigid body, seven collision boxes, **2 kg**, root at the
++bottom-plate center, COM **(0,0,−0.2) m**, identity principal axes and diagonal
++inertia **(0.0334,0.02167,0.04167) kg·m²**. Inertia is positive and satisfies the
++triangle inequalities. Collision envelope is [−.09,−.19,−.01] to [.09,.19,.26] m.
++The COM is **190 mm below the envelope**. This cannot represent positive mass
++confined to those seven solids; it remains a source-parity model, not validated
++bread-box mass distribution.
++
++Six independent 0.1 s CPU experiments apply gravity, a 4 N world-X COM force or a
++0.02 N·m world-X torque, each at yaw 0/0.6 rad. No state is reassigned after reset.
++First-solve COM-velocity error is at most **1.29e-8 m/s**, angular-velocity error
++at most **1.75e-18 rad/s** against F/m and the rotated inertia tensor. Thus the
++simulator responds consistently to the declared inertial model; that does not
++make the mass distribution physically plausible.
++
++`box_dynamics_01/mass_proposal.json` gives an **unapplied proposal**, assuming
++uniform density across seven separately weighted cuboids (overlapping part
++volumes counted per component): mass remains 2 kg; COM would be
++**(0,0,0.1074910820) m**, and inertia about that COM in root axes would be
++**diag(0.04311170713,0.02364345505,0.03797970670) kg·m²**. Component masses and
++principal axes are included. This is a calculation under stated assumptions,
++not measured material evidence. Moving COM changes gravitational/contact torque
++arms and the current pendulum-like stability. Approval must specify a versioned
++asset profile/material assumption and require P1 filtering/sign/reset plus P6
++force/torque/support/solver/lift/release regressions and a separate reference
++comparison. **No correction was applied.**
++
++## Support, lift, release and solver findings
++
++Eight 3 s isolated CPU cases use unchanged original supports: settle/drop/lift at
++each support, a floor drop, and a support0 world-offset control. Along with the six
++analytic cases, **14 CPU cases** ran. Static settle starts 10 mm above contact;
++drop starts 100 mm above contact. External-lift cases first settle, apply **24 N
++upward at COM for 0.25 s** (6 N·s impulse), then remove all applied forces.
++Both lift cases rise **83.6245 mm**, lose support, fall and recontact. Every case
++ends stable for the final 0.5 s: support/ground force **19.62 N**, COM speed below
++3.11e-10 m/s and angular speed below 4.12e-9 rad/s. No CPU warnings; at most two
++solver iterations. This validates externally forced lifting/release of the nominal
++Box, **not native-hand lifting or natural carrying**.
++
++GPU support tests retain the original Box/support heights and per-environment
++origins. With the distant robot initialized at z=50 m to avoid a floor impact
++within 3 s, all four worlds settle **10.1079 mm**, final mean support force is
++**19.620002–19.620003 N**, maximum tail COM speed **3.83e-6 m/s**, no hand force,
++no solver flags. Only the remote robot is elevated; the Box and supports are not.
++
++The same original-support setup with robot z=3 m fails at **0.700 s**, world1,
++`LS_ITERATIONS=1024`. Contact evidence contains concurrent foot–floor overlap of
++about **33.73 mm**; the Box remains supported with no hand contact. The paired
++z=50 control isolates floor impact as the condition associated with this failure.
++It does not prove which internal line-search numerical condition is defective.
++
++Independent native no/left/right/bilateral hand-contact dynamics at z≈3 m fail at
++**0.835 s**, world2, also bit1024 during landing. A +10 m common robot/Box offset
++completes 1 s without flags: contacts release, the Box falls under gravity, and
++measured bilateral contact lasts 0.06 s per hand with roughly 1.92e-5 m slip.
++Unilateral contact lasts 0.02 s, with about 3.98e-5 m slip. These are diagnostic
++release/freefall cases, not stable carrying or support placement by the hands.
++
++P2-like frame260 floor/elevated deterministic controls both complete 24 steps
++(0.48 s) here. They use zero action noise, unlike P2's historical noisy run, and
++are not exact reproductions of that intermittent failure. Historical P2 LS1024
++and P3 ITERATIONS512 failures remain unresolved; no limit was increased. New
++LS1024 cases have available contact/constraint capacity, so they must not be
++misreported as buffer saturation. Full flags/counts/iterations are in
++`analysis_02/dynamics_analysis.json`. The production guard stops on every warning;
++partial final intervals are retained, not reused as valid force labels.
++
++## Penetration and acceptance limits
++
++Every solve logs signed distance, position, full frame, geom IDs/names and type.
++All recorded relevant GPU contacts in these runs have constraint type1. Summaries
++retain record counts, unique-sample duration, minimum signed distance, maximum and
++mean depth, >0/.1/1/5 mm frequency and maximum continuous duration per hand/world.
++Positive distance denotes separation, zero touching, negative overlap.
++
++| Independent scenario | Maximum depth | Mean depth during contact / interpretation |
++|---|---:|---|
++| Original-support 10 mm settle, CPU | 2.399 mm | 0.1465 mm; final compliance ≈0.108 mm |
++| Support/floor 100 mm drop, CPU | 10.481 mm | ≈0.290 mm; transient impact, final stable |
++| External lift and recontact, CPU | 5.711 mm | 0.2228 mm; transient landing |
++| Native unilateral release fixture | 3.000 mm | intentional initial compression; full traces retained |
++| Corrected bilateral initialization | 0.500 mm | bounded initial surface placement |
++| Original coupled foot/floor failure | ≈33.73 mm | solver failure; not accepted stability |
++
++Transient impact penetration is not zero geometric penetration. Persistent >1 mm
++for ≥0.1 s is explicitly flagged; stable settling tails are much smaller. There
++was no SDF, collision reward, new geometry, dt change or solver tuning. A solver
++proposal would require separate approval and matched original-floor regressions;
++these findings do not justify silently changing iterations or material parameters.
++
++**Decision:** bounded sensing, analytic response and nominal support capacity PASS;
++full physical validity PARTIAL, with explicit COM/provenance and coupled-floor
++blockers. Native-hand dynamic lifting/carrying is NOT TESTED as a successful task.
++M6.5 remains `training_ready=false` / `M6_5_NO_GO_M7`.
+diff --git a/docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md b/docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md
+new file mode 100644
+index 0000000..7f6929e
+--- /dev/null
++++ b/docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md
+@@ -0,0 +1,147 @@
++# P6-B reference compatibility
++
++**REFERENCE_COMPATIBILITY = FAIL for the tested native scene/reference pairing.**
++The evaluation implementation and measurements are complete, but whole-motion
++native geometry and bounded original-PD replay do not support required bilateral
++contact. This decision is separate from P6-A's PARTIAL physical-validity decision.
++
++Evidence root E: `outputs/hoi/contact_supervision/contact_validation/`.
++The original accepted Part B NPZ remains byte-identical:
++`bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b`.
++All 840 samples retain the original global bool contact: ON260–549 (290), OFF550
++samples. No per-hand labels, shifts, smoothing, target edits or retargeting.
++
++## Geometry and timing
++
++P4/P5 geometry and frame conventions are reused. The full 840-frame native
++collision audit is in `geometry_02/reference_geometry.json` and its contact log;
++`geometry_summary.json` contains compact results. P4's FK-vs-recorded wrist
++agreement and 15 mm internal EEF marker finding remain unchanged.
++
++| Original-reference ON geometry | Left | Right |
++|---|---:|---:|
++| EEF-target median | 41.802 mm | 42.610 mm |
++| EEF-target RMS | 48.867 mm | 51.710 mm |
++| EEF-target maximum | 96.097 mm | 118.220 mm |
++| Worst native pair overlap | 37.223 mm, frame466 | 44.995 mm, frame438 |
++| ON frames with overlap >1 mm | 189/290 | 228/290 |
++| ON frames with gap >2 mm | 86/290 | 54/290 |
++
++**Zero of 290 ON frames** place both hands within M6.5's [−1,+2] mm surface band.
++The targets remain on side3/side4 walls; the EEF marker is not the collision
++surface. Independent P6-A shallow bilateral IK succeeds for a different diagnostic
++pose, so these reference discrepancies cannot establish that native bilateral
++contact is universally impossible. No continuous force-feasible reference
++reachability or learned-policy success is claimed. Historical support endpoints
++remain 10 mm above physical contact; nominal gravity settling is not exact
++reference-pose consistency.
++
++P4.1 cites the manifest's explicit `bilateral_force_required=true`, establishing
++AND as the task-required aggregate during ON260–549. Both OR and AND are reported
++regardless of their scores; any-hand OFF contact remains visible.
++
++## Bounded reference-driven physical replay
++
++Six deterministic native-PD episodes use original joint targets and unchanged
++actuator/action mapping, free robot root and free Box. Reset poses/twists come
++from the original accepted reference; object twist is a separate P1 reset cache.
++No root aid, Box force, attachment, post-reset Box assignment, learned policy or
++optimizer is used. Each episode runs in four translated worlds. This is bounded
++reference-driven replay, not P8 full-task evaluation.
++
++| Reset frame | Requested steps | Completed steps per world | Result |
++|---:|---:|---:|---|
++| 0 | 50 | 35 | LS1024 at solve144, world0, 0.720 s |
++| 250 | 60 | 60 | no solver flags |
++| 400 | 50 | 50 | no solver flags |
++| 530 | 60 | 60 | no solver flags |
++| 550 | 60 | 37 | LS1024 at solve151, world1, 0.755 s |
++| 800 | 39 | 39 | reaches frame839; no outgoing frame839 action |
++
++There are **1,124 valid world-transitions**, covering **244 distinct reached
++reference frames**. Four translated worlds are repeated controlled episodes, not
++four independent demonstrations. Duration totals below sum world-episode time.
++Requested coverage was 1,276 world-transitions; eight belong to two incomplete or
++solver-invalid final intervals, and 144 were not executed after the stops.
++No missing frame is silently treated as a match or mismatch.
++
++For each complete interval, P2 records `(state_t, action_t) → state_t+1`, four
++solved force samples and `[object_contact[t],object_contact[t+1]]`. Evaluation uses
++**the reached frame t+1** for both end-state geometry and the global reference
++comparison. The verifier checks stored intent and state continuity exactly.
++All complete solver-valid measurements remain in the denominator, even when
++tracking is poor. Both aggregates use the identical validity mask. Failed final
++samples and reasons remain in per-case `samples.json`/`result.json`; the incomplete
++force history never becomes a contact label.
++
++`replay_rows.json` contains frame IDs, actual robot/Box state84, EEF/target positions,
++distance, original global intent, independent contact, force peaks, occupancy and
++validity. Raw per-case intervals retain mean force, impulse and all primary vectors;
++contacts include all required MuJoCo fields. `replay_summary.json` includes events,
++durations and fixed-definition sensitivity; `analysis_02` adds slip/penetration.
++
++## Calibrated contact agreement
++
++Use P6-A τL=**0.07434010469 N**, τR=**0.07375101818 N**, and strict occupancy
++`>0.25` (at least two of four solves). These values were selected independently
++of reference results. There are **480 valid ON** and **644 valid OFF** rows.
++
++Confusion matrices use reference rows [OFF,ON], measured columns [OFF,ON].
++
++| Aggregate | TN | FP | FN | TP | Accuracy | Precision | Recall | F1 | Balanced accuracy |
++|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
++| Any hand (OR) | 624 | 20 | 351 | 129 | 66.99% | 86.58% | 26.88% | 41.02% | 61.88% |
++| Bilateral (AND) | 632 | 12 | 428 | 52 | 60.85% | 81.25% | 10.83% | 19.12% | 54.48% |
++
++| Measurement | Left | Right | Any | Bilateral |
++|---|---:|---:|---:|---:|
++| All-row contact ratio | 10.68% | 8.27% | 13.26% | 5.69% |
++| ON contact ratio | 20.83% | 16.88% | 26.88% | 10.83% |
++| OFF contact ratio | 3.11% | 1.86% | 3.11% | 1.86% |
++| ON binary-contact duration | 2.00 s | 1.62 s | 2.58 s | 1.04 s |
++| OFF binary-contact duration | 0.40 s | 0.24 s | 0.40 s | 0.24 s |
++| Mean ON substep occupancy | 0.20052 | 0.13281 | — | — |
++| Mean OFF substep occupancy | 0.02640 | 0.01863 | — | — |
++| Contact onsets / losses | 28 / 40 | 26 / 38 | 36 / 48 | 12 / 24 |
++
++ON observation duration is 9.60 world-seconds; OFF is 12.88. Force-bearing substep
++durations ON are 1.925/1.275 s, OFF 0.340/0.240 s. Onset/loss counts never cross
++resets or gaps. **73.13%** of ON rows miss any-hand contact; **89.17%** miss required
++bilateral contact. Unintended any-hand OFF contact occurs on **20/644** rows.
++The global reference label is not presented as independent per-hand ground truth.
++
++## Penetration, tracking and mismatch classification
++
++The following uses constraint records, includes retained failure diagnostics,
++and reports maximum depth across worlds; mean depth and >1 mm duration are world0.
++
++| Reset | Max hand depth | Mean contact depth | Time >1 mm | Max continuous >1 mm |
++|---:|---:|---:|---:|---:|
++| 0 / 800 | 0 | no hand contacts | 0 | 0 |
++| 250 | 6.504 mm | 0.971 mm | 0.095 s | 0.040 s |
++| 400 | 30.088 mm | 3.353 mm | 0.180 s | 0.050 s |
++| 530 | 38.817 mm | 17.633 mm | 0.140 s | **0.135 s** |
++| 550 | 36.826 mm | 16.710 mm | 0.075 s | 0.075 s |
++
++Frame530 replay contains persistent significant overlap under the predeclared
++>1 mm/≥0.1 s diagnostic criterion. High force is not successful grasping. Peak
++hand forces across the bounded cases reach approximately **145.92 N left /
++139.64 N right**. Last completed Box-position errors in one translated world are
++0.900 m (reset250), 1.021 m (400), 0.631 m (530), 0.081 m (550); endpoint-only
++resets settle about 0.0101 m. Full per-world states and slip remain available.
++
++| Classification | Evidence and limit |
++|---|---|
++| Reference hand-pose reconstruction | Native FK reproduces accepted wrist poses; no new conversion/index error found. Recorded relative poses intersect native colliders. An upstream reconstruction/retargeting cause is plausible, not proven. |
++| Box trajectory reconstruction | Original endpoint support gap and trajectory-dependent hand/Box separation persist. The source-authoring cause is insufficiently documented; no corrected trajectory inferred. |
++| EEF/target coordinate mismatch | No new transform/order mismatch found; P4/P5 exact conventions reused. Root is not COM. |
++| Collision-surface mismatch | Confirmed: internal EEF marker versus finite capsule and wall surface; zero marker error cannot certify collision-free contact. |
++| Contact timing discrepancy | Measured missed ON and unintended OFF contact are explicit; cannot separate source timing from pose/control errors with this evidence. No label shift attempted. |
++| Insufficient tracking/control execution | Confirmed in unassisted PD replay: large Box errors, falling robot and contact loss. This is not a trained balancing controller. |
++| Physical scene/solver issue | P6-A independently identifies COM plausibility and coupled floor LS failures. Replay0/550 also stop on LS1024. These findings do not explain every geometric mismatch. |
++| Insufficient evidence | No measured real-object inertial model, continuous force-feasible source reconstruction or learned-policy demonstration. No uniquely causal per-frame diagnosis claimed. |
++
++The measurement pipeline is validated; the compatibility outcome remains FAIL.
++No aggregate was selected to maximize agreement, and no failed episode or
++unmatched valid frame was removed to improve a metric. No automatic reference,
++target, solver or asset correction was made.
+diff --git a/docs/hoi/force_contact/p6/REPORT.md b/docs/hoi/force_contact/p6/REPORT.md
+new file mode 100644
+index 0000000..dceae3a
+--- /dev/null
++++ b/docs/hoi/force_contact/p6/REPORT.md
+@@ -0,0 +1,168 @@
++# P6 implementation and validation report
++
++**P6 = PARTIAL; PHYSICAL_VALIDITY = PARTIAL; REFERENCE_COMPATIBILITY = FAIL.**
++The complete authorized P6 implementation, bounded experiments, analysis and
++reports are delivered for review. Validation did not establish full physical
++training readiness. **P7 prerequisites are not satisfied.** No P7/P8, WM fitting,
++Actor/Critic updates, automatic commit or push occurred.
++
++Detailed decisions: [physical validation](PHYSICAL_VALIDATION_REPORT.md),
++[reference compatibility](REFERENCE_COMPATIBILITY_REPORT.md), and the concrete
++[implementation specification](IMPLEMENTATION_SPEC.md).
++
++## Implementation and main evidence
++
++Baseline: `main` / `e4f574185597d23570fad462224f76f741b36538`.
++Master Plan SHA256: `68142af38edb0a9a443aac5815491aaae90dba696acc84d30fc54223c6e4a9cc`.
++The sole pre-existing visible user entry was untracked `.vscode/`; it is preserved.
++No applicable repository/ancestor AGENTS.md was found. Current dependency/source
++implementations and the complete Master Plan/P0–P5/M6.5 reports were inspected.
++
++All evidence is under
++`outputs/hoi/contact_supervision/contact_validation/` (E).
++`baseline.json` inventories 770 existing paths, including ignored accepted/refined
++NPZs, historical reports, checkpoints, assets, external physical sources and ten
++installed dependency files. `preservation_final.json` records the final comparison.
++
++Reused unchanged P1 scene/sensors/state/reset and P2 IntervalCapture,
++aggregate_interval, recorder and HOIReplayBuffer. Reused P4 geometry/FK and P5
++next-state/reference semantics. No replacement sensor, Replay or training loop.
++P1/P2 passing suites were not rerun; new physics regimes and the newly defined
++contact metric supplied the specific new coverage.
++
++New code provides independent calibrated binary contact, common-mask confusion
++metrics, episode-aware onset/loss and penetration-duration summaries; bounded GPU
++geometry/calibration/solver/reference replay; isolated CPU force/torque/lift/release;
++and reproducible saved-evidence analysis. All measured force remains diagnostic.
++Physical84/canonical86/residual82, WM166/82, support18/action29/xi33 and original
++Actor/Critic observation contracts are unchanged.
++
++| New experiment / check | Executed result |
++|---|---|
++| Native approach scans | 204 FK placements; correct side/first-contact isolation |
++| Independent bilateral IK | <1.4e-9 m residual; ≤0.5 mm initial overlap after fixture correction |
++| Force calibration | 60 world-transitions, 15 initial configurations; zero null force; held-out per-hand 5/5 detection |
++| Binary contact definition | τL=0.07434010469 N, τR=0.07375101818 N; strict occupancy>.25, at least2/4 solves |
++| Robot-body/Box and support/Box filtering | Loaded excluded contacts; hand sensors exactly zero; corrected torso load2.709 N |
++| Isolated Box dynamics | 14 CPU cases; analytic force/torque error≤1.29e-8 m/s and1.75e-18 rad/s |
++| Original supports, external lift/release | 19.62 N balance; lift83.6245 mm; stable final0.5 s; no CPU warnings |
++| Original supports in four GPU worlds, distant robot clear of floor | 3 s complete; settle10.1079 mm; force19.620002–19.620003 N |
++| Coupled original floor-impact cases | FAIL, LS1024 at0.700/0.835 s; failures and partial samples retained |
++| Original-reference geometry | All840 frames; worst native overlap37.223/44.995 mm; no ON frame with both hands in [−1,+2] mm band |
++| Bounded original-PD replay | Six start windows ×4 worlds; 1,124 valid transitions,244 distinct reached frames; two solver-stopped windows |
++| OR reference agreement | TN624/FP20/FN351/TP129; accuracy66.99%, F1 41.02%, balanced accuracy61.88% |
++| AND reference agreement | TN632/FP12/FN428/TP52; accuracy60.85%, F1 19.12%, balanced accuracy54.48% |
++| Independent left/right contact ratio | 10.68% /8.27%; full ON/OFF occupancy/duration and event metrics reported |
++| Saved force arithmetic/alignment | 2,616 world-transitions checked; max mean error7.62e-6 N, impulse1.48e-7 N·s |
++| Final focused software tests | 10 passed,0 failed,0 skipped; `tests_final.log`/XML |
++| Final evidence verifier | 19 checks PASS; failed physical/reference gates retained separately |
++
++Durations across replay worlds are pooled world-seconds, not a continuous full-task
++trajectory. Replay applies original joint PD commands; no learned policy or Box
++teleport occurs after reset. External Box lifting is explicitly forced and separate
++from hand release/freefall. Successful native-hand lifting/carrying is NOT TESTED.
++
++## Remaining failures and proposals
++
++- **COM/inertia:** nominal2 kg COM is190 mm below the collision envelope. Its
++  numerical response is correct for the declared parameters, but the physical mass
++  distribution is not reconciled as a real bread box. An unapplied uniform-density
++  component proposal gives COMz=.107491082 m and root-axis COM inertia
++  diag(.043111707,.023643455,.037979707) kg·m², with assumptions and required
++  regression tests in the physical report and `box_dynamics_01/mass_proposal.json`.
++- **Solver/floor:** LS1024 occurs without contact-buffer saturation. Paired controls
++  associate one reproducible failure with foot/floor impact; raising only the
++  distant robot avoids that impact and leaves Box/support behavior stable. This
++  does not validate the original floor scenario. Historical P2 LS1024 and P3
++  ITERATIONS512 failures remain historical FAILs; no solver setting was changed.
++- **Reference:** EEF markers are internal to capsules; reference pose geometry,
++  support gap, contact timing and unassisted tracking mismatch remain. Bilateral
++  requirement follows P4.1 only during ON260–549. The original label and NPZ remain
++  intact. Full mismatch classification is in the reference report.
++- **Provenance:** missing historical V3 text still blocks the strict production
++  loader. A pinned P6-only adapter permits these authorized diagnostics; it does
++  not change the loader or `training_ready=false` / `M6_5_NO_GO_M7`.
++- **Training prerequisites:** learned Joint-WM validation remains deferred; prior
++  P3 FP32 migration limitations remain. No natural carrying demonstration or
++  approved disposition of the physical blockers was produced.
++
++Next review should disposition the nominal mass model and the original-floor
++solver limitations, then decide whether to authorize any versioned asset/solver
++experiment or bounded controller demonstration. Reference changes require their
++own approval/provenance. No such research-level correction has been applied.
++
++## Failure preservation and corrections
++
++`calibration_01`/`geometry_01` retain the initial invalid bilateral IK; the
++position-only `ik_fixture_probe` also retains its pitch overlap. The corrected
++fixture adds residual and actual-collider guards; `calibration_02`/`geometry_02`
++are final. `filters_01`/`verification_01` preserve the insufficient torso-load
++failure; `filters_02`/`verification_02` pass without lowering the criterion.
++Physical warning cases in `dynamics_01`, `isolation_01`, `replay_01` remain FAIL.
++
++Initial diagnostic runners returned process success when the experiment loop
++completed even if a case JSON said FAIL. The final runner exits nonzero on any
++failed case. Reports always use the saved case status and raw flags, never that
++old process exit code. Lint findings and corrective logs are retained. The existing
++TorchScript deprecation warning appears; no package was installed or changed.
++The shell sandbox failed before execution (`bwrap` loopback permission); the
++approved external-shell fallback was used. No automatic approval rejection blocked
++this work.
++
++## Files, exact commands and review
++
++New code:
++
++- `src/supermimic/hoi/contact_validation.py`.
++- `tests/hoi/test_physical_contact_agreement.py`.
++- `tests/hoi/test_collision_diagnostics.py`.
++- E/scripts: `common.py`, `run_p6.py`, `box_dynamics.py`, `analyze_p6.py`,
++  `physical_analysis.py`, `verify_evidence.py`, `export_commands.py`,
++  `ik_fixture_probe.py`.
++- The four requested P6 Markdown documents in this directory.
++- E baseline/configuration, per-run initial states, interval samples, contacts,
++  compiled models, exact source snapshots, analyses, failures and test logs.
++
++**Every new artifact**, size and hash is enumerated in E/`files.json` (generated
++cache files and the inventory itself are excluded); final Git scope/status is in
++E/`review.json`. The inventory explicitly identifies its own excluded path. There are no
++changes to pre-existing tracked source, assets, NPZs, checkpoints or dependencies.
++`source_review.patch` contains the complete new source/test/documentation diff;
++machine evidence is checked structurally and numerically, with hashes in the file
++inventory. Nothing was staged, committed or pushed.
++
++E/`commands.json` records **every exact shell command**, including inspection,
++failed sandbox attempts, file-writing commands, physical runs, corrections,
++analysis, tests and final review, exported from this task's own tool-call transcript.
++Main executable commands (run from repository root, project Python):
++
++```bash
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode calibration --output outputs/hoi/contact_supervision/contact_validation/calibration_02
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode geometry --output outputs/hoi/contact_supervision/contact_validation/geometry_02
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py --output outputs/hoi/contact_supervision/contact_validation/box_dynamics_01
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode dynamics --output outputs/hoi/contact_supervision/contact_validation/dynamics_01
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode isolation --output outputs/hoi/contact_supervision/contact_validation/isolation_01
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode filters --output outputs/hoi/contact_supervision/contact_validation/filters_02
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py --mode replay --output outputs/hoi/contact_supervision/contact_validation/replay_01
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py --root outputs/hoi/contact_supervision/contact_validation --output outputs/hoi/contact_supervision/contact_validation/analysis_02
++.venv/bin/python outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py --root outputs/hoi/contact_supervision/contact_validation --output outputs/hoi/contact_supervision/contact_validation/verification_02.json
++.venv/bin/python -m pytest tests/hoi/test_physical_contact_agreement.py tests/hoi/test_collision_diagnostics.py -q
++```
++
++Existing output directories intentionally cannot be rerun in place. Use new paths;
++executed versions are stored in run snapshots, and the exact original commands
++include redirection/analysis options in the ledger. Never invoke old M0–M6.5
++aggregate generation to reproduce P6.
++
++## Training framework reuse audit and stop
++
++No shared training file changed. Native mjlab stepping, original G1 actuators,
++P1/P2 sensors/reset/recording/Replay, accepted reference loading and P4 geometry
++were composed. No Trainer, WM learner, Actor BPTT, Critic, optimizer or scheduler
++was copied or run. No contact/force prediction head, BCE, regression loss, force
++reward or differentiable measured-force path was introduced. Original robot-only
++behavior is protected by unchanged source hashes; previously passed suites were
++not repeated without an affected interface.
++
++**Stop for review after P6. No P7 prerequisites or full physical readiness are
++claimed, and no subsequent stage is started.**

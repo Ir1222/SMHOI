@@ -1,0 +1,106 @@
+{
+  "frames": 840,
+  "on": 290,
+  "off": 550,
+  "eef_target_m_ON": {
+    "min": [
+      0.0034371255808306887,
+      0.012056129454711495
+    ],
+    "median": [
+      0.0418019512924855,
+      0.042609895497126585
+    ],
+    "max": [
+      0.09609691553598394,
+      0.11822001137655841
+    ],
+    "rms": [
+      0.04886703039133746,
+      0.0517096701448023
+    ]
+  },
+  "eef_target_m_OFF": {
+    "min": [
+      0.01068428069029011,
+      0.019087544003486782
+    ],
+    "median": [
+      1.3055035581916532,
+      1.328741455159395
+    ],
+    "max": [
+      1.4332619702438254,
+      1.5047148931430243
+    ],
+    "rms": [
+      1.111564692254147,
+      1.1228932700012952
+    ]
+  },
+  "pair_distance_m_ON": {
+    "min": [
+      -0.037223343603286496,
+      -0.04499468863635965
+    ],
+    "median": [
+      -0.00884412302511423,
+      -0.020123021954236528
+    ],
+    "max": [
+      0.028835264678748015,
+      0.028319161158955067
+    ],
+    "rms": [
+      0.02285790283309363,
+      0.026518178023746227
+    ]
+  },
+  "overlap_gt_1mm_ON_LR": [
+    189,
+    228
+  ],
+  "gap_gt_2mm_ON_LR": [
+    86,
+    54
+  ],
+  "both_in_M6_band_ON": 0,
+  "frame_worst_overlap_LR": [
+    466,
+    438
+  ],
+  "worst_overlap_m_LR": [
+    0.037223343603286496,
+    0.04499468863635965
+  ],
+  "approach": {
+    "left_wrist": {
+      "placements": 51,
+      "initial_hand_contacts": 0,
+      "first_shift_m": 0.0024999999999999988,
+      "first_min_dist_m": -0.0004999999999999935,
+      "opposite_hand_contact_placements": 0
+    },
+    "left_hand": {
+      "placements": 51,
+      "initial_hand_contacts": 0,
+      "first_shift_m": 0.002999999999999999,
+      "first_min_dist_m": -2.0816681711721685e-17,
+      "opposite_hand_contact_placements": 0
+    },
+    "right_wrist": {
+      "placements": 51,
+      "initial_hand_contacts": 0,
+      "first_shift_m": 0.0024999999999999988,
+      "first_min_dist_m": -0.0004999999999999935,
+      "opposite_hand_contact_placements": 0
+    },
+    "right_hand": {
+      "placements": 51,
+      "initial_hand_contacts": 0,
+      "first_shift_m": 0.002999999999999999,
+      "first_min_dist_m": -2.0816681711721685e-17,
+      "opposite_hand_contact_placements": 0
+    }
+  }
+}

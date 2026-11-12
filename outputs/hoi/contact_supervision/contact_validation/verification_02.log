@@ -1,0 +1,48 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "checks": {
+    "original_reference_hash_and_schema": "PASS",
+    "independent_thresholds_not_P2_default": "PASS",
+    "no_contact_baseline": "PASS",
+    "heldout_low_load_sensitivity": "PASS",
+    "calibration_policy_contact_heldout": "PASS",
+    "occupancy_single_sample_rejected": "PASS",
+    "occupancy_two_samples_detected": "PASS",
+    "four_substep_aggregation_recomputed": "PASS",
+    "reference_intent_and_state_continuity": "PASS",
+    "all840_geometry_and_original_timing": "PASS",
+    "native_approach_isolation": "PASS",
+    "bounded_bilateral_initial_overlap": "PASS",
+    "robot_body_and_support_excluded": "PASS",
+    "box_force_torque_analytic": "PASS",
+    "isolated_support_floor_stability": "PASS",
+    "controlled_external_lift": "PASS",
+    "support_gravity_balance": "PASS",
+    "original_supports_four_worlds_without_floor_impact": "PASS",
+    "same_reference_metric_denominator": "PASS"
+  },
+  "rows_recomputed": 2616,
+  "aggregation_max_errors": {
+    "mean_box_N": 7.618299683542773e-06,
+    "impulse_Ns": 1.478195190696141e-07,
+    "peak_N": 9.750452306889201e-06
+  },
+  "physical_and_reference_gates": {
+    "nominal_box_numerical_dynamics": "PASS",
+    "nominal_support_capacity": "PASS",
+    "native_hand_sensing_and_force_definition": "PASS",
+    "mass_distribution_matches_collision_envelope": "FAIL",
+    "coupled_original_floor_solver_reliability": "FAIL",
+    "externally_forced_lift_release": "PASS",
+    "natural_hand_driven_lift_carry": "NOT TESTED",
+    "strict_production_provenance_loader": "FAIL",
+    "reference_whole_motion_native_geometry": "FAIL",
+    "reference_driven_bilateral_agreement": "FAIL"
+  },
+  "P6": "PARTIAL",
+  "PHYSICAL_VALIDITY": "PARTIAL",
+  "REFERENCE_COMPATIBILITY": "FAIL",
+  "P7_prerequisites_satisfied": false,
+  "no_training_executed": true
+}

@@ -1,0 +1,12 @@
+{
+  "baseline_paths": 770,
+  "unchanged_existing_files": 768,
+  "missing_existing_files": [],
+  "changed_existing_files": [],
+  "preexisting_missing_unchanged": 2,
+  "branch": "main",
+  "head": "e4f574185597d23570fad462224f76f741b36538",
+  "git_status": "?? .vscode/\n?? docs/hoi/force_contact/p6/\n?? outputs/hoi/contact_supervision/contact_validation/\n?? src/supermimic/hoi/contact_validation.py\n?? tests/hoi/test_collision_diagnostics.py\n?? tests/hoi/test_physical_contact_agreement.py\n",
+  "tracked_diff": "",
+  "staged_diff": ""
+}

@@ -1,0 +1,1185 @@
+{
+  "total_rows": 1124,
+  "valid_rows": 1124,
+  "invalid_rows": [],
+  "alignment": "interval [t,t+1] compared to unchanged object_contact[t+1]",
+  "any": {
+    "matrix_ref_rows_sim_columns": [
+      [
+        624,
+        20
+      ],
+      [
+        351,
+        129
+      ]
+    ],
+    "TN": 624,
+    "FP": 20,
+    "FN": 351,
+    "TP": 129,
+    "count": 1124,
+    "accuracy": 0.6699288256227758,
+    "precision": 0.8657718120805369,
+    "recall": 0.26875,
+    "F1": 0.41017488076311603,
+    "balanced_accuracy": 0.618847049689441,
+    "contact_ratio": 0.13256227758007116,
+    "ON": {
+      "frames": 480,
+      "duration_s": 9.6,
+      "contact_duration_s": 2.58,
+      "contact_ratio": 0.26875
+    },
+    "OFF": {
+      "frames": 644,
+      "duration_s": 12.88,
+      "contact_duration_s": 0.4,
+      "contact_ratio": 0.031055900621118012
+    },
+    "onsets": 36,
+    "losses": 48,
+    "adjacency_duration_s": 22.0,
+    "onset_Hz": 1.6363636363636365,
+    "loss_Hz": 2.1818181818181817
+  },
+  "bilateral": {
+    "matrix_ref_rows_sim_columns": [
+      [
+        632,
+        12
+      ],
+      [
+        428,
+        52
+      ]
+    ],
+    "TN": 632,
+    "FP": 12,
+    "FN": 428,
+    "TP": 52,
+    "count": 1124,
+    "accuracy": 0.608540925266904,
+    "precision": 0.8125,
+    "recall": 0.10833333333333334,
+    "F1": 0.19117647058823528,
+    "balanced_accuracy": 0.5448498964803312,
+    "contact_ratio": 0.05693950177935943,
+    "ON": {
+      "frames": 480,
+      "duration_s": 9.6,
+      "contact_duration_s": 1.04,
+      "contact_ratio": 0.10833333333333334
+    },
+    "OFF": {
+      "frames": 644,
+      "duration_s": 12.88,
+      "contact_duration_s": 0.24,
+      "contact_ratio": 0.018633540372670808
+    },
+    "onsets": 12,
+    "losses": 24,
+    "adjacency_duration_s": 22.0,
+    "onset_Hz": 0.5454545454545454,
+    "loss_Hz": 1.0909090909090908
+  },
+  "left": {
+    "contact_ratio": 0.10676156583629894,
+    "ON": {
+      "frames": 480,
+      "duration_s": 9.6,
+      "contact_duration_s": 2.0,
+      "contact_ratio": 0.20833333333333334,
+      "mean_occupancy": 0.20052083333333334,
+      "force_bearing_substep_duration_s": 1.925
+    },
+    "OFF": {
+      "frames": 644,
+      "duration_s": 12.88,
+      "contact_duration_s": 0.4,
+      "contact_ratio": 0.031055900621118012,
+      "mean_occupancy": 0.026397515527950312,
+      "force_bearing_substep_duration_s": 0.34
+    },
+    "onsets": 28,
+    "losses": 40,
+    "adjacency_duration_s": 22.0,
+    "onset_Hz": 1.2727272727272727,
+    "loss_Hz": 1.8181818181818181
+  },
+  "right": {
+    "contact_ratio": 0.08274021352313167,
+    "ON": {
+      "frames": 480,
+      "duration_s": 9.6,
+      "contact_duration_s": 1.62,
+      "contact_ratio": 0.16875,
+      "mean_occupancy": 0.1328125,
+      "force_bearing_substep_duration_s": 1.2750000000000001
+    },
+    "OFF": {
+      "frames": 644,
+      "duration_s": 12.88,
+      "contact_duration_s": 0.24,
+      "contact_ratio": 0.018633540372670808,
+      "mean_occupancy": 0.018633540372670808,
+      "force_bearing_substep_duration_s": 0.24
+    },
+    "onsets": 26,
+    "losses": 38,
+    "adjacency_duration_s": 22.0,
+    "onset_Hz": 1.1818181818181819,
+    "loss_Hz": 1.7272727272727273
+  },
+  "cases": {
+    "reference_f0": {
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [1024, 0, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 219, in run_intervals\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 209, in observe\n    original()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [1024, 0, 0, 0]\n",
+      "overflow_at_failure": [
+        1024,
+        0,
+        0,
+        0
+      ],
+      "completed_intervals": 35,
+      "solved_vector_substeps": 144,
+      "raw_sensor_max_error_N": 0.0
+    },
+    "reference_f250": {
+      "status": "PASS",
+      "completed_intervals": 60,
+      "solved_vector_substeps": 240,
+      "raw_sensor_max_error_N": 1.9073486328125e-06
+    },
+    "reference_f400": {
+      "status": "PASS",
+      "completed_intervals": 50,
+      "solved_vector_substeps": 200,
+      "raw_sensor_max_error_N": 3.814697265625e-06
+    },
+    "reference_f530": {
+      "status": "PASS",
+      "completed_intervals": 60,
+      "solved_vector_substeps": 240,
+      "raw_sensor_max_error_N": 1.71661376953125e-05
+    },
+    "reference_f550": {
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 1024, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 219, in run_intervals\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py\", line 209, in observe\n    original()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 1024, 0, 0]\n",
+      "overflow_at_failure": [
+        0,
+        1024,
+        0,
+        0
+      ],
+      "completed_intervals": 37,
+      "solved_vector_substeps": 151,
+      "raw_sensor_max_error_N": 2.288818359375e-05
+    },
+    "reference_f800": {
+      "status": "PASS",
+      "completed_intervals": 39,
+      "solved_vector_substeps": 156,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  "task_required_aggregate": "bilateral AND during ON260..549, P4.1 explicit manifest evidence",
+  "failed_partial_substeps_excluded": "Solver-invalid/incomplete final interval retained in per-case samples; all earlier complete rows retained, including bad tracking",
+  "unique_reference_end_frames": 244,
+  "thresholds_N_LR": [
+    0.0743401046875112,
+    0.07375101817770177
+  ],
+  "cutoffs_LR": [
+    0.25,
+    0.25
+  ],
+  "sensitivity": {
+    "tau_x0.5_rho0.0": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            312,
+            168
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 312,
+        "TP": 168,
+        "count": 1124,
+        "accuracy": 0.7046263345195729,
+        "precision": 0.8936170212765957,
+        "recall": 0.35,
+        "F1": 0.5029940119760479,
+        "balanced_accuracy": 0.6594720496894411,
+        "contact_ratio": 0.16725978647686832,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 3.36,
+          "contact_ratio": 0.35
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 32,
+        "losses": 44,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4545454545454546,
+        "loss_Hz": 2.0
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            398,
+            82
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 398,
+        "TP": 82,
+        "count": 1124,
+        "accuracy": 0.6316725978647687,
+        "precision": 0.8367346938775511,
+        "recall": 0.17083333333333334,
+        "F1": 0.2837370242214533,
+        "balanced_accuracy": 0.5729943064182195,
+        "contact_ratio": 0.08718861209964412,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.6400000000000001,
+          "contact_ratio": 0.17083333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 16,
+        "losses": 28,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.7272727272727273,
+        "loss_Hz": 1.2727272727272727
+      }
+    },
+    "tau_x0.5_rho0.25": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            351,
+            129
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 351,
+        "TP": 129,
+        "count": 1124,
+        "accuracy": 0.6699288256227758,
+        "precision": 0.8657718120805369,
+        "recall": 0.26875,
+        "F1": 0.41017488076311603,
+        "balanced_accuracy": 0.618847049689441,
+        "contact_ratio": 0.13256227758007116,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 2.58,
+          "contact_ratio": 0.26875
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 36,
+        "losses": 48,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.6363636363636365,
+        "loss_Hz": 2.1818181818181817
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            428,
+            52
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 428,
+        "TP": 52,
+        "count": 1124,
+        "accuracy": 0.608540925266904,
+        "precision": 0.8125,
+        "recall": 0.10833333333333334,
+        "F1": 0.19117647058823528,
+        "balanced_accuracy": 0.5448498964803312,
+        "contact_ratio": 0.05693950177935943,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.04,
+          "contact_ratio": 0.10833333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 12,
+        "losses": 24,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5454545454545454,
+        "loss_Hz": 1.0909090909090908
+      }
+    },
+    "tau_x0.5_rho0.5": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            386,
+            94
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 386,
+        "TP": 94,
+        "count": 1124,
+        "accuracy": 0.6423487544483986,
+        "precision": 0.8545454545454545,
+        "recall": 0.19583333333333333,
+        "F1": 0.31864406779661014,
+        "balanced_accuracy": 0.5854943064182194,
+        "contact_ratio": 0.09786476868327403,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.8800000000000001,
+          "contact_ratio": 0.19583333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 31,
+        "losses": 43,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4090909090909092,
+        "loss_Hz": 1.9545454545454546
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            444,
+            36
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 444,
+        "TP": 36,
+        "count": 1124,
+        "accuracy": 0.594306049822064,
+        "precision": 0.75,
+        "recall": 0.075,
+        "F1": 0.13636363636363635,
+        "balanced_accuracy": 0.5281832298136646,
+        "contact_ratio": 0.042704626334519574,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.72,
+          "contact_ratio": 0.075
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 15,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.6818181818181818,
+        "loss_Hz": 1.0454545454545454
+      }
+    },
+    "tau_x0.5_rho0.75": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            416,
+            64
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 416,
+        "TP": 64,
+        "count": 1124,
+        "accuracy": 0.6192170818505338,
+        "precision": 0.8421052631578947,
+        "recall": 0.13333333333333333,
+        "F1": 0.2302158273381295,
+        "balanced_accuracy": 0.5573498964803313,
+        "contact_ratio": 0.06761565836298933,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.28,
+          "contact_ratio": 0.13333333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 11,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5,
+        "loss_Hz": 1.0454545454545454
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            636,
+            8
+          ],
+          [
+            465,
+            15
+          ]
+        ],
+        "TN": 636,
+        "FP": 8,
+        "FN": 465,
+        "TP": 15,
+        "count": 1124,
+        "accuracy": 0.5791814946619217,
+        "precision": 0.6521739130434783,
+        "recall": 0.03125,
+        "F1": 0.05964214711729622,
+        "balanced_accuracy": 0.5094138198757764,
+        "contact_ratio": 0.020462633451957295,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.3,
+          "contact_ratio": 0.03125
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.16,
+          "contact_ratio": 0.012422360248447204
+        },
+        "onsets": 7,
+        "losses": 15,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.3181818181818182,
+        "loss_Hz": 0.6818181818181818
+      }
+    },
+    "tau_x1.0_rho0.0": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            312,
+            168
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 312,
+        "TP": 168,
+        "count": 1124,
+        "accuracy": 0.7046263345195729,
+        "precision": 0.8936170212765957,
+        "recall": 0.35,
+        "F1": 0.5029940119760479,
+        "balanced_accuracy": 0.6594720496894411,
+        "contact_ratio": 0.16725978647686832,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 3.36,
+          "contact_ratio": 0.35
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 32,
+        "losses": 44,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4545454545454546,
+        "loss_Hz": 2.0
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            398,
+            82
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 398,
+        "TP": 82,
+        "count": 1124,
+        "accuracy": 0.6316725978647687,
+        "precision": 0.8367346938775511,
+        "recall": 0.17083333333333334,
+        "F1": 0.2837370242214533,
+        "balanced_accuracy": 0.5729943064182195,
+        "contact_ratio": 0.08718861209964412,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.6400000000000001,
+          "contact_ratio": 0.17083333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 16,
+        "losses": 28,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.7272727272727273,
+        "loss_Hz": 1.2727272727272727
+      }
+    },
+    "tau_x1.0_rho0.25": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            351,
+            129
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 351,
+        "TP": 129,
+        "count": 1124,
+        "accuracy": 0.6699288256227758,
+        "precision": 0.8657718120805369,
+        "recall": 0.26875,
+        "F1": 0.41017488076311603,
+        "balanced_accuracy": 0.618847049689441,
+        "contact_ratio": 0.13256227758007116,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 2.58,
+          "contact_ratio": 0.26875
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 36,
+        "losses": 48,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.6363636363636365,
+        "loss_Hz": 2.1818181818181817
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            428,
+            52
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 428,
+        "TP": 52,
+        "count": 1124,
+        "accuracy": 0.608540925266904,
+        "precision": 0.8125,
+        "recall": 0.10833333333333334,
+        "F1": 0.19117647058823528,
+        "balanced_accuracy": 0.5448498964803312,
+        "contact_ratio": 0.05693950177935943,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.04,
+          "contact_ratio": 0.10833333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 12,
+        "losses": 24,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5454545454545454,
+        "loss_Hz": 1.0909090909090908
+      }
+    },
+    "tau_x1.0_rho0.5": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            386,
+            94
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 386,
+        "TP": 94,
+        "count": 1124,
+        "accuracy": 0.6423487544483986,
+        "precision": 0.8545454545454545,
+        "recall": 0.19583333333333333,
+        "F1": 0.31864406779661014,
+        "balanced_accuracy": 0.5854943064182194,
+        "contact_ratio": 0.09786476868327403,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.8800000000000001,
+          "contact_ratio": 0.19583333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 31,
+        "losses": 43,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4090909090909092,
+        "loss_Hz": 1.9545454545454546
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            444,
+            36
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 444,
+        "TP": 36,
+        "count": 1124,
+        "accuracy": 0.594306049822064,
+        "precision": 0.75,
+        "recall": 0.075,
+        "F1": 0.13636363636363635,
+        "balanced_accuracy": 0.5281832298136646,
+        "contact_ratio": 0.042704626334519574,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.72,
+          "contact_ratio": 0.075
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 15,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.6818181818181818,
+        "loss_Hz": 1.0454545454545454
+      }
+    },
+    "tau_x1.0_rho0.75": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            416,
+            64
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 416,
+        "TP": 64,
+        "count": 1124,
+        "accuracy": 0.6192170818505338,
+        "precision": 0.8421052631578947,
+        "recall": 0.13333333333333333,
+        "F1": 0.2302158273381295,
+        "balanced_accuracy": 0.5573498964803313,
+        "contact_ratio": 0.06761565836298933,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.28,
+          "contact_ratio": 0.13333333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 11,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5,
+        "loss_Hz": 1.0454545454545454
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            636,
+            8
+          ],
+          [
+            465,
+            15
+          ]
+        ],
+        "TN": 636,
+        "FP": 8,
+        "FN": 465,
+        "TP": 15,
+        "count": 1124,
+        "accuracy": 0.5791814946619217,
+        "precision": 0.6521739130434783,
+        "recall": 0.03125,
+        "F1": 0.05964214711729622,
+        "balanced_accuracy": 0.5094138198757764,
+        "contact_ratio": 0.020462633451957295,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.3,
+          "contact_ratio": 0.03125
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.16,
+          "contact_ratio": 0.012422360248447204
+        },
+        "onsets": 7,
+        "losses": 15,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.3181818181818182,
+        "loss_Hz": 0.6818181818181818
+      }
+    },
+    "tau_x2.0_rho0.0": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            312,
+            168
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 312,
+        "TP": 168,
+        "count": 1124,
+        "accuracy": 0.7046263345195729,
+        "precision": 0.8936170212765957,
+        "recall": 0.35,
+        "F1": 0.5029940119760479,
+        "balanced_accuracy": 0.6594720496894411,
+        "contact_ratio": 0.16725978647686832,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 3.36,
+          "contact_ratio": 0.35
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 32,
+        "losses": 44,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4545454545454546,
+        "loss_Hz": 2.0
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            398,
+            82
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 398,
+        "TP": 82,
+        "count": 1124,
+        "accuracy": 0.6316725978647687,
+        "precision": 0.8367346938775511,
+        "recall": 0.17083333333333334,
+        "F1": 0.2837370242214533,
+        "balanced_accuracy": 0.5729943064182195,
+        "contact_ratio": 0.08718861209964412,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.6400000000000001,
+          "contact_ratio": 0.17083333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 16,
+        "losses": 28,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.7272727272727273,
+        "loss_Hz": 1.2727272727272727
+      }
+    },
+    "tau_x2.0_rho0.25": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            624,
+            20
+          ],
+          [
+            351,
+            129
+          ]
+        ],
+        "TN": 624,
+        "FP": 20,
+        "FN": 351,
+        "TP": 129,
+        "count": 1124,
+        "accuracy": 0.6699288256227758,
+        "precision": 0.8657718120805369,
+        "recall": 0.26875,
+        "F1": 0.41017488076311603,
+        "balanced_accuracy": 0.618847049689441,
+        "contact_ratio": 0.13256227758007116,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 2.58,
+          "contact_ratio": 0.26875
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.4,
+          "contact_ratio": 0.031055900621118012
+        },
+        "onsets": 36,
+        "losses": 48,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.6363636363636365,
+        "loss_Hz": 2.1818181818181817
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            428,
+            52
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 428,
+        "TP": 52,
+        "count": 1124,
+        "accuracy": 0.608540925266904,
+        "precision": 0.8125,
+        "recall": 0.10833333333333334,
+        "F1": 0.19117647058823528,
+        "balanced_accuracy": 0.5448498964803312,
+        "contact_ratio": 0.05693950177935943,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.04,
+          "contact_ratio": 0.10833333333333334
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 12,
+        "losses": 24,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5454545454545454,
+        "loss_Hz": 1.0909090909090908
+      }
+    },
+    "tau_x2.0_rho0.5": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            628,
+            16
+          ],
+          [
+            386,
+            94
+          ]
+        ],
+        "TN": 628,
+        "FP": 16,
+        "FN": 386,
+        "TP": 94,
+        "count": 1124,
+        "accuracy": 0.6423487544483986,
+        "precision": 0.8545454545454545,
+        "recall": 0.19583333333333333,
+        "F1": 0.31864406779661014,
+        "balanced_accuracy": 0.5854943064182194,
+        "contact_ratio": 0.09786476868327403,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.8800000000000001,
+          "contact_ratio": 0.19583333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.32,
+          "contact_ratio": 0.024844720496894408
+        },
+        "onsets": 31,
+        "losses": 43,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 1.4090909090909092,
+        "loss_Hz": 1.9545454545454546
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            448,
+            32
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 448,
+        "TP": 32,
+        "count": 1124,
+        "accuracy": 0.5907473309608541,
+        "precision": 0.7272727272727273,
+        "recall": 0.06666666666666667,
+        "F1": 0.12213740458015267,
+        "balanced_accuracy": 0.524016563146998,
+        "contact_ratio": 0.03914590747330961,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.64,
+          "contact_ratio": 0.06666666666666667
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 15,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.6818181818181818,
+        "loss_Hz": 1.0454545454545454
+      }
+    },
+    "tau_x2.0_rho0.75": {
+      "any": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            632,
+            12
+          ],
+          [
+            416,
+            64
+          ]
+        ],
+        "TN": 632,
+        "FP": 12,
+        "FN": 416,
+        "TP": 64,
+        "count": 1124,
+        "accuracy": 0.6192170818505338,
+        "precision": 0.8421052631578947,
+        "recall": 0.13333333333333333,
+        "F1": 0.2302158273381295,
+        "balanced_accuracy": 0.5573498964803313,
+        "contact_ratio": 0.06761565836298933,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 1.28,
+          "contact_ratio": 0.13333333333333333
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.24,
+          "contact_ratio": 0.018633540372670808
+        },
+        "onsets": 11,
+        "losses": 23,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.5,
+        "loss_Hz": 1.0454545454545454
+      },
+      "bilateral": {
+        "matrix_ref_rows_sim_columns": [
+          [
+            636,
+            8
+          ],
+          [
+            465,
+            15
+          ]
+        ],
+        "TN": 636,
+        "FP": 8,
+        "FN": 465,
+        "TP": 15,
+        "count": 1124,
+        "accuracy": 0.5791814946619217,
+        "precision": 0.6521739130434783,
+        "recall": 0.03125,
+        "F1": 0.05964214711729622,
+        "balanced_accuracy": 0.5094138198757764,
+        "contact_ratio": 0.020462633451957295,
+        "ON": {
+          "frames": 480,
+          "duration_s": 9.6,
+          "contact_duration_s": 0.3,
+          "contact_ratio": 0.03125
+        },
+        "OFF": {
+          "frames": 644,
+          "duration_s": 12.88,
+          "contact_duration_s": 0.16,
+          "contact_ratio": 0.012422360248447204
+        },
+        "onsets": 7,
+        "losses": 15,
+        "adjacency_duration_s": 22.0,
+        "onset_Hz": 0.3181818181818182,
+        "loss_Hz": 0.6818181818181818
+      }
+    }
+  }
+}

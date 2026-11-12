@@ -1,0 +1,60 @@
+{
+  "stage": "P6 only",
+  "training_allowed": false,
+  "reference": "outputs/hoi/asset_audit/part_b/reference/reference.npz",
+  "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "dt_physics_s": 0.005,
+  "decimation": 4,
+  "iterations": 10,
+  "ls_iterations": 20,
+  "num_worlds": 4,
+  "seed": 606,
+  "action_noise_std": 0.0,
+  "thresholds_N_LR": [
+    0.0743401046875112,
+    0.07375101817770177
+  ],
+  "occupancy_cutoffs_LR": [
+    0.25,
+    0.25
+  ],
+  "strict_inequalities": true,
+  "binary_definition": "at least two of four samples above independently calibrated net-force thresholds",
+  "replay_alignment": "interval t->t+1 vs original object_contact[t+1]",
+  "validity": "complete interval, finite aligned state, no solver or capacity warning; poor tracking remains included",
+  "requested_replay_start_and_steps": [
+    [
+      0,
+      50
+    ],
+    [
+      250,
+      60
+    ],
+    [
+      400,
+      50
+    ],
+    [
+      530,
+      60
+    ],
+    [
+      550,
+      60
+    ],
+    [
+      800,
+      39
+    ]
+  ],
+  "task_required_AND_interval": [
+    260,
+    550
+  ],
+  "reports": [
+    "PHYSICAL_VALIDITY=PARTIAL",
+    "REFERENCE_COMPATIBILITY=FAIL"
+  ],
+  "no_post_reset_box_teleport_in_dynamic_trials": true
+}

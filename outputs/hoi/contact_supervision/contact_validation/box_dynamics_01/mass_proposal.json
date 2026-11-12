@@ -1,0 +1,77 @@
+{
+  "status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "assumption": "uniform density seven separately weighted cuboids; overlapping volumes counted per component; no material measurement",
+  "original": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      -0.2
+    ],
+    "principal_axes_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "diagonal_kg_m2": [
+      0.0334,
+      0.02167,
+      0.04167
+    ]
+  },
+  "envelope_min": [
+    -0.09,
+    -0.19,
+    -0.01
+  ],
+  "envelope_max": [
+    0.09,
+    0.19,
+    0.26
+  ],
+  "component_mass_kg": {
+    "bottom": 0.36385255648038045,
+    "side1": 0.525564803804994,
+    "side2": 0.525564803804994,
+    "side3": 0.2782401902497027,
+    "side4": 0.2782401902497027,
+    "handle_left": 0.014268727705112956,
+    "handle_right": 0.014268727705112956
+  },
+  "proposal_com_root_m": [
+    0.0,
+    0.0,
+    0.10749108204518429
+  ],
+  "proposal_inertia_root_axes_at_com_kg_m2": [
+    [
+      0.043111707133845434,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.02364345505298931,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.03797970669837496
+    ]
+  ],
+  "principal_inertia_kg_m2": [
+    0.02364345505298931,
+    0.03797970669837496,
+    0.043111707133845434
+  ],
+  "principal_axes_wxyz": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "expected_effect": "moves COM inside geometry, changes gravitational/contact torque arms and angular acceleration; likely reduces artificial pendulum stability",
+  "required_approval": "new versioned asset profile, material/mass assumptions, all P1 pair/sign/reset and P6 dynamics/solver/support/release regressions, separate reference comparison; original preserved"
+}

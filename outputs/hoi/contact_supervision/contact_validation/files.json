@@ -1,0 +1,2325 @@
+{
+  "excluded_inventory_path": "outputs/hoi/contact_supervision/contact_validation/files.json",
+  "excluded_generated_caches": [
+    "__pycache__"
+  ],
+  "files": [
+    {
+      "path": "docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md",
+      "bytes": 15927,
+      "sha256": "3f08510ac4a65cfb3a5b603a485d6c8811a4896e8bbe701f5a94f6558a9c1c58"
+    },
+    {
+      "path": "docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md",
+      "bytes": 13161,
+      "sha256": "aba7f9b95ae7945475f0e28872f1e89b7668123b03cbeca210b3f23f11e5ee3f"
+    },
+    {
+      "path": "docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md",
+      "bytes": 9125,
+      "sha256": "0ff7eb5fb3dac7c98a5c18d7934ba91493e2b02e7f3092f8b3386f40230f58be"
+    },
+    {
+      "path": "docs/hoi/force_contact/p6/REPORT.md",
+      "bytes": 11823,
+      "sha256": "66c8eda8b23e30eba6128d64ac1446ed2148bf21b018b6434d348348ba6fa79d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/analysis_01/dynamics_analysis.json",
+      "bytes": 955650,
+      "sha256": "0d365e61ae0e03c8ddb111a40dad54b966614957a87022d4b0d8800c33903942"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/analysis_01/evidence_reuse.json",
+      "bytes": 12850,
+      "sha256": "c154f1229fc992101a165ebb66c1b0966b2fae941278e10e5058fea5e84a2f08"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/analysis_02/dynamics_analysis.json",
+      "bytes": 955682,
+      "sha256": "514f86dcdf15bc626a7cf45eec6687968e6eb513109efce215524045e2ca7fd9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/analysis_02/evidence_reuse.json",
+      "bytes": 12850,
+      "sha256": "c154f1229fc992101a165ebb66c1b0966b2fae941278e10e5058fea5e84a2f08"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/baseline.json",
+      "bytes": 154273,
+      "sha256": "c61cc458438b06a6db795f7a6ca1aac35f2658fe908640b55d183c9af6d69a78"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/config.json",
+      "bytes": 20012,
+      "sha256": "dc7cd4ba8ee486ad2771533a45b6764508516fbf2c8acde6f3d6c3b36fdf1601"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/floor_drop/contacts.json",
+      "bytes": 1627586,
+      "sha256": "a14088c41160d88f65d9fec9850a72c1c5030d7df02c7ed4fef7b2f07b20e945"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/floor_drop/summary.json",
+      "bytes": 7807,
+      "sha256": "9b4ea93f5ede0697c15576415664ace8845070c57c41d552b5b3b8eab94f9807"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/floor_drop/trajectory.json",
+      "bytes": 1029913,
+      "sha256": "2ac05cb417af508068ce440e83dfd94f02330458035f15085149d7c0314424f3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.0/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.0/summary.json",
+      "bytes": 7617,
+      "sha256": "f5e3cf2dd030bedbc739eee1b5586d975f9bc864634013fb137d7b28f16f281f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.0/trajectory.json",
+      "bytes": 27234,
+      "sha256": "42719a32d7ed14d075b1ab54518018660dd797906ae06759e965a10484a58ce0"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.6/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.6/summary.json",
+      "bytes": 7707,
+      "sha256": "24312c6ea3184d04be24b9c25bd0b3d0dfbf909faee7ee65b90caf64baddc5c2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/force_rotation0.6/trajectory.json",
+      "bytes": 27834,
+      "sha256": "5480c7b69329c211417f17d34c951b71b96cc31893ebb8474bdd782ad653df4d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.0/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.0/summary.json",
+      "bytes": 7538,
+      "sha256": "796a505d8eeb1867a6baeab420442dac7a0b18c95fbca992e66b1faeb2df639c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.0/trajectory.json",
+      "bytes": 26710,
+      "sha256": "3886e65032b975483be7e8e5ef97a36c103f34b6f6922c55f98568e2b3a6ceca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.6/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.6/summary.json",
+      "bytes": 7628,
+      "sha256": "f18a859126e65f90dfef788a0cb502fca9eb45381cbf040493805b8b65228558"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/freefall_rotation0.6/trajectory.json",
+      "bytes": 27310,
+      "sha256": "ffc5b15a4b2c5ed7d215cca3f7fb0bcb19d4c4a49de41d428e3cec9fc4dcd118"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/mass_proposal.json",
+      "bytes": 1684,
+      "sha256": "4bca5a3b8adec36f6a2dd9a55be3d53480511333981ed905936b5690f08b5b51"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/results.json",
+      "bytes": 118865,
+      "sha256": "125af3c0c82f0e3bc4b33afdde46ecb8d2fda90278c834d207c570e160bf74d7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/source_snapshot/run_p6.py",
+      "bytes": 15897,
+      "sha256": "47a48a81291bb52792009a9b23d835a063ea29c6d1133a91817c84e48f1327ce"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_drop/contacts.json",
+      "bytes": 1696984,
+      "sha256": "017b1188c29fd04f8e6ae74e839ec84f70f6d89fbe91ba493d41f12bd2dff12f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_drop/summary.json",
+      "bytes": 7962,
+      "sha256": "2951219a0393b8441ff501da68e2f7982570552e5a7bad17a9bd9783370f1c33"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_drop/trajectory.json",
+      "bytes": 1027647,
+      "sha256": "390039f8c5fae30f334abd238c7b526401d4a1a7cc0336e3110332fd54c6a2ca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_lift/contacts.json",
+      "bytes": 1624684,
+      "sha256": "ffe4d35f4684fdd82da4a3cf4df4d9a85bc606b8b9daa1ab10c9a1c71f2bcb36"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_lift/summary.json",
+      "bytes": 7951,
+      "sha256": "a6dbb6ae48693fa2a08fde3887cd90320b612fabb918ee696b965903ce583fb1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_lift/trajectory.json",
+      "bytes": 1029623,
+      "sha256": "8cb3da70212f387b214f621dc3469b944a1bcea45cd30eee4bc6eacabf1fbd26"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_offset_settle/contacts.json",
+      "bytes": 1879970,
+      "sha256": "af4211286962eb2473bde829777406d39c9caae227d5068d070d61cce202fede"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_offset_settle/summary.json",
+      "bytes": 7952,
+      "sha256": "f01e8d8e9f2e752abc1ba75060d374699a812e67e7fd0bc75ab58b020e125c0d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_offset_settle/trajectory.json",
+      "bytes": 1029573,
+      "sha256": "3179dc3b5e6810aed0372f704eb9b2afbf45b06cd49d7169f02145de50dd402c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_settle/contacts.json",
+      "bytes": 1889908,
+      "sha256": "5cb7ef43029144024ead2e7ecf8c1f54025969e3a2cd6a9e8ff256c6e661c343"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_settle/summary.json",
+      "bytes": 7918,
+      "sha256": "a7d41058d61e56ba88fd01100b804e1ad54ee46859f6bdd5d421734fe39013d2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support0_settle/trajectory.json",
+      "bytes": 1032397,
+      "sha256": "340b9134a109d124112a59eac7847b8843540dc920d18265ff9438fb24de0d9d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_drop/contacts.json",
+      "bytes": 1689092,
+      "sha256": "432fb6743bed16bb68ea8b2c4eecd2e2448c2a8eb3e3c3b95cb6a8c71c6d3db8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_drop/summary.json",
+      "bytes": 7943,
+      "sha256": "04244a1cd1d29fdf11262771f9cd18fe48d5669c350c9a3c76edf6d66f706201"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_drop/trajectory.json",
+      "bytes": 1025184,
+      "sha256": "e4cd478387b1304072724e0e78ae6b1a22040b48a70e36b102b5ba00783f053e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_lift/contacts.json",
+      "bytes": 1622621,
+      "sha256": "5b9427ad482af3fcbc0ef2df0d9fd7290c7cd5a05dce807d6eae4561958f377c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_lift/summary.json",
+      "bytes": 7950,
+      "sha256": "93c8d4e4e72cb47371cbaa94d328b08b5791a24010332e11e5f5395362e9b6ac"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_lift/trajectory.json",
+      "bytes": 1028837,
+      "sha256": "d44938a6c583f2afb795a05e6c3418d7fec95e74b9a8d2263d019fc40d3e39a6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_settle/contacts.json",
+      "bytes": 1883882,
+      "sha256": "fb4e6083142792de6916638112c3f8ca65c995ba0c51af21b4b8aea20ed27f8b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_settle/summary.json",
+      "bytes": 7908,
+      "sha256": "104985f3a207c7ca30b9097873b091525bb89f298761492ec46dce31926f2ad2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/support1_settle/trajectory.json",
+      "bytes": 1031043,
+      "sha256": "c5c10e7366464e5c1f28edff0b5fb35cbbd42b87fa7b9fdd4689afdbb1d26e38"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.0/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.0/summary.json",
+      "bytes": 7742,
+      "sha256": "a41e3f467d24fc6f78d25e0c049cd935e783bbef96a8626dc0d2ddaf088c4f38"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.0/trajectory.json",
+      "bytes": 29885,
+      "sha256": "dc4d25fb122d79c82a4ed410652e125804aca2ad3e7303f9990534d2c6c00458"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.6/contacts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.6/summary.json",
+      "bytes": 7947,
+      "sha256": "9bd50c4ddb2b24e6a655ec462c548a3ec4ce053d61ce16067c0388b10fb49555"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01/torque_rotation0.6/trajectory.json",
+      "bytes": 33191,
+      "sha256": "0d9566d5fd17dc20fe9dd4289aaa2fb0a3d8225af4274cce552f68824edb6f2b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/box_dynamics_01.log",
+      "bytes": 1065,
+      "sha256": "753920243917bdf31353e518cfee46c4a037319f2fc014513706290f3461a062"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration.json",
+      "bytes": 16101,
+      "sha256": "34a47e06454c64f71b456bb428110fceff65302f6c6517dc85a95e151d400266"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/bilateral_fixture.json",
+      "bytes": 2535,
+      "sha256": "3c9e0a62608839745125b37dc357fdc5366abb0a9e41c64fb71fe970beb2183a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/inventory.json",
+      "bytes": 49689,
+      "sha256": "e9b969e67b348818da7530631886ef37167259e022d4711154b349039227e4c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/results.json",
+      "bytes": 2506,
+      "sha256": "2a0dbd78c200d96a986e2f1ec9559a1f926abc768040d8df638e551763c28c3a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/contacts.json.gz",
+      "bytes": 7943,
+      "sha256": "849363616da5fee4b716547c90cdfa2c9406e8ad962630d035fe03c39e6e2956"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/initial.json",
+      "bytes": 4234,
+      "sha256": "8f0a8fbe2988dc69d8d41a87aab3d10560d137c859f835070e33e033d830af9c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/intervals.json",
+      "bytes": 31284,
+      "sha256": "0e8cf44ff09d0130a6a33703119b6fb81be54cdd18e9f913926645a7ae75f7e4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/penetration.json",
+      "bytes": 25162,
+      "sha256": "07740fa3fb00f14775c1ea8a130821fb0b1f7d8212f08a13d3305a021ba50522"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/result.json",
+      "bytes": 134,
+      "sha256": "b3c668cb3869e202f6b3803e46912d01ec6f702f1000736b357a2bb3d1dfecca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.00025/samples.json",
+      "bytes": 51522,
+      "sha256": "c4204b014f925ca87e5208c5c38b3e645ecac2e42665cc6e8b7774d47622e7eb"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/contacts.json.gz",
+      "bytes": 7922,
+      "sha256": "49f65c4d953bd5b80ac68fdf411f4c0f96d37e58e4180d6bb0714cfece1dcae4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/initial.json",
+      "bytes": 4234,
+      "sha256": "5ec979f91c1d515b0a6a3e37d3268d91ac70fefae03537052addd30737b459ec"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/intervals.json",
+      "bytes": 31344,
+      "sha256": "9adbcd2606abc5aedb57f4e388eb944adb022409bc1bd63ce45be506e1a996d9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/penetration.json",
+      "bytes": 25153,
+      "sha256": "d8e50191ae096382e73ca204f4be8ee23e172da0569efcc5907e3b6e5a233f2c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.0005/samples.json",
+      "bytes": 51716,
+      "sha256": "3a72d11d202a89e60e39cd2c2731b2beb13357bfd716ed9a7cecf8d6e48bafec"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/contacts.json.gz",
+      "bytes": 7918,
+      "sha256": "570eda136a9cf51b9c8bd0456911cdc960db664d53c93c2821fb2dca51ddcd99"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/initial.json",
+      "bytes": 4234,
+      "sha256": "c677f2074f534f1a46e5e9b505223228016bbc92839242c6777d99a51f0ab873"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/intervals.json",
+      "bytes": 31277,
+      "sha256": "0c7db924c4b494c1307726d87844f16864cf341f3f1029db5714d4bfce15cd24"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/penetration.json",
+      "bytes": 25160,
+      "sha256": "62f4fa24cfaa3bcc7fe978156ddf85613e1295b8a0f67b5666965fa86282ec08"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/result.json",
+      "bytes": 133,
+      "sha256": "e6e65e5ed53600109fa164e72121c1417821d5c997c1b47062f9451a615142bd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.001/samples.json",
+      "bytes": 51663,
+      "sha256": "f952369f065824ed4353d110b6eed39e6500e480ed7268384862155d5388bd27"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/contacts.json.gz",
+      "bytes": 7912,
+      "sha256": "773a911d5bb20f6e108ef4977f8c16fae94f4c37d88b413f0025cfb5a58381a4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/initial.json",
+      "bytes": 4234,
+      "sha256": "74ab0319a33ae53fac2422b25ef9f8434cb18b86a1308f1212f69b14224b0977"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/intervals.json",
+      "bytes": 31277,
+      "sha256": "8cfbfa5aba91842de56784e7858d24c7b4bc27d433d7943c69873a6c49183a07"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/penetration.json",
+      "bytes": 25156,
+      "sha256": "7dee1e220689742d3a54309b153b9735e7992ba152b4f21f351552749d242c39"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/result.json",
+      "bytes": 134,
+      "sha256": "39649c1178de076016a968df13fb2846921c335193e5ba9c716f2eeda2876f79"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.002/samples.json",
+      "bytes": 51738,
+      "sha256": "c41cf88d7366cde0146375e437f60c7b6a80b30af8249b09cfead8a13d05aba7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/contacts.json.gz",
+      "bytes": 7970,
+      "sha256": "363afdd0e02528e8db2fa56f5ed0b52d71fe2aebd394aef46029d834b40885f7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/initial.json",
+      "bytes": 4234,
+      "sha256": "2fdf002f6fe52882adc33f5aeafef0f0f4dcd42ab94a07d6b67e40c78c2ee470"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/intervals.json",
+      "bytes": 31284,
+      "sha256": "b09d8afe95e82007eb041b3daf2ed57d8b7d91f04a306104674b65783d720792"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/penetration.json",
+      "bytes": 25156,
+      "sha256": "b55ada6f346aa4db647ea87bdce1380cce8508c0856201f2876fe7309288dd4b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.0_depth0.003/samples.json",
+      "bytes": 51671,
+      "sha256": "599d965da1dce4aad0638d435ef2cc3f1e657dc4f9403ed8b2de2b2dbf27ecec"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/contacts.json.gz",
+      "bytes": 7974,
+      "sha256": "b1a59ec5de12d97ce9e690ed7c7ae3d64ab14b6c5d9da0652a1108b912e220cd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/initial.json",
+      "bytes": 4292,
+      "sha256": "575644475e5dec069319728ff141844a2c4ce90924faeb834352e05667a85807"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/intervals.json",
+      "bytes": 31536,
+      "sha256": "8339a3ff05124b92ffdc8870b356fdd329f1e8935de46fda984acdbb6504a573"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/penetration.json",
+      "bytes": 25157,
+      "sha256": "ac34f1b0aab1bc0055d8aa46b50c76deb877ac713ab373e32e399ba36fd9fb89"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.00025/samples.json",
+      "bytes": 51793,
+      "sha256": "5460b916aad286b9f9a46c74fb4cf7b3c53750016ad991b2882a98c2445dbda1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/contacts.json.gz",
+      "bytes": 7973,
+      "sha256": "d2cedf6d0faab73eff7705fa0d1d61d402918c2e726a2f0dcdc757fd51efe48d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/initial.json",
+      "bytes": 4292,
+      "sha256": "3c9a16f9878ca45cb924f69b426c28de76bbf3506c3da537c5e4c6af5b77c6ef"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/intervals.json",
+      "bytes": 31552,
+      "sha256": "3613d3d603640bb37ae88b505b0fb697a88b941e7d866b3aa665bb4d47fd10b9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/penetration.json",
+      "bytes": 25153,
+      "sha256": "2e698963fe6a58c02f9fc4bfc73af6637ed1356c1c700f0be607992b23ec2be7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.0005/samples.json",
+      "bytes": 51905,
+      "sha256": "6cfeb0f5e594494e8b1cfb69ac3e2bd9b3d96102b2e909dda8f73d35383890a2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/contacts.json.gz",
+      "bytes": 7950,
+      "sha256": "fc8d64df0b8a5522d606a7d79b8dc1c523d2ccd90bc9497581aec2bb2676ce64"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/initial.json",
+      "bytes": 4292,
+      "sha256": "b9f2c74d759c87c3fe13bee6d06c1b09a94ae7d7599201dc145c664e59a9f34d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/intervals.json",
+      "bytes": 31435,
+      "sha256": "9a62452da863b11ffa68892e66d36c9d753e280e686f993061e9399fcd6720cc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/penetration.json",
+      "bytes": 25156,
+      "sha256": "38afdfb19c03abf8eeba7d96800ac94b55e079e1d7df1ee2d9e8dacd1d83ae63"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/result.json",
+      "bytes": 134,
+      "sha256": "f694900c94861ac81ada3ae470c47138cc83c4234e9133461cd0c94d53c21d6c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.001/samples.json",
+      "bytes": 51794,
+      "sha256": "7a9146d6c117f046ac4517265ba62c9664f221fc1c72b9726e25720dfda2bda6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/contacts.json.gz",
+      "bytes": 7996,
+      "sha256": "89bc89231d4cdda936d8ead992895e6bcc275d89b4fd9ce11f6ceec0fda57b71"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/initial.json",
+      "bytes": 4292,
+      "sha256": "26d8755ccc789b6dc005a905e8a600a471c66505b0a60e8e0a4a5adf95c16b08"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/intervals.json",
+      "bytes": 31392,
+      "sha256": "0d7942e213ae8374347baa8b3e75bf7d677ae22fe2536c7658319ac2665d1e09"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/penetration.json",
+      "bytes": 25149,
+      "sha256": "aa87ea8d181c516eb6cb265b687b0a2cd04ed63e392f5fb1aab0a4f8e4eafddc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.002/samples.json",
+      "bytes": 51769,
+      "sha256": "2c5c54994cb15dfc9907097a194f72c6daf6acd4d7b482cbb27ad0aeb40326e9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/contacts.json.gz",
+      "bytes": 8049,
+      "sha256": "41d1540f9f02c4d274bbc54c65ca5404f8a7af7131e030a3398965262935ae85"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/initial.json",
+      "bytes": 4292,
+      "sha256": "f39ff0dc2ed70a70d19aa2015f782d029982c4f94e03cdeccf44dd001f505970"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/intervals.json",
+      "bytes": 31414,
+      "sha256": "735e102f0847c7c6c80e1fb9efac775297e308ac10a41b8faadf8319e3fd1d59"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/penetration.json",
+      "bytes": 25149,
+      "sha256": "1401ccfcd0182933e29d1cb72c2f1a75408404f66caf37130f1156a164d62dab"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.31_depth0.003/samples.json",
+      "bytes": 51785,
+      "sha256": "3e9b235c987513f9d6fcf3aa8ac565418c3bc497314d3c30d5e284df4f730476"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/contacts.json.gz",
+      "bytes": 7961,
+      "sha256": "9849fcca3c1f42cd09e0f9180e8d4bbe17add91bb308812dc05b14089b104ab1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/initial.json",
+      "bytes": 4295,
+      "sha256": "6ddbdb155407821ea12132cf8faadbe69d1c9212015cc56b5a94e778ec0cab3b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/intervals.json",
+      "bytes": 31502,
+      "sha256": "a6b3c43f4d199ad8afc1395e300bc7f3dbccce3e055ca7af631c0ebca1469ebb"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/penetration.json",
+      "bytes": 25159,
+      "sha256": "ecabdc8f3702a5be61995b3e2c5b115aa4e01595bde94a894d3361d98ed4d822"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.00025/samples.json",
+      "bytes": 51739,
+      "sha256": "79d1c88af68e3b7de2dd718482962cf2405f63bc63932f55ef2c0ec4dbb71e22"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/contacts.json.gz",
+      "bytes": 7959,
+      "sha256": "970e3cc4cefcf407702254432fa073ca379348a2211baef2f1cd785c04ecd573"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/initial.json",
+      "bytes": 4295,
+      "sha256": "7561d14ef361ab54077ce05cbb0ef6766c6a046801ce47d5c45c96c8a6b3c560"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/intervals.json",
+      "bytes": 31532,
+      "sha256": "1b6fcec8deee9089de26a96d937dfd6025a691072a8bc3fa0f5e8ae53e3f1737"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/penetration.json",
+      "bytes": 25151,
+      "sha256": "b778bde8fb495afa515483b822c20f55506b5d9b2ad3ec5f9a074aa3a997eb0d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.0005/samples.json",
+      "bytes": 51859,
+      "sha256": "8f0a2cd35dbbada0540185b84390fbbc33fcd45284b4503f0af9cbfb37d66cb1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/contacts.json.gz",
+      "bytes": 8023,
+      "sha256": "291d331e0643fa1e7cabde2181ed68f3e3459b40bdaf8d11579aa0c00932a443"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/initial.json",
+      "bytes": 4295,
+      "sha256": "ede42c297efacd7de616c758f157ec6752a076c231966dff05a26d13de11677b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/intervals.json",
+      "bytes": 31530,
+      "sha256": "3ebcf1942617b77ed3842c9d23c187b1fe8139193104a91b45a37941a4e61596"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/penetration.json",
+      "bytes": 25158,
+      "sha256": "472205a8999de15a7f7f00a9e1c564e63ad4b76f6e8f78a172a9d977a1822a15"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/result.json",
+      "bytes": 131,
+      "sha256": "dced0f348724f0f5fe69ad19497fc59e1bd592b262f09b9af7c448e4ed12ab4b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.001/samples.json",
+      "bytes": 51904,
+      "sha256": "daeb0eada039c1c19b05f1c12baebd4f5792e0549de8e104239a9ef8ae2aeed1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/contacts.json.gz",
+      "bytes": 8115,
+      "sha256": "2faf6e436cda00111e962019c921a1cf9b8596cc29a9195a2d8f3b49796f4948"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/initial.json",
+      "bytes": 4295,
+      "sha256": "e2c8003f125031355225ecfdc735fe0ffec76a18f4fe8855d70ea3d03d3fcfd5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/intervals.json",
+      "bytes": 31530,
+      "sha256": "98a1b1ae34fddceb3fee8b66543851fe0c615c6697259d85cb6aed7e79d1d99b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/penetration.json",
+      "bytes": 25156,
+      "sha256": "726c924c2f9b338aab32f5fcf3f74ee7a7acb425f18059c96a118c0d268e1829"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/result.json",
+      "bytes": 132,
+      "sha256": "e5b5090c608c66e428521ee2b0b27944613d9bdad190777532ced5974f871548"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.002/samples.json",
+      "bytes": 51893,
+      "sha256": "3a34fec2d8b4ec6de8d709ad24322ead0c4810e51c83267b1cde3ffd85148eeb"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/contacts.json.gz",
+      "bytes": 8086,
+      "sha256": "4fdc8810bbe1d7cb12c8d3c4b59fbc95bcdba70cbf36ce305294eee8166301ed"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/initial.json",
+      "bytes": 4295,
+      "sha256": "3f2f6913923ce6dad7d76a5061d8bc2497060467b39af188dcae89c1d6ec4434"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/intervals.json",
+      "bytes": 31497,
+      "sha256": "5bb5ff1c158a317f16abf9b9c8b9aef3f34e53cb4550e4b73287a7049938db33"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/penetration.json",
+      "bytes": 25153,
+      "sha256": "e1ef9884f2908a5992116ee0ac45e7a3cd1369d2bbd1800cd9dffc86f69fccf3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/result.json",
+      "bytes": 129,
+      "sha256": "954a71d65904e3a646148de9a9fcc3251aaea21dca58ce9c5acaf5aa82f5a2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/roll0.63_depth0.003/samples.json",
+      "bytes": 51855,
+      "sha256": "c769c4fe73f2ad08538239e108a845505a90c74124e982bdd1775a00e348add7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01/source_snapshot/run_p6.py",
+      "bytes": 15897,
+      "sha256": "47a48a81291bb52792009a9b23d835a063ea29c6d1133a91817c84e48f1327ce"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_01.log",
+      "bytes": 7854,
+      "sha256": "4711125f6dcd00e4a3d6fa6af8dffc90b9f9d3865dd46c14e55e44955b997f30"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/bilateral_fixture.json",
+      "bytes": 2634,
+      "sha256": "9424e95de48f977c38f6b579505d1d063f99cd471f222219705e74f07e34638b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/inventory.json",
+      "bytes": 49689,
+      "sha256": "e9b969e67b348818da7530631886ef37167259e022d4711154b349039227e4c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/results.json",
+      "bytes": 2535,
+      "sha256": "6d2baa4c0ec2c21155ed27ab35ef290f0c650e941c63a26b05e59d50964ca496"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/contacts.json.gz",
+      "bytes": 3698,
+      "sha256": "31eb9e2b8ab9511e9be5fab3132ba42b86274292541f5c14df4449efdecc8d29"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/initial.json",
+      "bytes": 4244,
+      "sha256": "34b09fbb64d27eabc7ee32fa1671f4a9699f14a434ab5d1f323b0a1f782a9b9a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/intervals.json",
+      "bytes": 31129,
+      "sha256": "ebe78d335c0786e260f9560871692ba767b652d30e47da6a1ea946ab0fe7ae52"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/penetration.json",
+      "bytes": 25171,
+      "sha256": "620bdacf82babee216c1a79dbfb16bdf5707a7e981ab85205d834f374975c23e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/result.json",
+      "bytes": 134,
+      "sha256": "96a986e42bf94bf7a23120608789616fcc8b90d07001d7510bd7e9171d03f011"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.00025/samples.json",
+      "bytes": 86963,
+      "sha256": "d8b52bfabf3d8ea0626a7953d63d598226c10dc38ed57b044dfc002bfb3dc604"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/contacts.json.gz",
+      "bytes": 3675,
+      "sha256": "c85ad183db3d1b9300d66229d04ed863ef5c56cf50ebb2ce51386a63294a323a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/initial.json",
+      "bytes": 4244,
+      "sha256": "e18b9e2823c913c0dfecf9ca60c7505b46f55f313ec929a8bc8a7ea5790a7963"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/intervals.json",
+      "bytes": 31185,
+      "sha256": "147dfa89545503193565fa71ee1bead68385e262bd4222a460625b52259adb76"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/penetration.json",
+      "bytes": 25165,
+      "sha256": "94df643750a24c7de422bfe4c0f489c9b28314470bef8ad1bfd45477e8d3fb19"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.0005/samples.json",
+      "bytes": 87273,
+      "sha256": "6ba1804651dbbbaf59def05decde19fe71a6fc81b7db6d4897b5f99754ccd661"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/contacts.json.gz",
+      "bytes": 3670,
+      "sha256": "21f45a86873336672bba1d4937a8c0d86f4be4283a599207b55d9f391429a641"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/initial.json",
+      "bytes": 4244,
+      "sha256": "3a6155367ae33df6ff4e6b97774c6f703cfafd6d00a8e5fba0a5a8a422176289"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/intervals.json",
+      "bytes": 31119,
+      "sha256": "91215d5dd742ab8db2411df6d45275956c4ba7e5436eb2817e5875bd758e6527"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/penetration.json",
+      "bytes": 25168,
+      "sha256": "f700bf06826c30f40dbdcfcbb7f38ddc7671dfa59734019bf45d5f7bdf8de653"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.001/samples.json",
+      "bytes": 87272,
+      "sha256": "c3ed0ce48e11e5d3eaccc097171a309e5a6b8aae7650d86ea92533770a6fefe8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/contacts.json.gz",
+      "bytes": 3655,
+      "sha256": "5003f552629240344380c9cf7f1f17b0ef6221fc6a334cc5fa4b90b5d72758fb"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/initial.json",
+      "bytes": 4244,
+      "sha256": "2498e58d182643dca55ea2fb52b83021e95e3f96f91266dbd80ffd7064ee9267"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/intervals.json",
+      "bytes": 31125,
+      "sha256": "4f42592d406975028876a1662c7136ad5efc252565ee84fdb04eeb4db8ae55c5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/penetration.json",
+      "bytes": 25165,
+      "sha256": "ef781521db1210cf905feb2e4933bed78ea0f736baf177a78b59b2df069c84f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.002/samples.json",
+      "bytes": 87371,
+      "sha256": "1a5b6fff213296cd5ab87e34b8b88645ce6df6e619a2a2d99131ff32143aadff"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/contacts.json.gz",
+      "bytes": 3693,
+      "sha256": "a35d8dd5dc7e09d02c7866f75680b718a0412b97ae50ef354b82e0f3393c7e28"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/initial.json",
+      "bytes": 4244,
+      "sha256": "4f30f141838656ee697767d79e32347a1d9c0039a7123a4e3bf103e2ce776a01"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/intervals.json",
+      "bytes": 31126,
+      "sha256": "96b59992a9ebd8f72924d354892b149e3331e866e8773a286e7723c0472829c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/penetration.json",
+      "bytes": 25165,
+      "sha256": "d95b1ab55169fcd68a61dec8c319ac70a0309231d379105d83d36f30f0f7798d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/result.json",
+      "bytes": 134,
+      "sha256": "96a986e42bf94bf7a23120608789616fcc8b90d07001d7510bd7e9171d03f011"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.0_depth0.003/samples.json",
+      "bytes": 87253,
+      "sha256": "a95a45c66c2720653ae602d90416e92e5d4fd1e26798771c1453db5cc8a1842a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/contacts.json.gz",
+      "bytes": 3677,
+      "sha256": "69e9112f4d15efc9385f48d39a1aa63d484b7ed6b3aae0d4d0b6fa95647882db"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/initial.json",
+      "bytes": 4302,
+      "sha256": "fb87d6f978c39f2e31b9825bafd21b8d153cc7936af75fa79b75f1d02a17333a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/intervals.json",
+      "bytes": 31362,
+      "sha256": "df3fc608170f758c1390809470e1f91c034c5d52db8fae80fb81302c3587e012"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/penetration.json",
+      "bytes": 25168,
+      "sha256": "a1781a4daa980f31390a3406fcf6d84f644d7e77dc143e68761593421aad2680"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/result.json",
+      "bytes": 134,
+      "sha256": "96a986e42bf94bf7a23120608789616fcc8b90d07001d7510bd7e9171d03f011"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.00025/samples.json",
+      "bytes": 87351,
+      "sha256": "0b3bd8a3871043556c9422c5530a105dcf9f8bcc97c237e7e97b0d03abba515a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/contacts.json.gz",
+      "bytes": 3702,
+      "sha256": "61302ac7f789b14b39b67223cef64300ae8f7a43e4c23f42f99b0cc8b5e25067"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/initial.json",
+      "bytes": 4302,
+      "sha256": "417efc482e09f2b1efa09584b73c174f5a6b697cac6165da8e0d740e55255b66"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/intervals.json",
+      "bytes": 31399,
+      "sha256": "8a0b089bd2296fb8fa55e9fe4dfaeb3025ea07efe138ee9fb6cec24aacf5d876"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/penetration.json",
+      "bytes": 25162,
+      "sha256": "27374069399d7fcd85df05a02e47ce32199c0e06b40b4070441532035044ee3f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.0005/samples.json",
+      "bytes": 87584,
+      "sha256": "622bf399ef03555889346f6b019bee0093795f5b0631f2a5aa50892bd2fe82ab"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/contacts.json.gz",
+      "bytes": 3674,
+      "sha256": "9a94de6a16eb8b16ee10fda84f919116e4bef63c700b94cfe5d446713e28c442"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/initial.json",
+      "bytes": 4302,
+      "sha256": "2c38d0442914f63b0d4af3687281ac6ebcd70bbb9a3e7d31533a133f6b035fd4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/intervals.json",
+      "bytes": 31278,
+      "sha256": "819ea063b3ff097ad8f2912b2b0b0c5a2d9e6d2a0c25b7a2944799cbcdbe0572"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/penetration.json",
+      "bytes": 25168,
+      "sha256": "ebc7b068f8aa17e456a97194b4ce5e4457cfbdc60e3314697a3c5fbe7476180b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.001/samples.json",
+      "bytes": 87523,
+      "sha256": "0ddbba8f65779dfa8a24349d9f45ac444878cb6aac57af315632e4e0ea91c15c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/contacts.json.gz",
+      "bytes": 3711,
+      "sha256": "78c476183a7ae9862082dbad06ee632257a2cad6dc4a9f2a5203edd5118e8e84"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/initial.json",
+      "bytes": 4302,
+      "sha256": "476f62c2e73ee7fc2204a331291c9478ff6e11c7f61a90d2232bfd03a296c04c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/intervals.json",
+      "bytes": 31254,
+      "sha256": "9b0b85103b68d37aebaf8407348a3d7c3e97a80c25719c70f29e15062de2d548"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/penetration.json",
+      "bytes": 25159,
+      "sha256": "d442a687548f99a8b8ccd331a986c4a78e0eaa3ab13fa89b017196f18ed17645"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/result.json",
+      "bytes": 134,
+      "sha256": "96a986e42bf94bf7a23120608789616fcc8b90d07001d7510bd7e9171d03f011"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.002/samples.json",
+      "bytes": 87525,
+      "sha256": "3f92d570cece5818b1476e6fee58878466f01cf50a75868403f8b149844e2185"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/contacts.json.gz",
+      "bytes": 3751,
+      "sha256": "8751ad04ca8bf7c3c5fdd0a5dd5998633ad9bc0f2adbf26bbf7468696ff4ed17"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/initial.json",
+      "bytes": 4302,
+      "sha256": "8c362f465ac03b761fe56b1b20a9d8fbface2891d9b655edf7cab96a47a590ac"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/intervals.json",
+      "bytes": 31245,
+      "sha256": "52ee8eed0c94140b5f20f658ab5680c09c12b857a584ca75bd0f58f3050be2be"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/penetration.json",
+      "bytes": 25159,
+      "sha256": "55ce2643905df558a9bb88b4d0c693820902175dae8a44e25f2bf4a074d7bf42"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.31_depth0.003/samples.json",
+      "bytes": 87458,
+      "sha256": "0f47d50e9903dc8fe233d353a4502d46749a1e362c9a187c8499959626057437"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/contacts.json.gz",
+      "bytes": 3708,
+      "sha256": "6e0128f658f20cdaa3c0c9d17c91dfa44b48d4ff4c23e11fc472ef9c193ec1d5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/initial.json",
+      "bytes": 4305,
+      "sha256": "4229abb6546a1b8b6d4e17fca45942fd869a5121b41b2da98001856e4a24d2b5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/intervals.json",
+      "bytes": 31338,
+      "sha256": "133e4a540fdac365341aefc979944e6df9a33e28182dc205160fda3dc8292f19"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/penetration.json",
+      "bytes": 25171,
+      "sha256": "e2e02720630a1a467e1f0a89635b853e11109f9e62c2a99b3fa4414a16350464"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.00025/samples.json",
+      "bytes": 87305,
+      "sha256": "d6a5f4024719cc8437da15d171acedfc137d52d4957cec72816b9123cde87a5a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/contacts.json.gz",
+      "bytes": 3728,
+      "sha256": "edefa1df44327dcbb093ed7e5f5974309bca31bd5671b5b833c698bdf222ad45"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/initial.json",
+      "bytes": 4305,
+      "sha256": "4cca53e23ae7b33c85c304ab0d903e7e0e4ed4f32498f2ec82dde5b4e41fa524"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/intervals.json",
+      "bytes": 31376,
+      "sha256": "2df6b630ab3472a7e24635c9e9ad823c40747c2544185496f146163bec6cfd50"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/penetration.json",
+      "bytes": 25162,
+      "sha256": "aa03c4642099f550b0ca01ed780f0eccdd35348fa6013daccb6f60db07f945dc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.0005/samples.json",
+      "bytes": 87511,
+      "sha256": "bc21d0319824123c57b90e755d94b0af71d02a910fabd42fe7f4d4d1b4a77bad"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/contacts.json.gz",
+      "bytes": 3744,
+      "sha256": "7cde847da99c6406db0a6ea5a7957d8d4effc5da09536339de195a92165a5c7d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/initial.json",
+      "bytes": 4305,
+      "sha256": "b74dca56b8c6e35aad916cbb62697dc3702ff873198a906de24f2048331280a7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/intervals.json",
+      "bytes": 31372,
+      "sha256": "c33a6e7aa747b1a7638cf6cf1b995844324e7584254c2b9adaf1fb74040aa765"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/penetration.json",
+      "bytes": 25168,
+      "sha256": "0fe4cdae6ac62ef211f73460bcd0e4e777bd81a63b4c0722eafce33606ce5777"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.001/samples.json",
+      "bytes": 87579,
+      "sha256": "b69a5469287daf5f27162e3f2cdeb79f4ef7094703f0f3f67d5f2868b4a77e66"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/contacts.json.gz",
+      "bytes": 3846,
+      "sha256": "692f4c67b090243e4986545b9cdb242ba1bbf0a07bc83632f45fdbf57e8afc9e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/initial.json",
+      "bytes": 4305,
+      "sha256": "78274ce518e173f6dbb0dfa9d5421de7af0f42b95072664c9a94c27c537e5100"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/intervals.json",
+      "bytes": 31355,
+      "sha256": "6a95dfae418614bc0d0040f8b21aa48ebb640e56cf0b99a94c5dd5266699601b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/penetration.json",
+      "bytes": 25165,
+      "sha256": "fed23685b65a048a58629dea1a5e87502352062b07e76f46ef046ec73cfef6b6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.002/samples.json",
+      "bytes": 87535,
+      "sha256": "fae16d897dba44e76ae892dc0e01d1ee494844a4a37975063808b7f7ad8d5cc6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/contacts.json.gz",
+      "bytes": 3821,
+      "sha256": "ba46f1f33758098a62575ddba964f05a5a956397a5009bab6f349a78d7e6dc39"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/initial.json",
+      "bytes": 4305,
+      "sha256": "91f835f3e81ec96ca99bdd2dfe253c61a1b1897464412f03705a8ae237514152"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/intervals.json",
+      "bytes": 31346,
+      "sha256": "954b9827070f8ce251ffebaf8f42e2172a9bd8fd3a345d45f30df0bc976acaef"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/penetration.json",
+      "bytes": 25162,
+      "sha256": "dda49ceeb4bf8c9a76c1ea5629a9e0d89b8bbbf024818b4e1a118a1e704e1ac9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/result.json",
+      "bytes": 132,
+      "sha256": "5bfa3e8fda478f23b4ca69a67e23499b9475695f53918360df732853951dd992"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/roll0.63_depth0.003/samples.json",
+      "bytes": 87536,
+      "sha256": "d95d8718a0a2c698f40617e99ba81f99866e2d7f4d63b07e49a8e2ca47b21226"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02/source_snapshot/run_p6.py",
+      "bytes": 17326,
+      "sha256": "9b681c4beb2048b46b5a37015af0987a838df67f3324a3c03a02560253c96aca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_02.log",
+      "bytes": 7693,
+      "sha256": "25dd8b02bdf422472fb1cf4a9721743c78971a5502bceda3ae7ad919fe2ec785"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/calibration_analysis_01.log",
+      "bytes": 200,
+      "sha256": "2a32d062dc291e8d93a478351dbdc5d03d70342539edfe171401b2671b7f36a8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/commands.json",
+      "bytes": 182419,
+      "sha256": "602b688ebc7fd5dc1a7613b61b598a94af365d290bc3e7ea502a98970ac8d575"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/contacts.json.gz",
+      "bytes": 23708,
+      "sha256": "69e728cffea937d7777196c4f9231c889a4dbbd9724de534d1e2a27ccc1a875d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/initial.json",
+      "bytes": 4548,
+      "sha256": "a4dd4acf051c3ea031e3d5efc17ae2b2b3ab23bb503ed1c34a1311065341fc01"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/intervals.json",
+      "bytes": 865829,
+      "sha256": "88f10d89c249867bdf1229043acf647171cb81e6d874fc4b3aa48408eca642fd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/penetration.json",
+      "bytes": 25741,
+      "sha256": "2037ef6efb7c22eea9b4e3427d2fcbbb743e6bca01ee900eec42b875fb6cb4de"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/result.json",
+      "bytes": 135,
+      "sha256": "ac5a4e3e5f85d2042e083a399633477a1f85c9c352e97c18d13b81d576f8a8ed"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation0.0/samples.json",
+      "bytes": 2142381,
+      "sha256": "5460e25e9cb205b29920ea8e625f828968802d0512a45d68572a9ef20aba9aad"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/contacts.json.gz",
+      "bytes": 13201,
+      "sha256": "22700952e138e377aba0b83b0f600df75e5ccf1f245a925ac3d52a678cd43cfa"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/initial.json",
+      "bytes": 4548,
+      "sha256": "fdc9277c2493ecb8bad8094dcdb78b91fd631131d9221df2c5171703fe7ce7f8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/intervals.json",
+      "bytes": 865205,
+      "sha256": "dd02c8c4b170cc6a888438df5fd264dd3ae568c6586aad4650a1623cc19b82c4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/penetration.json",
+      "bytes": 25728,
+      "sha256": "67369341c87b915a1992ecc98ddf6a7b5e7013fce54edb47b1d85a879ea41cb7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/result.json",
+      "bytes": 133,
+      "sha256": "66c0f75a4b4e32493f867c9a3889d560e47500c66e46bfc370c51968f1ae2655"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/historical_fixture_elevation2.0/samples.json",
+      "bytes": 2140631,
+      "sha256": "4ffeb9f4ee2ce9f744fa5b920e4a6554101244f53d661bb2e149fbeeb63bb569"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/contacts.json.gz",
+      "bytes": 76750,
+      "sha256": "4453a0c573e61fa9e1fdacb576bcccec44d29594fdb190511faf20b8c346036e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/initial.json",
+      "bytes": 4245,
+      "sha256": "e7210dbfc5a964aa35a925d3553d60ed3263e0dd024b68672d281f54c6e94f8b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/intervals.json",
+      "bytes": 1442619,
+      "sha256": "afe4bdb76a36d1a528624fc0e25595db36f5614e8a06a9e0eba266c71dba77c2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/penetration.json",
+      "bytes": 26846,
+      "sha256": "d9ca30b9716fe59eb6a1384b96dfc12ac7f9a197bb24573397f28de33a9a31ee"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/result.json",
+      "bytes": 1595,
+      "sha256": "151cc634602aa0af338551690dde438a23bc328b3acee8d841bb5ad7b888f3b2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/independent_hand_release/samples.json",
+      "bytes": 3821209,
+      "sha256": "b901db2b79d2d8f5835a1dc2d46818c4473b65e62c3c9f4d9c45b441f7b1a14e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/inventory.json",
+      "bytes": 49689,
+      "sha256": "e9b969e67b348818da7530631886ef37167259e022d4711154b349039227e4c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/contacts.json.gz",
+      "bytes": 25399,
+      "sha256": "fc1fafdc1710c4e231270b23a4875129a42fb5342d92e195f94648dff6e4d62e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/initial.json",
+      "bytes": 4229,
+      "sha256": "c11d75bd9416e22769ce7bb361a3b771898e4f19b2b58277d6b817964d192ce9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/intervals.json",
+      "bytes": 1197865,
+      "sha256": "20e85b0e8763a9c16c25998d05b4040eec22a74b0158078804ffe8ba87e0c263"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/penetration.json",
+      "bytes": 25919,
+      "sha256": "9e373f9ad5e711f7a46e939f25f1571aaf5ca4987b9ef30b56435002a9645fc4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/result.json",
+      "bytes": 1579,
+      "sha256": "42fe4832c0a29202bc0d4efef2cf9ffc552300133884b92cf555f1ea6000a2ea"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/original_supports_parallel/samples.json",
+      "bytes": 3260958,
+      "sha256": "dc7eef2113b48fc24e1bfec9bd19903521f9afa8446be6aabc6a31f353f2aa59"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/results.json",
+      "bytes": 3657,
+      "sha256": "a8c5cfaa7cbb2a6eb49871cae73f42c36ac5253de4278bb903559e63651726e2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01/source_snapshot/run_p6.py",
+      "bytes": 17326,
+      "sha256": "9b681c4beb2048b46b5a37015af0987a838df67f3324a3c03a02560253c96aca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/dynamics_01.log",
+      "bytes": 7792,
+      "sha256": "cf52c197e75e1df2041816a913215a31bd405104d95a73c633c004e0164e3a0d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/evaluation_config.json",
+      "bytes": 1264,
+      "sha256": "80ed7775ece178715c9db9723f224d1a99edd9672992f55fb72c1f907c3ea6a2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/inventory.json",
+      "bytes": 50545,
+      "sha256": "400f5af837f8d95b4d37323bff9de56b2f73a1231a2c210a7719dae29c20c140"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/model.mjb",
+      "bytes": 71169284,
+      "sha256": "bc2b5592f663ed40211c086f8e094da0005cb92d285e150005965818610e0973"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/contacts.json.gz",
+      "bytes": 7126,
+      "sha256": "3657f7f1603cc66c8ec3fd77aa7b6b4efe4202fc6effbdb55772f33504d535d0"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/initial.json",
+      "bytes": 4022,
+      "sha256": "75780fd913865379319aeb7d773aff984ac19696462fabd370d5141c1b0e51ff"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/intervals.json",
+      "bytes": 29752,
+      "sha256": "aca5597897fafc701e67c8bfde756ee61f34c6362a85b97da185cee84d285687"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/non_box_contacts.json.gz",
+      "bytes": 50,
+      "sha256": "c98f32191f54d79be23ef2189a0bd50da7f9a91db46947b9867c8820cc2a0346"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/penetration.json",
+      "bytes": 24925,
+      "sha256": "c456051e67f1a7d9d073f80de29f7348fb710532b03d4901b3ed678513c018e9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/result.json",
+      "bytes": 115,
+      "sha256": "14c56856e8fdcd67eb9b801e85bdb6738b7ee6db9cee2062463dc733f977e474"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/non_hand_box_filter/samples.json",
+      "bytes": 86325,
+      "sha256": "cce0eeb87dccf0dc3b029ac6ad42674c0a3d65c085c5201f9a1b2f29552257e0"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/analyze_p6.py",
+      "bytes": 8910,
+      "sha256": "f7dc8170cce57c44d2ad98cbfb83e7610d4669d3babc3f80208ba59fe8b5acd4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01/source_snapshot/run_p6.py",
+      "bytes": 20114,
+      "sha256": "438245d1d678cb23e5f342358dab90d6b60fe8e1fea9a98903fd1c251d91a226"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_01.log",
+      "bytes": 7311,
+      "sha256": "05dbb48326a351c49f10ada35d854e7bc7b0545f0a4a6cc6638f5136899038c8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/inventory.json",
+      "bytes": 50545,
+      "sha256": "400f5af837f8d95b4d37323bff9de56b2f73a1231a2c210a7719dae29c20c140"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/model.mjb",
+      "bytes": 71169284,
+      "sha256": "bc2b5592f663ed40211c086f8e094da0005cb92d285e150005965818610e0973"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/contacts.json.gz",
+      "bytes": 7190,
+      "sha256": "52b8ac4a572fe53490a19cc3c5fa43ec898a230915142f8c01417d0ddc3427c1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/initial.json",
+      "bytes": 4022,
+      "sha256": "00dbcdbc0d37b23637e1e50d912b2704aa120a5b497ccf6fe1018856af731e43"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/intervals.json",
+      "bytes": 29800,
+      "sha256": "6dd7adfe49a9d451230e3238250bbc475bdd503012d01920a9496cc408815772"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/non_box_contacts.json.gz",
+      "bytes": 50,
+      "sha256": "4bd552ace5d687c654efd9a709714a1470dfa7cb2fcd0fc09d5d06ddca8ff46a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/penetration.json",
+      "bytes": 24923,
+      "sha256": "95a3675c45ac078a45b6e89e5e2d061a77c42ed6da8dc203b4192cb24d8b5873"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/result.json",
+      "bytes": 115,
+      "sha256": "14c56856e8fdcd67eb9b801e85bdb6738b7ee6db9cee2062463dc733f977e474"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/non_hand_box_filter/samples.json",
+      "bytes": 86439,
+      "sha256": "ea8b78e0b7aa9592e397c7ed3fb25a4867197862e5faca0458e733f6642744c8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/analyze_p6.py",
+      "bytes": 10518,
+      "sha256": "62ad1d122db70f8348c242fca8d7b4c77cbff41c056762a28c2943f0c891b816"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/box_dynamics.py",
+      "bytes": 10823,
+      "sha256": "1059ddd830e2a869ffed12edfeda719706f9ab3c6bd10e7e45cf47f1bcdaaded"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/common.py",
+      "bytes": 3906,
+      "sha256": "c208f4dab96a45df33bb75db72ac63adff060b7b80d38e61bc79cb12922a0a19"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/contact_validation.py",
+      "bytes": 8226,
+      "sha256": "94f710ba07e9f6028f845fa59f0e8b3de6ae1236831a386371cb5a24a001210b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/export_commands.py",
+      "bytes": 1218,
+      "sha256": "e23d664c3a00d829267b4e7759f0686a785879d2b21a5fecc920b9850ae09505"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1653,
+      "sha256": "69df3c7ba7305cb9ce95ffdb1439f56797e0ab94799badeb43e27f8d659df72a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/physical_analysis.py",
+      "bytes": 9512,
+      "sha256": "c5c76d74d70fffed3b13e117a3dc1c1d1f10abde53da11416029fcfdb23b22dc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/run_p6.py",
+      "bytes": 23219,
+      "sha256": "0720d9cf0a23e1343ba7f81cb3887ada08fe4d130e17bb9a6b63a4ae943eabdd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02/source_snapshot/verify_evidence.py",
+      "bytes": 6909,
+      "sha256": "64b3758d9351809b8c71519e8bd4b2a5661f2192631f330adc03cff01182a12d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/filters_02.log",
+      "bytes": 7311,
+      "sha256": "09e81bbb6b8686aca381276b39628f85bd50c529ed7bbb223195082a2f375c1f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/format_01.log",
+      "bytes": 20,
+      "sha256": "e024a3e2c53a92d170403c32ce1a67e1d02ad31affd468cfd68c3562a0edd718"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/format_02.log",
+      "bytes": 43,
+      "sha256": "d7188cbf91f08a3caf1ec4a3214f2dc8415fb52f90a1fb6cea7ab6b7a0881d63"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/format_03.log",
+      "bytes": 44,
+      "sha256": "ceaeb678e7082f272bff7dcc5cd8f2f492da98e7d1cd803433cb11ca919c60c1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/format_final.log",
+      "bytes": 27,
+      "sha256": "75b7030be9d7de96bf4e76e79b1f03f14af8899d169fd8d79564d59167d1ab80"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01/approach_scans.json",
+      "bytes": 263225,
+      "sha256": "9a82d1a7782cfcca0751e208d8b4d782fc1850e1937a4559512e84e6bc11f3b1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01/independent_bilateral.json",
+      "bytes": 15770,
+      "sha256": "bc2ab4a3aa21adba06417b56f5dd6095ff3e483e9d0456262519f8c76fe8b47f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01/inventory.json",
+      "bytes": 49689,
+      "sha256": "e9b969e67b348818da7530631886ef37167259e022d4711154b349039227e4c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01/reference_geometry.json",
+      "bytes": 704185,
+      "sha256": "ccccbb89aca2bb06963e90118ca200b90d5ffee8c3cd928582cb4c3af7b44d17"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01/reference_geometry_contacts.json",
+      "bytes": 2166010,
+      "sha256": "2c5fcbf1b5e1ce832f7c398a0c15c51520063ca180fb3c9269f99bb5026d99d3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_01.log",
+      "bytes": 7284,
+      "sha256": "89e8aa0037149454c09163b5fa970f89f5cc61af158862f9775d17337d5dbacb"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/approach_scans.json",
+      "bytes": 263225,
+      "sha256": "9a82d1a7782cfcca0751e208d8b4d782fc1850e1937a4559512e84e6bc11f3b1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/independent_bilateral.json",
+      "bytes": 7568,
+      "sha256": "741d1d160550df6ac1ad99e5bc11e09b49c1c7731f5aff1262605f1be8fc16e6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/inventory.json",
+      "bytes": 50545,
+      "sha256": "400f5af837f8d95b4d37323bff9de56b2f73a1231a2c210a7719dae29c20c140"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/model.mjb",
+      "bytes": 71169284,
+      "sha256": "bc2b5592f663ed40211c086f8e094da0005cb92d285e150005965818610e0973"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/reference_geometry.json",
+      "bytes": 704185,
+      "sha256": "ccccbb89aca2bb06963e90118ca200b90d5ffee8c3cd928582cb4c3af7b44d17"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/reference_geometry_contacts.json",
+      "bytes": 2166010,
+      "sha256": "2c5fcbf1b5e1ce832f7c398a0c15c51520063ca180fb3c9269f99bb5026d99d3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/analyze_p6.py",
+      "bytes": 8910,
+      "sha256": "f7dc8170cce57c44d2ad98cbfb83e7610d4669d3babc3f80208ba59fe8b5acd4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02/source_snapshot/run_p6.py",
+      "bytes": 20114,
+      "sha256": "438245d1d678cb23e5f342358dab90d6b60fe8e1fea9a98903fd1c251d91a226"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_02.log",
+      "bytes": 7284,
+      "sha256": "d413682b4893422cac0c68740f327b3d38c4804010d928016b7e784281e483e6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_analysis_01.log",
+      "bytes": 200,
+      "sha256": "2a32d062dc291e8d93a478351dbdc5d03d70342539edfe171401b2671b7f36a8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/geometry_summary.json",
+      "bytes": 2195,
+      "sha256": "81b5dc317697cc02f6a5305d434be00056c48ea01defa49786f65267602a38f4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/ik_fixture_probe.json",
+      "bytes": 9810,
+      "sha256": "d41e2d53a3b5f5de8348d1ba5fa45f62b103807811ff8f5a14def809c41f35f0"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/ik_fixture_probe.log",
+      "bytes": 8567,
+      "sha256": "517a18c6c54a02d639b9895e3b72e2c5bd1a3f0ec3bfea04abbe2a7e2aa35366"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/import_check_cpu.log",
+      "bytes": 323,
+      "sha256": "2127d30f5ae1b8a953f626f9e6061d159e0f4ca159fb932c170a4ba16b678261"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/import_check_gpu.log",
+      "bytes": 469,
+      "sha256": "43851b4c2968b4991f863501919ee64b8946e3c1ae575f8430b0dffe9f3d3b26"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/contacts.json.gz",
+      "bytes": 73499,
+      "sha256": "e0dea12c0e1f0596a0db73b3d7827de0cbcdd1b94125211c83a96f3737a327b1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/initial.json",
+      "bytes": 4262,
+      "sha256": "29c1791c3b99cbb74aef3cfc41275af2d0e2c0557021894e6dfe372d184e41f3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/intervals.json",
+      "bytes": 1772385,
+      "sha256": "55a92e783a34dea19e7d9dee8f944481aa472de58087d2e4fffb778a59d71e3a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/non_box_contacts.json.gz",
+      "bytes": 50,
+      "sha256": "5f663b21c2e48abf3f550db68d7ba6d3c0c2bf8171a82ddc61e44fa9f255692f"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/penetration.json",
+      "bytes": 25225,
+      "sha256": "b185fc49ce63c36786a674ea97131f409f091d08a71865050f3ed9f5f5926b5c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/result.json",
+      "bytes": 136,
+      "sha256": "4ed5a31e74f32825188769d0b1984684a8462eb75de51683811a81407d414aa9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/hand_release_no_floor/samples.json",
+      "bytes": 4604771,
+      "sha256": "8a16c7772d36bf93e0e144ae8e674e2c60f4df44c2fe35474690fc39b138d70d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/inventory.json",
+      "bytes": 50545,
+      "sha256": "400f5af837f8d95b4d37323bff9de56b2f73a1231a2c210a7719dae29c20c140"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/contacts.json.gz",
+      "bytes": 26065,
+      "sha256": "720af81129cfa9daee137764cc97ed7c85cb9b62267dcf1faf8129f08ad22f5a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/initial.json",
+      "bytes": 4229,
+      "sha256": "c11d75bd9416e22769ce7bb361a3b771898e4f19b2b58277d6b817964d192ce9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/intervals.json",
+      "bytes": 1197722,
+      "sha256": "c35d606d613f2f44c42dd75b0c3583b92c848716527f015d6e9d9b499dbc8440"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/non_box_contacts.json.gz",
+      "bytes": 34847,
+      "sha256": "a531dfbf42ba3640548214c43b2bf56e71293164d317286d58890aa5b80dc4fe"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/penetration.json",
+      "bytes": 25917,
+      "sha256": "c2ccf27824e30c7f3301a1a5799f8ae0109f4f0d7300a95eed3726bc3f837a2d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/result.json",
+      "bytes": 1579,
+      "sha256": "caab6aa6486fb146f039a3152d50e776122ec8173ffa62e3a590d63b7c555c13"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z3.0/samples.json",
+      "bytes": 3261111,
+      "sha256": "82b1ea1ab8482cb34e9601d63c00d5b93a83d81c9674886c6c451a4eab893495"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/contacts.json.gz",
+      "bytes": 69301,
+      "sha256": "ebb187019039353d47ceb19f25f56beab1512d0262fc2c0192565a46ab657af3"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/initial.json",
+      "bytes": 4233,
+      "sha256": "08fc4ea569a54fc7ac8f54b98254c17616f2940dd55c8e0470f897512d124fa7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/intervals.json",
+      "bytes": 5315228,
+      "sha256": "0954516523940c688dcf48d2568c15d6fa2abab9f3f7b5acee7807f40c9ff7b7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/non_box_contacts.json.gz",
+      "bytes": 50,
+      "sha256": "67b93fd38958a8fab7278bbe89503eea28194f78293bc363cdde34f1a677c084"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/penetration.json",
+      "bytes": 25317,
+      "sha256": "fda639259eb14b35c6cbfbebb145c3aa48f33aa0733fd5b57cc8be4ffba58c1e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/result.json",
+      "bytes": 119,
+      "sha256": "7d148689651587b220f00a6b76fb087b35f69e8279857ce224a94e45e3ca0580"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/original_supports_robot_z50.0/samples.json",
+      "bytes": 14044801,
+      "sha256": "2080d41691daf79f365302f753f8ebc4c7251027c38a4ccb2e423d00fd2d00bd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/results.json",
+      "bytes": 1982,
+      "sha256": "92776adbd586ba24b79e324c79aef0260ca53c3ccb41fbaa2591f82e0ce3776d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/analyze_p6.py",
+      "bytes": 8542,
+      "sha256": "f46234fb86d344b7254cf23817e9ea2bbd8d31cf74a9b3325fb435dc516dfbe9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01/source_snapshot/run_p6.py",
+      "bytes": 19217,
+      "sha256": "0b9a11faeb84acaa59a7a975ab4b6e09769a487a88173098fe9f10f7d61708e1"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/isolation_01.log",
+      "bytes": 7570,
+      "sha256": "06ee9777542f16089a82ad731dd0672264f1eb31a9e727ab0ae17f0953fc54a9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/lint_01.log",
+      "bytes": 24674,
+      "sha256": "44a58d20cdb5186c8a5aaea0bc783028015db580a1c1e18517e613c94396fe5e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/lint_final.log",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/lint_fix_01.log",
+      "bytes": 12700,
+      "sha256": "81fd7566af81c0de96f1d5eeda7c8e00188a37099dce7e362d43fb8f7177c2df"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/lint_fix_02.log",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/lint_fix_03.log",
+      "bytes": 1562,
+      "sha256": "e18879ae9335942f023a2d562022b50611ff1a3bf7901460129963a909915eb4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/physical_analysis_01.log",
+      "bytes": 222,
+      "sha256": "b6c38aa7bb04bfe7305487a5af9ae9274da8fcc402a71585376e44b0457653d8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/physical_analysis_02.log",
+      "bytes": 222,
+      "sha256": "b6c38aa7bb04bfe7305487a5af9ae9274da8fcc402a71585376e44b0457653d8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/preservation_final.json",
+      "bytes": 540,
+      "sha256": "6ef62ee5031db84f4ca8d1d85d0d1891e53428baaa070890366be34d853c5fbd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/inventory.json",
+      "bytes": 49689,
+      "sha256": "e9b969e67b348818da7530631886ef37167259e022d4711154b349039227e4c7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/contacts.json.gz",
+      "bytes": 23506,
+      "sha256": "95ac23d86da7aed49385b99bf29a7481b8b259da72c4d45812ba53ff42b044c6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/initial.json",
+      "bytes": 5951,
+      "sha256": "02573a2c4828cd1e577ec0995c1fc0aab908be15736e33449aefda230dabf6be"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/intervals.json",
+      "bytes": 1283571,
+      "sha256": "33cb14e4a4ac81c49d3f645782a1b874ef4b4c7410aca7b72ad43626771974c6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/penetration.json",
+      "bytes": 25331,
+      "sha256": "e54f0d597df6a1cadaf520c86cc39ea4cfae0812741afb77dd9092f6538fd9da"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/result.json",
+      "bytes": 1579,
+      "sha256": "8d1a05afbc465cb49b394a87543582cae50b13d19a13b4fa59b8c8201b24ec84"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f0/samples.json",
+      "bytes": 3284113,
+      "sha256": "fb0516b51a72c0f6eaf88d82c2f68a81d5299b668310739a4233b927d49226fe"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/contacts.json.gz",
+      "bytes": 174459,
+      "sha256": "29d4e20d0d73bd1f41b74c5a65d7137b1becf0922a5ed0064cb58b63345cbaf6"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/initial.json",
+      "bytes": 7885,
+      "sha256": "884c7aa9e92121927a4df7c281d4cc841a689ea4dd5d6907000a622dbd6bdbd5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/intervals.json",
+      "bytes": 2202564,
+      "sha256": "9084eeed3e68c8ed688bf66a5d08cc58fbb272c42b1f01b0d2f45bf1d8a40658"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/penetration.json",
+      "bytes": 27214,
+      "sha256": "ea186e0de793a91254ccb51b018331ed099eef5cd2d18e0dd44c391586413b1e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/result.json",
+      "bytes": 134,
+      "sha256": "5c3fc7ba24a5b546d647c670661c352b3db0d24f53eccf86a9fa295fa6a9d320"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f250/samples.json",
+      "bytes": 5419230,
+      "sha256": "5298b33ac41e2c7df88fe86be207e4d2e6747e62e7c518d184dc4adbf8f9584c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/contacts.json.gz",
+      "bytes": 156538,
+      "sha256": "4b51eed50bf60f72a81db91e04321e88de7238594cee99fef110d91111b74e17"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/initial.json",
+      "bytes": 7913,
+      "sha256": "7b9acfdfcdf59a7e5f379e60bbc53680a1a33bd11212d691baecf622fed4304b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/intervals.json",
+      "bytes": 1848130,
+      "sha256": "569fa0727a5b78a8e2bf8a021c183e7150901562493ad9be97d0c6d7f2e89a44"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/penetration.json",
+      "bytes": 26343,
+      "sha256": "4ab26abc170edbb74a12b4f06b55cbcfe17370b8b13213722359dc8ced85a905"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/result.json",
+      "bytes": 133,
+      "sha256": "e9ed7f3c728255708cb9656b273b52461f194ecb37acd401bca22b6b922f9532"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f400/samples.json",
+      "bytes": 4497479,
+      "sha256": "4e3a0ca0e564004109a8bfcf9bb93cde70b0b868175e7308267db3c6d522c52d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/contacts.json.gz",
+      "bytes": 192010,
+      "sha256": "081c41275039b6c597e6809bb144a9e7a520ba8d5848ffa19f81330dd6ff5f0a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/initial.json",
+      "bytes": 7961,
+      "sha256": "58a4de5b896ebbea77ab70e10a8c93c6b8f4d4e239a8ca62831c5e93234aef43"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/intervals.json",
+      "bytes": 2195458,
+      "sha256": "7716102f12b36612e6c8138157e9d2a5cf0474563859b0602847d1febaedc327"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/penetration.json",
+      "bytes": 27798,
+      "sha256": "39f00f6f6356d069801155b7fa70507cb7b4dfb87e13f146796169f54f90c0f5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/result.json",
+      "bytes": 135,
+      "sha256": "2ca62b66d49691733a492dafb7182b4583479fc5e4a32dc32c5772f6b79e5be2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f530/samples.json",
+      "bytes": 5394632,
+      "sha256": "dbdebb1bc04936a6f2e76c4197485d87652676a60e26e5673f8a57c602a552cf"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/contacts.json.gz",
+      "bytes": 142548,
+      "sha256": "636de786b494b4c4cb461c290b86b2e6bc32a8a642c5002156f3afdcc30121d9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/initial.json",
+      "bytes": 7977,
+      "sha256": "914c3fe84495b14e501f7ba67c434d600cffec96a96c0fe78facf1a3243a16bd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/intervals.json",
+      "bytes": 1359335,
+      "sha256": "943aa76b11d95f20f057beb59690ae2c7c954db400ce1bf5930690023b66712a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/penetration.json",
+      "bytes": 27958,
+      "sha256": "b8fce7bb5644e8e9a38e019640e3f53454647a458cb5cc5daaefc51aabd41a7a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/result.json",
+      "bytes": 1594,
+      "sha256": "2f881a7c50181a32db12170183f7212526c3417c5eceabd4520bd4d8b33fb10c"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f550/samples.json",
+      "bytes": 3408482,
+      "sha256": "6eafa464a2de05bcf6dfdc3106cdb80b9c9fc03bd7db36099a6557d215ade8b7"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/contacts.json.gz",
+      "bytes": 24282,
+      "sha256": "3a8d9654910311d362d805e069a777d0d172f362f83431891623031435f359d8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/initial.json",
+      "bytes": 5997,
+      "sha256": "0b60770da80d790f35658fe846dc929ac2ca6ab3971c9e2baef81394f1c8b6e2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/intervals.json",
+      "bytes": 1432283,
+      "sha256": "dd73c7bfce17097014ccb43e2756aab834db812c9eddb6a908d2ebfd3aa1d857"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/penetration.json",
+      "bytes": 25533,
+      "sha256": "ca767a232603dc1d0e773525dfb995ced8ed7516c3219022c5afcc5b55c6bebf"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/result.json",
+      "bytes": 118,
+      "sha256": "5fcec2e80e8f745c1ee56f2a81640be40a6e1668d8894db7b2052516c29b75fc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/reference_f800/samples.json",
+      "bytes": 3558660,
+      "sha256": "98fb7cda29467c3833f9cf796a15d3af673d7f5ae7bb5efd775e04dbe8794622"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/results.json",
+      "bytes": 3912,
+      "sha256": "3257870697aac78eda1e5c3a1b4b24cce7e27ecd59c8cd29a9a32ce6789516b2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/analyze_p6.py",
+      "bytes": 8542,
+      "sha256": "f46234fb86d344b7254cf23817e9ea2bbd8d31cf74a9b3325fb435dc516dfbe9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/box_dynamics.py",
+      "bytes": 9156,
+      "sha256": "1853d7ec7aa3915b71143192006e0006c95712d10f656363298477a291964bfd"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/common.py",
+      "bytes": 3753,
+      "sha256": "969184127bba069a680a36ff27a5afe86fac4ea41f2f230bb8e8da6f5540050b"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/contact_validation.py",
+      "bytes": 7869,
+      "sha256": "34b2962db3a587e33550ef9d203a3d349a46335d353d0ba383aa51adcf9c21f2"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/ik_fixture_probe.py",
+      "bytes": 1333,
+      "sha256": "69d72bc684f95607808d7cc61e9f39ddb50cb680a78d5ae0447545ad9fc2c898"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01/source_snapshot/run_p6.py",
+      "bytes": 17326,
+      "sha256": "9b681c4beb2048b46b5a37015af0987a838df67f3324a3c03a02560253c96aca"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_01.log",
+      "bytes": 7780,
+      "sha256": "e9dc770e8ff584d2fe102b14fa6e71af01f3afd769487a8db16693781dfab971"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_analysis_01.log",
+      "bytes": 200,
+      "sha256": "2a32d062dc291e8d93a478351dbdc5d03d70342539edfe171401b2671b7f36a8"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_rows.json",
+      "bytes": 6224706,
+      "sha256": "c49b3f5291ab51b28a48dabef93fcf56ed735fc4e20aa79bf5edf60853b160b9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/replay_summary.json",
+      "bytes": 32515,
+      "sha256": "52f0be7953d933f38ee48eaabf8c5bebb7834c053ebd11b180c80cc18dc41ac4"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/review.json",
+      "bytes": 4404,
+      "sha256": "cf660e73a2dd9ae81cbbf3feeb3d466ee96b62a59f7eb9a22fc2bd879960cb51"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py",
+      "bytes": 10518,
+      "sha256": "62ad1d122db70f8348c242fca8d7b4c77cbff41c056762a28c2943f0c891b816"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py",
+      "bytes": 10823,
+      "sha256": "1059ddd830e2a869ffed12edfeda719706f9ab3c6bd10e7e45cf47f1bcdaaded"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/common.py",
+      "bytes": 3906,
+      "sha256": "c208f4dab96a45df33bb75db72ac63adff060b7b80d38e61bc79cb12922a0a19"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/export_commands.py",
+      "bytes": 1361,
+      "sha256": "e764ed4457ae830526f8152f5e95e2a9ea0f90c453f8cb81fd6affda47ba5517"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py",
+      "bytes": 1653,
+      "sha256": "69df3c7ba7305cb9ce95ffdb1439f56797e0ab94799badeb43e27f8d659df72a"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py",
+      "bytes": 9512,
+      "sha256": "c5c76d74d70fffed3b13e117a3dc1c1d1f10abde53da11416029fcfdb23b22dc"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py",
+      "bytes": 23289,
+      "sha256": "80e60b7053772c7350821e1d5e6a73a20a36f0599f098e79ce0f7a79a05ab123"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py",
+      "bytes": 7437,
+      "sha256": "0e26fdc2c6cb063548fb9cf371a1d927c3ccf00e82dae247c00520963afdc2c9"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/source_review.patch",
+      "bytes": 137919,
+      "sha256": "341c8c6156ec73f9d5c9a512b944f1670581bfe1e8d6a38f922c5147a0ba94fa"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/source_tree.txt",
+      "bytes": 41862,
+      "sha256": "dbb09a310b6f27b3db276ddc53b2da4adbeacb10eef216c5c3c96aba9a117903"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/tests_01.log",
+      "bytes": 99,
+      "sha256": "a837324a2f5c0d804ee26513e45c3e17425242b25aba8e53fe57a7379e8a79a5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/tests_final.log",
+      "bytes": 99,
+      "sha256": "a837324a2f5c0d804ee26513e45c3e17425242b25aba8e53fe57a7379e8a79a5"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/tests_final.xml",
+      "bytes": 1565,
+      "sha256": "c7e7d9a8061cfe005c721e111443c34481b9d6fb1fd47a7e331b2b25216e3b92"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/verification_01.json",
+      "bytes": 1817,
+      "sha256": "1270b411da872b1aec272654f642eb0536545c8782699702c1688a295babb0c0"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/verification_01.log",
+      "bytes": 2017,
+      "sha256": "ff212579e17322638f64cd06f1bae4ea016a490b9e81b9b4c2d5e35fa8d4944e"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/verification_02.json",
+      "bytes": 1817,
+      "sha256": "ea7e0f346e6a54684de474d40b83f28b152771d0f71f1be900ed9dd522c4896d"
+    },
+    {
+      "path": "outputs/hoi/contact_supervision/contact_validation/verification_02.log",
+      "bytes": 2017,
+      "sha256": "1f1aa9af93267e4f2e061e960a046ab68795fb4aa7fca06126c8d6bba075444f"
+    },
+    {
+      "path": "src/supermimic/hoi/contact_validation.py",
+      "bytes": 8226,
+      "sha256": "94f710ba07e9f6028f845fa59f0e8b3de6ae1236831a386371cb5a24a001210b"
+    },
+    {
+      "path": "tests/hoi/test_collision_diagnostics.py",
+      "bytes": 1356,
+      "sha256": "17eba9def1e6a33a0917d02904d41b3bee4f335125114a1074684224e62c78d3"
+    },
+    {
+      "path": "tests/hoi/test_physical_contact_agreement.py",
+      "bytes": 2906,
+      "sha256": "108cb2d30abde3d5b6fc3de92d3c610ee8089fea454fff5c7ebaedf7657b90c4"
+    }
+  ],
+  "count": 463,
+  "total_bytes": 339964142
+}

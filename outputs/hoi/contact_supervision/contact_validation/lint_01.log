@@ -1,0 +1,558 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py:2:1
+  |
+1 |   """Recompute P6 measurements from immutable run outputs, never from reference relabels."""
+2 | / from __future__ import annotations
+3 | | import argparse
+4 | | import gzip
+5 | | import json
+6 | | from pathlib import Path
+7 | | import numpy as np
+8 | | from common import ROOT, inputs, save
+9 | | from supermimic.hoi.contact_validation import actual_contact, agreement, penetration_summary
+  | |____________________________________________________________________________________________^
+help: Organize imports
+   |
+2  | from __future__ import annotations
+3  +
+4  | import argparse
+5  | import gzip
+6  | import json
+7  | from pathlib import Path
+8  +
+9  | import numpy as np
+10 | from common import ROOT, inputs, save
+11 +
+12 | from supermimic.hoi.contact_validation import actual_contact, agreement, penetration_summary
+   |
+
+F401 [*] `gzip` imported but unused
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py:4:8
+  |
+2 | from __future__ import annotations
+3 | import argparse
+4 | import gzip
+  |        ^^^^
+5 | import json
+6 | from pathlib import Path
+  |
+help: Remove unused import: `gzip`
+  |
+3 | import argparse
+  - import gzip
+4 | import json
+  |
+
+F401 [*] `supermimic.hoi.contact_validation.penetration_summary` imported but unused
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py:9:74
+  |
+7 | import numpy as np
+8 | from common import ROOT, inputs, save
+9 | from supermimic.hoi.contact_validation import actual_contact, agreement, penetration_summary
+  |                                                                          ^^^^^^^^^^^^^^^^^^^
+help: Remove unused import: `supermimic.hoi.contact_validation.penetration_summary`
+   |
+8  | from common import ROOT, inputs, save
+   - from supermimic.hoi.contact_validation import actual_contact, agreement, penetration_summary
+9  + from supermimic.hoi.contact_validation import actual_contact, agreement
+10 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> outputs/hoi/contact_supervision/contact_validation/scripts/analyze_p6.py:101:5
+    |
+ 99 |       save(root/'replay_summary.json',result)
+100 |       # Independent P4 FK geometry at integrated end states, no force in reward path.
+101 | /     import torch
+102 | |     from audit_robot import target_spec
+103 | |     from supermimic.kinematics.g1_fk import G1Kinematics
+104 | |     from supermimic.hoi.rewards import ProximityReward
+    | |______________________________________________________^
+105 |       m,clip,_=inputs();fk=G1Kinematics(target_spec().compile(),dtype=torch.float64)
+106 |       proxy=ProximityReward(fk,tuple(m['contact']['wrist_bodies']),m['contact']['target_root_m'],m['contact']['eef_offset_wrist_m'],s…
+    |
+help: Organize imports
+    |
+102 |     from audit_robot import target_spec
+    -     from supermimic.kinematics.g1_fk import G1Kinematics
+103 +
+104 |     from supermimic.hoi.rewards import ProximityReward
+105 +     from supermimic.kinematics.g1_fk import G1Kinematics
+106 |     m,clip,_=inputs();fk=G1Kinematics(target_spec().compile(),dtype=torch.float64)
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/box_dynamics.py:2:1
+   |
+ 1 |   """P6 independent CPU dynamics of the unchanged nominal free Box and supports."""
+ 2 | / from __future__ import annotations
+ 3 | | import argparse
+ 4 | | from pathlib import Path
+ 5 | |
+ 6 | | from common import cpu_contacts, inputs, rot, save
+ 7 | | import mujoco
+ 8 | | import numpy as np
+ 9 | | from supermimic.hoi.scene import _add_supports, _box_spec
+10 | | from supermimic.hoi.contact_validation import penetration_summary
+11 | | from asset_common import vertices
+   | |_________________________________^
+help: Organize imports
+   |
+2  | from __future__ import annotations
+3  +
+4  | import argparse
+5  | from pathlib import Path
+6  |
+   - from common import cpu_contacts, inputs, rot, save
+7  | import mujoco
+8  | import numpy as np
+9  + from asset_common import vertices
+10 + from common import cpu_contacts, inputs, rot, save
+11 +
+12 + from supermimic.hoi.contact_validation import penetration_summary
+13 | from supermimic.hoi.scene import _add_supports, _box_spec
+   - from supermimic.hoi.contact_validation import penetration_summary
+   - from asset_common import vertices
+14 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/common.py:12:1
+   |
+10 |   ROOT = Path(__file__).resolve().parents[5]
+11 |   sys.path.insert(0, str(ROOT / 'scripts/hoi'))
+12 | / from supermimic.hoi.reference import DEFAULT_ASSET, DEFAULT_OUTPUT, ReferenceClip, sha256
+13 | | from supermimic.hoi.asset_manifest import load_manifest
+14 | | from supermimic.hoi import scene
+   | |________________________________^
+15 |
+16 |   ASSET_SHA = '1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1'
+   |
+help: Organize imports
+   |
+11 | sys.path.insert(0, str(ROOT / 'scripts/hoi'))
+12 + from supermimic.hoi import scene
+13 + from supermimic.hoi.asset_manifest import load_manifest
+14 | from supermimic.hoi.reference import DEFAULT_ASSET, DEFAULT_OUTPUT, ReferenceClip, sha256
+   - from supermimic.hoi.asset_manifest import load_manifest
+   - from supermimic.hoi import scene
+15 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:1:1
+  |
+1 | import sys,json
+  | ^^^^^^^^^^^^^^^
+2 | sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+3 | from common import physical_env,save,cpu_contacts
+  |
+help: Organize imports
+  |
+  - import sys,json
+1 + import json
+2 + import sys
+3 +
+4 | sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+  |
+
+F401 [*] `json` imported but unused
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:1:12
+  |
+1 | import sys,json
+  |            ^^^^
+2 | sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+3 | from common import physical_env,save,cpu_contacts
+  |
+help: Remove unused import: `json`
+  |
+  - import sys,json
+1 + import sys
+2 | sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:3:1
+  |
+1 |   import sys,json
+2 |   sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+3 | / from common import physical_env,save,cpu_contacts
+4 | | from calibrate_contacts import Placements
+5 | | from supermimic.hoi.state import JointStateIO
+6 | | from scipy.optimize import least_squares
+7 | | import numpy as np
+  | |__________________^
+8 |   E,_,_=physical_env();P=Placements(E,JointStateIO(E));m=P.model;s=P.base.copy();s[71:78]=[.35,0,2.87,1,0,0,0]
+9 |   fits=[]
+  |
+help: Organize imports
+   |
+2  | sys.path.insert(0,'outputs/hoi/contact_supervision/contact_validation/scripts')
+   - from common import physical_env,save,cpu_contacts
+3  + import numpy as np
+4  | from calibrate_contacts import Placements
+5  + from common import cpu_contacts, physical_env, save
+6  + from scipy.optimize import least_squares
+7  +
+8  | from supermimic.hoi.state import JointStateIO
+   - from scipy.optimize import least_squares
+   - import numpy as np
+9  +
+10 | E,_,_=physical_env();P=Placements(E,JointStateIO(E));m=P.model;s=P.base.copy();s[71:78]=[.35,0,2.87,1,0,0,0]
+   |
+
+B023 Function definition does not bind loop variable `ids`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:13:5
+   |
+11 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |     ^^^
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:13:44
+   |
+11 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                            ^
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `sign`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:13:77
+   |
+11 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                                                             ^^^^
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:13:104
+   |
+11 |  names=[n for n in P.io.joint_names if n.startswith(side+'_') and any(w in n for w in ['shoulder','elbow','wrist'])];ids=[7+P.io.joint…
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+   |                                                                                                        ^
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+   |
+
+B023 Function definition does not bind loop variable `g`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:14:33
+   |
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+   |                                 ^
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+16 | P.forward(s);c=cpu_contacts(m,P.data,0);print('FIT',fits,'contacts',[(a['category'],a['dist'],a['names']) for a in c]);save(__import__…
+   |
+
+B023 Function definition does not bind loop variable `init`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/ik_fixture_probe.py:14:53
+   |
+12 |  def f(q):
+13 |   s[ids]=q;P.forward(s);a=P.data.geom_xmat[g].reshape(3,3)[:,2];target=[.35,sign*(.17+.035+m.geom_size[g,1]*abs(a[1])-.0005),3.0]
+14 |   return np.r_[P.data.geom_xpos[g]-target,.00001*(q-init)]
+   |                                                     ^^^^
+15 |  sol=least_squares(f,init,bounds=(lim[:,0]+1e-5,lim[:,1]-1e-5),max_nfev=2000,ftol=1e-12,gtol=1e-12,xtol=1e-12);s[ids]=sol.x;fits.appen…
+16 | P.forward(s);c=cpu_contacts(m,P.data,0);print('FIT',fits,'contacts',[(a['category'],a['dist'],a['names']) for a in c]);save(__import__…
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py:2:1
+   |
+ 1 |   """Audit saved solver samples, physical trajectories, slip and preservation reuse."""
+ 2 | / from __future__ import annotations
+ 3 | | import argparse
+ 4 | | from collections import Counter
+ 5 | | import gzip
+ 6 | | import json
+ 7 | | from pathlib import Path
+ 8 | |
+ 9 | | from common import ROOT, inputs, rot, save
+10 | | import mujoco
+11 | | import numpy as np
+12 | | from supermimic.hoi.contact_validation import actual_contact, penetration_summary
+13 | | from supermimic.hoi.reference import sha256
+   | |___________________________________________^
+help: Organize imports
+   |
+2  | from __future__ import annotations
+3  +
+4  | import argparse
+   - from collections import Counter
+5  | import gzip
+6  | import json
+7  + from collections import Counter
+8  | from pathlib import Path
+9  |
+   - from common import ROOT, inputs, rot, save
+10 | import mujoco
+11 | import numpy as np
+12 + from common import ROOT, inputs, rot, save
+13 +
+14 | from supermimic.hoi.contact_validation import actual_contact, penetration_summary
+   |
+
+F401 [*] `common.inputs` imported but unused
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py:9:26
+   |
+ 7 | from pathlib import Path
+ 8 |
+ 9 | from common import ROOT, inputs, rot, save
+   |                          ^^^^^^
+10 | import mujoco
+11 | import numpy as np
+   |
+help: Remove unused import: `common.inputs`
+   |
+8  |
+   - from common import ROOT, inputs, rot, save
+9  + from common import ROOT, rot, save
+10 | import mujoco
+   |
+
+F841 Local variable `nq` is assigned to but never used
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/physical_analysis.py:32:5
+   |
+30 |                 {'sample':int(i),'env':int(e),'flags':int(flags[i,e]),'time_s':(i+1)*.005} for i,e in np.argwhere(flags!=0)],
+31 |             'constraint_penetration_by_env':{},'all_records_penetration_by_env':{},'worlds':{}}
+32 |     nq=model.nq;rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+   |     ^^
+33 |     # Resolve both free roots and hinges by names; compiled global ordering can differ.
+34 |     robot_free=model.joint('robot/floating_base_joint').id;box_free=model.joint('box/bread_box_root').id
+   |
+help: Remove assignment to unused variable `nq`
+   |
+31 |             'constraint_penetration_by_env':{},'all_records_penetration_by_env':{},'worlds':{}}
+   -     nq=model.nq;rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+32 +     rq=list(range(36));rv=list(range(35));bq=list(range(36,43));bv=list(range(35,41))
+33 |     # Resolve both free roots and hinges by names; compiled global ordering can differ.
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:2:1
+   |
+ 1 |   """Bounded P6 native GPU tests; no policy, optimizer, or source-asset mutations."""
+ 2 | / from __future__ import annotations
+ 3 | |
+ 4 | | import argparse
+ 5 | | import gzip
+ 6 | | import json
+ 7 | | import traceback
+ 8 | | from pathlib import Path
+ 9 | |
+10 | | from common import ROOT, cpu_contacts, inputs, pair_category, physical_env, rot, save
+11 | | import mujoco
+12 | | import mujoco_warp as mjwarp
+13 | | import numpy as np
+14 | | import torch
+15 | | import warp as wp
+16 | | from scipy.optimize import least_squares
+17 | | from calibrate_contacts import Placements, reset_states
+18 | | from asset_common import geom
+19 | | from supermimic.hoi.contact import SENSOR_NAMES, IntervalCapture, assert_contact_capacity
+20 | | from supermimic.hoi.contact_validation import penetration_summary
+21 | | from supermimic.hoi.recorder import install_recording
+22 | | from supermimic.hoi.state import JointStateIO, ReferenceResetCache
+   | |__________________________________________________________________^
+help: Organize imports
+   |
+9  |
+   - from common import ROOT, cpu_contacts, inputs, pair_category, physical_env, rot, save
+10 | import mujoco
+--------------------------------------------------------------------------------
+14 | import warp as wp
+   - from scipy.optimize import least_squares
+15 + from asset_common import geom
+16 | from calibrate_contacts import Placements, reset_states
+   - from asset_common import geom
+17 + from common import ROOT, cpu_contacts, inputs, pair_category, physical_env, rot, save
+18 + from scipy.optimize import least_squares
+19 +
+20 | from supermimic.hoi.contact import SENSOR_NAMES, IntervalCapture, assert_contact_capacity
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:34:12
+   |
+32 |         load_manifest(DEFAULT_ASSET)
+33 |         strict = 'PASS'
+34 |     except Exception as e:
+   |            ^^^^^^^^^
+35 |         strict = repr(e)
+36 |     result = {'sources': sources, 'strict_production_loader': strict,
+   |
+
+B023 Function definition does not bind loop variable `indices`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:67:19
+   |
+65 |         initial = state[indices].copy()
+66 |         def residual(q):
+67 |             state[indices] = q
+   |                   ^^^^^^^
+68 |             placements.forward(state)
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:69:46
+   |
+67 |             state[indices] = q
+68 |             placements.forward(state)
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+   |                                              ^^^
+70 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+71 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+   |
+
+B023 Function definition does not bind loop variable `target`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:70:13
+   |
+68 |             placements.forward(state)
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+70 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |             ^^^^^^
+71 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+72 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `sign`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:70:25
+   |
+68 |             placements.forward(state)
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+70 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |                         ^^^^
+71 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+72 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:70:56
+   |
+68 |             placements.forward(state)
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+70 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+   |                                                        ^^^
+71 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+72 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+   |
+
+B023 Function definition does not bind loop variable `side`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:71:41
+   |
+69 |             axis = placements.data.geom_xmat[gid].reshape(3, 3)[:, 2]
+70 |             target[1] = sign*(.17+.035+model.geom_size[gid,1]*abs(axis[1])-.0005)
+71 |             pitch = model.geom(f'robot/{side}_wrist_collision').id
+   |                                         ^^^^
+72 |             clearance = [mujoco.mj_geomDistance(model, placements.data, pitch,
+73 |                          model.geom('box/'+name).id, 1., None)
+   |
+
+B023 Function definition does not bind loop variable `gid`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:75:52
+   |
+73 |                          model.geom('box/'+name).id, 1., None)
+74 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+75 |             return np.r_[placements.data.geom_xpos[gid]-target,
+   |                                                    ^^^
+76 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+77 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+   |
+
+B023 Function definition does not bind loop variable `target`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:75:57
+   |
+73 |                          model.geom('box/'+name).id, 1., None)
+74 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+75 |             return np.r_[placements.data.geom_xpos[gid]-target,
+   |                                                         ^^^^^^
+76 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+77 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+   |
+
+B023 Function definition does not bind loop variable `initial`
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:76:81
+   |
+74 |                          for name in ('bottom','side1','side2','side3','side4','handle_left','handle_right')]
+75 |             return np.r_[placements.data.geom_xpos[gid]-target,
+76 |                          5*np.maximum(-np.array(clearance)-.0005, 0), .00001*(q-initial)]
+   |                                                                                 ^^^^^^^
+77 |         sol = least_squares(residual, initial, bounds=(limits[:, 0]+1e-5, limits[:, 1]-1e-5),
+78 |                             max_nfev=1500, ftol=1e-12, xtol=1e-12, gtol=1e-12)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> outputs/hoi/contact_supervision/contact_validation/scripts/run_p6.py:238:12
+    |
+236 |             rows.append(row)
+237 |         result['status'] = 'PASS'
+238 |     except Exception as error:
+    |            ^^^^^^^^^
+239 |         result.update(status='FAIL', error=repr(error), traceback=traceback.format_exc(),
+240 |                       overflow_at_failure=env.sim.data.overflow[:].cpu().numpy())
+    |
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> src/supermimic/hoi/contact_validation.py:88:25
+   |
+86 |             if np.any(np.diff(start[indices]) <= 0):
+87 |                 raise ValueError("Duplicate/nonmonotonic episode frames")
+88 |             for i, j in zip(indices[:-1], indices[1:]):
+   |                         ^^^
+89 |                 if mask[i] and mask[j] and start[j] == end[i]:
+90 |                     adj += 1
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+   |
+4  | import numpy as np
+5  + import itertools
+6  |
+--------------------------------------------------------------------------------
+88 |                 raise ValueError("Duplicate/nonmonotonic episode frames")
+   -             for i, j in zip(indices[:-1], indices[1:]):
+89 +             for i, j in itertools.pairwise(indices):
+90 |                 if mask[i] and mask[j] and start[j] == end[i]:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests/hoi/test_collision_diagnostics.py:1:1
+  |
+1 | / import pytest
+2 | | from supermimic.hoi.contact_validation import penetration_summary
+  | |_________________________________________________________________^
+help: Organize imports
+  |
+1 | import pytest
+2 +
+3 | from supermimic.hoi.contact_validation import penetration_summary
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests/hoi/test_physical_contact_agreement.py:1:1
+  |
+1 | / import numpy as np
+2 | | import pytest
+3 | | from supermimic.hoi.contact_validation import actual_contact, agreement, confusion
+  | |__________________________________________________________________________________^
+help: Organize imports
+  |
+2 | import pytest
+3 +
+4 | from supermimic.hoi.contact_validation import actual_contact, agreement, confusion
+  |
+
+Found 33 errors.
+[*] 14 fixable with `--fix` (2 unsafe fixes available with `--fix --unsafe-fixes`).

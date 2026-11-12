@@ -1,0 +1,39 @@
+RUF059 Unpacked variable `manifest` is never used
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py:15:5
+   |
+13 |         raise FileExistsError(output)
+14 |     checks = {}
+15 |     manifest, clip, _ = inputs()
+   |     ^^^^^^^^
+16 |     cal = json.loads((root / 'calibration.json').read_text())
+17 |     checks['original_reference_hash_and_schema'] = True
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+14 |     checks = {}
+   -     manifest, clip, _ = inputs()
+15 +     _manifest, clip, _ = inputs()
+16 |     cal = json.loads((root / 'calibration.json').read_text())
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+F841 Local variable `alignment_errors` is assigned to but never used
+  --> outputs/hoi/contact_supervision/contact_validation/scripts/verify_evidence.py:30:5
+   |
+28 |     # Independent NumPy frame/force algebra over every new captured complete row.
+29 |     errors = {'mean_box_N': 0., 'impulse_Ns': 0., 'peak_N': 0.}
+30 |     alignment_errors = []
+   |     ^^^^^^^^^^^^^^^^
+31 |     rows_checked = 0
+32 |     for mode in ('calibration_02', 'dynamics_01', 'isolation_01', 'filters_02', 'replay_01'):
+   |
+help: Remove assignment to unused variable `alignment_errors`
+   |
+29 |     errors = {'mean_box_N': 0., 'impulse_Ns': 0., 'peak_N': 0.}
+   -     alignment_errors = []
+30 |     rows_checked = 0
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 3 errors (1 fixed, 2 remaining).
+2 unsafe fixes available with `--fix --unsafe-fixes`.

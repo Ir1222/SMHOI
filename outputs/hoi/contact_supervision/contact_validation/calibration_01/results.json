@@ -1,0 +1,92 @@
+{
+  "roll0.0_depth0.00025": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.3542718079406768e-05
+  },
+  "roll0.0_depth0.0005": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.0_depth0.001": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.950576188392006e-05
+  },
+  "roll0.0_depth0.002": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.6517326002940536e-05
+  },
+  "roll0.0_depth0.003": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.31_depth0.00025": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.31_depth0.0005": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.31_depth0.001": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 2.1919913706369698e-05
+  },
+  "roll0.31_depth0.002": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.31_depth0.003": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.63_depth0.00025": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.63_depth0.0005": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  "roll0.63_depth0.001": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 9.5367431640625e-06
+  },
+  "roll0.63_depth0.002": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 2.05488468054682e-05
+  },
+  "roll0.63_depth0.003": {
+    "status": "PASS",
+    "completed_intervals": 1,
+    "solved_vector_substeps": 4,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  }
+}
