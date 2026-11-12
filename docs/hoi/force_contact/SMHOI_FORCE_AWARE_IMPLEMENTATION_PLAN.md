@@ -29,11 +29,11 @@ The labels P0–P8 are execution stages, not model components and not the same t
 | **P1** | Make the physical HOI scene measurable | Can the simulator create the correct robot-box-support scene and measure each hand's real box contact? | Yes | Validated left/right contact sensors |
 | **P2** | Preserve action-aligned physical interaction data | Can each action transition retain aligned robot/object state and physical contact diagnostics in Replay? | Yes | Validated HOI Replay and physical measurements |
 | **P3** | Learn joint robot-object dynamics | Can one joint WM predict robot and box motion from state, action and physical context? | Yes | Final 166D/82D joint WM architecture; training/validation deferred to P7-A |
-| **P4** | Define reference-conditioned geometric contact reward | Does the binary reference contact label activate a differentiable EEF-to-object-target reward? | Yes | Audited targets and tested geometric reward |
-| **P5** | Put joint dynamics and contact reward inside imagination | Can Actor BPTT optimize robot/object tracking and reference-conditioned geometric contact? | Yes | Eager/compiled differentiable HOI rollout |
-| **P6** | Validate reward gradients and physical contact realization | Do geometric gradients behave correctly, and does simulated contact agree with the intended interaction? | Validation code/experiments | Geometry/physical validation report and go/no-go |
-| **P7** | Train the joint WM and integrate the policy | Can the original SuperMimic loop train a validated joint WM and then Actor/Critic without breaking robot-only tracking? | Yes | Joint WM validation and short HOI policy training |
-| **P8** | Test the complete task | Does the selected policy complete the full 840-frame pick-carry-place-release task physically? | Evaluation code/experiments | Full-task report |
+| **P4** | Define reference-conditioned HDMI-style proximity reward | Does the unchanged binary reference label gate differentiable EEF-to-current-Box-target proximity while preserving robot/object tracking? | Yes; reward and geometric audit/tests only | Target/EEF/collision correspondence audit, justified target participation, reward-scale audit and tested reward; no imagination integration or training |
+| **P5** | Integrate joint imagination and proximity reward | Do reference-aligned robot/object tracking and proximity gradients reach Actor through the joint WM? | Yes; integration and controlled tests only | Eager/compiled reward and gradient parity, terminal/bootstrap checks; no Actor training |
+| **P6** | Validate geometry and independent physical contact agreement | Do geometric gradients behave correctly, and does measured contact agree with reference ON/OFF intent? | Validation code/experiments | Independent left/right, any-hand and bilateral metrics under P4.1 semantics; penetration/solver diagnostics, asset/support reconciliation and go/no-go |
+| **P7** | Train the joint WM, then Actor/Critic | Can P7-A validate joint dynamics before P7-B policy training using the original SuperMimic loop? | Yes; separately authorized experiments | Held-out WM validation, short policy training and proximity ablations with physical evaluation; robot-only compatibility |
+| **P8** | Evaluate the complete physical task | Does the selected policy complete all 840 frames from frame 0, including release and post-release stability? | Evaluation code/experiments | Full-task tracking, physical binary contact agreement, independent hand metrics, penetration diagnostics, post-release stability and all failures |
 
 ## 1.1 The execution rule
 
@@ -60,10 +60,10 @@ A stage finishing does **not** authorize the next stage. Do not automatically co
 - **P1–P2 establish the physical HOI scene, contact sensing and action-aligned physical interaction data.**
 - **P3 defines the final joint robot-object World Model architecture.** The dedicated contact-classifier diagnostic is skipped. Joint WM predictive training and validation remain deferred to P7-A.
 - **P4 defines the reference-conditioned physical interaction reward.** It combines the original binary reference contact condition with differentiable EEF-to-object-target proximity guidance. Actual simulator contact is retained as a separate physical measurement and evaluation signal.
-- **P5 integrates the joint robot-object dynamics and proximity reward into differentiable imagination and Actor BPTT.
-- **P6 validates geometric reward behavior and compares reference contact intent with actual MuJoCo hand-box contact across the complete evaluated reference interval.
-- **P7 trains and validates the joint WM, then trains the Actor/Critic using the approved reference-conditioned proximity reward.
-- **P8 evaluates the complete physical Pick-Carry-Place-Release task, including actual contact agreement and post-release object stability.
+- **P5 integrates the joint robot-object dynamics and proximity reward into differentiable imagination and Actor BPTT.** Integration and controlled gradient tests do not authorize Actor training.
+- **P6 validates geometric reward behavior and compares reference contact intent with actual MuJoCo hand-box contact across the complete evaluated reference interval.** It reports independent hand measurements, both aggregate measurements and penetration diagnostics under the P4.1 audit contract.
+- **P7 trains and validates the joint WM, then trains the Actor/Critic using the approved reference-conditioned proximity reward.** P7-A must pass before P7-B.
+- **P8 evaluates the complete physical Pick-Carry-Place-Release task, including actual contact agreement and post-release object stability.**
 
 Do not confuse:
 - `P0–P8`: Codex execution order in this document.
@@ -89,7 +89,7 @@ Before starting each stage:
 1. Read the complete Master Plan as required by Section 1.1, focusing on the current stage, cross-stage contracts and review gates.
 2. Read [P0 REQUIREMENT_COVERAGE.md](p0/REQUIREMENT_COVERAGE.md), [REPORT.md](p0/REPORT.md), [CLOSURE.md](p0/CLOSURE.md) and [FILE_CHANGE_MAP.md](p0/FILE_CHANGE_MAP.md).
 3. Read the relevant [architecture audit](p0/ARCHITECTURE_AUDIT.md), [dependency/contact audit](p0/DEPENDENCY_CONTACT_AUDIT.md), [dataset/asset audit](p0/DATASET_ASSET_AUDIT.md) and [reference implementation audit](p0/REFERENCE_IMPLEMENTATION_AUDIT.md), including the supporting JSON, probes and validation records needed for the stage. Record why any audit category is not applicable.
-4. Read the previous accepted stage's report and inspect its accepted commit, including documented corrective commits. For P1, use the final P0 closure and the three commits above. Record acceptance and authorization separately; a commit does not authorize the next stage.
+4. Read the previous accepted stage's report and inspect its accepted commit, including documented corrective commits. For P1, use the final P0 closure and the three commits above. Record acceptance and authorization separately; a commit does not authorize the next stage. Historical reports/file-change maps may describe superseded force/contact-head designs; preserve that evidence and apply the current Master Plan's architecture and stage boundaries to new work.
 5. Inspect current branch, HEAD, user changes and the relevant actual code/dependency implementations. Compare their paths, symbols, versions or hashes with the evidence being reused. Recheck only changed or uncovered behavior; do not repeat completed audits without a reason. Record new observations separately and explain any superseded finding.
 
 ### 1.3.2 Stage implementation specification
@@ -132,7 +132,7 @@ The following is a minimum mapping, not a replacement for the full audits or sta
 | P3 | Final joint state84, canonical86, residual82 and support context18. One shared dynamics trunk with 166D input and 82D output. No Contact Prediction Head, Contact BCE, Force Prediction Head or force regression. | Validate state/frame/integration contracts and checkpoint migration. Skip dedicated contact-boundary classifier fitting. Defer learned joint WM validation to P7-A. Preserve all existing dimensions and original robot-only compatibility. |
 | P4 | Preserve the original global binary reference contact label. Use it to gate the HDMI-style differentiable EEF-to-object-target proximity reward. Do not introduce additional temporal classifiers, force prediction or new observation dimensions. | Audit EEF offsets, object-local targets, collision geometry correspondence, FK and distance scales. Verify exact reference-frame alignment and reward gradients. Actual contact labels remain outside the differentiable reward. |
 | P5 | Integrate the proximity reward into the original joint imagination and Actor BPTT. Recompute EEF and Box-local target geometry from current imagined robot/object states. | Test action-to-geometry gradients, reference alignment, terminal/bootstrap masks and eager/compiled parity. Preserve original Actor/Critic interfaces and state dimensions. |
-| P6 | Compare original reference binary contact labels against independently measured actual MuJoCo hand-box contact at every valid evaluated timestep. Keep left/right measurements independent and preserve support-contact separation. | Report contact agreement, confusion matrix, precision/recall, bilateral contact, contact duration, force diagnostics and collision penetration diagnostics. Do not use actual contact measurements as differentiable reward inputs. |
+| P6 | Compare original reference binary contact labels against independently measured actual MuJoCo hand-box contact at every valid evaluated timestep. Keep left/right measurements independent and preserve support-contact separation. | Report contact agreement, confusion matrices, precision/recall, any-hand and bilateral contact under the P4.1/P6.2 aggregation contract, contact duration, force diagnostics and collision penetration diagnostics. Do not use actual contact measurements as differentiable reward inputs. |
 | P7 | Retain Trainer.run(), joint WM architecture, original Actor/Critic optimization and the approved proximity reward. | Train/validate joint WM before Actor BPTT. Perform reward ablations and physical rollout evaluation. Preserve checkpoint compatibility and sm-train defaults. |
 | P8 | Accepted Part B has 840 samples at 50 Hz. M6.5 physical asset limitations remain visible until resolved or explicitly accepted for bounded evaluation. | Evaluate from frame 0 through complete pick-carry-place-release, including physical contact agreement, object stability, release and post-release behavior. Report all failures and provenance. |
 
@@ -427,6 +427,8 @@ Always keep separate:
 Do not equate these signals.
 
 Part B provides one global binary desired-contact label, not independent left/right labels. Left/right target participation must be decided from the audited asset/reference contract, not inferred by inventing per-hand labels.
+
+P4.1 must establish whether the reference/task requires bilateral physical contact and document the applicable interval/evidence. Only that finding permits bilateral AND to serve as the task-required contact aggregate. Otherwise preserve and report any-hand (OR) and bilateral (AND) measurements separately, without assuming either is the uniquely correct interpretation of the global label. Independent left/right measurements are always retained; neither physical aggregation changes the target-average proximity reward in P4.4. See P6.2–P6.3 and P8.3 for evaluation.
 
 The final architecture has no predicted contact confidence or force-prediction signal.
 
@@ -759,7 +761,7 @@ For hand \(i\), four substeps \(k\):
 \bar F_i^{box}=\frac14\sum_{k=1}^{4}F_{i,k}^{box}
 \]
 
-Unit: N. This is the primary Force Head target.
+Unit: N. Retain this interval mean as a physical diagnostic; it is not an active WM prediction target or Actor reward input.
 
 \[
 J_i^{world}=0.005\sum_{k=1}^{4}F_{i,k}^{world}
@@ -780,7 +782,7 @@ Unit: N.
 
 Unitless occupancy in [0,1].
 
-Keep raw substep measurements available for diagnostics. Do not sum force values and call the result force. Do not use peak force as the first Force Head target.
+Keep raw substep measurements available for diagnostics. Do not sum force values and call the result force. Peak force is a separate physical diagnostic, not a prediction target or Actor reward input.
 
 ### Box-frame anchoring decision
 
@@ -1100,7 +1102,7 @@ P4 does not introduce:
 - Force-based Actor reward;
 - Contact phase classifier, onset/release detector or future-contact predictor.
 
-P4 defines and tests the reward only. It does not integrate the reward into long Actor imagination.
+P4 defines and tests the reward only. Imagination integration belongs to P5; Actor training belongs to P7-B after P7-A validation.
 
 ## Prerequisites
 
@@ -1151,6 +1153,8 @@ Verify:
 The EEF marker is a kinematic reference point and must not automatically be interpreted as the physical hand collision surface.
 
 The existing audit records both target slots as desired during the same global contact interval for the current 840-frame reference. This supports a two-target candidate but does not establish independently annotated left/right reference labels or physically validated bilateral contact.
+
+Record separately (a) the valid target set for the P4.4 proximity average and (b) whether the reference/task evidence establishes required bilateral physical contact, with its applicable reference interval. Two candidate targets alone do not establish a bilateral requirement. P6/P8 may use bilateral AND as the task-required aggregate only when this audit establishes that requirement. If it remains unestablished, retain independent left/right measurements and report any-hand and bilateral measurements separately under P6.2–P6.3; do not invent per-hand labels or silently select a global aggregate.
 
 The original `object_contact[t]` remains the only reference contact label. Do not create new per-hand reference labels from assumptions about bilateral manipulation.
 
@@ -1514,7 +1518,7 @@ Compilation must preserve reward and gradient semantics.
 - no MuJoCo force/contact sensor dependency inside differentiable imagination;
 - original robot-only imagination regression passes.
 
-P5 stops after reporting. Do not launch long training.
+P5 stops after reporting. Do not start P6 or Actor training.
 
 ---
 
@@ -1533,7 +1537,7 @@ c_t^{ref}
 c_t^{sim}
 \]
 
-for every valid evaluated reference timestep, including both reference contact ON and OFF frames.
+for every valid evaluated reference timestep, including both reference contact ON and OFF frames. Here \(c_t^{sim}\) denotes an explicitly named physical aggregate under P6.2–P6.3, not an assumed bilateral global label.
 
 P6 distinguishes:
 
@@ -1618,25 +1622,27 @@ c_{i,t}^{sim}
 
 The force threshold and occupancy criterion must be justified using P1/P2 calibration evidence. Do not invent or copy thresholds from another simulator.
 
-Preserve independent left/right contact measurements.
-
-Where the current task interval has been verified to require bilateral contact, define:
+Preserve independent left/right contact measurements and both derived physical measurements:
 
 \[
-c_t^{sim,global}
-=
-c_{L,t}^{sim}
-\land
-c_{R,t}^{sim}
+c_t^{sim,any}=c_{L,t}^{sim}\lor c_{R,t}^{sim}
 \]
 
-This is a derived physical evaluation metric, not a newly annotated reference label.
+\[
+c_t^{sim,bilateral}=c_{L,t}^{sim}\land c_{R,t}^{sim}
+\]
+
+Use bilateral AND as the task-required aggregate only when P4.1 establishes that bilateral contact is required by the reference/task, citing its evidence and applicable interval. Computing the bilateral measurement for diagnostics does not establish that requirement.
+
+Otherwise report any-hand and bilateral measurements separately; do not silently define a single global contact label as bilateral AND or choose the aggregate that maximizes agreement. Retain both measurements even when a bilateral requirement is established, so that unilateral unintended contact during reference OFF is not hidden by AND aggregation.
+
+These are derived physical evaluation metrics, not newly annotated reference labels. They do not change the P4.4 reward's average over audited targets.
 
 Do not assume that the original global `object_contact[t]` provides independent left/right reference annotations.
 
 ## P6.3 Reference-versus-actual binary contact agreement
 
-Compare actual global contact with the original reference binary label at every valid evaluated timestep:
+Compare each separately named physical aggregate from P6.2 with the original reference binary label at every valid evaluated timestep:
 
 \[
 c_t^{ref}
@@ -1645,25 +1651,23 @@ c_t^{ref}
 \]
 
 \[
-c_t^{sim}
-=
-c_t^{sim,global}
+m\in\{\mathrm{any},\mathrm{bilateral}\}
 \]
 
 Compute:
 
 \[
-A_{contact}
+A_{contact}^{m}
 =
 \frac{1}{N}
 \sum_{t\in\mathcal V}
 \mathbb{1}
-[c_t^{ref}=c_t^{sim}]
+[c_t^{ref}=c_t^{sim,m}]
 \]
 
-where \(\mathcal V\) contains valid, correctly aligned physical evaluation timesteps.
+where \(\mathcal V\) contains valid, correctly aligned physical evaluation timesteps, \(N=|\mathcal V|\), with the same validity mask for both aggregates. Name the aggregate for every reported metric. Only interpret bilateral agreement as task-required agreement within the scope established by P4.1; otherwise report both comparisons without claiming a unique task-required aggregate.
 
-Report the full binary confusion matrix:
+Report the full binary confusion matrix for each aggregate:
 
 - True Positive: reference ON, actual contact ON.
 - True Negative: reference OFF, actual contact OFF.
@@ -1679,8 +1683,11 @@ Report:
 - balanced accuracy;
 - left-hand contact ratio;
 - right-hand contact ratio;
+- any-hand contact ratio;
 - bilateral contact ratio;
 - contact occupancy and duration.
+
+Evaluate left/right contact ratios, occupancy and duration independently, including separate reference ON/OFF breakdowns. These are measurements conditioned on global reference intent, not accuracy against independently annotated per-hand ground truth.
 
 Evaluate both ON and OFF frames. Do not calculate agreement only over reference-active frames.
 
@@ -1693,7 +1700,7 @@ If a reference segment has ambiguous or invalid physical alignment, report it ex
 For reference ON intervals, report:
 
 - actual left/right hand-box contact ratio;
-- bilateral contact ratio where bilateral interaction is expected;
+- any-hand and bilateral contact ratios, with bilateral requirement interpreted only under P4.1 evidence;
 - EEF-target distance;
 - hand-box force magnitude and impulse;
 - contact persistence;
@@ -1770,7 +1777,7 @@ Do not replace the accepted asset profile without explicit approval.
 
 - deterministic geometric reward-gradient diagnostics;
 - frame-aligned reference-versus-actual binary contact report;
-- left/right and bilateral contact metrics;
+- independent left/right and separately reported any-hand/bilateral contact metrics;
 - contact occupancy and force diagnostics;
 - collision/penetration diagnostics;
 - asset/support gate reconciliation;
@@ -1784,14 +1791,14 @@ Do not replace the accepted asset profile without explicit approval.
 - original reference binary labels are preserved;
 - reference and actual contact are compared across all valid ON/OFF timesteps;
 - left/right contact is reported independently;
-- bilateral contact is only interpreted where supported by task/reference evidence;
+- any-hand and bilateral measurements are preserved separately; bilateral AND is used as the task-required aggregate only where P4.1 establishes the requirement;
 - box-support contact is not confused with hand-box contact;
 - penetration and solver limitations are explicitly reported;
 - no force model or force-based Actor reward is introduced;
 - physical asset/support limitations remain visible;
 - a clear go/no-go decision is reported for integrated policy training.
 
-P6 stops after reporting. Do not start long training.
+P6 stops after reporting. Do not start P7 or training.
 
 
 ---
@@ -1860,7 +1867,7 @@ Never overwrite original checkpoints.
 
 ## P7.5 Actor and Critic integration
 
-Preserve the original Actor and Critic observation contracts wherever possible.
+Preserve the original Actor and Critic observation contracts and dimensions.
 
 The proximity reward is calculated from existing imagined robot/object states and differentiable FK. It does not require new Actor/Critic observations or additional physical state dimensions.
 
@@ -1980,7 +1987,7 @@ Report:
 - precision, recall, F1 and balanced accuracy;
 - left-hand contact ratio;
 - right-hand contact ratio;
-- bilateral contact ratio where appropriate;
+- any-hand and bilateral contact ratios, reported separately;
 - unintended contact ratio during reference OFF;
 - missed contact ratio during reference ON;
 - contact occupancy and duration;
@@ -1988,7 +1995,7 @@ Report:
 
 Do not treat the global reference label as independently annotated left/right labels.
 
-Report left/right actual contact separately and evaluate bilateral contact only where the reference/task evidence supports it.
+Evaluate left/right actual contact independently, including reference ON/OFF ratios, occupancy and duration. Report any-hand (OR) and bilateral (AND) comparisons separately using P6.2–P6.3. Bilateral AND may serve as the task-required aggregate only where P4.1 establishes that bilateral contact is required by the reference/task. Without that evidence, do not collapse the two measurements into one assumed global label. Always report any-hand contact during reference OFF so unilateral unintended contact remains visible.
 
 Use the calibrated P6 physical contact thresholds and occupancy criteria. Preserve the same definitions across evaluation experiments.
 
@@ -2009,7 +2016,7 @@ Report:
 
 Keep hand-box contact, Box-support contact and robot-body-box contact separate.
 
-Force values are physical evaluation diagnostics only. Do not require learned force predictions, force MAE, force calibration or force-gradient similarity.
+Force values are physical evaluation diagnostics only. Do not require learned force predictions, force MAE, learned-force calibration or force-gradient similarity. Physical sensor calibration from P1/P2 and the contact criteria in P6.2 remain required.
 
 ## P8.5 Collision and penetration evaluation
 
@@ -2086,6 +2093,7 @@ Do not discard failed episodes from success-rate calculation.
 - reference-versus-actual binary contact is evaluated across all valid ON/OFF timesteps;
 - left/right contact is reported independently;
 - actual contact measurements use the validated P6 definitions;
+- any-hand and bilateral agreement are reported separately, with task-required bilateral aggregation justified by P4.1;
 - release and post-release stability are physically verified;
 - collision/penetration limitations are documented;
 - every failure is documented;
@@ -2152,7 +2160,7 @@ Reuse existing physical contact aggregation and sensor utilities. Do not duplica
 
 Physical contact matching, force statistics and penetration diagnostics belong to evaluation/diagnostic paths, not differentiable training reward paths.
 
-These are proposed locations. P0's actual file-change map takes precedence if equivalent modules already exist.
+These are proposed locations. Reuse equivalent existing modules identified by P0's actual file-change map, while applying the current stage semantics. Superseded force/contact-head entries in historical maps do not authorize restoring those designs.
 
 Shared files should receive only necessary interface extensions.
 
@@ -2317,13 +2325,25 @@ Follow Section 15 and stop for review.
 ## P4 request
 
 ~~~text
-Read the complete Master Plan and execute P4 only.
+Read the complete Master Plan and execute P4 only, following all of Section 9 (P4.1–P4.7, deliverables and acceptance criteria) and Sections 1.3 and 15.
 
-First audit left/right target semantics, EEF offsets, FK, Box-root transforms and the current M6.5 asset status. Produce CONTACT_TARGET_AUDIT.md.
+Confirm the current checkout, prior-stage acceptance and explicit authorization before implementation. Write docs/hoi/force_contact/p4/IMPLEMENTATION_SPEC.md with requirement traceability, verified P0/prior-stage evidence, contracts, validation criteria and unresolved risks.
 
-Then implement only the reference-conditioned differentiable geometric contact reward. Use the exact current reference binary object_contact label as the gate. Do not add future lookahead, phase classifiers, onset/release detectors, Contact Prediction Head, Force Prediction Head or force reward.
+Preserve physical84/canonical86/residual82, the final 166D/82D joint WM, support18/action29/xi33, original Actor/Critic observation dimensions, original robot/object tracking and existing P1/P2 contact sensing. Preserve user changes, historical reports/evidence, accepted reference NPZ, assets and checkpoints.
 
-Do not integrate full imagination or start training. Follow Section 15 and stop.
+First produce docs/hoi/force_contact/p4/CONTACT_TARGET_AUDIT.md. Verify left/right ordering and target participation, wrist-local EEF offsets, FK, Box-root transforms under rotation, reference-distance distributions, marker/collision-surface correspondence and target reachability. Preserve M6.5 training_ready=false and M6_5_NO_GO_M7 evidence. Separately document whether P4.1 establishes a bilateral physical-contact requirement and its applicable interval; otherwise retain separate any-hand and bilateral evaluation measurements. Do not infer per-hand reference labels from two target slots. Obtain approval for any target-set or research-level change before affected implementation.
+
+Implement only pure-Torch geometry and the HDMI-style position-proximity reward from P4.3–P4.5: r_proximity = object_contact[t] * mean_i(exp(-d_i / sigma_pos)) over the valid audited target set. Use the unchanged binary label at the exact evaluated reference frame, differentiable EEF FK and the current physical/imagined Box pose. Preserve robot/object tracking throughout the task. Reference OFF must yield zero proximity reward. Determine candidate distance scales and coefficients from audited distances and controlled reward-scale measurements; do not invent final values.
+
+Actual MuJoCo force/contact remains an independent physical diagnostic, never a differentiable Actor reward input, active WM prediction target or additional observation. Reuse P1/P2 utilities only for required bounded deterministic diagnostics; full physical binary-contact agreement validation belongs to P6.
+
+Do not add force rewards, contact/force prediction heads, Contact BCE, Binary Contact Decoder, future lookahead, smoothed labels, phase classifiers, onset/release detectors, non-contact repulsion, SDF/penetration rewards or new dimensions.
+
+Complete every P4.7 test: exact frame/binary gating and OFF-zero behavior; ON-positive monotonic proximity; left/right ordering; rotated targets; current Box pose; batch independence; finite EEF-joint and Box-pose gradients; independence from measured force/contact; and original robot-only tracking reward regression. Record reward-scale/reference-distance evidence under outputs/hoi/contact_supervision/reward_validation/. Mathematical tests alone do not prove physical contact success.
+
+Inspect the complete diff, reconcile IMPLEMENTATION_SPEC.md with results, and produce docs/hoi/force_contact/p4/REPORT.md under Section 15, including commands, tests, numerical evidence, framework reuse audit, limitations and PASS/PARTIAL/FAIL.
+
+Do not start P5, P6, imagination integration, WM/Actor training or long experiments. Commit only when explicitly authorized, do not push, and stop for explicit review/approval.
 ~~~
 
 For P7/P8, obtain explicit approval before expensive training or full evaluation.
@@ -2338,19 +2358,22 @@ The overall project is complete only when:
 4. The final joint World Model uses 166D input and 82D output.
 5. Support-relative context is correctly represented.
 6. The joint WM predicts robot and object dynamics with validated one-step and multi-step performance.
-7. The original binary reference contact label is used directly.
-8. Left/right contact targets and EEF geometry are correctly audited.
-9. Differentiable geometric contact reward is implemented.
+7. The unchanged original binary reference contact label gates the reward at the exact evaluated reference frame.
+8. Left/right contact targets, EEF geometry and their collision-surface correspondence are audited under P4.1, with target participation and any bilateral task requirement explicitly justified.
+9. The P4.4 HDMI-style differentiable proximity reward uses current robot/Box geometry, yields zero for reference OFF and preserves physical84/canonical86/residual82 and original Actor/Critic observation dimensions.
 10. Robot and object tracking remain active throughout the task.
 11. Contact geometry reward produces meaningful Actor gradients.
 12. Joint imagination preserves physical state and reference alignment.
 13. Eager and compiled implementations are consistent.
 14. Actor/Critic training uses the original SuperMimic optimization structure.
 15. Original sm-train behavior remains unchanged.
-16. Full 840-frame evaluation demonstrates robot-object tracking and physical contact realization.
-17. Physical release and post-release stability are verified.
+16. Full evaluation starts at frame 0 and covers all 840 reference frames, demonstrating robot-object tracking and physical interaction; all failed episodes remain in the results and success-rate denominator.
+17. Physical binary contact agreement is evaluated against the original reference label at every valid, correctly aligned ON/OFF timestep under P6.2–P6.3 and P8.3. Report confusion matrices, agreement, precision, recall, F1, balanced accuracy, unintended OFF contact and missed ON contact, with explicit validity masks and calibrated measurement criteria.
+18. Left/right physical contact is evaluated independently, including ON/OFF ratios, occupancy and duration. Preserve and report any-hand (OR) and bilateral (AND) measurements separately. Bilateral AND serves as the task-required aggregate only where P4.1 establishes that requirement; the global reference label is never presented as independent per-hand annotation.
+19. Penetration and solver diagnostics under P6.5/P8.5 include signed contact distances, maximum and average penetration depth, duration/frequency and solver warnings/errors. Separate hand-box, box-support and other robot-body-box contacts, and document persistent penetration and unresolved physical limitations.
+20. Physical release and post-release object stability are verified under P8.4/P8.7 over a documented interval, with object displacement and linear/angular velocity evidence. Reaching frame 839 or matching EEF markers alone is not proof of release or stable placement.
 
-Physical force/contact measurements may be retained as simulator diagnostics. They are not final World Model prediction targets, Actor reward terms or force-gradient acceptance gates.
+Physical force/contact measurements are required independent diagnostics for the physical acceptance checks above. They are not final World Model prediction targets, differentiable Actor reward inputs/terms or force-gradient acceptance gates. Preserve historical M6.5 failures and report the disposition of unresolved asset/support limitations; a geometric reward test PASS alone does not satisfy physical task acceptance.
 
 The final research contribution is a **reference-conditioned humanoid-object tracking framework that combines a learned joint robot-object dynamics model with differentiable geometric contact reinforcement, allowing the Actor to learn physically meaningful interaction while following demonstrated reference motion.**
 
