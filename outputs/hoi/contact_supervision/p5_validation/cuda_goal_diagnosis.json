@@ -1,0 +1,14 @@
+{
+  "torch.float32": {
+    "gather_max_error": 8.195638656616211e-08,
+    "original_view_max_error": 8.195638656616211e-08,
+    "library_device": "cuda",
+    "tensor_device": "cuda:0"
+  },
+  "torch.float64": {
+    "gather_max_error": 0.0,
+    "original_view_max_error": 0.0,
+    "library_device": "cuda",
+    "tensor_device": "cuda:0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "suite": "compiled",
+  "status": "PASS",
+  "pytest_arguments": [
+    "-x",
+    "-q",
+    "-ra",
+    "tests/hoi/test_imagination_parity.py",
+    "--junitxml=outputs/hoi/contact_supervision/p5_validation/compiled_final_v2/tests.xml"
+  ],
+  "exit_code": 0,
+  "counts": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "tests": [
+    {
+      "test": "tests.hoi.test_imagination_parity::test_inductor_parity[dtype0-cpu]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_parity::test_inductor_parity[dtype0-cuda]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_parity::test_inductor_parity[dtype1-cpu]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_parity::test_inductor_parity[dtype1-cuda]",
+      "status": "passed"
+    }
+  ],
+  "seconds": 1424.9315046529518,
+  "forbidden_action_attempts": [],
+  "optimizer_steps": 0,
+  "physical_rollouts": 0,
+  "versions": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "mjlab": "1.6.0"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4090 D"
+}

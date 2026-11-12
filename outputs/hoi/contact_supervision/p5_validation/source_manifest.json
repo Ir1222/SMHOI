@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "python_sources_checked": 18,
+  "files": {
+    "scripts/hoi/validate_p5.py": "1239f6051d44f40b743863bebd7909de252c00e64bd62630218a9ebe5260651a",
+    "src/supermimic/data/replay_buffer.py": "86820f0f1c0ca0418fb47dab60480cb56b66b911c4e563715a149a670f8be685",
+    "src/supermimic/envs/mdp/rewards.py": "05e3092631f89db9e21f9b4c7cfe4f1c8a6859cae35235829c3e2a6959a6319e",
+    "src/supermimic/hoi/imagination.py": "a8eafc42090fb053293074ae12f84339f13e86ec5f33bdb85eb471b29ed69198",
+    "src/supermimic/hoi/reward_reference.py": "ee16690f573ae40523704e2021d4d166bee0c5a39fbafd03f93d6ed6c01d8601",
+    "src/supermimic/hoi/tracking_reward.py": "f6f0acffa8c299b4907a7d1524216daedb6c575b7fc26922fd66f2e1238a0b3c",
+    "src/supermimic/imagination/objective.py": "653344730cfb1e7f66355315f3272eb7dd4a7cd0f2da07ab9603280787a93bd0",
+    "src/supermimic/imagination/policy_trainer.py": "89adff2747dac9371000e202eb83f6114d58d3e8ce9c2b3c985f6c05ae075bc5",
+    "src/supermimic/imagination/rollout.py": "e5d2abcdf0d95c78e26619cea59f8e0077b8bb06b0a7be20897c800e9a1b9037",
+    "src/supermimic/world_model/heads.py": "553757489a9fb681335b5d79280da1263640fe1f7e168a64d9711a7dc8326a00",
+    "tests/hoi/p5_fixtures.py": "5138a830a725fe899945d166a554b26891f9785aad0b022cd87dc3349e621999",
+    "tests/hoi/test_box_tracking_reward.py": "6e62b81403a6abd9b1243cb5ccd151c8fb271c444f4207a9232309c6b5de98ae",
+    "tests/hoi/test_imagination_boundaries.py": "deba3ea2101a04aca41685b90c2dae13593b2233580fca4ac98e70c49f4a3a82",
+    "tests/hoi/test_imagination_parity.py": "faec2641b43ed292e64f5eb08ef917171fe9b578209c60585c3e9f51f6f4784c",
+    "tests/hoi/test_p5_validation.py": "1aa344bf340733456d5a7b99938837524f2e63f79a0bb4dc7cf08d38c21a43d0",
+    "tests/hoi/test_policy_adapter.py": "0356a96eb2ca570e0cfcee990932995c007d87bf682a7f395727b427279a8cbe",
+    "tests/hoi/test_quaternion_reward_numerics.py": "3782a9a67881eb0c56cefb071ebf1c67b9ee98bd4f617c05b0c593ea687d32bb",
+    "tests/hoi/test_reward_reference.py": "98b9c116de26aa29267b5ddccc3ac4c797e1eccf80e9bc02b8d6f07021d851c5"
+  }
+}

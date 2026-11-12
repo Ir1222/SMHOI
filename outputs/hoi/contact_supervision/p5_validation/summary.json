@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "scope": "Complete P5 software implementation and validation only",
+  "packages": {
+    "P5-A": "PASS",
+    "P5-B": "PASS",
+    "P5-C": "PASS"
+  },
+  "baseline_head": "3b86b1526735fc3d46b408200ed700650aad6dfc",
+  "final_suites": {
+    "eager": {
+      "path": "eager_final_v5/summary.json",
+      "counts": {
+        "total": 41,
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0
+      },
+      "status": "PASS"
+    },
+    "compiled": {
+      "path": "compiled_final_v3/summary.json",
+      "counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0
+      },
+      "status": "PASS"
+    },
+    "regression": {
+      "path": "regression_final/summary.json",
+      "counts": {
+        "total": 69,
+        "passed": 69,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0
+      },
+      "status": "PASS"
+    }
+  },
+  "tests_passed": 114,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "optimizer_steps": 0,
+  "wm_parameter_updates": 0,
+  "physical_hoi_rollouts": 0,
+  "training_ready": false,
+  "final_training_coefficients": "UNSELECTED",
+  "compiled_results": [
+    {
+      "device": "cpu",
+      "dtype": "float32",
+      "state_max_abs": 5.960464477539063e-08,
+      "terms13_max_abs": 6.51925802230835e-09,
+      "state_gradient_max_abs": 2.277083694934845e-07,
+      "action_gradient_max_abs": 8.731149137020111e-11,
+      "actor_gradient_max_abs": 6.639311322942376e-11,
+      "compiled_unique_graphs": 100,
+      "step_graph_count": 24,
+      "step_graph_break_count": 23,
+      "evidence": "compiled_final_v3/measurements/parity_cpu_float32.json"
+    },
+    {
+      "device": "cpu",
+      "dtype": "float64",
+      "state_max_abs": 0.0,
+      "terms13_max_abs": 1.734723475976807e-18,
+      "state_gradient_max_abs": 7.28583859910259e-17,
+      "action_gradient_max_abs": 8.131516293641283e-20,
+      "actor_gradient_max_abs": 2.710505431213761e-20,
+      "compiled_unique_graphs": 100,
+      "step_graph_count": 24,
+      "step_graph_break_count": 23,
+      "evidence": "compiled_final_v3/measurements/parity_cpu_float64.json"
+    },
+    {
+      "device": "cuda",
+      "dtype": "float32",
+      "state_max_abs": 8.195638656616211e-08,
+      "terms13_max_abs": 1.3504177331924438e-08,
+      "state_gradient_max_abs": 5.471520125865936e-07,
+      "action_gradient_max_abs": 5.966285243630409e-10,
+      "actor_gradient_max_abs": 8.003553375601768e-11,
+      "compiled_unique_graphs": 100,
+      "step_graph_count": 24,
+      "step_graph_break_count": 23,
+      "evidence": "compiled_final_v3/measurements/parity_cuda_float32.json"
+    },
+    {
+      "device": "cuda",
+      "dtype": "float64",
+      "state_max_abs": 2.393918396847994e-16,
+      "terms13_max_abs": 2.42861286636753e-17,
+      "state_gradient_max_abs": 9.335251755643315e-16,
+      "action_gradient_max_abs": 2.439454888092385e-19,
+      "actor_gradient_max_abs": 8.131516293641283e-20,
+      "compiled_unique_graphs": 100,
+      "step_graph_count": 24,
+      "step_graph_break_count": 23,
+      "evidence": "compiled_final_v3/measurements/parity_cuda_float64.json"
+    }
+  ],
+  "compiled_configuration": {
+    "backend": "inductor",
+    "mode": "default",
+    "dynamic": false,
+    "validation_only_recompile_limit": 64,
+    "default_budget8_fallback_observed": true,
+    "single_full_graph": false
+  },
+  "protected_files_evidence": "preservation.json",
+  "source_evidence": "source_manifest.json",
+  "prior_failures": "validation_history.json",
+  "remaining_blockers": [
+    "P3 learned joint dynamics and useful physical gradients unvalidated",
+    "Historical P3 FP32 multistep migration gate remains failed",
+    "M6.5 training_ready=false / M6_5_NO_GO_M7; P4 geometry/support caveats",
+    "Missing historical V3 provenance and refined-reference sidecars",
+    "Final reward configuration, Critic calibration and sampler scaling unselected"
+  ],
+  "not_tested": [
+    "Actor/Critic optimizer updates and P7 training",
+    "WM fitting or learned physical dynamics fidelity",
+    "P6/full physical HOI task rollout",
+    "CUDA graphs, distributed training, performance and other compiler modes"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "provenance": {
+    "source_path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference.npz",
+    "source_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+    "manifest_sha256": "129e1181fda2528250d2cd64fa214c2de4d7998ed37698c17302cc4f58128efb",
+    "frames": 840,
+    "fps": 50.0,
+    "dt_s": 0.02,
+    "derivation": "central-world-log-v1",
+    "compute_dtype": "torch.float64",
+    "storage_dtype": "torch.float64",
+    "quaternion": "wxyz; normalized copies only",
+    "position_velocity": "root origin; environment-local world axes; m and m/s",
+    "angular_velocity": "world axes; rad/s; body audit uses R(q_f)^T"
+  },
+  "frames_checked": 840,
+  "contact_on": 290,
+  "contact_off": 550,
+  "all_finite": true,
+  "quaternion_sign_invariance": "exact",
+  "scalar_and_batch_gather_isolation": true,
+  "endpoints": {
+    "v": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "omega_world": [
+      [
+        -1.0842021724855044e-17,
+        0.0,
+        0.0
+      ],
+      [
+        -1.1102230246251565e-14,
+        -9.020562075079397e-15,
+        9.020562075079397e-15
+      ]
+    ]
+  },
+  "maximum_speed": 1.3630637385822617,
+  "maximum_angular_speed": 2.3509212780269064
+}

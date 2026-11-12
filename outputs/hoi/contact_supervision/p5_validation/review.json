@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "complete_source_and_document_diff_reviewed": true,
+  "python_ast_files": 18,
+  "ruff_result": "lint_final.log",
+  "original_policy_and_reward_configuration_defaults_unchanged": true,
+  "documents_checked": 6,
+  "missing_local_links": [],
+  "json_and_junit_parse": "PASS",
+  "whitespace_unstaged": "PASS",
+  "protected_files": "preservation.json",
+  "expected_preexisting_untracked": [
+    ".vscode/"
+  ],
+  "no_push": true,
+  "raw_log_and_junit_whitespace_preserved_by_scoped_attributes": true,
+  "initial_staged_whitespace_observation": "Captured failure traceback whitespace in raw JUnit XML; preserve verbatim with evidence-scoped XML attributes. Source/document checks have no exemptions.",
+  "whitespace_staged": "PASS",
+  "staged_files_reviewed": 144
+}

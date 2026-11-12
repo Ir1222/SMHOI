@@ -1,0 +1,18 @@
+{
+  "actor_loss": -0.08669200322694649,
+  "objective": 0.2600760096808395,
+  "actor_gradient_norm": 0.0001890143209818808,
+  "critic_loss": 0.03544865494003238,
+  "valid_lengths": [
+    3,
+    3,
+    3,
+    3,
+    1
+  ],
+  "wm_weights_unchanged": true,
+  "freeze_flags_restored": true,
+  "exception_restoration": true,
+  "critic_loss_actor_wm_gradients_absent": true,
+  "optimizer_steps": 0
+}

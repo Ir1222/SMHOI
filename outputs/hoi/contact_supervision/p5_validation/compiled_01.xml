@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="1372.692" timestamp="2026-11-12T12:58:43.473978+08:00" hostname="han-Precision-3660"><testcase classname="tests.hoi.test_imagination_parity" name="test_inductor_parity[dtype0-cpu]" time="815.562" /><testcase classname="tests.hoi.test_imagination_parity" name="test_inductor_parity[dtype0-cuda]" time="0.260"><failure message="ValueError: Aligned long clip/local-frame tensors required on library device">dtype = torch.float32, device = 'cuda'
+
+            s = st1.state.clone().requires_grad_()
+            a = s.new_full((3, 29), 0.031).requires_grad_()
+            outputs = step(s, a, st1.prev_action, st1.xi, ref)
+            gs, ga = torch.autograd.grad(outputs[1].sum(), (s, a))
+            pair.append((outputs, gs, ga))
+    for i, (a, b) in enumerate(zip(pair[0][0], pair[1][0])):
+        check(f"step_output_{i}", a, b)
+&gt;   check("state_gradient", pair[0][1], pair[1][1])
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_imagination_parity.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_imagination_parity.py:22: in run_parity
+    atol, rtol = (2e-5, 2e-5) if dtype == torch.float32 else (1e-9, 1e-7)
+           ^^^^^^^^^^^^^^^
+tests/hoi/p5_fixtures.py:90: in start_batch
+    joint_names=joint_names,
+      ^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/reward_reference.py:208: in gather
+    from supermimic.envs.mdp.motion_library import goal_features
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/reward_reference.py:186: in global_frames
+    if (
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;supermimic.hoi.reward_reference.HOIReferenceRegistry object at 0x7e47a8dc8dd0&gt;
+clip_id = tensor([7, 7, 7, 7, 7], device='cuda:0')
+local_frame = tensor([258, 259, 548, 549, 838], device='cuda:0')
+
+    if sha256(source) != clip.manifest["sha256"]:
+        raise ValueError("Robot/Box reference source SHA mismatch")
+    a = clip.arrays
+    names = tuple(a["body_names"].tolist())
+&gt;   if tuple(a["joint_names"].tolist()) != tuple(joint_names) or (
+        first_body_names is not None and names != first_body_names
+    ):
+E   ValueError: Aligned long clip/local-frame tensors required on library device
+
+src/supermimic/hoi/reward_reference.py:177: ValueError</failure></testcase><testcase time="0.000" /></testsuite></testsuites>

@@ -1,0 +1,157 @@
+{
+  "device": "cpu",
+  "dtype": "torch.float32",
+  "backend": "inductor",
+  "mode": "default",
+  "atol": 2e-05,
+  "rtol": 2e-05,
+  "test_model": "DeterministicCoupledResidual; no physical fidelity claim",
+  "horizons": {
+    "1": {
+      "status": "PASS",
+      "max_absolute_errors": {
+        "loss": 0.0,
+        "objective": 0.0,
+        "states": 5.960464477539063e-08,
+        "actions": 0.0,
+        "rewards": 1.4901161193847656e-08,
+        "dhat": 0.0,
+        "survival": 0.0,
+        "goals": 0.0,
+        "e_root": 0.0,
+        "eef_pos": 1.7881393432617188e-07,
+        "target_pos": 0.0,
+        "distance": 8.568167686462402e-08,
+        "per_target": 5.662441253662109e-07,
+        "proximity": 4.172325134277344e-07,
+        "box_errors": 0.0,
+        "terms": 6.51925802230835e-09,
+        "actor_gradient_0": 1.1934897514720433e-15,
+        "actor_gradient_1": 8.326672684688674e-16,
+        "actor_gradient_2": 4.371503159461554e-16,
+        "actor_gradient_3": 2.9976021664879227e-15,
+        "actor_gradient_4": 8.68229099726392e-16,
+        "actor_gradient_5": 7.337880303381894e-15,
+        "actor_gradient_6": 1.936228954946273e-13,
+        "actor_gradient_7": 1.3145040611561853e-13,
+        "actor_gradient_8": 9.059419880941277e-14,
+        "actor_gradient_9": 4.760636329592671e-13,
+        "actor_gradient_10": 8.981260180007666e-12,
+        "actor_gradient_11": 6.639311322942376e-11,
+        "step_output_0": 0.0,
+        "step_output_1": 0.0,
+        "step_output_2": 6.51925802230835e-09,
+        "step_output_3": 0.0,
+        "step_output_4": 0.0,
+        "step_output_5": 3.725290298461914e-09,
+        "state_gradient": 2.277083694934845e-07,
+        "action_gradient": 8.731149137020111e-11
+      },
+      "valid_lengths": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "evaluated_frames": [
+        [
+          259,
+          260,
+          549,
+          550,
+          839
+        ]
+      ],
+      "actor_gradient_norm": 0.00016484853404108435
+    },
+    "3": {
+      "status": "PASS",
+      "max_absolute_errors": {
+        "loss": 0.0,
+        "objective": 0.0,
+        "states": 5.960464477539063e-08,
+        "actions": 0.0,
+        "rewards": 1.4901161193847656e-08,
+        "dhat": 0.0,
+        "survival": 0.0,
+        "goals": 0.0,
+        "e_root": 0.0,
+        "eef_pos": 1.7881393432617188e-07,
+        "target_pos": 0.0,
+        "distance": 1.1548399925231934e-07,
+        "per_target": 8.344650268554688e-07,
+        "proximity": 6.556510925292969e-07,
+        "box_errors": 0.0,
+        "terms": 6.51925802230835e-09,
+        "actor_gradient_0": 5.828670879282072e-16,
+        "actor_gradient_1": 4.163336342344337e-16,
+        "actor_gradient_2": 2.220446049250313e-16,
+        "actor_gradient_3": 1.5543122344752192e-15,
+        "actor_gradient_4": 3.608224830031759e-16,
+        "actor_gradient_5": 3.3306690738754696e-15,
+        "actor_gradient_6": 9.947598300641403e-14,
+        "actor_gradient_7": 7.105427357601002e-14,
+        "actor_gradient_8": 3.552713678800501e-14,
+        "actor_gradient_9": 1.9895196601282805e-13,
+        "actor_gradient_10": 3.637978807091713e-12,
+        "actor_gradient_11": 3.092281986027956e-11,
+        "step_output_0": 0.0,
+        "step_output_1": 0.0,
+        "step_output_2": 6.51925802230835e-09,
+        "step_output_3": 0.0,
+        "step_output_4": 0.0,
+        "step_output_5": 3.725290298461914e-09,
+        "state_gradient": 2.277083694934845e-07,
+        "action_gradient": 8.731149137020111e-11
+      },
+      "valid_lengths": [
+        3,
+        3,
+        3,
+        3,
+        1
+      ],
+      "evaluated_frames": [
+        [
+          259,
+          260,
+          549,
+          550,
+          839
+        ],
+        [
+          260,
+          261,
+          550,
+          551,
+          -1
+        ],
+        [
+          261,
+          262,
+          551,
+          552,
+          -1
+        ]
+      ],
+      "actor_gradient_norm": 0.00018901433213613927
+    }
+  },
+  "optimizer_steps": 0,
+  "graph_count": 24,
+  "graph_break_count": 23,
+  "graph_break_reasons": [
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html",
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()"
+  ],
+  "single_full_graph_claim": false
+}

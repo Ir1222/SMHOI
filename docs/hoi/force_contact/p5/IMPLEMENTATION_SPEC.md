@@ -1100,3 +1100,32 @@ with np.load('/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/refer
 pathlib.Path('/tmp/smhoi_p5_spec/supplement.json').write_text(json.dumps(data,indent=2))
 print(json.dumps(data,indent=2))
 ```
+
+## Appendix B. Implementation clarifications after full P5 authorization
+
+The user subsequently authorized complete P5-A/B/C source implementation,
+backward-only validation, documentation and a final local commit. That explicit
+authorization supersedes this document's historical instruction to stop after the
+specification commit. Sections 1–11 and Appendix A above remain preserved evidence;
+their historical execution statements are not claims about the new implementation.
+The implemented result is recorded in [REPORT.md](REPORT.md) and the three package
+reports, with machine-readable evidence under
+`outputs/hoi/contact_supervision/p5_validation/`.
+
+The implementation uses explicit full-NPZ `ClipBinding` records. Compact/packed
+libraries are rejected until their own provenance binding exists. Raw source and
+library tensors are checked exactly. Recomputed derived goals use the already
+specified FP32/FP64 algebra tolerances: CUDA TorchScript profiling can change their
+rounding without changing source identity or stored Actor goals. Device checks use
+actual tensor devices, including the CUDA index; P4's FK device contract is retained.
+
+The shared trainer exposes loss and detached Critic-batch construction so the same
+update code can be validated without optimizer steps. The HOI diagnostic method
+has its own compiled tensor signature and retains the original six-item step return.
+Compiled validation records an explicit, scoped Dynamo recompilation budget of 64
+to cover batch widths and gradient modes without silent budget fallback. Default
+training/compiler settings and all numerical acceptance tolerances remain unchanged.
+Graph breaks and the default-budget performance limitation remain reportable.
+
+No final training coefficients, learned-dynamics acceptance, M6.5 disposition,
+new failure predictor or new observation dimension is selected by these clarifications.

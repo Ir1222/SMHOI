@@ -1,0 +1,62 @@
+.F
+=================================== FAILURES ===================================
+______________________ test_inductor_parity[dtype0-cuda] _______________________
+
+dtype = torch.float32, device = 'cuda'
+
+            s = st1.state.clone().requires_grad_()
+            a = s.new_full((3, 29), 0.031).requires_grad_()
+            outputs = step(s, a, st1.prev_action, st1.xi, ref)
+            gs, ga = torch.autograd.grad(outputs[1].sum(), (s, a))
+            pair.append((outputs, gs, ga))
+    for i, (a, b) in enumerate(zip(pair[0][0], pair[1][0])):
+        check(f"step_output_{i}", a, b)
+>   check("state_gradient", pair[0][1], pair[1][1])
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_imagination_parity.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_imagination_parity.py:22: in run_parity
+    atol, rtol = (2e-5, 2e-5) if dtype == torch.float32 else (1e-9, 1e-7)
+           ^^^^^^^^^^^^^^^
+tests/hoi/p5_fixtures.py:90: in start_batch
+    joint_names=joint_names,
+      ^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/reward_reference.py:208: in gather
+    from supermimic.envs.mdp.motion_library import goal_features
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/reward_reference.py:186: in global_frames
+    if (
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <supermimic.hoi.reward_reference.HOIReferenceRegistry object at 0x7e47a8dc8dd0>
+clip_id = tensor([7, 7, 7, 7, 7], device='cuda:0')
+local_frame = tensor([258, 259, 548, 549, 838], device='cuda:0')
+
+    if sha256(source) != clip.manifest["sha256"]:
+        raise ValueError("Robot/Box reference source SHA mismatch")
+    a = clip.arrays
+    names = tuple(a["body_names"].tolist())
+>   if tuple(a["joint_names"].tolist()) != tuple(joint_names) or (
+        first_body_names is not None and names != first_body_names
+    ):
+E   ValueError: Aligned long clip/local-frame tensors required on library device
+
+src/supermimic/hoi/reward_reference.py:177: ValueError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/hoi/test_imagination_parity.py::test_inductor_parity[dtype0-cpu]
+  /home/han/pyx/SMHOI/tests/hoi/test_imagination_parity.py:39: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+    fx.trainer.step_fn = step
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_imagination_parity.py::test_inductor_parity[dtype0-cuda]
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/_inductor/ir.py:5439: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+1 failed, 1 passed, 2 warnings in 1372.69s (0:22:52)

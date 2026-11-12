@@ -1,0 +1,115 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__________ test_cuda_reference_registration_and_eager_rollout[dtype0] __________
+
+dtype = torch.float32
+
+    @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+    def test_cuda_reference_registration_and_eager_rollout(dtype):
+        if not torch.cuda.is_available():
+            pytest.skip("CUDA unavailable")
+        from supermimic.imagination.policy_trainer import frozen_parameters
+    
+        fx = fixture(dtype, "cuda")  # exercise unindexed library device alias
+        start = start_batch(fx)
+        assert fx.registry.device == start.state.device
+        with frozen_parameters(fx.wm, fx.critic):
+>           loss, _, ro, _, _ = fx.trainer.actor_loss(start)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_reward_reference.py:230: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/imagination/policy_trainer.py:87: in actor_loss
+    ro = imagine(self.wm, self.policy, self.lib, start, cfg.horizon, cfg.future_frames, obs_noise=cfg.obs_noise, step_fn=self.step_fn, anchor_obs=cfg.anchor_obs, context=context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/imagination/rollout.py:122: in imagine
+    s_next, r, term_vec, logits, obs_clean, anchor_pose = step_fn(select(s), a, select(a_prev), select(start.xi), scoring_ref)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/imagination.py:134: in __call__
+    return self._fn(
+src/supermimic/hoi/imagination.py:124: in _step
+    terms = self.reward(s_next, a, a_prev, ref, obj, bodies)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/tracking_reward.py:149: in __call__
+    proximity = self.proximity(state, box_reference.contact)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/rewards.py:124: in __call__
+    eef, target = self.geometry(state)
+                  ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <supermimic.hoi.rewards.ProximityReward object at 0x7d8fae36d2b0>
+state = tensor([[-9.5891e-01, -1.8306e-01,  6.7907e-01, -1.3520e-02, -9.9075e-02,
+         -5.8884e-03,  9.9497e-01, -8.5511e-...304e-04,
+         -9.7244e-05, -1.0355e-04, -4.3206e-05,  1.8280e-05]], device='cuda:0',
+       grad_fn=<CatBackward0>)
+
+    def geometry(self, state: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        if state.shape[-1] != 84 or not state.is_floating_point():
+            raise ValueError("Expected joint physical state84")
+        if state.device != self.fk.device or state.dtype != self.fk.dtype:
+>           raise ValueError("State dtype/device must match FK construction")
+E           ValueError: State dtype/device must match FK construction
+
+src/supermimic/hoi/rewards.py:104: ValueError
+__________ test_cuda_reference_registration_and_eager_rollout[dtype1] __________
+
+dtype = torch.float64
+
+    @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+    def test_cuda_reference_registration_and_eager_rollout(dtype):
+        if not torch.cuda.is_available():
+            pytest.skip("CUDA unavailable")
+        from supermimic.imagination.policy_trainer import frozen_parameters
+    
+        fx = fixture(dtype, "cuda")  # exercise unindexed library device alias
+        start = start_batch(fx)
+        assert fx.registry.device == start.state.device
+        with frozen_parameters(fx.wm, fx.critic):
+>           loss, _, ro, _, _ = fx.trainer.actor_loss(start)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_reward_reference.py:230: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/imagination/policy_trainer.py:87: in actor_loss
+    ro = imagine(self.wm, self.policy, self.lib, start, cfg.horizon, cfg.future_frames, obs_noise=cfg.obs_noise, step_fn=self.step_fn, anchor_obs=cfg.anchor_obs, context=context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/imagination/rollout.py:122: in imagine
+    s_next, r, term_vec, logits, obs_clean, anchor_pose = step_fn(select(s), a, select(a_prev), select(start.xi), scoring_ref)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/imagination.py:134: in __call__
+    return self._fn(
+src/supermimic/hoi/imagination.py:124: in _step
+    terms = self.reward(s_next, a, a_prev, ref, obj, bodies)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/tracking_reward.py:149: in __call__
+    proximity = self.proximity(state, box_reference.contact)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/supermimic/hoi/rewards.py:124: in __call__
+    eef, target = self.geometry(state)
+                  ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <supermimic.hoi.rewards.ProximityReward object at 0x7d8fad9e2ba0>
+state = tensor([[-9.5891e-01, -1.8306e-01,  6.7907e-01, -1.3520e-02, -9.9075e-02,
+         -5.8884e-03,  9.9497e-01, -8.5511e-...7244e-05, -1.0355e-04, -4.3198e-05,  1.8271e-05]], device='cuda:0',
+       dtype=torch.float64, grad_fn=<CatBackward0>)
+
+    def geometry(self, state: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        if state.shape[-1] != 84 or not state.is_floating_point():
+            raise ValueError("Expected joint physical state84")
+        if state.device != self.fk.device or state.dtype != self.fk.dtype:
+>           raise ValueError("State dtype/device must match FK construction")
+E           ValueError: State dtype/device must match FK construction
+
+src/supermimic/hoi/rewards.py:104: ValueError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_reward_reference.py::test_cuda_reference_registration_and_eager_rollout[dtype0]
+FAILED tests/hoi/test_reward_reference.py::test_cuda_reference_registration_and_eager_rollout[dtype1]
+2 failed, 10 deselected, 1 warning in 4.83s

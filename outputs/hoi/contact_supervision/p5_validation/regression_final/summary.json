@@ -1,0 +1,320 @@
+{
+  "suite": "regression",
+  "status": "PASS",
+  "pytest_arguments": [
+    "-q",
+    "-ra",
+    "tests/hoi/test_force_replay.py",
+    "tests/hoi/test_force_aggregation.py",
+    "tests/hoi/test_geometric_contact_reward.py",
+    "tests/hoi/test_contact_target_audit.py",
+    "tests/hoi/test_joint_world_model.py",
+    "tests/hoi/test_joint_architecture.py",
+    "tests/hoi/test_support_context.py",
+    "tests/hoi/test_wm_reuse.py",
+    "tests/hoi/test_wm_dataset_validation.py",
+    "tests/hoi/test_checkpoint_migration.py",
+    "tests/test_g1_fk.py",
+    "tests/test_world_model.py::test_state_spec_identity_and_errors",
+    "tests/test_imagination.py::test_gae_targets_match_hand_computation",
+    "tests/hoi/test_joint_scene.py::test_reference_twist_endpoints_rotation_and_sign_flips",
+    "--junitxml=outputs/hoi/contact_supervision/p5_validation/regression_final/tests.xml"
+  ],
+  "exit_code": 0,
+  "counts": {
+    "total": 69,
+    "passed": 69,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "tests": [
+    {
+      "test": "tests.hoi.test_force_replay::test_transition_done_not_successor_and_all_fields[physical_failure]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_transition_done_not_successor_and_all_fields[timeout]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_transition_done_not_successor_and_all_fields[clip_end]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_wrap_reset_and_clip_boundaries",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_masks_fail_closed_on_invalid_rows[clip]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_masks_fail_closed_on_invalid_rows[frame]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_masks_fail_closed_on_invalid_rows[valid]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_masks_fail_closed_on_invalid_rows[terminal]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_replay::test_discontinuity_rejected_before_mutation_and_short_episode",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_units_both_bodies_contemporaneous_rotation_and_copy",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_transients_and_cancellation[active0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_transients_and_cancellation[active1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_transients_and_cancellation[active2]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_transients_and_cancellation[active3]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_common_point_torque",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_reject_invalid_measurement[threshold]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_reject_invalid_measurement[quaternion]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_reject_invalid_measurement[nonfinite]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_reject_invalid_measurement[shape]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_force_aggregation::test_reject_invalid_measurement[found]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_exact_gate_monotonicity_independent_targets_and_zero_distance[dtype0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_exact_gate_monotonicity_independent_targets_and_zero_distance[dtype1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_exact_reference_boundaries_and_shuffled_batch",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_rotated_targets_named_eef_and_current_box_pose",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_batch_independence_common_frame_and_state_untouched",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_joint_translation_and_rotation_gradients_finite_difference",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_sensor_independence_and_no_velocity_reward_input",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_invalid_scale[0.0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_invalid_scale[-1.0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_invalid_scale[nan]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_invalid_scale[inf]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_invalid_geometry_labels_and_state",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_original_robot_tracking_and_additive_object_term",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_geometric_contact_reward::test_single_target_is_explicit_not_best_hand",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_contact_target_audit::test_accepted_reference_geometry_and_exact_contact_indices",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_world_model::test_canonical_robot_prefix_invariance_and_roundtrip",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_world_model::test_object_prior_against_mujoco_and_com",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_world_model::test_residual_frames_order_and_gradients",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_final_dimensions_prior_and_no_auxiliary_modules",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_eight_step_physical_loss_backward_and_termination_separation",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_invalid_physical_loss_weights[values0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_invalid_physical_loss_weights[values1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_invalid_physical_loss_weights[values2]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_invalid_physical_loss_weights[values3]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_architecture::test_support_rejects_modified_manifest_and_missing_or_changed_runtime_source",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_support_context::test_support_context_is_separate_time_varying_and_frame_covariant",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_wm_reuse::test_original_window_loss_and_gradients_unchanged",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_wm_dataset_validation::test_archive_episode_split_and_physical_loss_isolation",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_wm_dataset_validation::test_historical_force_readiness_retains_its_original_meaning",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_wm_dataset_validation::test_failed_contact_capture_remains_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_robot_named_columns_and_eight_step_prediction_preservation",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_old_joint_preserves_all_named_columns_and_physical_eight_steps",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_strict_new_checkpoint_roundtrip_and_metadata",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[missing]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[extra]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[schema]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[config]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[stats]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_legacy_joint_rejects_incompatible_or_incomplete_source[nonfinite]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_transitional_and_raw_fit_checkpoints_are_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_checkpoint_migration::test_named_robot_sentinel_columns_and_final_metadata",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_g1_fk::test_fk_matches_mujoco[dtype0-1e-10-1e-09]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_g1_fk::test_fk_matches_mujoco[dtype1-2e-05-0.0002]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_g1_fk::test_fk_cuda_matches_cpu",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_g1_fk::test_fk_is_differentiable",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_g1_fk::test_rotvec_round_trip",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_world_model::test_state_spec_identity_and_errors",
+      "status": "passed"
+    },
+    {
+      "test": "tests.test_imagination::test_gae_targets_match_hand_computation",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_joint_scene::test_reference_twist_endpoints_rotation_and_sign_flips",
+      "status": "passed"
+    }
+  ],
+  "seconds": 5.048199499025941,
+  "forbidden_action_attempts": [],
+  "optimizer_steps": 0,
+  "physical_rollouts": 0,
+  "versions": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "mjlab": "1.6.0"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4090 D"
+}

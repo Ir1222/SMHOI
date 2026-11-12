@@ -110,7 +110,7 @@ class AnalyticHeads:
             "root_quat": out["quat"][..., self.root_fk_index, :],
         }
 
-    def reward(self, s_next: torch.Tensor, action: torch.Tensor, prev_action: torch.Tensor, ref: ReferenceFrame, bodies=None):
+    def reward(self, s_next: torch.Tensor, action: torch.Tensor, prev_action: torch.Tensor, ref: ReferenceFrame, bodies=None, *, orientation_error=None):
         """Reward r_{t+1} of reaching s_next (= s_{t+1}) under target frame g_t. Returns dict with 'total'."""
         b = bodies if bodies is not None else self.robot_bodies(s_next)
         return tracking_reward_terms(
@@ -128,6 +128,7 @@ class AnalyticHeads:
             joint_pos=s_next[..., 7:36],
             soft_limits=self.soft_limits,
             cfg=self.reward_cfg,
+            orientation_error=orientation_error,
         )
 
     @staticmethod
@@ -146,7 +147,12 @@ class AnalyticHeads:
     def root_error_features(s: torch.Tensor, ref: ReferenceFrame) -> torch.Tensor:
         """Critic-only privileged drift features (plan D10): root position error in the reference
         heading frame (3) and yaw error (1). (N, 4)"""
-        from supermimic.kinematics.rotations import heading_yaw, quat_apply_inverse, wrap_to_pi, yaw_quat
+        from supermimic.kinematics.rotations import (
+            heading_yaw,
+            quat_apply_inverse,
+            wrap_to_pi,
+            yaw_quat,
+        )
 
         dp = quat_apply_inverse(yaw_quat(ref.root_quat_w), s[..., 0:3] - ref.root_pos_w)
         dyaw = wrap_to_pi(heading_yaw(s[..., 3:7]) - heading_yaw(ref.root_quat_w))

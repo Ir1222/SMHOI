@@ -1,0 +1,3 @@
+# Preserve captured tool/pytest output and JUnit tracebacks verbatim.
+*.log -whitespace
+*.xml -whitespace

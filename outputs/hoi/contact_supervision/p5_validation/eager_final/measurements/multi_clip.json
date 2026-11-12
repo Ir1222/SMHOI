@@ -1,0 +1,118 @@
+{
+  "global_frames": [
+    [
+      1100,
+      550,
+      1679,
+      839
+    ],
+    [
+      1101,
+      551,
+      -1,
+      -1
+    ],
+    [
+      1102,
+      552,
+      -1,
+      -1
+    ]
+  ],
+  "local_frames": [
+    [
+      260,
+      550,
+      839,
+      839
+    ],
+    [
+      261,
+      551,
+      -1,
+      -1
+    ],
+    [
+      262,
+      552,
+      -1,
+      -1
+    ]
+  ],
+  "contact": [
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ]
+  ],
+  "valid": [
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ]
+  ],
+  "registry": [
+    {
+      "replay_id": 7,
+      "library_id": 1,
+      "global_start": 840,
+      "source_path": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference.npz",
+      "source_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+      "manifest_sha256": "129e1181fda2528250d2cd64fa214c2de4d7998ed37698c17302cc4f58128efb",
+      "frames": 840,
+      "fps": 50.0,
+      "dt_s": 0.02,
+      "derivation": "central-world-log-v1",
+      "compute_dtype": "torch.float64",
+      "storage_dtype": "torch.float64",
+      "quaternion": "wxyz; normalized copies only",
+      "position_velocity": "root origin; environment-local world axes; m and m/s",
+      "angular_velocity": "world axes; rad/s; body audit uses R(q_f)^T"
+    },
+    {
+      "replay_id": 42,
+      "library_id": 0,
+      "global_start": 0,
+      "source_path": "/tmp/pytest-of-han/pytest-101/test_two_clip_identity_mapping0/second/reference.npz",
+      "source_sha256": "f643e97f0c4a49e40f5c8f0b8de6056031b9488fe7f147f47b1cd399c530c716",
+      "manifest_sha256": "7ae31fa9ff966a6549b43f7f5aec11b9b35d838c436623ac92d21ce1ae1b941c",
+      "frames": 840,
+      "fps": 50.0,
+      "dt_s": 0.02,
+      "derivation": "central-world-log-v1",
+      "compute_dtype": "torch.float64",
+      "storage_dtype": "torch.float64",
+      "quaternion": "wxyz; normalized copies only",
+      "position_velocity": "root origin; environment-local world axes; m and m/s",
+      "angular_velocity": "world axes; rad/s; body audit uses R(q_f)^T"
+    }
+  ]
+}

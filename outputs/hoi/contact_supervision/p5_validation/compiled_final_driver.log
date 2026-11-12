@@ -1,0 +1,23 @@
+{
+  "suite": "compiled",
+  "status": "FAIL",
+  "exit_code": 2,
+  "counts": {
+    "total": 2,
+    "passed": 1,
+    "failed": 1,
+    "skipped": 0,
+    "errors": 0
+  },
+  "seconds": 300.4741863720119,
+  "forbidden_action_attempts": [],
+  "optimizer_steps": 0,
+  "physical_rollouts": 0,
+  "versions": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "mjlab": "1.6.0"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4090 D"
+}

@@ -1,0 +1,112 @@
+F
+=================================== FAILURES ===================================
+______________________ test_inductor_parity[dtype0-cuda] _______________________
+
+dtype = torch.float32, device = 'cuda'
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+    def test_inductor_parity(dtype, device):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA unavailable; GPU parity NOT TESTED")
+        # Optional selection for separately retained runs; no backend fallback.
+        requested = os.environ.get("P5_PARITY_DEVICE")
+        if requested and requested != device:
+            pytest.skip("Device tested in a separate invocation")
+>       result = run_parity(dtype, device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_imagination_parity.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/hoi/test_imagination_parity.py:19: in run_parity
+    fx = fixture(dtype, device, horizon=3)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/hoi/p5_fixtures.py:85: in fixture
+    registry = HOIReferenceRegistry(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <supermimic.hoi.reward_reference.HOIReferenceRegistry object at 0x7e11b0502870>
+library = <supermimic.envs.mdp.motion_library.MotionLibrary object at 0x7e11b055d8b0>
+bindings = [ClipBinding(replay_id=7, library_id=0, reference=<supermimic.hoi.reference.ReferenceClip object at 0x7e11b05ba180>)]
+library_sources = [PosixPath('/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference.npz')]
+dt = 0.02
+joint_names = ('left_hip_pitch_joint', 'left_hip_roll_joint', 'left_hip_yaw_joint', 'left_knee_joint', 'left_ankle_pitch_joint', 'left_ankle_roll_joint', ...)
+
+    def __init__(self, library, bindings, *, library_sources, dt, joint_names):
+        self.lib, self.dt = library, dt
+        self.bindings = tuple(bindings)
+        if library.compact:
+            raise ValueError("HOI requires a full source-verified NPZ library")
+        if not self.bindings or len(library_sources) != library.num_clips:
+            raise ValueError("Explicit ordered library sources/bindings required")
+        ids = [b.replay_id for b in self.bindings]
+        lids = [b.library_id for b in self.bindings]
+        if (
+            len(set(ids)) != len(ids)
+            or any(type(i) is not int or i < 0 for i in ids)
+            or sorted(lids) != list(range(library.num_clips))
+        ):
+            raise ValueError("Missing, duplicate or ambiguous clip identity")
+        if len(joint_names) != 29 or len(set(joint_names)) != 29:
+            raise ValueError("Explicit native joint names/order required")
+        self._by_id = {b.replay_id: b for b in self.bindings}
+        self.caches = {}
+        first_body_names = None
+        for b in self.bindings:
+            clip = b.reference
+            if not isinstance(clip, ReferenceClip):
+                raise TypeError("Validated ReferenceClip required")
+            source = Path(library_sources[b.library_id]).resolve()
+            if sha256(source) != clip.manifest["sha256"]:
+                raise ValueError("Robot/Box reference source SHA mismatch")
+            a = clip.arrays
+            names = tuple(a["body_names"].tolist())
+            if tuple(a["joint_names"].tolist()) != tuple(joint_names) or (
+                first_body_names is not None and names != first_body_names
+            ):
+                raise ValueError("Joint/body names or ordering mismatch")
+            first_body_names = names
+            info = library.clips[b.library_id]
+            if info.length != clip.n_frames or int(library.clip_len[b.library_id]) != clip.n_frames:
+                raise ValueError("Reference/library length mismatch")
+            frames = torch.arange(info.start, info.end, device=library.device)
+            if (
+                int(library.clip_start[b.library_id]) != info.start
+                or not (library.frame_clip[frames] == b.library_id).all()
+            ):
+                raise ValueError("Inconsistent library global frame mapping")
+            pelvis = names.index("pelvis")
+            expected = np.concatenate(
+                (
+                    a["body_pos_w"][:, pelvis],
+                    a["body_quat_w"][:, pelvis],
+                    a["joint_pos"],
+                    a["body_lin_vel_w"][:, pelvis],
+                    a["body_ang_vel_w"][:, pelvis],
+                    a["joint_vel"],
+                ),
+                -1,
+            ).astype(np.float32)  # original library's exact cast
+            if not torch.equal(
+                library.ref71(frames),
+                torch.tensor(expected, device=library.device, dtype=library.dtype),
+            ):
+                raise ValueError("Library robot tensors do not match bound source")
+            from supermimic.envs.mdp.motion_library import goal_features
+    
+            expected_goal = goal_features(library.ref(frames), library.default_joint_pos)
+            if not torch.equal(library.goal_feat[frames], expected_goal):
+>               raise ValueError("Library goals do not match bound source")
+E               ValueError: Library goals do not match bound source
+
+src/supermimic/hoi/reward_reference.py:212: ValueError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_imagination_parity.py::test_inductor_parity[dtype0-cuda]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 1 warning in 3.84s

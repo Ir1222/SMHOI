@@ -41,7 +41,7 @@ class ReplayBuffer:
         self.E, self.T = num_envs, capacity
         self.device = torch.device(device)
         E, T = num_envs, capacity
-        f = lambda *shape: torch.zeros(E, T, *shape, device=self.device)  # noqa: E731
+        f = lambda *shape: torch.zeros(E, T, *shape, device=self.device)
         self.s = f(state_dim)
         self.a = f(act_dim)
         self.a_exec = f(act_dim)
@@ -137,16 +137,34 @@ class ReplayBuffer:
         )
 
     @torch.no_grad()
-    def sample_starts(self, n: int, hist: int) -> StartBatch:
+    def start_mask(self, hist: int) -> torch.Tensor:
         mask = self.valid & ~self.terminal
         t_idx = torch.arange(self.T, device=self.device)[None, :]
         dist_to_ptr = (self.ptr[:, None] - t_idx - 1) % self.T
         mask &= dist_to_ptr < self.T - hist - 1  # keep history rows from being overwritten underneath
-        e, t = self._sample_from_mask(mask, n)
+        return mask
+
+    def _history_valid(self, e, t, ee, tt):
+        return (self.ep_id[ee, tt] == self.ep_id[e, t][None, :]) & self.valid[ee, tt]
+
+    def _previous_action_valid(self, e, t, ee, tt_fixed, tprev):
+        return (self.ep_id[ee, tprev] == self.ep_id[e, t][None, :]) & self.valid[ee, tprev] & ~self.ep_start[ee, tt_fixed]
+
+    def _make_start(self, e, t, **fields):
+        return StartBatch(**fields)
+
+    @torch.no_grad()
+    def sample_starts(self, n: int, hist: int) -> StartBatch:
+        e, t = self._sample_from_mask(self.start_mask(hist), n)
+        return self._gather_starts(e, t, hist)
+
+    @torch.no_grad()
+    def _gather_starts(self, e, t, hist) -> StartBatch:
+        n = e.numel()
         offs = torch.arange(hist, device=self.device) - (hist - 1)  # -(hist-1) .. 0
         tt = (t[None, :] + offs[:, None]) % self.T  # (hist, n)
         ee = e[None, :].expand(hist, n)
-        same_ep = (self.ep_id[ee, tt] == self.ep_id[e, t][None, :]) & self.valid[ee, tt]
+        same_ep = self._history_valid(e, t, ee, tt)
         # Backfill: for rows outside the episode, use the first in-episode row of the window.
         first_ok = same_ep.float().argmax(dim=0)  # first True index per column (same_ep[-1] is always True)
         pos = torch.arange(hist, device=self.device)[:, None].expand(hist, n)
@@ -154,10 +172,10 @@ class ReplayBuffer:
         hist_states = self.s[ee, tt_fixed]
         # Actions preceding each history state: a at row-1 if same episode else 0.
         tprev = (tt_fixed - 1) % self.T
-        prev_ok = (self.ep_id[ee, tprev] == self.ep_id[e, t][None, :]) & self.valid[ee, tprev] & ~self.ep_start[ee, tt_fixed]
+        prev_ok = self._previous_action_valid(e, t, ee, tt_fixed, tprev)
         hist_actions = torch.where(prev_ok[..., None], self.a[ee, tprev], torch.zeros_like(self.a[ee, tprev]))
         del pos
-        return StartBatch(
+        return self._make_start(e, t,
             state=self.s[e, t],
             xi=self.xi[e, t],
             frame=self.frame[e, t],

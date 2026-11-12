@@ -1,0 +1,15 @@
+{
+  "path": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+  "sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+  "policy_strict": true,
+  "critic_strict": true,
+  "dimensions": [
+    930,
+    680,
+    29,
+    788
+  ],
+  "critic_direct_box_gradient": 0,
+  "optimizer_or_sampler_state_loaded": false,
+  "training_provenance": "source has no embedded training Git/dataset SHA"
+}

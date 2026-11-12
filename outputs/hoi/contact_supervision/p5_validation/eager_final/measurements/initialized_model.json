@@ -1,0 +1,7 @@
+{
+  "model": "actual JointWorldModel, zero initialized output layer",
+  "action_to_box_jacobian": "zero",
+  "four_box_action_gradients": "zero",
+  "learned_physical_fidelity": "NOT TESTED",
+  "optimizer_steps": 0
+}

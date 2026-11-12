@@ -1,0 +1,7 @@
+{
+  "future_reward_to_first_action_norm": 0.0002810416456966115,
+  "survival_to_first_action_norm": 6.327210351364724e-05,
+  "frozen_critic_tail_to_first_action_norm": 0.0001742156852929547,
+  "previous_action_regularizer_derivative": "exact original equation",
+  "optimizer_steps": 0
+}

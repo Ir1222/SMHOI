@@ -30,7 +30,7 @@ The labels P0–P8 are execution stages, not model components and not the same t
 | **P2** | Preserve action-aligned physical interaction data | Can each action transition retain aligned robot/object state and physical contact diagnostics in Replay? | Yes | Validated HOI Replay and physical measurements |
 | **P3** | Learn joint robot-object dynamics | Can one joint WM predict robot and box motion from state, action and physical context? | Yes | Final 166D/82D joint WM architecture; training/validation deferred to P7-A |
 | **P4** | Define reference-conditioned HDMI-style proximity reward | Does the unchanged binary reference label gate differentiable EEF-to-current-Box-target proximity while preserving robot/object tracking? | Yes; reward and geometric audit/tests only | Target/EEF/collision correspondence audit, justified target participation, reward-scale audit and tested reward; no imagination integration or training |
-| **P5** | Integrate joint imagination and proximity reward | Do reference-aligned robot/object tracking and proximity gradients reach Actor through the joint WM? | Yes; integration and controlled tests only | Eager/compiled reward and gradient parity, terminal/bootstrap checks; no Actor training |
+| **P5** | Integrate complete robot/Box/proximity reward and joint imagination | Do reference-aligned robot/object tracking and proximity gradients reach Actor through the joint WM? | Yes; integration and controlled tests only | Eager/compiled reward and gradient parity, terminal/bootstrap checks; no Actor training; implementation evidence in `p5/REPORT.md` |
 | **P6** | Validate geometry and independent physical contact agreement | Do geometric gradients behave correctly, and does measured contact agree with reference ON/OFF intent? | Validation code/experiments | Independent left/right, any-hand and bilateral metrics under P4.1 semantics; penetration/solver diagnostics, asset/support reconciliation and go/no-go |
 | **P7** | Train the joint WM, then Actor/Critic | Can P7-A validate joint dynamics before P7-B policy training using the original SuperMimic loop? | Yes; separately authorized experiments | Held-out WM validation, short policy training and proximity ablations with physical evaluation; robot-only compatibility |
 | **P8** | Evaluate the complete physical task | Does the selected policy complete all 840 frames from frame 0, including release and post-release stability? | Evaluation code/experiments | Full-task tracking, physical binary contact agreement, independent hand metrics, penetration diagnostics, post-release stability and all failures |
@@ -131,7 +131,7 @@ The following is a minimum mapping, not a replacement for the full audits or sta
 | P2 | Four newest-first samples span .005 × 4 = .020 s. Preserve accepted action/transition alignment and Replay episode/clip boundaries. Actual force/contact measurements remain physical diagnostic data, not active WM targets or Actor reward inputs. | Test executed-action/state/terminal alignment, validity and episode/clip boundaries. Distinguish force magnitude (N), impulse (N·s), contact occupancy and binary contact labels. |
 | P3 | Final joint state84, canonical86, residual82 and support context18. One shared dynamics trunk with 166D input and 82D output. No Contact Prediction Head, Contact BCE, Force Prediction Head or force regression. | Validate state/frame/integration contracts and checkpoint migration. Skip dedicated contact-boundary classifier fitting. Defer learned joint WM validation to P7-A. Preserve all existing dimensions and original robot-only compatibility. |
 | P4 | Preserve the original global binary reference contact label. Use it to gate the HDMI-style differentiable EEF-to-object-target proximity reward. Do not introduce additional temporal classifiers, force prediction or new observation dimensions. | Audit EEF offsets, object-local targets, collision geometry correspondence, FK and distance scales. Verify exact reference-frame alignment and reward gradients. Actual contact labels remain outside the differentiable reward. |
-| P5 | Integrate the proximity reward into the original joint imagination and Actor BPTT. Recompute EEF and Box-local target geometry from current imagined robot/object states. | Test action-to-geometry gradients, reference alignment, terminal/bootstrap masks and eager/compiled parity. Preserve original Actor/Critic interfaces and state dimensions. |
+| P5 | Integrate complete robot/Box tracking, unchanged P4 proximity and original regularization into the original joint imagination and Actor BPTT. Recompute EEF and Box-local target geometry from current imagined robot/object states. | Test component/action-to-Actor gradients, clip-aware reference alignment, terminal/bootstrap masks and eager/compiled parity. Preserve original Actor/Critic interfaces and state dimensions. |
 | P6 | Compare original reference binary contact labels against independently measured actual MuJoCo hand-box contact at every valid evaluated timestep. Keep left/right measurements independent and preserve support-contact separation. | Report contact agreement, confusion matrices, precision/recall, any-hand and bilateral contact under the P4.1/P6.2 aggregation contract, contact duration, force diagnostics and collision penetration diagnostics. Do not use actual contact measurements as differentiable reward inputs. |
 | P7 | Retain Trainer.run(), joint WM architecture, original Actor/Critic optimization and the approved proximity reward. | Train/validate joint WM before Actor BPTT. Perform reward ablations and physical rollout evaluation. Preserve checkpoint compatibility and sm-train defaults. |
 | P8 | Accepted Part B has 840 samples at 50 Hz. M6.5 physical asset limitations remain visible until resolved or explicitly accepted for bounded evaluation. | Evaluate from frame 0 through complete pick-carry-place-release, including physical contact agreement, object stability, release and post-release behavior. Report all failures and provenance. |
@@ -1380,6 +1380,20 @@ P4 stops after reporting. Do not integrate full imagination.
 
 P5 integrates the joint robot-object World Model and the approved reference-conditioned proximity reward into the original SuperMimic imagination pipeline.
 
+The detailed contract is [p5/IMPLEMENTATION_SPEC.md](p5/IMPLEMENTATION_SPEC.md),
+approved at `3b86b1526735fc3d46b408200ed700650aad6dfc`. Full P5-A/B/C implementation
+and backward-only validation were subsequently authorized as one task. The
+implementation and evidence are in [p5/REPORT.md](p5/REPORT.md),
+[P5-A](p5/P5_A_REPORT.md), [P5-B](p5/P5_B_REPORT.md) and
+[P5-C](p5/P5_C_REPORT.md). **P5 software implementation and validation: PASS**
+(41 eager acceptance tests, four CPU/CUDA FP32/FP64 Inductor cases, and 69
+regressions; zero final failures/skips). Evidence is under
+`outputs/hoi/contact_supervision/p5_validation/`, with final suites
+`eager_final_v5`, `compiled_final_v3` and `regression_final`. Compiled validation
+records graph breaks and an explicit scoped recompilation budget; it makes no
+full-graph or speedup claim. This status does not establish training or physical
+readiness and does not authorize P6/P7.
+
 The Actor learns to track the humanoid and object while approaching audited Box-local contact targets during reference-defined interaction intervals.
 
 Actual MuJoCo contact measurements remain outside differentiable imagination and Actor BPTT.
@@ -1391,6 +1405,12 @@ No new Contact Decoder, Contact Prediction Head, Force Prediction Head or additi
 P4 is approved; final 84D/86D/82D contract is fixed; contact target audit and proximity reward tests pass; original imagination and Critic interfaces are verified.
 
 A trained P3 model is not required to implement imagination interfaces or run controlled gradient tests. Use an explicitly identified test model where necessary.
+
+Execution disposition: the current authorization permits isolated P5 software
+implementation despite the documented physical qualifications in P4. Historical
+P3/P4 PARTIAL decisions, P3 learned-prediction/migration limitations and M6.5
+`training_ready=false` / `M6_5_NO_GO_M7` remain unchanged. No P6/P7 or physical
+rollout is part of this authorization.
 
 ## P5.1 Joint imagined state
 
@@ -1447,6 +1467,14 @@ Only physical robot/object state is integrated.
 
 ## P5.4 Differentiable geometry and reward
 
+The implemented complete scalar contains the six original positive robot terms,
+four always-active Box terms (position, orientation, world linear velocity and
+world angular velocity), unchanged reference-gated P4 proximity, and the original
+regularization exactly once. Box reference twists come from immutable centered/
+endpoint differences of the accepted original NPZ. Experimental coefficients are
+required explicitly; no final training defaults are selected. The safe squared
+quaternion error is injected only through the HOI path.
+
 At every imagined step recompute:
 
 - robot FK;
@@ -1470,6 +1498,13 @@ Preserve separate handling for physical robot failure, physical object failure, 
 A natural clip-end is not a physical failure. No repeated terminal-frame proximity reward is permitted.
 
 Preserve original survival and Critic bootstrap semantics.
+
+Within valid segments the original recurrence is reused. A natural finite clip
+includes its final reached reward once and has zero tail; timeout before clip end
+retains bootstrap; an authoritative hard robot/object failure has zero tail and
+separate reason metadata. Actor loss retains nominal horizon scaling. Invalid
+transitions never gather reward references or enter Critic minibatches. Original
+robot-only current-frame/clamping behavior remains unchanged through optional hooks.
 
 ## P5.6 Actor BPTT gradient checks
 
@@ -1504,7 +1539,11 @@ Compilation must preserve reward and gradient semantics.
 - HOI imagination integration;
 - minimal shared rollout/compiled/policy-trainer changes;
 - gradient and eager/compiled parity tests;
-- `docs/hoi/force_contact/p5/REPORT.md`.
+- `src/supermimic/hoi/tracking_reward.py`, `reward_reference.py`, `imagination.py`;
+- required `HOIRewardCfg`, explicit `ClipBinding` registry and replay start metadata;
+- `scripts/hoi/validate_p5.py` and the P5 test modules under `tests/hoi/`;
+- `docs/hoi/force_contact/p5/P5_A_REPORT.md`, `P5_B_REPORT.md`, `P5_C_REPORT.md`, `REPORT.md`;
+- machine-readable evidence under `outputs/hoi/contact_supervision/p5_validation/`.
 
 ## P5 acceptance criteria
 

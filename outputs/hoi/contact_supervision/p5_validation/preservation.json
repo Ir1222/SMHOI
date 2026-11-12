@@ -1,0 +1,51 @@
+{
+  "baseline_head": "3b86b1526735fc3d46b408200ed700650aad6dfc",
+  "inventoried_files": 642,
+  "unchanged_files": 634,
+  "authorized_changes": [
+    {
+      "path": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+      "before": "268047aa4e431866bf708c6da2b271ef48d44dfec561458d09e11f76df563a41",
+      "after": "f7de655bd0c2166ca3a1c57b6c68134f43eab2ccf681bf442db22308f2249fd8"
+    },
+    {
+      "path": "docs/hoi/force_contact/p5/IMPLEMENTATION_SPEC.md",
+      "before": "ddb1a6327145f7f77cb75a7581e464ae3e6a0bf7439120ca57c68dd7420ebd62",
+      "after": "e236ce5ce0e9fb472239e743d4cc329701f051257a508d4d829043f425414f7f"
+    },
+    {
+      "path": "src/supermimic/data/replay_buffer.py",
+      "before": "561eb96e295d511b12a2db9e2dbb735a53c161f06f7af1372a2cd2edd02ea4cf",
+      "after": "86820f0f1c0ca0418fb47dab60480cb56b66b911c4e563715a149a670f8be685"
+    },
+    {
+      "path": "src/supermimic/envs/mdp/rewards.py",
+      "before": "34f53e7164097427b93cb5da7cdea755597b61a4ae389801eea6ddf7401a7407",
+      "after": "05e3092631f89db9e21f9b4c7cfe4f1c8a6859cae35235829c3e2a6959a6319e"
+    },
+    {
+      "path": "src/supermimic/imagination/objective.py",
+      "before": "3c93ec24c0f26db7bd4d60c5da50bc4a4d711a70a72ba0c9dfc7b078f082f774",
+      "after": "653344730cfb1e7f66355315f3272eb7dd4a7cd0f2da07ab9603280787a93bd0"
+    },
+    {
+      "path": "src/supermimic/imagination/policy_trainer.py",
+      "before": "f902e07d5fa7ba5d408c75c42ea9b89b99befcb5111f7757ad37373ace8055d8",
+      "after": "89adff2747dac9371000e202eb83f6114d58d3e8ce9c2b3c985f6c05ae075bc5"
+    },
+    {
+      "path": "src/supermimic/imagination/rollout.py",
+      "before": "f217001b4cc70114f0197d79833dd55c00170e67e6b6e16d070fb4e383448aac",
+      "after": "e5d2abcdf0d95c78e26619cea59f8e0077b8bb06b0a7be20897c800e9a1b9037"
+    },
+    {
+      "path": "src/supermimic/world_model/heads.py",
+      "before": "1af9d3e47e2914fc0ff4154ba0cb2c53413b75cebdb81eb4d3aeed8928582e22",
+      "after": "553757489a9fb681335b5d79280da1263640fe1f7e168a64d9711a7dc8326a00"
+    }
+  ],
+  "unexpected_changes": [],
+  "missing_files": [],
+  "approved_spec_preserved_as_exact_prefix": true,
+  "status": "PASS"
+}

@@ -1,0 +1,170 @@
+{
+  "device": "cpu",
+  "dtype": "torch.float64",
+  "backend": "inductor",
+  "mode": "default",
+  "dynamo_recompile_limit": 64,
+  "atol": 1e-09,
+  "rtol": 1e-07,
+  "test_model": "DeterministicCoupledResidual; no physical fidelity claim",
+  "horizons": {
+    "1": {
+      "status": "PASS",
+      "max_absolute_errors": {
+        "loss": 0.0,
+        "objective": 0.0,
+        "states": 0.0,
+        "actions": 0.0,
+        "rewards": 0.0,
+        "dhat": 0.0,
+        "survival": 0.0,
+        "goals": 0.0,
+        "e_root": 0.0,
+        "eef_pos": 1.3877787807814457e-17,
+        "target_pos": 0.0,
+        "distance": 2.0816681711721685e-17,
+        "per_target": 0.0,
+        "proximity": 0.0,
+        "box_errors": 0.0,
+        "terms": 3.308722450212111e-24,
+        "actor_gradient_0": 7.237830359838992e-25,
+        "actor_gradient_1": 5.169878828456423e-25,
+        "actor_gradient_2": 1.6802106192483375e-25,
+        "actor_gradient_3": 1.2407709188295415e-24,
+        "actor_gradient_4": 4.3943970041879595e-25,
+        "actor_gradient_5": 3.825710333057753e-24,
+        "actor_gradient_6": 6.452008777913616e-23,
+        "actor_gradient_7": 4.880365614062863e-23,
+        "actor_gradient_8": 2.812414082680294e-23,
+        "actor_gradient_9": 1.4558378780933287e-22,
+        "actor_gradient_10": 4.235164736271502e-21,
+        "actor_gradient_11": 2.710505431213761e-20,
+        "step_output_0": 0.0,
+        "step_output_1": 0.0,
+        "step_output_2": 2.6020852139652106e-18,
+        "step_output_3": 0.0,
+        "step_output_4": 0.0,
+        "step_output_5": 0.0,
+        "state_gradient": 7.28583859910259e-17,
+        "action_gradient": 8.131516293641283e-20
+      },
+      "valid_lengths": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "evaluated_frames": [
+        [
+          259,
+          260,
+          549,
+          550,
+          839
+        ]
+      ],
+      "actor_gradient_norm": 0.00016484829848086694
+    },
+    "3": {
+      "status": "PASS",
+      "max_absolute_errors": {
+        "loss": 0.0,
+        "objective": 0.0,
+        "states": 0.0,
+        "actions": 0.0,
+        "rewards": 0.0,
+        "dhat": 0.0,
+        "survival": 0.0,
+        "goals": 0.0,
+        "e_root": 0.0,
+        "eef_pos": 2.220446049250313e-16,
+        "target_pos": 0.0,
+        "distance": 1.4224732503009818e-16,
+        "per_target": 2.7755575615628914e-16,
+        "proximity": 1.6653345369377348e-16,
+        "box_errors": 0.0,
+        "terms": 1.734723475976807e-18,
+        "actor_gradient_0": 4.1359030627651384e-25,
+        "actor_gradient_1": 2.3264454728053903e-25,
+        "actor_gradient_2": 1.0339757656912846e-25,
+        "actor_gradient_3": 8.271806125530277e-25,
+        "actor_gradient_4": 2.5849394142282115e-25,
+        "actor_gradient_5": 2.481541837659083e-24,
+        "actor_gradient_6": 4.6735704609246064e-23,
+        "actor_gradient_7": 3.474158572722716e-23,
+        "actor_gradient_8": 2.6469779601696886e-23,
+        "actor_gradient_9": 1.0587911840678754e-22,
+        "actor_gradient_10": 2.541098841762901e-21,
+        "actor_gradient_11": 1.6940658945086007e-20,
+        "step_output_0": 0.0,
+        "step_output_1": 0.0,
+        "step_output_2": 2.6020852139652106e-18,
+        "step_output_3": 0.0,
+        "step_output_4": 0.0,
+        "step_output_5": 0.0,
+        "state_gradient": 7.28583859910259e-17,
+        "action_gradient": 8.131516293641283e-20
+      },
+      "valid_lengths": [
+        3,
+        3,
+        3,
+        3,
+        1
+      ],
+      "evaluated_frames": [
+        [
+          259,
+          260,
+          549,
+          550,
+          839
+        ],
+        [
+          260,
+          261,
+          550,
+          551,
+          -1
+        ],
+        [
+          261,
+          262,
+          551,
+          552,
+          -1
+        ]
+      ],
+      "actor_gradient_norm": 0.0001890143209818808
+    }
+  },
+  "optimizer_steps": 0,
+  "compiled_unique_graphs": 100,
+  "compiler_unimplemented": {
+    "Data dependent operator\n  Explanation: Operator `aten._local_scalar_dense.default` has a non-Tensor output whose value is dependent on the data of Tensor inputs.\n  Hint: Enable tracing of data-dependent output operators with `torch._dynamo.config.capture_scalar_outputs = True`\n\n  Developer debug context: aten._local_scalar_dense.default\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0033.html": 7,
+    "Generator reconstruction with mutations\n  Explanation: Cannot reconstruct a generator with variable mutations. Dynamo needs to fully exhaust the generator, which may cause unintended variable modifications.\n  Hint: Remove mutations from the generator.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n\n  Developer debug context: mutating object: TupleIteratorVariable(length=3, index=0)\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb8335.html": 1,
+    "Custom metaclass with __getattribute__\n  Explanation: Dynamo does not trace attribute access on classes whose metaclass overrides __getattribute__\n  Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.\n\n  Developer debug context: type(<class 'mujoco._enums.mjtJoint'>) = <class 'pybind11_builtins.pybind11_type'>\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb5458.html": 319,
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html": 31,
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html\n\n*** While handling this graph break, another graph break occurred: ***\n\ngraph break in loop\n  Explanation: torch.compile detected a graph break in a for/while loop. Skipping the frame and falling back to eager, as graph breaks in loops are not supported.\n  Hint: This graph break may have been caused by an earlier graph break. Resolving the earlier graph break may resolve this one.\n\n  Developer debug context: frame skipped: torch_dynamo_resume_in_box_errors_at_94 (/home/han/pyx/SMHOI/src/supermimic/hoi/tracking_reward.py line 94)\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb7000.html": 1,
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n\n      The branch condition involves a tensor computed as follows:\n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/tracking_reward.py\", line 50, in torch_dynamo_resume_in_unit_quaternion_copy_at_47, code: if torch.any((norm - 1).abs() > 1e-5):\n        gt = gt(abs_1, 1e-05)\n    \n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/tracking_reward.py\", line 50, in torch_dynamo_resume_in_unit_quaternion_copy_at_47, code: if torch.any((norm - 1).abs() > 1e-5):\n        any_1 = any(gt)\n    \n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html": 10,
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n\n      The branch condition involves a tensor computed as follows:\n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py\", line 108, in torch_dynamo_resume_in_geometry_at_105, code: if torch.any((q.norm(dim=-1) - 1).abs() > 1e-5):\n        gt = gt(abs_1, 1e-05)\n    \n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py\", line 108, in torch_dynamo_resume_in_geometry_at_105, code: if torch.any((q.norm(dim=-1) - 1).abs() > 1e-5):\n        any_1 = any(gt)\n    \n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html": 1,
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n\n      The branch condition involves a tensor computed as follows:\n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py\", line 108, in torch_dynamo_resume_in_geometry_at_105, code: if torch.any((q.norm(dim=-1) - 1).abs() > 1e-5):\n        gt = gt(abs_1, 1e-05)\n    \n        # File \"/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py\", line 108, in torch_dynamo_resume_in_geometry_at_105, code: if torch.any((q.norm(dim=-1) - 1).abs() > 1e-5):\n        any_1 = any(gt)\n    \n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html\n\n*** While handling this graph break, another graph break occurred: ***\n\ngraph break in loop\n  Explanation: torch.compile detected a graph break in a for/while loop. Skipping the frame and falling back to eager, as graph breaks in loops are not supported.\n  Hint: This graph break may have been caused by an earlier graph break. Resolving the earlier graph break may resolve this one.\n\n  Developer debug context: frame skipped: torch_dynamo_resume_in_geometry_at_105 (/home/han/pyx/SMHOI/src/supermimic/hoi/rewards.py line 105)\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb7000.html": 1
+  },
+  "geometry_diagnostics_compiled": true,
+  "graph_count": 24,
+  "graph_break_count": 23,
+  "graph_break_reasons": [
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html",
+    "Data-dependent branching\n  Explanation: Detected data-dependent branching (e.g. `if my_tensor.sum() > 0:`). Dynamo does not support tracing dynamic control flow.\n  Hint: For the common pattern `if tensor_cond: x = transform(x)` (e.g. clamping inf/nan values), consider making the code branchless by always applying the transform. Operations like torch.clamp, torch.nan_to_num, and torch.where are typically no-ops on well-behaved inputs and compile without graph breaks.\n  Hint: Note: Python `or`/`and` between tensor expressions (e.g. `tensor.any() or other_tensor.any()`) triggers implicit bool conversion. Use `torch.logical_or`/`torch.logical_and` or the `|`/`&` operators instead.\n  Hint: This graph break is fundamental - it is unlikely that Dynamo will ever be able to trace through your code. Consider finding a workaround.\n  Hint: Use `torch.cond` to express dynamic control flow.\n\n  Developer debug context: attempted to jump with TensorVariable()\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0170.html",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()",
+    "generic_jump TensorVariable()"
+  ],
+  "single_full_graph_claim": false
+}

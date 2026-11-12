@@ -1,0 +1,196 @@
+{
+  "suite": "eager",
+  "status": "PASS",
+  "pytest_arguments": [
+    "-q",
+    "-ra",
+    "tests/hoi/test_box_tracking_reward.py",
+    "tests/hoi/test_reward_reference.py",
+    "tests/hoi/test_quaternion_reward_numerics.py",
+    "tests/hoi/test_imagination_boundaries.py",
+    "tests/hoi/test_policy_adapter.py",
+    "tests/hoi/test_p5_validation.py",
+    "--junitxml=outputs/hoi/contact_supervision/p5_validation/eager_final_v2/tests.xml"
+  ],
+  "exit_code": 0,
+  "counts": {
+    "total": 40,
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "tests": [
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_four_equations_maxima_sigma_monotonicity_world_frames[dtype0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_four_equations_maxima_sigma_monotonicity_world_frames[dtype1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_total_regularization_once_and_tracking_off",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[box_sigmas-value0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[box_weights-value1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[box_sigmas-value2]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[sigma_pos-0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[beta_c-0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[beta_c-inf]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_required_configuration[dt--1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_box_tracking_reward::test_named_ablation_and_invalid_quaternion",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_all_840_provenance_endpoints_signs_and_immutable_gathers",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_constant_twist_and_convergence",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_two_clip_identity_mapping_and_rejections",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[short]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[nan]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[zero]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[norm]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[dt]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[pi_adjacent]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_invalid_derivative_inputs[pi_stencil]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_cuda_reference_registration_and_eager_rollout[dtype0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_reward_reference::test_cuda_reference_registration_and_eager_rollout[dtype1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_quaternion_reward_numerics::test_quaternion_matrix[dtype0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_quaternion_reward_numerics::test_quaternion_matrix[dtype1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_boundaries::test_exact_next_frames_and_no_repeated_terminal_rewards",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_boundaries::test_timeout_clip_hard_failure_and_coincident_metadata",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_boundaries::test_hand_computed_returns_td_padding_and_original_all_valid",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_imagination_boundaries::test_padded_critic_samples_excluded_and_small_minibatches",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_component_isolated_action_actor_paths_and_finite_differences",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_full_bptt_freezing_restore_exception_and_critic_isolation",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_initialized_model_zero_box_jacobian_is_reported_separately",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_projection_history_aliases_and_strict_network_state_dicts",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_replay_metadata_and_original_row_selection_history",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_policy_adapter::test_original_robot_imagination_values_noise_and_gradients_unchanged",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_p5_validation::test_both_robot_orientation_terms_at_exact_match[dtype0]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_p5_validation::test_both_robot_orientation_terms_at_exact_match[dtype1]",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_p5_validation::test_replay_initial_action_constant_but_adjacent_imagined_actions_keep_graph",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_p5_validation::test_external_checkpoint_strict_policy_critic_loading_and_alias_gradient",
+      "status": "passed"
+    },
+    {
+      "test": "tests.hoi.test_p5_validation::test_all_frame_test_configuration_scale_audit",
+      "status": "passed"
+    }
+  ],
+  "seconds": 10.88268522999715,
+  "forbidden_action_attempts": [],
+  "optimizer_steps": 0,
+  "physical_rollouts": 0,
+  "versions": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "mjlab": "1.6.0"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4090 D"
+}

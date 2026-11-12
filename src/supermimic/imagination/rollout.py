@@ -10,7 +10,12 @@ from supermimic.data.replay_buffer import StartBatch
 from supermimic.envs.mdp.motion_library import MotionLibrary
 from supermimic.imagination.compiled import REWARD_TERM_NAMES, ImagStep
 from supermimic.policy.nets import Policy
-from supermimic.world_model.heads import ReferenceFrame, analytic_observation, anchor_relative_obs, flatten_history_term_major
+from supermimic.world_model.heads import (
+    ReferenceFrame,
+    analytic_observation,
+    anchor_relative_obs,
+    flatten_history_term_major,
+)
 from supermimic.world_model.wm_trainer import reference_at
 from supermimic.world_model.world_model import WorldModel
 
@@ -30,6 +35,12 @@ class ImagRollout:
     e_root: torch.Tensor  # (H+1, n, 4)
     frames: torch.Tensor  # (H+1, n)
     reward_terms: dict  # mean of each reward term over the rollout (diagnostics)
+    valid: torch.Tensor | None = None  # (H,n), None preserves original robot path
+    lengths: torch.Tensor | None = None
+    bootstrap: torch.Tensor | None = None
+    continuation: torch.Tensor | None = None
+    boundaries: dict | None = None
+    diagnostics: dict | None = None
 
 
 def imagine(
@@ -42,6 +53,7 @@ def imagine(
     obs_noise: bool = True,
     step_fn: ImagStep | None = None,
     anchor_obs: bool = False,
+    context=None,
 ) -> ImagRollout:
     device = start.state.device
     n = start.state.shape[0]
@@ -50,6 +62,8 @@ def imagine(
     noise_half = OBS_NOISE_HALF.to(device)
     anchor_noise_half = ANCHOR_NOISE_HALF.to(device)
     ai = wm.heads.anchor_index
+    project = (lambda s: s) if context is None else context.project_state
+    term_names = REWARD_TERM_NAMES if context is None else context.term_names
 
     def add_noise(o):
         if obs_noise:
@@ -66,7 +80,7 @@ def imagine(
         return torch.cat([g, rel], dim=-1)
 
     # Initial observation history from the logged states/actions (noise re-sampled per frame).
-    hist = [add_noise(analytic_observation(start.hist_states[i], start.hist_actions[i], start.xi, q0)) for i in range(start.hist_states.shape[0])]
+    hist = [add_noise(analytic_observation(project(start.hist_states[i]), start.hist_actions[i], start.xi, q0)) for i in range(start.hist_states.shape[0])]
     s = start.state
     frame = start.frame.clone()
     a_prev = start.prev_action
@@ -77,44 +91,71 @@ def imagine(
     dhats, survivals, frames = [torch.zeros(n, device=device)], [c], [frame]
     # All target frames of the rollout are known up front (frame + t, clamped at the clip end):
     # gather / FK the references for every step in one batched call.
-    last = lib.last_frame_of(frame)
-    frames_all = torch.minimum(frame[None, :] + torch.arange(horizon + 1, device=device)[:, None], last[None, :])  # (H+1, n)
-    ref_all = reference_at(lib, frames_all.reshape(-1))
+    if context is None:
+        last = lib.last_frame_of(frame)
+        frames_all = torch.minimum(frame[None, :] + torch.arange(horizon + 1, device=device)[:, None], last[None, :])  # (H+1, n)
+        ref_all = reference_at(lib, frames_all.reshape(-1))
+    else:
+        frames_all = context.frames
 
     def ref_at(t):
         sl = slice(t * n, (t + 1) * n)
         return ReferenceFrame(ref_all.body_pos_w[sl], ref_all.body_quat_w[sl], ref_all.body_lin_vel_w[sl], ref_all.body_ang_vel_w[sl], ref_all.root_pos_w[sl], ref_all.root_quat_w[sl])
 
-    ref = ref_at(0)
+    ref = ref_at(0) if context is None else context.initial_reference
     if anchor_obs:
-        b0 = wm.heads.robot_bodies(s)
+        b0 = wm.heads.robot_bodies(project(s))
         anchor_pose = torch.cat([b0["pos"][..., ai, :], b0["quat"][..., ai, :]], dim=-1)
     else:
         anchor_pose = None
     goals = [make_goal(frame, ref, anchor_pose)]
-    e_roots = [wm.heads.root_error_features(s, ref)]
-    term_sum = torch.zeros(len(REWARD_TERM_NAMES), device=device)
+    e_roots = [wm.heads.root_error_features(project(s), ref)]
+    term_sum = torch.zeros(len(term_names), device=device, dtype=s.dtype if context is not None else None)
 
     for t in range(horizon):
         obs_flat = flatten_history_term_major(torch.stack(hist, 0))
-        a = policy(obs_flat, goals[-1])
-        s_next, r, term_vec, logits, obs_clean, anchor_pose = step_fn(s, a, a_prev, start.xi, ref)
-        d = torch.sigmoid(logits)
+        rows = None if context is None else context.valid[t].nonzero().squeeze(-1)
+        select = (lambda x: x) if context is None else (lambda x, rows=rows: x[rows])
+        if rows is None or rows.numel():
+            a = policy(select(obs_flat), select(goals[-1]))
+            scoring_ref = ref if context is None else context.step_reference(t, rows)
+            s_next, r, term_vec, logits, obs_clean, anchor_pose = step_fn(select(s), a, select(a_prev), select(start.xi), scoring_ref)
+            d = torch.sigmoid(logits)
+            if context is None:
+                term_sum += term_vec.detach().mean(-1)
+                ref = ref_at(t + 1)
+                hist = hist[1:] + [add_noise(obs_clean)]
+                a_prev = a
+                s = s_next
+                goal_next = make_goal(frames_all[t + 1], ref, anchor_pose)
+                root_next = wm.heads.root_error_features(s, ref)
+            else:
+                d = torch.where(context.hard_failure[t, rows], torch.ones_like(d), d)
+                term_sum += term_vec.detach().sum(-1)
+                context.record(t, rows, s_next, term_vec, scoring_ref, step_fn)
+                next_hist = [select(h) for h in hist[1:]] + [add_noise(obs_clean)]
+                hist = [old.index_copy(0, rows, new) for old, new in zip(hist, next_hist)]
+                a_prev = a_prev.index_copy(0, rows, a)
+                s = s.index_copy(0, rows, s_next)
+                goal_next = goals[-1].index_copy(0, rows, make_goal(frames_all[t + 1, rows], scoring_ref.robot, anchor_pose))
+                root_next = e_roots[-1].index_copy(0, rows, wm.heads.root_error_features(project(s_next), scoring_ref.robot))
+                a = torch.zeros_like(a_prev).index_copy(0, rows, a)
+                r = s.new_zeros(n).index_copy(0, rows, r)
+                d = s.new_zeros(n).index_copy(0, rows, d)
+        else:
+            # No calls to Actor/WM/FK/reference reward on empty/padded batches.
+            a, r, d = torch.zeros_like(a_prev), s.new_zeros(n), s.new_zeros(n)
+            goal_next, root_next = goals[-1], e_roots[-1]
         c = c * (1.0 - d)
-        term_sum += term_vec.detach().mean(-1)
 
         frame = frames_all[t + 1]
-        ref = ref_at(t + 1)
-        hist = hist[1:] + [add_noise(obs_clean)]
-        a_prev = a
-        s = s_next
         states.append(s)
         actions.append(a)
         rewards.append(r)
         dhats.append(d)
         survivals.append(c)
-        goals.append(make_goal(frame, ref, anchor_pose))
-        e_roots.append(wm.heads.root_error_features(s, ref))
+        goals.append(goal_next)
+        e_roots.append(root_next)
         frames.append(frame)
 
     return ImagRollout(
@@ -126,5 +167,11 @@ def imagine(
         goals=torch.stack(goals),
         e_root=torch.stack(e_roots),
         frames=torch.stack(frames),
-        reward_terms={k: float(v / horizon) for k, v in zip(REWARD_TERM_NAMES, term_sum.tolist())},
+        reward_terms={k: float(v / (horizon if context is None else int(context.valid.sum()))) for k, v in zip(term_names, term_sum.tolist())} | ({} if context is None else context.extra_metrics()),
+        valid=None if context is None else context.valid,
+        lengths=None if context is None else context.lengths,
+        bootstrap=None if context is None else context.bootstrap,
+        continuation=None if context is None else context.continuation,
+        boundaries=None if context is None else context.boundaries,
+        diagnostics=None if context is None else context.diagnostics,
     )
