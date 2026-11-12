@@ -31,8 +31,8 @@ The labels P0–P8 are execution stages, not model components and not the same t
 | **P3** | Learn joint robot-object dynamics | Can one joint WM predict robot and box motion from state, action and physical context? | Yes | Final 166D/82D joint WM architecture; training/validation deferred to P7-A |
 | **P4** | Define reference-conditioned HDMI-style proximity reward | Does the unchanged binary reference label gate differentiable EEF-to-current-Box-target proximity while preserving robot/object tracking? | Yes; reward and geometric audit/tests only | Target/EEF/collision correspondence audit, justified target participation, reward-scale audit and tested reward; no imagination integration or training |
 | **P5** | Integrate complete robot/Box/proximity reward and joint imagination | Do reference-aligned robot/object tracking and proximity gradients reach Actor through the joint WM? | Yes; integration and controlled tests only | Eager/compiled reward and gradient parity, terminal/bootstrap checks; no Actor training; implementation evidence in `p5/REPORT.md` |
-| **P6** | Validate geometry and independent physical contact agreement | Do geometric gradients behave correctly, and does measured contact agree with reference ON/OFF intent? | Validation code/experiments | Independent left/right, any-hand and bilateral metrics under P4.1 semantics; penetration/solver diagnostics, asset/support reconciliation and go/no-go |
-| **P7** | Train the joint WM, then Actor/Critic | Can P7-A validate joint dynamics before P7-B policy training using the original SuperMimic loop? | Yes; separately authorized experiments | Held-out WM validation, short policy training and proximity ablations with physical evaluation; robot-only compatibility |
+| **P6** | Validate independent physical validity and reference compatibility | Is the physical scene reliable independently of HDMI reference accuracy, and how compatible is the reference with the validated scene? | Validation code/controlled physical experiments | Separate PHYSICAL_VALIDITY and REFERENCE_COMPATIBILITY decisions, independent hand-contact measurements, solver/penetration diagnostics and asset/support reconciliation |
+| **P7** | Establish Joint WM readiness and train the HOI policy using alternating updates | Can the Joint WM learn reliable robot-object dynamics and then support the original SuperMimic alternating WM/Actor-Critic training loop? | Yes; bounded WM warm-up followed by explicitly authorized alternating training | Replay readiness, held-out WM validation, action-to-Box sensitivity, executable smHOI-track, alternating WM/Actor/Critic updates, reward ablations and robot-only compatibility |
 | **P8** | Evaluate the complete physical task | Does the selected policy complete all 840 frames from frame 0, including release and post-release stability? | Evaluation code/experiments | Full-task tracking, physical binary contact agreement, independent hand metrics, penetration diagnostics, post-release stability and all failures |
 
 ## 1.1 The execution rule
@@ -61,8 +61,8 @@ A stage finishing does **not** authorize the next stage. Do not automatically co
 - **P3 defines the final joint robot-object World Model architecture.** The dedicated contact-classifier diagnostic is skipped. Joint WM predictive training and validation remain deferred to P7-A.
 - **P4 defines the reference-conditioned physical interaction reward.** It combines the original binary reference contact condition with differentiable EEF-to-object-target proximity guidance. Actual simulator contact is retained as a separate physical measurement and evaluation signal.
 - **P5 integrates the joint robot-object dynamics and proximity reward into differentiable imagination and Actor BPTT.** Integration and controlled gradient tests do not authorize Actor training.
-- **P6 validates geometric reward behavior and compares reference contact intent with actual MuJoCo hand-box contact across the complete evaluated reference interval.** It reports independent hand measurements, both aggregate measurements and penetration diagnostics under the P4.1 audit contract.
-- **P7 trains and validates the joint WM, then trains the Actor/Critic using the approved reference-conditioned proximity reward.** P7-A must pass before P7-B.
+- **P6 validates the physical scene independently of HDMI reference accuracy, then separately evaluates reference compatibility.** Independent physical tests establish collision, sensing, Box dynamics, support, solver and release validity. Reference-versus-actual contact agreement is a diagnostic of compatibility, not the sole criterion for physical correctness. P6 reports separate `PHYSICAL_VALIDITY` and `REFERENCE_COMPATIBILITY` decisions.
+- **P7 establishes learned Joint WM readiness and then performs online alternating HOI training.** P7-A audits Replay coverage, performs bounded Joint WM warm-up and validates held-out robot/object dynamics before enabling Actor/Critic updates. P7-B follows the original SuperMimic `Collect → Replay → WM Update → Actor/Critic Update` loop. The Joint WM continues updating during P7-B and is frozen only during Actor imagination updates.
 - **P8 evaluates the complete physical Pick-Carry-Place-Release task, including actual contact agreement and post-release object stability.**
 
 Do not confuse:
@@ -1562,6 +1562,7 @@ P5 stops after reporting. Do not start P6 or Actor training.
 ---
 
 
+
 # 11. P6 — Independent Physical Validation and Reference Compatibility Evaluation
 
 ## What P6 means
@@ -1571,7 +1572,7 @@ P6 establishes whether the native G1, hand collision geometry, Box, support stru
 P6 has two separate validation tracks:
 
 - **P6-A: Independent Physical Validation.** Verify physical correctness through controlled experiments whose success criteria do not depend on the accuracy of the HDMI reference motion.
-- **P6-B: Reference Compatibility Evaluation.** Independently compare the accepted HDMI reference contact intent and geometric targets against the actual physical behavior, identifying reference reconstruction, retargeting and contact-alignment discrepancies.
+- **P6-B: Reference Compatibility Evaluation.** Independently compare the accepted HDMI reference contact intent and geometric targets against actual physical behavior, identifying reference reconstruction, retargeting and contact-alignment discrepancies.
 
 These two tracks must have separate results and acceptance decisions.
 
@@ -1579,7 +1580,7 @@ A mismatch between the original reference contact label and actual simulated con
 
 Conversely, successful reference tracking or marker alignment does not prove that the physical collision and dynamics are correct.
 
-P6 must therefore establish physical validity independently before interpreting reference compatibility.
+P6 must establish physical validity independently before interpreting reference compatibility.
 
 P6 does not introduce a learned contact classifier, force prediction model, force-based Actor reward or additional observation dimensions.
 
@@ -1966,6 +1967,7 @@ Reuse P1/P2 measurement code and evidence wherever valid. Do not duplicate compl
 P6 stops after reporting. Do not start P7 WM fitting, Actor training or long training experiments before explicit approval.
 
 
+
 # 12. P7 — Joint World Model Readiness and Alternating HOI Policy Training
 
 ## What P7 means
@@ -2080,8 +2082,7 @@ Preserve:
 - WM input166;
 - support context18;
 - action29;
-- xi33;
-- original Actor and Critic observation dimensions.
+- xi33.
 
 Use named checkpoint migration.
 
@@ -2456,22 +2457,6 @@ P7 deliverables:
 
 P7 stops after reporting. Do not automatically start P8 or launch additional long training beyond the explicitly approved P7 experiment budget.
 
-
----
-
-
-# 13. P8 — Full 840-frame Pick-Carry-Place-Release Evaluation
-
-## What P8 means
-
-P8 evaluates the selected trained policy on the complete physical task and whether the humanoid tracks reference robot/object motion while realizing reference-conditioned physical interaction.
-
-It is not another training stage.
-
-## Prerequisites
-
-P7 is approved, user selects checkpoint, asset/physical scene are approved for evaluation, and exact reference/asset hashes are recorded.
-
 ## P8.1 Evaluation setup
 
 Record checkpoint/reference paths and SHA256, asset manifest hash, simulator/dependency versions, physics timestep/decimation, environment count, random seed and deterministic settings.
@@ -2712,6 +2697,10 @@ Every stage must end with a report containing:
 9. Git branch, HEAD, status, changed-file list and diff summary.
 10. Acceptance: `PASS`, `PARTIAL` or `FAIL`.
 11. Explicit confirmation that no next stage was started.
+12. For P6, report PHYSICAL_VALIDITY and REFERENCE_COMPATIBILITY as separate decisions, including the evidence supporting each decision.
+13. For P7, distinguish Replay readiness, WM warm-up, WM readiness and alternating WM/Actor/Critic training. Report actual optimizer updates separately.
+14. Report whether each experiment used controlled diagnostic data, controller-driven physical transitions or natural task-driven transitions.
+
 
 Do not claim a test passed unless it was actually executed. Compilation or tensor-shape agreement alone is not proof of physical validity.
 
@@ -2737,8 +2726,8 @@ Suggested commit messages:
 | P3 | `hoi: finalize joint robot-object world model architecture` |
 | P4 | `hoi: implement reference-conditioned proximity reward` |
 | P5 | `hoi: integrate joint imagination and proximity reward` |
-| P6 | `hoi: validate physical contact agreement and geometry` |
-| P7 | `hoi: train joint world model and integrate HOI policy` |
+| P6 | `hoi: validate independent physical scene and reference compatibility` |
+| P7 | `hoi: train joint dynamics and alternating HOI policy` |
 | P8 | `hoi: add full interaction evaluation` |
 
 Corrective commits within a stage are allowed but must be documented.
@@ -2840,6 +2829,195 @@ Provide exact commands, numerical evidence, failures, skipped tests, limitations
 Do not commit or push automatically.
 Do not start the next stage.
 Stop and wait for explicit approval.
+~~~
+
+## P6 execution request
+
+~~~text
+Read the complete document:
+docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md
+
+Execute P6 only, following all of Section 11 and the general requirements in Section 15.
+
+P6 has two independent validation tracks. Do not merge their acceptance criteria.
+
+### P6-A — Independent Physical Validation
+
+Establish physical validity independently of HDMI reference accuracy.
+
+Reuse existing P1/P2 implementations and evidence before adding new code.
+
+Inspect and validate:
+
+- native G1 hand collision geometry and contact pairs;
+- left/right hand-box force sensing and calibration;
+- no-contact and controlled-contact baselines;
+- four-substep force/impulse/occupancy aggregation;
+- Box mass, COM, inertia and collision geometry;
+- Box-support contact and gravitational balance;
+- historical LS_ITERATIONS and solver-limit failures;
+- controlled dynamic response, lifting and release;
+- MuJoCo signed contact distance and penetration;
+- multi-environment initialization and reset.
+
+Use controlled FK-driven states for geometry/collision checks and valid dynamics-driven experiments for force response, lifting and stability.
+
+Do not use reference-versus-actual contact agreement as the sole physical-validity criterion.
+
+Do not assume that a failed HDMI reference contact proves physical construction failure.
+
+### P6-B — Reference Compatibility Evaluation
+
+Use the accepted original Part B reference without modification.
+
+Evaluate:
+
+- EEF and Box-local target geometry;
+- reference contact ON/OFF timing;
+- actual left/right hand-box contact;
+- any-hand and bilateral contact separately;
+- contact occupancy and duration;
+- reference/actual confusion matrices;
+- EEF-target distance;
+- mismatch causes.
+
+Use bilateral AND as the task-required aggregate only when P4.1 establishes that bilateral contact is required.
+
+Do not invent per-hand reference labels, shift labels or modify the original NPZ.
+
+Classify mismatches as possible reference, geometry, timing, control, physical or unresolved issues.
+
+### Evidence reuse and preservation
+
+- Reuse P1/P2 sensor and Replay utilities.
+- Preserve historical M6.5 failures and all prior reports.
+- Do not duplicate already-passed tests without a regression reason.
+- Do not silently modify collision assets, COM, inertia, EEF offsets, target definitions or solver parameters.
+- Any research-level or asset-level change requires a documented proposal and explicit approval.
+
+### P6 deliverables
+
+Create:
+
+- `docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md`
+- `docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md`
+- `docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md`
+- `docs/hoi/force_contact/p6/REPORT.md`
+
+Include separate:
+
+- `PHYSICAL_VALIDITY = PASS/PARTIAL/FAIL`
+- `REFERENCE_COMPATIBILITY = PASS/PARTIAL/FAIL`
+
+Inspect the complete diff and report exact commands, physical conditions, thresholds, numerical results, failures and unresolved risks.
+
+Do not start P7 WM fitting, Actor training, P8 or long training.
+
+Preserve all existing user changes. Do not commit or push automatically.
+
+Stop and wait for explicit review and approval.
+~~~
+
+
+## P7 execution request
+
+~~~text
+Read the complete document:
+docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md
+
+Execute P7 only, following all of Section 12 and the general requirements in Section 15.
+
+P7 must preserve the original SuperMimic online alternating training principle.
+
+Do not turn P7 into permanent standalone WM pretraining followed by permanently frozen policy training.
+
+### P7-A — Replay Data Readiness and Joint WM Warm-up
+
+1. Audit P2 Replay provenance and physical regime coverage.
+2. Separate controlled diagnostic fixtures from valid controller-driven dynamic transitions.
+3. Identify missing natural HOI transition regimes.
+4. Propose and obtain approval for bounded physical data collection if required.
+5. Initialize the final Joint WM using explicit checkpoint mappings.
+6. Perform bounded WM-only warm-up using the original WorldModelTrainer.
+7. Evaluate robot and Box one-step/multi-step prediction on held-out complete episodes.
+8. Compare against initialized and simple dynamics baselines.
+9. Validate action-to-Box Jacobians and trained-WM Actor gradient propagation.
+10. Record an explicit `WM_READINESS = PASS/PARTIAL/FAIL`.
+
+Do not require full WM convergence during P7-A.
+
+Do not start Actor/Critic optimizer updates before P7-A readiness is reviewed and approved.
+
+### P7-B — Alternating Joint WM and Actor/Critic Training
+
+After explicit P7-A approval:
+
+Implement the complete `smHOI-track` executable using the original SuperMimic training infrastructure.
+
+Follow:
+
+Collect physical transitions
+-> Append to Replay
+-> Joint WM update
+-> Actor/Critic update through P5 imagination
+-> Repeat.
+
+Requirements:
+
+- WM receives continuous optimizer updates during P7-B.
+- WM parameters are frozen only during Actor imagination updates.
+- Actor gradients continue through the frozen WM dynamics.
+- Critic preserves original TD(lambda) and observation dimensions.
+- Robot, Box and P4 proximity rewards are active.
+- Actual MuJoCo force/contact is never used as differentiable Actor reward or WM prediction target.
+- Original `sm-train` behavior remains unchanged.
+
+Implement:
+
+- HOI environment and Replay construction;
+- reference/clip registry;
+- Joint WM initialization and checkpoint loading;
+- HOIRewardCfg and reward-scale configuration;
+- WM/Actor/Critic optimizers;
+- alternating update scheduler;
+- logging;
+- checkpoint save/resume;
+- Critic/return/sampler calibration.
+
+Run controlled short training and A/B/C reward ablations under the explicitly approved experiment budget.
+
+Do not start P8 or additional long training.
+
+### Training safety
+
+Do not bypass P6 PHYSICAL_VALIDITY.
+
+If P6 is PARTIAL, stop and request explicit approval for any bounded experiment using the documented physical limitations.
+
+Do not use reference compatibility mismatch alone as a reason to reject otherwise valid physical transition data.
+
+Do not silently fabricate natural HOI data from teleported states or diagnostic fixtures.
+
+### P7 deliverables
+
+- Replay readiness report;
+- WM warm-up report;
+- WM readiness report;
+- executable `smHOI-track`;
+- HOI training configurations;
+- alternating WM/Actor/Critic implementation;
+- reward/return/Critic/sampler calibration;
+- A/B/C ablation reports;
+- checkpoint/resume validation;
+- `docs/hoi/force_contact/p7/REPORT.md`.
+
+Report actual optimizer updates and distinguish WM warm-up checkpoints from alternating-training checkpoints.
+
+Inspect the complete diff and preserve all existing user changes and historical evidence.
+
+Do not commit or push automatically.
+
+Stop after P7 reporting and wait for explicit approval.
 ~~~
 
 
