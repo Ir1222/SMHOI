@@ -1562,6 +1562,410 @@ P5 stops after reporting. Do not start P6 or Actor training.
 ---
 
 
+# 11. P6 — Independent Physical Validation and Reference Compatibility Evaluation
+
+## What P6 means
+
+P6 establishes whether the native G1, hand collision geometry, Box, support structures, MuJoCo contact solver and physical sensing pipeline form a reliable physical environment for subsequent Joint World Model learning and HOI policy training.
+
+P6 has two separate validation tracks:
+
+- **P6-A: Independent Physical Validation.** Verify physical correctness through controlled experiments whose success criteria do not depend on the accuracy of the HDMI reference motion.
+- **P6-B: Reference Compatibility Evaluation.** Independently compare the accepted HDMI reference contact intent and geometric targets against the actual physical behavior, identifying reference reconstruction, retargeting and contact-alignment discrepancies.
+
+These two tracks must have separate results and acceptance decisions.
+
+A mismatch between the original reference contact label and actual simulated contact does not, by itself, establish a physical construction failure. The HDMI reference may contain hand-pose, object-pose, contact-timing, retargeting or reconstruction errors.
+
+Conversely, successful reference tracking or marker alignment does not prove that the physical collision and dynamics are correct.
+
+P6 must therefore establish physical validity independently before interpreting reference compatibility.
+
+P6 does not introduce a learned contact classifier, force prediction model, force-based Actor reward or additional observation dimensions.
+
+## Prerequisites and evidence reuse
+
+- P1 physical scene and filtered hand-box sensing implementation are available.
+- P2 force aggregation, four-substep history and physical Replay implementation are available.
+- P4 contact-target audit and P5 differentiable reward/imagination implementation are available.
+- Historical M6.5 reconciliation, physical failures and asset provenance are available.
+
+Before adding new tests, inspect and reuse existing P1/P2 evidence.
+
+Do not repeat already-passed sensor, coordinate, force aggregation, reset or parallel-environment tests without a specific regression reason.
+
+The existing P2 controlled diagnostics include elevated contact fixtures, prescribed actions and active-terminal probes. These are useful physical sensing and interface evidence, but they are not natural whole-task HOI demonstrations or proof of complete carrying dynamics.
+
+Preserve all historical failures and distinguish previously passed controlled tests from newly completed P6 physical experiments.
+
+## P6-A — Independent Physical Validation
+
+P6-A evaluates physical construction independently of HDMI reference tracking.
+
+Use controlled physical states, known geometry, calibrated sensor measurements and known physical operations.
+
+Do not use reference-versus-actual contact agreement as the acceptance criterion for independent physical validity.
+
+### P6-A.1 Native hand collision geometry
+
+Verify the actual native G1 collision geometry used by the constructed physical scene.
+
+Inspect:
+
+- left/right wrist pitch and wrist yaw collision bodies;
+- collision geom positions, orientations and dimensions;
+- collision masks and enabled contact pairs;
+- hand collision parent-body transforms;
+- hand-box contact geom identification;
+- correspondence between the collision geometry and the kinematic EEF marker.
+
+Use controlled FK-driven or explicitly initialized states to test known spatial relationships.
+
+Test:
+
+- separated hand and Box;
+- approach toward the Box;
+- first detected hand-box contact;
+- left-only contact;
+- right-only contact;
+- bilateral contact;
+- controlled displacement and release.
+
+FK-driven qpos placement is appropriate for geometry and collision-detection tests. It is not, by itself, proof of dynamic lifting or physically stable manipulation.
+
+Do not assume that the EEF marker is the physical collision surface.
+
+Do not automatically move the marker or change the Box target to obtain a better result. Any target or asset modification requires a documented discrepancy, impact analysis and approval.
+
+### P6-A.2 Hand-box force sensing and calibration
+
+Reuse the existing P1/P2 filtered hand-box sensor pipeline.
+
+Keep the two primary collision bodies per hand and all relevant Box collision geoms correctly separated.
+
+Validate:
+
+- no-contact force baseline;
+- controlled left-hand contact;
+- controlled right-hand contact;
+- bilateral contact;
+- known-direction physical response;
+- force sign and coordinate frame;
+- force aggregation across four 5 ms physics substeps;
+- force mean, peak and impulse;
+- sensor filtering against Box-support and robot-body contact;
+- sensor history, reset and overflow behavior.
+
+Calibrate the left/right force thresholds independently.
+
+Determine a policy-step occupancy criterion using the existing four-substep history.
+
+Do not directly promote the P2 diagnostic threshold `0.001 N` into the final binary contact definition without additional calibration evidence.
+
+Do not copy thresholds from HDMI, SUGAR or another simulator.
+
+The resulting thresholds and occupancy criteria are physical measurement definitions for P6/P8 evaluation only. They are not differentiable training reward coefficients.
+
+### P6-A.3 Box mass, COM and inertia validation
+
+Independently inspect the physical Box model.
+
+Verify:
+
+- nominal mass;
+- root coordinate convention;
+- COM position relative to Box root;
+- inertia tensor and principal axes;
+- collision geometry distribution;
+- free-joint behavior;
+- gravitational response;
+- translational and rotational response under controlled forces.
+
+Reconcile the existing M6.5 COM/inertia concern, including the documented COM offset below the collision geometry.
+
+Use independent physical evidence to decide whether the current model is acceptable, requires a revised physical asset, or must remain blocked.
+
+Do not silently replace the source asset or modify COM/inertia merely to improve reference tracking.
+
+Any asset change requires an explicit versioned asset profile, recalculated inertia, updated provenance and regression evidence.
+
+### P6-A.4 Box support and solver validation
+
+Reuse existing support geometry and physical scene initialization.
+
+Verify:
+
+- Box-support collision;
+- support force and gravitational balance;
+- static Box stability;
+- Box placement and release;
+- multi-environment support offsets;
+- reset behavior;
+- hand-box/support-contact separation.
+
+Investigate the historical `LS_ITERATIONS` and solver-limit failures.
+
+Distinguish:
+
+- an isolated diagnostic fixture failure;
+- persistent floor/support instability;
+- hand-box contact instability;
+- numerical solver limitations.
+
+Do not classify an elevated diagnostic scene as proof that the original floor-contact scenario has passed.
+
+Record contact counts, solver warnings, iteration-limit failures and the physical initial conditions for every test.
+
+### P6-A.5 Controlled dynamic response and release
+
+Use controlled physical experiments to validate the dynamic response of the Box.
+
+Where appropriate, use valid robot dynamics, controlled actuator inputs or explicitly documented external forces.
+
+Test:
+
+- Box response to known force directions;
+- translational and rotational response;
+- controlled lifting from support;
+- release from hand contact;
+- gravity-driven motion;
+- re-contact with support;
+- post-release stability.
+
+Separate FK-only geometry tests from dynamic manipulation tests.
+
+Report force, impulse, Box displacement, orientation, velocity, support response and slip.
+
+Do not claim natural carrying success from a manually teleported or directly repositioned Box.
+
+### P6-A.6 Collision and penetration diagnostics
+
+MuJoCo contact constraints do not guarantee mathematically zero geometric penetration at every timestep.
+
+Inspect relevant MuJoCo contact records:
+
+- `contact.dist`;
+- `contact.pos`;
+- `contact.frame`;
+- `contact.geom1`;
+- `contact.geom2`.
+
+For hand-box pairs, report:
+
+- contact count;
+- minimum signed contact distance;
+- maximum negative contact distance;
+- maximum penetration depth;
+- average penetration depth during contact;
+- penetration duration and frequency;
+- solver warnings/errors.
+
+Interpret:
+
+- positive distance: separated surfaces within the contact detection margin;
+- zero distance: geometric touching;
+- negative distance: geometric overlap/penetration.
+
+Distinguish small transient numerical penetration from persistent or physically significant interpenetration.
+
+If significant penetration is observed, investigate:
+
+- collision geometry and geom transforms;
+- contact parameters such as `solref` and `solimp`;
+- timestep and physics substeps;
+- solver convergence and iteration limits;
+- high-speed motion and possible tunneling.
+
+Do not add an SDF model, differentiable penetration reward or new collision geometry by default.
+
+Any collision/solver configuration change requires evidence and a separate implementation-level or research-level amendment.
+
+## P6-B — Reference Compatibility Evaluation
+
+P6-B evaluates how the accepted HDMI reference behaves when interpreted in the independently audited physical scene.
+
+Its purpose is to identify reference/physics mismatch, not to use imperfect reference labels as the sole proof of physical correctness.
+
+### P6-B.1 Reference and geometric compatibility
+
+Use the accepted original Part B reference without modification.
+
+Evaluate:
+
+- reference robot and Box pose;
+- left/right EEF positions;
+- Box-local target positions;
+- EEF-target distance;
+- native collision-surface correspondence;
+- contact target reachability;
+- reference contact ON/OFF timing;
+- object root and collision geometry alignment.
+
+Reuse the P4.1 target audit and P4/P5 geometric reward implementation.
+
+Do not introduce new per-hand reference labels or alter the original global `object_contact[t]`.
+
+Record systematic offsets and intervals where the reference geometry is inconsistent with the independently validated physical scene.
+
+### P6-B.2 Reference-driven physical replay
+
+Where the physical scene is approved for bounded reference-driven testing, execute the available deterministic reference/replay procedure without treating it as a learned policy.
+
+Record:
+
+- reference frame;
+- actual robot state;
+- actual Box state;
+- EEF-target distance;
+- actual left/right hand-box contact;
+- actual force and occupancy;
+- contact onset/loss;
+- solver and penetration diagnostics.
+
+Clearly distinguish kinematic/reference-driven replay from natural policy-controlled physical interaction.
+
+A failed reference-driven contact does not automatically invalidate the collision model.
+
+### P6-B.3 Reference-versus-actual contact agreement
+
+Derive actual left/right binary contact from the calibrated P6-A force thresholds and occupancy criteria.
+
+For each hand i:
+
+\[
+c_{i,t,k}^{sim}=\mathbb{1}[F_{i,t,k}>\tau_i]
+\]
+
+\[
+o_{i,t}=\frac{1}{4}\sum_{k=1}^{4}c_{i,t,k}^{sim}
+\]
+
+\[
+c_{i,t}^{sim}=\mathbb{1}[o_{i,t}>\rho_i]
+\]
+
+Preserve independent left/right contact.
+
+Derive:
+
+\[
+c_t^{sim,any}=c_{L,t}^{sim}\lor c_{R,t}^{sim}
+\]
+
+\[
+c_t^{sim,bilateral}=c_{L,t}^{sim}\land c_{R,t}^{sim}
+\]
+
+Use bilateral AND as the task-required aggregate only when P4.1 establishes that bilateral contact is required by the reference/task and specifies the applicable interval.
+
+Otherwise report any-hand and bilateral measurements separately. Never select the aggregate that maximizes agreement.
+
+Compare both physical aggregates against the original global reference label:
+
+\[
+c_t^{ref}=\text{object\_contact}[t]
+\]
+
+For every valid, correctly aligned evaluated timestep, including both ON and OFF frames, report:
+
+- confusion matrix;
+- accuracy;
+- precision;
+- recall;
+- F1;
+- balanced accuracy;
+- left/right contact ratios;
+- any-hand and bilateral contact ratios;
+- occupancy and contact duration;
+- unintended contact during reference OFF;
+- missed contact during reference ON.
+
+These are reference compatibility diagnostics, not the acceptance criteria for independent physical validity.
+
+Do not shift, smooth, relabel or selectively discard mismatching reference frames.
+
+If a frame is physically invalid or its alignment is ambiguous, report the reason and validity mask explicitly.
+
+### P6-B.4 Reference mismatch classification
+
+For every important reference/actual mismatch, classify the likely cause:
+
+- reference hand-pose reconstruction;
+- Box trajectory reconstruction;
+- EEF/target coordinate mismatch;
+- collision-surface mismatch;
+- contact timing discrepancy;
+- insufficient tracking/control execution;
+- physical scene or solver issue;
+- insufficient evidence.
+
+Use P6-A physical evidence before attributing a mismatch to physical construction.
+
+Do not automatically fix physical assets or retarget the reference to improve binary agreement.
+
+Any proposed source-reference or target modification requires separate approval and provenance.
+
+## P6 acceptance and readiness decisions
+
+P6 produces two independent decisions:
+
+### PHYSICAL_VALIDITY
+
+This decision is based on P6-A.
+
+It evaluates whether the physical scene, hand collision geometry, filtered contact sensing, Box mass/inertia, support, solver and release behavior are sufficiently reliable for the intended next experiment.
+
+### REFERENCE_COMPATIBILITY
+
+This decision is based on P6-B.
+
+It describes the compatibility of the accepted HDMI reference with the independently validated physical scene.
+
+A reference compatibility mismatch does not automatically mean PHYSICAL_VALIDITY fails.
+
+Conversely, high reference/actual contact agreement does not compensate for failed independent physical tests.
+
+P6-A acceptance criteria:
+
+- native hand collision geometry and contact pairs are verified;
+- no-contact and controlled-contact sensor calibration is reliable;
+- left/right hand-box sensing is independently verified;
+- force sign, frame, units and four-substep aggregation are correct;
+- Box mass, COM and inertia are explicitly reconciled;
+- Box support and gravitational response are physically reasonable;
+- controlled dynamic response and release tests are documented;
+- solver and penetration limitations are quantified;
+- multi-environment scene initialization and reset remain valid;
+- historical M6.5 failures are resolved or explicitly bounded with evidence;
+- a clear PHYSICAL_VALIDITY decision is recorded.
+
+P6-B acceptance criteria:
+
+- original reference and labels remain unchanged;
+- reference frame alignment is explicit;
+- EEF/target/collision-surface discrepancies are documented;
+- actual left/right contact is independently measured;
+- any-hand and bilateral metrics are separately reported;
+- reference ON/OFF agreement and confusion matrices are reported;
+- mismatch causes are classified without assuming that reference is ground truth;
+- a clear REFERENCE_COMPATIBILITY decision is recorded.
+
+P6 deliverables:
+
+- `docs/hoi/force_contact/p6/IMPLEMENTATION_SPEC.md`;
+- `docs/hoi/force_contact/p6/PHYSICAL_VALIDATION_REPORT.md`;
+- `docs/hoi/force_contact/p6/REFERENCE_COMPATIBILITY_REPORT.md`;
+- `docs/hoi/force_contact/p6/REPORT.md`;
+- controlled physical test scripts and configurations;
+- reference compatibility diagnostic scripts;
+- contact/force/penetration/stability evidence under `outputs/hoi/contact_supervision/contact_validation/`;
+- final PHYSICAL_VALIDITY and REFERENCE_COMPATIBILITY decisions.
+
+Reuse P1/P2 measurement code and evidence wherever valid. Do not duplicate completed sensor and Replay implementations.
+
+P6 stops after reporting. Do not start P7 WM fitting, Actor training or long training experiments before explicit approval.
+
+
 # 12. P7 — Joint World Model Readiness and Alternating HOI Policy Training
 
 ## What P7 means
@@ -2399,6 +2803,10 @@ Follow Section 15. Report PASS/PARTIAL/FAIL and STOP. Do not start P1.
 ## Later requests — P1 through P8
 
 ~~~text
+
+## Later requests — P1 through P8
+
+~~~text
 Read the complete document:
 docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md
 
@@ -2428,6 +2836,12 @@ For P7:
 Follow Section 15 for reports, acceptance, Git review and approval.
 
 Provide exact commands, numerical evidence, failures, skipped tests, limitations and PASS/PARTIAL/FAIL.
+
+Do not commit or push automatically.
+Do not start the next stage.
+Stop and wait for explicit approval.
+~~~
+
 
 Commit after group of changes
 Do not push automatically.
@@ -2476,6 +2890,7 @@ Do not start P5, P6, imagination integration, WM/Actor training or long experime
 ~~~
 
 For P7/P8, obtain explicit approval before expensive training or full evaluation.
+
 
 
 # 17. Final research acceptance
@@ -2556,3 +2971,4 @@ P7-A WM readiness is not equivalent to full WM convergence. The final training s
 The final research contribution is a **reference-conditioned humanoid-object tracking framework that combines learned joint robot-object dynamics with differentiable geometric contact reinforcement, enabling the Actor to learn physical interaction while following demonstrated reference motion.**
 
 No Contact Prediction Head, Force Prediction Head, force regression, force-based Actor reward or force-gradient fidelity module is part of the final architecture.
+
