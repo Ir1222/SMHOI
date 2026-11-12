@@ -1,0 +1,49 @@
+{
+  "candidate": "single_body",
+  "frames": 840,
+  "ON_frames": 290,
+  "bilateral_band_ON": 0,
+  "ON_min_hand_distance_LR": [
+    -0.03722334360328661,
+    -0.05074894041083411
+  ],
+  "ON_max_hand_gap_LR": [
+    0.028835264678748015,
+    0.036689747986298066
+  ],
+  "ON_nonhand_penetration_frames": 0,
+  "all_nonhand_min": 0.019761197789352467,
+  "all_leg_min": 0.23940256317829,
+  "ON_leg_min": 0.23940256317829,
+  "ON_eef_separation_min_median_max": [
+    0.33959288884347927,
+    0.4178136342978795,
+    0.5156130932871148
+  ],
+  "ON_hand_centre_box_coordinate_min": [
+    [
+      0.03803829347702766,
+      0.16139226884506133,
+      0.11606921609405821
+    ],
+    [
+      0.00979416316449587,
+      -0.24597456250433058,
+      0.14508753640343194
+    ]
+  ],
+  "ON_hand_centre_box_coordinate_max": [
+    [
+      0.07203725592046684,
+      0.27373095723063207,
+      0.18050567352838673
+    ],
+    [
+      0.06768069489555324,
+      -0.13560734674560151,
+      0.2840669571625545
+    ]
+  ],
+  "original_qpos_unchanged": true,
+  "joint_limits_violating_frames": 0
+}

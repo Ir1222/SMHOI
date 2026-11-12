@@ -1,0 +1,31 @@
+{
+  "ON_feasible": 175,
+  "ON_total": 175,
+  "continuous_all_ON": true,
+  "max_continuous_ON_frames": 175,
+  "ON_failed_frames": [],
+  "max_arm_correction_rad": 0.12464602161718363,
+  "RMS_arm_correction_rad": 0.03887131623190687,
+  "max_arm_velocity_rad_s": 1.0592276982940831,
+  "max_arm_acceleration_rad_s2": 10.825783530500098,
+  "min_hand_surface_distance_m": [
+    -0.0008011920817056067,
+    -0.0008011904429488861
+  ],
+  "max_hand_surface_gap_m": [
+    -0.00029984682735137436,
+    -0.0002998468172615565
+  ],
+  "min_nonhand_m": 0.04867313461864167,
+  "min_self_m": 0.0,
+  "temporal_optimization": "single jointly coupled840-frame sparse nonlinear least squares",
+  "root_box_legs_waist_unchanged": true,
+  "kinematic_only_not_carrying": true,
+  "optimizer_success": true,
+  "message": "`ftol` termination condition is satisfied.",
+  "reference_independent": true,
+  "external_Box_force": false,
+  "planned_lift_m": 0.08,
+  "planned_horizontal_carry_m": 0.06,
+  "execution_not_yet_tested": true
+}

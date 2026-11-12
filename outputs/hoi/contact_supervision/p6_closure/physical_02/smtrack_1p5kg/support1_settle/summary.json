@@ -1,0 +1,324 @@
+{
+  "case": {
+    "name": "support1_settle",
+    "kind": "settle",
+    "seconds": 3.0,
+    "position": [
+      1.381318211555481,
+      -0.28439486026763916,
+      0.6651227855682373
+    ],
+    "quaternion": [
+      0.029028186574578285,
+      0.0,
+      0.0,
+      0.999578595161438
+    ]
+  },
+  "samples": 600,
+  "warnings": {
+    "mjWARN_INERTIA": 0,
+    "mjWARN_CONTACTFULL": 0,
+    "mjWARN_CNSTRFULL": 0,
+    "mjWARN_BADQPOS": 0,
+    "mjWARN_BADQVEL": 0,
+    "mjWARN_BADQACC": 0,
+    "mjWARN_BADCTRL": 0
+  },
+  "solver_iterations_max": 2,
+  "initial_qpos": [
+    1.381318211555481,
+    -0.28439486026763916,
+    0.6651227855682373,
+    0.029028186574578285,
+    0.0,
+    0.0,
+    0.999578595161438
+  ],
+  "final_qpos": [
+    1.3813182642161255,
+    -0.2843948634165516,
+    0.6550150301480206,
+    0.029028186521897315,
+    2.8756944504747027e-10,
+    -8.935162977928936e-12,
+    0.9995785934018648
+  ],
+  "final_qvel": [
+    -4.5503743480943404e-11,
+    3.1888466803246793e-12,
+    4.516612385504116e-15,
+    4.262552922180267e-12,
+    3.627988055569072e-10,
+    -4.039846830732238e-17
+  ],
+  "max_rise_m": -0.00024524999999997465,
+  "final_displacement_m": 0.01010775542035436,
+  "tail_max_COM_speed_m_s": 2.7377860001750167e-10,
+  "tail_max_angular_speed_rad_s": 1.9058035175583487e-09,
+  "tail_max_orientation_error_rad": 5.907584449788536e-10,
+  "tail_mean_support_z_N": 14.71500000000001,
+  "tail_mean_ground_z_N": 0.0,
+  "external_impulse_Ns": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "analytical": null,
+  "penetration": {
+    "left": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "right": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "hand_box": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "support": {
+      "contact_records": 2364,
+      "contact_samples": 591,
+      "min_signed_distance_m": -0.002399464247411994,
+      "max_penetration_m": 0.002399464247411994,
+      "mean_depth_during_contact_m": 0.00014650393159114356,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 591,
+        "duration_s": 2.955,
+        "frequency_fraction": 0.985,
+        "episodes": 1,
+        "max_contiguous_s": 2.955
+      },
+      "0.0001": {
+        "samples": 591,
+        "duration_s": 2.955,
+        "frequency_fraction": 0.985,
+        "episodes": 1,
+        "max_contiguous_s": 2.955
+      },
+      "0.001": {
+        "samples": 11,
+        "duration_s": 0.055,
+        "frequency_fraction": 0.018333333333333333,
+        "episodes": 1,
+        "max_contiguous_s": 0.055
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "ground": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "robot_body": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "all_box": {
+      "contact_records": 2364,
+      "contact_samples": 591,
+      "min_signed_distance_m": -0.002399464247411994,
+      "max_penetration_m": 0.002399464247411994,
+      "mean_depth_during_contact_m": 0.00014650393159114356,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 591,
+        "duration_s": 2.955,
+        "frequency_fraction": 0.985,
+        "episodes": 1,
+        "max_contiguous_s": 2.955
+      },
+      "0.0001": {
+        "samples": 591,
+        "duration_s": 2.955,
+        "frequency_fraction": 0.985,
+        "episodes": 1,
+        "max_contiguous_s": 2.955
+      },
+      "0.001": {
+        "samples": 11,
+        "duration_s": 0.055,
+        "frequency_fraction": 0.018333333333333333,
+        "episodes": 1,
+        "max_contiguous_s": 0.055
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    }
+  },
+  "stable_tail": true,
+  "no_state_reposition_after_reset": true
+}

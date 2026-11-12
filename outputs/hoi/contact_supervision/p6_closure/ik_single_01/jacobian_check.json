@@ -1,0 +1,17 @@
+[
+  {
+    "frame": 260,
+    "max_abs_error": 1.0655151072569424e-07,
+    "relative_error": 1.514031083091161e-10
+  },
+  {
+    "frame": 400,
+    "max_abs_error": 1.091031975875012e-07,
+    "relative_error": 1.496152474605531e-10
+  },
+  {
+    "frame": 500,
+    "max_abs_error": 1.4644848533862387e-07,
+    "relative_error": 1.726015795692206e-10
+  }
+]

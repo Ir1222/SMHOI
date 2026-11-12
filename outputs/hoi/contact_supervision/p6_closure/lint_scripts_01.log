@@ -1,0 +1,253 @@
+C401 Unnecessary generator (rewrite as a set comprehension)
+   --> outputs/hoi/contact_supervision/p6_closure/scripts/analyze_closure.py:171:24
+    |
+169 |     summaries = read(E / "physical_02/summary.json")
+170 |     results = []
+171 |     for name in sorted(set(x["candidate"] for x in summaries)):
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+172 |         r = [x for x in summaries if x["candidate"] == name]
+173 |         c = candidate(name)
+    |
+help: Rewrite as a set comprehension
+    |
+170 |     results = []
+    -     for name in sorted(set(x["candidate"] for x in summaries)):
+171 +     for name in sorted({x["candidate"] for x in summaries}):
+172 |         r = [x for x in summaries if x["candidate"] == name]
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `hands` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/audit_details.py:31:21
+   |
+29 |         d = mujoco.MjData(m)
+30 |         q = reference_qpos(m)
+31 |         obj, robot, hands, non = active_pairs(m)
+   |                     ^^^^^
+32 |         groups = {
+33 |             "thigh": [g for g in robot if "thigh" in m.geom(g).name],
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+30 |         q = reference_qpos(m)
+   -         obj, robot, hands, non = active_pairs(m)
+31 +         obj, robot, _hands, non = active_pairs(m)
+32 |         groups = {
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `bv` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/independent_controller.py:25:9
+   |
+23 |     m = cpu_model("single_body")
+24 |     d = mujoco.MjData(m)
+25 |     bq, bv, names, jq, jv = indices(m)
+   |         ^^
+26 |     sup = inputs()[0]["supports"][0]
+27 |     R = rot(sup["root_quat_wxyz"])
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+24 |     d = mujoco.MjData(m)
+   -     bq, bv, names, jq, jv = indices(m)
+25 +     bq, _bv, names, jq, jv = indices(m)
+26 |     sup = inputs()[0]["supports"][0]
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `jv` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/independent_controller.py:25:24
+   |
+23 |     m = cpu_model("single_body")
+24 |     d = mujoco.MjData(m)
+25 |     bq, bv, names, jq, jv = indices(m)
+   |                        ^^
+26 |     sup = inputs()[0]["supports"][0]
+27 |     R = rot(sup["root_quat_wxyz"])
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+24 |     d = mujoco.MjData(m)
+   -     bq, bv, names, jq, jv = indices(m)
+25 +     bq, bv, names, jq, _jv = indices(m)
+26 |     sup = inputs()[0]["supports"][0]
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `manifest` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/integrated.py:30:14
+   |
+28 |     with bracket_precision_guard() as profile:
+29 |         save(out / "solver_profile.json", profile)
+30 |         env, manifest = gpu_env("single_body")
+   |              ^^^^^^^^
+31 |         io = JointStateIO(env)
+32 |         term = env.action_manager.get_term("joint_pos")
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+29 |         save(out / "solver_profile.json", profile)
+   -         env, manifest = gpu_env("single_body")
+30 +         env, _manifest = gpu_env("single_body")
+31 |         io = JointStateIO(env)
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `obs` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/integrated.py:44:39
+   |
+42 |                             (P6 / "calibration_02" / name / "initial.json").read_text()
+43 |                         )["state84"]
+44 |                         result, rows, obs = run_intervals(env, io, states, 1, out / name)
+   |                                       ^^^
+45 |                         contacts = (
+46 |                             actual_contact(np.array(rows[0]["force_raw_world"]), tau, [0.25, 0.25])
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+43 |                         )["state84"]
+   -                         result, rows, obs = run_intervals(env, io, states, 1, out / name)
+44 +                         result, rows, _obs = run_intervals(env, io, states, 1, out / name)
+45 |                         contacts = (
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+C408 Unnecessary `dict()` call (rewrite as a literal)
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/physical_compare.py:53:21
+   |
+51 |               for kind, gap in [("settle", 0.01), ("drop", 0.1), ("lift", 0.0)]:
+52 |                   cases.append(
+53 | /                     dict(
+54 | |                         name=f"support{support}_{kind}",
+55 | |                         kind=kind,
+56 | |                         seconds=3.0,
+57 | |                         position=(
+58 | |                             np.array(s["root_pos_world"])
+59 | |                             + [0, 0, s["geom"]["size"][2] - bottom + gap]
+60 | |                         ).tolist(),
+61 | |                         quaternion=s["root_quat_wxyz"],
+62 | |                     )
+   | |_____________________^
+63 |                   )
+64 |           cases.append(
+   |
+help: Rewrite as a literal
+   |
+52 |                 cases.append(
+   -                     dict(
+   -                         name=f"support{support}_{kind}",
+   -                         kind=kind,
+   -                         seconds=3.0,
+   -                         position=(
+53 +                     {
+54 +                         "name": f"support{support}_{kind}",
+55 +                         "kind": kind,
+56 +                         "seconds": 3.0,
+57 +                         "position": (
+58 |                             np.array(s["root_pos_world"])
+59 |                             + [0, 0, s["geom"]["size"][2] - bottom + gap]
+60 |                         ).tolist(),
+   -                         quaternion=s["root_quat_wxyz"],
+   -                     )
+61 +                         "quaternion": s["root_quat_wxyz"],
+62 +                     }
+63 |                 )
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+C408 Unnecessary `dict()` call (rewrite as a literal)
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/physical_compare.py:65:13
+   |
+63 |                   )
+64 |           cases.append(
+65 | /             dict(
+66 | |                 name="floor_drop",
+67 | |                 kind="drop",
+68 | |                 seconds=3.0,
+69 | |                 position=[0, 0, -bottom + 0.1],
+70 | |                 quaternion=[1, 0, 0, 0],
+71 | |             )
+   | |_____________^
+72 |           )
+73 |           from supermimic.hoi.scene import _box_spec
+   |
+help: Rewrite as a literal
+   |
+64 |         cases.append(
+   -             dict(
+   -                 name="floor_drop",
+   -                 kind="drop",
+   -                 seconds=3.0,
+   -                 position=[0, 0, -bottom + 0.1],
+   -                 quaternion=[1, 0, 0, 0],
+   -             )
+65 +             {
+66 +                 "name": "floor_drop",
+67 +                 "kind": "drop",
+68 +                 "seconds": 3.0,
+69 +                 "position": [0, 0, -bottom + 0.1],
+70 +                 "quaternion": [1, 0, 0, 0],
+71 +             }
+72 |         )
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+F841 Local variable `placement` is assigned to but never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py:71:5
+   |
+69 |     env, manifest = gpu_env(name, change=change)
+70 |     io = JointStateIO(env)
+71 |     placement = Placements(env, io)
+   |     ^^^^^^^^^
+72 |     folder = out / kind
+73 |     folder.mkdir()
+   |
+help: Remove assignment to unused variable `placement`
+   |
+70 |     io = JointStateIO(env)
+   -     placement = Placements(env, io)
+71 +     Placements(env, io)
+72 |     folder = out / kind
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+BLE001 Do not catch blind exception: `Exception`
+   --> outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py:196:12
+    |
+194 |             env.step(action)
+195 |             assert_contact_capacity(env)
+196 |     except Exception as error:
+    |            ^^^^^^^^^
+197 |         result.update(status="FAIL", error=repr(error), traceback=traceback.format_exc())
+198 |     finally:
+    |
+
+S102 Use of `exec` detected
+   --> outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py:255:5
+    |
+253 |     )
+254 |     solver.__file__ = str(path)
+255 |     exec(compile(path.read_text(), str(path), "exec"), solver.__dict__)
+    |     ^^^^
+
+RUF059 Unpacked variable `r` is never used
+   --> outputs/hoi/contact_supervision/p6_closure/scripts/trajectory_ik.py:273:9
+    |
+271 |     for k in (260, 400, 500):
+272 |         x = ik.ref[k].copy()
+273 |         r, j = ik.frame(k, x)
+    |         ^
+274 |         fd = np.zeros_like(j)
+275 |         for i in range(14):
+    |
+help: Prefix it with an underscore or any other dummy variable pattern
+    |
+272 |         x = ik.ref[k].copy()
+    -         r, j = ik.frame(k, x)
+273 +         _r, j = ik.frame(k, x)
+274 |         fd = np.zeros_like(j)
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 26 errors (14 fixed, 12 remaining).
+10 unsafe fixes available with `--fix --unsafe-fixes`.

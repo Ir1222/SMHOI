@@ -1,0 +1,121 @@
+{
+  "commit": "b5087b7c8b3a123135b094b9cece3b2cefef26bc",
+  "files": [
+    {
+      "path": "src/mjlab_g1/tasks/smtrack/mdp/box.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/smtrack/mdp/box.py",
+      "git_blob": "b90e7ca48f63f89014c1341491e719368605c016",
+      "snapshot_sha256": "4bbf228504dd770fd799f0b0d7b473a2ad00d4dbc2f14789aa41e5b73afac121",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/scripts/make_box_reference.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/scripts/make_box_reference.py",
+      "git_blob": "32359726baaf9ef755bda14fdefd83bfe3b3bbfb",
+      "snapshot_sha256": "3fdd3d2eb9d27433b510bc02c862b6a364341977219e0e1dbff434a6730dd200",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/README.md",
+      "git_blob": "042adf50741e887dc8766748451204037655bc9b",
+      "snapshot_sha256": "ab2b2b721d4bb786fa46f02dfa87741abd7c009b0b360b736371a5246f731ea3",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/assets/toaster_constants.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/assets/toaster_constants.py",
+      "git_blob": "d13da6d25ceb309413b68b4328b1437cf2e56b10",
+      "snapshot_sha256": "e888ec74e7136e79918e5d579969e3047d8dd888cf92b58a701d925577e8167f",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/assets/Toaster003/model.xml",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/assets/Toaster003/model.xml",
+      "git_blob": "c432c1e7895ff99b7cb57722d76f86aaecb5b8b6",
+      "snapshot_sha256": "f4d7805f35b178ab1f108f65f100e16219801ed78b144026595c0de0959e126c",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/smtrack/env_cfgs.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/smtrack/env_cfgs.py",
+      "git_blob": "2c4d0b5c30cfb9c02667301c52b46e10760f8de0",
+      "snapshot_sha256": "bf02291e122f141d9cb7df39af5bb0aa97ed7ebb5d14bdde62c9d3a38cd5b1ca",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/smtrack/rl_cfgs.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/smtrack/rl_cfgs.py",
+      "git_blob": "59e4a43d3bf620bbef9a901918693a0f2dd47c59",
+      "snapshot_sha256": "e89eda922a7986fae45135e411bd3d368914e98459eec481fc3844f6e40d6f89",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/smtrack/__init__.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/smtrack/__init__.py",
+      "git_blob": "96713f72e750afeacf534729e4dc3ea9af7ec3d8",
+      "snapshot_sha256": "c34f54778fe0980b7a1826546cb9f65d90215bf42056586de283be3e96856345",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/dualarm/config/g1/env_cfgs.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/dualarm/config/g1/env_cfgs.py",
+      "git_blob": "535e43fed34e705630e17e0fa5ac1d08aad8790c",
+      "snapshot_sha256": "16a159ca26ac85f9959f53dc5bb793e97075c1664a213e561c3fcc3e60ca0f04",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/dualarm/config/g1/rl_cfg.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/dualarm/config/g1/rl_cfg.py",
+      "git_blob": "537987de20ecc06074f1c9a904153d03ffc0375e",
+      "snapshot_sha256": "7b1ed3c4c1453ba5622e009bf84a5f5cf031b873b5108cafabbe5228d29f3930",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/tasks/dualarm/dual_arm_env_cfg.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/tasks/dualarm/dual_arm_env_cfg.py",
+      "git_blob": "5f66d61da9598512fe994efff48cb1cd6fc39b4d",
+      "snapshot_sha256": "ef568b03ce4456218240230da19506c3d201742cf6f6108a104edff194b17c35",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/envs/g1_dualarm_rl_env.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/envs/g1_dualarm_rl_env.py",
+      "git_blob": "9b8d6b27dbf111b80a1c5ef0bc067430b8cae582",
+      "snapshot_sha256": "ca5f844e92228ca24f201a693ab0c68549f9214637c00289cdf3b89224921d82",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "scripts/train_track.sbatch",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/scripts/train_track.sbatch",
+      "git_blob": "03f9c1aea65392c2c67d1c267bfb54193e0f5a7f",
+      "snapshot_sha256": "9a0d85dc5637f8b87a0d867ebc29db0b719fdea79e54b88d459bdecd31f5ec8f",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "scripts/eval_sweep.sbatch",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/scripts/eval_sweep.sbatch",
+      "git_blob": "063abdbb8b29f13d3515701ec9d94f866318e23d",
+      "snapshot_sha256": "b6505844e63f7c6e124bd48edd97c1c6ebd232f05bf0791fb76ffce65221a1d0",
+      "git_blob_matches_snapshot_or_single_added_newline": true
+    },
+    {
+      "path": "src/mjlab_g1/assets/g1_constants.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/assets/g1_constants.py",
+      "snapshot_sha256": "5eaa8bf26412dee12cb0eaea3d29e450deb698c70f5b2683d059d68da4651429",
+      "git_blob_matches_snapshot_or_single_added_newline": null
+    },
+    {
+      "path": "src/mjlab_g1/scripts/train_track.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/scripts/train_track.py",
+      "snapshot_sha256": "f10a6f81599e3aadbcd6ec3e5865dccedd6c85392e9681da8c4e99cc81a3b22d",
+      "git_blob_matches_snapshot_or_single_added_newline": null
+    },
+    {
+      "path": "src/mjlab_g1/scripts/eval_track.py",
+      "url": "https://github.com/shuayyy/humanoid-amp-ppo/blob/b5087b7c8b3a123135b094b9cece3b2cefef26bc/src/mjlab_g1/scripts/eval_track.py",
+      "snapshot_sha256": "767d2e386b679f73ef83065c00473d6be4a733cf721db9872ba75a0721d1008a",
+      "git_blob_matches_snapshot_or_single_added_newline": null
+    }
+  ]
+}

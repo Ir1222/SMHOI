@@ -1,0 +1,27 @@
+SIM117 Use a single `with` statement with multiple contexts instead of nested `with` statements
+  --> tests/hoi/test_solver_precision.py:25:5
+   |
+23 |       digest = hashlib.sha256(source_path.read_bytes()).hexdigest()
+24 |       assert digest == SOURCE_SHA256
+25 | /     with pytest.raises(RuntimeError, match="deliberate test failure"):
+26 | |         with bracket_precision_guard() as profile:
+   | |__________________________________________________^
+27 |               assert solver._linesearch_iterative_kernel is not original
+28 |               assert solver._linesearch_iterative_kernel.__name__ != original.__name__
+   |
+help: Combine `with` statements
+
+SIM117 Use a single `with` statement with multiple contexts instead of nested `with` statements
+  --> tests/hoi/test_solver_precision.py:30:13
+   |
+28 |               assert solver._linesearch_iterative_kernel.__name__ != original.__name__
+29 |               assert profile["source_sha256"] == digest
+30 | /             with pytest.raises(RuntimeError, match="nested/concurrent"):
+31 | |                 with bracket_precision_guard():
+   | |_______________________________________________^
+32 |                       pass
+33 |               raise RuntimeError("deliberate test failure")
+   |
+help: Combine `with` statements
+
+Found 2 errors.

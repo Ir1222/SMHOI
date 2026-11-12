@@ -1,0 +1,19 @@
+{
+  "candidate": "original",
+  "mode": "complete",
+  "status": "FAIL",
+  "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 1024, 0]')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 93, in experiment\n    env.step(action);assert_contact_capacity(env)\n    ^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 84, in observe\n    observer.sample();metrics()\n                      ^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 1024, 0]\n",
+  "samples": 140,
+  "first_flag_sample": 139,
+  "max_niter": 6,
+  "max_nefc": 128,
+  "cpu_warning_counts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "max_CPU_GPU_qpos_difference": 1.855594821076334e-06,
+  "raw_sensor_max_error_N": 0.0
+}

@@ -1,0 +1,52 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+grasp_pads bilateral 0 nonhand 0.029803402453580374
+original bilateral 0 nonhand 0.019761197789352467
+Traceback (most recent call last):
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 441, in __str__
+    return self._str
+           ^^^^^^^^^
+AttributeError: 'PosixPath' object has no attribute '_str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 555, in drive
+    return self._drv
+           ^^^^^^^^^
+AttributeError: 'PosixPath' object has no attribute '_drv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/geometry.py", line 68, in <module>
+    save(out/'summary.json',[evaluate(p.stem,out) for p in sorted((E/'candidates').glob('*.json'))])
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/geometry.py", line 28, in evaluate
+    target=np.array(inputs()[0]['contact']['target_root_m'])
+                    ^^^^^^^^
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/contact_validation/scripts/common.py", line 36, in inputs
+    m = load_manifest(DEFAULT_ASSET, verify_sources=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/han/pyx/SMHOI/src/supermimic/hoi/asset_manifest.py", line 59, in load_manifest
+    m = json.loads(Path(path).read_text())
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 448, in __fspath__
+    return str(self)
+           ^^^^^^^^^
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 443, in __str__
+    self._str = self._format_parsed_parts(self.drive, self.root,
+                                          ^^^^^^^^^^
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 557, in drive
+    self._load_parts()
+  File "/home/han/miniconda3/lib/python3.12/pathlib.py", line 414, in _load_parts
+    path = self._flavour.join(*paths)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 71, in join
+KeyboardInterrupt

@@ -1,0 +1,324 @@
+{
+  "case": {
+    "name": "support0_drop",
+    "kind": "drop",
+    "seconds": 3.0,
+    "position": [
+      -1.4667341709136963,
+      -0.15975421667099,
+      0.7905498790740967
+    ],
+    "quaternion": [
+      0.029028186574578285,
+      0.0,
+      0.0,
+      0.999578595161438
+    ]
+  },
+  "samples": 600,
+  "warnings": {
+    "mjWARN_INERTIA": 0,
+    "mjWARN_CONTACTFULL": 0,
+    "mjWARN_CNSTRFULL": 0,
+    "mjWARN_BADQPOS": 0,
+    "mjWARN_BADQVEL": 0,
+    "mjWARN_BADQACC": 0,
+    "mjWARN_BADCTRL": 0
+  },
+  "solver_iterations_max": 2,
+  "initial_qpos": [
+    -1.4667341709136963,
+    -0.15975421667099,
+    0.7905498790740967,
+    0.029028186574578285,
+    0.0,
+    0.0,
+    0.999578595161438
+  ],
+  "final_qpos": [
+    -1.466734157341999,
+    -0.1597542657176695,
+    0.6904421236538801,
+    0.029028186527923116,
+    1.6635124608244493e-11,
+    -2.532544581139394e-10,
+    0.9995785934016898
+  ],
+  "final_qvel": [
+    -6.355843048358961e-10,
+    3.435923321894673e-11,
+    5.431090322530485e-15,
+    -2.703840908698015e-14,
+    -3.1091662882656745e-09,
+    5.271427772021251e-16
+  ],
+  "max_rise_m": -0.00024524999999997465,
+  "final_displacement_m": 0.10010775542022948,
+  "tail_max_COM_speed_m_s": 2.743121729997072e-10,
+  "tail_max_angular_speed_rad_s": 3.955358851235423e-09,
+  "tail_max_orientation_error_rad": 5.088802070020776e-10,
+  "tail_mean_support_z_N": 19.62,
+  "tail_mean_ground_z_N": 0.0,
+  "external_impulse_Ns": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "analytical": null,
+  "penetration": {
+    "left": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "right": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "hand_box": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "support": {
+      "contact_records": 2284,
+      "contact_samples": 571,
+      "min_signed_distance_m": -0.010480922077922256,
+      "max_penetration_m": 0.010480922077922256,
+      "mean_depth_during_contact_m": 0.0002896497921083985,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 571,
+        "duration_s": 2.855,
+        "frequency_fraction": 0.9516666666666667,
+        "episodes": 1,
+        "max_contiguous_s": 2.855
+      },
+      "0.0001": {
+        "samples": 571,
+        "duration_s": 2.855,
+        "frequency_fraction": 0.9516666666666667,
+        "episodes": 1,
+        "max_contiguous_s": 2.855
+      },
+      "0.001": {
+        "samples": 20,
+        "duration_s": 0.1,
+        "frequency_fraction": 0.03333333333333333,
+        "episodes": 1,
+        "max_contiguous_s": 0.1
+      },
+      "0.005": {
+        "samples": 9,
+        "duration_s": 0.045,
+        "frequency_fraction": 0.015,
+        "episodes": 1,
+        "max_contiguous_s": 0.045
+      }
+    },
+    "ground": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "robot_body": {
+      "contact_records": 0,
+      "contact_samples": 0,
+      "min_signed_distance_m": null,
+      "max_penetration_m": 0.0,
+      "mean_depth_during_contact_m": null,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.0001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.001": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      },
+      "0.005": {
+        "samples": 0,
+        "duration_s": 0.0,
+        "frequency_fraction": 0.0,
+        "episodes": 0,
+        "max_contiguous_s": 0.0
+      }
+    },
+    "all_box": {
+      "contact_records": 2284,
+      "contact_samples": 571,
+      "min_signed_distance_m": -0.010480922077922256,
+      "max_penetration_m": 0.010480922077922256,
+      "mean_depth_during_contact_m": 0.0002896497921083985,
+      "duration_s": 3.0,
+      "0.0": {
+        "samples": 571,
+        "duration_s": 2.855,
+        "frequency_fraction": 0.9516666666666667,
+        "episodes": 1,
+        "max_contiguous_s": 2.855
+      },
+      "0.0001": {
+        "samples": 571,
+        "duration_s": 2.855,
+        "frequency_fraction": 0.9516666666666667,
+        "episodes": 1,
+        "max_contiguous_s": 2.855
+      },
+      "0.001": {
+        "samples": 20,
+        "duration_s": 0.1,
+        "frequency_fraction": 0.03333333333333333,
+        "episodes": 1,
+        "max_contiguous_s": 0.1
+      },
+      "0.005": {
+        "samples": 9,
+        "duration_s": 0.045,
+        "frequency_fraction": 0.015,
+        "episodes": 1,
+        "max_contiguous_s": 0.045
+      }
+    }
+  },
+  "stable_tail": true,
+  "no_state_reposition_after_reset": true
+}

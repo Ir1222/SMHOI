@@ -1,0 +1,267 @@
+{
+  "geometry_only_not_arm_reachability_or_carrying": true,
+  "native_capsule_size": [
+    0.035,
+    0.041231056256176596,
+    0.0
+  ],
+  "marker_overlap_pairs": [
+    {
+      "marker": "left",
+      "geom": 2,
+      "name": "",
+      "dist": -0.007836011701185301,
+      "same_body": true
+    },
+    {
+      "marker": "left",
+      "geom": 3,
+      "name": "",
+      "dist": -0.0013492800295353824,
+      "same_body": true
+    },
+    {
+      "marker": "left",
+      "geom": 5,
+      "name": "",
+      "dist": -0.002456800043582924,
+      "same_body": true
+    },
+    {
+      "marker": "left",
+      "geom": 10,
+      "name": "",
+      "dist": -0.005783691033720978,
+      "same_body": true
+    },
+    {
+      "marker": "left",
+      "geom": 14,
+      "name": "reg_main",
+      "dist": -0.008846453189849876,
+      "same_body": true
+    },
+    {
+      "marker": "right",
+      "geom": 2,
+      "name": "",
+      "dist": -0.007836005156141823,
+      "same_body": true
+    },
+    {
+      "marker": "right",
+      "geom": 3,
+      "name": "",
+      "dist": -0.0013492800295353824,
+      "same_body": true
+    },
+    {
+      "marker": "right",
+      "geom": 11,
+      "name": "",
+      "dist": -0.009002312049269684,
+      "same_body": true
+    },
+    {
+      "marker": "right",
+      "geom": 14,
+      "name": "reg_main",
+      "dist": -0.008846453189849876,
+      "same_body": true
+    }
+  ],
+  "generated_native_capsule_contacts": [
+    {
+      "geoms": [
+        28,
+        0
+      ],
+      "names": [
+        "native_shape_left",
+        "left_grasp_marker_collision"
+      ],
+      "dist": -0.0005000000000000004,
+      "pos": [
+        1.96,
+        0.09475000000000001,
+        0.13876894374382343
+      ],
+      "frame": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "dim": 3,
+      "friction": [
+        2.0,
+        2.0,
+        0.5,
+        0.05,
+        0.05
+      ],
+      "solref": [
+        0.012,
+        1.0
+      ],
+      "solimp": [
+        0.9490000000000001,
+        0.974,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "efc_address": 3
+    },
+    {
+      "geoms": [
+        28,
+        0
+      ],
+      "names": [
+        "native_shape_left",
+        "left_grasp_marker_collision"
+      ],
+      "dist": -0.0005000000000000004,
+      "pos": [
+        1.96,
+        0.09475000000000001,
+        0.22123105625617662
+      ],
+      "frame": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "dim": 3,
+      "friction": [
+        2.0,
+        2.0,
+        0.5,
+        0.05,
+        0.05
+      ],
+      "solref": [
+        0.012,
+        1.0
+      ],
+      "solimp": [
+        0.9490000000000001,
+        0.974,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "efc_address": 7
+    },
+    {
+      "geoms": [
+        29,
+        1
+      ],
+      "names": [
+        "native_shape_right",
+        "right_grasp_marker_collision"
+      ],
+      "dist": -0.0005000000000000004,
+      "pos": [
+        1.96,
+        -0.09475000000000001,
+        0.13876894374382343
+      ],
+      "frame": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "dim": 3,
+      "friction": [
+        2.0,
+        2.0,
+        0.5,
+        0.05,
+        0.05
+      ],
+      "solref": [
+        0.012,
+        1.0
+      ],
+      "solimp": [
+        0.9490000000000001,
+        0.974,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "efc_address": 11
+    },
+    {
+      "geoms": [
+        29,
+        1
+      ],
+      "names": [
+        "native_shape_right",
+        "right_grasp_marker_collision"
+      ],
+      "dist": -0.0005000000000000004,
+      "pos": [
+        1.96,
+        -0.09475000000000001,
+        0.22123105625617662
+      ],
+      "frame": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "dim": 3,
+      "friction": [
+        2.0,
+        2.0,
+        0.5,
+        0.05,
+        0.05
+      ],
+      "solref": [
+        0.012,
+        1.0
+      ],
+      "solimp": [
+        0.9490000000000001,
+        0.974,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "efc_address": 15
+    }
+  ],
+  "explicit_pairs": 0,
+  "body_excludes": 0,
+  "full_scene_ncon": 4,
+  "full_scene_nefc": 19
+}

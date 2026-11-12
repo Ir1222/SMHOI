@@ -1,0 +1,8 @@
+{
+  "native_PD_contact_lift_carry_release": {
+    "status": "PASS",
+    "completed_intervals": 249,
+    "solved_vector_substeps": 996,
+    "raw_sensor_max_error_N": 0.0
+  }
+}

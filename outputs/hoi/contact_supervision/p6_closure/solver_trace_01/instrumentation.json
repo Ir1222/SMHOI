@@ -1,0 +1,6 @@
+{
+  "original": "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/solver.py",
+  "original_sha256": "1bb26d51451a065b9e183acacfbd5e59d85df1eb46f17951aa3d1727db6853ff",
+  "instrumented_sha256": "386a1583827fd8277cce6358b0dc146f451fd60899d971dbdfecb7d5b91cdf31",
+  "change": "printf only at existing failure condition; installed file unchanged"
+}

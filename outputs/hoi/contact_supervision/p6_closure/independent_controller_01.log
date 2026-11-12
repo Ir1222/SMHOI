@@ -1,0 +1,47 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+   Iteration     Total nfev        Cost      Cost reduction    Step norm     Optimality   
+       0              1         1.3242e+03                                    2.42e+03    
+       1              2         7.4191e+02      5.82e+02       1.09e+00       5.66e+03    
+       2              3         2.1006e+02      5.32e+02       3.15e-01       6.66e+02    
+       3              5         1.8491e+02      2.51e+01       2.74e-01       3.52e+02    
+       4              6         1.6416e+02      2.08e+01       5.65e-01       5.86e+02    
+       5              7         1.5366e+02      1.05e+01       4.36e-01       6.19e+02    
+       6              8         1.5177e+02      1.89e+00       1.06e-01       2.60e+01    
+       7              9         1.5173e+02      3.94e-02       3.86e-02       4.05e+00    
+       8             10         1.5173e+02      6.28e-04       2.40e-03       1.13e+00    
+       9             11         1.5173e+02      1.11e-04       9.84e-04       1.35e-01    
+      10             14         1.5173e+02      3.20e-06       3.43e-05       1.14e+00    
+`ftol` termination condition is satisfied.
+Function evaluations 14, initial cost 1.3242e+03, final cost 1.5173e+02, first-order optimality 1.14e+00.
+{
+  "ON_feasible": 175,
+  "ON_total": 175,
+  "continuous_all_ON": true,
+  "max_continuous_ON_frames": 175,
+  "ON_failed_frames": [],
+  "max_arm_correction_rad": 0.12464602161718363,
+  "RMS_arm_correction_rad": 0.03887131623190687,
+  "max_arm_velocity_rad_s": 1.0592276982940831,
+  "max_arm_acceleration_rad_s2": 10.825783530500098,
+  "min_hand_surface_distance_m": [
+    -0.0008011920817056067,
+    -0.0008011904429488861
+  ],
+  "max_hand_surface_gap_m": [
+    -0.00029984682735137436,
+    -0.0002998468172615565
+  ],
+  "min_nonhand_m": 0.04867313461864167,
+  "min_self_m": 0.0,
+  "temporal_optimization": "single jointly coupled840-frame sparse nonlinear least squares",
+  "root_box_legs_waist_unchanged": true,
+  "kinematic_only_not_carrying": true,
+  "optimizer_success": true,
+  "message": "`ftol` termination condition is satisfied.",
+  "reference_independent": true,
+  "external_Box_force": false,
+  "planned_lift_m": 0.08,
+  "planned_horizontal_carry_m": 0.06,
+  "execution_not_yet_tested": true
+}

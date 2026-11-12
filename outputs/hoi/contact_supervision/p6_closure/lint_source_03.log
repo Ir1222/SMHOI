@@ -1,0 +1,26 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/hoi/test_p6_object_candidates.py:3:1
+   |
+ 1 |   """Independent geometric/inertial invariants for versioned closure candidates."""
+ 2 |
+ 3 | / import json
+ 4 | | import importlib
+ 5 | | import sys
+ 6 | | from pathlib import Path
+ 7 | |
+ 8 | | import numpy as np
+   | |__________________^
+ 9 |
+10 |   ROOT = Path(__file__).resolve().parents[2]
+   |
+help: Organize imports
+  |
+2 |
+3 + import importlib
+4 | import json
+  - import importlib
+5 | import sys
+  |
+
+Found 1 error.
+[*] 1 fixable with `--fix`.

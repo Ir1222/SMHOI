@@ -1,0 +1,217 @@
+PLC0414 Import alias does not rename original package
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py:18:20
+   |
+16 | sys.path.insert(0, str(P6 / "scripts"))
+17 | from common import inputs
+18 | from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+   |                    ^^^^^^^^^^
+19 | from supermimic.hoi import scene
+   |
+help: Remove import alias
+   |
+17 | from common import inputs
+   - from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+18 + from common import rot, save as save, cpu_contacts as cpu_contacts
+19 | from supermimic.hoi import scene
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+PLC0414 Import alias does not rename original package
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py:18:32
+   |
+16 | sys.path.insert(0, str(P6 / "scripts"))
+17 | from common import inputs
+18 | from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+   |                                ^^^^^^^^^^^^
+19 | from supermimic.hoi import scene
+   |
+help: Remove import alias
+   |
+17 | from common import inputs
+   - from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+18 + from common import rot as rot, save, cpu_contacts as cpu_contacts
+19 | from supermimic.hoi import scene
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+PLC0414 Import alias does not rename original package
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py:18:46
+   |
+16 | sys.path.insert(0, str(P6 / "scripts"))
+17 | from common import inputs
+18 | from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+   |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+19 | from supermimic.hoi import scene
+   |
+help: Remove import alias
+   |
+17 | from common import inputs
+   - from common import rot as rot, save as save, cpu_contacts as cpu_contacts
+18 + from common import rot as rot, save as save, cpu_contacts
+19 | from supermimic.hoi import scene
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+F401 [*] `closure_common.E` imported but unused
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:10:28
+   |
+ 8 | from unittest.mock import patch
+ 9 |
+10 | from closure_common import E, P6, gpu_env, dump_gz, save
+   |                            ^
+11 | from contact_parameters import GROUPS, config_edit, decode, geom_config
+12 | import solver_diagnosis as diagnosis
+   |
+help: Remove unused import: `closure_common.E`
+   |
+9  |
+   - from closure_common import E, P6, gpu_env, dump_gz, save
+10 + from closure_common import P6, gpu_env, dump_gz, save
+11 | from contact_parameters import GROUPS, config_edit, decode, geom_config
+   |
+
+B023 Function definition does not bind loop variable `group`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:43:64
+   |
+41 | …     run.mkdir()
+42 | …     def factory(name="single_body",num_envs=4,change=None):
+43 | …         env,manifest=gpu_env(name,num_envs,config_edit(group,change))
+   |                                                          ^^^^^
+44 | …         save(run/"compiled.json",{"object_geoms":[geom_config(env.sim.mj_model,i) for i in range(env.sim.mj_model.ngeom) if env.sim.…
+45 | …              "warp_ls_iterations":env.sim.wp_model.opt.ls_iterations,
+   |
+
+B023 Function definition does not bind loop variable `run`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:44:22
+   |
+42 | …     def factory(name="single_body",num_envs=4,change=None):
+43 | …         env,manifest=gpu_env(name,num_envs,config_edit(group,change))
+44 | …         save(run/"compiled.json",{"object_geoms":[geom_config(env.sim.mj_model,i) for i in range(env.sim.mj_model.ngeom) if env.sim.…
+   |                ^^^
+45 | …              "warp_ls_iterations":env.sim.wp_model.opt.ls_iterations,
+46 | …              "warp_iterations":env.sim.wp_model.opt.iterations,
+   |
+
+B023 Function definition does not bind loop variable `old_snapshot`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:52:24
+   |
+50 |             old_snapshot=diagnosis.snapshot
+51 |             def snapshot(env):
+52 |                 result=old_snapshot(env)
+   |                        ^^^^^^^^^^^^
+53 |                 result["contact_parameters"]=contact_snapshot(env)
+54 |                 result["overflow_decode"]=[decode(v) for v in result["overflow"]]
+   |
+
+B023 Function definition does not bind loop variable `native`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:81:21
+   |
+79 |                 native=env.sim.step
+80 |                 def step():
+81 |                     native()
+   |                     ^^^^^^
+82 |                     records.append(contact_snapshot(env))
+83 |                 env.sim.step=step
+   |
+
+B023 Function definition does not bind loop variable `records`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:82:21
+   |
+80 |                 def step():
+81 |                     native()
+82 |                     records.append(contact_snapshot(env))
+   |                     ^^^^^^^
+83 |                 env.sim.step=step
+84 |                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+   |
+
+B023 Function definition does not bind loop variable `env`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:82:53
+   |
+80 |                 def step():
+81 |                     native()
+82 |                     records.append(contact_snapshot(env))
+   |                                                     ^^^
+83 |                 env.sim.step=step
+84 |                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+   |
+
+RUF059 Unpacked variable `rows` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:84:24
+   |
+82 |                     records.append(contact_snapshot(env))
+83 |                 env.sim.step=step
+84 |                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+   |                        ^^^^
+85 |                 dump_gz(folder/"native_contact_parameters.json.gz",records)
+86 |                 summaries.append({"group":group,"native_hold":result})
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+83 |                 env.sim.step=step
+   -                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+84 +                 result,_rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+85 |                 dump_gz(folder/"native_contact_parameters.json.gz",records)
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `obs` is never used
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:84:29
+   |
+82 |                     records.append(contact_snapshot(env))
+83 |                 env.sim.step=step
+84 |                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+   |                             ^^^
+85 |                 dump_gz(folder/"native_contact_parameters.json.gz",records)
+86 |                 summaries.append({"group":group,"native_hold":result})
+   |
+help: Prefix it with an underscore or any other dummy variable pattern
+   |
+83 |                 env.sim.step=step
+   -                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+84 +                 result,rows,_obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+85 |                 dump_gz(folder/"native_contact_parameters.json.gz",records)
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B023 Function definition does not bind loop variable `hold`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py:84:94
+   |
+82 |                     records.append(contact_snapshot(env))
+83 |                 env.sim.step=step
+84 |                 result,rows,obs=run_intervals(env,io,states,25,folder/"native_hold",lambda k:hold)
+   |                                                                                              ^^^^
+85 |                 dump_gz(folder/"native_contact_parameters.json.gz",records)
+86 |                 summaries.append({"group":group,"native_hold":result})
+   |
+
+F401 [*] `json` imported but unused
+ --> outputs/hoi/contact_supervision/p6_closure/scripts/contact_parameters.py:6:8
+  |
+4 | import hashlib
+5 | import importlib.util
+6 | import json
+  |        ^^^^
+7 | import sys
+8 | from pathlib import Path
+  |
+help: Remove unused import: `json`
+  |
+5 | import importlib.util
+  - import json
+6 | import sys
+  |
+
+B023 Function definition does not bind loop variable `mode`
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/overflow_audit.py:23:16
+   |
+21 |         before=source["before"]
+22 |         def change(cfg):
+23 |             if mode=="robot_floor":
+   |                ^^^^
+24 |                 base=cfg.scene.spec_fn
+25 |                 def edit(spec):
+   |
+
+Found 15 errors.
+[*] 2 fixable with `--fix` (5 unsafe fixes available with `--fix --unsafe-fixes`).

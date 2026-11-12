@@ -1,0 +1,3 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Verification PASS; physical failures remain: {'OBJECT_CONSTRUCTION_VALIDITY': 'PASS bounded simulation approximation', 'BOX_MODEL_VALIDITY': 'PASS selected approximation; original COM concern remains', 'FLOOR_SOLVER_RELIABILITY': 'PARTIAL; bounded precision guard passes, default remains failing', 'REFERENCE_COMPATIBILITY': 'PARTIAL; original fails, candidate kinematic pass/dynamic fail', 'BILATERAL_CONTACT_FEASIBILITY': 'PARTIAL; geometric pass, sustained dynamic fail', 'PHYSICAL_VALIDITY': 'PARTIAL', 'P7_TRAINING_READINESS': 'FAIL / NOT SATISFIED'}

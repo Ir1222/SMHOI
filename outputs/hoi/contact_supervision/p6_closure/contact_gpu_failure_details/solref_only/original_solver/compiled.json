@@ -1,0 +1,56 @@
+{
+  "object_geoms": [
+    {
+      "id": 69,
+      "name": "box/solid",
+      "body": "box/bread_box",
+      "type": 6,
+      "pos": [
+        0.0,
+        0.0,
+        0.125
+      ],
+      "size": [
+        0.09,
+        0.17,
+        0.135
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.001,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "margin": 0.0,
+      "gap": 0.0,
+      "condim": 3,
+      "priority": 1,
+      "contype": 1,
+      "conaffinity": 1,
+      "solmix": 1.0
+    }
+  ],
+  "warp_ls_iterations": 20,
+  "warp_iterations": 10,
+  "ls_tolerance": [
+    0.009999999776482582
+  ],
+  "solver": 2,
+  "cone": 0
+}

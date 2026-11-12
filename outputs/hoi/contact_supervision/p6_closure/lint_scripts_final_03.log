@@ -1,0 +1,19 @@
+F401 [*] `numpy` imported but unused
+ --> outputs/hoi/contact_supervision/p6_closure/scripts/toaster_pairs.py:6:17
+  |
+4 | from unittest.mock import patch
+5 | import mujoco
+6 | import numpy as np
+  |                 ^^
+7 | from closure_common import E, save
+8 | from contact_parameters import FIELDS, load_source
+  |
+help: Remove unused import: `numpy`
+  |
+5 | import mujoco
+  - import numpy as np
+6 | from closure_common import E, save
+  |
+
+Found 1 error.
+[*] 1 fixable with `--fix`.

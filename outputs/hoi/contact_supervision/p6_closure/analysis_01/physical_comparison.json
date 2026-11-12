@@ -1,0 +1,90 @@
+[
+  {
+    "candidate": "grasp_pads",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 1.2270017856669767e-08,
+    "max_support_relative_force_error": 8.619223807895201e-14,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.010480922077922283,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "original",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 1.2895527500520566e-08,
+    "max_support_relative_force_error": 2.1729135650155968e-15,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.01048092207792228,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "p6_component_proposal",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 5.03502164976052e-09,
+    "max_support_relative_force_error": 2.834583853175888e-11,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.010480922077924233,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "single_body",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 1.0782944350499913e-08,
+    "max_support_relative_force_error": 2.790383169740862e-13,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.010480922077922256,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "single_envelope",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 9.715350510669613e-09,
+    "max_support_relative_force_error": 6.344907609845542e-13,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.010480922077933663,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "smtrack_1p5kg",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 1.0481195793625474e-08,
+    "max_support_relative_force_error": 1.3357986140933382e-11,
+    "external_lift_rise_m": 0.315416995777013,
+    "max_penetration_m": 0.011237001817648506,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "smtrack_2kg",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 5.8956726377180655e-09,
+    "max_support_relative_force_error": 2.1442854287965164e-11,
+    "external_lift_rise_m": 0.08362449545831019,
+    "max_penetration_m": 0.010480922077928556,
+    "max_solver_niter": 2,
+    "warnings": 0
+  },
+  {
+    "candidate": "union_shell",
+    "cases": 13,
+    "support_cases_stable": true,
+    "analytic_max_error": 5.3441706894789496e-09,
+    "max_support_relative_force_error": 2.835634094732312e-11,
+    "external_lift_rise_m": 0.08362449545831041,
+    "max_penetration_m": 0.010480922077924294,
+    "max_solver_niter": 2,
+    "warnings": 0
+  }
+]

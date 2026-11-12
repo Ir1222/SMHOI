@@ -1,0 +1,10 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_parameters.py", line 215, in <module>
+    (audit if a.mode=="audit" else physical)(a.output)
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_parameters.py", line 112, in audit
+    toaster.FULL_COLLISION_TOASTER.edit_spec(tspec)
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/upstream/mjlab_v1_4_spec_config.py", line 264, in edit_spec
+    from mjlab.utils.spec import disable_collision
+ImportError: cannot import name 'disable_collision' from 'mjlab.utils.spec' (/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/utils/spec.py)

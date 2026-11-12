@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "kind": "minimal_hoi_motion_reference",
+  "sha256": "f38071e5347403f9eff993dd37884bf374e0c003400156dc4cb87d3d2b856cb0",
+  "fields": {
+    "joint_pos": {
+      "shape": [
+        840,
+        29
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "8f6f86a674e1b7d3e7c276edfdb77f196bc380c4300f916e2072d4d40cca9bda"
+    },
+    "joint_vel": {
+      "shape": [
+        840,
+        29
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "2ccf9e14cd8dd2940c57cde53897be4dee609187e393eebbec6710d97db64282"
+    },
+    "body_pos_w": {
+      "shape": [
+        840,
+        30,
+        3
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "0bef9a67b53ef49e0b2b56790837f3a14e1120b591900128745296da3bd848cc"
+    },
+    "body_quat_w": {
+      "shape": [
+        840,
+        30,
+        4
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "31de2bdd5298496737a3392562e8a2cad6c98bbdddda948c88d81d95609dc12f"
+    },
+    "body_lin_vel_w": {
+      "shape": [
+        840,
+        30,
+        3
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "a2baa516eab650dbe959f2d3412420b12ca60f7eb2866f70068c13ca652a71f9"
+    },
+    "body_ang_vel_w": {
+      "shape": [
+        840,
+        30,
+        3
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "0def70e0fa371730db1950d15aed07059ad407c00c9c4e7dfd59580ced7fa5e3"
+    },
+    "joint_names": {
+      "shape": [
+        29
+      ],
+      "dtype": "<U26",
+      "bytes_sha256": "b94ff3111102b915e09d6f008f730bda00a706406169720a3a3be36469a51c63"
+    },
+    "body_names": {
+      "shape": [
+        30
+      ],
+      "dtype": "<U25",
+      "bytes_sha256": "a5bcfb5cbae11cc8d4854b8759fbce89618b190392ac9b15e1502a56dba6256f"
+    },
+    "fps": {
+      "shape": [
+        1
+      ],
+      "dtype": "<i8",
+      "bytes_sha256": "0cbbab9d99fb661a1686f17ccaaf8a9d069aa8cb755925045a1d049c060b9e67"
+    },
+    "object_pos_w": {
+      "shape": [
+        840,
+        3
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "d8d55ff91b4084c63cdd0f2966761f725d90f3b4483c5fa2f6e4e8eaba18ba0d"
+    },
+    "object_quat_w": {
+      "shape": [
+        840,
+        4
+      ],
+      "dtype": "<f4",
+      "bytes_sha256": "98ce55483117fe9b64c9f7bcd0401649c6b5b87756028bcaaced01fdf4b5a2aa"
+    },
+    "object_contact": {
+      "shape": [
+        840
+      ],
+      "dtype": "|b1",
+      "bytes_sha256": "913a05de013fe892d2dba0307461cab961a44717fc15c2c2d7c024618ad2fc20"
+    }
+  },
+  "training_ready": false,
+  "status": "P6_CLOSURE_CANDIDATE_NOT_PRODUCTION",
+  "source_reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "source_qpos": "outputs/hoi/contact_supervision/p6_closure/ik_single_02/qpos.json",
+  "source_qpos_sha256": "554943ca39c392cf777a18370a2871f7edbabbe5fbe78dd2221deadf992e2635",
+  "candidate_object": "single_body",
+  "changed_joints": [
+    "left_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_shoulder_yaw_joint",
+    "left_elbow_joint",
+    "left_wrist_roll_joint",
+    "left_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+    "right_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_shoulder_yaw_joint",
+    "right_elbow_joint",
+    "right_wrist_roll_joint",
+    "right_wrist_pitch_joint",
+    "right_wrist_yaw_joint"
+  ],
+  "changed_body_arrays": [
+    "left_shoulder_pitch_link",
+    "left_shoulder_roll_link",
+    "left_shoulder_yaw_link",
+    "left_elbow_link",
+    "left_wrist_roll_link",
+    "left_wrist_pitch_link",
+    "left_wrist_yaw_link",
+    "right_shoulder_pitch_link",
+    "right_shoulder_roll_link",
+    "right_shoulder_yaw_link",
+    "right_elbow_link",
+    "right_wrist_roll_link",
+    "right_wrist_pitch_link",
+    "right_wrist_yaw_link"
+  ],
+  "velocity_method": "centred finite differences; world angular velocity from SO(3) interval log and centred average",
+  "unchanged": "all root/leg/waist arrays; object pose; original global bool intent; frame count/fps/names",
+  "semantics": "candidate native-contact motion, not original HDMI or learned performance"
+}

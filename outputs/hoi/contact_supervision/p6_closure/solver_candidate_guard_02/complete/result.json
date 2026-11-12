@@ -1,0 +1,17 @@
+{
+  "candidate": "single_body",
+  "mode": "complete",
+  "status": "PASS",
+  "samples": 600,
+  "first_flag_sample": null,
+  "max_niter": 8,
+  "max_nefc": 135,
+  "cpu_warning_counts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "max_CPU_GPU_qpos_difference": 0.004296620370269199,
+  "raw_sensor_max_error_N": 0.0
+}

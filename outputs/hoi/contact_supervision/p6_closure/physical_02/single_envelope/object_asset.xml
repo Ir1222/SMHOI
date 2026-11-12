@@ -1,0 +1,11 @@
+<mujoco model="MuJoCo Model">
+  <compiler angle="radian"/>
+
+  <worldbody>
+    <body name="bread_box">
+      <inertial pos="0 0 0.125" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.01755 0.0294667 0.0362167"/>
+      <joint name="bread_box_root" type="free"/>
+      <geom name="solid" size="0.09 0.19 0.135" pos="0 0 0.125" type="box" priority="1"/>
+    </body>
+  </worldbody>
+</mujoco>

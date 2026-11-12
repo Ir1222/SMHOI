@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "name": "single_envelope",
+  "production_selected": false,
+  "simulation_approximation": true,
+  "description": "solid full envelope, handle extents filled",
+  "root": "original HDMI bottom-plate centre; immutable original object pose trajectory",
+  "geoms": [
+    {
+      "name": "solid",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0,
+        0,
+        0.125
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.19,
+        0.135
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "inertia": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      0.125
+    ],
+    "diagonal_kg_m2": [
+      0.017550000000000003,
+      0.02946666666666667,
+      0.036216666666666675
+    ],
+    "principal_axes_wxyz": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "mass_calculation": {
+    "tensor_root_axes_at_COM_kg_m2": [
+      [
+        0.036216666666666675,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.017550000000000003,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.02946666666666667
+      ]
+    ],
+    "union_volume_m3": 0.018468000000000002,
+    "component_volume_sum_m3": 0.018468000000000002,
+    "overlap_volume_m3": 0.0,
+    "integration_cells": 1,
+    "positive_definite": true,
+    "triangle_margin_kg_m2": 0.010800000000000004,
+    "density_kg_m3": 108.29542993285682,
+    "mass_assumption": "homogeneous density on union of stated solids"
+  },
+  "aabb_min_root_m": [
+    -0.09,
+    -0.19,
+    -0.010000000000000009
+  ],
+  "aabb_max_root_m": [
+    0.09,
+    0.19,
+    0.26
+  ],
+  "oriented_dimensions_m": [
+    0.18,
+    0.38,
+    0.27
+  ],
+  "source_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
+}

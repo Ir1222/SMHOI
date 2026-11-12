@@ -1,0 +1,320 @@
+[
+  {
+    "group": "baseline",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [1024, 1024, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 195, in experiment\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [1024, 1024, 0, 0]\n",
+      "samples": 164,
+      "first_flag_sample": null,
+      "max_niter": 6,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.836145031936965e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "baseline",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.905554152499157e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "baseline",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "friction_only",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 1024, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 1024, 0, 0]\n",
+      "samples": 140,
+      "first_flag_sample": 139,
+      "max_niter": 6,
+      "max_nefc": 128,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 1.604728953608081e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "friction_only",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 3.6807590768350718e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "friction_only",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "condim4_only",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 0, 1024]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 0, 1024]\n",
+      "samples": 11,
+      "first_flag_sample": 10,
+      "max_niter": 1,
+      "max_nefc": 24,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.5794982905225083e-07,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "condim4_only",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 143,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.448714840896926e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "condim4_only",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "torsion_after_condim4",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 0, 1024]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 0, 1024]\n",
+      "samples": 11,
+      "first_flag_sample": 10,
+      "max_niter": 1,
+      "max_nefc": 24,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.5794982905225083e-07,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "torsion_after_condim4",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 143,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 3.364873596201079e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "torsion_after_condim4",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solimp_only",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 1024, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 1024, 0]\n",
+      "samples": 167,
+      "first_flag_sample": 166,
+      "max_niter": 6,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 4.905285385381486e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solimp_only",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 2.7529045753607595e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solimp_only",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solref_only",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [1024, 0, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [1024, 0, 0, 0]\n",
+      "samples": 140,
+      "first_flag_sample": 139,
+      "max_niter": 6,
+      "max_nefc": 128,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 1.3663103751726524e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solref_only",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 3.0149589663741594e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "solref_only",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  }
+]

@@ -1,0 +1,166 @@
+[
+  {
+    "group": "margin_only",
+    "guard": false,
+    "floor": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 58, in main\n    diagnosis.experiment(\"single_body\",\"complete\",run,1.0)\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 69, in experiment\n    env, manifest = gpu_env(name, change=change)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 43, in factory\n    env,manifest=gpu_env(name,num_envs,config_edit(group,change))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "margin_only",
+    "guard": true,
+    "floor": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 58, in main\n    diagnosis.experiment(\"single_body\",\"complete\",run,1.0)\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 69, in experiment\n    env, manifest = gpu_env(name, change=change)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 43, in factory\n    env,manifest=gpu_env(name,num_envs,config_edit(group,change))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "margin_only",
+    "native_hold": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 67, in main\n    env,_=gpu_env(\"single_body\",change=config_edit(group))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "gap_only",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 1024, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 194, in experiment\n    env.step(action)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 443, in step\n    self.metrics_manager.compute_substep()\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 178, in observe\n    metrics()\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 167, in compute_substep\n    value = self._compute_term(idx)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/managers/metrics_manager.py\", line 219, in _compute_term\n    value = term_cfg.func(self._env, **term_cfg.params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 84, in capacity_metric\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 1024, 0]\n",
+      "samples": 167,
+      "first_flag_sample": 166,
+      "max_niter": 6,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 3.2219637540187307e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "gap_only",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 135,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 3.5514007692416527e-06,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "gap_only",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "gap_after_margin",
+    "guard": false,
+    "floor": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 58, in main\n    diagnosis.experiment(\"single_body\",\"complete\",run,1.0)\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 69, in experiment\n    env, manifest = gpu_env(name, change=change)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 43, in factory\n    env,manifest=gpu_env(name,num_envs,config_edit(group,change))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "gap_after_margin",
+    "guard": true,
+    "floor": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 58, in main\n    diagnosis.experiment(\"single_body\",\"complete\",run,1.0)\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 69, in experiment\n    env, manifest = gpu_env(name, change=change)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 43, in factory\n    env,manifest=gpu_env(name,num_envs,config_edit(group,change))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "gap_after_margin",
+    "native_hold": {
+      "status": "NOT TESTED",
+      "stage": "GPU model conversion",
+      "error": "NotImplementedError('geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/contact_gpu.py\", line 67, in main\n    env,_=gpu_env(\"single_body\",change=config_edit(group))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py\", line 65, in gpu_env\n    env = ManagerBasedRlEnv(cfg, device=\"cuda:0\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/envs/manager_based_rl_env.py\", line 199, in __init__\n    self.sim = Simulation(\n               ^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 261, in __init__\n    self._init_with_model(compiled)\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mjlab/sim/sim.py\", line 275, in _init_with_model\n    self._wp_model = mjwarp.put_model(self._mj_model)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 903, in put_model\n    _check_margin(f\"geom pair ({geom_name(g1)}, {geom_name(g2)})\", t1, t2, (m1, m2))\n  File \"/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/mujoco_warp/_src/io.py\", line 888, in _check_margin\n    raise NotImplementedError(\nNotImplementedError: geom pair (box/solid, support0) has non-zero margin ((0.002, 0.0)) with MULTICCD enabled. Set margin to 0 or disable MULTICCD.\n"
+    }
+  },
+  {
+    "group": "combined_followup",
+    "guard": false,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "FAIL",
+      "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 1024, 0, 0]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 195, in experiment\n    assert_contact_capacity(env)\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 1024, 0, 0]\n",
+      "samples": 164,
+      "first_flag_sample": null,
+      "max_niter": 9,
+      "max_nefc": 143,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 0.0002464227363907501,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "combined_followup",
+    "guard": true,
+    "floor": {
+      "candidate": "single_body",
+      "mode": "complete",
+      "status": "PASS",
+      "samples": 200,
+      "first_flag_sample": null,
+      "max_niter": 8,
+      "max_nefc": 143,
+      "cpu_warning_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_CPU_GPU_qpos_difference": 0.000246422736529861,
+      "raw_sensor_max_error_N": 0.0
+    }
+  },
+  {
+    "group": "combined_followup",
+    "native_hold": {
+      "status": "PASS",
+      "completed_intervals": 25,
+      "solved_vector_substeps": 100,
+      "raw_sensor_max_error_N": 0.0
+    }
+  }
+]

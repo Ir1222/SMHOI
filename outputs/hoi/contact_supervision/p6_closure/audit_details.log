@@ -1,0 +1,270 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "object_root_min_world_m": [
+    -1.4675209522247314,
+    -0.3486819565296173,
+    0.659429132938385
+  ],
+  "object_root_max_world_m": [
+    1.3881638050079346,
+    0.22901375591754913,
+    0.9273547530174255
+  ],
+  "first_root_pose": [
+    -1.4667341709136963,
+    -0.15975421667099,
+    0.7005499005317688,
+    0.029028186574578285,
+    0.0,
+    0.0,
+    0.999578595161438
+  ],
+  "last_root_pose": [
+    1.381318211555481,
+    -0.28439486026763916,
+    0.6651228070259094,
+    0.9995434880256653,
+    0.0,
+    0.0,
+    -0.03021208941936493
+  ],
+  "max_root_speed_m_s": 1.3630637385822617,
+  "max_object_angular_speed_rad_s": 2.3537722213501753,
+  "limb_clearance": {
+    "original": {
+      "all": {
+        "thigh": 0.24117088534260495,
+        "knee_and_shin": 0.37035007772535966,
+        "feet": 0.6305603423139896,
+        "torso_pelvis": 0.1852869243006031,
+        "nonhand_arms": 0.019761197789352467
+      },
+      "pre_contact": {
+        "thigh": 0.2859585664978603,
+        "knee_and_shin": 0.37035007772535966,
+        "feet": 0.6305603423139896,
+        "torso_pelvis": 0.21509196505210978,
+        "nonhand_arms": 0.02335982671938512
+      },
+      "ON": {
+        "thigh": 0.24117088534260495,
+        "knee_and_shin": 0.3752772003820005,
+        "feet": 0.68673328969627,
+        "torso_pelvis": 0.1852869243006031,
+        "nonhand_arms": 0.019761197789352467
+      },
+      "post_contact": {
+        "thigh": 0.31333098620478705,
+        "knee_and_shin": 0.3991553769614878,
+        "feet": 0.6429701463517248,
+        "torso_pelvis": 0.24684232983133356,
+        "nonhand_arms": 0.030625150661008307
+      },
+      "geom_groups": {
+        "thigh": [
+          "robot/left_thigh_collision",
+          "robot/right_thigh_collision"
+        ],
+        "knee_and_shin": [
+          "robot/left_shin_collision",
+          "robot/left_linkage_brace_collision",
+          "robot/right_shin_collision",
+          "robot/right_linkage_brace_collision"
+        ],
+        "feet": [
+          "robot/left_foot1_collision",
+          "robot/left_foot2_collision",
+          "robot/left_foot3_collision",
+          "robot/left_foot4_collision",
+          "robot/left_foot5_collision",
+          "robot/left_foot6_collision",
+          "robot/left_foot7_collision",
+          "robot/right_foot1_collision",
+          "robot/right_foot2_collision",
+          "robot/right_foot3_collision",
+          "robot/right_foot4_collision",
+          "robot/right_foot5_collision",
+          "robot/right_foot6_collision",
+          "robot/right_foot7_collision"
+        ],
+        "torso_pelvis": [
+          "robot/pelvis_collision",
+          "robot/torso_collision"
+        ],
+        "nonhand_arms": [
+          "robot/left_shoulder_yaw_collision",
+          "robot/left_elbow_yaw_collision",
+          "robot/right_shoulder_yaw_collision",
+          "robot/right_elbow_yaw_collision"
+        ]
+      },
+      "first_last_support_gaps_m": [
+        [
+          0.010000021457672092,
+          2.660873575993724
+        ],
+        [
+          2.66014441358288,
+          0.010000021457672092
+        ]
+      ]
+    },
+    "single_body": {
+      "all": {
+        "thigh": 0.24117088534260495,
+        "knee_and_shin": 0.3703500777253598,
+        "feet": 0.6305603423139896,
+        "torso_pelvis": 0.1852869243006031,
+        "nonhand_arms": 0.019761197789352467
+      },
+      "pre_contact": {
+        "thigh": 0.28595856649786033,
+        "knee_and_shin": 0.3703500777253598,
+        "feet": 0.6305603423139896,
+        "torso_pelvis": 0.21509196505211,
+        "nonhand_arms": 0.023359826719385184
+      },
+      "ON": {
+        "thigh": 0.24117088534260495,
+        "knee_and_shin": 0.3752772003820004,
+        "feet": 0.68673328969627,
+        "torso_pelvis": 0.1852869243006031,
+        "nonhand_arms": 0.019761197789352467
+      },
+      "post_contact": {
+        "thigh": 0.31333098620478705,
+        "knee_and_shin": 0.39915537696148773,
+        "feet": 0.6429701463517248,
+        "torso_pelvis": 0.24684232983133356,
+        "nonhand_arms": 0.030625150661008377
+      },
+      "geom_groups": {
+        "thigh": [
+          "robot/left_thigh_collision",
+          "robot/right_thigh_collision"
+        ],
+        "knee_and_shin": [
+          "robot/left_shin_collision",
+          "robot/left_linkage_brace_collision",
+          "robot/right_shin_collision",
+          "robot/right_linkage_brace_collision"
+        ],
+        "feet": [
+          "robot/left_foot1_collision",
+          "robot/left_foot2_collision",
+          "robot/left_foot3_collision",
+          "robot/left_foot4_collision",
+          "robot/left_foot5_collision",
+          "robot/left_foot6_collision",
+          "robot/left_foot7_collision",
+          "robot/right_foot1_collision",
+          "robot/right_foot2_collision",
+          "robot/right_foot3_collision",
+          "robot/right_foot4_collision",
+          "robot/right_foot5_collision",
+          "robot/right_foot6_collision",
+          "robot/right_foot7_collision"
+        ],
+        "torso_pelvis": [
+          "robot/pelvis_collision",
+          "robot/torso_collision"
+        ],
+        "nonhand_arms": [
+          "robot/left_shoulder_yaw_collision",
+          "robot/left_elbow_yaw_collision",
+          "robot/right_shoulder_yaw_collision",
+          "robot/right_elbow_yaw_collision"
+        ]
+      },
+      "first_last_support_gaps_m": [
+        [
+          0.010000021457672092,
+          2.660873575993724
+        ],
+        [
+          2.6601444135828807,
+          0.010000021457672092
+        ]
+      ]
+    },
+    "smtrack_2kg": {
+      "all": {
+        "thigh": 0.21834397966513003,
+        "knee_and_shin": 0.34439977832296037,
+        "feet": 0.6025853678587788,
+        "torso_pelvis": 0.12528692430060306,
+        "nonhand_arms": -0.023378367755384023
+      },
+      "pre_contact": {
+        "thigh": 0.2355536727542571,
+        "knee_and_shin": 0.34439977832296037,
+        "feet": 0.6025853678587788,
+        "torso_pelvis": 0.15509196505211004,
+        "nonhand_arms": -0.01320786897888115
+      },
+      "ON": {
+        "thigh": 0.21834397966513003,
+        "knee_and_shin": 0.3566893330121352,
+        "feet": 0.6666342920836272,
+        "torso_pelvis": 0.12528692430060306,
+        "nonhand_arms": -0.023378367755384023
+      },
+      "post_contact": {
+        "thigh": 0.2593535675734275,
+        "knee_and_shin": 0.36161150069379383,
+        "feet": 0.6140729730502389,
+        "torso_pelvis": 0.18684232983133361,
+        "nonhand_arms": -0.02225355033381678
+      },
+      "geom_groups": {
+        "thigh": [
+          "robot/left_thigh_collision",
+          "robot/right_thigh_collision"
+        ],
+        "knee_and_shin": [
+          "robot/left_shin_collision",
+          "robot/left_linkage_brace_collision",
+          "robot/right_shin_collision",
+          "robot/right_linkage_brace_collision"
+        ],
+        "feet": [
+          "robot/left_foot1_collision",
+          "robot/left_foot2_collision",
+          "robot/left_foot3_collision",
+          "robot/left_foot4_collision",
+          "robot/left_foot5_collision",
+          "robot/left_foot6_collision",
+          "robot/left_foot7_collision",
+          "robot/right_foot1_collision",
+          "robot/right_foot2_collision",
+          "robot/right_foot3_collision",
+          "robot/right_foot4_collision",
+          "robot/right_foot5_collision",
+          "robot/right_foot6_collision",
+          "robot/right_foot7_collision"
+        ],
+        "torso_pelvis": [
+          "robot/pelvis_collision",
+          "robot/torso_collision"
+        ],
+        "nonhand_arms": [
+          "robot/left_shoulder_yaw_collision",
+          "robot/left_elbow_yaw_collision",
+          "robot/right_shoulder_yaw_collision",
+          "robot/right_elbow_yaw_collision"
+        ]
+      },
+      "first_last_support_gaps_m": [
+        [
+          0.010000021457672092,
+          2.6008825222015983
+        ],
+        [
+          2.6001444135828806,
+          0.010000021457672092
+        ]
+      ]
+    }
+  }
+}

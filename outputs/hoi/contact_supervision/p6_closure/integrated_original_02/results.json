@@ -1,0 +1,38 @@
+{
+  "reference_f0": {
+    "status": "PASS",
+    "completed_intervals": 100,
+    "solved_vector_substeps": 400,
+    "raw_sensor_max_error_N": 0.0
+  },
+  "reference_f250": {
+    "status": "PASS",
+    "completed_intervals": 125,
+    "solved_vector_substeps": 500,
+    "raw_sensor_max_error_N": 1.9073486328125e-06
+  },
+  "reference_f350": {
+    "status": "PASS",
+    "completed_intervals": 125,
+    "solved_vector_substeps": 500,
+    "raw_sensor_max_error_N": 0.0
+  },
+  "reference_f475": {
+    "status": "PASS",
+    "completed_intervals": 125,
+    "solved_vector_substeps": 500,
+    "raw_sensor_max_error_N": 7.62939453125e-06
+  },
+  "reference_f550": {
+    "status": "PASS",
+    "completed_intervals": 100,
+    "solved_vector_substeps": 400,
+    "raw_sensor_max_error_N": 7.62939453125e-06
+  },
+  "reference_f740": {
+    "status": "PASS",
+    "completed_intervals": 99,
+    "solved_vector_substeps": 396,
+    "raw_sensor_max_error_N": 0.0
+  }
+}

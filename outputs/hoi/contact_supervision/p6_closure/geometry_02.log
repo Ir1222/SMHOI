@@ -1,0 +1,22 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+grasp_pads bilateral 0 nonhand 0.029803402453580374
+original bilateral 0 nonhand 0.019761197789352467
+p6_component_proposal bilateral 0 nonhand 0.019761197789352467
+sensitivity_a0_0.070 bilateral 0 nonhand 0.03797823304996367
+sensitivity_a0_0.080 bilateral 1 nonhand 0.029067697796709813
+sensitivity_a0_0.100 bilateral 0 nonhand 0.010748307790328433
+sensitivity_a0_0.110 bilateral 1 nonhand 0.002011517410124057
+sensitivity_a1_0.150 bilateral 2 nonhand 0.029803402453580374
+sensitivity_a1_0.160 bilateral 9 nonhand 0.024323764026401386
+sensitivity_a1_0.180 bilateral 0 nonhand 0.01561785912101795
+sensitivity_a1_0.190 bilateral 0 nonhand 0.011944117679420635
+sensitivity_a2_0.115 bilateral 0 nonhand 0.019761197789352467
+sensitivity_a2_0.125 bilateral 0 nonhand 0.019761197789352467
+sensitivity_a2_0.145 bilateral 0 nonhand 0.019761197789352467
+sensitivity_a2_0.155 bilateral 0 nonhand 0.019761197789352467
+single_body bilateral 0 nonhand 0.019761197789352467
+single_envelope bilateral 0 nonhand 0.011944117679420635
+smtrack_1p5kg bilateral 4 nonhand -0.023378367755384023
+smtrack_2kg bilateral 4 nonhand -0.023378367755384023
+union_shell bilateral 0 nonhand 0.019761197789352467

@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "name": "sensitivity_a2_0.125",
+  "geoms": [
+    {
+      "name": "solid",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0,
+        0,
+        0.115
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.17,
+        0.125
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "inertia": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      0.11499999999999999
+    ],
+    "diagonal_kg_m2": [
+      0.015816666666666666,
+      0.02466666666666667,
+      0.02968333333333334
+    ],
+    "principal_axes_wxyz": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "mass_calculation": {
+    "tensor_root_axes_at_COM_kg_m2": [
+      [
+        0.02968333333333334,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.015816666666666666,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.02466666666666667
+      ]
+    ],
+    "union_volume_m3": 0.015300000000000001,
+    "component_volume_sum_m3": 0.015300000000000001,
+    "overlap_volume_m3": 0.0,
+    "integration_cells": 1,
+    "positive_definite": true,
+    "triangle_margin_kg_m2": 0.010800000000000004,
+    "density_kg_m3": 130.718954248366,
+    "mass_assumption": "homogeneous density on union of stated solids"
+  },
+  "production_selected": false,
+  "geometry_sensitivity_only": true
+}

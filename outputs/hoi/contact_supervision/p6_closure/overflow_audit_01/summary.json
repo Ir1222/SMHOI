@@ -1,0 +1,312 @@
+[
+  {
+    "mode": "complete",
+    "historical_sample": 139,
+    "historical_overflow": [
+      0,
+      0,
+      1024,
+      0
+    ],
+    "actual_overflow": [
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 1024,
+        "active": [
+          "LS_ITERATIONS"
+        ],
+        "LS_ITERATIONS_bit_set": true,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      }
+    ],
+    "nefc": [
+      128,
+      128,
+      128,
+      128
+    ],
+    "solver_niter": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "solver": 2,
+    "iterations": 10,
+    "ls_iterations": 20,
+    "ls_tolerance": [
+      0.009999999776482582
+    ],
+    "tolerance": [
+      9.999999974752427e-07
+    ],
+    "cone": 0,
+    "worlds": [
+      {
+        "world": 0,
+        "contact_count": 32,
+        "dim_counts": {
+          "3": 32
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.033729538321495056
+      },
+      {
+        "world": 1,
+        "contact_count": 32,
+        "dim_counts": {
+          "3": 32
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.033729396760463715
+      },
+      {
+        "world": 2,
+        "contact_count": 32,
+        "dim_counts": {
+          "3": 32
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.033729538321495056
+      },
+      {
+        "world": 3,
+        "contact_count": 32,
+        "dim_counts": {
+          "3": 32
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.03372958302497864
+      }
+    ]
+  },
+  {
+    "mode": "robot_floor",
+    "historical_sample": 166,
+    "historical_overflow": [
+      1024,
+      0,
+      0,
+      0
+    ],
+    "actual_overflow": [
+      {
+        "value": 1024,
+        "active": [
+          "LS_ITERATIONS"
+        ],
+        "LS_ITERATIONS_bit_set": true,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      }
+    ],
+    "nefc": [
+      116,
+      116,
+      116,
+      116
+    ],
+    "solver_niter": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "solver": 2,
+    "iterations": 10,
+    "ls_iterations": 20,
+    "ls_tolerance": [
+      0.009999999776482582
+    ],
+    "tolerance": [
+      9.999999974752427e-07
+    ],
+    "cone": 0,
+    "worlds": [
+      {
+        "world": 0,
+        "contact_count": 30,
+        "dim_counts": {
+          "1": 2,
+          "3": 28
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.007893744856119156
+      },
+      {
+        "world": 1,
+        "contact_count": 30,
+        "dim_counts": {
+          "1": 2,
+          "3": 28
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.007893739268183708
+      },
+      {
+        "world": 2,
+        "contact_count": 30,
+        "dim_counts": {
+          "1": 2,
+          "3": 28
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.007893772795796394
+      },
+      {
+        "world": 3,
+        "contact_count": 30,
+        "dim_counts": {
+          "1": 2,
+          "3": 28
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.007893740199506283
+      }
+    ]
+  },
+  {
+    "mode": "reference0",
+    "historical_sample": 157,
+    "historical_overflow": [
+      0,
+      0,
+      1024,
+      0
+    ],
+    "actual_overflow": [
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      },
+      {
+        "value": 1024,
+        "active": [
+          "LS_ITERATIONS"
+        ],
+        "LS_ITERATIONS_bit_set": true,
+        "unknown_bits": 0
+      },
+      {
+        "value": 0,
+        "active": [],
+        "LS_ITERATIONS_bit_set": false,
+        "unknown_bits": 0
+      }
+    ],
+    "nefc": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "solver_niter": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "solver": 2,
+    "iterations": 10,
+    "ls_iterations": 20,
+    "ls_tolerance": [
+      0.009999999776482582
+    ],
+    "tolerance": [
+      9.999999974752427e-07
+    ],
+    "cone": 0,
+    "worlds": [
+      {
+        "world": 0,
+        "contact_count": 16,
+        "dim_counts": {
+          "3": 16
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.002986022736877203
+      },
+      {
+        "world": 1,
+        "contact_count": 16,
+        "dim_counts": {
+          "3": 16
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.002985998522490263
+      },
+      {
+        "world": 2,
+        "contact_count": 16,
+        "dim_counts": {
+          "3": 16
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.0029860283248126507
+      },
+      {
+        "world": 3,
+        "contact_count": 16,
+        "dim_counts": {
+          "3": 16
+        },
+        "torsional_contact_count": 0,
+        "rolling_contact_count": 0,
+        "min_distance": -0.0029860646463930607
+      }
+    ]
+  }
+]

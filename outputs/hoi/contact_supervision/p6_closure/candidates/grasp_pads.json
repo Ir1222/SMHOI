@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "name": "grasp_pads",
+  "production_selected": false,
+  "simulation_approximation": true,
+  "description": "disjoint side pads at original targets; friction unchanged; simulation approximation",
+  "root": "original HDMI bottom-plate centre; immutable original object pose trajectory",
+  "geoms": [
+    {
+      "name": "core",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0,
+        0,
+        0.125
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.09,
+        0.15,
+        0.135
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "left_grasp",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0,
+        0.16,
+        0.14
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.06,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    },
+    {
+      "name": "right_grasp",
+      "body": "bread_box",
+      "type": "box",
+      "pos": [
+        0,
+        -0.16,
+        0.14
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        0.06,
+        0.01,
+        0.05
+      ],
+      "friction": [
+        1.0,
+        0.005,
+        0.0001
+      ],
+      "solref": [
+        0.02,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "contype": 1,
+      "conaffinity": 1,
+      "condim": 3,
+      "priority": 1,
+      "group": 0,
+      "margin": 0.0,
+      "gap": 0.0,
+      "solmix": 1.0,
+      "mesh": null
+    }
+  ],
+  "inertia": {
+    "mass_kg": 2.0,
+    "com_pos_root_m": [
+      0.0,
+      0.0,
+      0.12547808764940238
+    ],
+    "diagonal_kg_m2": [
+      0.017134137817918234,
+      0.021460292164674634,
+      0.02798566504235382
+    ],
+    "principal_axes_wxyz": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "mass_calculation": {
+    "tensor_root_axes_at_COM_kg_m2": [
+      [
+        0.02798566504235382,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.017134137817918234,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.021460292164674634
+      ]
+    ],
+    "union_volume_m3": 0.01506,
+    "component_volume_sum_m3": 0.015060000000000002,
+    "overlap_volume_m3": 1.734723475976807e-18,
+    "integration_cells": 11,
+    "positive_definite": true,
+    "triangle_margin_kg_m2": 0.010608764940239046,
+    "density_kg_m3": 132.80212483399734,
+    "mass_assumption": "homogeneous density on union of stated solids"
+  },
+  "aabb_min_root_m": [
+    -0.09,
+    -0.17,
+    -0.010000000000000009
+  ],
+  "aabb_max_root_m": [
+    0.09,
+    0.17,
+    0.26
+  ],
+  "oriented_dimensions_m": [
+    0.18,
+    0.34,
+    0.27
+  ],
+  "source_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
+}

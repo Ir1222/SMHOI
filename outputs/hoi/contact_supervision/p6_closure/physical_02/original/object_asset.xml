@@ -1,0 +1,17 @@
+<mujoco model="MuJoCo Model">
+  <compiler angle="radian"/>
+
+  <worldbody>
+    <body name="bread_box">
+      <inertial pos="0 0 -0.2" mass="2" diaginertia="0.0334 0.02167 0.04167"/>
+      <joint name="bread_box_root" type="free"/>
+      <geom name="bottom" size="0.09 0.17 0.01" type="box" priority="1"/>
+      <geom name="side1" size="0.01 0.17 0.13" pos="-0.08 0 0.13" type="box" priority="1"/>
+      <geom name="side2" size="0.01 0.17 0.13" pos="0.08 0 0.13" type="box" priority="1"/>
+      <geom name="side3" size="0.09 0.01 0.13" pos="0 0.16 0.13" type="box" priority="1"/>
+      <geom name="side4" size="0.09 0.01 0.13" pos="0 -0.16 0.13" type="box" priority="1"/>
+      <geom name="handle_left" size="0.03 0.02 0.01" pos="0 0.17 0.21" type="box" priority="1"/>
+      <geom name="handle_right" size="0.03 0.02 0.01" pos="0 -0.17 0.21" type="box" priority="1"/>
+    </body>
+  </worldbody>
+</mujoco>

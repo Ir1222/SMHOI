@@ -1,0 +1,13 @@
+<mujoco model="MuJoCo Model">
+  <compiler angle="radian"/>
+
+  <worldbody>
+    <body name="bread_box">
+      <inertial pos="0 0 0.125478" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0171341 0.0214603 0.0279857"/>
+      <joint name="bread_box_root" type="free"/>
+      <geom name="core" size="0.09 0.15 0.135" pos="0 0 0.125" type="box" priority="1"/>
+      <geom name="left_grasp" size="0.06 0.01 0.05" pos="0 0.16 0.14" type="box" priority="1"/>
+      <geom name="right_grasp" size="0.06 0.01 0.05" pos="0 -0.16 0.14" type="box" priority="1"/>
+    </body>
+  </worldbody>
+</mujoco>

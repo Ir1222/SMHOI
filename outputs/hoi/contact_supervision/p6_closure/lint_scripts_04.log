@@ -1,0 +1,55 @@
+RUF022 [*] `__all__` is not sorted
+  --> outputs/hoi/contact_supervision/p6_closure/scripts/closure_common.py:21:11
+   |
+19 |   from supermimic.hoi import scene
+20 |
+21 |   __all__ = [
+   |  ___________^
+22 | |     "E",
+23 | |     "P6",
+24 | |     "ROOT",
+25 | |     "inputs",
+26 | |     "rot",
+27 | |     "save",
+28 | |     "cpu_contacts",
+29 | |     "candidate",
+30 | |     "manifest_for",
+31 | |     "cpu_model",
+32 | |     "gpu_env",
+33 | |     "indices",
+34 | |     "reference_qpos",
+35 | |     "active_pairs",
+36 | |     "dump_gz",
+37 | | ]
+   | |_^
+help: Apply an isort-style sorting to `__all__`
+   |
+21 | __all__ = [
+   -     "E",
+22 |     "P6",
+23 |     "ROOT",
+   -     "inputs",
+   -     "rot",
+   -     "save",
+24 +     "E",
+25 +     "active_pairs",
+26 +     "candidate",
+27 |     "cpu_contacts",
+   -     "candidate",
+   -     "manifest_for",
+28 |     "cpu_model",
+29 +     "dump_gz",
+30 |     "gpu_env",
+31 |     "indices",
+32 +     "inputs",
+33 +     "manifest_for",
+34 |     "reference_qpos",
+   -     "active_pairs",
+   -     "dump_gz",
+35 +     "rot",
+36 +     "save",
+37 | ]
+   |
+
+Found 1 error.
+[*] 1 fixable with `--fix`.

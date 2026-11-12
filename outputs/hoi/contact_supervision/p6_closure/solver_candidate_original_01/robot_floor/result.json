@@ -1,0 +1,19 @@
+{
+  "candidate": "single_body",
+  "mode": "robot_floor",
+  "status": "FAIL",
+  "error": "RuntimeError('MuJoCo Warp overflow flags: [0, 0, 1024, 0]')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/solver_diagnosis.py\", line 93, in experiment\n    env.step(action);assert_contact_capacity(env)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/han/pyx/SMHOI/src/supermimic/hoi/contact.py\", line 69, in assert_contact_capacity\n    raise RuntimeError(f\"MuJoCo Warp overflow flags: {overflow.cpu().tolist()}\")\nRuntimeError: MuJoCo Warp overflow flags: [0, 0, 1024, 0]\n",
+  "samples": 164,
+  "first_flag_sample": null,
+  "max_niter": 6,
+  "max_nefc": 119,
+  "cpu_warning_counts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "max_CPU_GPU_qpos_difference": 2.8112420061843224e-06,
+  "raw_sensor_max_error_N": 0.0
+}

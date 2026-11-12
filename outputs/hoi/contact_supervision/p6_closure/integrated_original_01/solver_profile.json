@@ -1,0 +1,5 @@
+{
+  "source_sha256": "1bb26d51451a065b9e183acacfbd5e59d85df1eb46f17951aa3d1727db6853ff",
+  "patch_sha256": "255f2250a4f330ec4f3ef14ca5c011f68db21aad82c7262f1a9d0309f46c7866",
+  "rule": "sign bracket + cost improvement + width<=8f32 ulps of unit ray anchor"
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "candidate": "original",
+    "mode": "complete",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 8,
+    "max_nefc": 135,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 0.0042966892881437764,
+    "raw_sensor_max_error_N": 0.0
+  },
+  {
+    "candidate": "original",
+    "mode": "robot_floor",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 8,
+    "max_nefc": 119,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 0.004296929569363893,
+    "raw_sensor_max_error_N": 0.0
+  },
+  {
+    "candidate": "original",
+    "mode": "ablate_floor",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 1,
+    "max_nefc": 16,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 4.2437744205869876e-05,
+    "raw_sensor_max_error_N": 0.0
+  },
+  {
+    "candidate": "original",
+    "mode": "box_support",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 1,
+    "max_nefc": 16,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 3.8146209780265394e-05,
+    "raw_sensor_max_error_N": 0.0
+  },
+  {
+    "candidate": "original",
+    "mode": "elevated",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 9,
+    "max_nefc": 215,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 1.7216296819973769,
+    "raw_sensor_max_error_N": 1.52587890625e-05
+  },
+  {
+    "candidate": "original",
+    "mode": "reference0",
+    "status": "PASS",
+    "samples": 600,
+    "first_flag_sample": null,
+    "max_niter": 8,
+    "max_nefc": 128,
+    "cpu_warning_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_CPU_GPU_qpos_difference": 0.007902879483555447,
+    "raw_sensor_max_error_N": 0.0
+  }
+]

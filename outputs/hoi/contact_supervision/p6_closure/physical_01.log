@@ -1,0 +1,10 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/physical_compare.py", line 44, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();main(a.output)
+                                                                                                    ^^^^^^^^^^^^^^
+  File "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/scripts/physical_compare.py", line 26, in main
+    model=model_for(manifest);mujoco.mj_saveLastXML(str(folder/'object_scene.xml'),model)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mujoco.FatalError: No XML model loaded
