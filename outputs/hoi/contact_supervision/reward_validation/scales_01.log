@@ -1,0 +1,73 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "robot_ON_mean": 0.099999903335749,
+  "candidates": [
+    {
+      "sigma_m": 0.025213929308409953,
+      "proximity_ON_mean": 0.24483194356835417,
+      "joint_gradient_ON_mean": 3.4541410180660486,
+      "illustrative_coefficients": [
+        {
+          "fraction_of_robot_ON_mean": 0.1,
+          "coefficient_including_dt": 0.04084430400636435,
+          "weighted_proximity_ON_mean": 0.0099999903335749
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.25,
+          "coefficient_including_dt": 0.10211076001591086,
+          "weighted_proximity_ON_mean": 0.02499997583393725
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.5,
+          "coefficient_including_dt": 0.20422152003182173,
+          "weighted_proximity_ON_mean": 0.0499999516678745
+        }
+      ]
+    },
+    {
+      "sigma_m": 0.042300322140179016,
+      "proximity_ON_mean": 0.40023489295185255,
+      "joint_gradient_ON_mean": 3.2290515215746836,
+      "illustrative_coefficients": [
+        {
+          "fraction_of_robot_ON_mean": 0.1,
+          "coefficient_including_dt": 0.024985303654616337,
+          "weighted_proximity_ON_mean": 0.0099999903335749
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.25,
+          "coefficient_including_dt": 0.06246325913654084,
+          "weighted_proximity_ON_mean": 0.02499997583393725
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.5,
+          "coefficient_including_dt": 0.12492651827308168,
+          "weighted_proximity_ON_mean": 0.0499999516678745
+        }
+      ]
+    },
+    {
+      "sigma_m": 0.06289371572160513,
+      "proximity_ON_mean": 0.5251240986127111,
+      "joint_gradient_ON_mean": 2.7912954339333402,
+      "illustrative_coefficients": [
+        {
+          "fraction_of_robot_ON_mean": 0.1,
+          "coefficient_including_dt": 0.019043099259761987,
+          "weighted_proximity_ON_mean": 0.0099999903335749
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.25,
+          "coefficient_including_dt": 0.047607748149404966,
+          "weighted_proximity_ON_mean": 0.02499997583393725
+        },
+        {
+          "fraction_of_robot_ON_mean": 0.5,
+          "coefficient_including_dt": 0.09521549629880993,
+          "weighted_proximity_ON_mean": 0.0499999516678745
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "baseline_head": "f191f6d139a56723bc46cd4fa4387465dd93e76a",
+  "baseline_file_count": 548,
+  "unchanged_file_count": 548,
+  "unexpected_changes": [],
+  "user_vscode_files": [
+    ".vscode/settings.json"
+  ],
+  "source_edits": "Only new P4 files; all pre-existing sources are byte-identical",
+  "reference_npz_and_assets_unchanged": true,
+  "historical_evidence_and_checkpoints_unchanged": true,
+  "unchanged_P0_dependency_source_hashes": 10
+}
