@@ -28,26 +28,14 @@ class SupportContext(nn.Module):
 
     def __init__(self, manifest_path=DEFAULT_ASSET):
         super().__init__()
-        # The accepted manifest contains the complete immutable support contract.
-        # Its historical V3 planning source was untracked and is absent in this
-        # checkout. Bind exact audited bytes; never relax physical scene loading.
+        # Bind exact physical bytes; the shared strict loader applies the explicit
+        # current-Master authority migration without changing physical sources.
         if (
             sha256(Path(manifest_path))
             != "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1"
         ):
             raise ValueError("Support context requires the exact accepted M6.5 manifest")
-        manifest = load_manifest(manifest_path, verify_sources=False)
-        for source in manifest["sources"]:
-            path = Path(source["path"])
-            if (
-                not path.exists()
-                and path.name == "SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md"
-                and source["sha256"]
-                == "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
-            ):
-                continue  # Historical planning text only; recorded in cleanup report.
-            if sha256(path) != source["sha256"]:
-                raise ValueError(f"Support provenance source changed: {path}")
+        manifest = load_manifest(manifest_path)
         supports = manifest["supports"]
         if len(supports) != 2:
             raise ValueError("This fixed-asset encoding requires exactly two supports")

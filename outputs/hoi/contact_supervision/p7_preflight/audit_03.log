@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 335, in <module>
+    main()
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 285, in main
+    audit_intervals(p)
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 173, in audit_intervals
+    data = {k: np.concatenate([np.asarray(row[k]) for row in rows]) for k in rows[0]}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-dimensional arrays cannot be concatenated

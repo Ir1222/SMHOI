@@ -216,12 +216,15 @@ def migrate_robot_critic(weights, source_cfg, source_policy_cfg, target, *, prov
 
 
 def policy_checkpoint(actor, critic, *, identity, provenance):
+    from supermimic.hoi.provenance import research_authority
+
     _validate(actor, critic)
     _identity(identity)
     _json(provenance)
     result = {
         "metadata": {
             "schema": CHECKPOINT_SCHEMA,
+            "research_authority": research_authority(),
             "actor": actor.metadata(),
             "critic": critic.metadata(),
             "identity": json.loads(_json(identity)),
@@ -240,6 +243,8 @@ def policy_checkpoint(actor, critic, *, identity, provenance):
 
 def load_policy_weights(actor, critic, checkpoint, *, expected_identity):
     """Validate both networks and immutable buffers before mutating either."""
+    from supermimic.hoi.provenance import research_authority
+
     _validate(actor, critic)
     _identity(expected_identity)
     if set(checkpoint) != {"metadata", "actor", "critic"}:
@@ -247,6 +252,7 @@ def load_policy_weights(actor, critic, checkpoint, *, expected_identity):
     metadata = checkpoint["metadata"]
     expected = {
         "schema": CHECKPOINT_SCHEMA,
+        "research_authority": research_authority(),
         "actor": actor.metadata(),
         "critic": critic.metadata(),
         "identity": expected_identity,

@@ -111,6 +111,8 @@ def test_strict_schema_scale_identity_dtype_keys_and_atomic_rejection():
     variants = []
     for mutate in (
         lambda m: m.update(schema="old-robot-policy"),
+        lambda m: m.pop("research_authority"),
+        lambda m: m.update(research_authority={"sha256": "wrong"}),
         lambda m: m["actor"]["features"].update(anchor_obs=True),
         lambda m: m["actor"]["features"].update(object_history="all in current heading"),
         lambda m: m["critic"]["features"]["multipliers"]["object_error"].__setitem__(14, 1.0),

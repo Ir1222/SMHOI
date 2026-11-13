@@ -1,0 +1,342 @@
+[
+  {
+    "path": "docs/hoi/force_contact/p7/P7_PREFLIGHT_CLOSURE_REPORT.md",
+    "sha256": "78055eb2d9b766d9c0e413de872d45ba457951d1833e3daec4eb798593e56f9e",
+    "bytes": 30015
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_01.log",
+    "sha256": "ea42e7d6dfdce549611dbe92a4d51236771f4d020b1c4241748827c1ca846937",
+    "bytes": 705
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02/archives.json",
+    "sha256": "8ddfd2ed4abd2f9f36775207de82ce9e0bb837ee6e5c1dd421b488b35f8e92e5",
+    "bytes": 88880
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02/checkpoints.json",
+    "sha256": "5713a87e3bed54df2bd9ad3bacfd3968009cb781c308ea09ca8c6695eb00c593",
+    "bytes": 1155929
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02/intervals.json",
+    "sha256": "2721b4462af2afd6c4610305569d77641449e709638a431442add99607a77eda",
+    "bytes": 443565
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02/profiles.json",
+    "sha256": "ae296cb69f49f3e997977b2c9ca6517d72b444c272dcfaccac74b4361abd69d4",
+    "bytes": 17546
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_02/summary.json",
+    "sha256": "03d40f2fdbba8b7d0d01c742e10abf137088e8dcef71c8091422ea51eab8ed76",
+    "bytes": 1001
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_03.log",
+    "sha256": "01c54a13d24b5989bcbd2d7fe8ac00f773d3f5b16a32d764e018ba154c653627",
+    "bytes": 543
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_04.log",
+    "sha256": "b204e56ff87bac34c3f1f3cf2bcabc684ce7ba0aac902339fcec244f7500054b",
+    "bytes": 625
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_05.log",
+    "sha256": "b005f3effbbeb69dec32bd7f6619924d22515f755c375a3d7d44b8465d8b25c6",
+    "bytes": 853
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/archives.json",
+    "sha256": "8ddfd2ed4abd2f9f36775207de82ce9e0bb837ee6e5c1dd421b488b35f8e92e5",
+    "bytes": 88880
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/checkpoints.json",
+    "sha256": "4bf3c2f9e0cac37b20608986ddfcb8b990778f63adceae11e5a46e6b6a45b106",
+    "bytes": 764510
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/intervals.json",
+    "sha256": "2e6e66dda88fff456fc98d8de1a85b724f61eaf272c5210400461d611e167bde",
+    "bytes": 447225
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/policy_jsonl.json",
+    "sha256": "79248b8f2f4edb8431b8870d811624829e1d27a9fc2375f754b64dfaa68bf359",
+    "bytes": 281379
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/profiles.json",
+    "sha256": "ae296cb69f49f3e997977b2c9ca6517d72b444c272dcfaccac74b4361abd69d4",
+    "bytes": 17546
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_06/summary.json",
+    "sha256": "baf868c7e1fa8bb24d0077a09a6ee2efd20b345d3efc261618bb12ccef20244d",
+    "bytes": 1033
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/archives.json",
+    "sha256": "b352bab76c65152dff1ae76d13cd41eec5e693ecef7c680057cb77f4edc16445",
+    "bytes": 89559
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/checkpoints.json",
+    "sha256": "9caf54661126e953119745cfb2f1668ccf75fdd795516bc39070ec6f833705b4",
+    "bytes": 765480
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/intervals.json",
+    "sha256": "6977177cc25f5d9adf6ac18497d5bdb5ebfdf503a0fa5ab48cec6bbbe0b6b026",
+    "bytes": 457071
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/policy_jsonl.json",
+    "sha256": "83defe326f26530cf730b231c3a0c6466d89dcd954792becd2fe9dea47ce7e5d",
+    "bytes": 281688
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/profiles.json",
+    "sha256": "ae296cb69f49f3e997977b2c9ca6517d72b444c272dcfaccac74b4361abd69d4",
+    "bytes": 17546
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/audit_final/summary.json",
+    "sha256": "baf868c7e1fa8bb24d0077a09a6ee2efd20b345d3efc261618bb12ccef20244d",
+    "bytes": 1033
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/baseline.json",
+    "sha256": "8689e76e384ba7f9875ff5632db61cd3c876c209f2f55edb3d7fe226f3fa6a4b",
+    "bytes": 513125
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/commands.json",
+    "sha256": "4a6d8f586a3045548be5a9ecda8151eeb45a9dce40f33e5114adb7e1d3030e2d",
+    "bytes": 7814
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/entry_01.log",
+    "sha256": "f301ac457fa7b135b19d150d0bc1f5455ada4b0731f5b565f009b46154a83522",
+    "bytes": 7544
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/entry_evidence.json",
+    "sha256": "957ae1026d1a4d29dd50ad4c11decfebee19af13b40ba520ce9685c575ead54c",
+    "bytes": 199158
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/entry_resume_01.log",
+    "sha256": "13e4525f779c96e1e9badd0c2775753419f075445437eeaa1f38fa38f31be690",
+    "bytes": 7544
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/finalize_integrity.py",
+    "sha256": "74f87a7dc3316f5d9d4977fc3e1aabbde2bcf56711c500ffe12d451b2e75dbf6",
+    "bytes": 3088
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/historical_freeze_01.log",
+    "sha256": "9fd9dfd7f95e628c7bb8ca725c75646347af19176ae2b42b9f974de05caa7b07",
+    "bytes": 2255
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/historical_freeze_01.xml",
+    "sha256": "4c2a45ea3995840e5df835479ab8b8138c30d0ff15561ee1c273d986a3641dd5",
+    "bytes": 3023
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/lint_final.log",
+    "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "bytes": 19
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/lint_review.log",
+    "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "bytes": 19
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/physical_profile_proposal_v1.json",
+    "sha256": "42c951fc0d64ac07e66b64144765baa3128c38ff26012879cfd04c3c1c2a40f6",
+    "bytes": 11533
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/prepare_review.log",
+    "sha256": "fb830fee1eb6d58063fbf6ddd01f4e137ea636347f9f1644932552b8f789e690",
+    "bytes": 342
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/prepare_review.py",
+    "sha256": "3e9ab588d8da4ba3c62200e5510ae34e2c5976bde01ddcad8360f4c8d4376152",
+    "bytes": 6323
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/preservation.json",
+    "sha256": "3d9c41cca2c411fff9ecc4fbd647a5b47a8f24e1cfc7c87a4f783bee44abd478",
+    "bytes": 3962
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/resets_01.json",
+    "sha256": "5357a0412b73c10eb36978b4b36e7a04cad6fe4c8efc2b177ca160ed2bba73ce",
+    "bytes": 54887
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/resets_01.log",
+    "sha256": "87c5033ce192c3011d9d8e621d4bcac6eb08547a9f34c8a8bcc49718a01d8654",
+    "bytes": 8908
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_01.log",
+    "sha256": "31ddbd5d81667ebc0f456ffc6353318832ff78f9f22d79ce74a0ae4765948cca",
+    "bytes": 11434
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_01.xml",
+    "sha256": "915d8bb4d7a1a890de2a5198c99cde864e0ef27d33c91dea70324f86b6f4e1c4",
+    "bytes": 24610
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_02.log",
+    "sha256": "7e42fe89f9b0da9dfa0d0b6f72d2ac35768f613bd942c32c49dc4eb223fb9338",
+    "bytes": 3465
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_02.xml",
+    "sha256": "fa0e8c2708da51d9f789e75b084d17bcb5b5ea5a40061ed45bd0ac613eb01084",
+    "bytes": 5530
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_03.log",
+    "sha256": "0cb7a5a70c9e05f3cd9f7b3402e304d07d911491bae5b3e998ff2afdb014af2a",
+    "bytes": 528
+  },
+  {
+    "path": "outputs/hoi/contact_supervision/p7_preflight/tests_03.xml",
+    "sha256": "ebd231aec6ff96b86feb58d7711b33b9e988f5b76a077fe83bd002f504e71221",
+    "bytes": 384
+  },
+  {
+    "path": "scripts/hoi/audit_p7_preflight.py",
+    "sha256": "d176042d8d34e3d744c424fb4bdbe6bef84e3f5b31548fa167e85ed8a590bc49",
+    "bytes": 15089
+  },
+  {
+    "path": "scripts/hoi/audit_p7_resets.py",
+    "sha256": "bc9f03e9e0b8deee3bba9ca45428b65b950ca429933b5e8b63cd03a9e780d654",
+    "bytes": 3954
+  },
+  {
+    "path": "scripts/hoi/audit_proximity_reward.py",
+    "sha256": "f259fd6657d5ae954934e1e307bf15ff5d01159f7ea348e53a9cacf61bb68eb6",
+    "bytes": 8512
+  },
+  {
+    "path": "scripts/hoi/baseline.py",
+    "sha256": "1ab277b7780fea765f29a1197bd6b7ba4025f93e66ca30eb641a93559d7d5b42",
+    "bytes": 3085
+  },
+  {
+    "path": "scripts/hoi/build_manifest.py",
+    "sha256": "e2359d47e49f9652ff40e07b796edefb59d4ad0d59754011e48e6b1b70b4e048",
+    "bytes": 6135
+  },
+  {
+    "path": "scripts/hoi/reconcile/common.py",
+    "sha256": "f05b6d30cbf6ef08df59ec70c459bfd31828316407aecf899b5af6a70c6fb9c2",
+    "bytes": 2332
+  },
+  {
+    "path": "scripts/hoi/run_audit.py",
+    "sha256": "e2fa2ac62113ebe926b62b068560c2516ac5c1db978f3ec9751f62cf4449f470",
+    "bytes": 1628
+  },
+  {
+    "path": "scripts/hoi/verify_p3_evidence.py",
+    "sha256": "9fae1f166bd197977b6f494e6159079b9616b0a03cbad2cbc95d110d1b9e9799",
+    "bytes": 6783
+  },
+  {
+    "path": "src/supermimic/hoi/asset_manifest.py",
+    "sha256": "a121fd77f3bd572c2aa78a439bcec0a2fe01d2b67d9721f5b1e980f5aa5e82e6",
+    "bytes": 5033
+  },
+  {
+    "path": "src/supermimic/hoi/checkpoint.py",
+    "sha256": "25f8e067c482ebf8500df230b44e750a88d2585cbfc1e26aa824d2ec5ba25890",
+    "bytes": 17088
+  },
+  {
+    "path": "src/supermimic/hoi/policy_checkpoint.py",
+    "sha256": "774b3c634310b9419abcfc6c4f953125d419aa7d0872a0aa010488dab19b7c62",
+    "bytes": 10928
+  },
+  {
+    "path": "src/supermimic/hoi/provenance.py",
+    "sha256": "4b94d9d2885aefbf8cbe540a93a8cfab2a7202176c9ee26b71e4b4cd6abbd2a8",
+    "bytes": 2159
+  },
+  {
+    "path": "src/supermimic/hoi/recorder.py",
+    "sha256": "80bcd945027248b6cf97ca6521142f625c2685393788c260198eede5d7adf320",
+    "bytes": 8521
+  },
+  {
+    "path": "src/supermimic/hoi/support_context.py",
+    "sha256": "0fd49c4c64ba20de6bb0d35e5a9c04d293943681f2a2db0c8e40163d19f2f89c",
+    "bytes": 2428
+  },
+  {
+    "path": "src/supermimic/hoi/training_checkpoint.py",
+    "sha256": "bef34a72538ec023928bf36efe64106e2113c6fb144f0fbfd894c4e18bde2d38",
+    "bytes": 13637
+  },
+  {
+    "path": "src/supermimic/hoi/training_scene.py",
+    "sha256": "e794708400a3173055acec0c5d60c7e21216ddf9a79fa85f7d1b44f04de54d5b",
+    "bytes": 4707
+  },
+  {
+    "path": "tests/hoi/test_checkpoint_migration.py",
+    "sha256": "ca616fdc88d7e1228a23ea2f5cf3c6d38557f680a41f13be703074bb458ce428",
+    "bytes": 9770
+  },
+  {
+    "path": "tests/hoi/test_hoi_policy_checkpoint.py",
+    "sha256": "e3a0858b38c1cd35992c3ad6eae5d5d49cfa980b63bf2188fcfa76d1f6c6b280",
+    "bytes": 7425
+  },
+  {
+    "path": "tests/hoi/test_joint_architecture.py",
+    "sha256": "abe8b128123d08f63df8503df079c222acd8a7b0964cb271238a2ed05b900a17",
+    "bytes": 5628
+  },
+  {
+    "path": "tests/hoi/test_preflight_provenance.py",
+    "sha256": "ea38fc4600ab82d399b42778769a112268a092a6b28cbb222804c795dc567369",
+    "bytes": 4254
+  },
+  {
+    "path": "tests/test_hoi_reconciliation.py",
+    "sha256": "e8a83b1bca05e44339eca6cb99cbe577b8841de7bd9ee1c460f5d2d8d0e3eab1",
+    "bytes": 4782
+  }
+]

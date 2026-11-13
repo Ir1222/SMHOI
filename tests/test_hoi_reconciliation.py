@@ -7,6 +7,7 @@ sys.path.insert(0,str(ROOT/'scripts/hoi/reconcile'))
 from common import OUT,NPZ,load,sha
 from geometry import clip_polygon,area
 from dynamics import build_model,initialize,set_original_pd
+from supermimic.hoi.provenance import effective_sources
 
 def test_frozen_m6_and_references_unchanged():
     # The M6.5 evidence stays immutable. P3 necessarily extends this one shared
@@ -17,6 +18,8 @@ def test_frozen_m6_and_references_unchanged():
     source=str(ROOT/'src/supermimic/world_model/world_model.py')
     assert expected[source]=='24a6157e285584fd1f8433360cc93b2c0b5fe68395fa46ccc4358109ce0e7ba2'
     expected[source]='d1e75e0ef550c8516701c736dff081ce681f8a0f114dd604f7a0386a2631d40a'
+    expected={s['path']:s['sha256'] for s in effective_sources(
+        [{'path':p,'sha256':h} for p,h in expected.items()])}
     assert len(expected)>100
     assert {p:sha(p) for p in expected}==expected
 

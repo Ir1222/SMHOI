@@ -1,6 +1,7 @@
 """Generate only static physical configuration and gate decisions, never motion."""
 import copy,json
 from asset_common import *
+from supermimic.hoi.provenance import effective_sources, research_authority
 def main():
     box=json.loads((OUT/'box_audit.json').read_text());robot=json.loads((OUT/'robot_audit.json').read_text());sup=json.loads((OUT/'support_audit.json').read_text());contact=json.loads((OUT/'contact_summary.json').read_text())
     baseline=json.loads((OUT/'baseline.json').read_text())
@@ -24,7 +25,8 @@ def main():
       'coordinate_consistency':{'status':'PASS_POSE_CONVENTION','detail':'wxyz, Z-up, meters; target wrist FK matches within 8.2e-8 m. Existing hoi_v1 velocities have pose_fd_link_world_v1 provenance; raw-source velocity origin unresolved.'}}
     manifest={'schema_version':1,'asset_id':'hdmi_bread_box_nominal_audit_v1','status':'AUDITED_BLOCKED_CONTACT_AND_SUPPORT','training_ready':False,
       'units':{'length':'m','mass':'kg','inertia':'kg*m^2','angle':'rad','quaternion':'wxyz','world_up':'Z'},
-      'sources':[{'path':p,'sha256':h} for p,h in sorted(files.items())],
+      'sources':effective_sources([{'path':p,'sha256':h} for p,h in sorted(files.items())]),
+      'research_authority':research_authority(),
       'object':{'name':'bread_box','dynamic':True,'joint':'free','scale':1.0,'inertia':box['inertia'],'geoms':gs,
         'diagnostic_aabb_only':box['aabb'],'restitution':None,'contact_parameter_semantics':'MuJoCo friction sliding/torsional/rolling; defaults solref/solimp retained. No direct restitution mapping.',
         'official_runtime_distinctions':{'raw_xml_usd_mass_kg':2.,'objects_py_spawn_mass_kg':3.,'task_randomization':box['task_randomization']},'com_warning':box['com_warning']},

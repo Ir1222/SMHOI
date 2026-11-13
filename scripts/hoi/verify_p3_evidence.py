@@ -13,6 +13,7 @@ from p3_common import reference
 from supermimic.hoi.asset_manifest import load_manifest
 from supermimic.hoi.dataset import load_archive, partition_episodes, replay_from_archive
 from supermimic.hoi.legacy_validation import legacy_force_readiness_gate
+from supermimic.hoi.provenance import effective_sources
 from supermimic.hoi.reference import DEFAULT_ASSET, REPO, sha256
 
 OUT = REPO / "outputs/hoi/contact_supervision/force_model_validation"
@@ -24,9 +25,16 @@ def read(path):
 
 def verify():
     baseline = read(REPO / "docs/hoi/force_contact/p3/baseline.json")
+    active_sources = effective_sources(
+        [
+            {"path": str(REPO / name), "sha256": digest}
+            for name, digest in baseline["protected_sha256"].items()
+        ]
+    )
+    protected = {str(Path(s["path"]).relative_to(REPO)): s["sha256"] for s in active_sources}
     changes = {
         name: {"before": digest, "after": sha256(REPO / name)}
-        for name, digest in baseline["protected_sha256"].items()
+        for name, digest in protected.items()
         if sha256(REPO / name) != digest
     }
     expected = {

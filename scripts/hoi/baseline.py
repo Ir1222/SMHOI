@@ -1,6 +1,7 @@
 """Capture immutable input hashes and repository state; never writes inputs."""
 import hashlib, json, subprocess
 from pathlib import Path
+from supermimic.hoi.provenance import MASTER_RELATIVE, research_authority
 ROOT=Path(__file__).resolve().parents[2]
 SOURCE=Path('/home/han/pyx/humanoid-amp-ppo')
 HDMI=Path('/tmp/supermimic_hoi_audit_20261104/HDMI')
@@ -11,7 +12,7 @@ def git(p,*args):
 def main():
     out=ROOT/'docs/hoi/asset_audit/baseline.json'
     if out.exists(): raise FileExistsError('Baseline is immutable; do not recapture after edits')
-    files=list(Path('/home/han/pyx').glob('*.npz'))+[ROOT/'SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md']
+    files=list(Path('/home/han/pyx').glob('*.npz'))+[ROOT/MASTER_RELATIVE]
     files+=list((SOURCE/'src/mjlab_g1/hoi').glob('*.py'))
     files+=list((SOURCE/'dataset/hoi/manifests').glob('hdmi*.json'))
     files+=[SOURCE/'dataset/external/hdmi/carry_and_place_bread_box-0829'/x for x in ('motion.npz','meta.json')]
@@ -24,7 +25,7 @@ def main():
     files+=[ROOT/'.venv/lib/python3.12/site-packages/mjlab/asset_zoo/robots/unitree_g1/g1_constants.py',ROOT/'src/supermimic/envs/tracking_env_cfg.py']
     data={'scope':'Part A M0-M6 only; user overrides conflicting Part D numbering; no learning pipeline',
       'cwd':str(ROOT),'agents_md':'No AGENTS.md found in source/target, or /, /home, /home/han, /home/han/pyx ancestors.',
-      'initial_status_before_audit':{'target':'?? SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md','source':'?? MUJOCO_LOG.TXT\n?? docs/hoi/audits/hoi_research_freeze_20261107.md'},
+      'research_authority':research_authority(),
       'repositories':{str(p):{k:git(p,*v) for k,v in {'root':('rev-parse','--show-toplevel'),'branch':('branch','--show-current'),'head':('rev-parse','HEAD'),'status_at_capture':('status','--short')}.items()} for p in (ROOT,SOURCE,HDMI)},
       'inputs':{str(p):{'sha256':sha(p),'bytes':p.stat().st_size} for p in sorted(set(files))}}
     out.write_text(json.dumps(data,indent=2)+'\n')

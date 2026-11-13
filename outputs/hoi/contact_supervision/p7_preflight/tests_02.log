@@ -1,0 +1,61 @@
+.....F.............                                                      [100%]
+=================================== FAILURES ===================================
+______________ test_strict_new_checkpoint_roundtrip_and_metadata _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-han/pytest-122/test_strict_new_checkpoint_rou0')
+
+    def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
+        old, new = legacy_models()
+        migrate_joint_weights(old, new, expected_replay_metadata=metadata())
+        payload = joint_checkpoint(
+            new,
+            replay_metadata=metadata(),
+            provenance={"kind": "unit_test"},
+        )
+        assert payload["metadata"]["schema"] == "hoi-joint-physical-wm-v3"
+        assert "force_normalization" not in payload["metadata"]
+        assert not any(k.startswith("force_statistics.") for k in payload["wm"])
+        path = tmp_path / "new.pt"
+        torch.save(payload, path)
+        restored = JointWorldModel(joint_config(payload["metadata"]["config"]), AnalyticHeads, "cpu")
+        load_joint_weights(
+            restored, torch.load(path, weights_only=True), expected_replay_metadata=metadata()
+        )
+        for key, value in new.state_dict().items():
+            torch.testing.assert_close(value, restored.state_dict()[key], atol=0, rtol=0)
+        for section, key, value in [
+            ("metadata", "schema", "hoi-joint-wm-v1"),
+            ("metadata", "research_authority", None),
+            ("metadata", "research_authority", {"sha256": "wrong"}),
+            ("metadata", "dimensions", {"input": 167, "output": 83}),
+            ("wm", "unexpected", torch.zeros(1)),
+            ("wm", "dynamics.mlp.net.0.weight", torch.zeros(64, 167)),
+            ("wm", "dynamics.mlp.net.0.bias", torch.full((64,), float("nan"))),
+            ("wm", "support.positions", payload["wm"]["support.positions"] + 1),
+        ]:
+            bad = copy.deepcopy(payload)
+            bad[section][key] = value
+            with pytest.raises(ValueError):
+                load_joint_weights(restored, bad, expected_replay_metadata=metadata())
+        bad = copy.deepcopy(payload)
+        del bad["metadata"]["research_authority"]
+>       with pytest.raises(ValueError, match="research_authority"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'research_authority'
+E         Actual message: 'Checkpoint metadata keys must match exactly'
+
+tests/hoi/test_checkpoint_migration.py:152: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/hoi/test_training_integration.py::test_partial_reset_failures_and_all_world_safety
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/warp/_src/types.py:3728: RuntimeWarning: overflow encountered in cast
+    arr = np.asarray(data, dtype=npdtype)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_checkpoint_migration.py::test_strict_new_checkpoint_roundtrip_and_metadata
+1 failed, 18 passed, 2 warnings in 7.72s

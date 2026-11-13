@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 193, in <module>
+    main()
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 169, in main
+    intervals = [audit_intervals(p) for p in sorted((outputs / "contact_supervision").rglob("intervals.json"))]
+                 ^^^^^^^^^^^^^^^^^^
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 119, in audit_intervals
+    data["frame"] = np.repeat(np.arange(len(rows)) + initial.get("reference_start", 0), worlds)
+                              ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'

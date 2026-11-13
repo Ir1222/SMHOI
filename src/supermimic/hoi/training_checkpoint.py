@@ -10,6 +10,7 @@ import torch
 
 from supermimic.hoi.contact import SENSOR_NAMES
 from supermimic.hoi.policy_features import feature_schema
+from supermimic.hoi.provenance import research_authority
 from supermimic.hoi.training_safety import finite
 
 SCHEMA = "hoi-training-lifecycle-v1"
@@ -127,6 +128,8 @@ def snapshot(trainer):
     if trainer.recorder.capture.count.any() or not trainer.recorder.ready.all():
         raise RuntimeError("Checkpoint must be between complete bound control intervals")
     trainer.guard.attest(env, "checkpoint")
+    if trainer.identity.get("research_authority") != research_authority():
+        raise ValueError("Training identity does not bind the current Master Plan")
     finite("checkpoint weights", model_states(trainer))
     return {
         "schema": SCHEMA,
@@ -208,6 +211,8 @@ def validate_optimizer(saved, optimizer, label):
 
 
 def restore(trainer, checkpoint):
+    if trainer.identity.get("research_authority") != research_authority():
+        raise ValueError("Training identity does not bind the current Master Plan")
     expected_header = {
         "schema": SCHEMA,
         "features": feature_schema(),

@@ -1,0 +1,411 @@
+{
+  "profile_id": "p7-single-body-original-ref-v1-proposed",
+  "status": "PENDING_USER_RESEARCH_REVIEW",
+  "approved": false,
+  "training_ready": false,
+  "production_selected": false,
+  "scope": "candidate for bounded physical collection only; not P7-A/B approval",
+  "research_authority": {
+    "path": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "sha256": "25554b0987d70e778b1c41b33cc15512b876e3ee9f359536a850545d63305841",
+    "migration": "retire-incorrect-v3-use-current-master-v1",
+    "authority": "sole research and implementation plan; explicit user decision"
+  },
+  "implementation_basis": "p6-single-body diagnostic profile, unchanged",
+  "candidate": {
+    "path": "/home/han/pyx/SMHOI/outputs/hoi/contact_supervision/p6_closure/candidates/single_body.json",
+    "sha256": "6c3f1a9c601336cb264cd0f979ec4d039ed380e76df6ee1a0a33358d5a82e331"
+  },
+  "identity": {
+    "production_manifest_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+    "box_sha256": "e34fb2a2bbb769cd2bb8a9bd488c2c043052d290fdb8deb1cefee120771ec2a5",
+    "support_sha256": "be2f474c19e52a0caf1ccaf5287caacf42cde61fd44bb633229ba70eb01e9df7",
+    "contact_targets_sha256": "03cc950066f0d3f54eae46495058e329129c35e431ab59f562371f38950fce7a",
+    "calibration_sha256": "34a47e06454c64f71b456bb428110fceff65302f6c6517dc85a95e151d400266",
+    "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+    "reference_manifest_sha256": "129e1181fda2528250d2cd64fa214c2de4d7998ed37698c17302cc4f58128efb",
+    "robot_manifest_sha256": "207832f6d59ea4fc82887e5128bb3ca7c2249c57fb058a5cc60869f4ba5a108b",
+    "solver": {
+      "source_sha256": "1bb26d51451a065b9e183acacfbd5e59d85df1eb46f17951aa3d1727db6853ff",
+      "patch_sha256": "41c06e49c60862d0d40e69c74cae8c0f2310d300516b096b5464607a4efe6dcd",
+      "rule": "sign bracket + cost improvement + width<=8f32 ulps of unit ray anchor"
+    },
+    "physics_dt": 0.005,
+    "decimation": 4,
+    "iterations": 10,
+    "ls_iterations": 20,
+    "dependencies": {
+      "torch": "2.14.1+cu130",
+      "numpy": "2.5.4",
+      "mjlab": "1.6.0",
+      "mujoco": "3.16.0",
+      "mujoco-warp": "3.16.0",
+      "warp-lang": "1.18.0"
+    }
+  },
+  "object": {
+    "name": "bread_box",
+    "dynamic": true,
+    "joint": "free",
+    "scale": 1.0,
+    "inertia": {
+      "mass_kg": 2.0,
+      "com_pos_root_m": [
+        0.0,
+        0.0,
+        0.125
+      ],
+      "diagonal_kg_m2": [
+        0.017550000000000003,
+        0.02466666666666667,
+        0.031416666666666676
+      ],
+      "principal_axes_wxyz": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "geoms": [
+      {
+        "name": "solid",
+        "body": "bread_box",
+        "type": "box",
+        "pos": [
+          0,
+          0,
+          0.125
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size": [
+          0.09,
+          0.17,
+          0.135
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      }
+    ],
+    "diagnostic_aabb_only": {
+      "min": [
+        -0.09,
+        -0.19,
+        -0.01
+      ],
+      "max": [
+        0.09,
+        0.19,
+        0.26
+      ],
+      "dimensions": [
+        0.18,
+        0.38,
+        0.27
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.125
+      ]
+    },
+    "restitution": null,
+    "contact_parameter_semantics": "MuJoCo friction sliding/torsional/rolling; defaults solref/solimp retained. No direct restitution mapping.",
+    "official_runtime_distinctions": {
+      "raw_xml_usd_mass_kg": 2.0,
+      "objects_py_spawn_mass_kg": 3.0,
+      "task_randomization": {
+        "object_body_randomization": {
+          "static_dynamic_friction_ratio_range": [
+            1.0,
+            2.0
+          ],
+          "dynamic_friction_range": [
+            0.3,
+            0.8
+          ],
+          "restitution_range": [
+            0.0,
+            0.2
+          ],
+          "mass_range": [
+            1.2,
+            1.8
+          ]
+        },
+        "body_scale": {
+          "name": "bread_box",
+          "scale_range": [
+            0.9,
+            1.1
+          ]
+        }
+      }
+    },
+    "com_warning": "COM is 0.19 m below lowest collision point; cannot describe positive mass confined to these seven solids. Preserve official model for parity; never silently recenter."
+  },
+  "supports": [
+    {
+      "name": "support0",
+      "fixed": true,
+      "root_pos_world": [
+        -1.4667341709136963,
+        -0.15975421667099,
+        0.6605498790740967
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "geom": {
+        "name": "support0",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          0,
+          0,
+          0
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support0.usd",
+        "sha256": "d578ddfae8f168885838bbe46b523cc9fcab65e2818d04f964b8d9534922e523"
+      }
+    },
+    {
+      "name": "support1",
+      "fixed": true,
+      "root_pos_world": [
+        1.381318211555481,
+        -0.28439486026763916,
+        0.6251227855682373
+      ],
+      "root_quat_wxyz": [
+        0.029028186574578285,
+        0.0,
+        0.0,
+        0.999578595161438
+      ],
+      "geom": {
+        "name": "support1",
+        "body": "supports",
+        "type": "box",
+        "pos": [
+          0,
+          0,
+          0
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "size": [
+          0.1,
+          0.1,
+          0.02
+        ],
+        "friction": [
+          1.0,
+          0.005,
+          0.0001
+        ],
+        "solref": [
+          0.02,
+          1.0
+        ],
+        "solimp": [
+          0.9,
+          0.95,
+          0.001,
+          0.5,
+          2.0
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "condim": 3,
+        "priority": 1,
+        "group": 0,
+        "margin": 0.0,
+        "gap": 0.0,
+        "solmix": 1.0,
+        "mesh": null
+      },
+      "source": {
+        "path": "/tmp/supermimic_hoi_audit_20261104/HDMI/active_adaptation/assets/objects/support/support1.usd",
+        "sha256": "ec3ad5d53b278f705a7972ae0e5dee0bf4dad715b1a5ba4faaeda22db1e26851"
+      }
+    }
+  ],
+  "contact_targets": {
+    "target_root_m": [
+      [
+        0,
+        0.17,
+        0.14
+      ],
+      [
+        0,
+        -0.17,
+        0.14
+      ]
+    ],
+    "wrist_bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+    ],
+    "eef_offset_wrist_m": [
+      [
+        0.05,
+        0.0,
+        0.0
+      ],
+      [
+        0.05,
+        0.0,
+        0.0
+      ]
+    ],
+    "eef_formula": "p_eef_world = p_wrist_world + R(q_wrist_wxyz) @ offset_wrist",
+    "target_formula": "p_target_world = p_box_root_world + R(q_box_wxyz) @ target_root",
+    "box_com_formula": "p_com_world = p_box_root_world + R(q_box_wxyz) @ com_root",
+    "velocity_formula": "v_com_world = v_root_world + omega_world cross (R(q_box) @ com_root); MuJoCo free-joint angular qvel is body-local",
+    "sensor_contract": {
+      "hand_primary_bodies": [
+        "left_wrist_pitch_link",
+        "left_wrist_yaw_link",
+        "right_wrist_pitch_link",
+        "right_wrist_yaw_link"
+      ],
+      "secondary_body": "bread_box",
+      "secondary_geoms": [
+        "bottom",
+        "side1",
+        "side2",
+        "side3",
+        "side4",
+        "handle_left",
+        "handle_right"
+      ],
+      "semantics": "future physical contacts must filter actual enabled geoms; object_contact is desired intent, not force or bilateral contact"
+    },
+    "distance_semantics": "MuJoCo mj_geomDistance on primitive geoms at recorded body poses; negative = primitive overlap, positive = separation. Min pair penetration is not compound minimum translation or measured force. No dynamics stepped. Exact EEF alignment is a geometric translation probe, not a joint-reachability proof.",
+    "marker_semantics": "Official fixed EEF and target retained as soft semantic markers. Marker equality is not a physical contact constraint.",
+    "physical_validation": {
+      "signed_pair_distance_band_m": [
+        -0.001,
+        0.002
+      ],
+      "per_hand_actual_normal_force_threshold_N": 1.0,
+      "bilateral_force_required": true,
+      "geometry_distance_is_not_force": true,
+      "closest_surface_points_are_state_dependent": true,
+      "slip": "force-weighted contact-point relative tangential speed integral; separate from object displacement"
+    }
+  },
+  "limitations_requiring_review": [
+    "homogeneous solid approximation; cavity filled and handles omitted",
+    "original HDMI reference and labels unchanged; native manipulation failed",
+    "frame-0 foot-floor reset overlap 0.01223564506031003 m",
+    "original reference contact-frame resets have up to 0.035 m hand overlap; excluded from proposal",
+    "bounded precision-guard evidence, not universal solver reliability",
+    "no verified natural hand-supported lift/carry dataset",
+    "no new acceptance threshold for geometric overlap selected"
+  ],
+  "reference_candidate_v1": {
+    "promoted": false,
+    "training_ready": false
+  },
+  "collection_proposal": {
+    "id": "p7-native-pd-frame0-collection-v1-proposed",
+    "approved": false,
+    "controller": "existing P6 native joint-position reference controller; free roots",
+    "reset_frames": [
+      0
+    ],
+    "num_envs": 4,
+    "seeds": [
+      0,
+      1
+    ],
+    "max_vector_steps_per_seed": 839,
+    "max_world_transitions": 6712,
+    "max_wall_seconds_total": 600,
+    "action_noise_std": 0.03,
+    "reset_noise": false,
+    "domain_randomization": false,
+    "optimizer_steps": 0,
+    "source_partition_proposal": "all seed-0 source episodes train; all seed-1 source episodes held out; identical trajectories deduplicated/grouped before windows",
+    "reset_policy": "normal per-world reset to original frame 0 only; preserve reached terminal state first",
+    "failure_policy": "abort on any invalid solve or nonfinite; retain failed interval separately; never target it",
+    "implementation": "approval-gated collection mode on original Trainer.run and accepted recorder; not implemented or launched in preflight",
+    "insufficient_coverage_policy": "stop and report missing regimes; no automatic extension, reference edits, external Box wrench or teleportation"
+  }
+}

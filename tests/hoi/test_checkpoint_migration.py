@@ -135,6 +135,8 @@ def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
         torch.testing.assert_close(value, restored.state_dict()[key], atol=0, rtol=0)
     for section, key, value in [
         ("metadata", "schema", "hoi-joint-wm-v1"),
+        ("metadata", "research_authority", None),
+        ("metadata", "research_authority", {"sha256": "wrong"}),
         ("metadata", "dimensions", {"input": 167, "output": 83}),
         ("wm", "unexpected", torch.zeros(1)),
         ("wm", "dynamics.mlp.net.0.weight", torch.zeros(64, 167)),
@@ -145,6 +147,10 @@ def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
         bad[section][key] = value
         with pytest.raises(ValueError):
             load_joint_weights(restored, bad, expected_replay_metadata=metadata())
+    bad = copy.deepcopy(payload)
+    del bad["metadata"]["research_authority"]
+    with pytest.raises(ValueError, match="metadata keys"):
+        load_joint_weights(restored, bad, expected_replay_metadata=metadata())
     bad = copy.deepcopy(payload)
     del bad["wm"]["dynamics.mlp.net.2.bias"]
     with pytest.raises(ValueError, match="keys"):

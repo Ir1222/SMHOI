@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="19" time="7.714" timestamp="2026-11-13T18:23:33.282471+08:00" hostname="han-Precision-3660"><testcase classname="tests.hoi.test_preflight_provenance" name="test_strict_loader_retires_only_planning_dependency" time="0.042" /><testcase classname="tests.hoi.test_preflight_provenance" name="test_current_master_and_every_physical_source_remain_strict" time="0.003" /><testcase classname="tests.hoi.test_preflight_provenance" name="test_full_checkpoint_binds_authority_and_rejects_legacy_identity" time="2.108" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_robot_named_columns_and_eight_step_prediction_preservation" time="0.039" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_old_joint_preserves_all_named_columns_and_physical_eight_steps" time="0.039" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_strict_new_checkpoint_roundtrip_and_metadata" time="0.056"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'research_authority'&#10;  Actual message: 'Checkpoint metadata keys must match exactly'">tmp_path = PosixPath('/tmp/pytest-of-han/pytest-122/test_strict_new_checkpoint_rou0')
+
+    def test_strict_new_checkpoint_roundtrip_and_metadata(tmp_path):
+        old, new = legacy_models()
+        migrate_joint_weights(old, new, expected_replay_metadata=metadata())
+        payload = joint_checkpoint(
+            new,
+            replay_metadata=metadata(),
+            provenance={"kind": "unit_test"},
+        )
+        assert payload["metadata"]["schema"] == "hoi-joint-physical-wm-v3"
+        assert "force_normalization" not in payload["metadata"]
+        assert not any(k.startswith("force_statistics.") for k in payload["wm"])
+        path = tmp_path / "new.pt"
+        torch.save(payload, path)
+        restored = JointWorldModel(joint_config(payload["metadata"]["config"]), AnalyticHeads, "cpu")
+        load_joint_weights(
+            restored, torch.load(path, weights_only=True), expected_replay_metadata=metadata()
+        )
+        for key, value in new.state_dict().items():
+            torch.testing.assert_close(value, restored.state_dict()[key], atol=0, rtol=0)
+        for section, key, value in [
+            ("metadata", "schema", "hoi-joint-wm-v1"),
+            ("metadata", "research_authority", None),
+            ("metadata", "research_authority", {"sha256": "wrong"}),
+            ("metadata", "dimensions", {"input": 167, "output": 83}),
+            ("wm", "unexpected", torch.zeros(1)),
+            ("wm", "dynamics.mlp.net.0.weight", torch.zeros(64, 167)),
+            ("wm", "dynamics.mlp.net.0.bias", torch.full((64,), float("nan"))),
+            ("wm", "support.positions", payload["wm"]["support.positions"] + 1),
+        ]:
+            bad = copy.deepcopy(payload)
+            bad[section][key] = value
+            with pytest.raises(ValueError):
+                load_joint_weights(restored, bad, expected_replay_metadata=metadata())
+        bad = copy.deepcopy(payload)
+        del bad["metadata"]["research_authority"]
+&gt;       with pytest.raises(ValueError, match="research_authority"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'research_authority'
+E         Actual message: 'Checkpoint metadata keys must match exactly'
+
+tests/hoi/test_checkpoint_migration.py:152: AssertionError</failure></testcase><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[missing]" time="0.023" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[extra]" time="0.024" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[schema]" time="0.023" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[config]" time="0.023" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[stats]" time="0.024" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_legacy_joint_rejects_incompatible_or_incomplete_source[nonfinite]" time="0.024" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_transitional_and_raw_fit_checkpoints_are_rejected" time="0.025" /><testcase classname="tests.hoi.test_checkpoint_migration" name="test_named_robot_sentinel_columns_and_final_metadata" time="0.029" /><testcase classname="tests.hoi.test_hoi_policy_checkpoint" name="test_named_migration_exact_preservation_zero_sensitivity_and_roundtrip[dtype0]" time="0.241" /><testcase classname="tests.hoi.test_hoi_policy_checkpoint" name="test_named_migration_exact_preservation_zero_sensitivity_and_roundtrip[dtype1]" time="0.379" /><testcase classname="tests.hoi.test_hoi_policy_checkpoint" name="test_strict_schema_scale_identity_dtype_keys_and_atomic_rejection" time="0.149" /><testcase classname="tests.hoi.test_hoi_policy_checkpoint" name="test_robot_migration_rejects_anchor_changed_scales_hidden_widths_and_provenance" time="0.083" /><testcase classname="tests.hoi.test_training_integration" name="test_partial_reset_failures_and_all_world_safety" time="0.944" /></testsuite></testsuites>

@@ -1,0 +1,2256 @@
+{
+  "research_authority": {
+    "path": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "sha256": "25554b0987d70e778b1c41b33cc15512b876e3ee9f359536a850545d63305841",
+    "migration": "retire-incorrect-v3-use-current-master-v1",
+    "authority": "sole research and implementation plan; explicit user decision"
+  },
+  "physical_steps": 0,
+  "reference": "/home/han/pyx/SMHOI/outputs/hoi/asset_audit/part_b/reference/reference.npz",
+  "reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "scope": "forward-only geometry; not transition data or physical-readiness approval",
+  "resets": [
+    {
+      "profile": "p6-original",
+      "frame": 0,
+      "world": 0,
+      "reset_roundtrip_max_abs": 5.494803190231323e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.01223564506031003,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.010362800985635358
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.012049814829920997
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01223564506031003
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011460006753215046
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009301146447564643
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0019128763953076295
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004516779896887554
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005873182162589559
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.006280345872655113
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005087295151689238
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 0,
+      "world": 1,
+      "reset_roundtrip_max_abs": 5.494803190231323e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.01223564506031003,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.010362800985635358
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.012049814829920997
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01223564506031003
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011460006753215046
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009301146447564643
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0019128763953076295
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004516779896887554
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005873182162589559
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.006280345872655113
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005087295151689238
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 250,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.011840939789933528,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009684749266120287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01146765670015632
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011840939789933528
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011286547278326819
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009358752306827185
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 250,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.011840939789933528,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009684749266120287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01146765670015632
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011840939789933528
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011286547278326819
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009358752306827185
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 350,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.028126242646263323,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009934149132305723
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.011014697579955006
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.010689080488175089
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009525312070724401
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.007253255215690634
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0001426612593306148
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0009257668890331125
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01766709516018821
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.013176499325967067
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0176670951601881
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0018604375133180195
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -1.0354522812026923e-05
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.00019170439329430772
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.019707578285043548
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.018507517220350822
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.019707578285043437
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0005503009691653071
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.028126242646263323
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.020569854060854594
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 350,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.028126361737827475,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009934149132305723
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.011014697579955006
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.010689080488175089
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009525312070724401
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.007253255215690634
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.00014254815201432403
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0009256531438906757
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.017666993493918967
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01317640070694645
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.017666993493918867
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0018603237681755758
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -1.0468531473746545e-05
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.00019181813843673762
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01970769203018599
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01850764043737385
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01970769203018588
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0005504147143077578
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.028126361737827475
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02056996780599697
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 475,
+      "world": 0,
+      "reset_roundtrip_max_abs": 0.0,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03500000000000002,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00521708103686952
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005785613354199082
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0056372558343815
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0050593868563241495
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00390987334069464
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.023637055018437138
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02285096277688503
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025006644753637397
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.022833020072960328
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033589805494383035
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02720459019252104
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000002
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.020244935710962017
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.017900871535858037
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02465853729320562
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01768040358570043
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0286847841238885
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033729788636111424
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.015384253058454565
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.013047327468374087
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 475,
+      "world": 1,
+      "reset_roundtrip_max_abs": 0.0,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03500000000000002,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00521708103686952
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005785613354199082
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0056372558343815
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0050593868563241495
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00390987334069464
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.023637055018437138
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02285096277688503
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025006644753637397
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.022833020072960328
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033589805494383035
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02720459019252104
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000002
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.020244935710962017
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.017900871535858037
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02465853729320562
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01768040358570043
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0286847841238885
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033729788636111424
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.015384253058454565
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.013047327468374087
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 550,
+      "world": 0,
+      "reset_roundtrip_max_abs": 5.960464477539063e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03311613857475666,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0041387820851657925
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0039162632149562105
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0031498913530760494
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0021394078541367902
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.000940442435690839
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0009594616709708761
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0018880645586618287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0025973672212217438
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0028139289910600112
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.022877687044606448
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021916144304171548
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024514232079715377
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021887313018142465
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03311613857475666
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033067938243417166
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018586
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025693657433805833
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018427
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.023255614420151845
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821086
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027529464664900277
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821037
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.018895644158067527
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 550,
+      "world": 1,
+      "reset_roundtrip_max_abs": 5.960464477539063e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03311613857475666,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0041387820851657925
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0039162632149562105
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0031498913530760494
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0021394078541367902
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.000940442435690839
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0009594616709708761
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0018880645586618287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0025973672212217438
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0028139289910600112
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.022877687044606448
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021916144304171548
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024514232079715377
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021887313018142465
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03311613857475666
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.033067938243417166
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018586
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025693657433805833
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018427
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.023255614420151845
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821086
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027529464664900277
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821037
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.018895644158067527
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 740,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0048758661978969085,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0021097188087544107
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0035135661001247567
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004409447962076202
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0048758661978969085
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004561858984744281
+        }
+      ]
+    },
+    {
+      "profile": "p6-original",
+      "frame": 740,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0048758661978969085,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0021097188087544107
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0035135661001247567
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004409447962076202
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0048758661978969085
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004561858984744281
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 0,
+      "world": 0,
+      "reset_roundtrip_max_abs": 5.494803190231323e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.01223564506031003,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.010362800985635358
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.012049814829920997
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01223564506031003
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011460006753215046
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009301146447564643
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0019128763953076295
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004516779896887554
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005873182162589559
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.006280345872655113
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005087295151689238
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 0,
+      "world": 1,
+      "reset_roundtrip_max_abs": 5.494803190231323e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.01223564506031003,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.010362800985635358
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.012049814829920997
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01223564506031003
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011460006753215046
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009301146447564643
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0019128763953076295
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004516779896887554
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005873182162589559
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.006280345872655113
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005087295151689238
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 250,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.011840939789933528,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009684749266120287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01146765670015632
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011840939789933528
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011286547278326819
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009358752306827185
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 250,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.011840939789933528,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009684749266120287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.01146765670015632
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011840939789933528
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.011286547278326819
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.009358752306827185
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 350,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.019707578285043548,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009934149132305723
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.011014697579955006
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.010689080488175089
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009525312070724401
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.007253255215690634
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0009257668890331472
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01766709516018821
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0018604375133180195
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.00019170439329430078
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.019707578285043548
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0005503009691653349
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 350,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.019707692030185936,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009934149132305723
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.011014697579955006
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.010689080488175089
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.009525312070724401
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.007253255215690634
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0009256531438907034
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.017666993493918984
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0018603237681755758
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0001918181384367723
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.019707692030185936
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0005504147143077509
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 475,
+      "world": 0,
+      "reset_roundtrip_max_abs": 0.0,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0350000000000001,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00521708103686952
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005785613354199082
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0056372558343815
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0050593868563241495
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00390987334069464
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025006644753637397
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02283302007296034
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027204590192521083
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0350000000000001
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024658537293205662
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01768040358570047
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03118302819632754
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000007
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 475,
+      "world": 1,
+      "reset_roundtrip_max_abs": 0.0,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0350000000000001,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00521708103686952
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.005785613354199082
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0056372558343815
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0050593868563241495
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.00390987334069464
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.025006644753637397
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02283302007296034
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027204590192521083
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.0350000000000001
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024658537293205662
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.01768040358570047
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03118302819632754
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000007
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 550,
+      "world": 0,
+      "reset_roundtrip_max_abs": 5.960464477539063e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03500000000000007,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0041387820851657925
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0039162632149562105
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0031498913530760494
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0021394078541367902
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.000940442435690839
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0009594616709708761
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0018880645586618287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0025973672212217438
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0028139289910600112
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024514232079715453
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021887313018142562
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02724090612951699
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000007
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018552
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02325561442015192
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821193
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.018895644158067604
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 550,
+      "world": 1,
+      "reset_roundtrip_max_abs": 5.960464477539063e-08,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.03500000000000007,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0041387820851657925
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0039162632149562105
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0031498913530760494
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.0021394078541367902
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/left_ankle_roll_link"
+          ],
+          "distance_m": -0.000940442435690839
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0009594616709708761
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0018880645586618287
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0025973672212217438
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0028139289910600112
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.024514232079715453
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.021887313018142562
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02724090612951699
+        },
+        {
+          "bodies": [
+            "robot/left_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.03500000000000007
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.027232324275018552
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_pitch_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.02325561442015192
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.030657957577821193
+        },
+        {
+          "bodies": [
+            "robot/right_wrist_yaw_link",
+            "box/bread_box"
+          ],
+          "distance_m": -0.018895644158067604
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 740,
+      "world": 0,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0048758661978969085,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0021097188087544107
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0035135661001247567
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004409447962076202
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0048758661978969085
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004561858984744281
+        }
+      ]
+    },
+    {
+      "profile": "p6-single-body",
+      "frame": 740,
+      "world": 1,
+      "reset_roundtrip_max_abs": 1.1920928955078125e-07,
+      "finite_qacc": true,
+      "minimum_distance_m": -0.0048758661978969085,
+      "contacts": [
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0021097188087544107
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0035135661001247567
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004409447962076202
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.0048758661978969085
+        },
+        {
+          "bodies": [
+            "terrain",
+            "robot/right_ankle_roll_link"
+          ],
+          "distance_m": -0.004561858984744281
+        }
+      ]
+    }
+  ]
+}

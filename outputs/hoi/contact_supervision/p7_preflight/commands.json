@@ -1,0 +1,78 @@
+{
+  "cwd": "/home/han/pyx/SMHOI",
+  "scope": "Principal exact validation commands. Failed variants retain contemporaneous source behavior; reproduction requires fresh output paths. No optimizer steps or warm-up. Read-only inspection commands are not exhaustively listed.",
+  "records": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_preflight_provenance.py tests/hoi/test_joint_architecture.py tests/hoi/test_support_context.py tests/hoi/test_checkpoint_migration.py tests/hoi/test_hoi_policy_checkpoint.py tests/hoi/test_force_recorder.py tests/hoi/test_solver_precision.py tests/hoi/test_training_integration.py::test_partial_reset_failures_and_all_world_safety tests/hoi/test_training_robot_regression.py --junitxml=outputs/hoi/contact_supervision/p7_preflight/tests_01.xml > outputs/hoi/contact_supervision/p7_preflight/tests_01.log 2>&1",
+      "result": "31 passed, 1 failed: P2 graph/eager force tolerance"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python -m pytest -q tests/hoi/test_preflight_provenance.py tests/hoi/test_checkpoint_migration.py tests/hoi/test_hoi_policy_checkpoint.py tests/hoi/test_training_integration.py::test_partial_reset_failures_and_all_world_safety --junitxml=outputs/hoi/contact_supervision/p7_preflight/tests_02.xml > outputs/hoi/contact_supervision/p7_preflight/tests_02.log 2>&1",
+      "result": "18 passed, 1 failed: newly added assertion expected wrong metadata rejection text; behavior rejected correctly"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 60 .venv/bin/python -m pytest -q tests/hoi/test_checkpoint_migration.py::test_strict_new_checkpoint_roundtrip_and_metadata --junitxml=outputs/hoi/contact_supervision/p7_preflight/tests_03.xml > outputs/hoi/contact_supervision/p7_preflight/tests_03.log 2>&1",
+      "result": "1 passed after test assertion correction"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 60 .venv/bin/python -m pytest -q tests/test_hoi_reconciliation.py::test_frozen_m6_and_references_unchanged --junitxml=outputs/hoi/contact_supervision/p7_preflight/historical_freeze_01.xml > outputs/hoi/contact_supervision/p7_preflight/historical_freeze_01.log 2>&1",
+      "result": "1 failed: historical code hashes differ; 170 identities match, 13 differ. No old plan required; no historical nonplanning freeze expectation relaxed."
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 .venv/bin/python scripts/hoi/audit_p7_resets.py --output outputs/hoi/contact_supervision/p7_preflight/resets_01.json > outputs/hoi/contact_supervision/p7_preflight/resets_01.log 2>&1",
+      "result": "24 forward-only reset inspections, zero physical steps"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_01 > outputs/hoi/contact_supervision/p7_preflight/audit_01.log 2>&1",
+      "result": "FAIL None reference_start"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_02 > outputs/hoi/contact_supervision/p7_preflight/audit_02.log 2>&1",
+      "result": "PASS initial NPZ/interval/checkpoint inventory"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_03 > outputs/hoi/contact_supervision/p7_preflight/audit_03.log 2>&1",
+      "result": "FAIL own inventory mistaken for intervals"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_04 > outputs/hoi/contact_supervision/p7_preflight/audit_04.log 2>&1",
+      "result": "FAIL scalar/non-vector JSONL summary concatenation"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_05 > outputs/hoi/contact_supervision/p7_preflight/audit_05.log 2>&1",
+      "result": "FAIL non-vector reward dictionary treated as numeric summary"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_06 > outputs/hoi/contact_supervision/p7_preflight/audit_06.log 2>&1",
+      "result": "PASS complete inventory"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python scripts/hoi/audit_p7_preflight.py --output outputs/hoi/contact_supervision/p7_preflight/audit_final > outputs/hoi/contact_supervision/p7_preflight/audit_final.log 2>&1",
+      "result": "PASS explicit unknown mask semantics; 15 NPZ, 97 intervals, 4 JSONL, 28 checkpoints"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 .venv/bin/smHOI-track --profile p6-single-body --log-root /tmp/smhoi_p7_preflight --run-name authority_smoke --sampler-g-max 18.2 --schedule.total-iterations 4 --schedule.log-interval 4 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_preflight/entry_01.log 2>&1",
+      "result": "PASS 4 control steps, 2 worlds, zero updates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 .venv/bin/smHOI-track --profile p6-single-body --log-root /tmp/smhoi_p7_preflight --run-name authority_resume --resume /tmp/smhoi_p7_preflight/authority_smoke/hoi_0000002.pt --sampler-g-max 18.2 --schedule.total-iterations 4 --schedule.log-interval 4 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_preflight/entry_resume_01.log 2>&1",
+      "result": "PASS resume step 2 through 4, zero updates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python outputs/hoi/contact_supervision/p7_preflight/prepare_review.py > outputs/hoi/contact_supervision/p7_preflight/prepare_review.log 2>&1",
+      "result": "PASS unapproved profile proposal and entry checkpoint/guard/continuation evidence; exclusive writes"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/hoi/audit_p7_preflight.py scripts/hoi/audit_p7_resets.py scripts/hoi/verify_p3_evidence.py src/supermimic/hoi/provenance.py tests/hoi/test_preflight_provenance.py src/supermimic/hoi/checkpoint.py src/supermimic/hoi/policy_checkpoint.py src/supermimic/hoi/recorder.py src/supermimic/hoi/training_checkpoint.py src/supermimic/hoi/training_scene.py src/supermimic/hoi/support_context.py tests/hoi/test_checkpoint_migration.py tests/hoi/test_hoi_policy_checkpoint.py tests/hoi/test_joint_architecture.py > outputs/hoi/contact_supervision/p7_preflight/lint_review.log 2>&1",
+      "result": "PASS; earlier import lint findings fixed without behavioral changes"
+    },
+    {
+      "command": "git diff --check -- src scripts tests docs/hoi/force_contact/p7/P7_PREFLIGHT_CLOSURE_REPORT.md",
+      "result": "PASS; raw historical traceback whitespace is intentionally untouched"
+    },
+    {
+      "command": "python outputs/hoi/contact_supervision/p7_preflight/finalize_integrity.py",
+      "result": "PASS: 3203 protected paths; 3186 unchanged, 17 intentional source changes, 0 unexpected changes"
+    }
+  ]
+}

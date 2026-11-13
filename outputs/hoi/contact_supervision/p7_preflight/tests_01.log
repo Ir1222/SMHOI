@@ -1,0 +1,168 @@
+..........................F.....                                         [100%]
+=================================== FAILURES ===================================
+______________ test_physical_interval_recorder_and_terminal_copy _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-han/pytest-121/test_physical_interval_recorde0')
+
+    @pytest.mark.skipif(
+        not torch.cuda.is_available(), reason="P2 physical interval capture requires CUDA"
+    )
+    def test_physical_interval_recorder_and_terminal_copy(tmp_path):
+        root = Path(__file__).resolve().parents[2]
+        out = tmp_path / "physical"
+        command = [
+            sys.executable,
+            str(root / "scripts/hoi/diagnose_force_replay.py"),
+            "--output",
+            str(out),
+        ]
+        result = subprocess.run(
+            command,
+            check=False,
+            cwd=root,
+            env={**os.environ, "MUJOCO_GL": "egl", "PYTHONDONTWRITEBYTECODE": "1"},
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+>       assert result.returncode == 0, result.stdout + result.stderr
+E       AssertionError: Setting seed: 0
+E         Warp 1.18.0 initialized:
+E            CUDA Toolkit 13.4, Driver 13.0
+E            Devices:
+E              "cpu"      : "x86_64"
+E              "cuda:0"   : "NVIDIA GeForce RTX 4090 D" (24 GiB, sm_89, mempool enabled)
+E            Kernel cache:
+E              /tmp/smhoi_p2_warp_cache/1.18.0
+E         Module mujoco_warp._src.smooth 43a6a77 load on device 'cuda:0' took 0.57 ms  (cached)
+E         Module _nxn_broadphase__locals__kernel_32304148 3230414 load on device 'cuda:0' took 0.23 ms  (cached)
+E         Module _nxn_broadphase__locals__kernel_32304148 2a885b9 load on device 'cuda:0' took 0.16 ms  (cached)
+E         Module ccd_kernel_builder__locals__ccd_kernel_1dbaeac7 1dbaeac load on device 'cuda:0' took 0.45 ms  (cached)
+E         Module _primitive_narrowphase__locals__primitive_narrowphase_00199ac9 00199ac load on device 'cuda:0' took 0.45 ms  (cached)
+E         Module mujoco_warp._src.constraint 8d4d513 load on device 'cuda:0' took 0.21 ms  (cached)
+E         Module _friction_dof__locals__kernel_f68ea16b f68ea16 load on device 'cuda:0' took 0.26 ms  (cached)
+E         Module _limit_slide_hinge__locals__kernel_263562ea 263562e load on device 'cuda:0' took 0.22 ms  (cached)
+E         Module _efc_contact_init__locals__kernel_db1e703e db1e703 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _efc_contact_jac_sparse__locals__kernel_07447225 0744722 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _efc_contact_update__locals__kernel_55b2a711 55b2a71 load on device 'cuda:0' took 0.21 ms  (cached)
+E         Module mujoco_warp._src.sensor 8feaecd load on device 'cuda:0' took 0.61 ms  (cached)
+E         Module mujoco_warp._src.forward 70fadf5 load on device 'cuda:0' took 0.52 ms  (cached)
+E         Module mujoco_warp._src.passive 0de6fd1 load on device 'cuda:0' took 0.56 ms  (cached)
+E         Module _qfrc_passive_kernel__locals__kernel_20315922 2031592 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _qfrc_smooth__locals__kernel_2c4e0694 2c4e069 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module mujoco_warp._src.support 970ef9a load on device 'cuda:0' took 0.20 ms  (cached)
+E         Module _small_cholesky_factorize_solve_block__locals__kernel_9c61f0b1 ffea8ea load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _tile_cholesky_factorize_solve_block__locals__kernel_b778dc3e bc43cde load on device 'cuda:0' took 20.70 ms  (cached)
+E         Module _solve_init_dof__locals__kernel_a955d90a a955d90 load on device 'cuda:0' took 0.24 ms  (cached)
+E         Module mujoco_warp._src.solver e4420b7 load on device 'cuda:0' took 0.30 ms  (cached)
+E         Module _solve_init_jaref_kernel__locals__kernel_a373e283 a373e28 load on device 'cuda:0' took 0.20 ms  (cached)
+E         Module mul_m_kernel__locals___mul_m_6d916077 6d91607 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _update_constraint_efc__locals__kernel_e1de18c7 e1de18c load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _update_constraint_init_qfrc_constraint_sparse__locals__kernel_88431482 8843148 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module _update_gradient_zero_grad_dot__locals__kernel_c4230897 c423089 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module _update_gradient_grad__locals__kernel_21379838 2137983 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module _update_gradient_init_h_sparse__locals__kernel_d095819a d095819 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module _JTDACJ_sparse__locals__kernel_83157a18 83157a1 load on device 'cuda:0' took 0.26 ms  (cached)
+E         Module _update_gradient_cholesky_blocked__locals__kernel_32b38bcb 7305e96 load on device 'cuda:0' took 47.56 ms  (cached)
+E         Module _linesearch_jv_fused_kernel__locals__kernel_489ce447 489ce44 load on device 'cuda:0' took 0.30 ms  (cached)
+E         Module _linesearch_iterative_kernel__locals__kernel_2ea5b4e6 00877cd load on device 'cuda:0' took 0.33 ms  (cached)
+E         Module _update_constraint_efc__locals__kernel_a341871c a341871 load on device 'cuda:0' took 0.20 ms  (cached)
+E         Module _update_gradient_zero_grad_dot__locals__kernel_10c2b083 10c2b08 load on device 'cuda:0' took 0.19 ms  (cached)
+E         Module _update_gradient_grad__locals__kernel_b8320cbe b8320cb load on device 'cuda:0' took 0.17 ms  (cached)
+E         Module _update_gradient_h_incremental_sparse__locals__kernel_3754d96f 3754d96 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module _update_gradient_cholesky_blocked_skip_unchanged__locals__kernel_9d96ed8a 6384045 load on device 'cuda:0' took 53.76 ms  (cached)
+E         Module _solve_done__locals__kernel_63147dda 63147dd load on device 'cuda:0' took 0.27 ms  (cached)
+E         Module _contact_match_builder__locals___contact_match_480cf87a 480cf87 load on device 'cuda:0' took 0.23 ms  (cached)
+E         Module _contact_sort__locals__contact_sort_acb63f94 7fe7daf load on device 'cuda:0' took 0.22 ms  (cached)
+E         Module mujoco_warp._src.derivative 011f1dc load on device 'cuda:0' took 0.44 ms  (cached)
+E         Module _next_time_builder__locals___next_time_e59def4b e59def4 load on device 'cuda:0' took 0.24 ms  (cached)
+E         Module reset_data__locals__reset_xfrc_applied_b0a4c05b b0a4c05 load on device 'cuda:0' took 0.28 ms  (cached)
+E         Module reset_data__locals__reset_M_2263bd42 2263bd4 load on device 'cuda:0' took 0.18 ms  (cached)
+E         Module reset_data__locals__reset_mocap_8058fd6f 8058fd6 load on device 'cuda:0' took 0.15 ms  (cached)
+E         Module reset_data__locals__reset_contact_adcd3765 adcd376 load on device 'cuda:0' took 0.16 ms  (cached)
+E         Module reset_data__locals__reset_sleep_3246b46a 3246b46 load on device 'cuda:0' took 0.16 ms  (cached)
+E         Module reset_data__locals__reset_nworld_9d8fd945 9d8fd94 load on device 'cuda:0' took 0.16 ms  (cached)
+E         
+E         +---------------------------------+
+E         |         Base Environment        |
+E         +------------------------+--------+
+E         | Property               | Value  |
+E         +------------------------+--------+
+E         | Number of environments | 4      |
+E         | Environment device     | cuda:0 |
+E         | Environment seed       | 0      |
+E         | Physics step-size      | 0.005  |
+E         | Environment step-size  | 0.02   |
+E         +------------------------+--------+
+E         
+E         [INFO] <EventManager> contains 0 active terms.
+E         
+E         [INFO] <NullCommandManager> (inactive)
+E         [INFO] <ActionManager> contains 1 active terms.
+E         +---------------------------------+
+E         | Active Action Terms (shape: 29) |
+E         +-------+-----------+-------------+
+E         | Index | Name      |   Dimension |
+E         +-------+-----------+-------------+
+E         |   0   | joint_pos |          29 |
+E         +-------+-----------+-------------+
+E         
+E         [INFO] <ObservationManager> contains 0 groups.
+E         
+E         [INFO] <TerminationManager> contains 0 active terms.
+E         +--------------------------+
+E         | Active Termination Terms |
+E         +-------+------+-----------+
+E         | Index | Name |  Time Out |
+E         +-------+------+-----------+
+E         +-------+------+-----------+
+E         
+E         [INFO] <RewardManager> contains 0 active terms.
+E         +-----------------------+
+E         |  Active Reward Terms  |
+E         +-------+------+--------+
+E         | Index | Name | Weight |
+E         +-------+------+--------+
+E         +-------+------+--------+
+E         
+E         [INFO] <NullCurriculumManager> (inactive)
+E         [INFO] <MetricsManager> contains 1 active terms.
+E         +--------------------------+
+E         |   Active Metrics Terms   |
+E         +-------+------------------+
+E         | Index | Name             |
+E         +-------+------------------+
+E         |   0   | contact_capacity |
+E         +-------+------------------+
+E         
+E         [INFO] <NullRecorderManager> (inactive)
+E         Module repeat_array_kernel_31f1cdc7 ab09835 load on device 'cuda:0' took 0.40 ms  (cached)
+E         /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+E           warnings.warn(
+E         Traceback (most recent call last):
+E           File "/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay.py", line 378, in <module>
+E             result = run(args.output)
+E                      ^^^^^^^^^^^^^^^^
+E           File "/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay.py", line 285, in run
+E             torch.testing.assert_close(x, y, atol=2e-5, rtol=2e-6)
+E           File "/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1689, in assert_close
+E             raise error_metas[0].to_error(msg)
+E         AssertionError: Tensor-likes are not close!
+E         
+E         Mismatched elements: 2 / 192 (1.0%)
+E         Greatest absolute difference: 4.57763671875e-05 at index (3, 0, 1, 0, 0) (up to 2e-05 allowed)
+E         Greatest relative difference: 1.0148522051167674e-05 at index (3, 0, 1, 1, 0) (up to 2e-06 allowed)
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/home/han/pyx/SMHOI/.venv/bin/python', '/home/han/pyx/SMHOI/scripts/hoi/diagnose_force_replay....2e-05 allowed)\nGreatest relative difference: 1.0148522051167674e-05 at index (3, 0, 1, 1, 0) (up to 2e-06 allowed)\n').returncode
+
+tests/hoi/test_force_recorder.py:34: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491
+  /home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hoi/test_force_recorder.py::test_physical_interval_recorder_and_terminal_copy
+1 failed, 31 passed, 1 warning in 14.79s

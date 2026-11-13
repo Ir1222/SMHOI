@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 336, in <module>
+    main()
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 289, in main
+    jsonl = [audit_jsonl(p) for p in sorted(outputs.rglob("transitions.jsonl"))]
+             ^^^^^^^^^^^^^^
+  File "/home/han/pyx/SMHOI/scripts/hoi/audit_p7_preflight.py", line 214, in audit_jsonl
+    data = {k: np.concatenate([np.asarray(row[k]) for row in rows]) for k in rows[0]}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-dimensional arrays cannot be concatenated

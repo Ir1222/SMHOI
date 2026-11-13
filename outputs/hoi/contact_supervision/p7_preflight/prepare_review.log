@@ -1,0 +1,12 @@
+{
+  "scope": "four-step smoke; exact restore is separately unit-tested; not long-run equivalence",
+  "final_physical_state_max_abs": 1.5050172805786133e-06,
+  "all_weights_identical": true,
+  "replay_discrete_identical": true,
+  "checkpoint_identity_identical": true,
+  "optimizer_steps": {
+    "wm": 0,
+    "actor": 0,
+    "critic": 0
+  }
+}

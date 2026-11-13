@@ -29,17 +29,7 @@ def profile_manifest(profile):
                 "Production M6.5 training_ready is not true; use an explicit diagnostic profile"
             )
     elif profile in ("p6-original", "p6-single-body"):
-        manifest = load_manifest(DEFAULT_ASSET, verify_sources=False)
-        for source in manifest["sources"]:
-            path = Path(source["path"])
-            if not path.is_file() and (
-                path == ROOT / "SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md"
-                and source["sha256"]
-                == "168465ae0a2e17153902a337963574942551909680d0d8dd36f7ffb22102b05c"
-            ):
-                continue  # Exact P6 diagnostic exception; never production acceptance.
-            if sha256(path) != source["sha256"]:
-                raise ValueError(f"Changed/missing physical source: {path}")
+        manifest = load_manifest(DEFAULT_ASSET)
         if profile == "p6-single-body":
             if sha256(SINGLE_BODY) != SINGLE_SHA:
                 raise ValueError("Changed P6 candidate")
@@ -61,6 +51,7 @@ def digest_json(value):
 def physical_identity(profile, manifest, reference, guard):
     return {
         "profile": profile,
+        "research_authority": manifest["research_authority"],
         "production_manifest_sha256": ASSET_SHA,
         "box_sha256": digest_json(manifest["object"]),
         "box_candidate_sha256": SINGLE_SHA if profile == "p6-single-body" else None,

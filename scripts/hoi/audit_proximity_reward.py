@@ -41,7 +41,7 @@ def inspect_geometry():
     """Read exact accepted inputs and return reproducible, geometric-only evidence."""
     if sha256(DEFAULT_ASSET) != ASSET_SHA:
         raise ValueError("Unexpected M6.5 manifest")
-    manifest = load_manifest(DEFAULT_ASSET, verify_sources=False)
+    manifest = load_manifest(DEFAULT_ASSET)
     provenance = []
     for source in manifest["sources"]:
         p = Path(source["path"])

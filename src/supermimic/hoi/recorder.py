@@ -37,6 +37,8 @@ def natural_clip_end(env):
 
 class HOIReplayRecorder(RecorderTerm):
     def __init__(self, cfg, env):
+        from supermimic.hoi.provenance import research_authority
+
         super().__init__(cfg, env)
         self.io = JointStateIO(env)
         self.ctx = SimContext(env, r"^(left|right)_foot[1-7]_collision$")
@@ -46,6 +48,7 @@ class HOIReplayRecorder(RecorderTerm):
         self.capture = IntervalCapture(env, self.io, cfg.params["force_on"])
         self.references = [ReferenceClip(path) for path in cfg.params["references"]]
         self.buffer.metadata.update(
+            research_authority=research_authority(),
             references=[
                 {"path": str(r.path), "sha256": r.manifest["sha256"]} for r in self.references
             ],

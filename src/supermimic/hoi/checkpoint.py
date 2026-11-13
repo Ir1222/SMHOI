@@ -8,6 +8,7 @@ from dataclasses import asdict
 
 import torch
 
+from supermimic.hoi.provenance import research_authority
 from supermimic.hoi.state_spec import (
     OBJECT_RESIDUALS,
     ROBOT_FEATURES,
@@ -218,6 +219,7 @@ def joint_checkpoint(wm, *, replay_metadata, provenance):
         raise ValueError("Support geometry asset mismatch")
     metadata = {
         "schema": SCHEMA,
+        "research_authority": research_authority(),
         "dimensions": dict(DIMENSIONS),
         "config": asdict(wm.cfg),
         "replay": contract,  # Existing sensor fields are provenance, never WM targets.

@@ -1,0 +1,77 @@
+{
+  "baseline_commit": "c86a483c200f445b9f565acf3c78fb017e584c84",
+  "checked": 3203,
+  "unchanged": 3186,
+  "intentional_source_changes": {
+    "scripts/hoi/audit_proximity_reward.py": {
+      "before": "e85e3182ac46e04da625902974b50b45028587e3cc6fad03ae80c67e6cdcb487",
+      "after": "f259fd6657d5ae954934e1e307bf15ff5d01159f7ea348e53a9cacf61bb68eb6"
+    },
+    "scripts/hoi/baseline.py": {
+      "before": "85ba7575d51e862bd3f02882fdb77c7a74b2bc121117c8c8dc518de8a4ab54cd",
+      "after": "1ab277b7780fea765f29a1197bd6b7ba4025f93e66ca30eb641a93559d7d5b42"
+    },
+    "scripts/hoi/build_manifest.py": {
+      "before": "68d29d96b5023299bd0bd083febe4a84202995f6c3d9d60d7043c3da7a20f955",
+      "after": "e2359d47e49f9652ff40e07b796edefb59d4ad0d59754011e48e6b1b70b4e048"
+    },
+    "scripts/hoi/reconcile/common.py": {
+      "before": "4965edeeb31e6f8591efe692a6d08c9bd6c661018f806732c23ccd0372c0c74f",
+      "after": "f05b6d30cbf6ef08df59ec70c459bfd31828316407aecf899b5af6a70c6fb9c2"
+    },
+    "scripts/hoi/run_audit.py": {
+      "before": "99e59dac493da1c9403b1e13cfbe828e14a4e6112fabad2490b94ffa9b86a765",
+      "after": "e2fa2ac62113ebe926b62b068560c2516ac5c1db978f3ec9751f62cf4449f470"
+    },
+    "scripts/hoi/verify_p3_evidence.py": {
+      "before": "f15cb3408c63a9ca84ff63d416d8ab31e7dd15d42fb2f527654f8be53f56d64a",
+      "after": "9fae1f166bd197977b6f494e6159079b9616b0a03cbad2cbc95d110d1b9e9799"
+    },
+    "src/supermimic/hoi/asset_manifest.py": {
+      "before": "caf4311d24ac3ee06570736e7b3ae0e9dbd4995f1a4fa043672b384e8338ec75",
+      "after": "a121fd77f3bd572c2aa78a439bcec0a2fe01d2b67d9721f5b1e980f5aa5e82e6"
+    },
+    "src/supermimic/hoi/checkpoint.py": {
+      "before": "b9905924df0a7142bd631040e9829a15004bba5cc4f8dfc12d0717c2bf3ffc78",
+      "after": "25f8e067c482ebf8500df230b44e750a88d2585cbfc1e26aa824d2ec5ba25890"
+    },
+    "src/supermimic/hoi/policy_checkpoint.py": {
+      "before": "b72e46d59e9b6b11c664a3184321c7d9f112f00e433a2ca06faa29575236226c",
+      "after": "774b3c634310b9419abcfc6c4f953125d419aa7d0872a0aa010488dab19b7c62"
+    },
+    "src/supermimic/hoi/recorder.py": {
+      "before": "8599493447d4bb6f00b1aa9c6e857572b33d4e860465b79e13a25ea2d1d8f6b5",
+      "after": "80bcd945027248b6cf97ca6521142f625c2685393788c260198eede5d7adf320"
+    },
+    "src/supermimic/hoi/support_context.py": {
+      "before": "443fed8c28c2a0b9a07c2aba99a32ba3e0b657657987c51af68e3fad11ed0df8",
+      "after": "0fd49c4c64ba20de6bb0d35e5a9c04d293943681f2a2db0c8e40163d19f2f89c"
+    },
+    "src/supermimic/hoi/training_checkpoint.py": {
+      "before": "c656091ec24a3ee8efabec75e2771184eb91a6a3e204a4c4e50e1278a91a9471",
+      "after": "bef34a72538ec023928bf36efe64106e2113c6fb144f0fbfd894c4e18bde2d38"
+    },
+    "src/supermimic/hoi/training_scene.py": {
+      "before": "eff868e4ccb64d256cce3116ed81a747c792ff04186db94c7462db0e3f5d1545",
+      "after": "e794708400a3173055acec0c5d60c7e21216ddf9a79fa85f7d1b44f04de54d5b"
+    },
+    "tests/hoi/test_checkpoint_migration.py": {
+      "before": "92bf143425cbf65ce3cd4dc3161efad1ab9cf3c628e4dd6d7776b8639cd76a1d",
+      "after": "ca616fdc88d7e1228a23ea2f5cf3c6d38557f680a41f13be703074bb458ce428"
+    },
+    "tests/hoi/test_hoi_policy_checkpoint.py": {
+      "before": "9ec8961d9eae693dad560ee06bf64cf5bd4e998df6cb0cb53718df340c2c0348",
+      "after": "e3a0858b38c1cd35992c3ad6eae5d5d49cfa980b63bf2188fcfa76d1f6c6b280"
+    },
+    "tests/hoi/test_joint_architecture.py": {
+      "before": "0a3da3a2937ca5de81b18806a2756fdce399077b4b7c4b3fb7fa219ef6c2cfbe",
+      "after": "abe8b128123d08f63df8503df079c222acd8a7b0964cb271238a2ed05b900a17"
+    },
+    "tests/test_hoi_reconciliation.py": {
+      "before": "b0af5ead538e749bf5ed300dd5b7be4cb4d87b03e8b067329bf0dd797eecf7ba",
+      "after": "e8a83b1bca05e44339eca6cb99cbe577b8841de7bd9ee1c460f5d2d8d0e3eab1"
+    }
+  },
+  "unexpected_changes": {},
+  "master_assets_references_calibration_historical_outputs_checkpoints_and_user_files_preserved": true
+}

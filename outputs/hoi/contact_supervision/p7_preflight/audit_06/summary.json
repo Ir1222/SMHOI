@@ -1,0 +1,19 @@
+{
+  "research_authority": {
+    "path": "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md",
+    "sha256": "25554b0987d70e778b1c41b33cc15512b876e3ee9f359536a850545d63305841",
+    "migration": "retire-incorrect-v3-use-current-master-v1",
+    "authority": "sole research and implementation plan; explicit user decision"
+  },
+  "asset_sha256": "1e8e1def25b262778195b56b0ea9622480ed2cede9cd3d3ae98c5679bb8288a1",
+  "single_body_sha256": "6c3f1a9c601336cb264cd0f979ec4d039ed380e76df6ee1a0a33358d5a82e331",
+  "original_reference_sha256": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+  "archive_count": 15,
+  "interval_file_count": 97,
+  "policy_jsonl_file_count": 4,
+  "checkpoint_count": 28,
+  "scope": "repository outputs/hoi plus surviving /tmp/smhoi* and /tmp/pytest-of-han checkpoints; no external dataset assumed",
+  "decision": "INSUFFICIENT natural HOI coverage; no train/validation partition or training admission performed",
+  "original_reference_modified": false,
+  "optimizer_updates": 0
+}

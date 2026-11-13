@@ -106,6 +106,7 @@ def test_support_rejects_modified_manifest_and_missing_or_changed_runtime_source
     import json
 
     import supermimic.hoi.support_context as module
+    from supermimic.hoi import provenance
     from supermimic.hoi.reference import DEFAULT_ASSET
 
     bad = tmp_path / "modified_manifest.json"
@@ -114,12 +115,12 @@ def test_support_rejects_modified_manifest_and_missing_or_changed_runtime_source
         module.SupportContext(bad)
     sources = json.loads(DEFAULT_ASSET.read_text())["sources"]
     chosen = next(x["path"] for x in sources if "IMPLEMENTATION_PLAN_V3" not in x["path"])
-    original = module.sha256
+    original = provenance.sha256
 
     def wrong_source(path):
         return "wrong" if str(path) == chosen else original(path)
 
-    monkeypatch.setattr(module, "sha256", wrong_source)
+    monkeypatch.setattr(provenance, "sha256", wrong_source)
     with pytest.raises(ValueError, match="source changed"):
         module.SupportContext()
 
@@ -128,6 +129,6 @@ def test_support_rejects_modified_manifest_and_missing_or_changed_runtime_source
             raise FileNotFoundError(chosen)
         return original(path)
 
-    monkeypatch.setattr(module, "sha256", missing_source)
+    monkeypatch.setattr(provenance, "sha256", missing_source)
     with pytest.raises(FileNotFoundError):
         module.SupportContext()

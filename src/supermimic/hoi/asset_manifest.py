@@ -5,12 +5,14 @@ manifest currently fails physical-contact/support gates; it is not trainable.
 """
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
 import mujoco
 import numpy as np
+
+from supermimic.hoi.provenance import effective_sources, research_authority
+from supermimic.hoi.provenance import verify_sources as verify_source_records
 
 
 def validate_manifest(m: dict, verify_sources: bool = True) -> None:
@@ -48,16 +50,17 @@ def validate_manifest(m: dict, verify_sources: bool = True) -> None:
     if m['training_ready'] and any(g['status'] == 'FAIL' for g in m['gates'].values()):
         raise ValueError('Cannot approve training with failed geometry gates')
     if verify_sources:
-        for src in m['sources']:
-            with Path(src['path']).open('rb') as f:
-                digest = hashlib.file_digest(f, 'sha256').hexdigest()
-            if digest != src['sha256']:
-                raise ValueError('Source changed: ' + src['path'])
+        verify_source_records(m['sources'])
+        if 'research_authority' in m and m['research_authority'] != research_authority():
+            raise ValueError('Manifest research authority mismatch')
 
 
 def load_manifest(path: str | Path, verify_sources: bool = True) -> dict:
     m = json.loads(Path(path).read_text())
     validate_manifest(m, verify_sources)
+    # Return an explicit migrated view; never rewrite historical asset bytes/gates.
+    m['sources'] = effective_sources(m['sources'])
+    m['research_authority'] = research_authority()
     return m
 
 
