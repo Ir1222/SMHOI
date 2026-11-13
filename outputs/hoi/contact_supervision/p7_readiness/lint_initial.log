@@ -1,0 +1,40 @@
+RUF059 Unpacked variable `original_manifest` is never used
+   --> scripts/hoi/p7_readiness.py:110:5
+    |
+108 |     result["installed_solver_sha256"] = sha256(solver.__file__)
+109 |     assert result["installed_solver_sha256"] == SOURCE_SHA256
+110 |     original_manifest, original, sources = inputs()
+    |     ^^^^^^^^^^^^^^^^^
+111 |     candidate = ReferenceClip(P6 / "reference_candidate_v1/reference.npz")
+112 |     assert candidate.manifest["training_ready"] is False
+    |
+help: Prefix it with an underscore or any other dummy variable pattern
+    |
+109 |     assert result["installed_solver_sha256"] == SOURCE_SHA256
+    -     original_manifest, original, sources = inputs()
+110 +     _original_manifest, original, sources = inputs()
+111 |     candidate = ReferenceClip(P6 / "reference_candidate_v1/reference.npz")
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+RUF059 Unpacked variable `objective` is never used
+   --> scripts/hoi/p7_readiness.py:301:29
+    |
+299 |             start = buffer.sample_starts(2, 10)
+300 |             with frozen_parameters(wm, critic):
+301 |                 actor_loss, objective, rollout, critic_inputs, xi_norm = trainer.actor_loss(start)
+    |                             ^^^^^^^^^
+302 |                 finite("Actor loss", actor_loss)
+303 |                 actor_loss.backward()
+    |
+help: Prefix it with an underscore or any other dummy variable pattern
+    |
+300 |             with frozen_parameters(wm, critic):
+    -                 actor_loss, objective, rollout, critic_inputs, xi_norm = trainer.actor_loss(start)
+301 +                 actor_loss, _objective, rollout, critic_inputs, xi_norm = trainer.actor_loss(start)
+302 |                 finite("Actor loss", actor_loss)
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 29 errors (27 fixed, 2 remaining).
+2 unsafe fixes available with `--fix --unsafe-fixes`.

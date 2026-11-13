@@ -1,0 +1,53 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "console_scripts": {
+    "sm-train": "supermimic.scripts.train:main"
+  },
+  "training_env_entities": [
+    "robot"
+  ],
+  "training_observation_groups": [
+    "policy",
+    "goal"
+  ],
+  "training_warn_overflow": 0,
+  "train_config_fields": [
+    "run_name",
+    "log_root",
+    "seed",
+    "device",
+    "data",
+    "env",
+    "world_model",
+    "wm_trainer",
+    "policy",
+    "critic",
+    "policy_trainer",
+    "schedule",
+    "resume"
+  ],
+  "guard_referenced_by_trainer": false,
+  "target_checkpoint_exists": false,
+  "production_scene_source_check": "[Errno 2] No such file or directory: '/home/han/pyx/SMHOI/SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md'",
+  "optimizer_updates": 0,
+  "external_checkpoint": {
+    "path": "/home/han/pyx/SuperMimic-Reproduced/logs/hdmi_robot_only/ckpt_0012000.pt",
+    "sha256": "16d2b0ca9138fe43336ad87c44d88c9c726e62e684c87919de81a4de1b618bc7",
+    "strict_policy_and_critic_load": true,
+    "obs_width": 930,
+    "goal_width": 680,
+    "critic_input_width": 788,
+    "action_shape": [
+      2,
+      29
+    ],
+    "value_shape": [
+      2
+    ],
+    "synthetic_obs_perturbation_action_max_change": 0.3351505994796753,
+    "adopted_as_pilot_initialization": false,
+    "provenance": "External robot-only candidate; training Git/data hashes absent. Compatibility only.",
+    "physical_policy_evaluation": "NOT RUN"
+  }
+}

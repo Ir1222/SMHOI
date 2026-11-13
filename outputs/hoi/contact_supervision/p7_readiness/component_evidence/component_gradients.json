@@ -1,0 +1,71 @@
+{
+  "fixture": "DeterministicCoupledResidual; synthetic nonzero coupling only",
+  "test_only_coefficients": {
+    "version": "scheme-a-squared-log-next-frame-v1",
+    "box_sigmas": [
+      0.2,
+      0.4,
+      1.0,
+      2.0
+    ],
+    "box_weights": [
+      0.7,
+      0.8,
+      0.9,
+      1.1
+    ],
+    "sigma_pos": 0.0423,
+    "beta_c": 0.6,
+    "dt": 0.02,
+    "proximity_ablation": null
+  },
+  "components": {
+    "motion_global_root_pos": {
+      "action_gradient_norm": 4.022310801381149e-06,
+      "actor_gradient_norm": 4.234089030294959e-06
+    },
+    "motion_global_root_ori": {
+      "action_gradient_norm": 4.508805947652716e-07,
+      "actor_gradient_norm": 4.7461662593383756e-07
+    },
+    "motion_body_pos": {
+      "action_gradient_norm": 1.0574437976336126e-05,
+      "actor_gradient_norm": 1.1131229185300072e-05
+    },
+    "motion_body_ori": {
+      "action_gradient_norm": 1.1712508901204318e-06,
+      "actor_gradient_norm": 1.232914700080173e-06
+    },
+    "motion_body_lin_vel": {
+      "action_gradient_norm": 4.3986237825699186e-05,
+      "actor_gradient_norm": 4.630199904111237e-05
+    },
+    "motion_body_ang_vel": {
+      "action_gradient_norm": 8.193885110413502e-05,
+      "actor_gradient_norm": 8.625236772743571e-05
+    },
+    "box_pos": {
+      "action_gradient_norm": 4.142180260290782e-06,
+      "actor_gradient_norm": 4.360235720489447e-06
+    },
+    "box_ori": {
+      "action_gradient_norm": 6.22349570129121e-07,
+      "actor_gradient_norm": 6.551240442867971e-07
+    },
+    "box_lin_vel": {
+      "action_gradient_norm": 5.021454861376171e-05,
+      "actor_gradient_norm": 5.285793332135955e-05
+    },
+    "box_ang_vel": {
+      "action_gradient_norm": 4.0233380924678965e-05,
+      "actor_gradient_norm": 4.23517401867857e-05
+    },
+    "proximity_weighted": {
+      "action_gradient_norm": 7.625830251918946e-05,
+      "actor_gradient_norm": 8.027286543866144e-05
+    }
+  },
+  "proximity_off_exact_zero": true,
+  "detached_control_disconnected": true,
+  "box_and_proximity_action_finite_differences": "PASS: atol=1e-7 rtol=1e-5 eps=1e-6"
+}

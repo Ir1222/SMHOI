@@ -1,0 +1,22 @@
+{
+  "world_transitions": 50,
+  "action_abs_max": 0.0013361540623009205,
+  "action_within_episode_delta_rms": 0.00011161951688756053,
+  "robot_joint_step_delta_rms_rad": 0.044469282620158895,
+  "box_step_delta_max_m": 0.011718522395158438,
+  "hand_contact_counts": [
+    4,
+    2
+  ],
+  "any_contact_count": 4,
+  "bilateral_contact_count": 2,
+  "intent_on_count": 12,
+  "intent_off_count": 38,
+  "physical_reward_range": [
+    0.10596774518489838,
+    0.15772169828414917
+  ],
+  "physical_reward_mean": 0.13510177090764044,
+  "clip_end_transitions": 3,
+  "optimized": false
+}

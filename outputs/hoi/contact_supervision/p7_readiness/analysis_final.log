@@ -1,0 +1,26 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+  "world_transitions": 50,
+  "action_abs_max": 0.0013361540623009205,
+  "action_within_episode_delta_rms": 0.00011161988321942571,
+  "robot_joint_step_delta_rms_rad": 0.04446928300994409,
+  "box_step_delta_max_m": 0.011718522395158438,
+  "hand_contact_counts": [
+    4,
+    2
+  ],
+  "any_contact_count": 4,
+  "bilateral_contact_count": 2,
+  "intent_on_count": 12,
+  "intent_off_count": 38,
+  "physical_reward_range": [
+    0.10596774518489838,
+    0.15772169828414917
+  ],
+  "physical_reward_mean": 0.1351017712056637,
+  "clip_end_transitions": 3,
+  "optimized": false,
+  "contact_recomputed_from_retained_raw_substeps": true,
+  "reset_overlap_scope": "CPU forward only; no stepping, no reset pose correction"
+}

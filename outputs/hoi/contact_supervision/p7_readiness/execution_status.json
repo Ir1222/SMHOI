@@ -1,0 +1,66 @@
+{
+  "optimizer_updates": {
+    "WM": 0,
+    "Actor": 0,
+    "Critic": 0
+  },
+  "runs": [
+    {
+      "name": "components",
+      "exit_code": 0,
+      "result": "66 passed; 1 existing Torch FutureWarning",
+      "wall_seconds_reported": 10.09
+    },
+    {
+      "name": "compiled_initial_selection",
+      "exit_code": 5,
+      "result": "4 deselected; no test executed",
+      "log": "compiled.log"
+    },
+    {
+      "name": "compiled_cuda",
+      "exit_code": 124,
+      "result": "TIMEOUT; no completed parity result",
+      "wall_cap_seconds": 300
+    },
+    {
+      "name": "compiled_step",
+      "exit_code": 124,
+      "result": "TIMEOUT; no completed parity result",
+      "wall_cap_seconds": 180
+    },
+    {
+      "name": "physical_01",
+      "exit_code": 1,
+      "result": "Harness AttributeError: processed_actions property absent; failed before first row logging"
+    },
+    {
+      "name": "physical_02",
+      "exit_code": 1,
+      "result": "Guard attestation failed: instrumentation did not observe wp.launch_tiled; not accepted"
+    },
+    {
+      "name": "physical_03",
+      "exit_code": 0,
+      "result": "Bounded combined component preflight PASS; P7.1 remains not ready"
+    },
+    {
+      "name": "physical_final",
+      "exit_code": 0,
+      "result": "PASS with raw substep/Replay retention and substep affine-action check; P7.1 remains not ready"
+    },
+    {
+      "name": "static_audit",
+      "exit_code": 0,
+      "result": "Actual default training configuration and pinned external Actor/Critic compatibility recorded; no training"
+    },
+    {
+      "name": "analysis",
+      "exit_code": 0,
+      "result": "Forward-only reset contact classification; no physical stepping"
+    }
+  ],
+  "compiled_current_status": "INCOMPLETE",
+  "physical_current_status": "BOUNDED COMPONENT PASS",
+  "training_readiness": "NOT SATISFIED"
+}

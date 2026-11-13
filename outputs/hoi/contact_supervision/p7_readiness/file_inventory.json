@@ -1,0 +1,238 @@
+{
+  "docs/hoi/force_contact/p7/IMPLEMENTATION_SPEC.md": {
+    "bytes": 3664,
+    "sha256": "98a348c44d01673c6832113bbb0cb4c1c18e7b70758ffa6ecfe053be5c8a653f"
+  },
+  "docs/hoi/force_contact/p7/P7_TRAINING_READINESS.md": {
+    "bytes": 35771,
+    "sha256": "d32962a238357ba4564716b321cd9cd6b857235669bfbeb35a83ebe43dcb877f"
+  },
+  "docs/hoi/force_contact/p7/ppo_pilot_v1.json": {
+    "bytes": 5709,
+    "sha256": "e99149b846359fb8231946169e329c182df75514d9c34e141ddc89dc86aff591"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/analysis.json": {
+    "bytes": 11963,
+    "sha256": "797e609c9454a1c6bb21e7f84739aa023c9a5cf5ee71b92d0dc3821149021bb2"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/analysis.log": {
+    "bytes": 859,
+    "sha256": "38217fed8eaed159d441741867bb3d7e8fbcafe644aa97cad6056ecc7930ccad"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/analysis_final.log": {
+    "bytes": 914,
+    "sha256": "390eb00df213f2d990d3e536737804740a143123bcd854c0457eff7b6d50ca5a"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/analyze.py": {
+    "bytes": 4095,
+    "sha256": "05cafada1108c282bd69e6b91c02f3f74cd0fbb51aa0e0ccf3bdcf0232b0e5a2"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/compiled.log": {
+    "bytes": 453,
+    "sha256": "0b9c72ad97c683a3f55a4f33d6fb3fedf0f273f3ff2187048290c131dfc92ba5"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/compiled.xml": {
+    "bytes": 244,
+    "sha256": "20b051f3fdb18963843811e1547954dd9d2bb14df646d14b1537c5180adc10cf"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/compiled_cuda.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/compiled_step.log": {
+    "bytes": 200,
+    "sha256": "2a32d062dc291e8d93a478351dbdc5d03d70342539edfe171401b2671b7f36a8"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/compiled_step.py": {
+    "bytes": 2159,
+    "sha256": "d589be406bce94ea0f908ab6a16461e0401cb60759fcfa42acf1aad4b903e697"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/component_evidence/bptt_isolation.json": {
+    "bytes": 393,
+    "sha256": "a816f7f7a4c5799a6c7975472eb48f73162e5fc64b5cad9d9e66bafc05332b2b"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/component_evidence/component_gradients.json": {
+    "bytes": 2088,
+    "sha256": "d0bfe4500708f567346564e3612e2bbb496fc3b54cdab3b0db0c0c4960620a5f"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/component_evidence/initialized_model.json": {
+    "bytes": 215,
+    "sha256": "b61ab0046e6df1e71f78fa077eb2a4d597a282bb9b34755e9122e1eb7cea2d70"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/component_evidence/multi_clip.json": {
+    "bytes": 2334,
+    "sha256": "95a29abaefc102f754847e7968f770468ebd4dc51182721db62939d6430c308b"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/component_evidence/reference_840.json": {
+    "bytes": 1300,
+    "sha256": "e9a497d4cb1c1d2ae46c890aaf62bfb13b14eb322f8ca2868c255b6ad6fcb82b"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/components.log": {
+    "bytes": 530,
+    "sha256": "56ccc176960af6b17269333c9a34c29afbca04afc674b67feb7375d70680d022"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/components.xml": {
+    "bytes": 8799,
+    "sha256": "301a06e2b9fb5c68f2dc380a8f0cac78b2756e103010e6a501716ccd9adfd15b"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/execution_status.json": {
+    "bytes": 1861,
+    "sha256": "c2deaf92f9b5431598bea619d2af83e4d79b01fdb00f671da55f102c46279a5d"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/final_verify.py": {
+    "bytes": 3833,
+    "sha256": "87da96e9d6910a727c7155fbcb52ccfeb854fd34d0543670e5d4119287116df0"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/lint_initial.log": {
+    "bytes": 1910,
+    "sha256": "6cb1226b593681bc203650158d75b1758473c15b0219121078e00140af1bf497"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01/guard_launches.json": {
+    "bytes": 55,
+    "sha256": "4095246e033c3027a5282e539bd67d56ee0516fbc414a36f960c461942b0f629"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01/result.json": {
+    "bytes": 25184,
+    "sha256": "d7b3376dc7dd86e3b09b588455ff8b9a00c52905b87c715cc51bc487706f85b1"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01/source.py": {
+    "bytes": 22951,
+    "sha256": "f9b882be8a71ee3f822db688f11d11ab2516434b88bf138cab557cdc28129bfa"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01/substeps.json": {
+    "bytes": 487,
+    "sha256": "628869071a22a848ee0c58f49ddbe38fd69a594c80b64c4b0faf1abb0b8c44b5"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01/transitions.jsonl": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_01.log": {
+    "bytes": 7966,
+    "sha256": "bad9b46420a5b62a5bfec30fbee3fbccfa19b3ebdc770a68e7db210254bf0cea"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/guard_launches.json": {
+    "bytes": 55,
+    "sha256": "4095246e033c3027a5282e539bd67d56ee0516fbc414a36f960c461942b0f629"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/result.json": {
+    "bytes": 27172,
+    "sha256": "f53dec8baf8d51636a1a8517bd1d04eb8a9250f583f6371d8fdc66cceed4e85d"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/smoke_weights.pt": {
+    "bytes": 788083,
+    "sha256": "37ac0502400ab8d7ce02b99e53f2eb2f163220a54f0bd7b66b6b25cce4293e01"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/source.py": {
+    "bytes": 22952,
+    "sha256": "219f734c0501b9611e9f571b94d5f673f0d5930d5836b01963ea71f132a4b055"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/substeps.json": {
+    "bytes": 12155,
+    "sha256": "f6517df817d757e2bd3d3bd85b92233f8307f64dcee758db905056223f809c1e"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02/transitions.jsonl": {
+    "bytes": 260892,
+    "sha256": "f24a950b8c2a6484056341c716788afa4866bcff6fa80f849a11252cf2b625c8"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_02.log": {
+    "bytes": 7868,
+    "sha256": "fd15831584350609795b65889d39da8371a81c717d4a32c38f382e11afab02c5"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/guard_launches.json": {
+    "bytes": 117,
+    "sha256": "b030c6480943e69aadbcc0cc6a287b307b1e954b5527d61e816fc1ec3c222249"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/result.json": {
+    "bytes": 28211,
+    "sha256": "49f05e6807bdfabb3f988ef5a791e0198820b1ccfe8396315d98b6f22c213650"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/smoke_weights.pt": {
+    "bytes": 788083,
+    "sha256": "37ac0502400ab8d7ce02b99e53f2eb2f163220a54f0bd7b66b6b25cce4293e01"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/source.py": {
+    "bytes": 24890,
+    "sha256": "7691bc643c25ac60a2345a38a912fe304357040099ef7475cefd2dc8cddfa00f"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/substeps.json": {
+    "bytes": 12155,
+    "sha256": "f6517df817d757e2bd3d3bd85b92233f8307f64dcee758db905056223f809c1e"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/summary.json": {
+    "bytes": 575,
+    "sha256": "5932b9b1eedf5e4e4394eb05afa97981057ecd4e1548f75af104a2390ee7b395"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03/transitions.jsonl": {
+    "bytes": 260915,
+    "sha256": "168d814625c2a0883cfde35cfd75782917b509835ea194222e6b20ddf83e62f1"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_03.log": {
+    "bytes": 7322,
+    "sha256": "ac15fa3c33008a3ce666d79e639072eb66152e21544a349ecde9fb10953aecb0"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/guard_launches.json": {
+    "bytes": 117,
+    "sha256": "b030c6480943e69aadbcc0cc6a287b307b1e954b5527d61e816fc1ec3c222249"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/result.json": {
+    "bytes": 28213,
+    "sha256": "761e66afa63681c7e189828c10367f777fbeac9fb6b6363c1738657647a506e6"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/sampled_physical_window.pt": {
+    "bytes": 33339,
+    "sha256": "ad19d4651d821f9c4288c16fa866a443e025e1988254c5a3c55cc994ff00b8f4"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/smoke_weights.pt": {
+    "bytes": 788083,
+    "sha256": "37ac0502400ab8d7ce02b99e53f2eb2f163220a54f0bd7b66b6b25cce4293e01"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/source.py": {
+    "bytes": 25699,
+    "sha256": "777c392edc003288d20edd51c6f30bd268bfa38fabcd6ffd84ba86baedf702de"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/substeps.json": {
+    "bytes": 12155,
+    "sha256": "f6517df817d757e2bd3d3bd85b92233f8307f64dcee758db905056223f809c1e"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final/transitions.jsonl": {
+    "bytes": 300907,
+    "sha256": "905633084fc9446acd8618b8ab7780cbd393b548597d1811ba303b158c3235b4"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/physical_final.log": {
+    "bytes": 7322,
+    "sha256": "522928659d9ce016f19d002e9084b58ebead2e7fdf1b172d590923ced0ce23eb"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/preservation_after.json": {
+    "bytes": 123,
+    "sha256": "2a5bb0cf82d2be7d8627c1ce1e90d8f650741a4ede7b189e02a00805d2e68d51"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/preservation_before.json": {
+    "bytes": 482990,
+    "sha256": "1f91d544fd021dd424c07d431f55896146bde7b34581f224256ca2d0b4c039d9"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/source_inventory.json": {
+    "bytes": 11103,
+    "sha256": "decf6c5df696de0964fe8c824d743f2d939dc7d0c4cdc47bef22bebeee75ca43"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/static_audit.json": {
+    "bytes": 1359,
+    "sha256": "7858dfcfa09d58bf765d21a0d8b950db0219f9b01c202864da9d994522101607"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/static_audit.log": {
+    "bytes": 1559,
+    "sha256": "0badda9b790831f61195ce424444e2c06301cf1f93863e5c5d098df61ef5d9bc"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/static_audit.py": {
+    "bytes": 3343,
+    "sha256": "f20afb567ccf060b37e26466117a5ea347c7abbad304c97764566788a2aa789d"
+  },
+  "outputs/hoi/contact_supervision/p7_readiness/train_help.txt": {
+    "bytes": 19434,
+    "sha256": "8a31be0216336b0509c6f37bf2344d3c369a38e79e194bf71bab6d270648c12b"
+  },
+  "scripts/hoi/p7_readiness.py": {
+    "bytes": 25699,
+    "sha256": "777c392edc003288d20edd51c6f30bd268bfa38fabcd6ffd84ba86baedf702de"
+  }
+}

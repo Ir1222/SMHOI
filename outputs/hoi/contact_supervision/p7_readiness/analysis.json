@@ -1,0 +1,404 @@
+{
+  "world_transitions": 50,
+  "action_abs_max": 0.0013361540623009205,
+  "action_within_episode_delta_rms": 0.00011161988321942571,
+  "robot_joint_step_delta_rms_rad": 0.04446928300994409,
+  "box_step_delta_max_m": 0.011718522395158438,
+  "hand_contact_counts": [
+    4,
+    2
+  ],
+  "any_contact_count": 4,
+  "bilateral_contact_count": 2,
+  "intent_on_count": 12,
+  "intent_off_count": 38,
+  "physical_reward_range": [
+    0.10596774518489838,
+    0.15772169828414917
+  ],
+  "physical_reward_mean": 0.1351017712056637,
+  "clip_end_transitions": 3,
+  "optimized": false,
+  "contact_recomputed_from_retained_raw_substeps": true,
+  "reset_overlap_scope": "CPU forward only; no stepping, no reset pose correction",
+  "reset_negative_contacts": [
+    {
+      "reference": "outputs/hoi/asset_audit/part_b/reference/reference.npz",
+      "frame": 0,
+      "negative_contacts": [
+        {
+          "distance_m": -0.010362800985635358,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.012049814829920997,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.01223564506031003,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.011460006753215046,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.009301146447564643,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0019128763953076295,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004516779896887554,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.005873182162589559,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.006280345872655113,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.005087295151689238,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot6_collision",
+          "category": "non_box"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/asset_audit/part_b/reference/reference.npz",
+      "frame": 258,
+      "negative_contacts": [
+        {
+          "distance_m": -0.002699837543872493,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.003079056301238537,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0030890056893954207,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.002866918048276968,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0023179886885416655,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.009159662739772756,
+          "geom1": "robot/left_wrist_collision",
+          "geom2": "box/solid",
+          "category": "left"
+        },
+        {
+          "distance_m": -0.0004666418821947585,
+          "geom1": "robot/right_hand_collision",
+          "geom2": "box/solid",
+          "category": "right"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+      "frame": 0,
+      "negative_contacts": [
+        {
+          "distance_m": -0.010362800985635358,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.012049814829920997,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.01223564506031003,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.011460006753215046,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.009301146447564643,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0019128763953076295,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004516779896887554,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.005873182162589559,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.006280345872655113,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.005087295151689238,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot6_collision",
+          "category": "non_box"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+      "frame": 258,
+      "negative_contacts": [
+        {
+          "distance_m": -0.002699837543872493,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.003079056301238537,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0030890056893954207,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.002866918048276968,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0023179886885416655,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0008006152011072673,
+          "geom1": "robot/left_wrist_collision",
+          "geom2": "box/solid",
+          "category": "left"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+      "frame": 548,
+      "negative_contacts": [
+        {
+          "distance_m": -0.004329311415820026,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004120028907106538,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.003340405083583445,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0023017709162447284,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0010564470322687643,
+          "geom1": "terrain",
+          "geom2": "robot/left_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.00011114037094294218,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0012440256504332916,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0021884528854430084,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0028970404382761125,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0030865669890600203,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot6_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.00020247743965436799,
+          "geom1": "robot/left_hand_collision",
+          "geom2": "box/solid",
+          "category": "left"
+        },
+        {
+          "distance_m": -0.0008003744714639646,
+          "geom1": "robot/right_wrist_collision",
+          "geom2": "box/solid",
+          "category": "right"
+        },
+        {
+          "distance_m": -0.00030135324443061884,
+          "geom1": "robot/right_hand_collision",
+          "geom2": "box/solid",
+          "category": "right"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+      "frame": 827,
+      "negative_contacts": [
+        {
+          "distance_m": -0.0021097188087544107,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0035135661001247567,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004409447962076202,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0048758661978969085,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004561858984744281,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot6_collision",
+          "category": "non_box"
+        }
+      ]
+    },
+    {
+      "reference": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+      "frame": 838,
+      "negative_contacts": [
+        {
+          "distance_m": -0.0021097188087544107,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot2_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0035135661001247567,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot3_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004409447962076202,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot4_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.0048758661978969085,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot5_collision",
+          "category": "non_box"
+        },
+        {
+          "distance_m": -0.004561858984744281,
+          "geom1": "terrain",
+          "geom2": "robot/right_foot6_collision",
+          "category": "non_box"
+        }
+      ]
+    }
+  ]
+}

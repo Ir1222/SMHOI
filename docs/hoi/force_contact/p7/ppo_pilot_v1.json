@@ -1,0 +1,136 @@
+{
+  "schema": "smhoi-p7-ppo-pilot-proposal-v1",
+  "status": "PREPARED_NOT_LAUNCHABLE",
+  "launch_enabled": false,
+  "training_authorized": false,
+  "baseline": "a6b876f392f69709d9835eb0e4d664bfcfe75b8d",
+  "experiment": "separate physical PPO feasibility pilot; not SuperMimic BPTT",
+  "algorithm_reuse": "installed rsl_rl.algorithms.PPO 5.5.1 with adapters; not implemented",
+  "assets": {
+    "object_path": "outputs/hoi/contact_supervision/p6_closure/candidates/single_body.json",
+    "object_sha256": "6c3f1a9c601336cb264cd0f979ec4d039ed380e76df6ee1a0a33358d5a82e331",
+    "reference_path": "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz",
+    "reference_sha256": "f38071e5347403f9eff993dd37884bf374e0c003400156dc4cb87d3d2b856cb0",
+    "reference_training_ready": false,
+    "reference_intent": "unchanged original bool object_contact; desired label only",
+    "mass_kg": 2.0,
+    "dimensions_m": [0.18, 0.34, 0.27],
+    "contact_profile": "unchanged candidate baseline",
+    "production_selected": false
+  },
+  "solver": {
+    "guard": "opt-in bracket_precision_guard; enter before scene construction and graph capture",
+    "source_sha256": "1bb26d51451a065b9e183acacfbd5e59d85df1eb46f17951aa3d1727db6853ff",
+    "patch_sha256": "41c06e49c60862d0d40e69c74cae8c0f2310d300516b096b5464607a4efe6dcd",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "iterations": 10,
+    "ls_iterations": 20,
+    "warn_overflow": true,
+    "abort_on_any_overflow_or_nonfinite": true
+  },
+  "budget": {
+    "seed": 700,
+    "num_envs": 4,
+    "rollout_steps": 32,
+    "iterations": 10,
+    "training_transitions_max": 1280,
+    "evaluation_transitions_max": 256,
+    "total_transitions_max": 1536,
+    "optimizer_minibatch_updates_max": 40,
+    "wall_seconds_max": 600,
+    "automatic_extension": false
+  },
+  "initialization": {
+    "policy": "scratch; no unverified external checkpoint adopted",
+    "encoder_hidden": [256, 128],
+    "decoder_hidden": [256, 128],
+    "critic_hidden": [256, 128],
+    "latent_dim": 32,
+    "optimizer_and_sampler": "fresh",
+    "history": 10,
+    "future_robot_goal_frames": 10,
+    "box_feedback_proposal": "append current heading-frame object15; retain robot930 prefix",
+    "actor_observation_width_proposed": 945,
+    "actor_goal_width": 680,
+    "critic_input_width_proposed": 803,
+    "observation_extension_implemented": false,
+    "checkpoint_schema_change_required": true
+  },
+  "control": {
+    "action_dim": 29,
+    "interface": "native joint position target = default offset + G1_ACTION_SCALE * sampled Actor action",
+    "distribution": "diagonal Gaussian; learned log_std; store exact action log probability",
+    "initial_normalized_std": 0.1,
+    "execution_noise_std": 0.0,
+    "obs_noise": false,
+    "domain_randomization": false,
+    "root_assistance": false,
+    "external_box_wrench": false,
+    "post_reset_pose_writes": false
+  },
+  "reset": {
+    "sampling": "fixed balanced starts, subject to reset validity audit",
+    "candidate_frames": [0, 240, 258, 548],
+    "episode_timeout_steps": 64,
+    "inherited_contact_and_airborne_resets_count_as_success": false,
+    "clip_end_bootstrap": false,
+    "physical_failure_bootstrap": false,
+    "time_limit_bootstrap": "terminal reached-state value before reset, never reset observation"
+  },
+  "ppo": {
+    "learning_rate": 0.0001,
+    "schedule": "fixed",
+    "num_learning_epochs": 2,
+    "num_mini_batches": 2,
+    "clip_param": 0.2,
+    "gamma": 0.99,
+    "lam": 0.95,
+    "entropy_coef": 0.001,
+    "value_loss_coef": 1.0,
+    "max_grad_norm": 1.0,
+    "use_clipped_value_loss": true,
+    "use_mixed_precision": false,
+    "stop_if_approx_kl_exceeds": 0.03
+  },
+  "reward_proposal": {
+    "role": "provisional P5 numerical recipe exercised by P7.0; not calibrated final training defaults",
+    "box_sigmas": [0.2, 0.4, 1.0, 2.0],
+    "box_weights": [0.7, 0.8, 0.9, 1.1],
+    "sigma_pos": 0.0423,
+    "beta_c": 0.6,
+    "dt": 0.02,
+    "robot_terms": "unchanged",
+    "max_step_reward": 0.182,
+    "measured_contact_or_force_reward": false,
+    "required_before_launch": "review component distributions and gradients on candidate data; confirm provisional scales"
+  },
+  "wm": {
+    "optimizer_updates_in_this_ppo_pilot": 0,
+    "physical_replay": "diagnostics and future WM data only; PPO uses separate on-policy rollout storage",
+    "mainline": "retain separate P7-A readiness then alternating Joint WM/BPTT path"
+  },
+  "checkpoint": {
+    "save_iterations": [0, 5, 10],
+    "strict_load": true,
+    "record": ["Actor", "Critic", "log_std", "optimizer", "RNG", "iteration", "normalizers", "reference_and_asset_hashes", "solver_attestation", "reset_and_sampler_state", "episode_boundaries", "config"],
+    "resume_semantics": "declare exact resume or episode-boundary restart; never silently treat them as equivalent"
+  },
+  "evaluation": {
+    "controller": "actual saved Actor mean actions; strict reload; deterministic",
+    "before_after": true,
+    "episodes_each": 2,
+    "steps_each": 64,
+    "starts": [0, 258],
+    "claim": "short controller/learning signals only; no full carrying claim"
+  },
+  "launch_blockers": [
+    "HOI executable, reset/observation/reward/termination wiring missing",
+    "Object feedback and versioned network/checkpoint adapters missing",
+    "PPO stochastic model and on-policy storage adapters missing",
+    "Guard activation and fail-fast monitoring not verified in a real HOI training process",
+    "Candidate-aware provenance and full save/resume/evaluation integration missing",
+    "Reset overlap and provisional reward scales require explicit experimental disposition",
+    "P7.1 execution not authorized by this P7.0 task"
+  ]
+}
