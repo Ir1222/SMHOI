@@ -28,9 +28,9 @@ def profile_manifest(profile):
             raise ValueError(
                 "Production M6.5 training_ready is not true; use an explicit diagnostic profile"
             )
-    elif profile in ("p6-original", "p6-single-body"):
+    elif profile in ("p6-original", "p6-single-body", "refined-single-body"):
         manifest = load_manifest(DEFAULT_ASSET)
-        if profile == "p6-single-body":
+        if profile in ("p6-single-body", "refined-single-body"):
             if sha256(SINGLE_BODY) != SINGLE_SHA:
                 raise ValueError("Changed P6 candidate")
             candidate = json.loads(SINGLE_BODY.read_text())
@@ -54,7 +54,7 @@ def physical_identity(profile, manifest, reference, guard):
         "research_authority": manifest["research_authority"],
         "production_manifest_sha256": ASSET_SHA,
         "box_sha256": digest_json(manifest["object"]),
-        "box_candidate_sha256": SINGLE_SHA if profile == "p6-single-body" else None,
+        "box_candidate_sha256": SINGLE_SHA if profile in ("p6-single-body", "refined-single-body") else None,
         "support_sha256": digest_json(manifest["supports"]),
         "contact_targets_sha256": digest_json(manifest["contact"]),
         "calibration_sha256": CALIBRATION_SHA,
@@ -62,6 +62,7 @@ def physical_identity(profile, manifest, reference, guard):
         "reference_manifest_sha256": sha256(reference.path.parent / "reference_manifest.json"),
         "reference_training_ready": reference.manifest.get("training_ready", False),
         "training_ready": False,
+        "experiment_selection": "user-selected refined reference + existing single-body" if profile == "refined-single-body" else profile,
         "solver": guard.identity,
         "code_sha256": digest_json(
             {
@@ -86,6 +87,17 @@ def physical_identity(profile, manifest, reference, guard):
             )
         },
     }
+
+
+def validate_reference_binding(profile, reference):
+    """A named experiment must never silently fall back to another motion."""
+    if profile == "refined-single-body":
+        from supermimic.hoi.training_config import REFINED_SHA256
+
+        if reference.manifest["sha256"] != REFINED_SHA256:
+            raise ValueError("refined-single-body requires the pinned refined reference SHA256")
+        if reference.path.name != reference.manifest.get("artifact"):
+            raise ValueError("Reference filename differs from manifest artifact")
 
 
 def compiled_model_identity(env):

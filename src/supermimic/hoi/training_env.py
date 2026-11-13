@@ -41,7 +41,7 @@ def make_sampler(env, cfg):
             root_body_name=ROOT_BODY,
             body_names=TRACKED_BODIES,
             sampling_mode=cfg.env.sampling_mode,
-            g_max=cfg.sampler_g_max,
+            g_max=cfg.effective_sampler_g_max,
             gamma=cfg.policy_trainer.gamma,
             max_logged_steps=max(1024, math.ceil(cfg.env.episode_length_s / 0.02) + 2),
             library_fp16=False,

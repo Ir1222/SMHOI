@@ -13,7 +13,7 @@ from supermimic.hoi.policy_features import feature_schema
 from supermimic.hoi.provenance import research_authority
 from supermimic.hoi.training_safety import finite
 
-SCHEMA = "hoi-training-lifecycle-v1"
+SCHEMA = "hoi-training-lifecycle-v2"
 
 
 def cpu_tree(value):
@@ -105,7 +105,7 @@ def restore_rng(state):
 
 def config_contract(cfg):
     result = cpu_tree(asdict(cfg))
-    for name in ("log_root", "run_name", "resume", "approval_record", "initial_wm"):
+    for name in ("log_root", "run_name", "resume", "check_only", "initial_wm"):
         result.pop(name, None)
     # Exact learning schedule and budget are part of resume, not silently reset.
     return result
@@ -137,6 +137,8 @@ def snapshot(trainer):
         "identity": trainer.identity,
         "config": config_contract(trainer.cfg),
         "lifecycle": trainer.cfg.execution,
+        "startup": trainer.progress.state_dict(),
+        "artifact_kind": "untrained/test artifact" if trainer.cfg.execution == "integration" else "training state",
         "models": cpu_tree(model_states(trainer)),
         "optimizers": cpu_tree({k: v.state_dict() for k, v in optimizers(trainer).items()}),
         "runtime": cpu_tree(runtime_tensors(trainer)),
@@ -213,6 +215,8 @@ def validate_optimizer(saved, optimizer, label):
 def restore(trainer, checkpoint):
     if trainer.identity.get("research_authority") != research_authority():
         raise ValueError("Training identity does not bind the current Master Plan")
+    if trainer.cfg.execution == "alternating" and checkpoint.get("artifact_kind") != "training state":
+        raise ValueError("Untrained/test artifacts cannot be used as formal training input")
     expected_header = {
         "schema": SCHEMA,
         "features": feature_schema(),
@@ -254,6 +258,9 @@ def restore(trainer, checkpoint):
         not isinstance(n, int) or n < 0 for n in checkpoint["optimizer_steps"].values()
     ):
         raise ValueError("Invalid optimizer counters")
+    from supermimic.hoi.startup import StartupProgress
+
+    progress = StartupProgress.from_state(checkpoint["startup"], trainer.cfg, counters["num_updates"])
     # Validate RNG formats using isolated generators; leave global RNG untouched.
     rng = checkpoint["rng"]
     random.Random().setstate(rng["python"])
@@ -300,6 +307,7 @@ def restore(trainer, checkpoint):
     for key in ("iteration", "start_iteration", "num_updates"):
         setattr(trainer, key, counters[key])
     trainer._utd_acc = counters["utd_acc"]
+    trainer.progress = progress
     env = trainer.env.raw
     env._sim_step_counter = counters["sim_step_counter"]
     env.common_step_counter = counters["common_step_counter"]

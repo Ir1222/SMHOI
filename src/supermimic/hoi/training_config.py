@@ -5,37 +5,63 @@ from pathlib import Path
 from typing import Literal
 
 from supermimic.config import EnvCfg, ScheduleCfg, TrainConfig
-from supermimic.hoi.reference import DEFAULT_OUTPUT
+from supermimic.hoi.reference import REPO
 from supermimic.hoi.tracking_reward import HOIRewardCfg
 from supermimic.hoi.world_model import JointWorldModelCfg, LossWeights
 from supermimic.imagination.policy_trainer import PolicyTrainerCfg
 from supermimic.world_model.wm_trainer import WMTrainerCfg
 
+REFINED_REFERENCE = REPO / "outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz"
+REFINED_SHA256 = "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7"
+
+
+def initial_reward():
+    """Initial experiment scales, NOT fitted/calibrated learning results.
+
+    Robot terms stay unchanged. Box tolerances are m/rad/m/s/rad/s;
+    proximity's 5 cm is a rounded P4 distance-scale candidate.
+    """
+    return HOIRewardCfg((0.2, 0.4, 1.0, 2.0), (1.0, 1.0, 0.5, 0.5), 0.05, 1.0, 0.02)
+
+
+@dataclass
+class StartupCfg:
+    # Counts are complete original WMTrainer.update calls, each with its own batches.
+    wm_only_updates: int = 50
+    min_windows: int = 32
+    min_policy_starts: int = 32
+    # Fail with counts/reasons instead of waiting forever for usable online data.
+    max_collect_iterations: int = 2000
+
 
 @dataclass
 class HOITrainConfig(TrainConfig):
-    run_name: str = "hoi_integration"
-    reference: Path = DEFAULT_OUTPUT / "reference.npz"
-    profile: Literal["production", "p6-original", "p6-single-body"] = "production"
-    execution: Literal["integration", "alternating"] = "integration"
-    # Explicit experiment coefficients, never selected silently as training defaults.
-    reward: HOIRewardCfg | None = None
+    run_name: str = "hoi_refined_scratch"
+    reference: Path = REFINED_REFERENCE
+    profile: Literal["refined-single-body", "production", "p6-original", "p6-single-body"] = (
+        "refined-single-body"
+    )
+    execution: Literal["integration", "alternating"] = "alternating"
+    reward: HOIRewardCfg = field(default_factory=initial_reward)
+    # None derives the theoretical discounted upper bound from reward and gamma.
     sampler_g_max: float | None = None
-    approval_record: Path | None = None
+    # Retained only to give an explicit error for the retired entry-point route.
     initial_wm: Path | None = None
+    startup: StartupCfg = field(default_factory=StartupCfg)
+    check_only: bool = False  # construct/reset/check inputs and geometry, no run or save
     reset_frames: tuple[int, ...] = (0,)
     # An optional, explicitly chosen geometric loss-of-object boundary. No head.
     box_min_height: float | None = None
     env: EnvCfg = field(
         default_factory=lambda: EnvCfg(
-            num_envs=2,
-            episode_length_s=0.32,
-            action_noise_std=0.0,
+            num_envs=64,
+            episode_length_s=16.8,
+            action_noise_std=0.1,
             obs_noise=False,
             reset_noise=False,
             domain_randomization=False,
-            sampling_mode="start",
-            replay_capacity=96,
+            sampling_mode="return",
+            replay_capacity=256,
         )
     )
     world_model: JointWorldModelCfg = field(
@@ -43,32 +69,89 @@ class HOITrainConfig(TrainConfig):
             weights=LossWeights(1.0, 1.0),
         )
     )
-    wm_trainer: WMTrainerCfg = field(default_factory=lambda: WMTrainerCfg(compile=None))
+    wm_trainer: WMTrainerCfg = field(
+        default_factory=lambda: WMTrainerCfg(batch_size=256, compile=None)
+    )
     policy_trainer: PolicyTrainerCfg = field(
         default_factory=lambda: PolicyTrainerCfg(
+            batch_size=256,
             obs_noise=False,
             compile=None,
         )
     )
     schedule: ScheduleCfg = field(
         default_factory=lambda: ScheduleCfg(
-            total_iterations=16,
-            updates_per_env_step=0.0,
+            total_iterations=320_000,
+            updates_per_env_step=0.4,
             warmup_iterations=40,
-            log_interval=16,
-            checkpoint_interval=16,
+            log_interval=50,
+            checkpoint_interval=4000,
         )
     )
 
     def validate(self):
         import math
 
-        if self.reward is None or self.sampler_g_max is None:
-            raise ValueError("Explicit reward coefficients and sampler_g_max are required")
-        if not math.isfinite(self.sampler_g_max) or self.sampler_g_max <= 0:
+        if self.reward is None:
+            raise ValueError("HOI reward configuration is required")
+        if self.sampler_g_max is not None and (
+            not math.isfinite(self.sampler_g_max) or self.sampler_g_max <= 0
+        ):
             raise ValueError("sampler_g_max must be finite and positive")
-        if self.reward.dt != 0.02:
+        if self.initial_wm is not None:
+            raise ValueError(
+                "HOI training starts from scratch; use --resume only for a complete HOI training state. Weight migration remains an offline tool."
+            )
+        if self.resume is not None and not self.resume.is_file():
+            raise FileNotFoundError(f"Explicit resume checkpoint does not exist: {self.resume}")
+        if self.execution not in ("integration", "alternating"):
+            raise ValueError("Unknown HOI execution mode")
+        if (
+            min(
+                self.startup.wm_only_updates,
+                self.startup.min_windows,
+                self.startup.min_policy_starts,
+                self.startup.max_collect_iterations,
+            )
+            < 1
+        ):
+            raise ValueError("Startup counts must be positive")
+        if (
+            min(
+                self.wm_trainer.batch_size,
+                self.wm_trainer.batches_per_update,
+                self.policy_trainer.batch_size,
+                self.policy_trainer.horizon,
+                self.policy_trainer.critic_epochs,
+                self.policy_trainer.critic_minibatches,
+            )
+            < 1
+        ):
+            raise ValueError("Batch sizes, horizon and update counts must be positive")
+        if self.policy_trainer.batch_size < self.policy_trainer.critic_minibatches:
+            raise ValueError("Policy batch must cover all critic minibatches")
+        if not 0 < self.policy_trainer.gamma < 1 or not 0 <= self.policy_trainer.gae_lambda <= 1:
+            raise ValueError("Invalid discount or TD(lambda)")
+        if not self.policy_trainer.use_critic:
+            raise ValueError("HOI alternating training requires the approved Critic")
+        for value in (self.wm_trainer.lr, self.policy_trainer.lr, self.policy_trainer.critic_lr):
+            if not math.isfinite(value) or value <= 0:
+                raise ValueError("Learning rates must be finite and positive")
+        if self.reward.dt != 0.02 or self.world_model.state_spec.dt != 0.02:
             raise ValueError("Approved HOI control dt is .020 s")
+        if self.world_model.weights is None or not self.world_model.support_context:
+            raise ValueError("Joint WM requires explicit loss weights and support18")
+        if (
+            not math.isfinite(self.schedule.lr_final_ratio)
+            or not 0 < self.schedule.lr_final_ratio <= 1
+            or not math.isfinite(self.schedule.lr_decay_fraction)
+            or not 0 < self.schedule.lr_decay_fraction <= 1
+            or (
+                self.schedule.max_hours is not None
+                and (not math.isfinite(self.schedule.max_hours) or self.schedule.max_hours <= 0)
+            )
+        ):
+            raise ValueError("Invalid cosine schedule or time budget")
         if self.env.reset_noise or self.env.domain_randomization or self.env.anchor_obs:
             raise ValueError("This pinned HOI profile requires synchronized unperturbed resets")
         if self.env.future_frames != 10 or self.policy_trainer.history != 10:
@@ -126,13 +209,28 @@ class HOITrainConfig(TrainConfig):
         ):
             raise ValueError("Invalid lifecycle schedule")
         if self.execution == "integration":
-            if self.env.num_envs > 4 or self.schedule.total_iterations > 64:
-                raise ValueError("P7.0.4 integration is bounded to four worlds / 64 steps")
+            if self.env.num_envs > 2 or self.schedule.total_iterations > 16:
+                raise ValueError("Zero-update integration is bounded to two worlds / 16 steps")
             if self.schedule.updates_per_env_step != 0:
-                raise ValueError("P7.0.4 physical integration permits zero optimizer updates")
-        elif self.approval_record is None or (self.initial_wm is None and self.resume is None):
-            raise ValueError("Alternating execution needs approved WM readiness and checkpoint")
+                raise ValueError("Physical integration permits zero optimizer updates")
+        elif self.schedule.updates_per_env_step <= 0:
+            raise ValueError(
+                "Alternating training requires positive UTD; use integration for zero updates"
+            )
         elif self.box_min_height is not None:
             raise ValueError(
                 "Box-only failure/imagination semantics remain an unresolved research gate"
             )
+
+    @property
+    def effective_sampler_g_max(self):
+        from supermimic.envs.mdp.rewards import TrackingRewardCfg
+
+        bound = TrackingRewardCfg().max_step_reward + self.reward.dt * (
+            sum(self.reward.box_weights) + self.reward.beta_c
+        )
+        return (
+            self.sampler_g_max
+            if self.sampler_g_max is not None
+            else bound / (1 - self.policy_trainer.gamma)
+        )

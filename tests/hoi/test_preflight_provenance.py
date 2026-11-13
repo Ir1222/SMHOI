@@ -64,8 +64,11 @@ def test_full_checkpoint_binds_authority_and_rejects_legacy_identity(tmp_path):
     from supermimic.hoi.training_safety import SolverGuard
 
     cfg = HOITrainConfig(
-        log_root=tmp_path, profile="p6-original", reward=TEST_CFG, sampler_g_max=18.2
+        log_root=tmp_path, profile="p6-original", reward=TEST_CFG, sampler_g_max=18.2,
+        execution="integration",
     )
+    cfg.env.num_envs = 2
+    cfg.schedule.updates_per_env_step = 0
     cfg.schedule.total_iterations = cfg.schedule.checkpoint_interval = 2
     with SolverGuard() as guard:
         trainer = HOITrainer(cfg, guard)

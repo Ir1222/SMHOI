@@ -18,10 +18,11 @@ from supermimic.hoi.imagination import HOIPolicyTrainer
 from supermimic.hoi.policy import HOIActor, HOICritic
 from supermimic.hoi.policy_features import HOIObservationAdapter, feature_schema
 from supermimic.hoi.recorder import install_recording
-from supermimic.hoi.reference import ReferenceClip, sha256
+from supermimic.hoi.reference import ReferenceClip
 from supermimic.hoi.reward_reference import ClipBinding, HOIReferenceRegistry
 from supermimic.hoi.rewards import ProximityReward
 from supermimic.hoi.scene import PhysicalSceneCfg, make_physical_env
+from supermimic.hoi.startup import StartupProgress
 from supermimic.hoi.state import JointStateIO
 from supermimic.hoi.tracking_reward import HOITrackingReward
 from supermimic.hoi.training_env import (
@@ -37,6 +38,7 @@ from supermimic.hoi.training_scene import (
     compiled_model_identity,
     physical_identity,
     profile_manifest,
+    validate_reference_binding,
 )
 from supermimic.hoi.wm_trainer import JointWorldModelTrainer
 from supermimic.hoi.world_model import JointWorldModel
@@ -52,6 +54,8 @@ class HOITrainer(Trainer):
     def __init__(self, cfg, guard):
         self.guard = guard
         self.saved_iterations = set()
+        self.progress = StartupProgress()
+        self.replay_readiness = {}
         try:
             super().__init__(cfg)
         except BaseException:
@@ -79,6 +83,7 @@ class HOITrainer(Trainer):
         cfg = self.cfg
         manifest = profile_manifest(cfg.profile)
         reference = ReferenceClip(cfg.reference)
+        validate_reference_binding(cfg.profile, reference)
         self.identity = physical_identity(cfg.profile, manifest, reference, self.guard)
         self.identity["policy_schema"] = feature_schema()
 
@@ -168,36 +173,97 @@ class HOITrainer(Trainer):
         raw.reward_buf = torch.zeros(raw.num_envs, device=self.device)
         self.buffer = self.recorder.buffer
         self.env = TrainingEnvironment(raw, self.recorder, self.guard)
-        self._validate_authorization()
-        if cfg.initial_wm is not None and cfg.resume is None:
-            from supermimic.hoi.checkpoint import load_joint_weights
+        from supermimic.hoi.reset_diagnostics import inspect_reference_resets
 
-            load_joint_weights(
-                self.wm,
-                torch.load(cfg.initial_wm, map_location=self.device, weights_only=True),
-                expected_replay_metadata=self.buffer.metadata,
+        frames = (
+            cfg.reset_frames if cfg.env.sampling_mode == "start" else range(reference.n_frames - 1)
+        )
+        self.reset_geometry = inspect_reference_resets(
+            raw.sim.mj_model, self.recorder.cache, io, frames
+        )
+        (self.log_dir / "reset_geometry.json").write_text(
+            json.dumps(self.reset_geometry, indent=2) + "\n"
+        )
+        if self.reset_geometry["frames_above_band"]:
+            print(
+                f"[HOI] UNRESOLVED reset overlap: {self.reset_geometry['frames_above_band']} frames "
+                f"above 1 mm, maximum {self.reset_geometry['max_penetration_m'] * 1000:.3f} mm "
+                f"at frame {self.reset_geometry['worst_frame']}; see reset_geometry.json. "
+                "Numerical checks do not establish physical validity.",
+                flush=True,
             )
         for module in (self.wm, self.policy, self.critic):
             broadcast_params(module)
         (self.log_dir / "identity.json").write_text(json.dumps(self.identity, indent=2) + "\n")
         return reward.max_step_reward
 
-    def _validate_authorization(self):
-        if self.cfg.execution == "integration":
-            return
-        approval = json.loads(self.cfg.approval_record.read_text())
-        if (
-            approval.get("stage") != "P7-B"
-            or approval.get("authorized") is not True
-            or approval.get("wm_readiness") != "PASS"
-            or approval.get("identity") != self.identity
-            or not approval.get("physical_limitations_accepted")
-            or not approval.get("reward_and_sampler_calibration_accepted")
-        ):
-            raise ValueError("Missing matching P7-B authorization/readiness/disposition")
-        source = self.cfg.resume or self.cfg.initial_wm
-        if approval.get("checkpoint_sha256") != sha256(source):
-            raise ValueError("Approved checkpoint identity mismatch")
+    def updates_ready(self):
+        windows = int(self.buffer.window_mask(self.cfg.wm_trainer.window).sum())
+        starts = int(self.buffer.start_mask(self.cfg.policy_trainer.history).sum())
+        valid = self.buffer.valid & self.buffer.fields["transition_valid"]
+        self.replay_readiness = {
+            "windows8": windows,
+            "policy_starts": starts,
+            "retained_transitions": int(valid.sum()),
+            **{
+                k: int((valid & self.buffer.fields[k]).sum())
+                for k in ("robot_failure", "object_failure", "timeout", "clip_end")
+            },
+        }
+        try:
+            return self.progress.ready(self.cfg, self.iteration, windows, starts)
+        except RuntimeError:
+            self.write_startup_status()
+            raise
+        finally:
+            if self.iteration % self.cfg.schedule.log_interval == 0:
+                self.write_startup_status()
+
+    def policy_updates_enabled(self):
+        return self.progress.phase == "alternating"
+
+    def update_completed(self, wm_metrics, policy_metrics):
+        from supermimic.hoi.training_safety import finite
+
+        finite("update metrics", wm_metrics, policy_metrics)
+        previous = self.progress.phase
+        self.progress.completed(self.cfg)
+        if self.progress.phase != previous:
+            print(
+                f"[HOI] {previous} -> {self.progress.phase} at iteration {self.iteration}",
+                flush=True,
+            )
+            self.write_startup_status()
+
+    def write_startup_status(self):
+        (self.log_dir / "startup.json").write_text(
+            json.dumps(
+                {
+                    **self.progress.state_dict(),
+                    "iteration": self.iteration,
+                    "replay": self.replay_readiness,
+                    "optimizer_steps": self.learning_safety.steps,
+                    "meaning": "online startup scheduling; not a learned WM/task-success certificate",
+                },
+                indent=2,
+            )
+            + "\n"
+        )
+
+    def log_task_metrics(self):
+        self.write_startup_status()
+        for key, value in self.replay_readiness.items():
+            self.writer.add_scalar("replay/" + key, value, self.iteration)
+        for key, value in self.learning_safety.steps.items():
+            self.writer.add_scalar("updates/" + key, value, self.iteration)
+        self.writer.add_scalar(
+            "startup/phase",
+            ("collect", "wm_bootstrap", "alternating").index(self.progress.phase),
+            self.iteration,
+        )
+
+    def online_error_ready(self):
+        return self.buffer.size > 2048 and bool(self.buffer.window_mask(8).any())
 
     def save(self, name="ckpt_latest.pt"):
         if self.iteration in self.saved_iterations:

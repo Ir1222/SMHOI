@@ -25,6 +25,7 @@ dependencies = [
 [project.scripts]
 sm-train = "supermimic.scripts.train:main"
 smHOI-track = "supermimic.hoi.train:main"
+smHOI-play = "supermimic.hoi.play:main"
 
 [dependency-groups]
 dev = [

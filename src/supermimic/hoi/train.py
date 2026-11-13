@@ -13,11 +13,16 @@ from supermimic.hoi.training_safety import SolverGuard
 
 
 def execute(cfg):
-    """Bounded integration by default. No P7-A/B permission is inferred."""
+    """Scratch by default; only an explicit resume loads a full training state."""
     with SolverGuard() as guard:
         trainer = HOITrainer(cfg, guard)
         try:
-            trainer.run()
+            if cfg.check_only:
+                trainer.env.reset()
+                trainer.write_startup_status()
+                print("[HOI] Construction/reset check complete: zero control steps, zero optimizer updates, no checkpoint saved.")
+            else:
+                trainer.run()
             (trainer.log_dir / "physical_diagnostics.json").write_text(
                 json.dumps(retained_contact_report(trainer), indent=2, allow_nan=False) + "\n"
             )
@@ -26,7 +31,7 @@ def execute(cfg):
             with (trainer.log_dir / "failure_state.pt").open("xb") as stream:
                 torch.save(
                     {
-                        k: getattr(trainer.env.raw.sim.data, k).detach().cpu().clone()
+                        k: getattr(trainer.env.raw.sim.data, k)[:].detach().cpu().clone()
                         for k in ("qpos", "qvel", "qacc", "ctrl", "overflow")
                     },
                     stream,

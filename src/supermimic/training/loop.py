@@ -18,7 +18,12 @@ from supermimic.envs.tracking_env_cfg import ANCHOR_BODY, ROOT_BODY, TRACKED_BOD
 from supermimic.imagination.policy_trainer import PolicyTrainer
 from supermimic.kinematics.g1_fk import G1Kinematics
 from supermimic.policy.nets import Critic, Policy
-from supermimic.training.distributed import allreduce_mean, broadcast_params, finalize, init_distributed, world_size
+from supermimic.training.distributed import (
+    allreduce_mean,
+    broadcast_params,
+    finalize,
+    init_distributed,
+)
 from supermimic.training.schedule import cosine_lr
 from supermimic.world_model.heads import AnalyticHeads
 from supermimic.world_model.wm_trainer import WorldModelTrainer
@@ -108,7 +113,7 @@ class Trainer:
             broadcast_params(m)
         self.wm_trainer = WorldModelTrainer(self.wm, self.lib, cfg.wm_trainer)
         self.policy_trainer = PolicyTrainer(self.wm, self.policy, self.critic, self.lib, cfg.policy_trainer)
-        n_params = lambda m: sum(p.numel() for p in m.parameters())  # noqa: E731
+        n_params = lambda m: sum(p.numel() for p in m.parameters())
         if self.is_main:
             print(f"[INFO] params: world model {n_params(self.wm)/1e6:.2f}M, policy {n_params(self.policy)/1e6:.2f}M, critic {n_params(self.critic)/1e6:.3f}M")
 
@@ -157,6 +162,22 @@ class Trainer:
     def act(self, obs) -> torch.Tensor:
         return self.policy(obs["policy"], obs["goal"])
 
+    def updates_ready(self) -> bool:
+        """Task hook; the original Robot replay-fill schedule is the default."""
+        return self.iteration - self.start_iteration >= self.cfg.schedule.warmup_iterations
+
+    def policy_updates_enabled(self) -> bool:
+        return True
+
+    def update_completed(self, wm_metrics, policy_metrics) -> None:
+        """Optional task progress hook, after the original optimizers have run."""
+
+    def log_task_metrics(self) -> None:
+        """Optional task diagnostics at the existing logging boundary."""
+
+    def online_error_ready(self) -> bool:
+        return self.buffer.size > 2048
+
     def run(self) -> None:
         cfg = self.cfg
         sch = cfg.schedule
@@ -174,7 +195,7 @@ class Trainer:
             # ---------------- (1) collect one vectorised env step
             t0 = time.perf_counter()
             action = self.act(obs)
-            obs, rew, term, tout, extras = env.step(action)
+            obs, rew, term, tout, _extras = env.step(action)
             self.ep_reward_sum += rew
             self.ep_len += 1
             done = term | tout
@@ -191,7 +212,7 @@ class Trainer:
             self.iteration += 1
 
             # ---------------- (2)+(3) updates at the configured update-to-data ratio
-            if self.iteration - self.start_iteration >= sch.warmup_iterations:
+            if self.updates_ready():
                 self._utd_acc += sch.updates_per_env_step
                 while self._utd_acc >= 1.0:
                     self._utd_acc -= 1.0
@@ -203,11 +224,14 @@ class Trainer:
                     torch.cuda.synchronize()
                     timers["wm"] += time.perf_counter() - t0
                     t0 = time.perf_counter()
-                    for _ in range(sch.policy_updates_per_wm_update):
-                        m_pi = self.policy_trainer.update(self.buffer)
+                    m_pi = {}
+                    if self.policy_updates_enabled():
+                        for _ in range(sch.policy_updates_per_wm_update):
+                            m_pi = self.policy_trainer.update(self.buffer)
                     torch.cuda.synchronize()
                     timers["policy"] += time.perf_counter() - t0
                     self.num_updates += 1
+                    self.update_completed(m_wm, m_pi)
                     for k, v in m_wm.items():
                         agg[f"wm/{k}"] = agg.get(f"wm/{k}", 0.0) + v
                     for k, v in m_pi.items():
@@ -224,7 +248,7 @@ class Trainer:
                     tot = allreduce_mean(float(sum(finished_returns))) * self.world
                     cnt = allreduce_mean(float(len(finished_returns))) * self.world
                     finished_returns = [tot / cnt] if cnt > 0 else []
-                    n_finished = int(round(cnt))
+                    n_finished = round(cnt)
                 else:
                     n_finished = len(finished_returns)
                 if not self.is_main:
@@ -243,13 +267,14 @@ class Trainer:
                 else:
                     tr = float("nan")
                 with torch.no_grad():
-                    if self.is_main and self.buffer.size > 2048:
+                    if self.is_main and self.online_error_ready():
                         err = self.wm_trainer.online_error(self.buffer, n=1024, k=8)
                         self.writer.add_scalar("wm/online_nse_1step", float(err[0]), it)
                         self.writer.add_scalar("wm/online_nse_8step", float(err[-1]), it)
                     else:
                         err = None
                 if self.is_main:
+                    self.log_task_metrics()
                     for k, v in timers.items():
                         self.writer.add_scalar(f"time/{k}_s_per_iter", v / sch.log_interval, it)
                     self.writer.add_scalar("time/hours", elapsed / 3600, it)

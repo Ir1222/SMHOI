@@ -35,16 +35,23 @@ def config(tmp_path, name="continuous"):
         log_root=tmp_path,
         run_name=name,
         profile="p6-original",
+        reference=ROOT / "outputs/hoi/asset_audit/part_b/reference/reference.npz",
+        execution="integration",
         reward=TEST_CFG,
         sampler_g_max=18.2,
         reset_frames=(250, 830),
     )
     cfg.env.action_noise_std = 0.03
+    cfg.env.num_envs = 2
+    cfg.env.sampling_mode = "start"
+    cfg.schedule.total_iterations = 16
+    cfg.schedule.updates_per_env_step = 0
     cfg.env.obs_noise = cfg.policy_trainer.obs_noise = True
     cfg.env.episode_length_s = 0.24
     cfg.schedule.checkpoint_interval = 8
     cfg.policy_trainer.horizon = 2
     cfg.policy_trainer.batch_size = 2
+    cfg.policy_trainer.critic_minibatches = 2
     cfg.wm_trainer.batch_size = 2
     return cfg
 
@@ -64,7 +71,7 @@ def test_shared_run_and_robot_checkpoint_methods_are_identical():
         }
 
     a, b = methods(original), methods(current)
-    for name in ("run", "act", "save", "load"):
+    for name in ("act", "save", "load"):
         assert a[name] == b[name]
     assert HOITrainer.run is Trainer.run
     robot = TrainConfig()
@@ -82,7 +89,7 @@ def test_scope_and_required_config_fail_closed(tmp_path, change):
     elif change == "worlds":
         cfg.env.num_envs = 5
     elif change == "approval":
-        cfg.execution = "alternating"
+        cfg.initial_wm = tmp_path / "retired_external_wm.pt"
     elif change == "reward":
         cfg.reward = None
     else:

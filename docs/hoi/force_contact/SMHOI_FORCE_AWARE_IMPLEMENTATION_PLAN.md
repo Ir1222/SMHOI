@@ -2,7 +2,7 @@
 ## Single Master Implementation Plan for Codex
 
 **Target repository:** https://github.com/Ir1222/SMHOI  
-**Overall architecture plan:** `SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md`  
+**Overall architecture plan:** this document; the incorrect V3 upload is retired and is not a prerequisite.
 **Primary source implementation:** https://github.com/Ir1222/supermimic_carry  
 **Original algorithm:** https://github.com/CuboiLeo/SuperMimic-Reproduced
 
@@ -36,6 +36,46 @@ The labels P0–P8 are execution stages, not model components and not the same t
 | **P8** | Evaluate the complete physical task | Does the selected policy complete all 840 frames from frame 0, including release and post-release stability? | Evaluation code/experiments | Full-task tracking, physical binary contact agreement, independent hand metrics, penetration diagnostics, post-release stability and all failures |
 
 ## 1.1 The execution rule
+
+### Current user decision — 2026-11-13: interfaces and tests, no training
+
+This scoped amendment supersedes conflicting historical execution/approval/checkpoint
+requirements in §§1.2–1.3, 3, 12, 16 and 17 for the current delivery. Historical
+reports, false/FAIL records, NPZ files, assets and checkpoints remain unchanged.
+
+- Implement one complete online training entry point: default **scratch** with
+  `initial_wm=None`, `resume=None`, native WM/Actor/Critic initialization, new
+  optimizers/sampler, empty online Replay and zero progress. No checkpoint discovery
+  or implicit weight transfer. Existing migration utilities remain offline/optional.
+- Bind the existing single-body candidate to
+  `outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz`, SHA256
+  `f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7`, and its adjacent
+  `reference_manifest.json`. This is an explicit experiment selection, not a global
+  PHYSICAL_VALIDITY or training_ready PASS. Do not regenerate or modify the NPZ.
+- Reuse `Trainer.run`: Actor interaction → online Replay fill → internal bounded
+  WM-only startup → continuous WM/Actor/Critic alternation → periodic complete
+  snapshots. Startup uses configurable eligible windows, policy starts and WM update
+  counts with finite/solver/input checks and actionable diagnostics. It does not
+  require prior carrying success, external PD collection, an approval JSON, an
+  external pretrained WM or a fabricated `WM_READINESS=PASS`.
+- Research prediction quality, held-out evaluation and full-task success criteria
+  below remain future measurements, not permanent software authorization locks.
+  Preserve Actor B, Critic B+, Joint WM, reward, native actuators and reset boundaries.
+- `--resume` is optional, explicit, strict complete-state restoration; missing or
+  incompatible state errors, never scratch fallback. Restore phase, counters,
+  optimizers, Replay, sampler, simulator and RNG without repeating completed startup.
+- Deliver distinct physical Actor policy play and display-only reference play,
+  `README_HOI.md`, and a short link in the upstream README. Initial hyperparameters
+  must be labelled uncalibrated, and future checkpoint paths labelled future outputs.
+- **This session performs no real training, WM warm-up, physical-data optimizer
+  update, automatic tuning, commit or push.** Permitted validation: static/import/CLI
+  and construction checks; unit/synthetic forward/gradient tests; scheduling spies;
+  untrained test snapshots only in test directories; at most 2 worlds and 16 control
+  steps per physical smoke path; bounded reference rendering. Report software tests
+  separately from unverified learning. Do not repeat the full historical audit.
+- Preserve actual geometry, solver and NaN/Inf checks. Report severe reset overlap
+  separately from finite-state checks and ordinary policy failure. No collision,
+  reference or reward changes to hide failures. Stop after this delivery.
 
 Codex executes **one stage per user instruction**.
 
@@ -246,7 +286,7 @@ These locations are provided so Codex can audit the real artifacts instead of gu
 ## 3.1 Repositories and checkouts
 Role	Location	Instruction
 Target repository	https://github.com/Ir1222/SMHOI	Actual current checkout is authoritative
-Overall implementation plan	SMHOI_TRACK_IMPLEMENTATION_PLAN_V3.md	Read from the target checkout
+Overall implementation plan	This Master Plan	V3 retired; no recovery required
 Source HOI implementation	https://github.com/Ir1222/supermimic_carry	Inspect original HOI data conversion, assets, manifests and code
 Ubuntu source checkout	~/pyx/humanoid-amp-ppo	Inspect actual HEAD/status; do not overwrite
 Original SuperMimic	https://github.com/CuboiLeo/SuperMimic-Reproduced	Algorithm and training-mainline reference
@@ -2128,7 +2168,7 @@ If natural transition coverage is insufficient, propose and execute only the app
 
 ### P7-A.2 Joint WM initialization and checkpoint preparation
 
-Initialize the Joint WM using the final P3/P5 physical architecture and the HOI Actor B / Critic B+ using §4.6 and explicitly reviewed named checkpoint mappings. Original Robot-only interfaces remain unchanged.
+Initialize the Joint WM from scratch using the final P3/P5 physical architecture and the HOI Actor B / Critic B+ using §4.6. Original Robot-only interfaces remain unchanged. Named checkpoint mappings remain optional offline tools, outside the default route.
 
 Preserve:
 
@@ -2140,9 +2180,9 @@ Preserve:
 - action29;
 - xi33.
 
-Use named checkpoint migration.
+Use native initialization by default. Use named checkpoint migration only in an explicitly separate weight-transfer workflow.
 
-Original robot-only model weights may initialize compatible robot dynamics, termination and shared components according to the approved migration mapping.
+Do not load original robot-only or historical HOI weights in the default scratch route.
 
 New Box dynamics and support-related components retain their documented initialization.
 
@@ -2268,13 +2308,13 @@ P7-A deliverables:
 - action-to-Box Jacobian evidence;
 - outputs under `outputs/hoi/contact_supervision/training/p7_warmup/`.
 
-P7-A stops for explicit review before P7-B.
+For the current online entry point, the configured internal startup advances automatically to alternation. The research validation reports above remain future evidence, not a runtime approval file requirement (see §1.1 amendment).
 
 ## P7-B — Alternating Joint WM and Actor/Critic Training
 
 P7-B implements the original SuperMimic online alternating training loop for the final SMHOI architecture.
 
-The P7-A checkpoint initializes the Joint WM. It is not a permanently frozen model.
+The internally initialized/warmed-up Joint WM continues in the same process. No external P7-A checkpoint is required. A user-specified complete HOI resume restores the saved stage.
 
 The training loop must continuously collect physical transitions and alternate WM and Policy updates.
 
@@ -2304,7 +2344,7 @@ Do not change `sm-train` defaults or original robot-only behavior.
 The HOI entry point must explicitly construct:
 
 - accepted HOI physical scene and environment;
-- Joint WM and P7-A checkpoint;
+- scratch Joint WM, or an explicitly supplied complete HOI resume state;
 - Actor and Critic;
 - HOI Replay and reference registry;
 - `HOIRewardCfg`;
@@ -3171,7 +3211,7 @@ The overall project is complete only when all software, physical, learned-dynami
 28. Robot and Box one-step and multi-step prediction performance is independently validated on held-out source episodes.
 29. Box position, orientation, linear velocity and angular velocity errors are reported separately.
 30. The trained WM has finite and meaningfully action-dependent Box dynamics Jacobians, supported by prediction-quality evidence.
-31. WM readiness is explicitly approved before Actor/Critic updates begin.
+31. The configured online startup conditions precede Actor/Critic updates; learned WM readiness remains separately measured research evidence, not a manual software approval lock (current §1.1 amendment).
 
 ## 17.5 Alternating policy-training acceptance
 

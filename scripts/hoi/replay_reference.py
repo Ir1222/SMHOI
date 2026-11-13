@@ -7,7 +7,9 @@ from pathlib import Path
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--reference', type=Path,
-                        default=Path('outputs/hoi/asset_audit/part_b/reference/reference.npz'))
+                        default=Path('outputs/hoi/asset_audit/part_b/reference_refined/reference_refined.npz'))
+    parser.add_argument('--profile', choices=['refined-single-body', 'p6-original', 'p6-single-body'],
+                        default='refined-single-body')
     parser.add_argument('--asset-manifest', type=Path,
                         default=Path('data/assets/hdmi_bread_box/asset_manifest_m6_5.json'))
     parser.add_argument('--display-only', action='store_true', required=True,
@@ -37,7 +39,7 @@ def main():
     from supermimic.hoi.reference_viewer import ReferenceScene, render_headless, run_interactive
 
     scene = ReferenceScene(ReferenceClip(args.reference), args.asset_manifest,
-                           display_only=args.display_only)
+                           display_only=args.display_only, profile=args.profile)
     print(scene.status_text(), flush=True)
     if args.browser:
         from supermimic.hoi.reference_browser import run_browser

@@ -1,5 +1,7 @@
 # SuperMimic-Reproduced
 
+> SMHOI 的从头训练、可选续训、物理 policy play 与 reference viewer 请见 [README_HOI.md](README_HOI.md)。以下保留上游说明；上游成绩不代表 SMHOI 结果。
+
 An independent, from-scratch reproduction of **SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model** ([arXiv:2610.28480](https://arxiv.org/abs/2610.28480), CoRL 2026) for the Unitree G1, built on [mjlab](https://github.com/mujocolab/mjlab) / MuJoCo Warp. No official code is released; everything here (motion library, differentiable FK, world model, BPTT trainer, return-based reset sampling, data-parallel training, Appendix-F benchmark) is implemented from the paper.
 
 ![G1 policy tracking BONES-SEED motions](media/g1_boneseed_highlights.gif)

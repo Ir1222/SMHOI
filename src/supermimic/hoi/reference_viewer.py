@@ -72,7 +72,7 @@ KEY_COMMANDS = {32: 'toggle', 262: 'next', 263: 'previous', 82: 'reset',
 
 class ReferenceScene:
     def __init__(self, clip: ReferenceClip, asset_path: Path = DEFAULT_ASSET,
-                 *, display_only: bool = False):
+                 *, display_only: bool = False, profile: str | None = None):
         if not display_only:
             raise ValueError('Explicit display_only=True is required; this is not a training scene')
         self.clip = clip
@@ -80,6 +80,12 @@ class ReferenceScene:
         if sha256(self.asset_path) != clip.manifest['sources']['asset']['sha256']:
             raise ValueError('Asset manifest differs from the processed reference contract')
         self.asset = load_manifest(self.asset_path)
+        if profile is not None:
+            from supermimic.hoi.training_scene import profile_manifest, validate_reference_binding
+
+            validate_reference_binding(profile, clip)
+            self.asset = profile_manifest(profile)
+        self.profile = profile
         # Preserve all gate values, including training_ready=false.
         from mjlab.asset_zoo.robots import get_g1_robot_cfg
         from mjlab.asset_zoo.robots.unitree_g1.g1_constants import G1_XML
@@ -91,8 +97,19 @@ class ReferenceScene:
         for collision in cfg.collisions:
             collision.edit_spec(spec)
         apply_hand_profile(spec, self.asset)
-        scene = build_audit_scene(self.asset, clip.arrays['object_pos_w'][0],
-                                  clip.arrays['object_quat_w'][0])
+        if profile in ('refined-single-body', 'p6-single-body'):
+            # The legacy audit builder deliberately requires the historical seven
+            # geoms. Reuse the explicitly hash-checked physical profile builders.
+            from supermimic.hoi.scene import _add_supports, _box_spec
+
+            scene = _box_spec(self.asset)
+            _add_supports(self.asset, scene)
+            box_body = scene.body(self.asset['object']['name'])
+            box_body.pos = clip.arrays['object_pos_w'][0]
+            box_body.quat = clip.arrays['object_quat_w'][0]
+        else:
+            scene = build_audit_scene(self.asset, clip.arrays['object_pos_w'][0],
+                                      clip.arrays['object_quat_w'][0])
         spec.worldbody.add_geom(name='display_floor', type=mujoco.mjtGeom.mjGEOM_PLANE,
                                 size=[0, 0, .02], rgba=[.22, .25, .29, 1],
                                 contype=0, conaffinity=0, group=0)
