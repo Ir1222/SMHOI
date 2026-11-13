@@ -40,6 +40,10 @@ def test_readme_commands_parse_and_resume_contract():
     from supermimic.hoi.training_checkpoint import config_contract
 
     assert config_contract(scratch) == config_contract(resume)
+    shell = (ROOT / "configs/hoi/refined_full.sh").read_text().split("exec env", 1)[1]
+    command = [word for word in shlex.split(shell.replace("\\\n", " ")) if word != "$@"]
+    scripted = tyro.cli(HOITrainConfig, args=command[command.index("supermimic.hoi.train") + 1 :])
+    assert config_contract(scripted) == config_contract(scratch)
     for command in readme_commands():
         if "supermimic.hoi.play" in command:
             cfg = tyro.cli(PlayConfig, args=command[command.index("supermimic.hoi.play") + 1 :])

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-14",
+  "scope": "real Actor-driven bounded physical training, strict resume and play; not full training",
+  "report": "docs/hoi/force_contact/p7/validation_20261114/REPORT.md",
+  "evidence": "docs/hoi/force_contact/p7/validation_20261114/EVIDENCE.json",
+  "baseline": "c6225c1c0a66591dbb42e52760cc1119aad3414d",
+  "current_source_code_sha256": "dc56cf18a52b0071991abc13666716db6b83e0a4dd969639e70503b6d42dbafa",
+  "distinct_tests_passed_in_batches": 50,
+  "historical_20261113_tests": {
+    "count": 123,
+    "scope": "prior software/zero-update smoke, not added to current count",
+    "preserved": "logs/hoi_validation_20261114/VALIDATION_20261113.json"
+  },
+  "physical_optimizer_updates": {
+    "scope": "cumulative in64-world350-step checkpoint",
+    "wm": 1240,
+    "actor": 74,
+    "critic": 1480
+  },
+  "current_source_small_checkpoint_updates": {
+    "wm": 14,
+    "actor": 12,
+    "critic": 240
+  },
+  "resume": {
+    "state_bitwise_equal": true,
+    "tensors": 573,
+    "native_physics_continuation_bitwise_equal": false
+  },
+  "gpu_budget_seconds": 3600,
+  "conservative_charged_seconds": 964.8426388893276,
+  "reference_sha256": "f6ba446c16e71ab3cffb09ec015ca9a224305f6ac82d01f3631d4d5990a5b5d7",
+  "reset_geometry": {
+    "status": "UNRESOLVED_RESET_OVERLAP",
+    "max_penetration_m": 0.04410068718022353,
+    "frame0_foot_ground_penetration_m": 0.01223564506031003,
+    "source": "fixed reference/native collision compatibility, independent named pose assignment matches reset implementation"
+  },
+  "engineering_bounded_scale": "PASS:64env,batch256,H32; current-source2env scratch/resume/play also passed interfaces",
+  "learning_stability": "NOT_PASSED; Critic loss448.6768, single new-episode Box prediction worse than prior",
+  "policy_improvement": "NOT_DEMONSTRATED",
+  "task_success": "NOT_DEMONSTRATED; physical play ended robot_failure",
+  "full_train_ready": false,
+  "pending_approval": "Critic2e-5 scratch comparison only; no default or physical hyperparameter change executed",
+  "not_executed": [
+    "formal long training",
+    "protected reference/asset/reward/algorithm changes",
+    "lower-Critic-LR comparison",
+    "push"
+  ]
+}

@@ -371,6 +371,13 @@ class HOIPolicyTrainer(PolicyTrainer):
             **adapters,
         )
 
+    def set_lr(self, lr):
+        """Preserve configured Critic/Actor ratio; equal-rate defaults are unchanged."""
+        super().set_lr(lr)
+        if self.cfg.critic_lr != self.cfg.lr:
+            for group in self.critic_opt.param_groups:
+                group["lr"] = lr * self.cfg.critic_lr / self.cfg.lr
+
     def initialization_metadata(self):
         if self.joint_policy:
             return {
