@@ -37,10 +37,10 @@ The labels P0–P8 are execution stages, not model components and not the same t
 
 ## 1.1 The execution rule
 
-### Current user decision — 2026-11-13: interfaces and tests, no training
+### Current user decision — 2026-11-14: bounded real-training validation
 
 This scoped amendment supersedes conflicting historical execution/approval/checkpoint
-requirements in §§1.2–1.3, 3, 12, 16 and 17 for the current delivery. Historical
+requirements in §§1.2–1.3, 2.2, 3, 12, 15–17 for the current delivery. Historical
 reports, false/FAIL records, NPZ files, assets and checkpoints remain unchanged.
 
 - Implement one complete online training entry point: default **scratch** with
@@ -67,15 +67,32 @@ reports, false/FAIL records, NPZ files, assets and checkpoints remain unchanged.
 - Deliver distinct physical Actor policy play and display-only reference play,
   `README_HOI.md`, and a short link in the upstream README. Initial hyperparameters
   must be labelled uncalibrated, and future checkpoint paths labelled future outputs.
-- **This session performs no real training, WM warm-up, physical-data optimizer
-  update, automatic tuning, commit or push.** Permitted validation: static/import/CLI
-  and construction checks; unit/synthetic forward/gradient tests; scheduling spies;
-  untrained test snapshots only in test directories; at most 2 worlds and 16 control
-  steps per physical smoke path; bounded reference rendering. Report software tests
-  separately from unverified learning. Do not repeat the full historical audit.
-- Preserve actual geometry, solver and NaN/Inf checks. Report severe reset overlap
-  separately from finite-state checks and ordinary policy failure. No collision,
-  reference or reward changes to hide failures. Stop after this delivery.
+- The 2026-11-14 user request explicitly replaces the previous no-real-update
+  restriction. Within **60 cumulative GPU-occupied minutes**, run Actor-generated
+  online collection, internal WM-only startup, actual WM/Actor/Critic updates,
+  strict same-configuration save/resume and physical Actor play. Progress through
+  bounded environment/batch/horizon experiments and implementation fixes without
+  per-stage approval. Count all validation GPU work and preserve configurations,
+  logs, failures, checkpoints and actual elapsed time. Start changed configurations
+  as new scratch experiments; never silently migrate training state.
+- First identify reset penetration causes using actual signed geometry and an
+  independent reference/state mapping check. Existing overlap and historical
+  physical FAIL records remain limitations of these explicitly authorized bounded
+  experiments; finite losses/solver states do not establish geometric validity.
+  Do not lower checks, filter difficult frames, or alter reference/collision assets.
+- Preserve Actor B, Critic B+, Joint WM, reward, reference and collision assets.
+  A necessary protected change requires concrete evidence and one consolidated,
+  reviewable proposal for user approval before implementation. Preserve the venv,
+  user modifications and historical evidence. Do not upgrade dependencies.
+- Deliver actual closed-loop/save-resume evidence, a manual full-train configuration
+  and commands, measured resource estimates, remaining risks and README_HOI.md.
+  Distinguish engineering scalability, demonstrated learning improvement and full
+  carrying-task success. Budget exhaustion or unresolved blockers must be reported;
+  never claim full-train readiness merely to close the work.
+- After each completed small validation/fix group, local commits are authorized.
+  Do not push or launch formal long training; final acceptance and push remain with
+  the user. Historical stage instructions below retain their original scope and
+  are superseded only where they conflict with this bounded authorization.
 
 Codex executes **one stage per user instruction**.
 

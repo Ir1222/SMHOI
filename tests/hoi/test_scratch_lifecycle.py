@@ -2,6 +2,7 @@
 
 import copy
 import json
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock
 
@@ -37,6 +38,14 @@ def test_default_scratch_and_reference_binding():
     old = ReferenceClip(cfg.reference.parent.parent / "reference/reference.npz")
     with pytest.raises(ValueError, match="pinned refined"):
         validate_reference_binding(cfg.profile, old)
+
+
+def test_solver_iteration_budget_validation():
+    cfg = HOITrainConfig()
+    assert cfg.solver_iterations == 50
+    cfg.solver_iterations = 0
+    with pytest.raises(ValueError, match="Solver iteration"):
+        cfg.validate()
 
 
 def test_explicit_resume_only(tmp_path):
@@ -94,6 +103,12 @@ def mock_loop(cfg, monkeypatch, *, hoi):
     t.policy_trainer = SimpleNamespace(set_lr=lambda _: None, update=policy_update)
     t.buffer = SimpleNamespace()
     if hoi:
+        t.log_dir = Path(".")
+        t.device = "cpu"
+        t.learning_safety = SimpleNamespace(steps={}, gradient_norms={})
+        monkeypatch.setattr("supermimic.hoi.training_metrics.append_json", Mock())
+        monkeypatch.setattr(torch.cuda, "max_memory_allocated", lambda _: 0)
+        monkeypatch.setattr(torch.cuda, "max_memory_reserved", lambda _: 0)
         t.updates_ready = lambda: t.progress.ready(cfg, t.iteration, 64, 64)
         t.write_startup_status = lambda: None
     monkeypatch.setattr(torch.cuda, "synchronize", lambda: None)
@@ -240,6 +255,15 @@ def test_zero_update_smoke_resume_and_policy_play(tmp_path, monkeypatch):
             assert guard.checked_world_substeps == 16 * 2 * 4
             mask = t.buffer.window_mask(8)
             assert mask.any()
+            from supermimic.hoi.training_metrics import prediction_report
+
+            cpu_rng = torch.get_rng_state().clone()
+            cuda_rng = torch.cuda.get_rng_state().clone()
+            prediction = prediction_report(t, n=4)
+            assert torch.equal(cpu_rng, torch.get_rng_state())
+            assert torch.equal(cuda_rng, torch.cuda.get_rng_state())
+            # Scratch WM has zero residual: the reported baseline must match it.
+            assert prediction["errors"]["learned"] == prediction["errors"]["zero_residual_prior"]
             batch = t.buffer.sample_windows(4, 8)
             assert (batch["episode_id"] == batch["episode_id"][0]).all()
             assert torch.equal(batch["states"][1:], batch["next_state"])

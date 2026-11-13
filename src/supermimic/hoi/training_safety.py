@@ -32,6 +32,7 @@ class SolverGuard:
         self.graph_launches = 0
         self.substeps = 0
         self.checked_world_substeps = 0
+        self.solver_iteration_histogram = Counter()
         self.attestations = []
         self.active = False
 
@@ -116,6 +117,7 @@ class SolverGuard:
             action._processed_actions, action.executed_raw * action._scale + action._offset
         ):
             raise RuntimeError("Executed action differs from the native actuator map")
+        self.solver_iteration_histogram.update(env.sim.data.solver_niter[:].cpu().tolist())
         self.substeps += 1
         self.checked_world_substeps += env.num_envs
         return torch.zeros(env.num_envs, device=env.device)
@@ -128,6 +130,7 @@ class SolverGuard:
             "graph_launches": self.graph_launches,
             "substeps": self.substeps,
             "checked_world_substeps": self.checked_world_substeps,
+            "solver_iteration_histogram": dict(self.solver_iteration_histogram),
             "attestations": self.attestations,
         }
 
@@ -139,6 +142,7 @@ class LearningSafety:
         wm_trainer.numerics_check = finite
         policy_trainer.numerics_check = finite
         self.steps = {"wm": 0, "actor": 0, "critic": 0}
+        self.gradient_norms = {}
         self.handles = []
         for label, module, opt in (
             ("wm", wm_trainer.wm, wm_trainer.opt),
@@ -154,6 +158,10 @@ class LearningSafety:
                 self.handles.append(parameter.register_hook(check_gradient))
 
             def before(optimizer, args, kwargs, name=label, model=module):
+                gradients = [p.grad for p in model.parameters() if p.grad is not None]
+                if not gradients:
+                    raise RuntimeError(f"No gradients for {name} optimizer")
+                self.gradient_norms[name] = float(torch.stack([g.norm() for g in gradients]).norm())
                 finite(
                     name + " weights/gradients",
                     model.state_dict(),

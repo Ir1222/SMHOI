@@ -3,6 +3,7 @@
 import json
 import os
 import random
+import time
 import traceback
 from pathlib import Path
 
@@ -98,6 +99,7 @@ class HOITrainer(Trainer):
             PhysicalSceneCfg(
                 num_envs=cfg.env.num_envs,
                 action_noise_std=cfg.env.action_noise_std,
+                solver_iterations=cfg.solver_iterations,
             ),
             device=self.device,
             manifest=manifest,
@@ -105,6 +107,9 @@ class HOITrainer(Trainer):
         )
         self._raw = raw
         self.guard.attest(raw, "construction_after_capture")
+        self.identity["iterations"] = int(raw.sim.mj_model.opt.iterations)
+        if self.identity["iterations"] != cfg.solver_iterations:
+            raise RuntimeError("Native solver iteration budget differs from config")
         self.identity["native_model"] = compiled_model_identity(raw)
         self.command = make_sampler(raw, cfg)
         self.lib = self.command.library
@@ -228,6 +233,17 @@ class HOITrainer(Trainer):
         finite("update metrics", wm_metrics, policy_metrics)
         previous = self.progress.phase
         self.progress.completed(self.cfg)
+        from supermimic.hoi.training_metrics import append_json
+
+        append_json(self.log_dir / "learning.jsonl", {
+            "iteration": self.iteration, "update": self.num_updates,
+            "phase_executed": previous, "phase_next": self.progress.phase,
+            "wm": wm_metrics, "policy": policy_metrics,
+            "optimizer_steps": dict(self.learning_safety.steps),
+            "gradient_norm_after_clipping": dict(self.learning_safety.gradient_norms),
+            "cuda_peak_allocated_bytes": torch.cuda.max_memory_allocated(self.device),
+            "cuda_peak_reserved_bytes": torch.cuda.max_memory_reserved(self.device),
+        })
         if self.progress.phase != previous:
             print(
                 f"[HOI] {previous} -> {self.progress.phase} at iteration {self.iteration}",
@@ -252,6 +268,19 @@ class HOITrainer(Trainer):
 
     def log_task_metrics(self):
         self.write_startup_status()
+        from supermimic.hoi.training_metrics import (
+            append_json,
+            prediction_report,
+            reached_geometry_report,
+        )
+
+        append_json(self.log_dir / "reached_geometry.jsonl", reached_geometry_report(self))
+        if self.replay_readiness.get("windows8", 0):
+            report = prediction_report(self)
+            append_json(self.log_dir / "prediction.jsonl", report)
+            for model, metrics in report["errors"].items():
+                for key, value in metrics.items():
+                    self.writer.add_scalar(f"prediction/{model}/{key}", value, self.iteration)
         for key, value in self.replay_readiness.items():
             self.writer.add_scalar("replay/" + key, value, self.iteration)
         for key, value in self.learning_safety.steps.items():
@@ -269,8 +298,15 @@ class HOITrainer(Trainer):
         if self.iteration in self.saved_iterations:
             return  # Original loop requests latest + numbered at the same boundary.
         path = self.log_dir / f"hoi_{self.iteration:07d}.pt"
+        started = time.monotonic()
         training_checkpoint.save_exclusive(self, path)
         self.saved_iterations.add(self.iteration)
+        from supermimic.hoi.training_metrics import append_json
+
+        append_json(self.log_dir / "checkpoints.jsonl", {
+            "iteration": self.iteration, "path": str(path), "bytes": path.stat().st_size,
+            "save_seconds": time.monotonic() - started,
+        })
 
     def load(self, path):
         training_checkpoint.load(self, path)

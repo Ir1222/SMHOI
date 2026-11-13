@@ -121,6 +121,8 @@ def execute(cfg):
         try:
             validate_play_identity(saved, trainer.identity)
             finite("policy checkpoint", saved["models"]["policy"], saved["models"]["critic"])
+            finite("WM evaluation checkpoint", saved["models"]["wm"])
+            trainer.wm.load_state_dict(saved["models"]["wm"], strict=True)
             trainer.policy.load_state_dict(saved["models"]["policy"], strict=True)
             trainer.policy.eval()
             # Critic values are diagnostic only; keep timeout/value diagnostics meaningful.
@@ -150,8 +152,13 @@ def execute(cfg):
                     calibration["occupancy_cutoffs_LR"],
                 )
                 desired = bool(trainer.buffer.fields["intent_ref"][0, row, 1])
+                from supermimic.hoi.training_metrics import reached_geometry_report
+
+                geometry = reached_geometry_report(trainer)
                 records.append(
                     {
+                        "max_penetration_m": geometry["max_penetration_m"],
+                        "worst_contact_pair": geometry["worlds"][0]["worst_pair"],
                         "frame": int(recorder.last["frame"][0]) + 1,
                         "reward": float(reward[0]),
                         "action_l2": float(action.norm()),
@@ -192,6 +199,14 @@ def execute(cfg):
                 if term[0] or timeout[0]:
                     result["end_reason"] = "+".join(k for k, v in masks.items() if v)
                     break
+            if trainer.buffer.window_mask(8).any():
+                from supermimic.hoi.training_metrics import prediction_report
+
+                result["wm_prediction"] = prediction_report(trainer)
+                result["wm_prediction"]["scope"] = (
+                    "Frozen trained WM versus zero-residual prior on this new frame-0 Actor "
+                    "play trajectory; no fitting on these samples, single episode only"
+                )
         except BaseException as exc:
             result["end_reason"] = (
                 "invalid_numerics"

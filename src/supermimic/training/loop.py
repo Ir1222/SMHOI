@@ -283,11 +283,19 @@ class Trainer:
                     self.writer.add_scalar("sampler/bin_return_mean", float(self.command.bin_return.mean()), it)
                     dt_log = time.time() - last_log
                     last_log = time.time()
+                    # HOI reports weighted physical components, Robot reports NSE.
+                    one_key = "wm/nse_1step" if "wm/nse_1step" in agg else "wm/weighted_component_mean_1step"
+                    one_label = "nse1" if one_key == "wm/nse_1step" else "weighted_mse1"
+                    def measured(value, digits=3):
+                        return "n/a" if value is None else f"{value:.{digits}f}"
+                    one = agg[one_key] / agg_n if one_key in agg else None
+                    imagined = agg["policy/imag_return_undisc"] / agg_n if "policy/imag_return_undisc" in agg else None
+                    survival = agg["policy/imag_survival_H"] / agg_n if "policy/imag_survival_H" in agg else None
                     msg = (
                         f"it {it} | {elapsed/3600:.2f} h | {sch.log_interval / dt_log:.1f} it/s | updates {self.num_updates} | "
-                        f"train_ret {tr:.3f} (n={n_finished}) | "
-                        f"wm nse1 {agg.get('wm/nse_1step', float('nan'))/max(agg_n,1):.4f} nse8 {(float(err[-1]) if err is not None else float('nan')):.4f} | "
-                        f"imag_ret {agg.get('policy/imag_return_undisc', float('nan'))/max(agg_n,1):.3f} surv {agg.get('policy/imag_survival_H', float('nan'))/max(agg_n,1):.3f} | "
+                        f"train_ret {measured(tr if n_finished else None)} (n={n_finished}) | "
+                        f"wm {one_label} {measured(one, 4)} nse8 {measured(float(err[-1]) if err is not None else None, 4)} | "
+                        f"imag_ret {measured(imagined)} surv {measured(survival)} | "
                         f"t sim/wm/pi {timers['sim']:.1f}/{timers['wm']:.1f}/{timers['policy']:.1f}s"
                     )
                     print(msg, flush=True)

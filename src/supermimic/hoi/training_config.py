@@ -50,6 +50,7 @@ class HOITrainConfig(TrainConfig):
     startup: StartupCfg = field(default_factory=StartupCfg)
     check_only: bool = False  # construct/reset/check inputs and geometry, no run or save
     reset_frames: tuple[int, ...] = (0,)
+    solver_iterations: int = 50  # validated 64-world ceiling; tolerances/collisions unchanged
     # An optional, explicitly chosen geometric loss-of-object boundary. No head.
     box_min_height: float | None = None
     env: EnvCfg = field(
@@ -92,6 +93,8 @@ class HOITrainConfig(TrainConfig):
     def validate(self):
         import math
 
+        if self.solver_iterations < 1:
+            raise ValueError("Solver iteration budget must be positive")
         if self.reward is None:
             raise ValueError("HOI reward configuration is required")
         if self.sampler_g_max is not None and (

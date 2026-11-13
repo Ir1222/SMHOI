@@ -28,6 +28,7 @@ class PhysicalSceneCfg:
     num_envs: int = 4
     env_spacing: float = 4.0
     action_noise_std: float = 0.0  # deterministic calibration, same original action map
+    solver_iterations: int = 10
     nconmax: int = 256
     njmax: int = 1024
     contact_sensor_maxmatch: int = 64
@@ -102,7 +103,7 @@ def make_physical_env_cfg(
             nconmax=cfg.nconmax,
             njmax=cfg.njmax,
             contact_sensor_maxmatch=cfg.contact_sensor_maxmatch,
-            mujoco=MujocoCfg(timestep=0.005, iterations=10, ls_iterations=20),
+            mujoco=MujocoCfg(timestep=0.005, iterations=cfg.solver_iterations, ls_iterations=20),
         ),
         decimation=4,
         episode_length_s=0.0,

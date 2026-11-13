@@ -32,11 +32,20 @@ def execute(cfg):
                 torch.save(
                     {
                         k: getattr(trainer.env.raw.sim.data, k)[:].detach().cpu().clone()
-                        for k in ("qpos", "qvel", "qacc", "ctrl", "overflow")
+                        for k in ("qpos", "qvel", "qacc", "ctrl", "overflow", "solver_niter")
                     },
                     stream,
                 )
             (trainer.log_dir / "failure.txt").write_text(traceback.format_exc())
+            (trainer.log_dir / "failure_context.json").write_text(json.dumps({
+                "last_complete_iteration": trainer.iteration,
+                "phase": trainer.progress.state_dict(),
+                "optimizer_steps": trainer.learning_safety.steps,
+                "reference_frame": trainer.recorder.frame.cpu().tolist(),
+                "episode_step": trainer.recorder.age.cpu().tolist(),
+                "reset_count": trainer.recorder.reset_count.cpu().tolist(),
+                "overflow": trainer.env.raw.sim.data.overflow[:].cpu().tolist(),
+            }, indent=2) + "\n")
             raise
         finally:
             (trainer.log_dir / "guard.json").write_text(
