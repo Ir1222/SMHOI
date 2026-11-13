@@ -1,0 +1,222 @@
+{
+  "scope": "P7.0.2/0.3 architecture software acceptance; no training/physical evaluation",
+  "status": "PASS",
+  "baseline": "db4f71f0325d882bb528072cadd9db08e15946c0",
+  "environment": {
+    "python": "3.12.8",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4090 D"
+  },
+  "tests": {
+    "passed": 150,
+    "skipped": 1,
+    "suites": [
+      {
+        "artifact": "eager.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "37",
+        "time": "9.753",
+        "timestamp": "2026-11-13T15:45:55.672587+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "feature_compile.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "4",
+        "time": "97.603",
+        "timestamp": "2026-11-13T15:52:49.376274+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "parity_cpu_fp32.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "1",
+        "time": "642.883",
+        "timestamp": "2026-11-13T15:46:16.258465+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "parity_cpu_fp64.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "1",
+        "time": "643.464",
+        "timestamp": "2026-11-13T15:40:10.241026+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "parity_cuda_fp32.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "1",
+        "time": "582.157",
+        "timestamp": "2026-11-13T15:42:45.651158+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "parity_cuda_fp64.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "1",
+        "time": "589.002",
+        "timestamp": "2026-11-13T15:46:20.339798+08:00",
+        "hostname": "han-Precision-3660"
+      },
+      {
+        "artifact": "regression.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "1",
+        "tests": "106",
+        "time": "12.639",
+        "timestamp": "2026-11-13T15:41:05.012684+08:00",
+        "hostname": "han-Precision-3660"
+      }
+    ]
+  },
+  "compiled": [
+    {
+      "artifact": "compiled/feature_fullgraph_cpu_float32.json",
+      "status": "PASS",
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "maximum_absolute_error": 1.9073486328125e-06,
+      "atol": 5e-06,
+      "rtol": 5e-06,
+      "fullgraph": true,
+      "compiled_unique_graphs": null
+    },
+    {
+      "artifact": "compiled/feature_fullgraph_cpu_float64.json",
+      "status": "PASS",
+      "device": "cpu",
+      "dtype": "torch.float64",
+      "maximum_absolute_error": 3.552713678800501e-15,
+      "atol": 1e-10,
+      "rtol": 1e-08,
+      "fullgraph": true,
+      "compiled_unique_graphs": null
+    },
+    {
+      "artifact": "compiled/feature_fullgraph_cuda_float32.json",
+      "status": "PASS",
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "maximum_absolute_error": 1.9073486328125e-06,
+      "atol": 5e-06,
+      "rtol": 5e-06,
+      "fullgraph": true,
+      "compiled_unique_graphs": null
+    },
+    {
+      "artifact": "compiled/feature_fullgraph_cuda_float64.json",
+      "status": "PASS",
+      "device": "cuda",
+      "dtype": "torch.float64",
+      "maximum_absolute_error": 3.552713678800501e-15,
+      "atol": 1e-10,
+      "rtol": 1e-08,
+      "fullgraph": true,
+      "compiled_unique_graphs": null
+    },
+    {
+      "artifact": "compiled/parity_cpu_float32.json",
+      "status": "PASS",
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "maximum_absolute_error": 5.960464477539063e-08,
+      "atol": 2e-05,
+      "rtol": 2e-05,
+      "fullgraph": false,
+      "compiled_unique_graphs": 87
+    },
+    {
+      "artifact": "compiled/parity_cpu_float64.json",
+      "status": "PASS",
+      "device": "cpu",
+      "dtype": "torch.float64",
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "atol": 1e-09,
+      "rtol": 1e-07,
+      "fullgraph": false,
+      "compiled_unique_graphs": 87
+    },
+    {
+      "artifact": "compiled/parity_cuda_float32.json",
+      "status": "PASS",
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "maximum_absolute_error": 5.066394805908203e-07,
+      "atol": 2e-05,
+      "rtol": 2e-05,
+      "fullgraph": false,
+      "compiled_unique_graphs": 87
+    },
+    {
+      "artifact": "compiled/parity_cuda_float64.json",
+      "status": "PASS",
+      "device": "cuda",
+      "dtype": "torch.float64",
+      "maximum_absolute_error": 3.9040256758719055e-16,
+      "atol": 1e-09,
+      "rtol": 1e-07,
+      "fullgraph": false,
+      "compiled_unique_graphs": 87
+    }
+  ],
+  "preservation": {
+    "tracked_files_checked": 3090,
+    "unchanged_tracked_files": 3085,
+    "changed_tracked_files": {
+      "docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md": {
+        "before": "68142af38edb0a9a443aac5815491aaae90dba696acc84d30fc54223c6e4a9cc",
+        "after": "25554b0987d70e778b1c41b33cc15512b876e3ee9f359536a850545d63305841"
+      },
+      "docs/hoi/force_contact/p7/IMPLEMENTATION_SPEC.md": {
+        "before": "98a348c44d01673c6832113bbb0cb4c1c18e7b70758ffa6ecfe053be5c8a653f",
+        "after": "92554ab351d6d013bd44aa69fb238f4a101dd01ca150a2e9b1be06f93a039e08"
+      },
+      "src/supermimic/hoi/imagination.py": {
+        "before": "a8eafc42090fb053293074ae12f84339f13e86ec5f33bdb85eb471b29ed69198",
+        "after": "61b0148185004ba436031163a23795eceb5cb0cdf98c0970a9cc3aecb03fcf61"
+      },
+      "src/supermimic/imagination/policy_trainer.py": {
+        "before": "89adff2747dac9371000e202eb83f6114d58d3e8ce9c2b3c985f6c05ae075bc5",
+        "after": "ac0cb1c9e80b1b34f45c794924e524e959454147a4ddd1242f503e57785a1dfe"
+      },
+      "src/supermimic/imagination/rollout.py": {
+        "before": "e5d2abcdf0d95c78e26619cea59f8e0077b8bb06b0a7be20897c800e9a1b9037",
+        "after": "778be4283d1ebdb428b2633b28552a0682c302d0a68ac141b040be98ffe7ce1f"
+      }
+    },
+    "protected_sha256": {
+      "outputs/hoi/asset_audit/part_b/reference/reference.npz": "bbbb40a49ccdd47f474bf43f75260a91361eac2ab3f3d9e54574d206996ad61b",
+      "outputs/hoi/contact_supervision/p6_closure/reference_candidate_v1/reference.npz": "f38071e5347403f9eff993dd37884bf374e0c003400156dc4cb87d3d2b856cb0",
+      "outputs/hoi/contact_supervision/contact_validation/calibration.json": "34a47e06454c64f71b456bb428110fceff65302f6c6517dc85a95e151d400266"
+    },
+    "git_index_empty": true,
+    "head_unchanged": true,
+    "preexisting_untracked_vscode": "untouched"
+  },
+  "training_ready": false,
+  "full_training_resume": false,
+  "physical_fidelity_validated": false,
+  "training_solver_guard_attested": false
+}

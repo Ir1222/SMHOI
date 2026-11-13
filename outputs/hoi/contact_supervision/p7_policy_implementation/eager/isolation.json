@@ -1,0 +1,9 @@
+{
+  "actor_loss": -0.15597061285972155,
+  "critic_loss": 0.03682987179765444,
+  "actor_only_step": true,
+  "critic_only_step": true,
+  "wm_steps": 0,
+  "scope": "one synthetic unit step each, no collection or training loop",
+  "freeze_restore_on_exception": true
+}

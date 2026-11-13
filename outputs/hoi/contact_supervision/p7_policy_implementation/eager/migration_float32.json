@@ -1,0 +1,15 @@
+{
+  "actor_max_abs_error": 1.1641532182693481e-10,
+  "critic_max_abs_error": 3.91155481338501e-08,
+  "atol": 5e-07,
+  "rtol": 5e-06,
+  "strict_roundtrip": true,
+  "zero_fusion_object_gradient": "exact zero",
+  "nonzero_fixture_object_history_gradient": 9.076597052626312e-06,
+  "nonzero_fixture_object_goal_gradient": 1.5255307062034262e-06,
+  "source": {
+    "checkpoint_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "provenance_status": "synthetic-test"
+  },
+  "optimizer_migration": false
+}

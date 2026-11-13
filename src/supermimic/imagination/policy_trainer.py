@@ -53,7 +53,7 @@ class PolicyTrainerCfg:
 
 
 class PolicyTrainer:
-    def __init__(self, wm: WorldModel, policy: Policy, critic: Critic, lib: MotionLibrary, cfg: PolicyTrainerCfg, *, step_fn=None, rollout_context_factory=None, critic_features=None):
+    def __init__(self, wm: WorldModel, policy: Policy, critic: Critic, lib: MotionLibrary, cfg: PolicyTrainerCfg, *, step_fn=None, rollout_context_factory=None, critic_features=None, observation_adapter=None, object_goal_builder=None, rollout_critic_inputs=None):
         self.wm, self.policy, self.critic, self.lib, self.cfg = wm, policy, critic, lib, cfg
         self.opt = torch.optim.Adam(policy.parameters(), lr=cfg.lr, betas=cfg.betas)
         self.critic_opt = torch.optim.Adam(critic.parameters(), lr=cfg.critic_lr)
@@ -62,6 +62,9 @@ class PolicyTrainer:
         self.step_fn = step_fn if step_fn is not None else ImagStep(wm, lib.default_joint_pos, compile_mode=cfg.compile)
         self.rollout_context_factory = rollout_context_factory
         self.critic_features = critic_features
+        self.observation_adapter = observation_adapter
+        self.object_goal_builder = object_goal_builder
+        self.rollout_critic_inputs = rollout_critic_inputs
 
     def set_lr(self, lr: float) -> None:
         for g in self.opt.param_groups:
@@ -70,6 +73,8 @@ class PolicyTrainer:
             g["lr"] = lr
 
     def _critic_inputs(self, ro: ImagRollout):
+        if self.rollout_critic_inputs is not None:
+            return self.rollout_critic_inputs(ro, ro.context)
         H1, n, _ = ro.states.shape
         feat = (self.wm.spec.canonical(ro.states.reshape(H1 * n, -1)).reshape(H1, n, -1)
                 if self.critic_features is None else self.critic_features(ro.states))
@@ -84,7 +89,7 @@ class PolicyTrainer:
         cfg = self.cfg
         xi_norm = self.wm.spec.normalize_xi(start.xi)
         context = None if self.rollout_context_factory is None else self.rollout_context_factory(start, cfg.horizon)
-        ro = imagine(self.wm, self.policy, self.lib, start, cfg.horizon, cfg.future_frames, obs_noise=cfg.obs_noise, step_fn=self.step_fn, anchor_obs=cfg.anchor_obs, context=context)
+        ro = imagine(self.wm, self.policy, self.lib, start, cfg.horizon, cfg.future_frames, obs_noise=cfg.obs_noise, step_fn=self.step_fn, anchor_obs=cfg.anchor_obs, context=context, observation_adapter=self.observation_adapter, object_goal_builder=self.object_goal_builder)
         feat, goals, e_root = self._critic_inputs(ro)
         if cfg.use_critic:
             if ro.lengths is None:

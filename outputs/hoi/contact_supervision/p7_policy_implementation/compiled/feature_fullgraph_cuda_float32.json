@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "backend": "inductor",
+  "fullgraph": true,
+  "device": "cuda",
+  "dtype": "torch.float32",
+  "atol": 5e-06,
+  "rtol": 5e-06,
+  "max_absolute_errors": {
+    "observation": 2.9802322387695312e-08,
+    "history": 2.9802322387695312e-08,
+    "critic_features": 2.9802322387695312e-08,
+    "state_gradient": 1.9073486328125e-06,
+    "action_gradient": 0.0
+  },
+  "optimizer_steps": 0
+}

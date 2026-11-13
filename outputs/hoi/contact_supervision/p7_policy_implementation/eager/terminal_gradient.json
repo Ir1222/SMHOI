@@ -1,0 +1,7 @@
+{
+  "object_state_gradient_norm": 0.434275271455121,
+  "actor_gradient_norm": 0.00019473043882555036,
+  "detach_control": "zero",
+  "finite_difference_error": 2.951794364491889e-11,
+  "dynamics": "synthetic coupled residual; not learned physical fidelity"
+}

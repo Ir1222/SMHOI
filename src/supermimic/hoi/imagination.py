@@ -298,13 +298,52 @@ class HOIPolicyTrainer(PolicyTrainer):
     """Construction/projection only; inherits every optimizer and learning algorithm."""
 
     def __init__(self, wm, policy, critic, registry, reward, cfg, *, backend="inductor"):
+        from supermimic.hoi.policy import HOIActor, HOICritic
+        from supermimic.hoi.policy_features import (
+            HOIObservationAdapter,
+            critic_features,
+            object_future_goal,
+            rollout_critic_inputs,
+        )
+
         if registry.dt != reward.cfg.dt:
             raise ValueError("Reference/reward dt mismatch")
         tracked_names = tuple(wm.heads.fk.body_names[i] for i in wm.heads.tracked_idx)
         if tracked_names != registry.lib.body_names:
             raise ValueError("Library/FK tracked body ordering mismatch")
         goal_dim = cfg.future_frames * 68 + 9 * int(cfg.anchor_obs)
-        if (
+        self.joint_policy = isinstance(policy, HOIActor)
+        if self.joint_policy != isinstance(critic, HOICritic):
+            raise ValueError("Actor B and Critic B+ must be selected together")
+        if self.joint_policy:
+            if cfg.history != 10 or cfg.future_frames != 10 or cfg.anchor_obs:
+                raise ValueError("Actor B dimensions require history10/future10/no anchor")
+            observation = HOIObservationAdapter(wm.spec, registry.lib.default_joint_pos)
+            def build_critic_features(state, previous_action, reference):
+                return critic_features(state, previous_action, reference, wm.spec, wm.support)
+
+            if cfg.compile:
+                options = {} if cfg.compile == "default" else {"mode": cfg.compile}
+                observation.observation = torch.compile(
+                    observation.observation, backend=backend, dynamic=False, **options,
+                )
+                observation.flatten_history = torch.compile(
+                    observation.flatten_history, backend=backend, dynamic=False, **options,
+                )
+                build_critic_features = torch.compile(
+                    build_critic_features, backend=backend, dynamic=False, **options,
+                )
+            adapters = {
+                "observation_adapter": observation,
+                "object_goal_builder": lambda context: object_future_goal(
+                    registry, context.start.clip_id[None].expand_as(context.local_frames),
+                    context.local_frames, wm.spec,
+                ),
+                "rollout_critic_inputs": lambda ro, context: rollout_critic_inputs(
+                    ro, context, wm.spec, wm.support, feature_builder=build_critic_features,
+                ),
+            }
+        elif (
             cfg.history != 10
             or cfg.future_frames != 10
             or policy.cfg.history != 10
@@ -313,6 +352,9 @@ class HOIPolicyTrainer(PolicyTrainer):
             or critic.mlp.net[0].in_features != 71 + goal_dim + 33 + 4
         ):
             raise ValueError("Preserve original Actor/Critic history/goal/state dimensions")
+        else:
+            # Historical P5 interface remains an explicit compatibility path.
+            adapters = {"critic_features": lambda states: wm.spec.robot.canonical(robot_state(states))}
         self.registry, self.reward = registry, reward
         super().__init__(
             wm,
@@ -326,10 +368,20 @@ class HOIPolicyTrainer(PolicyTrainer):
             rollout_context_factory=lambda start, horizon: HOIRolloutContext(
                 registry, start, horizon
             ),
-            critic_features=lambda states: wm.spec.robot.canonical(robot_state(states)),
+            **adapters,
         )
 
     def initialization_metadata(self):
+        if self.joint_policy:
+            return {
+                "schema": "hoi-policy-initialization-v2",
+                "actor": self.policy.metadata(), "critic": self.critic.metadata(),
+                "reward": self.reward.cfg.metadata(), "references": self.registry.metadata(),
+                "reward_frame": "reached-local-frame+1", "critic_frame": "current-local-frame",
+                "natural_end_bootstrap": False, "actor_obs": 1080, "goal": 830,
+                "critic_input": 1015, "action": 29,
+                "optimizer_resume": False, "sampler_resume": False, "training_ready": False,
+            }
         return {
             "schema": "hoi-policy-initialization-v1",
             "reward": self.reward.cfg.metadata(),

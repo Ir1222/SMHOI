@@ -26,7 +26,7 @@ ANCHOR_NOISE_HALF = torch.tensor([0.25] * 3 + [0.05] * 6)
 
 @dataclass
 class ImagRollout:
-    states: torch.Tensor  # (H+1, n, 71)
+    states: torch.Tensor  # (H+1, n, state_dim); Robot71 or HOI84
     actions: torch.Tensor  # (H, n, 29)
     rewards: torch.Tensor  # (H, n)      r_{t+1}
     dhat: torch.Tensor  # (H+1, n)    predicted termination prob of s_t (d_0 = 0)
@@ -41,6 +41,10 @@ class ImagRollout:
     continuation: torch.Tensor | None = None
     boundaries: dict | None = None
     diagnostics: dict | None = None
+    object_goals: torch.Tensor | None = None  # (H+1,n,150), raw, reference-only
+    object_goal_valid: torch.Tensor | None = None  # (H+1,n,10), goal padding only
+    previous_actions: torch.Tensor | None = None  # (H+1,n,29), clean incoming action
+    context: object | None = None  # optional reference identity for live Critic builders
 
 
 def imagine(
@@ -54,6 +58,8 @@ def imagine(
     step_fn: ImagStep | None = None,
     anchor_obs: bool = False,
     context=None,
+    observation_adapter=None,
+    object_goal_builder=None,
 ) -> ImagRollout:
     device = start.state.device
     n = start.state.shape[0]
@@ -66,6 +72,8 @@ def imagine(
     term_names = REWARD_TERM_NAMES if context is None else context.term_names
 
     def add_noise(o):
+        if observation_adapter is not None:
+            return observation_adapter.add_noise(o, obs_noise)
         if obs_noise:
             return o + (torch.rand_like(o) * 2 - 1) * noise_half
         return o
@@ -80,10 +88,16 @@ def imagine(
         return torch.cat([g, rel], dim=-1)
 
     # Initial observation history from the logged states/actions (noise re-sampled per frame).
-    hist = [add_noise(analytic_observation(project(start.hist_states[i]), start.hist_actions[i], start.xi, q0)) for i in range(start.hist_states.shape[0])]
+    observe = (lambda s, a, xi: analytic_observation(project(s), a, xi, q0)) if observation_adapter is None else observation_adapter.observation
+    flatten_history = flatten_history_term_major if observation_adapter is None else observation_adapter.flatten_history
+    hist = [add_noise(observe(start.hist_states[i], start.hist_actions[i], start.xi)) for i in range(start.hist_states.shape[0])]
     s = start.state
     frame = start.frame.clone()
     a_prev = start.prev_action
+    previous_actions = [a_prev] if observation_adapter is not None else None
+    if object_goal_builder is not None and context is None:
+        raise ValueError("Object goal builder requires explicit rollout reference context")
+    object_window = None if object_goal_builder is None else object_goal_builder(context)
     c = torch.ones(n, device=device)
 
     states = [s]
@@ -113,13 +127,17 @@ def imagine(
     term_sum = torch.zeros(len(term_names), device=device, dtype=s.dtype if context is not None else None)
 
     for t in range(horizon):
-        obs_flat = flatten_history_term_major(torch.stack(hist, 0))
+        obs_flat = flatten_history(torch.stack(hist, 0))
         rows = None if context is None else context.valid[t].nonzero().squeeze(-1)
         select = (lambda x: x) if context is None else (lambda x, rows=rows: x[rows])
         if rows is None or rows.numel():
-            a = policy(select(obs_flat), select(goals[-1]))
+            policy_goal = goals[-1] if object_window is None else torch.cat((goals[-1], object_window.values[t]), -1)
+            a = policy(select(obs_flat), select(policy_goal))
             scoring_ref = ref if context is None else context.step_reference(t, rows)
             s_next, r, term_vec, logits, obs_clean, anchor_pose = step_fn(select(s), a, select(a_prev), select(start.xi), scoring_ref)
+            if observation_adapter is not None:
+                # Recompute from the reached physical state, retaining the WM graph.
+                obs_clean = observe(s_next, a, select(start.xi))
             d = torch.sigmoid(logits)
             if context is None:
                 term_sum += term_vec.detach().mean(-1)
@@ -157,6 +175,8 @@ def imagine(
         goals.append(goal_next)
         e_roots.append(root_next)
         frames.append(frame)
+        if previous_actions is not None:
+            previous_actions.append(a_prev)
 
     return ImagRollout(
         states=torch.stack(states),
@@ -174,4 +194,8 @@ def imagine(
         continuation=None if context is None else context.continuation,
         boundaries=None if context is None else context.boundaries,
         diagnostics=None if context is None else context.diagnostics,
+        object_goals=None if object_window is None else object_window.values,
+        object_goal_valid=None if object_window is None else object_window.valid,
+        previous_actions=None if previous_actions is None else torch.stack(previous_actions),
+        context=context,
     )

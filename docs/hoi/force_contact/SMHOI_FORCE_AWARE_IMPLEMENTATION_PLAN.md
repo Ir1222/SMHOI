@@ -131,9 +131,9 @@ The following is a minimum mapping, not a replacement for the full audits or sta
 | P2 | Four newest-first samples span .005 × 4 = .020 s. Preserve accepted action/transition alignment and Replay episode/clip boundaries. Actual force/contact measurements remain physical diagnostic data, not active WM targets or Actor reward inputs. | Test executed-action/state/terminal alignment, validity and episode/clip boundaries. Distinguish force magnitude (N), impulse (N·s), contact occupancy and binary contact labels. |
 | P3 | Final joint state84, canonical86, residual82 and support context18. One shared dynamics trunk with 166D input and 82D output. No Contact Prediction Head, Contact BCE, Force Prediction Head or force regression. | Validate state/frame/integration contracts and checkpoint migration. Skip dedicated contact-boundary classifier fitting. Defer learned joint WM validation to P7-A. Preserve all existing dimensions and original robot-only compatibility. |
 | P4 | Preserve the original global binary reference contact label. Use it to gate the HDMI-style differentiable EEF-to-object-target proximity reward. Do not introduce additional temporal classifiers, force prediction or new observation dimensions. | Audit EEF offsets, object-local targets, collision geometry correspondence, FK and distance scales. Verify exact reference-frame alignment and reward gradients. Actual contact labels remain outside the differentiable reward. |
-| P5 | Integrate complete robot/Box tracking, unchanged P4 proximity and original regularization into the original joint imagination and Actor BPTT. Recompute EEF and Box-local target geometry from current imagined robot/object states. | Test component/action-to-Actor gradients, clip-aware reference alignment, terminal/bootstrap masks and eager/compiled parity. Preserve original Actor/Critic interfaces and state dimensions. |
+| P5 | Integrate complete robot/Box tracking, unchanged P4 proximity and original regularization into the original joint imagination and Actor BPTT. Recompute EEF and Box-local target geometry from current imagined robot/object states. | Test component/action-to-Actor gradients, clip-aware reference alignment, terminal/bootstrap masks and eager/compiled parity. Preserve historical P5 interfaces/results and state dimensions; the prospective P7 HOI policy exception is §4.6. |
 | P6 | Compare original reference binary contact labels against independently measured actual MuJoCo hand-box contact at every valid evaluated timestep. Keep left/right measurements independent and preserve support-contact separation. | Report contact agreement, confusion matrices, precision/recall, any-hand and bilateral contact under the P4.1/P6.2 aggregation contract, contact duration, force diagnostics and collision penetration diagnostics. Do not use actual contact measurements as differentiable reward inputs. |
-| P7 | Retain Trainer.run(), joint WM architecture, original Actor/Critic optimization and the approved proximity reward. | Train/validate joint WM before Actor BPTT. Perform reward ablations and physical rollout evaluation. Preserve checkpoint compatibility and sm-train defaults. |
+| P7 | Retain Trainer.run(), joint WM architecture, original Actor/Critic optimization and the approved proximity reward. | Train/validate joint WM before Actor BPTT. Perform reward ablations and physical rollout evaluation. Use §4.6 Actor B / Critic B+ with named migration; preserve original robot-only checkpoint behavior and sm-train defaults. |
 | P8 | Accepted Part B has 840 samples at 50 Hz. M6.5 physical asset limitations remain visible until resolved or explicitly accepted for bounded evaluation. | Evaluate from frame 0 through complete pick-carry-place-release, including physical contact agreement, object stability, release and post-release behavior. Report all failures and provenance. |
 
 
@@ -371,7 +371,7 @@ These are candidate baseline dimensions. P0 must verify them against the actual 
 | Object physical state | 13 | Position 3 + quaternion 4 + linear velocity 3 + angular velocity 3 |
 | Joint physical state | 84 | Robot + object |
 | Robot canonical | 71 | Preserve original semantics |
-| Object canonical | 15 | Relative position 3 + relative orientation 6D + relative linear velocity 3 + angular velocity 3 |
+| Object canonical | 15 | Relative heading position 3 + heading orientation 6D + absolute Object root-origin linear velocity in Robot heading axes 3 (no Robot velocity subtraction) + Object-body angular velocity 3 |
 | Joint canonical | 86 | 71 + 15 |
 | Support-relative context | 18 | Time-varying physical context, recomputed from current joint physical state |
 | Action | 29 | G1 executed action |
@@ -431,6 +431,62 @@ Part B provides one global binary desired-contact label, not independent left/ri
 P4.1 must establish whether the reference/task requires bilateral physical contact and document the applicable interval/evidence. Only that finding permits bilateral AND to serve as the task-required contact aggregate. Otherwise preserve and report any-hand (OR) and bilateral (AND) measurements separately, without assuming either is the uniquely correct interpretation of the global label. Independent left/right measurements are always retained; neither physical aggregation changes the target-average proximity reward in P4.4. See P6.2–P6.3 and P8.3 for evaluation.
 
 The final architecture has no predicted contact confidence or force-prediction signal.
+
+## 4.6 Approved versioned HOI Actor B / Critic B+ contract (M1/M2)
+
+Approved by the user's P7.0.2 + P7.0.3 implementation request at baseline
+`db4f71f0325d882bb528072cadd9db08e15946c0`, following
+[p7/ACTOR_CRITIC_ARCHITECTURE_REVIEW.md](p7/ACTOR_CRITIC_ARCHITECTURE_REVIEW.md)
+§§5–6 and amendments M1/M2 only. Schema: `hoi-actor-b-critic-bplus-v1`.
+This approval covers architecture software and controlled acceptance tests;
+it does not start P7-A/B, authorize training or complete the smHOI-track lifecycle.
+
+| Actor block | Width / architecture |
+|---|---|
+| Robot observation history | 10 × 93 = 930; original term-major order/scales |
+| Object observation history | 10 × 15 = 150; position, rotation6, linear, angular groups, then time |
+| Raw observation | 1080 |
+| Robot / Object future goals | 680 / 150; synchronized f...f+9, frame-major; total 830 |
+| Robot Motion Encoder | 680 → 2048 → 1024 → 512 → 256 → 32, final tanh |
+| Object History encoder | 150 → 128 → 64, SiLU hidden, linear output |
+| Object Goal encoder | 150 → 128 → 64 → 32, SiLU hidden, final tanh |
+| Decoder | [Robot latent32, Robot history930, Object history64, Object goal32] = 1058 → 2048 → 1024 → 512 → 256 → action29 |
+
+Object observation15 is relative position3, rotation6, absolute root-origin
+linear velocity3 in each historical frame's own actual Robot heading, and Object
+body angular velocity3. Object future goals use each corresponding reference
+Robot heading, converting reference world angular velocity to reference Object
+body coordinates. Divisors are (1,1,1,2) for groups (3,6,3,3), applied once.
+History is oldest to newest; goals alone may pad the final frame with explicit
+validity. No padded physical transitions or repeated terminal rewards are allowed.
+Object noise is explicitly zero in this state-observed simulation interface;
+the original Robot noise law is shared by real and imagined feature construction.
+
+The independent Critic input order is exactly
+`[joint_canonical86, support18, object_error15, previous_clean_action29,
+robot_goal680, object_goal150, xi33, root_error4]` = **1015 → 256 → 128 → 1**.
+Object error15 uses the approved review §6.2 equations and fixed divisors,
+with current state s_t and reference f_t. Existing reward remains aligned to
+reached state s_(t+1) and reference f_(t+1). Previous clean action is the Replay
+start's prior action, then the preceding imagined Actor output. All H+1 live
+Critic features retain state/action gradients; detached diagnostics are not inputs.
+No trainable Actor encoder is shared with Critic.
+
+Preserve physical84/canonical86/residual82, WM166→82, support18/action29/xi33,
+original reward equations, assets, references and native control. Preserve the
+original alternating WM/BPTT/TD(lambda) algorithm, optimizer implementation,
+frozen-weight input Jacobians and terminal/timeout/clip masks. Keep original
+Robot-only classes, dimensions, defaults and sm-train checkpoint loading unchanged.
+Use named, strictly validated HOI migration; do not reuse old optimizer moments
+as a full HOI resume. Zero new Actor fusion columns preserve initial actions
+and imply zero initial Object sensitivity/encoder gradients.
+
+This narrowly supersedes only prospective HOI policy restrictions in §§1.3.4,
+10, 12, 14, 16 and 17. Historical P5 specification/results remain accurate for
+their original schema; they do not certify the new interface. Measured force,
+actual contact, reference contact intent and geometry-contact features are
+excluded from both Actor and Critic. Contact/Force Heads, Contact BCE, force
+regression, force reward and PPO remain prohibited. M3/M4/M5 are not approved.
 
 # 5. P0 — Repository, Dataset and Dependency Audit
 What P0 means
@@ -1398,7 +1454,7 @@ The Actor learns to track the humanoid and object while approaching audited Box-
 
 Actual MuJoCo contact measurements remain outside differentiable imagination and Actor BPTT.
 
-No new Contact Decoder, Contact Prediction Head, Force Prediction Head or additional observation/state dimensions are introduced.
+No new Contact Decoder, Contact Prediction Head, Force Prediction Head or additional observation/state dimensions were introduced by P5. For prospective P7 HOI policy interfaces only, §4.6 supersedes the observation freeze, including the linked legacy P5 specification’s policy-interface constraints. Historical P5 reports, tests and results remain unchanged; physical state dimensions stay fixed.
 
 ## Prerequisites
 
@@ -2072,7 +2128,7 @@ If natural transition coverage is insufficient, propose and execute only the app
 
 ### P7-A.2 Joint WM initialization and checkpoint preparation
 
-Initialize the Joint WM, Actor and Critic using the final P3/P5 architecture and explicitly reviewed checkpoint mappings.
+Initialize the Joint WM using the final P3/P5 physical architecture and the HOI Actor B / Critic B+ using §4.6 and explicitly reviewed named checkpoint mappings. Original Robot-only interfaces remain unchanged.
 
 Preserve:
 
@@ -2339,9 +2395,7 @@ Do not invent final coefficients or rely on test-only numerical fixtures.
 
 ### P7-B.5 Critic, return and sampler calibration
 
-Preserve the original Critic observation dimensions and TD(lambda) implementation.
-
-The Critic remains robot-observation based under the approved architecture contract. It does not directly receive the complete Box state.
+Preserve the original TD(lambda) implementation. The approved HOI Critic B+ uses the independent 1015D §4.6 schema, including joint canonical state and reconstructible privileged Object/reference/support/previous-action information. This explicitly supersedes the previous Robot-only HOI Critic restriction. Original Robot-only Critic dimensions and defaults remain unchanged.
 
 Evaluate:
 
@@ -2359,7 +2413,7 @@ Initialize HOI optimizer and sampler state explicitly.
 
 Do not assume robot-only optimizer moments, return statistics or sampler bins are valid HOI resume state.
 
-Do not change Actor/Critic observation dimensions merely to resolve calibration issues.
+Use only the frozen §4.6 HOI dimensions; do not change them merely to resolve calibration issues.
 
 ### P7-B.6 Reward ablation
 
@@ -2432,14 +2486,14 @@ Do not overwrite original robot-only or P7-A checkpoints.
 - Actor receives actual optimizer updates through P5 imagination/BPTT.
 - Critic receives actual TD(lambda) updates.
 - WM is frozen only during Actor imagination updates, not permanently.
-- Actor/Critic observation dimensions remain unchanged.
+- HOI Actor/Critic dimensions satisfy §4.6; original Robot-only dimensions remain unchanged.
 - Robot, Box and Proximity rewards are active and correctly logged.
 - Physical Replay collection and clip/terminal alignment are valid.
 - Reward and return scales are finite and documented.
 - Checkpoint save/resume is verified.
 - A/B/C reward ablations are completed and compared.
 - No measured MuJoCo force/contact is introduced into differentiable Actor reward or active WM prediction loss.
-- No Contact Prediction Head, Force Prediction Head, Contact BCE or additional observation dimensions are introduced.
+- No Contact Prediction Head, Force Prediction Head, Contact BCE or observation dimensions beyond the approved §4.6 HOI schema are introduced.
 - Original robot-only regression passes.
 - Training and physical evaluation limitations are documented.
 
@@ -2628,7 +2682,7 @@ The final architecture preserves:
 - action29;
 - xi33.
 
-Do not introduce additional contact-related observation/state dimensions or modify the original Actor/Critic input contracts for the proximity reward.
+Do not introduce additional contact-related observation/state dimensions or modify original Robot-only Actor/Critic contracts. The sole prospective HOI policy exception is §4.6 Actor B / Critic B+; proximity reward semantics remain unchanged.
 
 The approved training reward uses the original binary reference contact label and differentiable EEF-to-object-target proximity.
 
@@ -2671,7 +2725,7 @@ Do not:
 - add a Contact Prediction Head, Binary Contact Decoder or Force Prediction Head;
 - add force regression or Contact BCE;
 - add measured MuJoCo contact/force as Actor reward inputs;
-- add new Actor/Critic observation dimensions;
+- add Actor/Critic observation dimensions outside the approved §4.6 HOI exception;
 - add new World Model state/output dimensions;
 - introduce an SDF network or penetration reward without evidence and approval;
 - rewrite Part B;
@@ -2815,6 +2869,7 @@ For P6:
 - Do not start P7 WM fitting or Actor training.
 
 For P7:
+- Separately authorized P7.0.2/0.3 implements only §4.6 architecture and controlled tests; it does not start P7-A/B.
 - Follow P7-A Replay Data Readiness, bounded Joint WM Warm-up and WM Readiness Validation.
 - Do not require complete standalone WM convergence.
 - After explicit P7-A approval, implement P7-B using the original SuperMimic alternating Collect -> Replay -> WM Update -> Actor/Critic Update loop.
@@ -2927,7 +2982,7 @@ docs/hoi/force_contact/SMHOI_FORCE_AWARE_IMPLEMENTATION_PLAN.md
 
 Execute P7 only, following all of Section 12 and the general requirements in Section 15.
 
-P7 must preserve the original SuperMimic online alternating training principle.
+P7 must preserve the original SuperMimic online alternating training principle. Use §4.6 for the approved HOI policy interface. Authorization for P7.0.2/0.3 alone covers software/tests and stops before this P7-A/B execution request.
 
 Do not turn P7 into permanent standalone WM pretraining followed by permanently frozen policy training.
 
@@ -2967,7 +3022,7 @@ Requirements:
 - WM receives continuous optimizer updates during P7-B.
 - WM parameters are frozen only during Actor imagination updates.
 - Actor gradients continue through the frozen WM dynamics.
-- Critic preserves original TD(lambda) and observation dimensions.
+- Critic preserves original TD(lambda); HOI uses §4.6 B+1015 while Robot-only observation dimensions remain unchanged.
 - Robot, Box and P4 proximity rewards are active.
 - Actual MuJoCo force/contact is never used as differentiable Actor reward or WM prediction target.
 - Original `sm-train` behavior remains unchanged.
@@ -3079,14 +3134,14 @@ The overall project is complete only when all software, physical, learned-dynami
 
 1. The native robot-object physical state uses physical84, canonical86 and residual82.
 2. The Joint WM uses 166D input and 82D output with support context18, action29 and xi33.
-3. The original Actor/Critic observation dimensions and original `sm-train` behavior remain unchanged.
+3. Original Robot-only Actor/Critic observation dimensions and `sm-train` behavior remain unchanged; the separately versioned HOI Actor B / Critic B+ satisfies §4.6.
 4. The approved P4 reference-conditioned proximity reward is differentiable and uses the exact original binary reference label at the evaluated frame.
 5. Robot and Box tracking remain active throughout the task.
 6. P5 joint imagination uses consistent next-state/reference alignment.
 7. Actor BPTT gradients propagate through the frozen Joint WM input Jacobians.
 8. Eager and compiled implementations satisfy the approved numerical and gradient tolerances.
 9. Clip-end, timeout, physical failure, bootstrap and Replay validity semantics are correct.
-10. No Contact Prediction Head, Force Prediction Head, Contact BCE, force regression, force-based Actor reward or additional observation/state dimensions are introduced.
+10. No Contact Prediction Head, Force Prediction Head, Contact BCE, force regression, force-based Actor reward, contact-related observation or extra physical state is introduced. Only the §4.6 HOI policy feature dimensions are added.
 
 ## 17.2 Independent physical validity acceptance
 
