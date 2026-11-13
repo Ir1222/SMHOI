@@ -152,7 +152,10 @@ class HOIReplayRecorder(RecorderTerm):
         self._write((~self._env.reset_buf).nonzero().squeeze(-1))
 
 
-def install_recording(env, *, force_on, capacity=1000, references=None):
+def install_recording(
+    env, *, force_on, capacity=1000, references=None,
+    recorder_type=HOIReplayRecorder,
+):
     """Attach P2 hooks to a fresh P1 environment, before reset/collection.
 
     No shared source, step implementation, reward or training entry is changed.
@@ -167,7 +170,7 @@ def install_recording(env, *, force_on, capacity=1000, references=None):
         raise ValueError("P2 hook name already registered")
     env.cfg.recorders = {
         NAME: RecorderTermCfg(
-            func=HOIReplayRecorder,
+            func=recorder_type,
             params={
                 "capacity": capacity,
                 "force_on": force_on,

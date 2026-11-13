@@ -1,0 +1,86 @@
+{
+  "cwd": "/home/han/pyx/SMHOI",
+  "scope": "Exact test/run commands and outcomes. Earlier variants execute their contemporaneous source; retained failure logs are historical. Reproduction must use fresh output/run paths.",
+  "records": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python -m supermimic.hoi.train --profile p6-original --log-root /tmp/smhoi_p704_probe --run-name first --sampler-g-max 18.2 --schedule.total-iterations 2 --schedule.log-interval 2 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/probe_01.log 2>&1",
+      "result": "FAIL: manager deepcopy of live guard"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python -m supermimic.hoi.train --profile p6-original --log-root /tmp/smhoi_p704_probe --run-name second --sampler-g-max 18.2 --schedule.total-iterations 2 --schedule.log-interval 2 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/probe_02.log 2>&1",
+      "result": "FAIL: incorrect warning mask check"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/python -m supermimic.hoi.train --profile p6-original --log-root /tmp/smhoi_p704_probe --run-name third --sampler-g-max 18.2 --schedule.total-iterations 2 --schedule.log-interval 2 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/probe_03.log 2>&1",
+      "result": "PASS: 2 physical steps; zero updates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/hoi/test_force_replay.py tests/hoi/test_policy_features.py tests/hoi/test_hoi_policy_architecture.py tests/hoi/test_imagination_boundaries.py tests/hoi/test_wm_reuse.py tests/hoi/test_solver_precision.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/components_01.xml > outputs/hoi/contact_supervision/p7_0_4/components_01.log 2>&1",
+      "result": "51 passed"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_01.xml > outputs/hoi/contact_supervision/p7_0_4/integration_01.log 2>&1",
+      "result": "8 passed, 1 failed: deferred native buffers"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_02.xml > outputs/hoi/contact_supervision/p7_0_4/integration_02.log 2>&1",
+      "result": "8 passed, 1 failed: exact trajectory mismatch"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_03.xml > outputs/hoi/contact_supervision/p7_0_4/integration_03.log 2>&1",
+      "result": "9 passed"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py tests/hoi/test_training_robot_regression.py tests/hoi/test_robot_only_regression.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_04.xml > outputs/hoi/contact_supervision/p7_0_4/integration_04.log 2>&1",
+      "result": "12 passed, 1 failed: native finite-check proxy"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py::test_partial_reset_failures_and_all_world_safety --junitxml=outputs/hoi/contact_supervision/p7_0_4/safety_05.xml > outputs/hoi/contact_supervision/p7_0_4/safety_05.log 2>&1",
+      "result": "1 failed: TorchArray not torch.Tensor"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py::test_partial_reset_failures_and_all_world_safety --junitxml=outputs/hoi/contact_supervision/p7_0_4/safety_06.xml > outputs/hoi/contact_supervision/p7_0_4/safety_06.log 2>&1",
+      "result": "1 passed"
+    },
+    {
+      "command": "uv pip install --python .venv/bin/python --no-deps --offline -e . > outputs/hoi/contact_supervision/p7_0_4/entry_install.log 2>&1",
+      "result": "PASS: project console registration only"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py tests/hoi/test_training_robot_regression.py tests/hoi/test_robot_only_regression.py tests/hoi/test_force_replay.py tests/hoi/test_force_recorder.py tests/hoi/test_force_aggregation.py tests/hoi/test_policy_features.py tests/hoi/test_hoi_policy_architecture.py tests/hoi/test_imagination_boundaries.py tests/hoi/test_reward_reference.py tests/hoi/test_wm_reuse.py tests/hoi/test_solver_precision.py tests/hoi/test_physical_contact_agreement.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/tests_final_01.xml > outputs/hoi/contact_supervision/p7_0_4/tests_final_01.log 2>&1",
+      "result": "95 passed, 1 failed: pre-existing strict production missing V3 provenance"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/smHOI-track --profile p6-original --log-root /tmp/smhoi_p704_final --run-name continuous --reset-frames 250 830 --sampler-g-max 18.2 --env.episode-length-s .24 --env.action-noise-std .03 --env.obs-noise --policy-trainer.obs-noise --schedule.total-iterations 16 --schedule.log-interval 16 --schedule.checkpoint-interval 8 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/entry_final_01.log 2>&1",
+      "result": "PASS: 16 steps, zero updates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/smHOI-track --profile p6-original --log-root /tmp/smhoi_p704_final --run-name resumed --resume /tmp/smhoi_p704_final/continuous/hoi_0000008.pt --reset-frames 250 830 --sampler-g-max 18.2 --env.episode-length-s .24 --env.action-noise-std .03 --env.obs-noise --policy-trainer.obs-noise --schedule.total-iterations 16 --schedule.log-interval 16 --schedule.checkpoint-interval 8 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/entry_resume_01.log 2>&1",
+      "result": "PASS: load8 ->16, zero updates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 180 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_final.xml > outputs/hoi/contact_supervision/p7_0_4/integration_final.log 2>&1",
+      "result": "12 passed"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 P704_EVIDENCE_DIR=outputs/hoi/contact_supervision/p7_0_4/measurements timeout 240 .venv/bin/python -m pytest -q tests/hoi/test_training_integration.py --junitxml=outputs/hoi/contact_supervision/p7_0_4/integration_final_02.xml > outputs/hoi/contact_supervision/p7_0_4/integration_final_02.log 2>&1",
+      "result": "12 passed, includes full populated optimizer checkpoint probe"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 .venv/bin/smHOI-track --profile p6-single-body --log-root /tmp/smhoi_p704_final --run-name candidate_smoke --sampler-g-max 18.2 --schedule.total-iterations 2 --schedule.log-interval 2 --schedule.checkpoint-interval 2 reward:hoi-reward-cfg --reward.box-sigmas .2 .4 1 2 --reward.box-weights .7 .8 .9 1.1 --reward.sigma-pos .0423 --reward.beta-c .6 --reward.dt .02 > outputs/hoi/contact_supervision/p7_0_4/entry_candidate_01.log 2>&1",
+      "result": "PASS: 2 steps, zero updates, original reference retained"
+    },
+    {
+      "command": ".venv/bin/smHOI-track --help > outputs/hoi/contact_supervision/p7_0_4/entry_help_final.txt\n.venv/bin/sm-train --help > outputs/hoi/contact_supervision/p7_0_4/robot_entry_help.txt",
+      "result": "PASS"
+    },
+    {
+      "command": ".venv/bin/ruff check src/supermimic/hoi/train.py src/supermimic/hoi/training*.py tests/hoi/test_training_integration.py tests/hoi/test_training_robot_regression.py > outputs/hoi/contact_supervision/p7_0_4/lint_final.log 2>&1",
+      "result": "PASS"
+    },
+    {
+      "command": ".venv/bin/python outputs/hoi/contact_supervision/p7_0_4/collect_evidence.py > outputs/hoi/contact_supervision/p7_0_4/evidence_collection.log 2>&1",
+      "result": "PASS"
+    }
+  ]
+}

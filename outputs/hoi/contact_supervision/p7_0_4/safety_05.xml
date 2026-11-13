@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="5.057" timestamp="2026-11-13T17:19:45.767809+08:00" hostname="han-Precision-3660"><testcase classname="tests.hoi.test_training_integration" name="test_partial_reset_failures_and_all_world_safety" time="1.805"><failure message="Failed: DID NOT RAISE FloatingPointError">tmp_path = PosixPath('/tmp/pytest-of-han/pytest-116/test_partial_reset_failures_an0')
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="Physical CUDA integration required")
+    def test_partial_reset_failures_and_all_world_safety(tmp_path):
+        cfg = config(tmp_path, "safety")
+        cfg.env.obs_noise = cfg.policy_trainer.obs_noise = False
+        with SolverGuard() as guard:
+            trainer = HOITrainer(cfg, guard)
+            try:
+                env, r = trainer.env, trainer.recorder
+                env.reset()
+                env.step(torch.zeros(2, 29, device=trainer.device))
+                other = checkpoint.cpu_tree(
+                    {
+                        "state": r.io.read()[1],
+                        "frame": r.frame[1],
+                        "history": r.history_observations[:, 1],
+                        "episode": r.buffer.ep_counter[1],
+                    }
+                )
+                env.reset(env_ids=torch.tensor([0], device=trainer.device))
+                assert_tree_equal(
+                    other,
+                    checkpoint.cpu_tree(
+                        {
+                            "state": r.io.read()[1],
+                            "frame": r.frame[1],
+                            "history": r.history_observations[:, 1],
+                            "episode": r.buffer.ep_counter[1],
+                        }
+                    ),
+                )
+                assert (r.history_states[:, 0] == r.state[0]).all()
+                assert not r.history_actions[:, 0].any()
+                assert (r.history_observations[:, 0] == r.history_observations[0, 0]).all()
+                env.raw.action_manager.process_action(torch.zeros(2, 29, device=trainer.device))
+                # Fault injection is a monitor unit probe, never a physics step with altered state.
+                for world in range(2):
+                    count = trainer.buffer.total_rows
+                    action = torch.zeros(2, 29, device=trainer.device)
+                    action[world, 0] = float("nan")
+                    with pytest.raises(FloatingPointError):
+                        env.step(action)
+                    assert trainer.buffer.total_rows == count
+                    native = env.raw.sim.data
+                    native.overflow[world] = 1
+                    with pytest.raises(RuntimeError, match="overflow"):
+                        guard.monitor(env.raw)
+                    native.overflow[world] = 0
+                    import warp as wp
+                    # DataBridge qvel is a reordered read; inject into the native array.
+                    velocity = wp.to_torch(env.raw.sim.wp_data.qvel)
+                    original = velocity[world, 0].clone()
+                    velocity[world, 0] = float("nan")
+&gt;                   with pytest.raises(FloatingPointError):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   Failed: DID NOT RAISE FloatingPointError
+
+tests/hoi/test_training_integration.py:369: Failed</failure></testcase></testsuite></testsuites>

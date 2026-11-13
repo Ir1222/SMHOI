@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="9" time="8.495" timestamp="2026-11-13T17:07:32.774363+08:00" hostname="han-Precision-3660"><testcase classname="tests.hoi.test_training_integration" name="test_shared_run_and_robot_checkpoint_methods_are_identical" time="0.009" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[updates]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[budget]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[worlds]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[approval]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[reward]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[noise]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_nonfinite_guard_checks_all_worlds" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_physical_collection_masks_backwards_and_exact_resume" time="5.207"><failure message="ValueError: Checkpoint keys differ at runtime/environment">tmp_path = PosixPath('/tmp/pytest-of-han/pytest-112/test_physical_collection_masks0')
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="Physical CUDA integration required")
+    def test_physical_collection_masks_backwards_and_exact_resume(tmp_path):
+        cfg = config(tmp_path)
+        traces = []
+        with SolverGuard() as guard:
+            trainer = HOITrainer(cfg, guard)
+            try:
+                traced_steps(trainer, traces)
+                trainer.run()  # The original lifecycle, with zero update budget.
+                assert trainer.iteration == 16 and trainer.num_updates == 0
+                assert trainer.learning_safety.steps == {"wm": 0, "actor": 0, "critic": 0}
+                assert guard.checked_world_substeps == 16 * 4 * 2
+                first = traces[0]
+                assert first["transition"]["frame"].tolist() == [250, 830]
+                assert first["observations"]["policy"].shape == (2, 1080)
+                assert first["observations"]["goal"].shape == (2, 830)
+                noise = torch.stack([t["transition"]["executed_action"] - t["transition"]["action"] for t in traces])
+                assert noise.std() &gt; .01
+                clip_count = timeout_count = 0
+                for row in traces:
+                    masks, tr = row["masks"], row["transition"]
+                    assert torch.equal(masks["next_state"], tr["next_state"])
+                    assert masks["transition_valid"].all()
+                    expected = ~(masks["physical_failure"] | masks["clip_end"])
+                    assert torch.equal(masks["bootstrap"], expected)
+                    assert torch.equal(masks["continuation"], expected)
+                    torch.testing.assert_close(row["reward"], tr["reward"], atol=0, rtol=0)
+                    torch.testing.assert_close(masks["terminal_value"], tr["value"] * expected, atol=0, rtol=0)
+                    total = sum(row["terms"][k] for k in trainer.policy_trainer.step_fn.term_names)
+                    torch.testing.assert_close(total, row["reward"], atol=5e-6, rtol=5e-6)
+                    clip_count += int(masks["clip_end"].sum())
+                    timeout_count += int(masks["timeout"].sum())
+                assert clip_count &gt;= 1 and timeout_count &gt;= 1
+                final = checkpoint.snapshot(trainer)
+                # The saved RNG must be compared before backward-only probes consume it.
+                batch = trainer.buffer.sample_windows(4, 8)
+                loss, _ = trainer.wm_trainer.loss_on(batch)
+                loss.backward()
+                wm_gn = sum(p.grad.square().sum() for p in trainer.wm.parameters() if p.grad is not None).sqrt()
+                finite("WM backward", wm_gn)
+                trainer.wm.zero_grad(set_to_none=True)
+                from supermimic.imagination.policy_trainer import frozen_parameters
+                start = trainer.buffer.sample_starts(2, 10)
+                assert (start.remaining_steps &gt; 0).all()
+                with frozen_parameters(trainer.wm, trainer.critic):
+                    aloss, _, rollout, inputs, xi = trainer.policy_trainer.actor_loss(start)
+                    aloss.backward()
+                actor_gn = sum(p.grad.square().sum() for p in trainer.policy.parameters() if p.grad is not None).sqrt()
+                assert all(p.grad is None for p in trainer.wm.parameters())
+                X, Y, _, targets = trainer.policy_trainer.critic_batch(rollout, xi, inputs)
+                closs = (trainer.critic(*X) - Y).square().mean()
+                closs.backward()
+                finite("Actor/Critic backward", aloss, actor_gn, closs, targets)
+                stats = {
+                    "transitions": 32, "clip_ends": clip_count, "timeouts": timeout_count,
+                    "executed_noise_std": float(noise.std()), "wm_loss": float(loss.detach()),
+                    "wm_gradient_norm": float(wm_gn), "actor_loss": float(aloss.detach()),
+                    "actor_gradient_norm": float(actor_gn), "critic_loss": float(closs.detach()),
+                    "guard": guard.evidence(), "optimizer_steps": trainer.learning_safety.steps,
+                }
+            finally:
+                trainer.close()
+        resumed = []
+        cfg2 = copy.deepcopy(cfg)
+        cfg2.run_name = "resumed"
+        cfg2.resume = tmp_path / "continuous/hoi_0000008.pt"
+        with SolverGuard() as guard:
+&gt;           trainer = HOITrainer(cfg2, guard)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/hoi/test_training_integration.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/supermimic/hoi/training.py:50: in __init__
+    super().__init__(cfg)
+src/supermimic/training/loop.py:59: in __init__
+    self.load(cfg.resume)
+src/supermimic/hoi/training.py:188: in load
+    training_checkpoint.load(self, path)
+src/supermimic/hoi/training_checkpoint.py:245: in load
+    restore(trainer, torch.load(path, map_location="cpu", weights_only=True))
+src/supermimic/hoi/training_checkpoint.py:202: in restore
+    validate_tensors(checkpoint["runtime"], current, where="runtime")
+src/supermimic/hoi/training_checkpoint.py:158: in validate_tensors
+    validate_tensors(value, target, where=where + "/" + key)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+saved = {'_manual_reset_pending': tensor([False, False]), '_command_dt': tensor([0., 0.]), 'episode_length_buf': tensor([8, 8]), 'reset_buf': tensor([False, False]), ...}
+expected = {'_manual_reset_pending': tensor([False, False], device='cuda:0'), '_command_dt': tensor([0., 0.], device='cuda:0'), 'episode_length_buf': tensor([0, 0], device='cuda:0')}
+where = 'runtime/environment'
+
+    def validate_tensors(saved, expected, *, where):
+        if set(saved) != set(expected):
+&gt;           raise ValueError(f"Checkpoint keys differ at {where}")
+E           ValueError: Checkpoint keys differ at runtime/environment
+
+src/supermimic/hoi/training_checkpoint.py:154: ValueError</failure></testcase></testsuite></testsuites>

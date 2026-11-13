@@ -1,0 +1,116 @@
+/home/han/pyx/SMHOI/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Setting seed: 0
+Warp 1.18.0 initialized:
+   CUDA Toolkit 13.4, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 4090 D" (24 GiB, sm_89, mempool enabled)
+   Kernel cache:
+     /home/han/.cache/warp/1.18.0
+Module mujoco_warp._src.smooth 43a6a77 load on device 'cuda:0' took 0.58 ms  (cached)
+Module _nxn_broadphase__locals__kernel_32304148 3230414 load on device 'cuda:0' took 0.21 ms  (cached)
+Module _nxn_broadphase__locals__kernel_32304148 2a885b9 load on device 'cuda:0' took 0.18 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_1dbaeac7 1dbaeac load on device 'cuda:0' took 0.50 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_00199ac9 00199ac load on device 'cuda:0' took 0.61 ms  (cached)
+Module mujoco_warp._src.constraint 8d4d513 load on device 'cuda:0' took 0.29 ms  (cached)
+Module _friction_dof__locals__kernel_f68ea16b f68ea16 load on device 'cuda:0' took 0.28 ms  (cached)
+Module _limit_slide_hinge__locals__kernel_263562ea 263562e load on device 'cuda:0' took 0.20 ms  (cached)
+Module _efc_contact_init__locals__kernel_db1e703e db1e703 load on device 'cuda:0' took 0.18 ms  (cached)
+Module _efc_contact_jac_sparse__locals__kernel_07447225 0744722 load on device 'cuda:0' took 0.17 ms  (cached)
+Module _efc_contact_update__locals__kernel_55b2a711 55b2a71 load on device 'cuda:0' took 0.18 ms  (cached)
+Module mujoco_warp._src.sensor 8feaecd load on device 'cuda:0' took 0.64 ms  (cached)
+Module mujoco_warp._src.forward 70fadf5 load on device 'cuda:0' took 0.57 ms  (cached)
+Module mujoco_warp._src.passive 0de6fd1 load on device 'cuda:0' took 0.58 ms  (cached)
+Module _qfrc_passive_kernel__locals__kernel_20315922 2031592 load on device 'cuda:0' took 0.19 ms  (cached)
+Module _qfrc_smooth__locals__kernel_2c4e0694 2c4e069 load on device 'cuda:0' took 0.18 ms  (cached)
+Module mujoco_warp._src.support 970ef9a load on device 'cuda:0' took 0.20 ms  (cached)
+Module _small_cholesky_factorize_solve_block__locals__kernel_9c61f0b1 ffea8ea load on device 'cuda:0' took 0.22 ms  (cached)
+Module _tile_cholesky_factorize_solve_block__locals__kernel_b778dc3e bc43cde load on device 'cuda:0' took 20.44 ms  (cached)
+Module _solve_init_dof__locals__kernel_a955d90a a955d90 load on device 'cuda:0' took 0.24 ms  (cached)
+Module mujoco_warp._src.solver e4420b7 load on device 'cuda:0' took 0.26 ms  (cached)
+Module _solve_init_jaref_kernel__locals__kernel_a373e283 a373e28 load on device 'cuda:0' took 0.18 ms  (cached)
+Module mul_m_kernel__locals___mul_m_6d916077 6d91607 load on device 'cuda:0' took 0.18 ms  (cached)
+Module _update_constraint_efc__locals__kernel_e1de18c7 e1de18c load on device 'cuda:0' took 0.19 ms  (cached)
+Module _update_constraint_init_qfrc_constraint_sparse__locals__kernel_88431482 8843148 load on device 'cuda:0' took 0.17 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_c4230897 c423089 load on device 'cuda:0' took 0.17 ms  (cached)
+Module _update_gradient_grad__locals__kernel_21379838 2137983 load on device 'cuda:0' took 0.17 ms  (cached)
+Module _update_gradient_init_h_sparse__locals__kernel_d095819a d095819 load on device 'cuda:0' took 0.17 ms  (cached)
+Module _JTDACJ_sparse__locals__kernel_83157a18 83157a1 load on device 'cuda:0' took 0.20 ms  (cached)
+Module _update_gradient_cholesky_blocked__locals__kernel_32b38bcb 7305e96 load on device 'cuda:0' took 50.16 ms  (cached)
+Module _linesearch_jv_fused_kernel__locals__kernel_489ce447 489ce44 load on device 'cuda:0' took 0.26 ms  (cached)
+Module _smhoi_p6_linesearch_precision_kernel__locals__kernel_565bd9d6 ab60b91 load on device 'cuda:0' took 0.39 ms  (cached)
+Module _update_constraint_efc__locals__kernel_a341871c a341871 load on device 'cuda:0' took 0.30 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_10c2b083 10c2b08 load on device 'cuda:0' took 0.23 ms  (cached)
+Module _update_gradient_grad__locals__kernel_b8320cbe b8320cb load on device 'cuda:0' took 0.20 ms  (cached)
+Module _update_gradient_h_incremental_sparse__locals__kernel_3754d96f 3754d96 load on device 'cuda:0' took 0.21 ms  (cached)
+Module _update_gradient_cholesky_blocked_skip_unchanged__locals__kernel_9d96ed8a 6384045 load on device 'cuda:0' took 55.07 ms  (cached)
+Module _solve_done__locals__kernel_63147dda 63147dd load on device 'cuda:0' took 0.29 ms  (cached)
+Module _contact_match_builder__locals___contact_match_480cf87a 480cf87 load on device 'cuda:0' took 0.23 ms  (cached)
+Module _contact_sort__locals__contact_sort_acb63f94 7fe7daf load on device 'cuda:0' took 0.22 ms  (cached)
+Module mujoco_warp._src.derivative 011f1dc load on device 'cuda:0' took 0.41 ms  (cached)
+Module _next_time_builder__locals___next_time_e59def4b e59def4 load on device 'cuda:0' took 0.22 ms  (cached)
+Module reset_data__locals__reset_xfrc_applied_b0a4c05b b0a4c05 load on device 'cuda:0' took 0.31 ms  (cached)
+Module reset_data__locals__reset_M_2263bd42 2263bd4 load on device 'cuda:0' took 0.19 ms  (cached)
+Module reset_data__locals__reset_mocap_8058fd6f 8058fd6 load on device 'cuda:0' took 0.16 ms  (cached)
+Module reset_data__locals__reset_contact_adcd3765 adcd376 load on device 'cuda:0' took 0.15 ms  (cached)
+Module reset_data__locals__reset_sleep_3246b46a 3246b46 load on device 'cuda:0' took 0.16 ms  (cached)
+Module reset_data__locals__reset_nworld_9d8fd945 9d8fd94 load on device 'cuda:0' took 0.17 ms  (cached)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 2      |
+| Environment device     | cuda:0 |
+| Environment seed       | 0      |
+| Physics step-size      | 0.005  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 0 active terms.
+
+[INFO] <NullCommandManager> (inactive)
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 29) |
++-------+-----------+-------------+
+| Index | Name      |   Dimension |
++-------+-----------+-------------+
+|   0   | joint_pos |          29 |
++-------+-----------+-------------+
+
+[INFO] <ObservationManager> contains 0 groups.
+
+[INFO] <TerminationManager> contains 0 active terms.
++--------------------------+
+| Active Termination Terms |
++-------+------+-----------+
+| Index | Name |  Time Out |
++-------+------+-----------+
++-------+------+-----------+
+
+[INFO] <RewardManager> contains 0 active terms.
++-----------------------+
+|  Active Reward Terms  |
++-------+------+--------+
+| Index | Name | Weight |
++-------+------+--------+
++-------+------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 2 active terms.
++--------------------------+
+|   Active Metrics Terms   |
++-------+------------------+
+| Index | Name             |
++-------+------------------+
+|   0   | contact_capacity |
+|   1   | hoi_safety       |
++-------+------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+Module repeat_array_kernel_31f1cdc7 ab09835 load on device 'cuda:0' took 0.34 ms  (cached)
+[INFO] MotionLibrary(full): 1 clips, 840 frames (0.005 h @50Hz), 17 bins, 0.00 GB on cuda:0
+it 16 | 0.00 h | 17.2 it/s | updates 0 | train_ret 0.732 (n=2) | wm nse1 nan nse8 nan | imag_ret nan surv nan | t sim/wm/pi 0.9/0.0/0.0s

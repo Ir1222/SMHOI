@@ -1,0 +1,8 @@
+{
+  "models": 3,
+  "populated_Adam_restore_and_next_step": "bit-exact",
+  "effective_steps": 2,
+  "replayed_steps": 1,
+  "physical_training_data_used": false,
+  "nonfinite_gradient_rejected_for_all_models": true
+}

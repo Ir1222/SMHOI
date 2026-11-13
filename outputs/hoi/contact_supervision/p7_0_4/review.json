@@ -1,0 +1,15 @@
+{
+  "baseline": "d3c3db10bce01b6da4bb5c18d759787680e14afc",
+  "modified_existing": [
+    "pyproject.toml",
+    "src/supermimic/hoi/recorder.py",
+    "src/supermimic/hoi/scene.py",
+    "src/supermimic/imagination/policy_trainer.py",
+    "src/supermimic/training/loop.py",
+    "src/supermimic/world_model/wm_trainer.py"
+  ],
+  "new_files_count_before_inventory": 71,
+  "preexisting_user_path_preserved_and_unstaged": ".vscode/",
+  "push_authorized": false,
+  "training_stages_started": []
+}

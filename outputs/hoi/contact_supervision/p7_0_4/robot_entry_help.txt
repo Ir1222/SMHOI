@@ -1,0 +1,195 @@
+usage: .venv/bin/sm-train [-h] [OPTIONS]
+
+╭─ options ────────────────────────────────────────────────────────────────────╮
+│ -h, --help                                                                   │
+│       show this help message and exit                                        │
+│ --run-name STR                                                               │
+│       (default: debug)                                                       │
+│ --log-root PATH                                                              │
+│       (default: logs)                                                        │
+│ --seed INT                                                                   │
+│       (default: 0)                                                           │
+│ --device STR                                                                 │
+│       (default: cuda:0)                                                      │
+│ --resume {None}|PATH                                                         │
+│       (default: None)                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ data options ───────────────────────────────────────────────────────────────╮
+│ --data.npz-dir PATH                                                          │
+│       (default: data/npz/lafan1)                                             │
+│ --data.clips {None}|{[STR [STR ...]]}                                        │
+│       None = all npz in npz_dir (default: None)                              │
+│ --data.limit {None}|INT                                                      │
+│       (default: None)                                                        │
+│ --data.manifest {None}|PATH                                                  │
+│       csv with name,keep (filter_bones_seed.py output) (default: None)       │
+│ --data.library {None}|PATH                                                   │
+│       packed compact library (.pt from build_library.py); overrides npz_dir  │
+│       (default: None)                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ env options ────────────────────────────────────────────────────────────────╮
+│ --env.num-envs INT                                                           │
+│       (default: 4096)                                                        │
+│ --env.episode-length-s FLOAT                                                 │
+│       (default: 10.0)                                                        │
+│ --env.action-noise-std FLOAT                                                 │
+│       (default: 0.1)                                                         │
+│ --env.obs-noise, --env.no-obs-noise                                          │
+│       (default: True)                                                        │
+│ --env.reset-noise, --env.no-reset-noise                                      │
+│       (default: True)                                                        │
+│ --env.domain-randomization, --env.no-domain-randomization                    │
+│       (default: True)                                                        │
+│ --env.sampling-mode STR                                                      │
+│       (default: return)                                                      │
+│ --env.replay-capacity INT                                                    │
+│       (default: 1000)                                                        │
+│ --env.future-frames INT                                                      │
+│       (default: 10)                                                          │
+│ --env.compact-library, --env.no-compact-library                              │
+│       (default: False)                                                       │
+│ --env.anchor-obs, --env.no-anchor-obs                                        │
+│       (default: False)                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ world-model options ────────────────────────────────────────────────────────╮
+│ --world-model.hidden [INT [INT ...]]                                         │
+│       (default: 2048 2048 2048)                                              │
+│ --world-model.term-hidden [INT [INT ...]]                                    │
+│       (default: 64 64)                                                       │
+│ --world-model.term-loss-weight FLOAT                                         │
+│       (default: 1.0)                                                         │
+│ --world-model.height-threshold FLOAT                                         │
+│       (default: 0.25)                                                        │
+│ --world-model.tilt-threshold FLOAT                                           │
+│       (default: 0.8)                                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ world-model.state-spec options ─────────────────────────────────────────────╮
+│ --world-model.state-spec.dt FLOAT                                            │
+│       (default: 0.02)                                                        │
+│ --world-model.state-spec.err-scale [FLOAT [FLOAT ...]]                       │
+│       Nominal error scales (D3) for [root pos m, root rotvec rad, root lin   │
+│       vel m/s, root ang vel rad/s, joint pos rad, joint vel rad/s].          │
+│       (default: 0.05 0.1 0.5 1.0 0.1 2.0)                                    │
+│ --world-model.state-spec.out-scale [FLOAT [FLOAT ...]]                       │
+│       Output scales of the dynamics head for [dv_h, dw_b, dqd, dp_h, dth_b,  │
+│       dq]. (default: 0.3 0.5 2.0 0.01 0.02 0.02)                             │
+│ --world-model.state-spec.in-scale [FLOAT [FLOAT ...]]                        │
+│       Input feature scales for [root_z, rot6d, lin_vel_h, ang_vel_b,         │
+│       joint_pos, joint_vel] (divide by these). (default: 1.0 1.0 1.0 2.0 1.0 │
+│       5.0)                                                                   │
+│ --world-model.state-spec.explicit-integration,                               │
+│ --world-model.state-spec.no-explicit-integration                             │
+│       Input feature scales for [root_z, rot6d, lin_vel_h, ang_vel_b,         │
+│       joint_pos, joint_vel] (divide by these). (default: True)               │
+│ --world-model.state-spec.xi-offset [FLOAT [FLOAT ...]]                       │
+│       xi normalisation: (offset, scale) for friction, encoder bias, com      │
+│       offset. (default: 0.75 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 │
+│       0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0    │
+│       0.0 0.0 0.0)                                                           │
+│ --world-model.state-spec.xi-scale [FLOAT [FLOAT ...]]                        │
+│       xi normalisation: (offset, scale) for friction, encoder bias, com      │
+│       offset. (default: 0.45 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01    │
+│       0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01  │
+│       0.01 0.01 0.01 0.01 0.01 0.01 0.05 0.05 0.05)                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ wm-trainer options ─────────────────────────────────────────────────────────╮
+│ --wm-trainer.window INT                                                      │
+│       (default: 8)                                                           │
+│ --wm-trainer.batches-per-update INT                                          │
+│       (default: 10)                                                          │
+│ --wm-trainer.batch-size INT                                                  │
+│       (default: 2048)                                                        │
+│ --wm-trainer.lr FLOAT                                                        │
+│       (default: 0.0002)                                                      │
+│ --wm-trainer.grad-clip FLOAT                                                 │
+│       (default: 1.0)                                                         │
+│ --wm-trainer.weight-decay FLOAT                                              │
+│       (default: 0.0)                                                         │
+│ --wm-trainer.compile {None}|STR                                              │
+│       (default: default)                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ policy options ─────────────────────────────────────────────────────────────╮
+│ --policy.encoder-hidden [INT [INT ...]]                                      │
+│       (default: 2048 1024 512 256)                                           │
+│ --policy.decoder-hidden [INT [INT ...]]                                      │
+│       (default: 2048 1024 512 256)                                           │
+│ --policy.latent-dim INT                                                      │
+│       (default: 32)                                                          │
+│ --policy.history INT                                                         │
+│       (default: 10)                                                          │
+│ --policy.obs-term-scale [FLOAT [FLOAT ...]]                                  │
+│       Fixed per-term observation scales (divide): joint_pos, joint_vel,      │
+│       base_ang_vel, projected_gravity, actions. (default: 1.0 5.0 2.0 1.0    │
+│       1.0)                                                                   │
+│ --policy.goal-term-scale [FLOAT [FLOAT ...]]                                 │
+│       Fixed goal feature scales: joint_pos 29, joint_vel 29, grav 3,         │
+│       ang_vel_b 3, lin_vel_h 3, height 1. (default: 1.0 5.0 1.0 2.0 1.0 1.0) │
+│ --policy.decoder-last-gain FLOAT                                             │
+│       Fixed goal feature scales: joint_pos 29, joint_vel 29, grav 3,         │
+│       ang_vel_b 3, lin_vel_h 3, height 1. (default: 0.01)                    │
+│ --policy.goal-dim INT                                                        │
+│       680 (+9 with anchor_obs) (default: 680)                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ critic options ─────────────────────────────────────────────────────────────╮
+│ --critic.hidden [INT [INT ...]]                                              │
+│       (default: 256 128)                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ policy-trainer options ─────────────────────────────────────────────────────╮
+│ --policy-trainer.horizon INT                                                 │
+│       (default: 32)                                                          │
+│ --policy-trainer.batch-size INT                                              │
+│       (default: 4096)                                                        │
+│ --policy-trainer.history INT                                                 │
+│       (default: 10)                                                          │
+│ --policy-trainer.future-frames INT                                           │
+│       (default: 10)                                                          │
+│ --policy-trainer.gamma FLOAT                                                 │
+│       (default: 0.99)                                                        │
+│ --policy-trainer.gae-lambda FLOAT                                            │
+│       (default: 0.95)                                                        │
+│ --policy-trainer.lr FLOAT                                                    │
+│       (default: 0.0002)                                                      │
+│ --policy-trainer.betas FLOAT FLOAT                                           │
+│       (default: 0.9 0.95)                                                    │
+│ --policy-trainer.grad-clip-norm FLOAT                                        │
+│       (default: 1.0)                                                         │
+│ --policy-trainer.grad-clip-value FLOAT                                       │
+│       (default: 0.1)                                                         │
+│ --policy-trainer.critic-lr FLOAT                                             │
+│       (default: 0.0002)                                                      │
+│ --policy-trainer.critic-grad-clip FLOAT                                      │
+│       (default: 1.0)                                                         │
+│ --policy-trainer.critic-epochs INT                                           │
+│       (default: 5)                                                           │
+│ --policy-trainer.critic-minibatches INT                                      │
+│       (default: 4)                                                           │
+│ --policy-trainer.use-critic, --policy-trainer.no-use-critic                  │
+│       (default: True)                                                        │
+│ --policy-trainer.obs-noise, --policy-trainer.no-obs-noise                    │
+│       (default: True)                                                        │
+│ --policy-trainer.compile {None}|STR                                          │
+│       (default: default)                                                     │
+│ --policy-trainer.anchor-obs, --policy-trainer.no-anchor-obs                  │
+│       None | "default" | "reduce-overhead" | "max-autotune-no-cudagraphs"    │
+│       (default: False)                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ schedule options ───────────────────────────────────────────────────────────╮
+│ --schedule.total-iterations INT                                              │
+│       env steps (plan D12 reading A) (default: 320000)                       │
+│ --schedule.updates-per-env-step FLOAT                                        │
+│       UTD (default: 0.4)                                                     │
+│ --schedule.policy-updates-per-wm-update INT                                  │
+│       (default: 1)                                                           │
+│ --schedule.warmup-iterations INT                                             │
+│       env steps before the first update (fills k-step windows) (default: 40) │
+│ --schedule.lr-final-ratio FLOAT                                              │
+│       (default: 0.03)                                                        │
+│ --schedule.lr-decay-fraction FLOAT                                           │
+│       (default: 0.78125)                                                     │
+│ --schedule.log-interval INT                                                  │
+│       iterations (default: 50)                                               │
+│ --schedule.checkpoint-interval INT                                           │
+│       iterations (default: 4000)                                             │
+│ --schedule.max-hours {None}|FLOAT                                            │
+│       (default: None)                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯

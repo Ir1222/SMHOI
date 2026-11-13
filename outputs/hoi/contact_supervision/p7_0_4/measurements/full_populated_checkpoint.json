@@ -1,0 +1,13 @@
+{
+  "restore_and_next_Adam_step": "bit-exact",
+  "models": [
+    "JointWM",
+    "ActorB",
+    "CriticB+"
+  ],
+  "artificial_gradient": 1e-05,
+  "effective_steps_per_model": 2,
+  "replayed_steps_per_model": 1,
+  "physical_data_used": false,
+  "no_subsequent_physical_execution": true
+}

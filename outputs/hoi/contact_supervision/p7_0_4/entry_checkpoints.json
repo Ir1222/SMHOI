@@ -1,0 +1,160 @@
+{
+  "continuous": [
+    {
+      "path": "/tmp/smhoi_p704_final/continuous/hoi_0000008.pt",
+      "bytes": 74625393,
+      "sha256": "6219d66d36c299e0af8d42a15eff52910e8eb3c4b2cdbad507451645e1b89df6",
+      "schema": "hoi-training-lifecycle-v1",
+      "iteration": 8,
+      "optimizer_steps": {
+        "wm": 0,
+        "actor": 0,
+        "critic": 0
+      },
+      "replay_valid_transitions": 16,
+      "native_workspace_arrays": 185,
+      "runtime_groups": [
+        "simulator",
+        "replay",
+        "replay_fields",
+        "recorder",
+        "capture",
+        "sampler",
+        "sampler_metrics",
+        "environment",
+        "actions",
+        "action_term",
+        "termination",
+        "termination_terms",
+        "metrics",
+        "metric_sums",
+        "metric_max",
+        "metric_accum",
+        "last_transition",
+        "trainer",
+        "sensor/left_hand_box",
+        "sensor/right_hand_box",
+        "entity/robot",
+        "entity/box"
+      ]
+    },
+    {
+      "path": "/tmp/smhoi_p704_final/continuous/hoi_0000016.pt",
+      "bytes": 74625457,
+      "sha256": "02efa0bb4cad3ff3eff0834dc5bd8b0547464287f48b7f5f89cb012fa58ad597",
+      "schema": "hoi-training-lifecycle-v1",
+      "iteration": 16,
+      "optimizer_steps": {
+        "wm": 0,
+        "actor": 0,
+        "critic": 0
+      },
+      "replay_valid_transitions": 32,
+      "native_workspace_arrays": 185,
+      "runtime_groups": [
+        "simulator",
+        "replay",
+        "replay_fields",
+        "recorder",
+        "capture",
+        "sampler",
+        "sampler_metrics",
+        "environment",
+        "actions",
+        "action_term",
+        "termination",
+        "termination_terms",
+        "metrics",
+        "metric_sums",
+        "metric_max",
+        "metric_accum",
+        "last_transition",
+        "trainer",
+        "sensor/left_hand_box",
+        "sensor/right_hand_box",
+        "entity/robot",
+        "entity/box"
+      ]
+    }
+  ],
+  "resumed": [
+    {
+      "path": "/tmp/smhoi_p704_final/resumed/hoi_0000016.pt",
+      "bytes": 74625521,
+      "sha256": "69a9a60e1ffddad05d217b353ab968b9a7b813e7bae7b4097bdd9c1c66b05494",
+      "schema": "hoi-training-lifecycle-v1",
+      "iteration": 16,
+      "optimizer_steps": {
+        "wm": 0,
+        "actor": 0,
+        "critic": 0
+      },
+      "replay_valid_transitions": 32,
+      "native_workspace_arrays": 185,
+      "runtime_groups": [
+        "simulator",
+        "replay",
+        "replay_fields",
+        "recorder",
+        "capture",
+        "sampler",
+        "sampler_metrics",
+        "environment",
+        "actions",
+        "action_term",
+        "termination",
+        "termination_terms",
+        "metrics",
+        "metric_sums",
+        "metric_max",
+        "metric_accum",
+        "last_transition",
+        "trainer",
+        "sensor/left_hand_box",
+        "sensor/right_hand_box",
+        "entity/robot",
+        "entity/box"
+      ]
+    }
+  ],
+  "candidate_smoke": [
+    {
+      "path": "/tmp/smhoi_p704_final/candidate_smoke/hoi_0000002.pt",
+      "bytes": 74625137,
+      "sha256": "439d0f73c5bb93f3ba3d7f9b1a5b8813827679a2fb30d66b1196b07db343718a",
+      "schema": "hoi-training-lifecycle-v1",
+      "iteration": 2,
+      "optimizer_steps": {
+        "wm": 0,
+        "actor": 0,
+        "critic": 0
+      },
+      "replay_valid_transitions": 4,
+      "native_workspace_arrays": 185,
+      "runtime_groups": [
+        "simulator",
+        "replay",
+        "replay_fields",
+        "recorder",
+        "capture",
+        "sampler",
+        "sampler_metrics",
+        "environment",
+        "actions",
+        "action_term",
+        "termination",
+        "termination_terms",
+        "metrics",
+        "metric_sums",
+        "metric_max",
+        "metric_accum",
+        "last_transition",
+        "trainer",
+        "sensor/left_hand_box",
+        "sensor/right_hand_box",
+        "entity/robot",
+        "entity/box"
+      ]
+    }
+  ]
+}

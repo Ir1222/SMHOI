@@ -35,6 +35,7 @@ class WorldModelTrainer:
         self.wm = wm
         self.lib = lib
         self.cfg = cfg
+        self.numerics_check = None  # Optional task guard; original Robot path is unchanged.
         self.opt = torch.optim.Adam(wm.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
         wm.enable_compile(cfg.compile)
 
@@ -54,10 +55,14 @@ class WorldModelTrainer:
         for _ in range(self.cfg.batches_per_update):
             w = buffer.sample_windows(self.cfg.batch_size, self.cfg.window)
             loss, m = self.loss_on(w)
+            if self.numerics_check is not None:
+                self.numerics_check("WM loss", loss)
             self.opt.zero_grad(set_to_none=True)
             loss.backward()
             allreduce_grads(self.wm)
             gn = torch.nn.utils.clip_grad_norm_(self.wm.parameters(), self.cfg.grad_clip)
+            if self.numerics_check is not None:
+                self.numerics_check("WM gradient norm", gn)
             self.opt.step()
             m["loss"] = loss.detach()
             m["grad_norm"] = gn.detach()

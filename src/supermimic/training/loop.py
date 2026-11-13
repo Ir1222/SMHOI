@@ -28,8 +28,7 @@ from supermimic.world_model.world_model import WorldModel
 class Trainer:
     def __init__(self, cfg: TrainConfig):
         self.cfg = cfg
-        cfg.policy.goal_dim = cfg.env.future_frames * 68 + (9 if cfg.env.anchor_obs else 0)
-        cfg.policy_trainer.anchor_obs = cfg.env.anchor_obs
+        self.configure_task()
         self.rank, local_rank, self.world = init_distributed()
         self.is_main = self.rank == 0
         if self.world > 1:
@@ -46,6 +45,28 @@ class Trainer:
             (self.log_dir / "config.json").write_text(json.dumps(asdict(cfg), indent=2, default=str))
         self.writer = SummaryWriter(str(self.log_dir / "tb")) if self.is_main else None
 
+        self.max_step_reward = self.construct_components()
+        env = self.env
+
+        # Episode statistics of the training env (paper's "training return").
+        self.ep_reward_sum = torch.zeros(env.num_envs, device=self.device)
+        self.ep_len = torch.zeros(env.num_envs, device=self.device)
+        self.iteration = 0
+        self.start_iteration = 0  # warm-up (buffer refill) counts from here, also after a resume
+        self.num_updates = 0
+        self._utd_acc = 0.0
+        if cfg.resume is not None:
+            self.load(cfg.resume)
+
+    def configure_task(self) -> None:
+        """Default Robot configuration; task adapters may specialize construction."""
+        cfg = self.cfg
+        cfg.policy.goal_dim = cfg.env.future_frames * 68 + (9 if cfg.env.anchor_obs else 0)
+        cfg.policy_trainer.anchor_obs = cfg.env.anchor_obs
+
+    def construct_components(self) -> float:
+        """Construct the original Robot components and return the reward bound."""
+        cfg = self.cfg
         if cfg.data.library is not None:
             files = [cfg.data.library]
             cfg.env.compact_library = True
@@ -91,16 +112,7 @@ class Trainer:
         if self.is_main:
             print(f"[INFO] params: world model {n_params(self.wm)/1e6:.2f}M, policy {n_params(self.policy)/1e6:.2f}M, critic {n_params(self.critic)/1e6:.3f}M")
 
-        # Episode statistics of the training env (paper's "training return").
-        self.ep_reward_sum = torch.zeros(env.num_envs, device=self.device)
-        self.ep_len = torch.zeros(env.num_envs, device=self.device)
-        self.max_step_reward = heads.reward_cfg.max_step_reward
-        self.iteration = 0
-        self.start_iteration = 0  # warm-up (buffer refill) counts from here, also after a resume
-        self.num_updates = 0
-        self._utd_acc = 0.0
-        if cfg.resume is not None:
-            self.load(cfg.resume)
+        return heads.reward_cfg.max_step_reward
 
     # ------------------------------------------------------------------ checkpoints
 

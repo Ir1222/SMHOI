@@ -1,0 +1,16 @@
+{
+  "baseline": "d3c3db10bce01b6da4bb5c18d759787680e14afc",
+  "checked_paths": 3122,
+  "allowed_changed_paths": [
+    "pyproject.toml",
+    "src/supermimic/hoi/recorder.py",
+    "src/supermimic/hoi/scene.py",
+    "src/supermimic/imagination/policy_trainer.py",
+    "src/supermimic/training/loop.py",
+    "src/supermimic/world_model/wm_trainer.py"
+  ],
+  "missing": [],
+  "unintended_changes": [],
+  "candidate_reference_training_ready": false,
+  "candidate_reference_sha256": "f38071e5347403f9eff993dd37884bf374e0c003400156dc4cb87d3d2b856cb0"
+}

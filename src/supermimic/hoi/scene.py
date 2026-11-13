@@ -62,10 +62,12 @@ def _add_supports(manifest: dict, spec: mujoco.MjSpec) -> None:
         _add_geom(body, support["geom"])
 
 
-def make_physical_env_cfg(cfg: PhysicalSceneCfg | None = None) -> ManagerBasedRlEnvCfg:
+def make_physical_env_cfg(
+    cfg: PhysicalSceneCfg | None = None, *, manifest: dict | None = None,
+) -> ManagerBasedRlEnvCfg:
     """Build only physics/actions/sensors: no tracking command, reward or Replay."""
     cfg = cfg or PhysicalSceneCfg()
-    manifest = load_manifest(cfg.asset_manifest)
+    manifest = load_manifest(cfg.asset_manifest) if manifest is None else manifest
     if manifest["robot"]["selected_profile"] != "native_unchanged":
         raise ValueError("P1 requires the accepted M6.5 native_unchanged robot profile")
     return ManagerBasedRlEnvCfg(
@@ -136,14 +138,18 @@ def validate_scene(model: mujoco.MjModel, manifest: dict) -> None:
 def make_physical_env(
     cfg: PhysicalSceneCfg | None = None,
     device: str = "cuda:0",
+    *, manifest: dict | None = None, configure=None,
 ) -> ManagerBasedRlEnv:
     """Reuse ManagerBasedRlEnv unchanged; caller drives calibration/reset only."""
     from mjlab.utils.torch import configure_torch_backends
 
     cfg = cfg or PhysicalSceneCfg()
     configure_torch_backends()
-    env = ManagerBasedRlEnv(make_physical_env_cfg(cfg), device=device)
-    manifest = load_manifest(cfg.asset_manifest)
+    env_cfg = make_physical_env_cfg(cfg, manifest=manifest)
+    if configure is not None:
+        configure(env_cfg)
+    env = ManagerBasedRlEnv(env_cfg, device=device)
+    manifest = load_manifest(cfg.asset_manifest) if manifest is None else manifest
     validate_scene(env.sim.mj_model, manifest)
     # Static support poses are per-world constants. Expansion recaptures graphs;
     # following in-place writes preserve their pointers. Never mutate source assets.

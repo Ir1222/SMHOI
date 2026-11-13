@@ -55,6 +55,7 @@ class PolicyTrainerCfg:
 class PolicyTrainer:
     def __init__(self, wm: WorldModel, policy: Policy, critic: Critic, lib: MotionLibrary, cfg: PolicyTrainerCfg, *, step_fn=None, rollout_context_factory=None, critic_features=None, observation_adapter=None, object_goal_builder=None, rollout_critic_inputs=None):
         self.wm, self.policy, self.critic, self.lib, self.cfg = wm, policy, critic, lib, cfg
+        self.numerics_check = None  # Optional task guard; no change to Robot defaults.
         self.opt = torch.optim.Adam(policy.parameters(), lr=cfg.lr, betas=cfg.betas)
         self.critic_opt = torch.optim.Adam(critic.parameters(), lr=cfg.critic_lr)
         from supermimic.imagination.compiled import ImagStep
@@ -145,10 +146,14 @@ class PolicyTrainer:
         # ---- actor: BPTT through the frozen world model ------------------------------------
         with frozen_parameters(self.wm, self.critic):
             loss, J, ro, inputs, xi_norm = self.actor_loss(start)
+            if self.numerics_check is not None:
+                self.numerics_check("Actor loss", loss)
             self.opt.zero_grad(set_to_none=True)
             loss.backward()
             allreduce_grads(self.policy)
             gn = torch.nn.utils.clip_grad_norm_(self.policy.parameters(), cfg.grad_clip_norm)
+            if self.numerics_check is not None:
+                self.numerics_check("Actor gradient norm", gn)
             torch.nn.utils.clip_grad_value_(self.policy.parameters(), cfg.grad_clip_value)
             self.opt.step()
 
@@ -179,10 +184,14 @@ class PolicyTrainer:
                 for idx in self.critic_minibatch_indices(N, Y.device, masked=ro.valid is not None):
                     pred = self.critic(*(x[idx] for x in X))
                     closs = torch.nn.functional.mse_loss(pred, Y[idx])
+                    if self.numerics_check is not None:
+                        self.numerics_check("Critic loss", closs)
                     self.critic_opt.zero_grad(set_to_none=True)
                     closs.backward()
                     allreduce_grads(self.critic)
-                    torch.nn.utils.clip_grad_norm_(self.critic.parameters(), cfg.critic_grad_clip)
+                    critic_gn = torch.nn.utils.clip_grad_norm_(self.critic.parameters(), cfg.critic_grad_clip)
+                    if self.numerics_check is not None:
+                        self.numerics_check("Critic gradient norm", critic_gn)
                     self.critic_opt.step()
                     last = closs.detach()
             metrics["critic_loss"] = float(last)

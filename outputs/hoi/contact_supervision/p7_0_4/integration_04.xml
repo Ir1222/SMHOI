@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="13" time="12.364" timestamp="2026-11-13T17:18:42.387614+08:00" hostname="han-Precision-3660"><testcase classname="tests.hoi.test_training_integration" name="test_shared_run_and_robot_checkpoint_methods_are_identical" time="0.008" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[updates]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[budget]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[worlds]" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[approval]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[reward]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_scope_and_required_config_fail_closed[noise]" time="0.000" /><testcase classname="tests.hoi.test_training_integration" name="test_nonfinite_guard_checks_all_worlds" time="0.001" /><testcase classname="tests.hoi.test_training_integration" name="test_physical_collection_masks_backwards_and_resume" time="6.740" /><testcase classname="tests.hoi.test_training_integration" name="test_partial_reset_failures_and_all_world_safety" time="0.419"><failure message="RuntimeError: Executed action differs from the native actuator map">tmp_path = PosixPath('/tmp/pytest-of-han/pytest-115/test_partial_reset_failures_an0')
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="Physical CUDA integration required")
+    def test_partial_reset_failures_and_all_world_safety(tmp_path):
+        cfg = config(tmp_path, "safety")
+        cfg.env.obs_noise = cfg.policy_trainer.obs_noise = False
+        with SolverGuard() as guard:
+            trainer = HOITrainer(cfg, guard)
+            try:
+                env, r = trainer.env, trainer.recorder
+                env.reset()
+                env.step(torch.zeros(2, 29, device=trainer.device))
+                other = checkpoint.cpu_tree(
+                    {
+                        "state": r.io.read()[1],
+                        "frame": r.frame[1],
+                        "history": r.history_observations[:, 1],
+                        "episode": r.buffer.ep_counter[1],
+                    }
+                )
+                env.reset(env_ids=torch.tensor([0], device=trainer.device))
+                assert_tree_equal(
+                    other,
+                    checkpoint.cpu_tree(
+                        {
+                            "state": r.io.read()[1],
+                            "frame": r.frame[1],
+                            "history": r.history_observations[:, 1],
+                            "episode": r.buffer.ep_counter[1],
+                        }
+                    ),
+                )
+                assert (r.history_states[:, 0] == r.state[0]).all()
+                assert not r.history_actions[:, 0].any()
+                assert (r.history_observations[:, 0] == r.history_observations[0, 0]).all()
+                # Fault injection is a monitor unit probe, never a physics step with altered state.
+                for world in range(2):
+                    count = trainer.buffer.total_rows
+                    action = torch.zeros(2, 29, device=trainer.device)
+                    action[world, 0] = float("nan")
+                    with pytest.raises(FloatingPointError):
+                        env.step(action)
+                    assert trainer.buffer.total_rows == count
+                    native = env.raw.sim.data
+                    native.overflow[world] = 1
+                    with pytest.raises(RuntimeError, match="overflow"):
+                        guard.monitor(env.raw)
+                    native.overflow[world] = 0
+                    original = native.qvel[world, 0].clone()
+                    native.qvel[world, 0] = float("nan")
+                    with pytest.raises(FloatingPointError):
+&gt;                       guard.monitor(env.raw)
+
+tests/hoi/test_training_integration.py:366: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;supermimic.hoi.training_safety.SolverGuard object at 0x7e2b15ab0dd0&gt;
+env = &lt;mjlab.envs.manager_based_rl_env.ManagerBasedRlEnv object at 0x7e2ae616de50&gt;
+
+    def monitor(self, env):
+        from mujoco_warp._src import solver
+    
+        if not self.active or solver._linesearch_iterative_kernel is not self.factory:
+            raise RuntimeError("HOI solver guard lost during execution")
+        assert_contact_capacity(env)  # Checks every world's complete overflow bitmask.
+        finite(
+            "physical solve",
+            *(
+                getattr(env.sim.data, k)
+                for k in (
+                    "qpos",
+                    "qvel",
+                    "qacc",
+                    "qacc_warmstart",
+                    "ctrl",
+                    "actuator_force",
+                    "xfrc_applied",
+                    "qfrc_applied",
+                )
+            ),
+        )
+        if env.sim.data.xfrc_applied.count_nonzero() or env.sim.data.qfrc_applied.count_nonzero():
+            raise RuntimeError("External body/generalized wrench in HOI training profile")
+        action = env.action_manager.get_term("joint_pos")
+        finite("executed action", action.executed_raw, action._processed_actions)
+        if not torch.equal(
+            action._processed_actions, action.executed_raw * action._scale + action._offset
+        ):
+&gt;           raise RuntimeError("Executed action differs from the native actuator map")
+E           RuntimeError: Executed action differs from the native actuator map
+
+src/supermimic/hoi/training_safety.py:118: RuntimeError</failure></testcase><testcase classname="tests.hoi.test_training_integration" name="test_populated_adam_resume_and_learning_safety" time="0.016" /><testcase classname="tests.hoi.test_training_robot_regression" name="test_original_trainer_and_checkpoint" time="1.467" /><testcase classname="tests.hoi.test_robot_only_regression" name="test_original_robot_state_actions_context_and_replay" time="0.525" /></testsuite></testsuites>

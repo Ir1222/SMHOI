@@ -1,0 +1,7 @@
+{
+  "physical_failures": 2,
+  "timeouts": 2,
+  "clip_ends": 1,
+  "bootstrap_count": 0,
+  "pre_reset_state_preserved": true
+}

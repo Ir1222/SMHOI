@@ -1,0 +1,39 @@
+{
+  "source_sha256": "1bb26d51451a065b9e183acacfbd5e59d85df1eb46f17951aa3d1727db6853ff",
+  "patch_sha256": "41c06e49c60862d0d40e69c74cae8c0f2310d300516b096b5464607a4efe6dcd",
+  "rule": "sign bracket + cost improvement + width<=8f32 ulps of unit ray anchor",
+  "active": true,
+  "kernel_launches": {
+    "_linesearch_jv_fused_kernel__locals__kernel": 4,
+    "_smhoi_p6_linesearch_precision_kernel__locals__kernel": 4
+  },
+  "graph_launches": 88,
+  "substeps": 64,
+  "checked_world_substeps": 128,
+  "attestations": [
+    {
+      "reason": "construction_after_capture",
+      "guarded_kernel_launches": {
+        "_linesearch_jv_fused_kernel__locals__kernel": 4,
+        "_smhoi_p6_linesearch_precision_kernel__locals__kernel": 4
+      },
+      "graph_launches": 1
+    },
+    {
+      "reason": "checkpoint",
+      "guarded_kernel_launches": {
+        "_linesearch_jv_fused_kernel__locals__kernel": 4,
+        "_smhoi_p6_linesearch_precision_kernel__locals__kernel": 4
+      },
+      "graph_launches": 44
+    },
+    {
+      "reason": "checkpoint",
+      "guarded_kernel_launches": {
+        "_linesearch_jv_fused_kernel__locals__kernel": 4,
+        "_smhoi_p6_linesearch_precision_kernel__locals__kernel": 4
+      },
+      "graph_launches": 88
+    }
+  ]
+}

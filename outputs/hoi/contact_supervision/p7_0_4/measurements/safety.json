@@ -1,0 +1,8 @@
+{
+  "worlds_checked": 2,
+  "action_nan_rejected": 2,
+  "state_nan_rejected": 2,
+  "overflow_rejected": 2,
+  "guard_loss_rejected": true,
+  "partial_reset_isolated": true
+}
